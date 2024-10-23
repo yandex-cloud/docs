@@ -77,7 +77,7 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them using {{ datalens-full-name }}
+              and analyzing them with {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
       - name: Functional
         items:
@@ -153,7 +153,7 @@ items:
     items:
       - name: Overview
         href: dataset/index.md
-      - name: Working with dataset
+      - name: Working with datasets
         href: dataset/create-dataset.md
       - name: Data model
         href: dataset/data-model.md
@@ -721,7 +721,7 @@ items:
         href: dashboard/markdown.md
       - name: Step-by-step guides
         items:
-          - name: Creating dashboards
+          - name: Creating a dashboard
             href: operations/dashboard/create.md
           - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
@@ -753,6 +753,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
+  - name: Reports
+    items:
+      - name: Overview
+        href: reports/index.md
+      - name: Working with reports
+        href: reports/report-operations.md
   - name: Access management
     items:
       - name: Overview

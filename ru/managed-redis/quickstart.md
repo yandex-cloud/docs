@@ -13,105 +13,109 @@ description: В этой инструкции вы научитесь созда
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](security/index.md#roles-list).
-1. Если для [кластера](../glossary/cluster.md) не настроен публичный доступ, подключиться к нему можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
-1. Установите на ВМ утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):
 
-   ```bash
-   sudo apt install redis-tools
-   ```
+1. [Создайте виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md#console_1).
+
+    Укажите следующие параметры:
+
+    * **{{ ui-key.yacloud.compute.instances.create.section_image }}** — `Ubuntu 24.04` из {{ marketplace-short-name }}.
+    * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+    * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** — оставьте поле пустым.
+
+        Виртуальной машине будет автоматически назначена [группа безопасности по умолчанию](../vpc/concepts/security-groups.md) (с префиксом `default-sg`). Такая группа разрешает подключение к виртуальной машине по SSH, а также разрешает любой исходящий трафик.
+
+    Прочие параметры выберите на свое усмотрение.
+
+1. [Создайте группу безопасности](../vpc/operations/security-group-create.md) в той же сети, в которой находится виртуальная машина. Эта группа безопасности будет назначена кластеру {{ RD }} при его создании.
+
+    Добавьте в группу [правило](./operations/connect/index.md#configuring-security-groups), разрешающее подключение к [нешардированному кластеру](./concepts/sharding.md) {{ RD }}. Настройте правило так, чтобы был разрешен входящий трафик из группы безопасности по умолчанию, назначенной виртуальной машине.
 
 
 ## Создайте кластер {#cluster-create}
 
+
+Создайте нешардированный кластер {{ RD }} [без публичного доступа](./concepts/network.md#public-access-to-host). К такому кластеру можно [подключиться](#connect) только с виртуальной машины, размещенной в сети кластера.
+
+
+Чтобы создать кластер:
+
 1. В консоли управления выберите каталог, в котором нужно создать кластер {{ RD }}.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
+1. Укажите следующие параметры кластера:
+
+    * **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+
+        * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — имя кластера. Оно должно быть уникальным в рамках каталога.
+        * **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** — оставьте опцию выключенной.
+        * **{{ ui-key.yacloud.redis.field_tls-support }}** — включите опцию.
+        * **{{ ui-key.yacloud.redis.field_announce-hostnames }}** — включите опцию.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+
+        * **Сеть** — укажите сеть, в которой находится [созданная ранее](#before-you-begin) виртуальная машина.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — укажите [созданную ранее](#before-you-begin) группу безопасности для кластера.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_host }}** → **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** — убедитесь, что эта опция выключена (имеет значение `Нет`) для всех хостов кластера.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.config_field_password }}** — пароль пользователя.
+
+        {% include [requirements-to-password](../_includes/mdb/mrd/requirements-to-password.md) %}
+
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mrd-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+
+Подробнее о создании кластера см. в разделе [{#T}](./operations/cluster-create.md).
 
 ## Подключитесь к кластеру {#connect}
 
-1. Если в вашем кластере включена поддержка TLS, получите SSL-сертификат:
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) по SSH к [созданной ранее виртуальной машине](#before-you-begin).
 
-    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
+1. Установите утилиту `redis-cli`:
 
+    ```bash
+    sudo apt update && sudo apt install --yes redis-tools
+    ```
 
-1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+1. Подключитесь напрямую к мастеру:
 
+    {% list tabs group=connection %}
 
-1. Подключитесь к кластеру, используя `redis-cli`.
-
-   {% note info %}
-
-   Для подключения к кластеру с поддержкой SSL [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
-
-   {% endnote %}
-
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
-
-   {% list tabs group=cluster %}
-
-   - Нешардированный кластер {#non-sharded}
-
-     **Чтобы подключиться с помощью [Sentinel](https://redis.io/topics/sentinel) (без SSL)**:
-
-     1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
+    - Подключение без SSL {#without-ssl}
 
         ```bash
-        redis-cli -h <FQDN_любого_хоста_{{ RD }}> \
-          -p {{ port-mrd-sentinel }} \
-          sentinel get-master-addr-by-name <имя_кластера_{{ RD }}> | head -n 1
+        redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+          -p {{ port-mrd }} \
+          -a <пароль_{{ RD }}>
         ```
 
-     1. Подключитесь к хосту с этим адресом:
+    - Подключение с SSL {#with-ssl}
 
-        {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
+        1. Получите SSL-сертификат:
 
-     **Чтобы подключиться напрямую к мастеру (без SSL):**
+            {% include [unix-certificate](../_includes/mdb/mrd/unix-certificate.md) %}
 
-     ```bash
-     redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-       -p {{ port-mrd }} \
-       -a <пароль_{{ RD }}>
-     ```
+        1. Выполните команду:
 
-     **Чтобы подключиться напрямую к мастеру (с SSL):**
+            ```bash
+            redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+              -p {{ port-mrd-tls }} \
+              -a <пароль_{{ RD }}> \
+              --tls \
+              --cacert ~/.redis/{{ crt-local-file }}
+            ```
 
-     ```bash
-     redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-       -p {{ port-mrd-tls }} \
-       -a <пароль_{{ RD }}> \
-       --tls \
-       --cacert ~/.redis/{{ crt-local-file }}
-     ```
+    {% endlist %}
 
-   - Шардированный кластер {#sharded}
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](./operations/cluster-list.md#list-clusters).
 
-     **Чтобы подключиться без SSL:**
-
-     ```bash
-     redis-cli -h <FQDN_хоста-мастера_в_любом_шарде> \
-       -p {{ port-mrd }} \
-       -a <пароль_{{ RD }}>
-     ```
-
-     **Чтобы подключиться с SSL:**
-
-     ```bash
-     redis-cli -h <FQDN_хоста-мастера_в_любом_шарде> \
-       -p {{ port-mrd-tls }} \
-       -a <пароль_{{ RD }}> \
-       --tls \
-       --cacert ~/.redis/{{ crt-local-file }}
-     ```
-
-   {% endlist %}
+    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
 1. После успешного подключения отправьте команду `PING`. {{ RD }} должен вернуть ответ `PONG`.
 

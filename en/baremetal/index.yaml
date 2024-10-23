@@ -1,0 +1,22 @@
+title: Yandex BareMetal
+description:
+  - <i>Yandex BareMetal will be launched as Preview in Q4 2024.</i>
+  - With Yandex BareMetal, you can lease a complete physical server.
+meta:
+  title: Yandex BareMetal
+links:
+  - title: Getting started
+    description: Lease your first server
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Basic concepts and how the service works
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational restrictions
+    href: concepts/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

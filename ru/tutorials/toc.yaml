@@ -724,7 +724,7 @@ items:
         href: routing/route-switcher.md
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Next-Generation Firewall
+          выделением DMZ на основе Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
           Сегментация облачной инфраструктуры с помощью решения Check Point

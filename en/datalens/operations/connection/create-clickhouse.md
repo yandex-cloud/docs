@@ -28,15 +28,15 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
-     * **Cloud and folder**: Select the folder where the cluster is located.
+     * **Cloud and folder**: Select the folder the cluster is located in.
      * **Cluster**: Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }}** access option enabled. If you do not have an available cluster, click **Create new**.
 
        {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
      * **Host type**: Select a host type:
-       
+
        * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDN**: Allows you to select a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) to connect to an available {{ CH }} cluster host.
+       * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) to connect to an available {{ CH }} cluster host.
 
      * **Hostname**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
@@ -48,16 +48,33 @@ To create a {{ CH }} connection:
      * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
      * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
+       Click **Check connection** to make sure the parameters are correct.
+
    - Specify manually {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 
+     Click **Check connection** to make sure the parameters are correct.
+
+   - {{ connection-manager-name }} {#conn-man}
+
+     {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
+
+     Select a [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
+
+     * **Cloud and folder**: Select the folder where the connection to the cluster was created.
+     * **Connection ID**: Select one of the available connections in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Host**: Select a host from the list of available hosts in the {{ CH }} cluster.
+     * **Port**: It is set automatically depending on the selected host.
+     * **Username**: It is set automatically from the selected connection data.
+     * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+
    {% endlist %}
 
 
-1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 
@@ -74,13 +91,13 @@ You can specify additional connection settings in the **Advanced connection sett
 
 * **TLS**: If this option is enabled, the DB is accessed via `HTTPS`; if not, via `HTTP`.
 
-* **CA Certificate**: To upload a certificate , click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
+* **CA Certificate**: To upload a certificate, click **Attach file** and select the certificate file. When the certificate is uploaded, the field shows the file name.
 
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
 
 ## Specifics for {{ CH }} connections {#ch-connection-specify}
 
-In {{ CH }}, you can create a dataset on top of a `VIEW` that contains a `JOIN`. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend setting `join_use_nulls = 1` in the `SETTINGS` section:
+In {{ CH }}, you can create a dataset on top of a `VIEW` that contains the `JOIN` section. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend setting `join_use_nulls = 1` in the `SETTINGS` section:
 
 ```sql
 CREATE VIEW ... (
@@ -95,6 +112,6 @@ CREATE VIEW ... (
 
 You should also enable this option for raw-sql subqueries that are used as a data source in your dataset.
 
-To avoid errors when using views with a JOIN in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
+To avoid errors when using views with the JOIN section in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

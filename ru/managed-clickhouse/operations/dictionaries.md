@@ -10,7 +10,7 @@
 * {{ MY }};
 * {{ PG }}.
 
-Словарями можно управлять либо через SQL, либо через интерфейсы облака. SQL — рекомендуемый способ.
+Словарями можно управлять либо через SQL (рекомендуемый способ), либо через интерфейсы {{ yandex-cloud }}.
 
 {% note warning %}
 
@@ -49,9 +49,52 @@
 
     Подключенные словари отображаются в блоке `dictionaries:` результата выполнения команды.
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы просмотреть список словарей, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md).
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.listExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/externalDictionaries'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.ListExternalDictionaries
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse).
 
 - SQL {#sql}
 
@@ -74,8 +117,9 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
-    1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
-    1. Укажите [настройки словаря](#settings-console) и нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
+    1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
+    1. Укажите [настройки словаря](#settings).
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
 
 - CLI {#cli}
 
@@ -97,7 +141,7 @@
         {{ yc-mdb-ch }} cluster add-external-dictionary --help
         ```
 
-    1. Выполните команду добавления словаря и укажите [его настройки](#settings-cli):
+    1. Выполните команду добавления словаря и укажите [его настройки](#settings):
 
         ```bash
         {{ yc-mdb-ch }} cluster add-external-dictionary \
@@ -106,7 +150,7 @@
            ...
         ```
 
-- API {#api}
+- REST API {#api}
 
     {% note warning %}
 
@@ -114,7 +158,182 @@
 
     {% endnote %}
 
-    Чтобы создать словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md).
+    Чтобы создать внешний словарь в кластере {{ CH }}:
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "externalDictionary": {
+                "name": "<имя_словаря>",
+                "structure": {
+                  "id": {
+                    "name": "<имя_ключевого_столбца_словаря>"
+                  },
+                  "key": {
+                    "attributes": [
+                      <массив_столбцов_с_данными_словаря>
+                    ]
+                  },
+                  "rangeMin": {<начальный_столбец_для_RANGE_HASHED>},
+                  "rangeMax": {<конечный_столбец_для_RANGE_HASHED>},
+                  "attributes": [
+                     <массив_описаний_полей>
+                  ]
+                },
+                "layout": {<способ_размещения_в_памяти>},
+                "fixedLifetime": "<фиксированный_период_между_обновлениями>",
+                "lifetimeRange": {<диапазон_для_выбора_периода_между_обновлениями>},
+                "httpSource": {<настройки_источника_HTTP(s)>},
+                "mysqlSource": {<настройки_источника_{{ MY }}>},
+                "clickhouseSource": {<настройки_источника_{{ CH }}>},
+                "mongodbSource": {<настройки_источника_{{ MG }}>},
+                "postgresqlSource": {<настройки_источника_{{ PG }}>}
+              }
+            }
+            ```
+
+            Где:
+
+            * `externalDictionary.name` — имя словаря.
+            * `externalDictionary.structure` — структура словаря:
+                * `id.name` — имя ключевого столбца словаря.
+                * `key.attributes` — массив для описания составного ключа словаря.
+                * `rangeMin` — описание начального столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `rangeMax` — описание конечного столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `attributes` — массив описаний полей, доступных для запросов к базе данных.
+
+                {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+            * `externalDictionary.layout`— способ размещения словаря в памяти.
+            * `externalDictionary.fixedLifetime` — фиксированный период между обновлениями словаря в секундах.
+            * `externalDictionary.lifetimeRange` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+
+              {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-restapi.md) %}
+
+            * `externalDictionary.***Source` — настройки источника данных для словаря. Выберите один из источников и укажите его настройки:
+                * `httpSource` — источник HTTP(s).
+                * `mysqlSource` — источник {{ MY }}.
+                * `clickhouseSource` — источник {{ CH }}.
+                * `mongodbSource` — источник {{ MG }}.
+                * `postgresqlSource` — источник {{ PG }}.
+
+            Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:createExternalDictionary' \
+              --data '@body.json'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    {% note warning %}
+
+    Если словарь добавлен через API, для него недоступно управление через SQL.
+
+    {% endnote %}
+
+    Чтобы создать внешний словарь в кластере {{ CH }}:
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "cluster_id": "<идентификатор_кластера>",
+              "external_dictionary": {
+                "name": "<имя_словаря>",
+                "structure": {
+                  "id": {
+                    "name": "<имя_ключевого_столбца_словаря>"
+                  },
+                  "key": {
+                    "attributes": [<массив_столбцов_с_данными_словаря>]
+                  },
+                  "range_min": {<начальный_столбец_для_RANGE_HASHED>},
+                  "range_max": {<конечный_столбец_для_RANGE_HASHED>},
+                  "attributes": [<массив_описаний_полей>]
+                },
+                "layout": {<способ_размещения_в_памяти>},
+                "fixed_lifetime": "<фиксированный_период_между_обновлениями>",
+                "lifetime_range": {<диапазон_для_выбора_периода_между_обновлениями>},
+                "http_source": {<настройки_источника_HTTP(s)>},
+                "mysql_source": {<настройки_источника_MySQL>},
+                "clickhouse_source": {<настройки_источника_ClickHouse®>},
+                "mongodb_source": {<настройки_источника_MongoDB>},
+                "postgresql_source": {<настройки_источника_PostgreSQL>}
+              }
+            }
+            ```
+
+            Где:
+
+            * `external_dictionary.name` — имя словаря.
+            * `external_dictionary.structure` — структура словаря:
+                * `id.name` — имя ключевого столбца словаря.
+                * `key.attributes` — массив описаний столбцов с данными словаря.
+                * `range_min` — описание начального столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `range_max` — описание конечного столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `attributes` — массив описаний полей, доступных для запросов к базе данных.
+
+                {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+            * `external_dictionary.layout`— способ размещения словаря в памяти.
+            * `external_dictionary.fixed_lifetime` — фиксированный период между обновлениями словаря в секундах.
+            * `external_dictionary.lifetime_range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+
+              {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-grpcapi.md) %}
+
+            * `external_dictionary.***_source` — настройки источника данных для словаря. Выберите один из источников и укажите его настройки:
+                * `http_source` — источник HTTP(s).
+                * `mysql_source` — источник {{ MY }}.
+                * `clickhouse_source` — источник {{ CH }}.
+                * `mongodb_source` — источник {{ MG }}.
+                * `postgresql_source` — источник {{ PG }}.
+
+            Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateExternalDictionary \
+              < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 
@@ -125,17 +344,219 @@
     {% endnote %}
 
     1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
+    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/):
 
         ```sql
         CREATE DICTIONARY <имя_словаря>(
-        <столбцы_данных>
+          <столбцы_данных>
         )
         PRIMARY KEY <имя_столбца_с_ключами>
         SOURCE(<источник>(<конфигурация_источника>))
         LIFETIME(<интервал_обновления>)
         LAYOUT(<способ_размещения_в_памяти>());
         ```
+
+        Где:
+
+        * `<имя_словаря>` — имя нового словаря.
+        * `<столбцы_данных>` — список столбцов с данными словаря и их тип.
+        * `PRIMARY KEY` — имя ключевого столбца словаря.
+        * `SOURCE` — источник и его параметры.
+        * `LIFETIME` — периодичность обновления словаря.
+        * `LAYOUT` — способ размещения словаря в памяти. Поддерживаются способы:
+          * `flat`,
+          * `hashed`,
+          * `cache`,
+          * `range_hashed`,
+          * `complex_key_hashed`,
+          * `complex_key_cache`.
+
+    Подробное описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict/).
+
+{% endlist %}
+
+## Обновить словарь {#update-dictionary}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.updateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "externalDictionary": {
+                "name": "<имя_словаря>",
+                "structure": {
+                  "id": {
+                    "name": "<имя_ключевого_столбца_словаря>"
+                  },
+                  "key": {
+                    "attributes": [
+                      <массив_столбцов_с_данными_словаря>
+                    ]
+                  },
+                  "rangeMin": {<начальный_столбец_для_RANGE_HASHED>},
+                  "rangeMax": {<конечный_столбец_для_RANGE_HASHED>},
+                  "attributes": [
+                     <массив_описаний_полей>
+                  ]
+                },
+                "layout": {<способ_размещения_в_памяти>},
+                "fixedLifetime": "<фиксированный_период_между_обновлениями>",
+                "lifetimeRange": {<диапазон_для_выбора_периода_между_обновлениями>},
+                "httpSource": {<настройки_источника_HTTP(s)>},
+                "mysqlSource": {<настройки_источника_{{ MY }}>},
+                "clickhouseSource": {<настройки_источника_{{ CH }}>},
+                "mongodbSource": {<настройки_источника_{{ MG }}>},
+                "postgresqlSource": {<настройки_источника_{{ PG }}>}
+              },
+              "updateMask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
+            }
+            ```
+
+            Где:
+
+            * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+              В данном случае перечислите все изменяемые настройки словаря.
+
+            * `externalDictionary.name` — имя словаря.
+            * `externalDictionary.structure` — структура словаря:
+                * `id.name` — имя ключевого столбца словаря.
+                * `key.attributes` — массив для описания составного ключа словаря.
+                * `rangeMin` — описание начального столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `rangeMax` — описание конечного столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `attributes` — массив описаний полей, доступных для запросов к базе данных.
+
+                {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+            * `externalDictionary.layout`— способ размещения словаря в памяти.
+            * `externalDictionary.fixedLifetime` — фиксированный период между обновлениями словаря в секундах.
+            * `externalDictionary.lifetimeRange` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+
+              {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-restapi.md) %}
+
+            * `externalDictionary.***Source` — настройки источника данных для словаря. Выберите один из источников и укажите его настройки:
+                * `httpSource` — источник HTTP(s).
+                * `mysqlSource` — источник {{ MY }}.
+                * `clickhouseSource` — источник {{ CH }}.
+                * `mongodbSource` — источник {{ MG }}.
+                * `postgresqlSource` — источник {{ PG }}.
+
+            Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:updateExternalDictionary' \
+              --data '@body.json'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "cluster_id": "<идентификатор_кластера>",
+              "external_dictionary": {
+                "name": "<имя_словаря>",
+                "structure": {
+                  "id": {
+                    "name": "<имя_ключевого_столбца_словаря>"
+                  },
+                  "key": {
+                    "attributes": [<массив_столбцов_с_данными_словаря>]
+                  },
+                  "range_min": {<начальный_столбец_для_RANGE_HASHED>},
+                  "range_max": {<конечный_столбец_для_RANGE_HASHED>},
+                  "attributes": [<массив_описаний_полей>]
+                },
+                "layout": {<способ_размещения_в_памяти>},
+                "fixed_lifetime": "<фиксированный_период_между_обновлениями>",
+                "lifetime_range": {<диапазон_для_выбора_периода_между_обновлениями>},
+                "http_source": {<настройки_источника_HTTP(s)>},
+                "mysql_source": {<настройки_источника_MySQL>},
+                "clickhouse_source": {<настройки_источника_ClickHouse®>},
+                "mongodb_source": {<настройки_источника_MongoDB>},
+                "postgresql_source": {<настройки_источника_PostgreSQL>}
+              },
+              "update_mask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
+            }
+            ```
+
+            Где:
+
+            * `update_mask` — перечень изменяемых параметров в одну строку через запятую.
+
+              В данном случае перечислите все изменяемые настройки словаря.
+
+            * `external_dictionary.name` — имя словаря.
+            * `external_dictionary.structure` — структура словаря:
+                * `id.name` — имя ключевого столбца словаря.
+                * `key.attributes` — массив описаний столбцов с данными словаря.
+                * `range_min` — описание начального столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `range_max` — описание конечного столбца, которое необходимо, если используется способ размещения в памяти `RANGE_HASHED`.
+                * `attributes` — массив описаний полей, доступных для запросов к базе данных.
+
+                {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+            * `external_dictionary.layout`— способ размещения словаря в памяти.
+            * `external_dictionary.fixed_lifetime` — фиксированный период между обновлениями словаря в секундах.
+            * `external_dictionary.lifetime_range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+
+              {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-grpcapi.md) %}
+
+            * `external_dictionary.***_source` — настройки источника данных для словаря. Выберите один из источников и укажите его настройки:
+                * `http_source` — источник HTTP(s).
+                * `mysql_source` — источник {{ MY }}.
+                * `clickhouse_source` — источник {{ CH }}.
+                * `mongodb_source` — источник {{ MG }}.
+                * `postgresql_source` — источник {{ PG }}.
+
+            Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateExternalDictionary \
+              < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -171,9 +592,61 @@
            --dict-name=<имя_словаря>
         ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы удалить словарь, воспользуйтесь методом REST API [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md).
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:deleteExternalDictionary' \
+            --data '{
+                      "externalDictionaryName": "<имя_словаря>"
+                    }'
+        ```
+
+        Где `externalDictionaryName` — имя словаря, который нужно удалить. Имя словаря можно запросить со [списком внешних словарей в кластере](#get-dicts-list).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "external_dictionary_name": "<имя_словаря>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteExternalDictionary
+        ```
+
+        Где `external_dictionary_name` — имя словаря, который нужно удалить. Имя словаря можно запросить со [списком внешних словарей в кластере](#get-dicts-list).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 
@@ -184,28 +657,17 @@
 
 ## Настройки словарей {#settings}
 
-### SQL {#settings-sql}
+{% list tabs group=instructions %}
 
-* `<имя_словаря>` — имя нового словаря.
-* `<столбцы_данных>` — список столбцов с данными словаря и их тип.
-* `PRIMARY KEY` — имя ключевого столбца словаря.
-* `SOURCE` — источник и его параметры.
-* `LIFETIME` — периодичность обновления словаря.
-* `LAYOUT` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`.
+- Консоль управления {#console}
 
-Подробные описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}** — имя нового словаря.
 
-### Консоль управления {#settings-console}
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}** — настройки источника словаря. Выберите один из перечисленных источников и укажите его настройки:
 
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}** — имя нового словаря.
+    {% cut "{{ CH }}" %}
 
-#### Источник {#console-source}
-
-{% list tabs group=data_sources %}
-
-- {{ CH }} {#clickhouse}
-
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ CH }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
@@ -213,23 +675,21 @@
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- HTTP(s) {#https}
+    {% endcut %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+    {% cut "{{ MG }}" %}
 
-- {{ MG }} {#mongodb}
-
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ MG }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции {{ MG }}.
 
-- {{ MY }} {#mysql}
+    {% endcut %}
+
+    {% cut "{{ MY }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
         Для реплик можно задать общие параметры подключения или настроить порт, имя пользователя и пароль.
@@ -240,31 +700,35 @@
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- {{ PG }} {#postgresql}
+    {% endcut %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}** — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+    {% cut "{{ PG }}" %}
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}** — имена хоста-мастера {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
-        Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
-{% endlist %}
+    {% endcut %}
 
-Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    {% cut "HTTP(s)" %}
 
-#### Способ размещения в памяти {#console-method}
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — список столбцов с данными словаря:
+    {% endcut %}
+
+    Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_hashed`, `complex_key_cache`:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}** — имя столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}** — тип данных столбца.
@@ -273,97 +737,91 @@
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}** — признак поддержки иерархии.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}** — признак инъективности отображения `id` → `attribute`.
 
-Подробнее о параметрах столбцов читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
+    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
 
-#### Частота обновления {#console-rate}
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — настройки частоты обновления словаря:
 
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}** — задайте периодичность обновления словаря:
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}** — периодичность обновления словаря. Выберите тип периода обновления и его настройки:
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}** — фиксированный период между обновлениями словаря:
-
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}** — фиксированный период между обновлениями словаря:
         * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}** — период обновления данных словаря в секундах.
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
-
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
         * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}** — минимальное значение периода между обновлениями словаря в секундах.
         * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}** — максимальное значение периода между обновлениями словаря в секундах.
 
-Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+    Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-### CLI {#settings-cli}
+- CLI {#cli}
 
-* `--dict-name` — имя нового словаря.
+  * `--dict-name` — имя нового словаря.
+  * `--***-source` — настройки источника словаря. Выберите один из перечисленных источников и укажите его настройки:
 
-{% list tabs group=data_sources %}
+    {% cut "`--clickhouse-source` — источник {{ CH }}" %}
 
-- {{ CH }} {#clickhouse}
+    * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * `port` — порт для подключения к источнику.
+    * `db` — имя базы данных источника.
+    * `user` — имя пользователя базы данных источника.
+    * `password` — пароль для доступа к базе данных источника.
+    * `table` — имя таблицы источника.
+    * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
 
-    * `--clickhouse-source` — настройки источника {{ CH }}:
+    {% endcut %}
 
-        * `db` — имя базы данных источника.
-        * `table` — имя таблицы источника.
-        * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-        * `port` — порт для подключения к источнику.
-        * `user` — имя пользователя базы данных источника.
-        * `password` — пароль для доступа к базе данных источника.
-        * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    {% cut "`--mongodb-source` — источник {{ MG }}" %}
 
-- HTTP(s) {#https}
+    * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * `port` — порт для подключения к источнику.
+    * `db` — имя базы данных источника.
+    * `user` — имя пользователя базы данных источника.
+    * `password` — пароль для доступа к базе данных источника.
+    * `connection` — имя коллекции источника.
 
-    * `--http-source-url` — URL HTTP(s)-источника.
-    * `--http-source-format` — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+    {% endcut %}
 
-- {{ MG }} {#mongodb}
+    {% cut "`--mysql-source` – источник {{ MY }}" %}
 
-    * `--mongodb-source` — настройки источника {{ MG }}:
+    * `db` — имя базы данных источника.
+    * `user` — имя пользователя базы данных источника.
+    * `password` — пароль для доступа к базе данных источника.
+    * `table` — имя таблицы источника.
+    * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора`id=10` эквивалентно SQL-команде `WHERE id=10`.
 
-        * `db` — имя базы данных источника.
-        * `connection` — имя коллекции для {{ MG }}-источника.
-        * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-        * `port` — порт для подключения к источнику.
-        * `user` — имя пользователя базы данных источника.
-        * `password` — пароль для доступа к базе данных источника.
+    {% endcut %}
 
-- {{ MY }} {#mysql}
+    {% cut "`--postgresql-source` — источник {{ PG }}" %}
 
-    * `--mysql-source` — настройки источника {{ MY }}:
+    * `table` — имя таблицы источника.
+    * `ssl-mode` — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Допустимые значения: `disable`, `allow`, `prefer`, `verify-ca`, `verify-full`.
 
-        * `db` — имя базы данных источника.
-        * `table` — имя таблицы источника.
-        * `port` — порт для подключения к источнику.
-        * `user` — имя пользователя базы данных источника.
-        * `password` — пароль для доступа к базе данных источника.
-        * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    {% endcut %}
 
-    * `--mysql-replica` — настройки реплик источника {{ MY }}:
+    {% cut "`--http-source` – источник HTTP(s)" %}
 
-        * `host` — имя хоста реплики.
-        * `priority` — приоритет реплики. При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
-        * `port` — порт для подключения к реплике.
-        * `user` — имя пользователя базы данных.
-        * `password` — пароль для доступа к базе данных.
+    * `url` — URL HTTP(s)-источника.
+    * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
-    * `--mysql-invalidate-query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+    {% endcut %}
 
-- {{ PG }} {#postgresql}
+  * `--mysql-replica` — настройки реплик источника {{ MY }}:
 
-    * `--postgresql-source` — настройки источника {{ PG }}:
+    * `host` — имя хоста реплики.
+    * `priority` — приоритет реплики. При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
+    * `port` — порт для подключения к реплике.
+    * `user` — имя пользователя базы данных.
+    * `password` — пароль для доступа к базе данных.
 
-        * `db` — имя базы данных источника.
-        * `table` — имя таблицы источника.
-        * `port` — порт для подключения к источнику.
-        * `user` — имя пользователя базы данных источника.
-        * `password` — пароль для доступа к базе данных источника.
-        * `ssl-mode` — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Допустимые значения: `disable`, `allow`, `prefer`, `verify-ca`, `verify-full`.
+  * `--mysql-invalidate-query` — запрос для проверки изменений словаря {{ MY }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-    * `--postgresql-source-hosts` — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+  * `--postgresql-source-hosts` — имена хоста-мастера {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника {{ PG }}. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
 
-    * `--postgresql-invalidate-query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+  * `--postgresql-invalidate-query` — запрос для проверки изменений словаря {{ PG }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-{% endlist %}
-
-* `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-* `--structure-key` — список столбцов с данными словаря:
+  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+  * `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_hashed`, `complex_key_cache`:
 
     * `name` — имя столбца.
     * `type` — тип данных столбца.
@@ -372,7 +830,15 @@
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
-* `--structure-attribute` — описание полей, доступных для запросов к базе данных:
+    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+
+    {% note warning %}
+
+    Настройки `--structure-id` и `--structure-key` — взаимоисключающие. Использование одной делает невозможным использование другой.
+
+    {% endnote %}
+
+  * `--structure-attribute` — описание полей, доступных для запросов к базе данных:
 
     * `name` — имя столбца.
     * `type` — тип данных столбца.
@@ -381,18 +847,231 @@
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
-* `--fixed-lifetime` — фиксированный период между обновлениями словаря в секундах.
-* `--lifetime-range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+  * `--fixed-lifetime` — фиксированный период между обновлениями словаря в секундах.
+  * `--lifetime-range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
 
     * `min` — минимальное значение периода между обновлениями словаря в секундах.
     * `max` — максимальное значение периода между обновлениями словаря в секундах.
 
-* `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    {% note warning %}
 
-### API {#settings-api}
+    Настройки `--fixed-lifetime` и `--lifetime-range` — взаимоисключающие. Использование одной делает невозможным использование другой.
 
-Описание настроек приведены на странице описания метода API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
+    {% endnote %}
+
+- REST API {#api}
+
+  * `externalDictionary` – настройки нового словаря:
+
+    * `name` — имя нового словаря.
+    * `***Source` – источник данных для словаря. Выберите один из перечисленных источников и укажите его настройки:
+
+      {% cut "`clickhouseSource` — источник {{ CH }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+
+      {% endcut %}
+
+      {% cut "`mongodbSource` — источник {{ MG }}" %}
+
+      * `db` — имя базы данных источника.
+      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `collection` — имя коллекции источника.
+
+      {% endcut %}
+
+      {% cut "`mysqlSource` – источник {{ MY }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора`id=10` эквивалентно SQL-команде `WHERE id=10`.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `replicas` — настройки реплик источника:
+        * `host` — имя хоста реплики. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+        * `priority` — приоритет реплики. При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
+        * `port` — порт для подключения к реплике.
+        * `user` — имя пользователя базы данных.
+        * `password` — пароль для доступа к базе данных.
+      * `invalidateQuery` — запрос для проверки изменений словаря {{ MY }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+        * `shareConnection` – признак общего подключения к источнику для нескольких запросов.
+        * `closeConnection` — признак закрытия подключения к источнику после каждого запроса.
+
+      {% endcut %}
+
+      {% cut "`postgresqlSource` — источник {{ PG }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `sslMode` — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Допустимые значения: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, `VERIFY_FULL`.
+      * `hosts` — имена хоста-мастера {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+      * `invalidateQuery` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+
+      {% endcut %}
+
+      {% cut "`httpSource` – источник HTTP(s)" %}
+
+      * `url` — URL HTTP(s)-источника.
+      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+      * `headers` – особые HTTP-заголовки запроса к источнику:
+        * `name` – имя заголовка.
+        * `value` — значение заголовка.
+
+      {% endcut %}
+
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    * `layout.sizeInCells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    * `layout.maxArraySize` — максимальное значение ключа для способа `FLAT`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
+
+      * `name` — имя столбца.
+      * `type` — тип данных столбца.
+      * `nullValue` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `hierarchical` — признак поддержки иерархии.
+      * `injective` — признак инъективности отображения `id` → `attribute`.
+
+      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+
+      {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+    * `structure.attributes` — описание полей, доступных для запросов к базе данных:
+
+      * `name` — имя столбца.
+      * `type` — тип данных столбца.
+      * `nullValue` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `hierarchical` — признак поддержки иерархии.
+      * `injective` — признак инъективности отображения `id` → `attribute`.
+
+    * `fixedLifetime` — фиксированный период между обновлениями словаря в секундах.
+    * `lifetimeRange` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов. Границы диапазона задаются в настройках:
+
+      * `min` — минимальное значение периода между обновлениями словаря в секундах.
+      * `max` — максимальное значение периода между обновлениями словаря в секундах.
+
+      {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-restapi.md) %}
+
+- gRPC API {#grpc-api}
+
+  * `external_dictionary` – настройки нового словаря:
+
+    * `name` — имя нового словаря.
+    * `***_source` – источник данных для словаря. Выберите один из перечисленных источников и укажите его настройки:
+
+      {% cut "`clickhouse_source` — источник {{ CH }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+
+      {% endcut %}
+
+      {% cut "`mongodb_source` — источник {{ MG }}" %}
+
+      * `db` — имя базы данных источника.
+      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `collection` — имя коллекции источника.
+
+      {% endcut %}
+
+      {% cut "`mysql_source` – источник {{ MY }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора`id=10` эквивалентно SQL-команде `WHERE id=10`.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `replicas` — настройки реплик источника:
+        * `host` — имя хоста реплики. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+        * `priority` — приоритет реплики. При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
+        * `port` — порт для подключения к реплике.
+        * `user` — имя пользователя базы данных.
+        * `password` — пароль для доступа к базе данных.
+      * `invalidate_query` — запрос для проверки изменений словаря {{ MY }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+        * `share_connection` – признак общего подключения к источнику для нескольких запросов.
+        * `close_connection` — признак закрытия подключения к источнику после каждого запроса.
+
+      {% endcut %}
+
+      {% cut "`postgresql_source` — источник {{ PG }}" %}
+
+      * `db` — имя базы данных источника.
+      * `table` — имя таблицы источника.
+      * `port` — порт для подключения к источнику.
+      * `user` — имя пользователя базы данных источника.
+      * `password` — пароль для доступа к базе данных источника.
+      * `ssl_mode` — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Допустимые значения: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, `VERIFY_FULL`.
+      * `hosts` — имена хоста-мастера {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+      * `invalidate_query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+
+      {% endcut %}
+
+      {% cut "`http_source` – источник HTTP(s)" %}
+
+      * `url` — URL HTTP(s)-источника.
+      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+      * `headers` – особые HTTP-заголовки запроса к источнику:
+        * `name` – имя заголовка.
+        * `value` — значение заголовка.
+
+      {% endcut %}
+
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    * `layout.size_in_cells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    * `layout.max_array_size` — максимальное значение ключа для способа `FLAT`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
+
+      * `name` — имя столбца.
+      * `type` — тип данных столбца.
+      * `null_value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `hierarchical` — признак поддержки иерархии.
+      * `injective` — признак инъективности отображения `id` → `attribute`.
+
+      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+
+      {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
+
+    * `structure.attributes` — описание полей, доступных для запросов к базе данных:
+
+      * `name` — имя столбца.
+      * `type` — тип данных столбца.
+      * `null_value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `hierarchical` — признак поддержки иерархии.
+      * `injective` — признак инъективности отображения `id` → `attribute`.
+
+    * `fixed_lifetime` — фиксированный период между обновлениями словаря в секундах.
+    * `lifetime_range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов. Границы диапазона задаются в настройках:
+
+      * `min` — минимальное значение периода между обновлениями словаря в секундах.
+      * `max` — максимальное значение периода между обновлениями словаря в секундах.
+
+      {% include [lifetime single](../../_includes/mdb/mch/note-ext-dict-lifetime-grpcapi.md) %}
+
+{% endlist %}
 
 ## Примеры
 
@@ -415,13 +1094,13 @@
     * источник {{ PG }}:
 
         * база данных `db1`;
-        * имя таблицы `table`;
-        * порт для подключения `5432`;
+        * имя таблицы `table1`;
+        * порт для подключения `{{ port-mpg }}`;
         * имя пользователя базы данных `user1`;
         * пароль для доступа к базе данных `user1user1`;
         * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
 
-    * имя хоста `rc1b-05vjbfhf********.{{ dns-zone }}`.
+    * особый FQDN хоста-мастера `c-c9qash3nb1v9********.rw.{{ dns-zone }}`.
 
     Выполните следующую команду:
 
@@ -437,12 +1116,12 @@
        --fixed-lifetime=300 \
        --layout-type=cache \
        --postgresql-source db=db1,`
-                          `table=table,`
-                          `port=5432,`
+                          `table=table1,`
+                          `port={{ port-mpg }},`
                           `user=user1,`
                           `password=user1user1,`
                           `ssl-mode=verify-full \
-       --postgresql-source-hosts=rc1b-05vjbfhf********.{{ dns-zone }}
+       --postgresql-source-hosts=c-c9qash3nb1v9********.rw.{{ dns-zone }}
     ```
 
 {% endlist %}

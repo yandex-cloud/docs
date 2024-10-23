@@ -52,6 +52,8 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  baremetal-full-name: Yandex BareMetal
+  baremetal-name: BareMetal
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
@@ -828,13 +830,13 @@ default:
       translate|string: ₸2461.00
   sku|KZT|alb:
     balancer:
-      active|number: '11.10'
+      active|number: 11.1
       active|string: ₸11.10
   sku|KZT|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: '600.00'
+          1|number: 600
           1|string: ₸600.00
       v1|string: Free
   sku|KZT|audit-trails:
@@ -872,16 +874,16 @@ default:
       cpu:
         c100:
           v1|string: ₸6.5794
-          v3|number: '5.9139'
+          v3|number: 5.9139
           v3|string: ₸5.9139
           v4|string: ₸9.70
       localssd:
         v1|month|string: ₸44.00
-        v1|number: '0.0611'
+        v1|number: 0.0611
         v1|string: ₸0.0611
       ram:
         v1|string: ₸1.7423
-        v3|number: '1.5665'
+        v3|number: 1.5665
         v3|string: ₸1.5665
         v4|string: ₸1.75
     image|month|string: ₸15.60
@@ -907,7 +909,7 @@ default:
             v3|string: ₸1.45
           preemptible|string: ₸1.70
           v2|string: ₸5.95
-          v3|number: '5.25'
+          v3|number: 5.25
           v3|string: ₸5.25
         c100|string: ₸5.60
         c20:
@@ -916,7 +918,7 @@ default:
             v3|string: ₸0.70
           preemptible|string: ₸1.35
           v2|string: ₸2.45
-          v3|number: '2.20'
+          v3|number: 2.2
           v3|string: ₸2.20
         c20|string: ₸4.40
         c50:
@@ -952,7 +954,7 @@ default:
           v3|string: ₸0.35
         preemptible|string: ₸0.60
         v2|string: ₸1.55
-        v3|number: '1.40'
+        v3|number: 1.4
         v3|string: ₸1.40
       ram|string: ₸1.95
   sku|KZT|cr:
@@ -984,11 +986,11 @@ default:
     requests:
       public:
         authoritative:
-          v1|number: '160.00'
+          v1|number: 160
           v1|string: ₸160.00
         recursive:
           v1|pricingRate:
-            1|number: '160.00'
+            1|number: 160
             1|string: ₸160.00
           v1|string: Free
     zones:
@@ -1162,12 +1164,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸6192.00
-            c100|number: '8.60'
+            c100|number: 8.6
             c100|string: ₸8.60
             c50|month|string: ₸2196.00
             c50|string: ₸3.05
           ram|month|string: ₸1692.00
-          ram|number: '2.35'
+          ram|number: 2.35
           ram|string: ₸2.35
       elasticsearch:
         v2:
@@ -1319,7 +1321,7 @@ default:
           ram|month|string: ₸1656.00
           ram|string: ₸2.30
       network-hdd:
-        ch|month|number: '16.00'
+        ch|month|number: 16
         ch|month|string: ₸16.00
         elasticsearch|month|string: ₸16.00
         greenplum|month|string: ₸16.00
@@ -1472,10 +1474,10 @@ default:
             c100|month|string: ₸3924.00
             c100|string: ₸5.45
             c50|month|string: ₸2520.00
-            c50|number: '3.50'
+            c50|number: 3.5
             c50|string: ₸3.50
           ram|month|string: ₸1008.00
-          ram|number: '1.40'
+          ram|number: 1.4
           ram|string: ₸1.40
       kafka:
         v2:
@@ -1511,13 +1513,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
-        export|number: '35.00'
+        export|number: 35
         export|pricingRate:
           50|string: ₸21.00
         export|string: ₸35.00
-      write|number: '49.00'
+      write|number: 49
       write|pricingRate:
-        50|number: '28.00'
+        50|number: 28
         50|string: ₸28.00
       write|string: ₸49.00
     prometheus:
@@ -1547,9 +1549,9 @@ default:
         antiddos:
           qrator|string: ₸12.15
     public_fips:
-      deallocated|number: '1.55'
+      deallocated|number: 1.55
       deallocated|string: ₸1.55
-    public_fips|number: '1.20'
+    public_fips|number: 1.2
     public_fips|string: ₸1.20
   sku|KZT|nlb:
     balancer:
@@ -1910,7 +1912,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: '106.90'
+          1|number: 106.9
           1|string: ₸106.90
   sku|KZT|yds:
     events:
@@ -1959,13 +1961,13 @@ default:
       translate|string: ₽492.20
   sku|RUB|alb:
     balancer:
-      active|number: '2.22'
+      active|number: 2.22
       active|string: ₽2.22
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: '120.00'
+          1|number: 120
           1|string: ₽120.00
       v1|string: Free
   sku|RUB|audit-trails:
@@ -2003,16 +2005,16 @@ default:
       cpu:
         c100:
           v1|string: ₽1.3159
-          v3|number: '1.1828'
+          v3|number: 1.1828
           v3|string: ₽1.1828
           v4|string: ₽1.94
       localssd:
         v1|month|string: ₽8.80
-        v1|number: '0.0122'
+        v1|number: 0.0122
         v1|string: ₽0.0122
       ram:
         v1|string: ₽0.3485
-        v3|number: '0.3133'
+        v3|number: 0.3133
         v3|string: ₽0.3133
         v4|string: ₽0.35
     image|month|string: ₽3.12
@@ -2038,7 +2040,7 @@ default:
             v3|string: ₽0.29
           preemptible|string: ₽0.34
           v2|string: ₽1.19
-          v3|number: '1.05'
+          v3|number: 1.05
           v3|string: ₽1.05
         c100|string: ₽1.12
         c20:
@@ -2047,7 +2049,7 @@ default:
             v3|string: ₽0.14
           preemptible|string: ₽0.27
           v2|string: ₽0.49
-          v3|number: '0.44'
+          v3|number: 0.44
           v3|string: ₽0.44
         c20|string: ₽0.88
         c50:
@@ -2083,7 +2085,7 @@ default:
           v3|string: ₽0.07
         preemptible|string: ₽0.12
         v2|string: ₽0.31
-        v3|number: '0.28'
+        v3|number: 0.28
         v3|string: ₽0.28
       ram|string: ₽0.39
   sku|RUB|cr:
@@ -2115,11 +2117,11 @@ default:
     requests:
       public:
         authoritative:
-          v1|number: '32.00'
+          v1|number: 32
           v1|string: ₽32.00
         recursive:
           v1|pricingRate:
-            1|number: '32.00'
+            1|number: 32
             1|string: ₽32.00
           v1|string: Free
     zones:
@@ -2293,12 +2295,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1238.40
-            c100|number: '1.72'
+            c100|number: 1.72
             c100|string: ₽1.72
             c50|month|string: ₽439.20
             c50|string: ₽0.61
           ram|month|string: ₽338.40
-          ram|number: '0.47'
+          ram|number: 0.47
           ram|string: ₽0.47
       elasticsearch:
         v2:
@@ -2450,7 +2452,7 @@ default:
           ram|month|string: ₽331.20
           ram|string: ₽0.46
       network-hdd:
-        ch|month|number: '3.20'
+        ch|month|number: 3.2
         ch|month|string: ₽3.20
         elasticsearch|month|string: ₽3.20
         greenplum|month|string: ₽3.20
@@ -2603,10 +2605,10 @@ default:
             c100|month|string: ₽784.80
             c100|string: ₽1.09
             c50|month|string: ₽504.00
-            c50|number: '0.70'
+            c50|number: 0.7
             c50|string: ₽0.70
           ram|month|string: ₽201.60
-          ram|number: '0.28'
+          ram|number: 0.28
           ram|string: ₽0.28
       kafka:
         v2:
@@ -2642,13 +2644,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
-        export|number: '7.00'
+        export|number: 7
         export|pricingRate:
           50|string: ₽4.20
         export|string: ₽7.00
-      write|number: '9.80'
+      write|number: 9.8
       write|pricingRate:
-        50|number: '5.60'
+        50|number: 5.6
         50|string: ₽5.60
       write|string: ₽9.80
     prometheus:
@@ -2678,9 +2680,9 @@ default:
         antiddos:
           qrator|string: ₽2.43
     public_fips:
-      deallocated|number: '0.31'
+      deallocated|number: 0.31
       deallocated|string: ₽0.31
-    public_fips|number: '0.24'
+    public_fips|number: 0.24
     public_fips|string: ₽0.24
   sku|RUB|nlb:
     balancer:
@@ -3041,7 +3043,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: '21.38'
+          1|number: 21.38
           1|string: ₽21.38
   sku|RUB|yds:
     events:
@@ -3090,13 +3092,13 @@ default:
       translate|string: $3.937600
   sku|USD|alb:
     balancer:
-      active|number: '0.017760'
+      active|number: 0.01776
       active|string: $0.017760
   sku|USD|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: '0.960000'
+          1|number: 0.96
           1|string: $0.960000
       v1|string: Free
   sku|USD|audit-trails:
@@ -3134,16 +3136,16 @@ default:
       cpu:
         c100:
           v1|string: $0.010527
-          v3|number: '0.009462'
+          v3|number: 0.009462
           v3|string: $0.009462
           v4|string: $0.015520
       localssd:
         v1|month|string: $0.070400
-        v1|number: '0.000098'
+        v1|number: 0.000098
         v1|string: $0.000098
       ram:
         v1|string: $0.002788
-        v3|number: '0.002506'
+        v3|number: 0.002506
         v3|string: $0.002506
         v4|string: $0.002800
     image|month|string: $0.024960
@@ -3169,7 +3171,7 @@ default:
             v3|string: $0.002320
           preemptible|string: $0.002720
           v2|string: $0.009520
-          v3|number: '0.008400'
+          v3|number: 0.0084
           v3|string: $0.008400
         c100|string: $0.008960
         c20:
@@ -3178,7 +3180,7 @@ default:
             v3|string: $0.001120
           preemptible|string: $0.002160
           v2|string: $0.003920
-          v3|number: '0.003520'
+          v3|number: 0.00352
           v3|string: $0.003520
         c20|string: $0.007040
         c50:
@@ -3214,7 +3216,7 @@ default:
           v3|string: $0.000560
         preemptible|string: $0.000960
         v2|string: $0.002480
-        v3|number: '0.002240'
+        v3|number: 0.00224
         v3|string: $0.002240
       ram|string: $0.003120
   sku|USD|cr:
@@ -3246,11 +3248,11 @@ default:
     requests:
       public:
         authoritative:
-          v1|number: '0.256000'
+          v1|number: 0.256
           v1|string: $0.256000
         recursive:
           v1|pricingRate:
-            1|number: '0.256000'
+            1|number: 0.256
             1|string: $0.256000
           v1|string: Free
     zones:
@@ -3423,12 +3425,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.907200
-            c100|number: '0.013760'
+            c100|number: 0.01376
             c100|string: $0.013760
             c50|month|string: $3.513600
             c50|string: $0.004880
           ram|month|string: $2.707200
-          ram|number: '0.003760'
+          ram|number: 0.00376
           ram|string: $0.003760
       elasticsearch:
         v2:
@@ -3572,7 +3574,7 @@ default:
           ram|month|string: $2.649600
           ram|string: $0.003680
       network-hdd:
-        ch|month|number: '0.025600'
+        ch|month|number: 0.0256
         ch|month|string: $0.025600
         elasticsearch|month|string: $0.025600
         greenplum|month|string: $0.025600
@@ -3724,10 +3726,10 @@ default:
             c100|month|string: $6.278400
             c100|string: $0.008720
             c50|month|string: $4.032000
-            c50|number: '0.005600'
+            c50|number: 0.0056
             c50|string: $0.005600
           ram|month|string: $1.612800
-          ram|number: '0.002240'
+          ram|number: 0.00224
           ram|string: $0.002240
       kafka:
         v2:
@@ -3757,13 +3759,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
-        export|number: '0.056000'
+        export|number: 0.056
         export|pricingRate:
           50|string: $0.033600
         export|string: $0.056000
-      write|number: '0.078400'
+      write|number: 0.0784
       write|pricingRate:
-        50|number: '0.044800'
+        50|number: 0.0448
         50|string: $0.044800
       write|string: $0.078400
     prometheus:
@@ -3793,9 +3795,9 @@ default:
         antiddos:
           qrator|string: $0.019440
     public_fips:
-      deallocated|number: '0.002480'
+      deallocated|number: 0.00248
       deallocated|string: $0.002480
-    public_fips|number: '0.001920'
+    public_fips|number: 0.00192
     public_fips|string: $0.001920
   sku|USD|nlb:
     balancer:
@@ -4202,7 +4204,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: '0.171040'
+          1|number: 0.17104
           1|string: $0.171040
         requests|string: Free
         storage|month|string: Free
@@ -6059,6 +6061,7 @@ default:
         field_server-count: Number of servers
         field_server-lease-duration: Lease duration
         field_server-pool: Pool
+        field_server-user: User
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         label_networks: VRF
@@ -6272,6 +6275,7 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+        field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
             field_copy_schema: Copy data schema
@@ -7554,6 +7558,7 @@ default:
             field_range-lifetime-min: Minimum
             field_replicas: Replicas
             field_size-in-cells: Cache size
+            field_source: Source
             field_structure-attributes: Data column
             field_structure-id: Numeric key
             field_table: Table

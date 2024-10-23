@@ -130,7 +130,7 @@ The infrastructure support costs include:
     | Static public IP addresses | 4 |
     | Security groups | 1 |
     | DNS zone | 1 |
-    | Bucket | 1 |  
+    | Bucket | 1 |
     | Service accounts | 2 |
     | Static key for the service account | 1 |
 
