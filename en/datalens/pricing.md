@@ -21,18 +21,20 @@ The plan you choose covers your organization and can only be [changed](./setting
 
 Service plans offer different feature sets and [cost](#prices) differently.
 
-| **Service plan** | **Community** | **Business** |
+**Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------
-| Interactive dashboards | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Chart builder | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Data model and computations | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Role-based access management | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Authentication | Yandex ID | Yandex ID, corporate accounts / SSO¹ |
-| [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [Secure embedding for private objects](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests |
+Creating [charts](./concepts/chart/index.md) and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) 
+[Data model description](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)
+[Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)
+[Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) 
+[Authentication](./security/add-new-user.md) | Yandex ID | Yandex ID, corporate accounts / SSO¹
+[Report builder](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+[{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Secure chart and dashboard embedding](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+{{ datalens-name }} usage statistics | General ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Advanced ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash))
+[SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
 
 {% note info %}
 

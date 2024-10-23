@@ -17,7 +17,7 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses to which the VPC cloud network translates their internal IP addresses. | 
 | `DNS zones and A records` | The `{{ s3-storage-host }}.` and `{{ registry }}.` internal DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers. |
 | `test-registry` | Registry in {{ container-registry-name }}. |
-| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` stands for registry ID. {{ container-registry-name }} Automatically creates a bucket for the registry in {{ objstorage-name }}. |
+| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` stands for registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
 | `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones. |
 | `test-cr-vm` | Test VM to verify access to {{ container-registry-name }}. |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM. |
@@ -86,7 +86,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | Security groups | 1 |
 | DNS zone | 2 |
 | Registry | 1 |
-| Service account | 1 |
+| Service accounts | 1 |
 
 `*` *If you do not specify the ID of an existing network in `terraform.tfvars`.*
 
@@ -96,7 +96,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
 1. Create a service account:
-   
+
    {% list tabs group=instructions %}
 
    - Management console {#console}
@@ -138,11 +138,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - Management console {#console}
 
-      1. On the management console [home page]({{ link-console-main }}), select the folder.
+      1. In the [management console]({{ link-console-main }}), select the folder where the service account is located.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
+      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog that opens and select the `admin` role.
 
    - CLI {#cli}
 
@@ -199,7 +198,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
@@ -238,13 +237,13 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 1. Open the `terraform.tfvars` file and edit the following:
 
    1. String with the folder ID:
-      
+
       ```text
       folder_id = "<folder_ID>"
       ```
 
    1. String containing a list of aggregated prefixes of cloud subnets that are allowed to access {{ container-registry-short-name }}:
-      
+
       ```text
       trusted_cloud_nets = ["10.0.0.0/8", "192.168.0.0/16"]
       ```
@@ -271,25 +270,25 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 1. Deploy the resources in the cloud using {{ TF }}:
 
    1. Initialize {{ TF }}:
-       
+
       ```bash
       terraform init
       ```
 
    1. Check the {{ TF }} file configuration:
-       
+
       ```bash
       terraform validate
       ```
 
    1. Check the list of cloud resources you are about to create:
-       
+
       ```bash
       terraform plan
       ```
 
    1. Create resources:
-       
+
       ```bash
       terraform apply
       ```
@@ -306,7 +305,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `s3_nlb_ip_address` | IP address of the internal load balancer for {{ objstorage-short-name }} | `10.10.1.200` |
    | `test_vm_password` | `admin` user password for the test VM | `v3RCqUrQN?x)` |
    | `vm_username` | NAT instance and test VM user names | `admin` |
-   
+
    {% endcut %}
 
 ## Test the solution {#test-functionality}
@@ -317,7 +316,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Select `test-cr-vm` from the list of VM instances.
 
-1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. In the left-hand menu, select ![image](../../_assets/console-icons/terminal.svg)**{{ ui-key.yacloud.compute.instance.switch_console }}**.
 
 1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
 
@@ -334,7 +333,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    ```text
    ;; ANSWER SECTION:
    {{registry}}.               300    IN      A       10.10.1.100
-   
+
    ;; ANSWER SECTION:
    {{ s3-storage-host }}. 300    IN      A       10.10.1.200
    ```
@@ -352,14 +351,14 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    hello-world   latest    9c7*********   9 months ago   13.3kB
    ```
 
-1. Assign the URL in the following format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>` command. The registry ID will be obtained from the test VM environment variable:
-   
+1. Assign to the Docker image a URL in this format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>`. The registry ID will be obtained from the test VM environment variable:
+
    ```bash
    docker tag hello-world {{registry}}/$REGISTRY_ID/hello-world:demo
 
    docker image list
    ```
-   
+
    Result:
    ```text
    REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
@@ -373,7 +372,6 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    You can only push Docker images to {{ container-registry-short-name }} if they have a URL in this format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>`.
 
    {% endnote %}
-   
 
 1. Push the required Docker image to the registry:
 
@@ -404,14 +402,14 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 * If the `CPU steal time` metric of a NAT instance shows a high value as the {{ container-registry-name }} load goes up, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
 * If you are using your own DNS server, create type `A` resource records in its settings in the following format:
 
-   | Name | Type | Data |
+   | Name | Type | Value |
    | ----------- | ----------- | ----------- |
-   | `{{registry}}.` | `A` | `<IP address of the internal load balancer for {{ container-registry-name }} from the terraform output cr_nlb_ip_address command output>` |
-   | `{{ s3-storage-host }}.` | `A` | `<IP address of the internal load balancer for {{ objstorage-name }} from the terraform output s3_nlb_ip_address command output>` |
-    
+   | `{{registry}}.` | `A` | `<IP address of the internal load balancer for {{ container-registry-name }} from the `terraform output cr_nlb_ip_address` command output>` |
+   | `{{ s3-storage-host }}.` | `A` | `<IP address of the internal load balancer for {{ objstorage-name }} from the `terraform output s3_nlb_ip_address` command output>` |
+
 * Save the `pt_key.pem` private SSH key used to connect to the NAT instances to a secure location or recreate it separately from {{ TF }}.
 * Once the solution is deployed, SSH access to the NAT instances will be denied. To enable access to the NAT instances over SSH, add a rule for incoming SSH traffic (`TCP/22`) in the `cr-nat-sg` [security group](../../vpc/concepts/security-groups.md) to enable access only from certain IP addresses of admin workstations.
-* After performance check, delete the test VM and its subnet.
+* After a performance check, delete the test VM and its subnet.
 
 ## Delete the resources you created {#clear-out}
 

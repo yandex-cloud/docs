@@ -288,7 +288,7 @@
     Чтобы создать коннектор, воспользуйтесь методом API [create](../api-ref/Connector/create.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно создать коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки коннектора в параметре `connectorSpec`.
+    * Настройки коннектора [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3) в параметре `connectorSpec`.
 
 {% endlist %}
 
@@ -416,6 +416,45 @@
                 * `SSL`, `SASL_SSL` – для подключений с SSL.
             * **ssl_truststore_certificates** — содержимое PEM-сертификата.
 
+- API {#api}
+
+    {% note info %}
+
+    Названия параметров приведены для REST API, а в скобках — для gRPC API, если название отличается.
+
+    {% endnote %}
+
+    Настройки коннектора MirrorMaker задаются в параметре `connectorConfigMirrormaker` (`connector_config_mirrormaker`):
+
+    * `sourceCluster` (`source_cluster`) и `targetCluster` (`target_cluster`) — параметры для подключения к кластеру-источнику и кластеру-приемнику:
+
+        * `alias` — префикс для обозначения кластера в настройках коннектора.
+
+            {% note info %}
+
+            Топики в кластере-приемнике будут созданы с указанным префиксом.
+
+            {% endnote %}
+
+        * `thisCluster` (`this_cluster`) — опция для использования текущего кластера в качестве источника или приемника.
+
+        * `externalCluster` (`external_cluster`) — параметры для подключения к внешнему кластеру:
+
+            * `bootstrapServers` (`bootstrap_servers`) — список FQDN хостов-брокеров кластера с номерами портов для подключения, разделенный запятыми.
+
+                {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+            * `saslUsername` (`sasl_username`) — имя пользователя для подключения коннектора к кластеру.
+            * `saslPassword` (`sasl_password`) — пароль пользователя для подключения коннектора к кластеру.
+            * `saslMechanism` (`sasl_mechanism`) — механизм шифрования имени и пароля.
+            * `securityProtocol` (`security_protocol`) — протокол подключения коннектора:
+                * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
+                * `SSL`, `SASL_SSL` – для подключений с SSL.
+            * `sslTruststoreCertificates` (`ssl_truststore_certificates`) — содержимое PEM-сертификата.
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `replicationFactor` (`replication_factor`) — количество копий топика, хранящихся в кластере.
+
 {% endlist %}
 
 ### S3 Sink {#settings-s3}
@@ -515,6 +554,35 @@
 
 
             * **access_key_id**, **secret_access_key** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
+
+
+- API {#api}
+
+    {% note info %}
+
+    Названия параметров приведены для REST API, а в скобках — для gRPC API, если название отличается.
+
+    {% endnote %}
+
+    Настройки коннектора S3 Sink задаются в параметре `connectorConfigS3Sink` (`connector_config_s3_sink`):
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `fileCompressionType` (`file_compression_type`) — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
+
+        * `none` (по умолчанию) — сжатие отсутствует;
+        * `gzip` — кодек [gzip](https://www.gzip.org/);
+        * `snappy` — кодек [snappy](https://github.com/google/snappy);
+        * `zstd` — кодек [zstd](https://facebook.github.io/zstd/).
+
+    * `fileMaxRecords` (`file_max_records`) — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище.
+    * `s3Connection` (`s3_connection`) — параметры для подключения к S3-совместимому хранилищу:
+        * `bucketName` (`bucket_name`) — имя бакета, в который будет производиться запись.
+        * `externalS3` (`external_s3`) — параметры внешнего хранилища:
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `us-east-1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+
+            * `accessKeyId` (`access_key_id`), `secretAccessKey` (`secret_access_key`) — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
 {% endlist %}
@@ -659,7 +727,7 @@
     Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно изменить коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки коннектора в параметре `connectorSpec`.
+    * Настройки коннектора [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3) в параметре `connectorSpec`.
 
 {% endlist %}
 

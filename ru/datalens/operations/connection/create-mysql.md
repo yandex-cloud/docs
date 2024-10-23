@@ -54,6 +54,8 @@ description: Из статьи вы узнаете, как подключить�
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql.png)
+
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - {{ connection-manager-name }} {#conn-man}

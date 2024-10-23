@@ -20,13 +20,41 @@
 
     Where:
 
-    * `network_id`: ID of the network the service connection will be created in.
+    * `--name`: (Optional) Service connection name.
+    * `--description`: (Optional) Service connection description.
+    * `--network-name`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. You can also use [network ID](../../vpc/operations/network-get-info.md) in the `--network-id` parameter.
     * `--object-storage`: Service connection to {{ objstorage-short-name }}. Other service connection types are not available yet.
 
     When creating a service connection, you can use the following additional parameters:
 
-    * `--address-spec`: To specify an IP address and/or ID of the subnet to provide an IP address for the new service connection.
-    * `--private-dns-records-enabled`: To specify whether a separate DNS record is required for the service’s public FQDN. 
+    * `--address-spec`: (Optional) Parameters in `key=value` format for the internal IP address which will be assigned to the service connection:
+      * `address`: (Optional) Private IP address for the service connection. If no IP address is provided, a random one will be assigned from the specified subnet.
+      * `subnet-id`: (Optional) [ID of the subnet](../../vpc/operations/subnet-get-info.md) to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from one of subnets in the cloud network.
+
+        {% note info %}
+
+        To create a service connection, there must be at least one subnet in your network.
+
+        {% endnote %}
+
+    * `--private-dns-records-enabled`: (Optional) Parameter to create additional DNS [resource records](../../dns/concepts/resource-record.md) to override the public FQDN of the service to which the connection is created.
+
+      Depending on whether the parameter is used, the following resource records will be created automatically for access to {{ objstorage-name }}:
+      * The parameter is _not used_:
+
+        Name | Type | Value
+        --- | --- | ---
+        storage.pe.yandexcloud.net | A | <internal_IP_address_of_the_service_connection>
+        *.storage.pe.yandexcloud.net | A | <internal_IP_address_of_the_service_connection>
+
+      * The parameter is _used_:
+
+        Name | Type | Value
+        --- | --- | ---
+        storage.pe.yandexcloud.net | A | <internal_IP_address_of_the_service_connection>
+        *.storage.pe.yandexcloud.net | A | <internal_IP_address_of_the_service_connection>
+        {{ s3-storage-host }} | A | <internal_IP_address_of_the_service_connection>
+        *.{{ s3-storage-host }} | A | <internal_IP_address_of_the_service_connection>
 
 1. Make sure the service connection was created:
 
@@ -44,3 +72,5 @@
     |                      |             | Storage                        |
     +----------------------+-------------+--------------------------------+
     ```
+
+On how to get the parameters of a service connection you created, see [{#T}](../../vpc/operations/private-endpoint-get-info.md).
