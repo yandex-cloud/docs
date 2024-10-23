@@ -48,6 +48,8 @@ description: Из статьи вы узнаете, как подключить�
 
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-postgresql.png)
+
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - {{ connection-manager-name }} {#conn-man}

@@ -73,6 +73,8 @@ items:
             href: concepts/data-collection/unified-agent/services.md
       - name: Рекомендации по использованию агента
         href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Возможные ошибки
+        href: concepts/data-collection/unified-agent/errors.md
       - name: Удаление
         href: concepts/data-collection/unified-agent/delete.md
   - name: Концепции
