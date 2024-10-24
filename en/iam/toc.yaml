@@ -61,6 +61,8 @@ items:
             href: operations/iam-token/create-for-sa.md
           - name: Getting an IAM token for a federated account
             href: operations/iam-token/create-for-federation.md
+          - name: Revoking an IAM token
+            href: operations/iam-token/revoke-iam-token.md
       - name: Keys
         items:
           - name: Creating a static access key

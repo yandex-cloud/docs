@@ -4,7 +4,7 @@ In {{ yandex-cloud }}, _Services_ allow you to manage specific cloud resources a
 
 ## List of {{ yandex-cloud }} services {#list}
 
-There are different service packages available in different [regions](region.md). Services at the [Preview](./launch-stages.md) stage are labeled {{ preview-stage }}.
+There are different service packages available in different [regions](region.md). Services at the [Preview](./launch-stages.md) stage are labeled as {{ preview-stage }}.
 
 | Service                                                                          | Description | Russia | Kazakhstan
 |---------------------------------------------------------------------------------|---|---|---|
@@ -22,6 +22,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ sf-full-name }}](../../functions/index.yaml)                                | Serverless computing | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ interconnect-full-name }}](../../interconnect/index.yaml)                   | Dedicated network connection management | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ cloud-logging-full-name }}](../../logging/index.yaml)                       | Service for aggregating and reading logs of user applications and {{ yandex-cloud }} resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ cns-full-name }}](../../notifications/index.yaml)                           | Multichannel user notifications service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ org-full-name }}](../../organization/index.yaml)                            | Service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ postbox-full-name }}](../../postbox/index.yaml)                             | {{ preview-stage }} Transactional email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ video-full-name }}](../../video/index.yaml)                                 | {{ preview-stage }} Video hosting and online streaming service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
@@ -36,9 +37,9 @@ There are different service packages available in different [regions](region.md)
 | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md)           | Protection from DDoS attacks | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ forms-full-name }}](../../forms/index.yaml)                                 | Service for creating and integrating forms | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ foundation-models-full-name }}](../../foundation-models/index.yaml)         | {{ preview-stage }} Service providing large generative models for businesses | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ iam-full-name }}](../../iam/index.yaml)                                     | Cloud resource access management | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ iam-full-name }}](../../iam/index.yaml)                                     | Cloud resource access management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ iot-full-name }}](../../iot-core/index.yaml)                                | IoT service that provides two-way messaging between registries and devices over the MQTT protocol | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ kms-full-name }}](../../kms/index.yaml)                                     | Encryption key management | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ kms-full-name }}](../../kms/index.yaml)                                     | Encryption key management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ load-testing-full-name }}](../../load-testing/index.yaml)                   | Service for load testing and performance analysis | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ lockbox-name }}](../../lockbox/index.yaml)                                  | Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ maf-full-name }}](../../managed-airflow/index.yaml)                        | {{ preview-stage }} Service for creating and managing {{ AF }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
@@ -63,7 +64,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml)                     | Cloud resource management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ search-api-full-name }}](../../search-api/index.yaml)                       | Service for making search queries | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml)                        | System user identification | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml)                        | System user identification service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ sws-full-name }}](../../smartwebsecurity/index.yaml)                        | Service for protection against DDoS attacks and bots at the application level (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml)              | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ speechsense-full-name }}](../../speechsense/index.yaml)                     | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |

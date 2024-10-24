@@ -13,7 +13,7 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
 
 ## Create a new dashboard {#create-dashboard}
 
-1. On the [home page]({{ link-monitoring }}), click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
+1. On the [homepage]({{ link-monitoring }}), click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
 1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
 1. In the text field, enter `Cross-service dashboard`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
@@ -29,7 +29,7 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
     - `resource_id=*`
     - `resource_type=vm`
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget will be displayed on the dashboard.
-1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget configuration modal window.
+1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget settings modal window.
 1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a name for the widget, e.g., `CPU on all hosts`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget name will appear at the top of the widget.
 1. Drag the created widget to the appropriate place on the dashboard.
@@ -45,7 +45,7 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
     - `resource_type=cluster`
 
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget will be displayed on the dashboard.
-1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget configuration modal window.
+1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget settings modal window.
 1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a name for the widget, e.g., `Free space on ClickHouse hosts`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget name will appear at the top of the widget.
 1. Drag the created widget to the appropriate place on the dashboard.

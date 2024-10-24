@@ -13,7 +13,7 @@ To create a [target group](../concepts/target-group.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
+  1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
@@ -176,3 +176,9 @@ To create a [target group](../concepts/target-group.md):
   Use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md) gRPC API call.
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)

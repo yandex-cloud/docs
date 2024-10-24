@@ -8,8 +8,8 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `yawl` | `string` | Yes | Specification language version. Possible values: `1.0`.
 `start` | `string` | Yes | ID of the [step](#step) to start off the workflow execution.
-`defaultRetryPolicy` | [RetryPolicy](#RetryPolicy) | No | Retry policy applied by default to all steps if a steps throws an error during execution.
-`steps` | `map<string, Step>` | Yes | Description of workflow steps. Object where key is the step ID selected by the user, and value is the object describing the step parameters.
+`defaultRetryPolicy` | [RetryPolicy](#RetryPolicy) | No | Retry policy applied by default to any step throwing an error during execution.
+`steps` | `map<string, Step>` | Yes | Description of workflow steps. Object where key is the step ID selected by user, and value is the object describing the step parameters.
 
 ## Step object {#Step}
 
@@ -23,12 +23,12 @@ Field name | Type | Required | Description
 
 ### Common fields {#common}
 
-The fields described herein are available for all integration steps.
+The fields described herein are available for any of integration steps.
 
 Field name | Type | Required | Default value | Description
 --- | --- | --- | --- | ---
 `input` | `string` | No | [Overall state of the workflow](workflow.md#state) | A jq expression to filter the workflow state fed into the step.
-`output` | `string` | No | Step outputs | A jq expression to filter the step outputs added into the workflow state.
+`output` | `string` | No | Step outputs | A jq expression to filter the step outputs to inject into the workflow state.
 `next` | `string` | No | No | ID of the next step.
 `retryPolicy` | [RetryPolicy](#retry-policy) | No | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.
 `timeout` | `Duration` | No | 15 minutes | Maximum step execution time.
@@ -37,7 +37,7 @@ Field name | Type | Required | Default value | Description
 
 Field name | Type | Required | Default value | Description
 --- | --- | --- | --- | ---
-`errorList` | `[]WorkflowError` | Yes | `[]` | List of errors for which the step will be retried. For more information, see [{#T}](execution.md#errors).
+`errorList` | `WorkflowError[]` | Yes | `[]` | List of errors for which the step will be retried. For more information, see [{#T}](execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | Error selection mode: `INCLUDE` to retry on errors listed in `error_list`; `EXCLUDE` to retry on any error other than those listed in `error_list`.
 `initialDelay` | `Duration` | No | `1s` | Initial value for a delay between retries.
 `backoffRate` | `double` | No | `1.0` | Multiplier for time between each next retry.
@@ -62,9 +62,9 @@ Only for services with [gRPC reflection](https://grpc.io/docs/guides/reflection/
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`endpoint` | `string` | Yes | No | Yes | Server address.
+`endpoint` | `string` | Yes | No | Yes | Server address
 `method` | `string` | Yes | No | Yes | gRPC service and method.
-`useServiceAccount` | `bool` | No | `false` | No | If `true`, the IAM token of the service account specified in the workflow settings will be added to request headers.
+`useServiceAccount` | `bool` | No | `false` | No | Set `true` for your request headers to include the IAM token of the service account specified in the workflow settings.
 `body` | `string` | No | `""` | Yes | Request body.
 `headers` | `map<string, string>` | No | `{}` | Yes: in header values | Request headers.
 
@@ -155,7 +155,7 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 
 ### FoundationModelsCall {#FoundationModelsCall}
 
-Integration with [{{ foundation-models-full-name }}](../../../foundation-models/). Currently, the only supported integration is the one with [{{ yagpt-full-name }}](../../../foundation-models/concepts/yandexgpt/index.md) for text generation.
+Integration with [{{ foundation-models-full-name }}](../../../foundation-models/). Currently, the only supported integration is that with [{{ yagpt-full-name }}](../../../foundation-models/concepts/yandexgpt/index.md) for text generation purposes.
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
@@ -164,25 +164,25 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 
 #### FoundationModelsCallGenerate object {#FoundationModelsCallGenerate}
 
-The `json` and `messages` are mutually exclusive: you can either specify a JSON string or explicitly list the messages.
+The `json` and `messages` are mutually exclusive: you can either specify a JSON string or enlist the messages you need.
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`temperature` | `double` | No | `0` | No | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
-`maxTokens` | `int64` | Yes | No | No | Maximum number of tokens to generate. Allows limiting the model's response if needed.
+`temperature` | `double` | No | `0` | No | With a higher temperature, you get more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
+`maxTokens` | `int64` | Yes | No | No | Maximum number of tokens to generate. With this, you can limit the model output size if you need.
 `json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }} documentation](../../../foundation-models/operations/yandexgpt/create-prompt.md#request).
-`messages` | [][FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage) | No | `""` | No | Context for the model, as a list of input messages.
+`messages` | [FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage)[] | No | `""` | No | Context for the model, as a list of input messages.
 
 #### [FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage) object
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | No | Yes | Message sender ID. For more information, see [TextGeneration.completion](../../../foundation-models/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Yes | No | Yes | ID of the message sender. For more information, see [TextGeneration.completion](../../../foundation-models/text-generation/api-ref/TextGeneration/completion.md).
 `text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion](../../../foundation-models/text-generation/api-ref/TextGeneration/completion.md).
 
 ### ObjectStorage {#ObjectStorage}
 
-Interacting with the {{ objstorage-full-name }} objects. The `put` and `get` fields are mutually exclusive: you can perform only one action on an object.
+Interacting with the {{ objstorage-full-name }} objects. The `put` and `get` fields are mutually exclusive: for any object, you can perform only one of these actions on an object.
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
@@ -201,19 +201,19 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 
 ### Switch {#Switch}
 
-Selecting the further execution path. Only one path can be selected: the one for which the condition first returns `true`. If all conditions evaluate to `false` and no value set for the `default` field, the run will be terminated with an error.
+Selecting the further execution path. Only one path can be selected: the one for which the condition first returns `true`. If all conditions have returned `false`, and no value is set in the `default` field, the run will be terminated with an error.
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `input` | `string` | No | [Overall state of the workflow](workflow.md#state) | Yes | A jq expression to filter the workflow state fed into the step.
 `choices` | [Choice](#Choice)[] | Yes | No | No | List of possible further execution paths.
-`default` | `string` | No | No | No | ID of the step to execute if none of the conditions specified in `choices` return `true`.
+`default` | `string` | No | No | No | ID of the step to execute if none of the conditions specified in `choices` evaluates to `true`.
 
 #### Choice object {#Choice}
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`condition` | `string` | Yes | Condition in the form of a jq expression that returns either `true` or `false` string.
+`condition` | `string` | Yes | Condition in the form of jq expression that returns either `true` or `false` string.
 `next` | `string` | Yes | ID of the step to execute if the condition returns `true`.
 
 ### Foreach {#Foreach}
@@ -231,12 +231,12 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`start` | `string` | Yes | ID of the step to start the execution from.
+`start` | `string` | Yes | ID of the step to start from.
 `steps` | `map<string, Step>` | Yes | Description of the steps. Object where key is the step ID, and value is the object describing the step parameters. The structure is similar to the `steps` field in the [high-level specification](#workflow).
 
 ### Parallel {#Parallel}
 
-Executes multiple branches (sequences of steps) concurrently. Execution result is an object where key is the execution branch name, and value is the execution branch outputs. Read more about the [workflow state during the Parallel step](workflow.md#state-for-Parallel).
+Executes multiple branches (sequences of steps) concurrently. The execution returns an object where key is the execution branch name, and value is the execution branch outputs. Read more about the [workflow state during the Parallel step](workflow.md#state-for-Parallel).
 
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
@@ -249,16 +249,16 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`start` | `string` | Yes | ID of the step to start off the branch execution.
+`start` | `string` | Yes | ID of the step where the branch execution will start.
 `steps` | `map<string, Step>` | Yes | Description of steps in the execution branch. Object where key is the step ID, and value is the object describing the step parameters. The structure is similar to the `steps` field in the [high-level specification](#workflow).
 
 ### Success {#Success}
 
-Successfully completes the workflow run. If placed inside [Foreach](#Foreach) or [Parallel](#Parallel), terminates the whole run, not just its current branch.
+Successfully completes the workflow. If placed inside [Foreach](#Foreach) or [Parallel](#Parallel), it will complete the whole workflow, not just its current branch.
 
 ### Fail {#Fail}
 
-Terminates the workflow run with an error. If placed inside [Foreach](#Foreach) or [Parallel](#Parallel), terminates the whole run, not just its current branch.
+Terminates the workflow with an error. If placed inside [Foreach](#Foreach) or [Parallel](#Parallel), it will terminate the whole workflow, not just its current branch.
 
 Field name | Type | Required | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | ---

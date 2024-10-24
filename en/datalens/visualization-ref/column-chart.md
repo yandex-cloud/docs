@@ -7,13 +7,13 @@ Unlike line charts, this type of chart assumes that different periods are compar
 
 {% cut "Source table" %}
 
-| Year | Sales |
------|---------|
-| 2022 | 6M |
-| 2021 | 28M |
-| 2020 | 18M |
-| 2019 | 9M |
-| 2018 | 1M |
+Year |	Sales|	
+-----|---------| 
+2022|	6М|	
+2021|	28М|	
+2020|	18М|	
+2019|	9М| 
+2018|	1М|
 
 {% endcut %}
 
@@ -22,7 +22,7 @@ Unlike line charts, this type of chart assumes that different periods are compar
 * [Grouped](#groupped)
 * [Stacked](#stacked)
 
-### With grouping {#groupped}
+### Grouped {#groupped}
 
 A chart with grouping lets you compare two or more measures: for example, the number of products delivered and the number picked up. The column height corresponds to the measure value.
 
@@ -30,13 +30,13 @@ A chart with grouping lets you compare two or more measures: for example, the nu
 
 {% cut "Source table" %}
 
-| Year | Delivery | Pickup |
+Year |	Delivery|	Pickup
 -----|---------| ----------|
-| 2022 | 2M | 4M |
-| 2021 | 8M | 19M |
-| 2020 | 5M | 13M |
-| 2019 | 3M | 6M |
-| 2018 | 331K | 918K |
+2022|	2М|	4М
+2021|	8М|	19М
+2020|	5М|	13М
+2019|	3М| 6М
+2018|	331К|	918К
 
 {% endcut %}
 
@@ -49,27 +49,27 @@ Since the sum of all segments is equal to the total length of a column, when col
 
 {% cut "Source table" %}
 
-| Year | Delivery | Pickup |
+Year |	Delivery|	Pickup
 -----|---------| ----------|
-| 2022 | 2M | 4M |
-| 2021 | 8M | 19M |
-| 2020 | 5M | 13M |
-| 2019 | 3M | 6M |
-| 2018 | 331K | 918K |
+2022|	2М|	4М
+2021|	8М|	19М
+2020|	5М|	13М
+2019|	3М| 6М
+2018|	331К|	918К
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| X | Dimensions. You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
-| Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). |
-| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis. |
-| Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
-| Labels | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). |
-| Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
-| Filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field. |
+X | Dimensions You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
+Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). 
+Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis.
+Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Labels | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25.
+Filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field.
 
 ## Creating a column chart {#create-diagram}
 
@@ -98,14 +98,14 @@ To display an X-axis grouped column chart:
 
    {% list tabs group=indicators_number %}
 
-   - Single measure {#one}
+    - Single measure {#one}
 
       1. Check if there is a dimension in the **Colors** section.
       1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
 
       ![one-measure](../../_assets/datalens/visualization-ref/bar-chart/one-measure.png)
 
-   - Two or more measures {#more}
+    - Two or more measures {#more}
 
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **X** section. The sequence of dimensions affects the grouping order.
@@ -125,23 +125,23 @@ To color columns in a chart based on the value of a measure:
 
    - Single measure {#one}
 
-      Copy the measure from the **Y** section to the **Colors** section.
+     Copy the measure from the **Y** section to the **Colors** section.
 
-      Columns in the chart will take on colors as a function of the measure values.
+     Columns in the chart will take on colors as a function of the measure values.
 
-      ![image](../../_assets/datalens/operations/chart/column-colors-1.png)
+     ![image](../../_assets/datalens/operations/chart/column-colors-1.png)
 
    - Two or more measures {#more}
 
-      Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
+     Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
 
-      The columns in the chart will take on colors depending on the values of all the measures listed in the **Y** section.
+     The columns in the chart will take on colors depending on the values of all the measures listed in the **Y** section.
 
-      ![image](../../_assets/datalens/operations/chart/column-colors-2.png)
+     ![image](../../_assets/datalens/operations/chart/column-colors-2.png)
 
    {% endlist %}
 
-1. Configure a color gradient for the measure as well. To do this, in the top right-hand corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you mouse over the section).
+1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. In the color settings, specify:
 
    * **Gradient type**: Select two or three colors.
@@ -149,20 +149,20 @@ To color columns in a chart based on the value of a measure:
    * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.
 
-### Configuring the display of `null` values {#null-settings}
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 
 ## Recommendations {#recomentations}
 
-* If category values contain a lot of text, try to make it shorter so that chart signatures look neater. You can use string functions or the `CASE` conditional statement in calculated fields.
+* If category values contain a lot of text, try to make it shorter so that chart signatures look neater. You can use string functions in calculated fields or the `CASE` conditional statements.
 * If each column is a category rather than a time value, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
 * We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when sorting values on the X-axis, because the user usually expects to see changes over time on the X-axis.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
 * You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
 
-   {% cut "Chart example" %}
+  {% cut "Chart example" %}
 
-   ![bar-chart-split](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-split.png)
+  ![bar-chart-split](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-split.png)
 
-   {% endcut %}
+  {% endcut %}

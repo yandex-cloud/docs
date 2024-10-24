@@ -28,7 +28,9 @@
 
    {% note tip %}
 
-   Для кластеров {{ dataproc-name }} без включенной опции HDFS задайте дополнительный параметр `spark.hadoop.fs.s3a.fast.upload.buffer=bytebuffer`.
+   Для кластеров {{ dataproc-name }} без включенной опции HDFS задайте дополнительный параметр `spark.hadoop.fs.s3a.fast.upload.buffer` = `bytebuffer`.
+
+   Для собственных кластеров с типом подключения Spark Connect задайте дополнительный параметр `dataproc:spark-connect` = `enabled`.
 
    {% endnote %}
 

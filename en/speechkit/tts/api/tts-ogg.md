@@ -1,220 +1,221 @@
 # Speech synthesis in OggOpus format using the API v1
 
-With the [API v1](../request.md), you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file.
+With the [API v1](../request.md), you can synthesize speech from text in [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file.
 
 The example uses the following synthesis parameters:
 
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `filipp`.
-* Other parameters left by default.
+* Other parameters are left at their defaults.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If using a service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
 
 {% list tabs group=programming_language %}
 
 - cURL {#curl}
 
-   Send the [request](../request.md) to convert speech to text:
+  Submit a text-to-speech conversion [request](../request.md):
 
-   ```bash
-   read -r -d '' TEXT << EOM
-   > I'm Yandex Speech+Kit.
-   > I can turn any text into speech.
-   > Now y+ou can, too!
-   EOM
-   export FOLDER_ID=<folder_ID>
-   export IAM_TOKEN=<IAM_token>
-   curl -X POST \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     --data-urlencode "text=${TEXT}" \
-     -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-     "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
-   ```
+  ```bash
+  read -r -d '' TEXT << EOM
+  > I'm Yandex Speech+Kit.
+  > I can turn any text into speech.
+  > Now y+ou can, too!
+  EOM
+  export FOLDER_ID=<folder_ID>
+  export IAM_TOKEN=<IAM_token>
+  curl \
+    --request POST \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --data-urlencode "text=${TEXT}" \
+    --data "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
+    "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
+  ```
 
-   Where:
+  Where:
 
-   * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-   * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `lang`: [Language](../index.md#langs) of the text.
-   * `voice`: [Voice](../voices.md) for speech synthesis.
+  * `TEXT`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
+  * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+  * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+  * `lang`: Text [language](../index.md#langs).
+  * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+  The synthesized speech will be written to the `speech.ogg` file in the folder you sent your request from.
 
 - C# {#csharp}
 
-   Send the [request](../request.md) to convert speech to text:
+  Submit a text-to-speech conversion [request](../request.md):
 
-   ```c#
-   using System;
-   using System.Collections.Generic;
-   using System.Net.Http;
-   using System.Threading.Tasks;
-   using System.IO;
+  ```c#
+  using System;
+  using System.Collections.Generic;
+  using System.Net.Http;
+  using System.Threading.Tasks;
+  using System.IO;
 
-   namespace TTS
-   {
-     class Program
-     {
-       static void Main()
-       {
-         Tts().GetAwaiter().GetResult();
-       }
+  namespace TTS
+  {
+    class Program
+    {
+      static void Main()
+      {
+        Tts().GetAwaiter().GetResult();
+      }
 
-       static async Task Tts()
-       {
-         const string iamToken = "<IAM token>";
-         const string folderId = "<folder_ID>";
+      static async Task Tts()
+      {
+        const string iamToken = "<IAM_token>";
+        const string folderId = "<folder_ID>";
 
-         HttpClient client = new HttpClient();
-         client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
-         var values = new Dictionary<string, string>
-         {
-           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too! },
-           { "lang", "ru-RU" },
-           { "voice", "filipp" },
-           { "folderId", folderId }
-         };
-         var content = new FormUrlEncodedContent(values);
-         var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
-         var responseBytes = await response.Content.ReadAsByteArrayAsync();
-         File.WriteAllBytes("speech.ogg", responseBytes);
-       }
-     }
-   }
-   ```
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+        var values = new Dictionary<string, string>
+        {
+          { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+          { "lang", "ru-RU" },
+          { "voice", "filipp" },
+          { "folderId", folderId }
+        };
+        var content = new FormUrlEncodedContent(values);
+        var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
+        var responseBytes = await response.Content.ReadAsByteArrayAsync();
+        File.WriteAllBytes("speech.ogg", responseBytes);
+      }
+    }
+  }
+  ```
 
-   Where:
+  Where:
 
-   * `iamToken`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-   * `lang`: [Language](../index.md#langs) of the text.
-   * `voice`: [Voice](../voices.md) for speech synthesis.
+  * `iamToken`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+  * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+  * `text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
+  * `lang`: Text [language](../index.md#langs).
+  * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+  The synthesized speech will be written to the `speech.ogg` file in the folder you sent your request from.
 
 - Python 3 {#python}
 
-   1. Create a file (for example, `test.py`), and add the following code to it:
+  1. Create a file (e.g., `test.py`), and add the following code to it:
 
-      ```python
-      import argparse
-      import requests
+     ```python
+     import argparse
+     import requests
 
-      def synthesize(folder_id, iam_token, text):
-         url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
-         headers = {
-             'Authorization': 'Bearer ' + iam_token,
-         }
+     def synthesize(folder_id, iam_token, text):
+        url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
+        headers = {
+            'Authorization': 'Bearer ' + iam_token,
+        }
 
-         data = {
-             'text': text,
-             'lang': 'ru-RU',
-             'voice': 'filipp',
-             'folderId': folder_id
-         }
+        data = {
+            'text': text,
+            'lang': 'ru-RU',
+            'voice': 'filipp',
+            'folderId': folder_id
+        }
 
-         with requests.post(url, headers=headers, data=data, stream=True) as resp:
-             if resp.status_code != 200:
-                 raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+        with requests.post(url, headers=headers, data=data, stream=True) as resp:
+            if resp.status_code != 200:
+                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
 
-             for chunk in resp.iter_content(chunk_size=None):
-                 yield chunk
+            for chunk in resp.iter_content(chunk_size=None):
+                yield chunk
 
-      if __name__ == "__main__":
-         parser = argparse.ArgumentParser()
-         parser.add_argument("--token", required=True, help="IAM token")
-         parser.add_argument("--folder_id", required=True, help="Folder id")
-         parser.add_argument("--text", required=True, help="Text for synthesize")
-         parser.add_argument("--output", required=True, help="Output file name")
-         args = parser.parse_args()
+     if __name__ == "__main__":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--token", required=True, help="IAM token")
+        parser.add_argument("--folder_id", required=True, help="Folder id")
+        parser.add_argument("--text", required=True, help="Text for synthesize")
+        parser.add_argument("--output", required=True, help="Output file name")
+        args = parser.parse_args()
 
-         with open(args.output, "wb") as f:
-             for audio_content in synthesize(args.folder_id, args.token, args.text):
-                 f.write(audio_content)
+        with open(args.output, "wb") as f:
+            for audio_content in synthesize(args.folder_id, args.token, args.text):
+                f.write(audio_content)
       ```
 
-   Where:
+    Where:
 
-   * `lang`: [Language](../index.md#langs) of the text.
-   * `voice`: [Voice](../voices.md) for speech synthesis.
+    * `lang`: Text [language](../index.md#langs).
+    * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   1. Run the created file:
+  1. Run the created file:
 
-      ```bash
-      export FOLDER_ID=<folder_ID>
-      export IAM_TOKEN=<IAM_token>
-      python3 test.py
-        --token ${IAM_TOKEN} \
+     ```bash
+     export FOLDER_ID=<folder_ID>
+     export IAM_TOKEN=<IAM_token>
+     python3 test.py
+       --token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
        --output speech.ogg \
-       --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!
-      ```
+       --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!"
+     ```
 
-      Where:
+     Where:
 
-      * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-      * `--output`: Name of the file for audio recording.
-      * `--text`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
+     * `FOLDER_ID`: [Folder](../../../resource-manager/operations/folder/get-id.md) ID.
+     * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+     * `--output`: Name of the file for the audio.
+     * `--text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
 
-      The synthesized speech will be written to the `speech.ogg` file in the directory where you executed the file.
+     The synthesized speech will be written to the `speech.ogg` file in the folder you ran your file from.
 
 - PHP {#php}
 
-   Send the [request](../request.md) to convert speech to text:
+  Submit a text-to-speech conversion [request](../request.md):
 
-   ```php
-   <?php
+  ```php
+  <?php
 
-   $token = '<IAM token>'; # Specify an IAM token.
-   $folderId = "<folder_ID>"; # Specify folder ID.
+  $token = '<IAM_token>'; # Specify the IAM token.
+  $folderId = "<folder_ID>"; # Specify the folder ID.
 
-   $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
-   $headers = ['Authorization: Bearer ' . $token];
-   $post = array(
-       'text' => "I'm Yandex Sp+eechkit. I can turn any text into speech. Now y+ou can, too!",
-       'folderId' => $folderId,
-       'lang' => 'ru-RU',
-       'voice' => 'filipp');
+  $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
+  $headers = ['Authorization: Bearer ' . $token];
+  $post = array(
+      'text' => "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!",
+      'folderId' => $folderId,
+      'lang' => 'ru-RU',
+      'voice' => 'filipp');
 
-   $ch = curl_init();
+  $ch = curl_init();
 
-   curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-   curl_setopt($ch, CURLOPT_URL, $url);
-   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-   curl_setopt($ch, CURLOPT_HEADER, false);
-   if ($post !== false) {
-       curl_setopt($ch, CURLOPT_POST, 1);
-       curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-   }
-   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+  curl_setopt($ch, CURLOPT_HEADER, false);
+  if ($post !== false) {
+      curl_setopt($ch, CURLOPT_POST, 1);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+  }
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-   $response = curl_exec($ch);
-   if (curl_errno($ch)) {
-       print "Error: " . curl_error($ch);
-   }
-   if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-       $decodedResponse = json_decode($response, true);
-       echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
-       echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
-   } else {
-       file_put_contents("speech.ogg", $response);
-   }
-   curl_close($ch);
-   ```
+  $response = curl_exec($ch);
+  if (curl_errno($ch)) {
+      print "Error: " . curl_error($ch);
+  }
+  if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+      $decodedResponse = json_decode($response, true);
+      echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+      echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+  } else {
+      file_put_contents("speech.ogg", $response);
+  }
+  curl_close($ch);
+  ```
 
-   Where:
+  Where:
 
-   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-   * `lang`: [Language](../index.md#langs) of the text.
-   * `voice`: [Voice](../voices.md) for speech synthesis.
+  * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+  * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+  * `text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
+  * `lang`: Text [language](../index.md#langs).
+  * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+  The synthesized speech will be written to the `speech.ogg` file in the folder you sent your request from.
 
 - Node.js {#nodejs}
 
@@ -224,7 +225,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   npm install --save axios form-data
   ```
 
-  Send the [request](../request.md) to convert speech to text:
+  Submit a text-to-speech conversion [request](../request.md):
 
   ```javascript
   import FormData from 'form-data';
@@ -237,7 +238,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   const formData = new FormData();
 
   formData.append('voice', 'filipp');
-  formData.append('text', 'I'm Yandex Speechk+it. I can turn any text into speech. Now y+ou can, too!');
+  formData.append('text', 'I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!');
   formData.append('lang', 'ru-RU');
   formData.append('folderId', FOLDER_ID);
 
@@ -257,12 +258,12 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   Where:
 
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-  * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-  * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-  * `lang`: [Language](../index.md#langs) of the text.
+  * `FOLDER_ID`: [Folder](../../../resource-manager/operations/folder/get-id.md) ID.
+  * `text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
+  * `lang`: Text [language](../index.md#langs).
   * `voice`: [Voice](../voices.md) for speech synthesis.
 
-  The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+  The synthesized speech will be written to the `speech.ogg` file in the folder you sent your request from.
 
 {% endlist %}
 

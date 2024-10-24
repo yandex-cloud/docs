@@ -15,6 +15,8 @@ items:
         href: operations/security-groups-target.md
       - name: Creating a test with data from a bucket
         href: operations/create-test-bucket.md
+      - name: Exporting test reports
+        href: operations/export-test-reports.md
       - name: Collecting user requests using Dispatcher
         href: operations/payload-dispatcher.md
       - name: Transferring test logs to {{ cloud-logging-name }}
@@ -45,16 +47,18 @@ items:
         href: tutorials/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
-      - name: Invoking load testing from {{ GL }}} CI
+      - name: Invoking load testing from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Comparing load test results
         href: tutorials/loadtesting-results-compare.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Agent
         href: concepts/agent.md
+      - name: Agent selection
+        href: concepts/agent-select.md
       - name: Load generator
         href: concepts/load-generator.md
       - name: Load profile

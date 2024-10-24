@@ -6,40 +6,41 @@ The example uses the following synthesis parameters:
 
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `jane`.
-* Other parameters left by default.
+* Other parameters are left at their defaults.
 
 The text file is read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-   1. Create a file, e.g., `text.xml`, and enter text in the SSML format:
+  1. Create a file, e.g., `text.xml`, and add to it this text in SSML format:
 
-      {% include [ssml-example](../../../_includes/speechkit/ssml-example.md) %}
+     {% include [ssml-example](../../../_includes/speechkit/ssml-example.md) %}
 
-   1. Send a request with the text to the server:
+  1. Send a request with the text to the server:
 
-      ```bash
-      export FOLDER_ID=<folder_ID>
-      export IAM_TOKEN=<IAM_token>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        --data-urlencode "ssml=`cat text.xml`" \
-        -d "lang=ru-RU&voice=jane&folderId=${FOLDER_ID}" \
-        "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
-      ```
+     ```bash
+     export FOLDER_ID=<folder_ID>
+     export IAM_TOKEN=<IAM_token>
+     curl \
+       --request POST \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --data-urlencode "ssml=`cat text.xml`" \
+       --data "lang=ru-RU&voice=jane&folderId=${FOLDER_ID}" \
+       "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
+     ```
 
-      Where:
+     Where:
 
-      * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-      * `ssml`: File with text marked up according to [SSML](../markup/ssml.md) rules.
-      * `lang`: [Language](../index.md#langs) of the text.
+     * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+     * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+     * `ssml`: File with text marked up according to [SSML](../markup/ssml.md) rules.
+     * `lang`: Text [language](../index.md#langs).
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+  The synthesized speech will be written to the `speech.ogg` file in the folder you sent your request from.
 
 {% endlist %}
 

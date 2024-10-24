@@ -92,7 +92,7 @@
        --request POST \
        --header "Authorization: Bearer <значение_IAM-токена>" \
        --data "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"  
+       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
      ```
 
      Где:
@@ -123,7 +123,7 @@
      * `<идентификатор_запроса>` — значение поля `id`, полученное в ответе на запрос генерации.
      
 
-     **Результат:** 
+     **Результат**: 
 
      ![succulent](../../_assets/yandexgpt/succulent.jpeg)
 

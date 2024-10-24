@@ -30,10 +30,10 @@ You can use a gradient in a chart by adding a measure to the **Color** section. 
 
 Wizard<br/> section| Description
 ----- | ----
-X | Dimension or measure. Sets the X-axis value.
-Y | Dimension or measure. Sets the Y-axis value.
+X | Dimension or measure. Sets the X-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Y | Dimension or measure. Sets the Y-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Points | Dimension. Specifies the number of points on the chart.
-Point size | Measure. Sets a point size depending on the measure value.
+Point size | Measure. Sets point size depending on the measure value.
 Colors | Dimension or measure. Affects the color of points.
 Sorting | Dimension. You can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.

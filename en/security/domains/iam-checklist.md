@@ -45,7 +45,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ✔ **Using a service account for operations from within a virtual machine**: [Link a service account to the VM](../../compute/operations/vm-connect/auth-inside-vm.md). Thus, you will no longer need to store your service account keys on the VM for authentication: your IAM token will be available via a [metadata service link](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
 
-✔ **Using an IAM token for authentication**: If you need to use static credentials, consider using an [IAM token](../../iam/concepts/authorization/iam-token.md). Keys have an unlimited lifetime, while IAM tokens are valid for {{ iam-token-lifetime }}.
+✔ **Using an IAM token for authentication**: If you need to use static credentials, consider using an [IAM token](../../iam/concepts/authorization/iam-token.md). Keys have an unlimited lifetime, while IAM tokens are valid for {{ iam-token-lifetime }}. If the IAM token has been [compromised](../../iam/operations/compromised-credentials.md) or you no longer plan to use it, [revoke](../../iam/operations/iam-token/revoke-iam-token.md) it.
 
 ✔ **Using service accounts**: Use [service accounts](../../iam/concepts/users/service-accounts.md) to automate your work with {{ yandex-cloud }}. You can check the date and time of the last authentication on the service account information page in the management console: this information allows you to track cases of unauthorized use of service accounts.
 
@@ -55,7 +55,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ✔ **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md).
 
-✔ **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md), and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
+✔ **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md) and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
 
 ## Secrets {#secrets}
 
@@ -65,12 +65,5 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ✔ **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md) and use their payload when you need to apply a key or token.
 
-✔ **Using API keys with limited access**: Create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of relevant services to lower the risk of unauthorized use of the keys.
+✔ **Using API keys with limited access**: Create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) to work with your list of required services to lower the risk of unauthorized use of the keys.
 
-## Other recommendations {#other-recommendations}
-
-✔ **Relevance of contact information of the person in charge of the organization**: Specify relevant contact information using [this guide](../../billing/operations/change-data.md#change-address).
-
-✔ **Access management for contractors and third parties**: If you grant third-party contractors access to your clouds, make sure to follow these security measures:
-   * Assign permissions to contractor employees based on the principle of least privilege.
-   * Where possible, create a separate account for third-party employees in your corporate IdP and assign the relevant policies to this account.

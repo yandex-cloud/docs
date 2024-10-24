@@ -8,7 +8,7 @@ There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You ca
 
 {{ foundation-models-name }} Playground is a good option for introduction and testing: use it to send synchronous requests to {{ yagpt-full-name }} models. You can communicate with a model in these two formats:
 
-* In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between {{ gpt-lite }} and {{ gpt-pro }}, in the management console.
+* In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between the {{ gpt-lite }} and {{ gpt-pro }} models in the management console.
 
 * In **Chat mode**, you can chat with the model to update your instructions and elaborate on your previous inputs. The communication context is transmitted in every message and maintained throughout the current session until you explicitly start a new one. To work in chat mode, use the {{ gpt-pro }} model.
 
@@ -18,9 +18,9 @@ To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
 
 ## Formatting of model responses {#answers-formatting}
 
-By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with an [emoji](https://en.wikipedia.org/wiki/Emoji) or in a different format, such as [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
+By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with [emoji](https://en.wikipedia.org/wiki/Emoji), or in a different format, e.g., [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
 
-Example:
+Examples:
 
 ```json
 {
@@ -37,7 +37,7 @@ Example:
     },
     {
       "role": "user",
-      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown!"
+      "text": "Name any three groups of products one can find in a grocery store. For each group, provide three subgroups. Present the result as a JSON object, where each group of products is represented by a key in the JSON object, and arrays from the relevant subgroups are the values. No introductory phrases or explanations needed, just data. Do not use Markdown."
     }
   ]
 }
@@ -52,7 +52,7 @@ Result:
       {
         "message": {
           "role": "assistant",
-          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"cottage cheese\", \"sour cream\"],\n    \"fruits\": [\"apples\", \"bananas\", \"oranges\"]\n}"
+          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"curd\", \"sour cream\"],\n    \"fruit\": [\"apples\", \"bananas\", \"oranges\"]\n}"
         },
         "status": "ALTERNATIVE_STATUS_FINAL"
       }
@@ -69,7 +69,7 @@ Result:
 
 The model returned a response in JSON format with line breaks replaced with `\n` and quotation marks escaped.
 
-If you do not get the expected result using the prompt, try [fine-tuning](../../tutorials/yagpt-tuning.md) the model in [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
+If you do not get the result you expect using the prompt, try [fine-tuning](../../tutorials/yagpt-tuning.md) the model in [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
 
 #### See also {#see-also}
 

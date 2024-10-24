@@ -1,4 +1,4 @@
-* **Gp add column inherits table setting**{#setting-gp-add-column-inherits-table-setting} {{ tag-con }} {{ tag-api }}
+* **Gp add column inherits table setting**{#setting-gp-add-column-inherits-table-setting} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, применяются ли параметры сжатия данных (`compresstype`, `compresslevel` и `blocksize`), указанные для [AOCO-таблицы](../../../managed-greenplum/concepts/tables.md), при добавлении столбца.
 
@@ -6,7 +6,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
-* **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-api }}
+* **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, будут ли сжаты временные файлы, созданные на диске в процессе хеш-соединения или агрегации хеша.
 
@@ -14,7 +14,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
-* **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы активного запроса в каждом сегменте.
 
@@ -22,7 +22,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
-* **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество временных файлов, которые сервис создает в сегменте для обработки одного запроса. Если этот предел превышен, запрос будет отменен.
 
@@ -30,7 +30,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
-* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы всех активных запросов в каждом сегменте.
 
@@ -96,7 +96,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
-* **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }}
+* **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Фильтр команд SQL, которые будут записаны в лог {{ GP }}:
 
@@ -139,7 +139,7 @@
 
     {% endnote %}
 
-* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }}
+* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество одновременных подключений к хосту-мастеру.
 
@@ -149,7 +149,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
-* **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }}
+* **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество транзакций, которые могут одновременно находиться в [подготовленном состоянии]({{ pg.docs.org }}/current/sql-prepare-transaction.html).
 
@@ -159,7 +159,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
-* **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }}
+* **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) при репликации.
 
@@ -171,7 +171,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
-* **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-api }}
+* **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем памяти (в байтах), выделяемый для обработки запроса.
 

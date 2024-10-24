@@ -61,13 +61,14 @@ Based on the search type selected when signing up for the service, specify the a
       https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
       ```
 
-      This request returns the fifth page of search results for the `<table>` command. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region is Novosibirsk Oblast, and the notification language is Russian. The **Family search** filter will be applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
+      This request returns the fifth page of search results for the `<table>` prompt. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter will be applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
   1. Send a query to the Yandex search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 
       ```bash
-      curl -X GET \
-        -o result.xml \
+      curl \
+        --request GET \
+        --output result.xml \
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4'
       ```
 
@@ -120,15 +121,16 @@ Based on the search type selected when signing up for the service, specify the a
 
       For detailed information about the parameters specified in the request body, see [Request body parameters](../concepts/post-request.md#post-body-parameters).
 
-      The following request example returns the fifth page of search results for the `<table>` command. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2.
+      The following request example returns the fifth page of search results for the `<table>` prompt. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2.
 
   1. Send a query to the Yandex search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 
       ```bash
-      curl -X POST \
-        -H "Authorization: Api-Key <API_key>" \
-        -d "@body.xml" \
-        -o result.xml \
+      curl \
+        --request POST \
+        --header "Authorization: Api-Key <API_key>" \
+        --data "@body.xml" \
+        --output result.xml \
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru'
       ```
 
@@ -174,8 +176,9 @@ Based on the search type selected when signing up for the service, specify the a
   1. Send a query to the Yandex image search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 
       ```bash
-      curl -X GET \
-        -o result.xml \
+      curl \
+        --request GET \
+        --output result.xml \
         'https://yandex.ru/images-xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&text=funny+cats&groupby=attr=ii.groups-on-page=3&p=2&fyandex=1&site=somepics.ru&itype=jpg&iorient=horizontal&isize=medium&icolor=color'
       ```
 

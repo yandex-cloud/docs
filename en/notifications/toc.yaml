@@ -1,0 +1,53 @@
+title: Yandex Cloud Notification Service
+href: index.yaml
+stage: preview
+noIndex: true
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    href: concepts/index.md
+  - name: Tools
+    items:
+      - name: AWS CLI
+        href: tools/aws-cli.md
+      - name: AWS SDK for Python (boto3)
+        href: tools/sdk-python.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Overview
+        href: api-ref/index.md
+      - name: Sending a request
+        href: api-ref/send-request.md
+      - name: Errors
+        href: api-ref/common-errors.md
+      - name: PlatformApplication
+        items:
+          - name: Create
+            href: api-ref/create-platform-application.md
+          - name: GetAttributes
+            href: api-ref/get-platform-application-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-platform-application-attributes.md
+          - name: List
+            href: api-ref/list-platform-applications.md
+          - name: Delete
+            href: api-ref/delete-platform-application.md
+      - name: Endpoint
+        items:
+          - name: Create
+            href: api-ref/create-platform-endpoint.md
+          - name: GetAttributes
+            href: api-ref/get-endpoint-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-endpoint-attributes.md
+          - name: List
+            href: api-ref/list-endpoints.md
+          - name: Delete
+            href: api-ref/delete-endpoint.md
+      - name: Publish
+        href: api-ref/publish.md
+base: en/notifications
+deepBase: 2

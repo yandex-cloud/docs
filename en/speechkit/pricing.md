@@ -1,6 +1,6 @@
 ---
 title: '{{ speechkit-full-name }} pricing policy'
-description: This article describes the {{ speechkit-full-name }} pricing policy.
+description: This article provides the {{ speechkit-full-name }} pricing policy.
 editable: false
 ---
 
@@ -59,7 +59,7 @@ The billing unit is a 15-second segment of a single-channel audio file. Shorter 
 
 {% note warning %}
 
-In [streaming mode](stt/streaming.md), billing begins when a [message with recognition settings](stt/streaming.md#specification-msg) is sent. Even if you do not send any audio after this message, it will be treated as one consumed billing unit.
+In [streaming mode](stt/streaming.md), billing begins as soon as you send a [message with recognition settings](stt/streaming.md#specification-msg). If you do not send any audio after this message, it will be treated as one consumed billing unit.
 
 {% endnote %}
 
@@ -73,7 +73,7 @@ In [streaming mode](stt/streaming.md), billing begins when a [message with recog
 >
 >    **Explanation**: The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
 
-#### Asynchronous recognition {#rules-stt-long}
+#### Asynchronous recognition with {#rules-stt-long}
 
 These rules apply when using [asynchronous recognition](stt/transcribation.md).
 
@@ -143,8 +143,8 @@ The cost is calculated as follows:
 
 The cost of using {{ speechkit-short-name }} for speech synthesis using the API v3 with the following parameters:
 
-* **Number of requests sent**: 3
-* **Number of characters in requests**: 150, 300, 600
+* **Number of requests sent**: 3.
+* **Number of characters in requests**: 150, 300, 600.
 
 
 
@@ -209,5 +209,4 @@ The cost of using {{ speechkit-short-name }} for asynchronous speech recognition
 The cost is calculated as follows:
 
 {% include [usd-speechkit-stt-long-deferred](../_pricing_examples/speechkit/usd-speechkit-stt-long-deferred.md) %}
-
 

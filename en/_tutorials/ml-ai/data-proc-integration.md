@@ -52,7 +52,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
    1. In `data-folder`, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
-      * Enter the gateway name, e.g., `nat-for-cluster`.
+      * Name the gateway, e.g., `nat-for-cluster`.
       * Gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Click **{{ ui-key.yacloud.common.save }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
@@ -85,10 +85,10 @@ Create a folder where your {{ dataproc-name }} cluster will run.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
-      * `dataproc.agent` to create and use {{ dataproc-name }} clusters
-      * `dataproc.provisioner` to enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md)
-      * `vpc.user` to use the {{ dataproc-name }} cluster network
-      * `iam.serviceAccounts.user` to create resources in the folder on behalf of the service account
+      * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
+      * `dataproc.provisioner` to enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md).
+      * `vpc.user` to use the {{ dataproc-name }} cluster network.
+      * `iam.serviceAccounts.user` to create resources in the folder on behalf of the service account.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -139,7 +139,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.

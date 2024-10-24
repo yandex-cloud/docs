@@ -1,6 +1,6 @@
 ---
 title: Начало работы с {{ ca-full-name }}
-description: Установите плагин {{ ca-name }} для Visual Studio Code.
+description: Установите плагин {{ ca-name }} для Visual Studio Code и IDE от JetBrains.
 ---
 
 # Как начать работать с {{ ca-full-name }}
@@ -50,11 +50,15 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **No active session found. Log in please** нажмите кнопку **Go to browser**.
+      
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в строке поиска в верхней части экрана введите `>Yandex Code Assistant`. В открывшемся списке выберите **Yandex Code Assistant: Login**.
       1. Разрешите Visual Studio Code открыть в браузере страницу аутентификации.
-      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-      1. Вернитесь обратно в Visual Studio Code. 
+      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и во всплывающем окне нажмите **Открыть приложение**.
+      1. Вернитесь обратно в Visual Studio Code.
 
-  Плагин включен, готов к работе и отображается на нижней панели редактора в виде кнопки ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  Если плагин включен и готов к работе, то на нижней панели редактора отобразится значок ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  
+  Нажмите на этот значок, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в списке в строке **Logged in as <имя_пользователя>**. Если пользователь не аутентифицирован, в списке такой строки не будет.
 
 - IDE от JetBrains {#jb}
 
@@ -86,10 +90,14 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **Yandex Code Assistant OAuth** нажмите **Yandex Code Assist: Login**.
-      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-      1. Вернитесь обратно в IDE. 
 
-  Сообщение `Code Assist plugin started` означает, что плагин включен и готов к работе.
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Login**.
+      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+      1. Вернитесь обратно в IDE.
+
+  Если плагин включен и готов к работе, то на нижней панели редактора отобразится кнопка **Yandex CA**.
+  
+  Нажмите эту кнопку, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в сообщении в строке **Logged in as: <имя_пользователя>**. Если пользователь не аутентифицирован, в сообщении будет указано **No Auth data**.
 
   {% note tip %}
 
@@ -194,6 +202,28 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   1. [Установите плагин](#install-plugin).
 
 {% endlist %}
+
+### Выйдите из профиля {{ yandex-cloud }} {#logout}
+
+Чтобы выйти из профиля {{ yandex-cloud }} в плагине {{ ca-name }}:
+
+{% list tabs group=ide %}
+
+- Visual Studio Code {#vscode}
+
+  В Visual Studio Code доступны два способа выхода из профиля:
+
+  * На нижней панели редактора нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg) и в открывшемся списке выберите **Logout**.
+
+  * В строке поиска в верхней части экрана введите `>Yandex Code Assistant` и в открывшемся списке выберите **Yandex Code Assistant: Logout**.
+
+- IDE от JetBrains {#jb}
+
+  В правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Logout**.
+
+{% endlist %}
+
+Чтобы повторно аутентифицироваться в плагине, выполните шаги, описанные в п. 3 раздела [{#T}](#install-plugin).
 
 ### Удалите плагин {#remove-plugin}
 

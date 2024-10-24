@@ -5,6 +5,10 @@ description: This section contains {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q3 2024 {#q3-2024}
+
+For traffic conditions that use regular expressions, you can now toggle between case-sensitive an case-insensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
+
 ## Q2 2024 {#q2-2024}
 
 * Implemented [Web Application Firewall (WAF)](./concepts/waf.md) to protect web applications against external threats, such as SQL injections, cross-site scripting, and other vulnerabilities. WAF analyzes and filters HTTP requests blocking potentially malicious data.

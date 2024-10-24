@@ -1,28 +1,28 @@
 ---
 title: Getting started with {{ yandex-cloud }}
-description: In this article, you will learn how to get started with {{ yandex-cloud }}. Find out how to create Linux and Windows VMs, use {{ objstorage-name }} services for data storage (S3), set up a network and load balancers, manage access to resources, and create clusters in a variety of databases.
+description: In this article, you will learn how to get started with {{ yandex-cloud }}. Find out how to create Linux and Windows VMs, use {{ objstorage-name }} (S3) data storage services, set up a network and load balancers, manage access to your resources, and create clusters in a variety of databases.
 ---
 
 # Getting started with {{ yandex-cloud }}
 
 
-The {{ yandex-cloud }} platform has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
+{{ yandex-cloud }} has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
 
 ## Creating a billing account {#new-account}
 
 When creating your first billing account linked to your user account, you will get your [initial grant](../getting-started/usage-grant.md).
 
-{% list tabs group=customers %}
+ {% list tabs group=customers %}
 
-- Individuals {#individuals}
+   - Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan {#businesses-entrepreneurs}
 
-   {% include [start-for-individuals](../_includes/billing/billing-account-create-individual.md) %}
+      {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
 
-- Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan {#businesses-entrepreneurs}
+   - Individuals {#individuals}
 
-   {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
+      {% include [start-for-individuals](../_includes/billing/billing-account-create-individual.md) %}
 
-{% endlist %}
+   {% endlist %}
 
 ## FAQ {#qa}
 
@@ -38,15 +38,15 @@ Payment for {{ yandex-cloud }} services and resources will be debited from your 
 
 #### What happens after the trial period ends? Will you start debiting money right away?
 
-{{ yandex-cloud }} does not debit money and does not invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
+{{ yandex-cloud }} does not debit money and does not invoice you until you have switched to paid use. The transition to paid use never happens automatically.
 
-However, if your [grant](../getting-started/usage-grant.md) has expired, access to your resources will be blocked for 60 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
+However, if your [grant](../getting-started/usage-grant.md) has expired, access to your resources will be blocked for 60 days or until you switch to paid use. For more information about the end of the trial period, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
 
 ### Questions about the initial grant {#grant}
 
-#### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back?
+#### I accidentally switched to paid use. Did I lose my initial grant? Can I get it back?
 
-No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be used up first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do?
 
@@ -58,29 +58,29 @@ The cloud may be blocked for a few reasons:
 
 #### I could not use up the initial grant in 60 days. Can I use {{ yandex-cloud }}?
 
-When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan.
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to paid use.
 
-### About the {#documents} documents
+### Questions about documents {#documents}
 
 #### Is it safe to pay to {{ yandex-cloud }}?
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its cloud services safe for payment processing. For more information about PCI DSS certification, see the [{#T}](../security/conform.md#pci-dss) section.
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its cloud services safe for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
 
 #### Where do I find my agreement with {{ yandex-cloud }}?
 
 {% include [contract-concept](../_includes/billing/contract.md) %}
 
-No printed offer is provided.
+There is no printed form of the offer.
 
-No physical invoice is provided, but you can generate and print it out from the console.
+The invoice is not physically provided either, but you can generate it in the console and print it out.
 
-#### I need a bilateral contract rather than an offer. Can I have it?
+#### I need an agreement signed by both parties, not an offer. Can I get it?
 
 Yes, companies and individual entrepreneurs can sign a bilateral contract. To do this, submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced?
 
-To get an invoice for paying at a bank office, use instructions at [{#T}](../billing/operations/pay-the-bill.md#legal-entities).
+To get an invoice for a bank payment, follow the steps described in [{#T}](../billing/operations/pay-the-bill.md#legal-entities).
 
 {{ yandex-cloud }} does not provide paper payment documents.
 

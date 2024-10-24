@@ -48,7 +48,7 @@ items:
               Geocoding with the Yandex Maps API for data visualization in {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Visualizing data using heat maps
+          - name: Visualizing data using Heat Maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
           - name: Status monitoring of geographically distributed devices

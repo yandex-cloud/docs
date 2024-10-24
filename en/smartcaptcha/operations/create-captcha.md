@@ -48,9 +48,9 @@ When creating a CAPTCHA, you can:
   1. Configure the **Challenge options**. You can only specify the default CAPTCHA or add other [options](../concepts/captcha-variants.md) if you want to show different CAPTCHAs for different requests.
   
   1. For the **Default** option, specify:
-      * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main challenge](../concepts/tasks.md#main-task) the user will get.
-      * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional challenge](../concepts/tasks.md#additional-task) the user will get.
-      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: [Difficulty level](../concepts/tasks.md#task-difficulty) of the challenge the user will get.
+      * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main challenge](../concepts/tasks.md#main-task) that will be presented to the user.
+      * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional challenge](../concepts/tasks.md#additional-task) that will be presented to the user.
+      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: [Difficulty level](../concepts/tasks.md#task-difficulty) of the challenge that will be presented to the user:
       * `{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}`: Simple challenge.
       * `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`: Medium level challenge.
       * `{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}`: Difficult challenge.
@@ -86,7 +86,7 @@ When creating a CAPTCHA, you can:
      1. Add other CAPTCHA options and rules for incoming traffic in a similar way.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-   
+
      ![screen03](../../_assets/smartcaptcha/create-captcha/screen03.png)
 
   The CAPTCHA will appear on the service page under **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}**.

@@ -15,11 +15,11 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
+  1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
 
-   1. Get an IAM token:
+  1. Get an IAM token:
 
       ```bash
       yc iam create-token
@@ -34,3 +34,7 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
 ### Using an IAM token obtained via the CLI {#use-cli}
 
 {% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](./revoke-iam-token.md)

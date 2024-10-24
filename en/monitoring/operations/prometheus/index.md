@@ -16,7 +16,7 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 To start working with {{ managed-prometheus-full-name }} in the current folder, you need to create a workspace. To do this:
 
-1. Open the [service home page]({{ link-monitoring }}) {{ monitoring-full-name }}.
+1. Open the {{ monitoring-full-name }} [home page]({{ link-monitoring }}).
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. Click **Create a workspace**.
 1. On the page that opens, you will see links to the endpoints to be used for the current folder.
@@ -39,7 +39,7 @@ Long-term metric storage | Not intended for long-term metric storage. [Third-par
 Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions).
 Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported.
 Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) (`recording rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
-Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, alerting rules (`alerting rules`) can be calculated from short-term data on local {{ prometheus-name }} instances.
+Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, you can calculate `alerting rules` from short-term data on local {{ prometheus-name }} instances.
 Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used.
 
 
@@ -47,8 +47,8 @@ Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clien
 
 * The `NaN` value is not supported and is treated as a missing point.
 * The `+Inf`/`-Inf` values may be processed incorrectly.
-* Alerting rules are not supported (`alerting rules`).
-* `staleness markers`, `exemplars`, and `native histograms` are not supported.
+* `Alerting rules` are not supported.
+* `Staleness markers`, `exemplars`, and `native histograms` are not supported.
 
 ## Quotas and limits {#limits}
 
@@ -56,7 +56,7 @@ Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clien
 
 {% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
 
-If you need more resources, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}) and tell us which quotas you want increased and by how much.
+If you need more resources, contact support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}) and tell us which quotas you want increased and by how much.
 
 ### Quotas per endpoint {#quotas-per-endpoint}
 

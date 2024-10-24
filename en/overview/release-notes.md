@@ -51,6 +51,8 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
+* [{{ certificate-manager-full-name }}](../certificate-manager/release-notes.md)
+* [{{ lockbox-full-name }}](../lockbox/release-notes.md)
 * [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
 ## Resource monitoring and management {#resources-operations}

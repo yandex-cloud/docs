@@ -27,7 +27,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. Create a request body file, e.g., `prompt.json`:
+  1. Create a file with the request body, e.g., `prompt.json`:
 
      ```json
      {

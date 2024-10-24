@@ -326,7 +326,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    ```
 
    Where:
-   * `BUCKETNAME`: Bucket name
+   * `BUCKETNAME`: Bucket name.
    * `FOLDERID`: Folder ID.
    * `IAMTOKEN`: {{ iam-name }} token you got when [configuring the service account](#configure-sa).
 
