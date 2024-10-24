@@ -12,11 +12,12 @@ Now y+ou can, too!
 EOM
 export FOLDER_ID=<folder_ID>
 export IAM_TOKEN=<IAM_token>
-curl -X POST \
-   -H "Authorization: Bearer ${IAM_TOKEN}" \
-   --data-urlencode "text=${TEXT}" \
-   -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-   "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
+curl 
+  --request POST \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  --data-urlencode "text=${TEXT}" \
+  --data "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
+  "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
 ```
 
 Where:

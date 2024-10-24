@@ -8,25 +8,25 @@ For example, you can use a tree chart to visualize sales by product category and
 
 {% cut "Source table" %}
 
-| Category | Subcategory | Sales |
+| Category        | Subcategory         | Sales  |
 |------------------|----------------------|----------|
-| Home appliances | Kitchenware | 15000000 |
-| Home appliances | Beauty and health products | 17000000 |
-| Household goods | Kitchen products | 12000000 |
-| Household goods | Essential goods | 8000000 |
-| Household cleaners | Detergents | 4100000 |
-| Household cleaners | Cleaners | 3300000 |
+| Home appliances | Kitchenware             | 15000000 |
+| Home appliances | Beauty and health products   | 17000000 |
+| Household goods   | Kitchen products      | 12000000 |
+| Household goods   | Essential goods | 8000000  |
+| Household cleaners    | Detergents      | 4100000  |
+| Household cleaners    | Cleaners    | 3300000  |
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles. |
-| Size | Measure. One measure that determines the area of a rectangle. |
-| Colors | Dimension or measure. Affects the shading of rectangles in a chart. |
-| Filters | Dimension or measure. Used as a filter. |
+Dimensions | Dimensions Determines the hierarchy tree of nested rectangles. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Disk | Measure. One measure that determines the area of a rectangle.
+Colors | Dimension or measure. Affects the shading of rectangles in a chart.
+Filters | Dimension or measure. Used as a filter.
 
 ## Creating a tree chart {#create-diagram}
 
@@ -49,5 +49,5 @@ To create a tree chart:
 ## Recommendations {#recommendations}
 
 * Use this type of chart to show the relationship between a part and a whole.
-* If there are few categories (up to 6), use a pie or donut chart.
+* If there are few categories (up to six), use a pie or donut chart.
 * You cannot display negative values on a tree chart.

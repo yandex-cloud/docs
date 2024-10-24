@@ -1,5 +1,5 @@
 ---
-title: Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}
+title: Asynchronous recognition of OggOpus audio files in {{ speechkit-full-name }}
 description: Follow this guide to use asynchronous OggOpus audio file recognition.
 ---
 
@@ -9,7 +9,7 @@ Here are examples of [asynchronous recognition of speech](../transcribation.md) 
 
 * [Language](../models.md#languages): Russian.
 * Audio stream format: [OggOpus](../../formats.md#OggOpus) with an OPUS file.
-* Other parameters left by default.
+* Other parameters are left at their defaults.
 
 You can generate and send a speech recognition request using the [cURL](https://curl.haxx.se) utility or a Python script.
 
@@ -25,7 +25,7 @@ If you do not have an OggOpus audio file, you can download a [sample file](https
 
 {% note warning %}
 
-For two-channel OggOpus audio files, do not specify the number of channels in the `audioChannelCount` parameter.
+For two-channel OggOpus audio files, do not specify the number of channels using the `audioChannelCount` parameter.
 
 {% endnote %}
 
@@ -33,8 +33,8 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
 - cURL {#curl}
 
-   1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
-   1. Create a file, e.g., `body.json`, and paste the following code to it:
+  1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
+  1. Create a file, e.g., `body.json`, and add the following code to it:
 
       ```json
       {
@@ -51,8 +51,8 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
       Where:
 
-      * `languageCode`: [Recognition language](../models.md#languages)
-      * `uri`: Link to the audio file in {{ objstorage-name }}, e.g., Sample link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+      * `languageCode`: [Recognition language](../models.md#languages).
+      * `uri`: Link to the audio file in {{ objstorage-name }}. Here is an example of such a link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
 
          The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
@@ -64,14 +64,15 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
       {% endnote %}
 
-   1. Run the created file:
+  1. Run the created file:
 
       ```bash
       export IAM_TOKEN=<service_account_IAM_token> && \
-      curl -X POST \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d "@body.json" \
-          https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@body.json" \
+        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
       Where `IAM_TOKEN` is the IAM token of the service account.
@@ -88,14 +89,15 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       }
       ```
 
-      Save the recognition operation `id` that you received in the response.
+      Save the recognition operation `id` you get in the response.
 
-   1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of an audio file.
-   1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
+  1. Wait for the recognition to complete. It takes about 10 seconds to recognize a one-minute audio.
+  1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        https://operation.{{ api-host }}/operations/<recognition_operation_ID>
       ```
 
       Result example:
@@ -126,13 +128,13 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
 - Python 3 {#python}
 
-   1. Install the `requests` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
+  1. Use the [pip package](https://pip.pypa.io/en/stable/) manager to install the `requests` package:
 
-      ```bash
-      pip install requests
-      ```
+     ```bash
+     pip install requests
+     ```
 
-   1. Create a file, e.g.,`test.py`, and paste the following code to it:
+  1. Create a file, e.g., `test.py`, and add the following code to it:
 
       ```python
       # -*- coding: utf-8 -*-
@@ -183,7 +185,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
 
-      # Only show text from recognition results.
+      # Show only text from recognition results.
       print("Text chunks:")
       for chunk in req['response']['chunks']:
           print(chunk['alternatives'][0]['text'])
@@ -191,10 +193,10 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
       Where:
 
-      * `key`: IAM token of the service account
-      * `filelink`: Link to the audio file in {{ objstorage-name }}
+      * `key`: Service account IAM token.
+      * `filelink`: Link to the audio file in {{ objstorage-name }}.
 
-   1. Run the created file:
+  1. Run the created file:
 
       ```bash
       python3 test.py

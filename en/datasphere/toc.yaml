@@ -129,6 +129,8 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Working with Visual Studio Code jobs
             href: operations/projects/jobs-toolkit.md
+          - name: Using results of completed jobs
+            href: operations/projects/use-job-results.md
       - name: Shared access
         items:
           - name: Publishing a notebook
@@ -253,7 +255,7 @@ items:
             href: tutorials/node-from-model.md
           - name: Deploying a gRPC service based on a Docker image
             href: tutorials/grpc-node.md
-          - name: '{{ yagpt-name }} model tuning'
+          - name: Fine-tuning {{ yagpt-name }}
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}
             href: tutorials/yagpt-tuning-classifier.md

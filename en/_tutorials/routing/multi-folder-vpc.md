@@ -19,7 +19,7 @@ You can only move subnets between folders within a single cloud.
 
 {% endnote %}
 
-For example, the development environment includes the CI/CD module whose components are hosted in the `net-folder`. This module should enable networking between the **DEV**, **STAGE**, and **PROD** components residing in their folders.
+For example, the development environment includes the CI/CD module whose components are hosted in the `net-folder`. This module should enable networking between the **dev**, **stage**, and **prod** components residing in their folders.
 
 This solution pattern is shown below.
 
@@ -346,7 +346,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
   1. In the [management console]({{ link-console-main }}), go to `net-folder`.
   1. In the list of services, select **{{ vpc-name }}**.
   1. Click the `shared-net` name.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the `subnet-b` row and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. In the `subnet-b` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. In the drop-down list, select `dev-folder`.
   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
@@ -398,8 +398,8 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `subnet-a`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-     * Enter the `ycuser` username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+     * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `ycuser` username.
+     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Similarly, create VMs named `dev-vm` and `prod-vm` in the respective folders.
@@ -536,7 +536,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
      resource "yandex_compute_disk" "boot-disk-3" {
        name     = "boot-disk-3"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-c"
+       zone     = "{{ region-id }}-d"
        size     = "20"
        image_id = yandex_compute_image.vm_image.id
      }

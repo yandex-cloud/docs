@@ -11,7 +11,7 @@ Regardless of the deployment option, all {{ dataproc-name }} clusters are charge
 
 ## Spark connector {#spark-with-temporary-cluster}
 
-When creating a Spark connector, you can create a temporary {{ dataproc-name }} cluster and configure its parameters. {{ ml-platform-name }} will create such a cluster the first time you run computations in your notebook and will monitor it on its own. The cluster will be deleted as soon as the notebook VM is stopped.
+When creating a Spark connector, you can create a temporary {{ dataproc-name }} cluster and configure its parameters. {{ ml-platform-name }} will create such a cluster the first time you run computations in your notebook and will monitor it all by itself. The cluster starts and stops together with the notebook VM.
 
 The notebook VM will be stopped if there are no computations on it for the period of time specified in the **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** parameter. You can also force shut down the notebook VM.
 

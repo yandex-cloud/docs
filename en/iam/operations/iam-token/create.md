@@ -42,3 +42,4 @@ description: Follow this guide to get an IAM token for an account.
 #### See also {#see-also}
 
 * [Using an IAM token in a Helm chart](../../../container-registry/operations/helm-chart/helm-chart-push.md)
+* [Revoking an IAM token](./revoke-iam-token.md)

@@ -1,5 +1,5 @@
 ---
-title: '{{ foundation-models-full-name }} guides'
+title: Guides on using {{ foundation-models-full-name }}
 description: The page presents all the guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. How-to guides.
 ---
 

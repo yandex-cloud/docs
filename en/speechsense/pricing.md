@@ -31,7 +31,7 @@ When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on
 
 {% note warning %}
 
-The prices listed below will be effective starting September 10, 2024.
+The price listed below will be effective starting September 10, 2024.
 
 {% endnote %}
 

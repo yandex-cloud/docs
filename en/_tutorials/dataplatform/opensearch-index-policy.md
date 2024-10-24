@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in the configuration you need with public access to a group of hosts with the `DATA` role.
 
-        1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mos-name }}](../../managed-opensearch/operations/connect#configuring-security-groups) cluster.
+        1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups) cluster.
 
     - Using {{ TF }} {#tf}
 
@@ -40,10 +40,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
             * {{ mos-name }} cluster.
 
-        1. In the `opensearch-index-policy.tf` file, specify the following variables:
+        1. In the `opensearch-index-policy.tf` file, specify these variables:
 
             * `version`: {{ OS }} version.
-            * `admin_password`: {{ OS }} administrator password.
+            * `admin_password`: {{ OS }} admin password.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -125,12 +125,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
     Where:
 
     * `min_index_age`: Age an index must reach before a new index is created. The recommended value is 30 days (`30d`).
-    * `min_primary_shard_size`: Size one of the main index segments must reach before a new index is created. The recommended value is 50 GB (`30gb`).
+    * `min_primary_shard_size`: Size of one of the main index segments. As soon as this size is reached, a new index will be created. The recommended value is 50 GB (`50gb`).
     * `index_patterns`: Template for a new index name.
 
     To quickly test the policy, we reduced the recommended values to 1 hour and 500 bytes in the request example.
 
-1. Configure an index template in which you assign the `log` alias to the policy:
+1. Configure an index template with the `log` alias assigned to the policy:
 
     ```bash
     curl \
@@ -225,7 +225,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     Five minutes is the default time to check policy conditions again.
 
-    The output results should display the `log-000001` and `log-000002` indexes:
+    The output should display the `log-000001` and `log-000002` indexes:
 
     ```bash
     yellow open log-000001 ... 1 1 0 0 5.1kb 5.1kb
@@ -234,7 +234,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Optionally, you can get the index list again one hour after [creating the index](#attach-policy).
 
-    The output results should display the `log-000001`, `log-000002`, and `log-000003` indexes:
+    The output should display the `log-000001`, `log-000002`, and `log-000003` indexes:
 
     ```bash
     yellow open log-000001 ... 1 1 0 0 5.1kb 5.1kb
@@ -270,6 +270,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will delete all the resources described in the `opensearch-index-policy.tf` configuration file.
+        All the resources described in the `opensearch-index-policy.tf` configuration file will be deleted.
 
 {% endlist %}

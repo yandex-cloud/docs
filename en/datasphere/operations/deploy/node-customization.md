@@ -4,7 +4,7 @@
 
 1. [Create a secret](../data/secrets.md#create) with a password for your container registry.
 
-   If you are using a registry created in {{ container-registry-full-name }}, authenticate using the authorized key for the [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md).
+   If you are using a registry created in {{ container-registry-full-name }}, authenticate using the authorized key for the [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md):
 
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@
       Result:
 
       ```text
-      Login succeeded
+      Login Succeeded
       ```
    {% include [disclaimer](../../../_includes/iam/authorized-keys-disclaimer.md) %}
 
@@ -51,7 +51,7 @@
 
    * `<image_name>`: Image name in {{ ml-platform-name }}.
    * `<image_tag>`: Image tag in {{ ml-platform-name }}.
-   * `<image_path>`: {{ container-registry-name }} image path.
+   * `<image_path>`: Path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID format.>/<image_name>`;
    * `<tag>`: Image [tag](../../../container-registry/concepts/docker-image.md#version).
 
    During the uploading, specify the username and choose a secret with a password. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and enter the secret instead of password.

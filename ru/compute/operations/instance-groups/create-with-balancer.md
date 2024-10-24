@@ -244,7 +244,7 @@
        load_balancer_spec:
          target_group_spec:
            name: first-target-group
-       ``` 
+     ```
 
   1. Создайте группу ВМ в каталоге по умолчанию:
 

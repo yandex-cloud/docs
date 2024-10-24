@@ -21,7 +21,7 @@
 
 - [сбор системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) (процессор, память, диск);
 - сбор метрик в формате [Prometheus](https://prometheus.io);
-- поставку метрик в {{monitoring-full-name}};
+- поставку метрик в {{ monitoring-full-name }};
 - файловое хранилище для надежной доставки данных.
 
 Примеры использования агента приведены в разделе [{#T}](../../../operations/index.md#working-with-metrics). Подробнее про способы установки {{ unified-agent-short-name }} читайте в разделе [{#T}](./installation.md). Синтаксис файла конфигурации агента описан в разделе [{#T}](./configuration.md).

@@ -13,7 +13,7 @@ items:
         href: operations/index.md
       - name: '{{ yagpt-full-name }}'
         items:
-          - name: Sending requests in prompt mode
+          - name: Sending a request in prompt mode
             href: operations/yandexgpt/create-prompt.md
           - name: Sending a series of requests in chat mode
             href: operations/yandexgpt/create-chat.md
@@ -47,7 +47,7 @@ items:
         href: concepts/embeddings.md
       - name: Classifiers based on {{ yagpt-name }}
         items:
-          - name: Overview of classifiers
+          - name: Classifier overview
             href: concepts/classifier/index.md
           - name: Models
             href: concepts/classifier/models.md
@@ -311,6 +311,8 @@ items:
                     href: api-ref/v1alpha/grpc/Tokenizer/index.md
                   - name: Tokenize
                     href: api-ref/v1alpha/grpc/Tokenizer/tokenize.md
+  - name: '{{ ml-sdk-full-name }}'
+    href: sdk/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to configure a {{ MG }} source
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -232,10 +232,10 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 
 Configure one of the supported data targets:
 
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ MG }}](../target/mongodb.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ MG }}](../target/mongodb.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 

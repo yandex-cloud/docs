@@ -65,6 +65,42 @@ description: Следуя данной инструкции, вы сможете
          --description <новое_описание_кластера>
       ```
 
+- {{ TF }} {#tf}
+
+    {% note alert %}
+
+    Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+
+    {% endnote %}
+
+    Чтобы изменить описание кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера {{ mgp-name }} значение атрибута `description`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          name        = "<имя_кластера>"
+          description = "<новое_описание_кластера>"
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
     Чтобы изменить имя и описание кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
@@ -158,16 +194,12 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — в кластерах с версией {{ GP }} 6.25 и выше включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Эту опцию нельзя отключить после сохранения настроек кластера.
 
 
-            {% note info %}
-
-            Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
-
-            {% endnote %}
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
         * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
@@ -201,7 +233,6 @@ description: Следуя данной инструкции, вы сможете
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
-            --assign-public-ip=<публичный_доступ_к_кластеру> \
             --deletion-protection
         ```
 
@@ -223,13 +254,104 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--assign-public-ip` — доступность кластера из интернета.
-
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера {{ mgp-name }} значения нужных дополнительных настроек:
+
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          ...
+          backup_window_start {
+            hours = <начало_периода_резервного_копирования>
+          }
+
+          maintenance_window {
+            type = <тип_технического_обслуживания>
+            day  = <день_недели>
+            hour = <час_дня>
+          }
+
+          access {
+            data_lens    = <доступ_из_{{ datalens-name }}>
+            yandex_query = <доступ_из_Yandex_Query>
+          }
+
+          deletion_protection = <защита_от_удаления>
+
+          cloud_storage {
+            enable = <использование_гибридного_хранилища>
+          }
+
+          pooler_config {
+            pooling_mode             = <режим_работы>
+            pool_size                = <размер>
+            pool_client_idle_timeout = <время_ожидания_клиента>
+          }
+        }
+        ```
+
+
+
+
+        Вы можете изменить следующие настройки:
+
+        * `backup_window_start.hours` — начало периода, в течение которого начинается [резервное копирование](../concepts/backup.md) кластера. Задается по UTC в формате `HH`: от `0` до `23`.
+
+        * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+            * `type` — тип технического обслуживания. Принимает значения:
+                * `ANYTIME` — в любое время.
+                * `WEEKLY` — по расписанию.
+            * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
+            * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
+
+
+        * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+
+        * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+
+
+
+        * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
+
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        * `cloud_storage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+
+            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+        * `pooler_config` — настройки [менеджера подключений](../concepts/pooling.md):
+
+            * `pooling_mode` — режим работы: `SESSION` или `TRANSACTION`.
+            * `pool_size` — количество клиентских соединений.
+            * `pool_client_idle_timeout` — время неактивности клиентского соединения (в миллисекундах), после которого соединение разрывается.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
 
 - API {#api}
 
@@ -335,6 +457,37 @@ description: Следуя данной инструкции, вы сможете
 
       {{ mgp-short-name }} запустит операцию по изменению настроек кластера.
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера [настройки {{ GP }}](../concepts/settings-list.md) в блоке `greenplum_config`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          ...
+          greenplum_config = {
+            max_connections         = <максимальное_количество_соединений>
+            gp_workfile_compression = <true_или_false>
+            ...
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
     Чтобы изменить настройки {{ GP }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
@@ -417,7 +570,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
       Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
@@ -431,6 +584,7 @@ description: Следуя данной инструкции, вы сможете
             resource_preset_id = "<класс_хоста>"
             ...
           }
+        }
         segment_subcluster {
           resources {
             resource_preset_id = "<класс_хоста>"
@@ -478,6 +632,44 @@ description: Следуя данной инструкции, вы сможете
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Измените настройки в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера {{ mgp-name }} значение атрибута `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          ...
+          master_subcluster {
+            resources {
+              disk_size = <размер_хранилища_в_гигабайтах>
+              ...
+            }
+          }
+          segment_subcluster {
+            resources {
+              disk_size = <размер_хранилища_в_гигабайтах>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
 
 - API {#api}
 

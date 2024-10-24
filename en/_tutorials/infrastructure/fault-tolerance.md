@@ -24,7 +24,7 @@ The cost for supporting a fault-tolerant {{ yandex-cloud }} architecture include
 
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a continuously running [{{ mpg-full-name }} cluster](../../managed-postgresql/concepts/index.md) (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using a dynamic or static [public IP](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Set up a test bench {#prepare}
@@ -33,7 +33,7 @@ Description of the test bench:
 
 * The application is packaged into a [Docker image](../../container-registry/concepts/docker-image.md) and pushed to {{ container-registry-full-name }}.
 
-   Docker images are deployed on four VMs based on a [{{ coi }}](../../cos/). The VMs are grouped and located in two different [availability zones](../../overview/concepts/geo-scope.md).
+  Docker images are deployed on four VMs based on a [{{ coi }}](../../cos/). The VMs are grouped and located in two different [availability zones](../../overview/concepts/geo-scope.md).
 
 * A DB cluster is managed by {{ mpg-name }} and consists of two hosts that reside in different availability zones.
 * The [{{ load-testing-name }} Tool](/marketplace/products/yc/load-testing) application generates the {{ marketplace-full-name }} workload that is applied to [{{ network-load-balancer-full-name }}](../../network-load-balancer/). The network load balancer distributes traffic across VMs.
@@ -49,7 +49,7 @@ To prepare the application to run in {{ yandex-cloud }}:
    cd yandex-cloud-fault-tolerance-demo-master/app
    ```
 
-1. [Get authenticated](../../container-registry/operations/authentication.md) in {{ container-registry-name }}.
+1. [Get authenticated](../../container-registry/operations/authentication.md) in {{ container-registry-name }}:
 
    ```bash
    yc container registry configure-docker
@@ -119,10 +119,10 @@ To prepare the environment for running the application in {{ yandex-cloud }}:
 
    * {{ vpc-name }} [network](../../vpc/concepts/network.md#network) with three [subnets](../../vpc/concepts/network.md#subnet) in all availability zones.
    * Two [service accounts](../../iam/concepts/users/service-accounts.md):
-      * Service account for managing a VM instance group with the `editor` role.
-      * Service account for pulling a Docker image to a VM with the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md).
-   * Instance group of four {{ coi }}-based VM instances in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones.
-   * {{ mpg-name }} cluster with two hosts in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones.
+     * Service account for managing a VM group with the `editor` role.
+     * Service account for downloading a Docker image to a VM with the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md).
+   * VM group of four {{ coi }}-based VMs in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones.
+   * {{ mpg-name }} cluster with two hosts in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones.
    * Network load balancer to distribute traffic between the group's VMs.
 
    {% endcut %}
@@ -138,7 +138,7 @@ To prepare the environment for running the application in {{ yandex-cloud }}:
    * `yc_folder`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the application will be deployed.
    * `yc_token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the user to deploy the application.
 
-To access the application, go to the `lb_address` received after executing the `terraform apply` command.
+To access the application, go to the `lb_address` received after running the `terraform apply` command.
 
 ### Create and run the {{ load-testing-name }} Tool app {#create-load-testing-tool}
 
@@ -169,23 +169,23 @@ Before creating your {{ load-testing-name }} Tool app, [create TodoList app cont
 
    Where:
 
-   * `yc_folder`: Folder where the {{ load-testing-name }} Tool will be deployed.
-   * `yc_token`: IAM token of the user to deploy the {{ load-testing-name }} Tool.
+   * `yc_folder`: Folder where {{ load-testing-name }} Tool will be deployed.
+   * `yc_token`: IAM token of the user to deploy {{ load-testing-name }} Tool.
    * `overload_token`: Token to connect to `<overload.yandex.net>`. To get the token, log in, click your profile at the top right, and select **My api token** from the drop-down menu.
 
-1. Connect to the created VM via SSH. The connection address is specified in the `terraform apply` command output.
+1. Connect to the created VM via SSH. The connection address is specified in the `terraform apply` command output:
 
    ```bash
-   ssh <username>@<VM's_IP>
+   ssh <username>@<VM_IP_address>
    ```
 
-1. Run the {{ load-testing-name }} Tool:
+1. Run {{ load-testing-name }} Tool:
 
    ```bash
    sudo yandex-tank -c load.yaml
    ```
 
-1. Go to `<overload.yandex.net>` and find the running load: **Public tests** → **show my tests only**.
+1. Go to `<overload.yandex.net>` and find the running load there: **Public tests** → **show my tests only**.
 
 ## Running scenarios {#run}
 
@@ -193,7 +193,7 @@ Before creating your {{ load-testing-name }} Tool app, [create TodoList app cont
 
 How the failure shows itself: The VM with the application is unavailable.
 
-Possible causes include:
+Possible causes:
 
 * A failure of the physical host that the VM was running on.
 * The VM with the application was deleted by mistake.
@@ -204,13 +204,13 @@ To simulate the failure, delete one of the instances in the group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with your instance group.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-   1. Select the `todo-ig` group.
-   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
-   1. In the line with the appropriate VM, click ![image](../../_assets/options.svg), and then click **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your VM group.
+  1. In the list of services, select **{{ compute-name }}**.
+  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. Select the `todo-ig` group.
+  1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+  1. In the row with the VM you need, click ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
 {% endlist %}
 
@@ -223,7 +223,7 @@ Test bench reaction:
    1. Waits for the application to start on the VM instance.
    1. Adds the VM instance to load balancing.
 
-The load balancer and {{ ig-name }} require some time to detect the problem and disable traffic to the faulty VM instance. This may cause Connection Timeout errors (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
+The load balancer and {{ ig-name }} require some time to detect the problem and disable traffic to the faulty VM instance. This may cause Connection Timeout errors (HTTP code `0` on the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
 
 After disabling load balancing for the unavailable VM instance, the user load is handled correctly.
 
@@ -231,7 +231,7 @@ After disabling load balancing for the unavailable VM instance, the user load is
 
 How the failure shows itself: The application doesn't respond in time or doesn't work correctly from the user's point of view.
 
-Possible causes include:
+Possible causes:
 
 * A memory leak caused the application to fail.
 * The application is unable continue due to DB connectivity loss.
@@ -239,13 +239,13 @@ Possible causes include:
 
 According to [health check](../../compute/concepts/instance-groups/autohealing.md#setting-up-health-checks) settings, {{ ig-name }} polls VM instances in the group over HTTP. When operating normally, accessing the `/healthy` endpoint returns the HTTP code `200`. Otherwise, {{ ig-name }} starts the recovery procedure.
 
-To simulate the failure in the `yandex-cloud-fault-tolerance-demo-master` repository, run the following script:
+To simulate the `yandex-cloud-fault-tolerance-demo-master` repository failure, run this script:
 
 ```bash
-fail_random_host.sh <instance_group_ID>
+fail_random_host.sh <VM_group_ID>
 ```
 
-A random instance from the group will start returning the HTTP code `503`.
+A random VM from the group will start returning the HTTP code `503`.
 
 Test bench reaction:
 
@@ -255,7 +255,7 @@ Test bench reaction:
    1. Waits for the application to start on the VM instance.
    1. Adds the VM instance to load balancing.
 
-{{ ig-name }} polls the instance several times before disabling traffic and starting the recovery procedure. This may cause Service Unavailable errors (HTTP code `503` in the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
+{{ ig-name }} polls the instance several times before disabling traffic and starting the recovery procedure. This may cause Service Unavailable errors (HTTP code `503` on the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
 
 After disabling load balancing for the faulty VM instance, the user load is handled correctly.
 
@@ -263,7 +263,7 @@ After disabling load balancing for the faulty VM instance, the user load is hand
 
 How the failure shows itself: Multiple VMs are unavailable in the same zone.
 
-Possible causes include:
+Possible causes:
 
 * Data center downtime.
 * Scheduled maintenance in the data center.
@@ -274,7 +274,7 @@ To move your resources to another data center:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your instance group.
+  1. In the [management console]({{ link-console-main }}), select the folder with your VM group.
   1. In the list of services, select **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the `todo-ig` group.
@@ -287,12 +287,12 @@ To move your resources to another data center:
 Test bench reaction:
 
 1. {{ ig-name }} disables load balancing for the VMs in the `{{ region-id }}-b` availability zone.
-1. These VMs will be deleted while at the same time new VMs will be created in the `{{ region-id }}-c` zone.
+1. These VMs will be deleted while at the same time new VMs will be created in the `{{ region-id }}-d` zone.
 1. {{ ig-name }} adds the created VMs to load balancing.
 
 The number of VM instances that can be simultaneously created and deleted depends on the [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
+When disabling load balancing for VMs, Connection Timeout errors may occur (HTTP code `0` on the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
 
 After disabling load balancing for the VM instances, the user load is handled correctly.
 
@@ -304,7 +304,7 @@ To update the application:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your instance group.
+  1. In the [management console]({{ link-console-main }}), select the folder with your VM group.
   1. In the list of services, select **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the `todo-ig` group.
@@ -321,16 +321,16 @@ To update the application:
 
 Test bench reaction:
 
-1. {{ ig-name }} disables load balancing for two VM instances with the outdated app version (the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of these instances is `RUNNING_OUTDATED`).
-1. Deletes them while creating VM instances with the new app version.
-1. Adds the created VM instances to load balancing.
-1. The actions are repeated for the remaining two instances with the outdated app version.
+1. {{ ig-name }} disables load balancing for two VMs with the outdated application version (the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of these VMs is `RUNNING_OUTDATED`).
+1. Deletes these VMs while at the same time creating new VMs with the new app version.
+1. Enables load balancing for the new VMs.
+1. The actions are repeated for the remaining two VMs with the outdated app version.
 
 Refresh the app page. If the network load balancer sends your request to a VM instance that's already updated, you'll see the app version with a dark color scheme.
 
 The number of VM instances that can be simultaneously created and deleted depends on the [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
+When disabling load balancing for VMs, Connection Timeout errors may occur (HTTP code `0` on the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
 
 After disabling load balancing for the VM instances, the user load is handled correctly.
 
@@ -358,7 +358,7 @@ To scale the DB configuration:
 
 {{ mpg-name }} will run the update command for the cluster.
 
-When switching between the master and a replica (at the beginning and end of the update process), an Internal Server Error may occur (HTTP code `500` in the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
+When switching between the master and replica (at the beginning and end of the update process), an Internal Server Error may occur (HTTP code `500` on the **Quantities** and **HTTP codes** charts in the {{ load-testing-name }} Tool monitoring app).
 
 After switching, the user load is handled correctly.
 
@@ -366,17 +366,17 @@ After switching, the user load is handled correctly.
 
 {% note warning %}
 
-If you created your VM with the {{ load-testing-name }} Tool, be sure to delete the VM first, otherwise deleting the {{ vpc-name }} network will fail.
+If you had created a VM with the {{ load-testing-name }} Tool, be sure to delete the VM first, otherwise deleting the {{ vpc-name }} network will fail.
 
 {% endnote %}
 
-To delete the {{ load-testing-name }} Tool application, go to the `yandex-cloud-fault-tolerance-demo-master/terraform/tank` folder and run the following command:
+To delete the {{ load-testing-name }} Tool app, go to the `yandex-cloud-fault-tolerance-demo-master/terraform/tank` folder and run the following command:
 
 ```bash
 terraform destroy -var yc_folder=$YC_FOLDER -var yc_token=$YC_TOKEN -var user=$USER -var overload_token=not-used
 ```
 
-To delete the TodoList application, go to the `yandex-cloud-fault-tolerance-demo-master/terraform/app` folder and run the following command:
+To delete the TodoList app, go to the `yandex-cloud-fault-tolerance-demo-master/terraform/app` folder and run the following command:
 
 ```bash
 terraform destroy -var yc_folder=$YC_FOLDER -var yc_token=$YC_TOKEN -var user=$USER
