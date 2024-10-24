@@ -30,10 +30,10 @@ Limitations:
 Wizard<br/> section| Description
 ----- | ----
 Points with clusters (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
-Point size | Measure. Sets a point size depending on the measure value.
+Point size | Measure. Sets point size depending on the measure value.
 Colors | Dimension. Sets cluster chart segmentation.
 Labels | Measure. Displayed as text on a point. When used, point size control is blocked.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over a point.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. Used as a filter for the current layer.
 Filters | Dimension or measure. Used as a filter for the entire chart.
 
@@ -47,7 +47,7 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../dataset/create-dataset.md#create).
-1. Select the **Map** chart type.
+1. Select **Map** for chart type.
 1. Select the **Points with clusters (Geopoints)** layer type.
 1. Drag a dimension of the [Geopoint](../dataset/data-types#geopoint) type from the dataset to the layer type selection section.
 1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.

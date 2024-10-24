@@ -21,7 +21,7 @@ items:
             href: operations/managed/cert-modify.md
           - name: Deleting a certificate
             href: operations/managed/cert-delete.md
-      - name: Custom certificate
+      - name: User certificate
         items:
           - name: Adding a certificate
             href: operations/import/cert-create.md
@@ -43,7 +43,7 @@ items:
             href: operations/domain/domain-modify.md
           - name: Deleting a domain
             href: operations/domain/domain-delete.md
-      - name: Backups
+      - name: Backup
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md
@@ -57,7 +57,7 @@ items:
         href: tutorials/nginx-ingress-certificate-manager.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
-      - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
+      - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
       - name: Terminating TLS connections
         items:
@@ -73,7 +73,7 @@ items:
         href: concepts/index.md
       - name: Certificate from Let's Encrypt
         href: concepts/managed-certificate.md
-      - name: Custom certificate
+      - name: User certificate
         href: concepts/imported-certificate.md
       - name: Checking rights for a domain
         href: concepts/challenges.md
@@ -191,6 +191,8 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/certificate-manager

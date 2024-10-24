@@ -36,7 +36,7 @@ You can hash data as follows:
 
 A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, …, `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is decided by the following: column list and split string.
 
-> Example:
+> Examples:
 > If the column list features two columns – `month of birth` and `gender` – and the split string states `@`, the information about the employee John, born February 11, 1984, will get from the `Employees` table into the `Employees@February@male` table, which is the new table name.
 
 To partition tables:

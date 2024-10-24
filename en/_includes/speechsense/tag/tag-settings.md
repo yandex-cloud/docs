@@ -16,7 +16,7 @@
 
       A tag is assigned the _poor service_ key phrase. The search for this phrase will be performed differently depending on the **{{ ui-key.yc-ui-talkanalytics.tags.words-between-key-value }}** field value:
 
-      | Phrase example | Distance: `0` | Distance: `1` | Distance: `2` |
+      | Example in a dialog | Distance: `0` | Distance: `1` | Distance: `2` |
       | ----------- | ----------- | ----------- | ----------- |
       | _poor service_ | found | found | found |
       | _poor customer service_ | not found | found | found |

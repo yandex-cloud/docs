@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting for {{ coi }} in {{ cos-full-name }}
+title: Troubleshooting {{ coi }} issues in {{ cos-full-name }}
 description: This guide describes how you can fix issues with a {{ coi }}.
 ---
 
@@ -26,7 +26,7 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 {"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruern********/ngin>
 ```
 
-**How to fix it**: [Assign to the service account](../../iam/operations/sa/set-access-bindings.md)  the `viewer` or `container-registry.images.puller` role for a repository, registry, or folder. For more information about the roles available in the service, see our [documentation](../../container-registry/security/index.md).
+**How to fix it**: [Assign to the service account](../../iam/operations/sa/set-access-bindings.md) the `viewer` or `container-registry.images.puller` role for a repository, registry, or folder. For more information about the roles available in the service, see our [documentation](../../container-registry/security/index.md).
 
 ## No network access to {{ container-registry-name }} {#connection-to-cr}
 

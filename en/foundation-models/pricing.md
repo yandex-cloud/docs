@@ -129,6 +129,7 @@ Cost of using {{ yagpt-full-name }} for text generation with the following param
 * Model working mode: Synchronous
 
 
+
 {% include [usd-generating-pro-ml](../_pricing_examples/foundation-models/usd-generating-pro-ml.md) %}
 
 

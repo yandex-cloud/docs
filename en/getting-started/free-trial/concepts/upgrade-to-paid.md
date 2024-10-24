@@ -5,7 +5,7 @@ You do not upgrade to the paid version automatically after the trial period ends
 {% note info %}
 
 
-We recommend you to keep track of the money you spend from your personal account and maintain a positive balance manually. If you fail to pay the arrears within the timeline set forth in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to `SUSPENDED`.
+We recommend you to keep track of the money you spend from your personal account and maintain a positive balance manually. If you fail to pay your arrears within the timeline set forth in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to `SUSPENDED`.
 
 To control spending on {{ yandex-cloud }} resources more effectively, we recommend using a [budget](../../../billing/concepts/budget.md).
 

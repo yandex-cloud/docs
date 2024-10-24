@@ -17,6 +17,8 @@ items:
             href: operations/data/search-data.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
+          - name: Viewing related dialogs
+            href: operations/data/related-dialogs.md
           - name: Working with reports
             href: operations/data/manage-reports.md
       - name: Spaces
@@ -51,7 +53,7 @@ items:
             href: operations/project/tag/create.md
           - name: Changing a tag
             href: operations/project/tag/change.md
-          - name: Removing a tag
+          - name: Deleting a tag
             href: operations/project/tag/delete.md
       - name: Dictionaries
         items:
@@ -81,6 +83,8 @@ items:
             href: concepts/reports/evaluation-form.md
           - name: Usage details
             href: concepts/reports/details.md
+          - name: Neuroparameters
+            href: concepts/reports/neuro-parameters.md
       - name: Supported audio formats
         href: concepts/formats.md
   - name: API reference

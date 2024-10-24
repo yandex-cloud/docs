@@ -35,13 +35,13 @@ datasphere project job set-data-ttl --id <job_ID> --days <lifetime_in_days>
 When creating a job, specify its parameters in the `config.yaml` file, such as the [configuration of computing resources](../configurations.md) to run the job on and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, [deploys the environment](environment.md) on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.
 
 ```yaml
-# Job name.
+# Job name
 name: simple-python-script
-# Job description.
+# Job description
 desc: Program description
 
-# Entry point parameters to run computations.
-cmd: >  # Multi-line YAML string.
+# Entry point parameters to run computations
+cmd: >  # Multi-line YAML string
   python3 src/main.py
     --params ${PARAMS}
     --features ${<connector_ID>}/features.tsv
@@ -50,7 +50,7 @@ cmd: >  # Multi-line YAML string.
     --model ${MODEL}
     --epochs 5
 
-# Files with input data.
+# Files with input data
 inputs:
   - misc/logging.yaml  # File path relative to the job run directory on the local computer.
   - /usr/share/params.json: # Absolute path to the file on the local computer is saved to the PARAMS variable.
@@ -79,12 +79,12 @@ env:
   # docker:
   #   image: <path_to_image_in_registry>:<tag>  # For example, <{{ registry }}/crtabcdef12345678900/myenv:0.1>.
                                               # For Docker Hub, you only need to specify `<name>:<tag>`, e.g., `ubuntu:focal`.
-  #   username: <username>
+  #   username: <login>
   #   password: 
   #     secret-id: PASSWORD  # {{ ml-platform-name }} secret name.
 
   # Environment dependency build method.
-  python: auto # Fully automated environment build.
+  python: auto # Full environment build automation.
 
   # python: # Environment parameters are set manually. If no parameters are set, their values will be automatically taken from the current environment.
   #   type: manual
@@ -95,15 +95,21 @@ env:
 flags:
   - attach-project-disk # Mount project storage.
 
-# Configurations of computing resources for runing a job.
+# Computing resource configurations to run a job.
 cloud-instance-types:
   - g2.1 # Priority configuration.
   - g1.1 # Second priority configuration.
 
 # Extended working directory configuration.
 working-storage:
-  type: SSD    # Disk type in use. Optional, the default type is SSD. Possible values: SSD.
+  type: SSD    # Disk type in use. Optional, the default type is SSD. Possible values: SSD
   size: 150Gb  # Working directory size from 100 GB to 10 TB.
+
+# Configuring graceful shutdown.
+graceful-shutdown:
+  signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
+                   # Possible values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
+  timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
 ```
 
 The `config.yaml` file has multiple sections.
@@ -144,6 +150,8 @@ The `config.yaml` file has multiple sections.
 1. The `working-storage` section specifies the extended working directory parameters. By default, the working directory is created on the system disk. The directory's size is not guaranteed and is usually about 20 GB. If you need more space to complete the job, you can specify this explicitly. The extended working directory can range in size from 100 GB to 10 TB.
 
    You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-jobs).
+
+1. The `graceful-shutdown` section defines the graceful shutdown parameters. If the section is not specified, then the `SIGKILL` signal is sent to the job when the user presses **Ctrl** + **C**. In this section, you can redefine the signal itself as well as the wait time for graceful shutdown.
 
 #### See also {#see-also}
 

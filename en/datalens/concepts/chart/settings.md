@@ -29,16 +29,16 @@ The settings specified below may not be available for some chart types.
 
 * **On**: Displays a sum in a tooltip.
 * **Off**: Hides a sum in a tooltip. ||
-|| Navigator | Displays an additional element below the chart, the navigator. It helps to reduce a selection of data displayed in the chart.<br/><br/>Possible values:
+|| Navigator | Displays an additional element below the chart, the navigator. Allows reducing a data selection displayed in the chart.<br/><br/>Possible values:
 
 * **On**: Shows the navigator.
 * **Off**: Hides the navigator.
 
 For more information, see [this guide](../../operations/chart/config-chart-navigator.md). ||
-|| Pagination | Splits a table into pages.<br/><br/>Possible values:
+|| Pagination | Breaks a table into pages.<br/><br/>Possible values:
 
-* **On**: Displays the table in parts across pages.
-* **Off**: Displays the entire table. ||
+* **On**: Displays the table part by part across a number of pages.
+* **Off**: Displays the whole table. ||
 || Limit | Sets the number of rows to export. This is also the number of rows displayed per page. Available if **Pagination** is enabled. ||
 || Grouping | Displays unique field values.<br/><br/>Possible values:
 
@@ -61,7 +61,7 @@ To open settings of a dimension or a measure, click the icon to the left of its 
 
 {% note info %}
 
-If you apply aggregation to a dimension, it will work as a measure, and the measure settings will become available.
+If you apply an aggregation to the dimension, it will become a measure and the relevant settings will become available for it.
 
 {% endnote %}
 
@@ -69,33 +69,36 @@ If you apply aggregation to a dimension, it will work as a measure, and the meas
 
 #|
 || **Name** | **Description** ||
-|| Name | Sets a dimension name. ||
-|| Type | Sets the type of dimension data. ||
-|| Grouping | Sets the type of grouping or rounding. The setting is only available for dimensions of the `Date` and `Date and time` type. ||
-|| Format | Sets the format of how the values are displayed. ||
-|| Date mode | Sets the date display mode. This setting is only available for dimensions of the `Date` and `Date and time` type.><br/>Possible values:
+|| Parameter | Sets dimension name. ||
+|| Type | Sets dimension data type. ||
+|| Grouping | Sets grouping or rounding type. The setting is only available for dimensions of the `Date` and `Date and time` type. ||
+|| Format | Sets value display format. ||
+|| Date mode | Sets date display mode. This setting is only available for dimensions of the `Date` and `Date and time` type.><br/>Possible values:
 
 * **Continuous**: Displays all dates continuously.
 * **Discrete**: Displays dates that contain values. ||
-|| Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. ||
+|| Aggregation | Sets aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. ||
+|| Markdown | The field value will be formatted according to [{#T}](../../dashboard/markdown.md). Only available for `String` type fields. ||
+|| Sub-totals | Shows columns and/or rows with subtotals. This setting is only available for [Pivot table](../../visualization-ref/pivot-table-chart.md) charts. ||
 |#
 
 ### Measures {#indicator-settings}
 
 #|
 || **Name** | **Description** ||
-|| Name | Sets the measure name. ||
-|| Type | Sets the type of measure data. Not available for [QL charts](./ql-charts.md). ||
-|| Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. Not available for [QL charts](./ql-charts.md). ||
-|| Format | Sets the format of how the values are displayed. ||
-|| Decimal places | Sets the number of characters displayed after the decimal point in a value. Not available for [QL charts](./ql-charts.md). ||
+|| Parameter | Sets measure name. ||
+|| Type | Sets measure data type. Not available for [QL charts](./ql-charts.md). ||
+|| Aggregation | Sets aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. Not available for [QL charts](./ql-charts.md). ||
+|| Markdown | The field value will be formatted according to [{#T}](../../dashboard/markdown.md). Only available for `String` type fields. ||
+|| Format | Sets value display format. ||
+|| Decimal places | Sets the number of characters displayed after the decimal point. Not available for [QL charts](./ql-charts.md). ||
 || Display groups of thousands | Enables displaying groups of thousands for numeric values.<br/><br/>Possible values:
 
 * **With separator**: Displays spaces between groups of thousands.
 * **Merged**: Hide spaces between groups of thousands. ||
-|| Prefix | Sets a text displayed before a value. ||
-|| Postfix | Sets a text displayed after a value. ||
-|| Dimension | Sets a rounding scale of values. ||
+|| Prefix | Sets the text displayed before a value. ||
+|| Postfix | Sets the text displayed after a value. ||
+|| Dimension | Sets the rounding scale for values. ||
 |#
 
 ## Section settings {#section-settings}
@@ -122,29 +125,29 @@ Some of these settings may not be available for some axes.
 
 #|
 || **Name** | **Description** ||
-|| Axis name | Sets an axis label.<br/><br/>Possible values:
+|| Axis name | Sets axis label.<br/><br/>Possible values:
 
-* **On**: Uses the field name. If the section contains multiple fields, {{ datalens-short-name }} uses the name of the field listed first.
+* **On**: Use the field name. If the section contains multiple fields, {{ datalens-short-name }} uses the name of the field listed first.
 * **Off**: No axis label displayed.
-* **Manually**: Allows you to set an axis name manually in a text field. ||
-|| Axis type | Defines the axis type. This setting is available if fields in the axis section are of the `Fractional number` type.<br/><br/>Possible values:
+* **Manually**: Allows setting an axis name manually in a text field. ||
+|| Axis type | Defines axis type. This setting is available if fields in the axis section are of the `Fractional number` type.<br/><br/>Possible values:
 
-* **Linear**: Sets a linear axis.
-* **Logarithmic**: Sets a logarithmic axis. Use it for charts with a large range of values. A logarithmic axis allows you to display a fast-growing graph in a convenient form for analysis, reducing values by an order of magnitude. ||
+* **Linear**: Use linear axis.
+* **Logarithmic**: Use logarithmic axis. Suitable for charts with a large spread of values. The logarithmic axis allows you to display a fast-growing graph in a convenient form for analysis, reducing values by an order of magnitude. ||
 || Display mode | Enables configuring continuous chart display.<br/><br/>Possible values:
 
 * **Discrete**: Plots the chart only for non-null values.
-* **Continuous**: Plots the chart all values continuously. You can only use continuous mode for the `Integer`, `Decimal`, `Date`, or `Date and time` data types. ||
+* **Continuous**: Plots the chart for all values continuously. You can only use continuous mode for the `Integer`, `Decimal`, `Date`, or `Date and time` data types. ||
 || Axis formatting | Sets the formatting of numerical axis labels.<br/><br/>Possible values:
 
 * **Auto**: Default formatting.
-* **By first field on the X axis**: Displays the X axis labels with formatting as specified in the **Format** setting for the first field in the **X** section. Available in the X axis settings.
-* **By first field on the Y axis**: Displays the Y axis labels with formatting as specified in the **Format** setting for the first field in the **Y** section. Available in the Y axis settings. ||
-|| Grid | Enables or disables grid display in a chart.<br/><br/>Possible values:
+* **By first field on the X axis**: Displays the X axis labels with the formatting specified in the **Format** setting for the first field in the **X** section. Available in the X axis settings.
+* **By first field on the Y axis**: Displays the Y axis labels with the formatting specified in the **Format** setting for the first field in the **Y** section. Available in the Y axis settings. ||
+|| Grid | Enables/disables grid display in a chart.<br/><br/>Possible values:
 
 * **On**: Shows the grid.
 * **Off**: Hides the grid. ||
-|| Grid increments, px | Sets the grid increment in pixels. Available if **Grid** is enabled.<br/><br/>Possible values:
+|| Grid increments, px | Sets grid increment in pixels. Available if **Grid** is enabled.<br/><br/>Possible values:
 
 * **Auto**: Calculates grid size automatically.
 * **Manually**: Requires manual input of grid size in pixels. ||
@@ -158,7 +161,7 @@ Some of these settings may not be available for some axes.
 * **Horizontal**: Displays axis labels horizontally.
 * **Vertical**: Displays axis labels vertically.
 * **Angled**: Displays axis labels at a 45-degree angle. ||
-|| Null values | Allows you to select a method for handling null values.<br/><br/>Possible values:
+|| Null values | Allows selecting a null value handling method.<br/><br/>Possible values:
 
 * **Hide**: Hides null values in charts.
 * **Connect**: Connects field values where there are null values in between.
@@ -177,12 +180,12 @@ The following settings are available for a tree diagram, a table (including a pi
 
 #|
 || **Name** | **Description** ||
-|| Gradient type | Sets the number of colors used in the gradient.<br/><br/>Possible values:
+|| Gradient type | Sets the number of colors in the gradient.<br/><br/>Possible values:
 
 * **Two-color**: Sets two colors for the gradient.
 * **Tree-color**: Sets three colors for the gradient. ||
 || Color | Sets a color for a value. Available colors depend on the gradient type. ||
-|| Set threshold values | Allows you to set threshold values that will refer to each color. ||
+|| Set threshold values | Allows setting threshold values for each color. ||
 || Borders | Sets borders for geopolygons.<br/><br/>Possible values:
 
 * **Show**: Displays geopolygon borders.
@@ -193,7 +196,8 @@ You can [create color palettes](../../operations/chart/create-palette.md) and us
 
 ### Labels {#sign}
 
-This setting displays a measure value on the chart.
+Labels display measure values on the chart. [Markup functions](../../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+
 
 Labels are available for the following charts types:
 
@@ -219,7 +223,7 @@ Sorting is available for the following chart types:
 
 ### Filters {#filter}
 
-These allow making a selection of values by dimension or measure.
+Filters allow you to make a selection of values by dimension or measure.
 Filters are available for all chart types.
 
 
@@ -236,9 +240,9 @@ Depending on the visualization type, different settings are available.
 
 #|
 || **Name** | **Description** ||
-|| Size | Sets point size depending on the measure value. ||
-|| Colors | Set a color for geopoints and geopolygons depending on the measure value. ||
-|| Tooltips | Create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. ||
+|| Disk | Sets point size depending on the measure value. ||
+|| Colors | These set a color for geopoints and geopolygons depending on the measure value. ||
+|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
 || Layer filters | Create a selection by dimension or measure for the current layer. ||
 || General filters | Create a selection by dimension or measure for the whole chart. ||
 |#
@@ -265,7 +269,7 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 
 #|
 || **Name** | **Description** ||
-|| Gradient type | Sets the number of colors used in the gradient.<br/><br/>Possible values:
+|| Gradient type | Sets the number of colors in the gradient.<br/><br/>Possible values:
 
 * **Two-color**: Sets two colors for the gradient.
 * **Tree-color**: Sets three colors for the gradient. ||
@@ -274,7 +278,7 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 * **Show**: Displays geopolygon borders.
 * **Hide**: Hides geopolygon borders. ||
 || Color | Sets a color for geopoints and geopolygons. Available colors depend on the gradient type. ||
-|| Set threshold values | Allows you to set threshold values that will refer to each color. ||
+|| Set threshold values | It allows you to set threshold values that will refer to each color. ||
 |#
 
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.

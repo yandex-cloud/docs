@@ -1,4 +1,3 @@
-
 # Вопросы и ответы про {{ ca-full-name }}
 
 ### Ошибка в Visual Studio Code при аутентификации {#crypto-is-not-defined}
@@ -55,3 +54,7 @@ Failed to authenticate with proxy
 
 1. В верхнем меню IDE нажмите **Help** и выберите **Show log in Explorer** (**Show Log in Finder** на macOS).
 1. В открывшемся окне скопируйте файл `idea.log` и приложите его к обращению в техническую поддержку.
+
+#### Как изменить пользователя, аутентифицированного в плагине {{ ca-name }} {#change-user}
+
+Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./quickstart.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./quickstart.md#install-plugin).

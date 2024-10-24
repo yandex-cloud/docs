@@ -8,7 +8,7 @@ noIndex: true
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md) feature.
 
-To do this, in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, specify `FACE_DETECTION` in the `type` property.
+To do this, in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 
@@ -29,7 +29,7 @@ To do this, in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) m
     Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
     {% endnote %}
-1. Encode the file as Base64:
+1. Encode the file into Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Create a file with the request body, e.g., `body.json`:
@@ -65,7 +65,7 @@ To do this, in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) m
 
     ```bash
     vision_face_detection() {
-        curl -H "Authorization: Bearer `yc iam create-token`" \
+        curl --header "Authorization: Bearer `yc iam create-token`" \
         "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {

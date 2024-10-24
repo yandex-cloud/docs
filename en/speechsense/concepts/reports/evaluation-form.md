@@ -13,7 +13,7 @@ You can analyze and evaluate agent performance using the **Evaluation form** rep
 
 ## How to build a report {#form}
 
-To generate the **Evaluation form** report, specify the following settings:
+Use the following settings to generate an **Evaluation form** report:
 
 * [Evaluation parameters](#parameters): Define a list of criteria for agent performance evaluation.
 * [Weight](#weight): Indicates how critical an evaluation parameter is for agent performance evaluation.
@@ -29,7 +29,7 @@ Where:
 
 * `value`: Evaluation parameter value.
 * `criterion`: Number of filtered dialogs that meet the condition specified in the evaluation parameter.
-* `filters`: Total number of filtered dialogs.
+* `filters`: Number of all filtered dialogs.
 * `weight`: Evaluation parameter weight as a percentage.
 
 > Example. Source data:
@@ -47,11 +47,21 @@ Where:
 
 _Evaluation parameters_ are criteria for agent performance evaluation. A value or range of values is specified for each evaluation parameter. {{ speechsense-name }} scans the dialog between the agent and the customer for the parameters specified in the report. If a dialog meets the criteria specified in the evaluation parameter, data about that dialog is added to the report.
 
-> For example, the report has the **Agent interrupted the customer, times** evaluation parameter enabled. The range specified for it is from two times upwards. {{ speechsense-name }} analyzes the conversation recording to find how many times the agent has interrupted the customer. If the value is two or more, the information is added to the report.
+> For example, the report has the **Agent interrupted the customer, times** evaluation parameter enabled. The range of values specified for this parameter starts from two times. {{ speechsense-name }} analyzes the conversation recording to find out how many times the agent has interrupted the customer. If the value is two or more, the information is added to the report.
 
 There are several types of evaluation parameters:
 
-{% include [description-of-parameters](../../../_includes/speechsense/reports/parameters.md) %}
+* **Agent**: Agent data.
+* **Customer**: Customer data.
+* **Bot** (only for chats): Bot data.
+* **Speech statistics** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
+* **General metadata**: Data about the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
+* **Customer tags** and **Agent tags**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects certain keywords, phrases, or intonations in a dialog, classifies the dialog, and adds a tag to it.
+
+   {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
+
+* **{{ yagpt-name }} analysis**: Agent’s performance criteria and customer’s behavioral characteristics during the dialog, such as whether the agent was polite, whether the customer was on the rude side, etc.
+* **Neuroparameters**: Reasons, topics, or outcomes of dialogs. You can learn more about neuroparameters [here](neuro-parameters.md).
 
 ### Evaluation parameter weight {#weight}
 
@@ -59,15 +69,24 @@ _Evaluation parameter weight_ is a setting that indicates how critical an evalua
 
 > For example, there are two evaluation parameters in the report: **Agent speech rate** and **Customer speech rate**. The agent and the customer had the same speech rate, but the first parameter's weight is 70%, while that of the second one is 30%. The report will, therefore, display a higher value for the **Agent speech rate** parameter.
 
-You can set different weights for multiple evaluation parameters with the same name but different values. For example, you add two parameters named **Share of silence in dialog** with the ranges from `0.1` to `0.3` and from `0.3` upwards. You can set a different weight for each range. The `0.3` boundary value falls within both the ranges and is displayed for both the parameters in the report.
+You can set different weights for multiple evaluation parameters with the same name but different values. For example, you add two parameters named **Share of silence in dialog** with the ranges from `0,1` to `0,3` and from `0,3` upwards. You can set a different weight for each range. The `0,3` boundary value falls within both ranges and is displayed in the report for both parameters.
 
-### Report filtering {#filters}
+### Filtering in the report {#filters}
 
-{% include notitle [filters](../../../_includes/speechsense/reports/filters.md) %}
+You can use filtering to select the dialogs to include in your report. To do this, use the following settings:
 
-## Visualizing and using data in reports {#display}
+* **Period**: Time period of the report.
+* **Filters**: Use the same fields as for the parameters.
+* **Grouping**: Choose how to group data in your report. You can only group by metadata fields, e.g.:
 
-A report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface as a chart and table, as well as download it in CSV format.
+   * By agent, to analyze the performance of each one.
+   * By product, to learn which products agents make fewer mistakes presenting in dialogs.
+
+Data cross-sections depend on the dialog metadata. For example, if you want to filter or group data by product, make sure there is a relevant field in the [metadata file](../../../speechsense/quickstart.md#set-space). If you need a new set of metadata, prepare dialog recordings or chats with relevant metadata and [upload these recordings](../../../speechsense/operations/data/upload-data.md) or [chats](../../../speechsense/operations/data/upload-chat-text.md).
+
+## Visualizing and using the report data {#display}
+
+The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
 
 The available **Evaluation form** report formats include:
 

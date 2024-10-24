@@ -11,7 +11,7 @@ description: This article describes how to use POST requests.
 
 {% note warning %}
 
-Special characters provided as parameter values in the request body should be replaced with respective escaped sequences based on XML encoding. For example, use the `&amp;` sequence instead of the ampersand (`&`).
+If you have any special characters in the parameter values provided in the request body, replace them with the respective escaped sequences based on the XML encoding. For example, use `&amp;` for ampersand (`&`).
 
 {% endnote %}
 
@@ -94,7 +94,7 @@ Possible `groupby` parameters:
 
 ## Sample POST request {#example-post-request}
 
-The URL and request body presented below return the fifth page of search results for the `<table>` command. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
+The URL and request body presented below return the fifth page of search results for the `<table>` request. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
 
 Request URL:
 

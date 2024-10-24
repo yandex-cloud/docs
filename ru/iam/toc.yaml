@@ -79,6 +79,13 @@ items:
             href: operations/authorized-key/create.md
           - name: Удаление авторизованного ключа
             href: operations/authorized-key/delete.md
+      - name: Доступ сервисов к ресурсам пользователя
+        stage: preview
+        items:
+          - name: Просмотр статусов сервисов
+            href: operations/service-control/list-get.md
+          - name: Включение и выключение сервисов
+            href: operations/service-control/enable-disable.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -127,6 +134,9 @@ items:
             href: concepts/authorization/key.md
           - name: Статический ключ доступа
             href: concepts/authorization/access-key.md
+      - name: Доступ сервисов к ресурсам пользователя
+        stage: preview
+        href: concepts/service-control.md
       - name: Федерации удостоверений
         href: concepts/federations.md
       - name: Федерации сервисных аккаунтов

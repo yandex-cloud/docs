@@ -1,0 +1,1 @@
+Управлять доступом сервисов к ресурсам могут пользователи с ролью [администратора](../../resource-manager/security/index.md#resource-manager-admin) или [владельца](../../resource-manager/security/index.md#resource-manager-clouds-owner) облака.
