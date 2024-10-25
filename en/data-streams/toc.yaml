@@ -59,6 +59,8 @@ items:
         href: concepts/limits.md
       - name: Comparison with Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
+      - name: Transactions involving data streams and YDB tables
+        href: concepts/topic-table-transactions.md
   - name: Tutorials
     items:
       - name: Entering data into storage systems
@@ -87,7 +89,7 @@ items:
         href: tutorials/static-key-in-lockbox.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
   - name: Access management
     href: security/index.md

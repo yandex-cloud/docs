@@ -10,4 +10,3 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](af-interfaces.md)
 * [Загрузка DAG-файлов в кластер](upload-dags.md)
 * [Удаление кластера](cluster-delete.md)
-* [Просмотр операций с кластерами](operation-logs.md)

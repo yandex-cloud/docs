@@ -2,15 +2,13 @@
 
 {% note warning %}
 
-To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.amazon.com/sdk-for-python/), an SDK designed for Python. `boto3` versions 1.26.0 and higher are not supported.
+To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.amazon.com/sdk-for-python/), an SDK designed for Python.
 
 {% endnote %}
 
-## Installation {#install}
+## Installing {#install}
 
 To install boto, follow the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
-
-To install `boto3` 1.26.0, specify `boto3==1.26.0` in the `requirements.txt` file and run `pip install -r requirements.txt`, or use the `pip install boto3==1.26.0` command. Use the `pip show boto3` command to check which version is installed.
 
 ## Getting started {#prepare}
 

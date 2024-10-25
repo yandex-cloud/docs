@@ -32,7 +32,7 @@ Playable content link.
 Player creation examples:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/...', ...});
+var player = Ya.playerSdk.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/...', ...});
 ```
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}
@@ -48,7 +48,7 @@ Autoplay is disabled by default.
 Player creation examples with disabled autoplay:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., autoplay: false, ...});
+var player = Ya.playerSdk.init({ ..., autoplay: false, ...});
 ```
 
 #### muted {#muted}
@@ -60,7 +60,7 @@ If the sound is on, autoplay may [fail](https://developer.chrome.com/blog/autopl
 Player creation examples with enabled sound:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., muted: false, ...});
+var player = Ya.playerSdk.init({ ..., muted: false, ...});
 ```
 
 #### volume {#volume}
@@ -72,7 +72,7 @@ The default value is `1`.
 Player creation example with the `0.5` volume:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., volume: 0.5, ...});
+var player = Ya.playerSdk.init({ ..., volume: 0.5, ...});
 ```
 
 #### startPosition {#startposition}
@@ -87,7 +87,7 @@ The default values are:
 Player creation example with the `10` starting position:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., startPosition: 10, ...});
+var player = Ya.playerSdk.init({ ..., startPosition: 10, ...});
 ```
 
 #### hiddenControls {#hiddencontrols}
@@ -103,25 +103,25 @@ Examples:
 * Hide the play/pause and settings buttons by providing `hiddenControls` as a string:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: 'play,settings', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: 'play,settings', ...});
     ```
 
 * Hiding the play/pause and settings buttons by providing `hiddenControls` as an array:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: ['play','settings'], ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: ['play','settings'], ...});
     ```
 
 * You can hide all interface elements using the `*` meta element:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: '*', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: '*', ...});
     ```
 
 * To hide all interface elements except the specified one, you can use the `!` operator. For example, the following code will hide all controls except the play/pause button:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: '*,!play', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: '*,!play', ...});
     ```
 
 Interface elements you can hide:
