@@ -1,11 +1,5 @@
 # Configuring the AWS CLI
 
-{% note warning %}
-
-Currently, there is no support for the AWS CLI versions with JSON protocol. Use the [AWS CLI](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-json-faqs.html#json-protocol-getting-started) `1.29.81` or an older version.
-
-{% endnote %}
-
 You can manage queues and messages in {{ message-queue-name }} using the [AWS CLI](https://aws.amazon.com/cli/).
 
 To configure the AWS CLI to work with {{ message-queue-name }}:

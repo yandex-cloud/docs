@@ -12,7 +12,7 @@ You can integrate a [video player](../../concepts/player.md) with content from C
 To connect a player to a page, add the following code to it:
 
 ```html
-<script src="https://storage.yandexcloud.net/videoplatform-public/player/yandex-video-player-iframe-api-bundles/1.0-11944/js/player-sdk.js"></script>
+<script src="https://runtime.video.cloud.yandex.net/player/js/player-sdk.js"></script>
 ```
 
 ## Initializing a player {#initialize-player}

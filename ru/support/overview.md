@@ -20,7 +20,7 @@
 
 
 
-Создать запрос в центре поддержки может пользователь, который является [членом организации](../organization/concepts/membership.md) {{ yandex-cloud }}. [Убедитесь](./support-center.md#before-you-begin), что вы создаете запрос от имени нужной организации. Если возникла проблема с продакшен-средой вашей инфраструктуры, укажите тип обращения _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_.
+Создать запрос в центре поддержки может только [пользователь](../overview/roles-and-resources.md#users) {{ yandex-cloud }}. [Убедитесь](./support-center.md#before-you-begin), что вы создаете запрос от имени нужной организации. Если возникла проблема с продакшн-средой вашей инфраструктуры, укажите тип обращения _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_.
 
 Вне зависимости от тарифного плана вы можете запрашивать у технической поддержки:
 
