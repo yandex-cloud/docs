@@ -19,6 +19,8 @@ As for now, you can only reduce the number of shards in a stream by deleting and
 
 {% endnote %}
 
+You can configure a data stream to increase the number of shards as the write speed into the stream increases. For more information, see [autopartitioning in the {{ ydb-short-name }} documentation](https://ydb.tech/docs/en/concepts/topic#partitioning).
+
 ### Shard key {#partition-key}
 
 A shard key is specified for each [message](#message) while writing it to a stream. Using the key hash, the message is mapped to a certain shard inside the stream.
@@ -31,7 +33,7 @@ When updating the number of stream shards, their distribution across the key has
 
 ### Shard throughput {#shard-thoughput}
 
-Each shard has a limited user-defined throughput. The maximum data input per shard is 1 MB/sec and the maximum data output is 2 MB/sec.
+Each shard has a limited user-defined throughput. The maximum data write speed per shard is 1 MB/sec and the maximum data read speed is 2 MB/sec.
 
 ## Message {#message}
 
@@ -41,7 +43,7 @@ It consists of a [body](#message-body) and additional system properties.
 
 ### Message body {#message-body}
 
-The message body is a set of bytes. {{ yds-name }} doesn't interpret the message body in any way.
+The body of a message is a set of bytes. {{ yds-name }} does not interpret the message body in any way.
 
 ### Message sequence number {#sequence-number}
 
@@ -57,4 +59,4 @@ Consumers are applications that get data from {{ yds-name }} and process it. All
 
 ## Consumer groups {#extended-consumers}
 
-In some cases, a [quota]({{ link-console-quotas }}) model that is common for all consumers is too restrictive, so each consumer is provided a guaranteed read speed. Consumers with a guaranteed read speed are called _consumer groups_.
+In some cases, the common [quota]({{ link-console-quotas }}) model for all consumers is too restrictive, so each consumer gets a guaranteed read speed. Consumers with a guaranteed read speed are called _consumer groups_.

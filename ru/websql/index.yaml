@@ -11,9 +11,9 @@ description:
     появляются в Connection Manager сервиса MetaData Hub и наоборот.
   - >-
     Yandex WebSQL поддерживает работу со следующими версиями БД: <ul>
-    <li>PostgreSQL: 12, 13, 14, 15, 16.</li> <li>MySQL: 5, 8.</li>
-    <li>ClickHouse®: 23, 24.</li> <li>Redis (только нешардированные кластеры):
-    6.2, 7.</li> </ul>
+    <li>PostgreSQL: 12 и выше.</li> <li>MySQL: 5 и выше.</li> <li>ClickHouse®:
+    23 и выше.</li> <li>Redis (только нешардированные кластеры): 6 и выше.</li>
+    </ul>
 meta:
   title: Yandex WebSQL
 links:

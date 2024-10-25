@@ -1704,15 +1704,35 @@ default:
           v1|string: "15\_000,00\_₸"
   sku|KZT|sws:
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 125000
           01|string: "125\_000,00\_₸"
+        1|number: 17500
         1|string: "17\_500,00\_₸"
+        10|number: 1000
         10|string: "1\_000,00\_₸"
+        100|number: 700
         100|string: "700,00\_₸"
+        1000|number: 250
         1000|string: "250,00\_₸"
         10000|string: "125,00\_₸"
       v1|string: Не тарифицируется
+    waf:
+      requests:
+        v1|number: 0
+        v1|pricingRate:
+          '0':
+            01|number: 125000
+            01|string: "125\_000,00\_₸"
+          1|number: 17500
+          1|string: "17\_500,00\_₸"
+          10|number: 1000
+          10|string: "1\_000,00\_₸"
+          100|number: 700
+          100|string: "700,00\_₸"
+          1000|number: 250
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2117,6 +2137,7 @@ default:
         v1|string: Не тарифицируется
   sku|RUB|datalens:
     users:
+      v1|number: 990
       v1|string: "990,00\_₽"
   sku|RUB|datatransfer:
     compute:
@@ -2835,15 +2856,35 @@ default:
           v1|string: "3\_000,00\_₽"
   sku|RUB|sws:
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 25000
           01|string: "25\_000,00\_₽"
+        1|number: 3500
         1|string: "3\_500,00\_₽"
+        10|number: 200
         10|string: "200,00\_₽"
+        100|number: 140
         100|string: "140,00\_₽"
+        1000|number: 50
         1000|string: "50,00\_₽"
         10000|string: "25,00\_₽"
       v1|string: Не тарифицируется
+    waf:
+      requests:
+        v1|number: 0
+        v1|pricingRate:
+          '0':
+            01|number: 25000
+            01|string: "25\_000,00\_₽"
+          1|number: 3500
+          1|string: "3\_500,00\_₽"
+          10|number: 200
+          10|string: "200,00\_₽"
+          100|number: 140
+          100|string: "140,00\_₽"
+          1000|number: 50
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3948,15 +3989,30 @@ default:
           v1|string: "24,000000\_$"
   sku|USD|sws:
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 200
           01|string: "200,000000\_$"
+        1|number: 28
         1|string: "28,000000\_$"
+        10|number: 1.6
         10|string: "1,600000\_$"
+        100|number: 1.12
         100|string: "1,120000\_$"
+        1000|number: 0.4
         1000|string: "0,400000\_$"
         10000|string: "0,200000\_$"
       v1|string: Не тарифицируется
+    waf:
+      requests:
+        v1|pricingRate:
+          '0':
+            01|number: 200
+          1|number: 28
+          10|number: 1.6
+          100|number: 1.12
+          1000|number: 0.4
   sku|USD|v1:
     commitment:
       selfcheckout:

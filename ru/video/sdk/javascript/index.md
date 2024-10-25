@@ -12,7 +12,7 @@ description: На странице приведены основные элем�
 Чтобы подключить плеер на страницу, добавьте на нее код:
 
 ```html
-<script src="https://storage.yandexcloud.net/videoplatform-public/player/yandex-video-player-iframe-api-bundles/1.0-11944/js/player-sdk.js"></script>
+<script src="https://runtime.video.cloud.yandex.net/player/js/player-sdk.js"></script>
 ```
 
 ## Инициализация плеера {#initialize-player}
