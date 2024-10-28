@@ -63,6 +63,10 @@ To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List
     },
     "generation2Features": "object"
     // end of the list of possible fields
+  },
+  "kmsKey": {
+    "keyId": "string",
+    "versionId": "string"
   }
 }
 ```
@@ -145,6 +149,9 @@ Placement policy configuration. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -186,4 +193,16 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

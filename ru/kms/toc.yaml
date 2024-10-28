@@ -95,6 +95,8 @@ items:
         href: tutorials/terraform-secret.md
       - name: Auto Unseal в HashiCorp Vault
         href: tutorials/vault-secret.md
+      - name: Безопасная передача пароля в скрипт инициализации
+        href: tutorials/secure-password-script.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

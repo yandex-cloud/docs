@@ -16,7 +16,7 @@ A set of methods for managing Instance resources.
 || [Create](create.md) | Creates an instance in the specified folder. ||
 || [Update](update.md) | Updates the specified instance. ||
 || [Delete](delete.md) | Deletes the specified instance. ||
-|| [UpdateMetadata](updateMetadata.md) | Updates the metadata of the specified instance. ||
+|| [UpdateMetadata](updateMetadata.md) | Updates the metadata of the specified instance. For more information on metadata, see [VM metadata](/docs/compute/concepts/vm-metadata). ||
 || [GetSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource. ||
 || [Stop](stop.md) | Stops the running instance. ||
 || [Start](start.md) | Starts the stopped instance. ||

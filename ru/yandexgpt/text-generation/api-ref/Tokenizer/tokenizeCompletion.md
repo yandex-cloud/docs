@@ -26,8 +26,45 @@ POST https://llm.{{ api-host }}/foundationModels/v1/tokenizeCompletion
   "messages": [
     {
       "role": "string",
-      // Includes only one of the fields `text`
-      "text": "string"
+      // Includes only one of the fields `text`, `toolCallList`, `toolResultList`
+      "text": "string",
+      "toolCallList": {
+        "toolCalls": [
+          {
+            // Includes only one of the fields `functionCall`
+            "functionCall": {
+              "name": "string",
+              "arguments": "object"
+            }
+            // end of the list of possible fields
+          }
+        ]
+      },
+      "toolResultList": {
+        "toolResults": [
+          {
+            // Includes only one of the fields `functionResult`
+            "functionResult": {
+              "name": "string",
+              // Includes only one of the fields `content`
+              "content": "string"
+              // end of the list of possible fields
+            }
+            // end of the list of possible fields
+          }
+        ]
+      }
+      // end of the list of possible fields
+    }
+  ],
+  "tools": [
+    {
+      // Includes only one of the fields `function`
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
+      }
       // end of the list of possible fields
     }
   ]
@@ -47,6 +84,10 @@ Configuration options for completion generation. ||
 || messages[] | **[Message](#yandex.cloud.ai.foundation_models.v1.Message)**
 
 A list of messages representing the context for the completion model. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.foundation_models.v1.Tool)**
+
+List of tools that are available for the model to invoke during the completion generation.
+Note: This parameter is not yet supported and will be ignored if provided. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.foundation_models.v1.CompletionOptions}
@@ -85,9 +126,134 @@ The ID of the message sender. Supported roles:
 
 Textual content of the message.
 
-Includes only one of the fields `text`.
+Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
 
 Message content. ||
+|| toolCallList | **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
+
+List of tool calls made by the model as part of the response generation.
+
+Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+
+Message content. ||
+|| toolResultList | **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
+
+List of tool results returned from external tools that were invoked by the model.
+
+Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+
+Message content. ||
+|#
+
+## ToolCallList {#yandex.cloud.ai.foundation_models.v1.ToolCallList}
+
+Represents a list of tool calls.
+
+#|
+||Field | Description ||
+|| toolCalls[] | **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall)**
+
+A list of tool calls to be executed. ||
+|#
+
+## ToolCall {#yandex.cloud.ai.foundation_models.v1.ToolCall}
+
+Represents a call to a tool.
+
+#|
+||Field | Description ||
+|| functionCall | **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
+
+Represents a call to a function.
+
+Includes only one of the fields `functionCall`. ||
+|#
+
+## FunctionCall {#yandex.cloud.ai.foundation_models.v1.FunctionCall}
+
+Represents the invocation of a function with specific arguments.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function being called. ||
+|| arguments | **object**
+
+The structured arguments passed to the function.
+These arguments must adhere to the JSON Schema defined in the corresponding function's parameters. ||
+|#
+
+## ToolResultList {#yandex.cloud.ai.foundation_models.v1.ToolResultList}
+
+Represents a list of tool results.
+
+#|
+||Field | Description ||
+|| toolResults[] | **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult)**
+
+A list of tool results. ||
+|#
+
+## ToolResult {#yandex.cloud.ai.foundation_models.v1.ToolResult}
+
+Represents the result of a tool call.
+
+#|
+||Field | Description ||
+|| functionResult | **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
+
+Represents the result of a function call.
+
+Includes only one of the fields `functionResult`. ||
+|#
+
+## FunctionResult {#yandex.cloud.ai.foundation_models.v1.FunctionResult}
+
+Represents the result of a function call.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function that was executed. ||
+|| content | **string**
+
+The result of the function call, represented as a string.
+This field can be used to store the output of the function.
+
+Includes only one of the fields `content`. ||
+|#
+
+## Tool {#yandex.cloud.ai.foundation_models.v1.Tool}
+
+Represents a tool that can be invoked during completion generation.
+
+#|
+||Field | Description ||
+|| function | **[FunctionTool](#yandex.cloud.ai.foundation_models.v1.FunctionTool)**
+
+Represents a function that can be called.
+
+Includes only one of the fields `function`. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.foundation_models.v1.FunctionTool}
+
+Represents a function tool that can be invoked during completion generation.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#
 
 ## Response {#yandex.cloud.ai.foundation_models.v1.TokenizeResponse}

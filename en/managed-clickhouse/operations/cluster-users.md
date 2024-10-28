@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to manage {{ mch-name }} clust
 
 {{ mch-name }} provides two ways for you to manage users and their individual settings:
 
-* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* Using native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
 
 {% note warning %}
@@ -27,10 +27,15 @@ Creating a new {{ CH }} cluster automatically creates [service users](../concept
 
 To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [reconfiguring](update.md#SQL-management) a cluster.
 
+{% note warning %}
+
+You cannot disable the SQL user management setting once it is enabled.
+
+{% endnote %}
+
 In a cluster with user management via SQL enabled:
 
-* User management using the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* You cannot enable user management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console).
+* User management via standard {{ yandex-cloud }} interfaces (management console, CLI, API, {{ TF }}) is unavailable.
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
@@ -147,7 +152,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add the `user` section to the {{ mch-name }} cluster description:
+    1. Add a `user` section to the {{ mch-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -653,7 +658,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
        SET readonly=0
        ```
 
-       As a result, the command should display a message stating that you cannot change the setting in read-only mode:
+       As a result, the command should return a message stating that you cannot change the setting in read-only mode:
 
        ```
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.

@@ -9,7 +9,7 @@ Deletes the specified target group.
 
 ## gRPC request
 
-**rpc Delete ([DeleteTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.DeleteTargetGroupRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Delete ([DeleteTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.DeleteTargetGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## DeleteTargetGroupRequest {#yandex.cloud.apploadbalancer.v1.DeleteTargetGroupRequest}
 

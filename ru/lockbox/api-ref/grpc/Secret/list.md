@@ -29,13 +29,13 @@ Required field. ID of the folder to list secrets in. ||
 || pageSize | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListSecretsRequest.nextPageToken](#yandex.cloud.lockbox.v1.ListSecretsResponse)
+results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSecretsRequest.nextPageToken](#yandex.cloud.lockbox.v1.ListSecretsResponse) returned by a previous list request. ||
+[ListSecretsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## ListSecretsResponse {#yandex.cloud.lockbox.v1.ListSecretsResponse}

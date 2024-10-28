@@ -53,9 +53,10 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
   1. To send a request to the neural network using the [ImageGenerationAsync.generate](../../image-generation/api-ref/ImageGenerationAsync/generate.md) method, run the following command:
 
      ```bash
-     curl --request POST \
-       -H "Authorization: Bearer <IAM_token_value>" \
-       -d "@prompt.json" \
+     curl \
+       --request POST \
+       --header "Authorization: Bearer <IAM_token_value>" \
+       --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
      ```
 
@@ -75,12 +76,12 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
   1. Generating an image may take from a few seconds to a few hours. Wait for a while and send a request to `https://llm.api.cloud.yandex.net:443/operations/<operation_ID>` to get the generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`.
 
      ```bash
-     curl -X GET -H "Authorization: Bearer <IAM_token_value>" https://llm.api.cloud.yandex.net:443/operations/<operation_ID> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl --request GET --header "Authorization: Bearer <IAM_token_value>" https://llm.api.cloud.yandex.net:443/operations/<operation_ID> | jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Where:
 
-     * `<IAM_token_value>`: IAM token you got [before you started](#before-begin).
-     * `<operation_ID>`: The `id` field value obtained in response to the generation request.
+     * `<IAM_token_value>`: IAM token you obtained [when getting started](#before-begin).
+     * `<operation_ID>`: `id` field value obtained in response to the generation request.
 
 {% endlist %}

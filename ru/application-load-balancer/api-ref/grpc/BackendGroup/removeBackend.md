@@ -9,7 +9,7 @@ Removes backends from the specified backend group.
 
 ## gRPC request
 
-**rpc RemoveBackend ([RemoveBackendRequest](#yandex.cloud.apploadbalancer.v1.RemoveBackendRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc RemoveBackend ([RemoveBackendRequest](#yandex.cloud.apploadbalancer.v1.RemoveBackendRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## RemoveBackendRequest {#yandex.cloud.apploadbalancer.v1.RemoveBackendRequest}
 

@@ -11,3 +11,4 @@ description: Различные сценарии использования {{ k
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
 * [{#T}](vault-secret.md)
+* [{#T}](secure-password-script.md)

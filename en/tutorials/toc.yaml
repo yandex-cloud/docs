@@ -325,8 +325,8 @@ items:
               - name: '{{ TF }}'
                 href: internet-store/bitrix-shop/terraform.md
           - name: >-
-              Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name
-              }}
+              Creating a cluster of 1C:Enterprise Linux servers with a {{
+              mpg-name }} cluster
             href: infrastructure-management/1c-postgresql-linux.md
       - name: Internet of Things (IoT)
         items:
@@ -353,8 +353,8 @@ items:
       - name: Deploying the UI for {{ KF }}
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
-          Migrating databases from a third-party {{ KF }} cluster to {{ mkf-name
-          }}
+          Migrating a database from a third-party {{ KF }} cluster to {{
+          mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
           Moving data between {{ mkf-name }} clusters using {{
@@ -514,7 +514,7 @@ items:
       - name: '{{ MG }} performance analysis and tuning'
         href: dataplatform/mongodb-profiling.md
       - name: >-
-          Migrating databases from a third-party {{ MY }} cluster to a {{
+          Migrating a database from a third-party {{ MY }} cluster to a {{
           mmy-name }} cluster
         href: dataplatform/mysql-data-migration.md
       - name: '{{ mmy-name }} performance analysis and tuning'
@@ -524,12 +524,12 @@ items:
           using {{ data-transfer-name }}
         href: dataplatform/sync-mysql.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to a third-party {{ MY }}
+          Migrating a database from {{ mmy-name }} to a third-party {{ MY }}
           cluster
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ objstorage-name }} using
-          {{ data-transfer-name }}
+          Migrating a database from {{ mmy-name }} to {{ objstorage-name }}
+          using {{ data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
       - name: >-
           Migrating data from {{ objstorage-name }} to {{ mmy-name }} using {{
@@ -545,7 +545,7 @@ items:
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mmy.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
@@ -582,15 +582,19 @@ items:
           Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: >-
+          Authenticating a {{ mos-full-name }} cluster in {{ OS }} Dashboards
+          using {{ keycloak }}
+        href: dataplatform/opensearch-saml-keycloak.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
-      - name: Migrating databases from {{ mpg-name }}
+      - name: Migrating a database from {{ mpg-name }}
         href: dataplatform/outbound-replication.md
       - name: >-
-          Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name
-          }}
+          Migrating a database from a third-party {{ PG }} cluster to {{
+          mpg-name }}
         href: dataplatform/postgresql-data-migration.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
@@ -608,7 +612,7 @@ items:
           Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
-      - name: Migrating databases from {{ mpg-name }} to {{ objstorage-name }}
+      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
           Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }}
@@ -624,9 +628,9 @@ items:
           Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/postgresql-to-opensearch.md
-      - name: Migrating databases from {{ GP }} to {{ CH }}
+      - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
-      - name: Migrating databases from {{ GP }} to {{ PG }}
+      - name: Migrating a database from {{ GP }} to {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
       - name: Exporting {{ GP }} data to a cold storage in {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
@@ -635,8 +639,8 @@ items:
           using {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-greenplum.md
       - name: >-
-          Migrating databases from a third-party {{ RD }} cluster to {{ mrd-name
-          }}
+          Migrating a database from a third-party {{ RD }} cluster to {{
+          mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
@@ -651,7 +655,7 @@ items:
         href: dataplatform/mkf-ydb-stream.md
         hidden: true
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
         hidden: true
@@ -710,7 +714,7 @@ items:
         href: routing/network-segmentation-checkpoint.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: routing/gre-over-ipsec.md
-      - name: Configuring networks for {{ dataproc-name }}
+      - name: Configuring a network for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
@@ -756,7 +760,7 @@ items:
             href: datalens/data-from-tracker.md
           - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
             href: datalens/storage-logs-analysis.md
-          - name: 'Yandex Music podcasts: statistics'
+          - name: 'Yandex Music podcasts: Statistics'
             href: datalens/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
             href: datalens/data-from-yandex-query-visualization.md
@@ -811,12 +815,12 @@ items:
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: serverless/deploy-app-container.md
       - name: >-
-          Using {{ api-gw-full-name }} to set up speech synthesis in {{
-          speechkit-full-name }}
-        href: serverless/speechkit-integrarion-via-agi-gw.md
-      - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them with {{ datalens-full-name }}
         href: serverless/events-from-postbox-to-yds.md
+      - name: >-
+          Using {{ api-gw-full-name }} to set up speech synthesis in {{
+          speechkit-full-name }}
+        href: serverless/speechkit-integrarion-via-agi-gw.md
 base: en/tutorials
 deepBase: 2

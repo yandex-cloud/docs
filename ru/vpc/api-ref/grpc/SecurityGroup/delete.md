@@ -25,7 +25,7 @@ Deletes the specified security group.
 
 Required field. ID of the security group to delete.
 
-To get a address ID make a [SecurityGroup.List](/docs/vpc/api-ref/grpc/Address/list#List) request. ||
+To get a address ID make a [SecurityGroup.List] request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

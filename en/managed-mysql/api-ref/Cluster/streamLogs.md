@@ -76,7 +76,7 @@ Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.mys
 A filter expression that selects clusters logs listed in the response.
 
 The expression must specify:
-1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.CreateInstanceRequest) field.
+1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||

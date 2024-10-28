@@ -31,12 +31,12 @@ ID of the project. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
-the service returns a `ListProjectJobResponse.pageToken`
+the service returns a [ListProjectJobResponse.page_token]
 that can be used to get the next page of results in subsequent list requests. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-`ListProjectJobResponse.pageToken` returned by a previous list request. ||
+[ListProjectJobResponse.page_token] returned by a previous list request. ||
 || filter | **string**
 
 restrictions:

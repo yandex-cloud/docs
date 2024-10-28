@@ -9,7 +9,7 @@ Updates the specified target group.
 
 ## gRPC request
 
-**rpc Update ([UpdateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Update ([UpdateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateTargetGroupRequest {#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest}
 

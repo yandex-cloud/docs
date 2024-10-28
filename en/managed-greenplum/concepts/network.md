@@ -37,7 +37,6 @@ Once you create a cluster, you cannot request or disable public addresses.
 
 ## Security groups {#security-groups}
 
-
 {% note tip %}
 
 When connecting to a cluster from the same cloud network, [configure security groups](../operations/connect.md#configuring-security-groups) both for the cluster and the connecting host.
@@ -46,7 +45,7 @@ When connecting to a cluster from the same cloud network, [configure security gr
 
 Specifics of working with security groups:
 
-* To connect to a cluster, you [need rules](../operations/connect.md#configuring-security-groups) that allow traffic between the cluster and the connecting host, even if they are assigned to the same security group.
+* To connect to a cluster, you [need rules](../operations/connect.md#configuring-security-groups) that allow traffic between the cluster and the connecting host, even if they are in the same security group.
 
 * Security group settings affect the ability to connect to the cluster, its performance, and the network connectivity between its hosts.
 

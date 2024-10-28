@@ -26,7 +26,7 @@ To get the list of all available SecurityGroup resources, make a [List](/docs/vp
 || securityGroupId | **string**
 
 Required field. ID of the Security Group resource to return.
-To get the security group ID, use a [SecurityGroup.List](/docs/vpc/api-ref/grpc/Address/list#List) request. ||
+To get the security group ID, use a [SecurityGroup.List] request. ||
 |#
 
 ## SecurityGroup {#yandex.cloud.vpc.v1.SecurityGroup}

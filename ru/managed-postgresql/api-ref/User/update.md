@@ -89,7 +89,7 @@ Set of permissions granted to the user to access specific databases. ||
 
 Maximum number of database connections available to the user.
 
-When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig.maxConnections](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.ClusterConfig.postgresqlConfig) setting.
+When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config.max_connections] setting.
 
 When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
 

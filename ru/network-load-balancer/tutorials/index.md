@@ -11,3 +11,5 @@ description: Различные сценарии использования {{ n
 * [{#T}](./vm-autoscale/index.md)
 * [{#T}](./updating-under-load.md)
 * [{#T}](./dns-integration.md)
+* [{#T}](./exchange.md)
+* [{#T}](./mssql-alwayson-lb.md)

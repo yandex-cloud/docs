@@ -38,7 +38,7 @@ Page token. To get the next page of results, set `page_token` to the
 A filter expression that filters subscription locks listed in the response.
 
 The expression must specify:
-1. The field name. Currently you can use filtering only on [Lock.productId](/docs/marketplace/license-manager/api-ref/Instance/get#yandex.cloud.marketplace.licensemanager.v1.Template) field.
+1. The field name. Currently you can use filtering only on [Lock.product_id] field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `product_id="my-product-id"`. ||

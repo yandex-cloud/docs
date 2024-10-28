@@ -27,7 +27,7 @@ Lists operations for the specified security groups.
 
 Required field. ID of the address to list operations for.
 
-To get a address ID make a [SecurityGroup.List](/docs/vpc/api-ref/grpc/Address/list#List) request. ||
+To get a address ID make a [SecurityGroup.List] request. ||
 || pageSize | **int64**
 
 The maximum number of results per page to return. If the number of available

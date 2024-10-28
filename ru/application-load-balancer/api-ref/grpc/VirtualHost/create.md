@@ -9,7 +9,7 @@ Creates a virtual host in the specified HTTP router.
 
 ## gRPC request
 
-**rpc Create ([CreateVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.CreateVirtualHostRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Create ([CreateVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.CreateVirtualHostRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateVirtualHostRequest {#yandex.cloud.apploadbalancer.v1.CreateVirtualHostRequest}
 

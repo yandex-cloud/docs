@@ -9,7 +9,7 @@ Deletes the specified HTTP router.
 
 ## gRPC request
 
-**rpc Delete ([DeleteHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.DeleteHttpRouterRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Delete ([DeleteHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.DeleteHttpRouterRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## DeleteHttpRouterRequest {#yandex.cloud.apploadbalancer.v1.DeleteHttpRouterRequest}
 

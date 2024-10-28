@@ -9,7 +9,7 @@ Adds backends to the specified backend group.
 
 ## gRPC request
 
-**rpc AddBackend ([AddBackendRequest](#yandex.cloud.apploadbalancer.v1.AddBackendRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc AddBackend ([AddBackendRequest](#yandex.cloud.apploadbalancer.v1.AddBackendRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## AddBackendRequest {#yandex.cloud.apploadbalancer.v1.AddBackendRequest}
 

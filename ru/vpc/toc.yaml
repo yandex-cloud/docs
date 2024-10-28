@@ -162,6 +162,10 @@ items:
         href: tutorials/pt-application-firewall.md
       - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
         href: tutorials/terraform-modules.md
+      - name: >-
+          Развертывание группы доступности Always On с внутренним сетевым
+          балансировщиком
+        href: tutorials/mssql-alwayson-lb.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

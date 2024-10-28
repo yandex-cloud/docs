@@ -9,7 +9,7 @@ Starts the specified application load balancer.
 
 ## gRPC request
 
-**rpc Start ([StartLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.StartLoadBalancerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Start ([StartLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.StartLoadBalancerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## StartLoadBalancerRequest {#yandex.cloud.apploadbalancer.v1.StartLoadBalancerRequest}
 

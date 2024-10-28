@@ -2,7 +2,7 @@
 
 {{ mmg-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -11,7 +11,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
 
          * Availability zone to which you want to move the hosts.
@@ -34,14 +34,14 @@
          --host type=<host_type>,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<host_public_access:_true_or_false>
       ```
 
       Command specifics:
 
       * You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * The `type` parameter may take the following values: `mongod`, `mongos`, `mongocfg`, or `mongoinfra`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
-      * In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      * Possible `type` values: `mongod`, `mongos`, `mongocfg`, or `mongoinfra`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
+      * In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -54,13 +54,13 @@
              type             = "<host_type>"
              zone_id          = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <host_public_access:_true_or_false>
              ...
            }
          }
          ```
 
-         The `type` parameter may take the following values: `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
+         Possible `type` values: `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
          In the `zone` parameter, specify the availability zone you are moving the hosts to.
 
@@ -90,6 +90,8 @@
    ```
 
    The FQDN is specified in the command output under `NAME`.
+
+   To learn how to get a host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
 
 1. Delete the hosts in the source availability zone:
 

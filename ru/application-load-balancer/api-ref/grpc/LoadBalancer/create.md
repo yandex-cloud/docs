@@ -9,7 +9,7 @@ Creates an application load balancer in the specified folder.
 
 ## gRPC request
 
-**rpc Create ([CreateLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.CreateLoadBalancerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Create ([CreateLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.CreateLoadBalancerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateLoadBalancerRequest {#yandex.cloud.apploadbalancer.v1.CreateLoadBalancerRequest}
 

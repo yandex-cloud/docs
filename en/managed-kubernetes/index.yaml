@@ -43,7 +43,7 @@ links:
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
-    href: api-ref/
+    href: managed-kubernetes/api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

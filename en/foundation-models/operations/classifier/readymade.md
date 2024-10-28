@@ -30,7 +30,7 @@ To send a request to the classifier:
       ```
 
       Where:
-      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
       * `text`: Text content of the message.
       * `taskDescription`: Text description of the task for the classifier.
       * `labels`: Array of classes.
@@ -67,14 +67,14 @@ To send a request to the classifier:
       ```
 
       Where:
-      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
       * `text`: Text content of the message.
       * `taskDescription`: Text description of the task for the classifier.
       * `labels`: Array of classes.
 
           {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
 
-      * `samples`: Array of sample requests for the classes specified in the `labels` field. Sample requests are provided as objects, each one containing one text request sample and the class to which such request should belong.
+      * `samples`: Array with examples of requests for the classes specified in the `labels` field. Examples of requests are provided as objects, each containing one example of a text query and the class to which such query should belong.
 
     {% endlist %}
 
@@ -90,20 +90,21 @@ To send a request to the classifier:
 
       ```bash
       export IAM_TOKEN=<IAM_token>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@<path_to_request_body_file>" \
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<path_to_file_with_request_body>" \
         "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
       ```
       {% note info %}
       
-      The `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` endpoint works only with prompt-based classifiers. For [fine-tuned](additionally-trained.md) classifiers, use `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
+      The `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` endpoint only works with prompt-based classifiers. For [fine-tuned](additionally-trained.md) classifiers, use `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
       
       {% endnote %}
 
    {% endlist %}
 
-    In the response, the service will return classification results with certain `confidence` values for the probability of classifying the request text into each one of the classes:
+    In the response, the service will return classification results with certain `confidence` values for the probability of classifying the query text into each one of the classes:
 
     {% list tabs group=classifier-models %}
 
@@ -153,4 +154,4 @@ To send a request to the classifier:
 
     {% endlist %}
 
-    The sum of the `confidence` values for all classes is always equal to `1`.
+    The sum of the `confidence` values for all classes is always `1`.

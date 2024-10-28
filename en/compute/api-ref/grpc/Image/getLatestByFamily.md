@@ -59,6 +59,10 @@ Name of the image family to search for. ||
     },
     "generation2Features": "Generation2HardwareFeatures"
     // end of the list of possible fields
+  },
+  "kmsKey": {
+    "keyId": "string",
+    "versionId": "string"
   }
 }
 ```
@@ -125,6 +129,9 @@ When true, indicates there is an image pool for fast creation disks from the ima
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}
@@ -181,4 +188,16 @@ and UEFI boot (with UEFI related features).
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#
