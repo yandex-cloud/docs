@@ -1,11 +1,11 @@
 title: About technical support
 href: index.yaml
 items:
-  - name: Technical support procedure
+  - name: Technical support terms
     href: overview.md
   - name: Support Center
     href: support-center.md
-  - name: '{{ yandex-cloud }} notifications'
+  - name: Notifications from {{ yandex-cloud }}
     href: notify.md
   - name: Telegram chat
     href: tg-chat.md

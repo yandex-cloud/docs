@@ -59,7 +59,7 @@ default:
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
-  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/
+  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=en
   brand-voice-cc: Brand Voice Call Center
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
@@ -306,6 +306,7 @@ default:
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
   link-sd-main: https://center.yandex.cloud/security/
+  link-sla: https://yandex.com/legal/cloud_sla/
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/

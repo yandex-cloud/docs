@@ -59,7 +59,7 @@ Billing account
 <br/>For more information, refer to the [Billing account](billing-account.md) section for details.
 
 Payer
-:   Individual, individual entrepreneur, or business that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements and issue invoices.
+:   Individual, individual entrepreneur, or business that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements, issue invoices, and debit the payer's bank card.
 
 Trial period
 :   Opportunity to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. Only available for legal entities.

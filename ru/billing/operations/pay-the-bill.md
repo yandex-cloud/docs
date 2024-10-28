@@ -5,23 +5,17 @@ description: Следуя данной инструкции, вы сможете
 
 # Пополнить лицевой счет
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
-
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
-
 
 {{ yandex-cloud }} оставляет за собой право автоматически списать средства с привязанной карты в течение текущего отчетного периода, если баланс вашего лицевого счета превысит установленный размер порога оплаты.
 
-
 Способ пополнения лицевого счета зависит от вашего юридического статуса.
-
 
 {% note info %}
 
 Цикл оплаты выполняется автоматически для [физических лиц](../payment/billing-cycle-individual.md), а также для [организаций и ИП](../payment/billing-cycle-business.md), если к платежному аккаунту привязана банковская карта.
 
 {% endnote %}
-
 
 ## Физическим лицам {#individuals}
 
@@ -72,7 +66,10 @@ description: Следуя данной инструкции, вы сможете
 
      Перед проведением оплаты убедитесь, что в платежном поручении корректно указаны:
      * сумма платежа;
-     * банковские реквизиты ООО «Яндекс.Облако» для Российской Федерации (РФ), ТОО «Облачные Сервисы Казахстан» для Республики Казахстан (РК) и Iron Hive doo Beograd (Serbia) для нерезидентов Российской Федерации и Республики Казахстан;
+     * банковские реквизиты ООО «Яндекс.Облако» для Российской Федерации (РФ), ТОО «Облачные Сервисы Казахстан» для Республики Казахстан (РК), Iron Hive doo Beograd (Serbia) или Direct Cursus Technology L.L.C. (Dubai) для нерезидентов Российской Федерации и Республики Казахстан;
+
+       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
+
      * ИНН вашей организации или ИП;
      * [номер лицевого счета](../concepts/personal-account.md#id) в назначении платежа;
      * [номер договора](../concepts/contract.md) в назначении платежа.
@@ -81,7 +78,6 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-
   - Банковская карта {#card}
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
@@ -89,8 +85,5 @@ description: Следуя данной инструкции, вы сможете
     {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
-  
 
   {% endlist %}
-
-  

@@ -16,23 +16,41 @@ To create a billing account:
 
 1. Select the **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}** payer type.
 
-1. Select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method.
+1. Select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** or **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method. You can [change the payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
 
 1. Click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
 
+1. If you selected **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** as a payment method:
 
-1. Enter the legal information of your organization and your contact details.
+   1. Enter the legal information of your organization and your contact details.
 
-1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
+      {% include [contacts-note](contacts-note.md) %}
 
+   1. Link your corporate bank card:
+
+      {% include [pin-card-data](pin-card-data.md) %}
+
+      * Confirm that the card is a corporate one and you are authorized to use it.
+
+      * Click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+
+      {% include [payment-card-types](payment-card-types-business.md) %}
+
+      {% include [yandex-account](payment-card-validation.md) %}
+
+   1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
+
+1. If you selected **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** as a payment method:
+
+   1. Enter the legal information of your organization and your contact details.
+
+   1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
 
 1. If this is your first {{ yandex-cloud }} billing account, you are eligible for a [trial period](../../billing/concepts/trial-period.md). After it expires, the access to your resources will be suspended. To resume operation, you will need to switch to the [paid version](../../billing/operations/activate-commercial.md).
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-
-   Further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account.
-
+   If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account.
 
    Email the following documents to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}):
    * Copy of the minutes or resolution on the appointment of the general director

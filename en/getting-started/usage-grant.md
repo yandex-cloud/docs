@@ -16,9 +16,9 @@ Learn more about grants in the [{{ billing-name }} documentation](../billing/con
 
 ## Business account {#business}
 
-
-The grant terms of use depend on your country of residence.
-
+Grant terms of use depend on:
+* Your country of residence.
+* The payment method you select when registering and [creating your billing account](../billing/quickstart/index.md).
 
 ### Grant terms of use {#terms-august}
 
@@ -51,4 +51,3 @@ The grant terms of use depend on your country of residence.
 
 
 For more information about [billing accounts](../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of Russia](../billing/qa/non-resident.md), see the {{ billing-name }} documentation.
-
