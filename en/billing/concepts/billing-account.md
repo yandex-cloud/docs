@@ -35,8 +35,8 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
 - Business account {#business}
 
    * For residents of Russia and Kazakhstan and non-residents of Russia and Kazakhstan.
-   * Businesses pay for resources they consume by bank transfer from the [corporate bank account](../payment/payment-methods-business.md).
-   * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md). For more information, see [Billing cycle for legal entities](../payment/billing-cycle-business.md).
+   * Businesses pay for resources they consume by bank transfer from the [corporate bank account](../payment/payment-methods-business.md) or using a [bank card](../payment/payment-methods-card-business.md).
+   * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md) or debited automatically from the linked bank card. For more information, see [Billing cycle for legal entities](../payment/billing-cycle-business.md).
    * New customers are eligible for a [trial period](trial-period.md).
 
 {% endlist %}

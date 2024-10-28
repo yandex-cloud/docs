@@ -9,5 +9,5 @@ The Service Level Agreement (SLA) defines:
 * Service levels of {{ yandex-cloud }} services.
 
 SLA details are available at:
-* [{{ yandex-cloud }} Service Level Agreement](https://yandex.com/legal/cloud_sla/)
+* [{{ yandex-cloud }} Service Level Agreement]({{ link-sla }})
 * [Service levels for {{ yandex-cloud }}](https://yandex.com/legal/cloud_sla_levels/)

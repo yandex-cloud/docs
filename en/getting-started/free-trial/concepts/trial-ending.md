@@ -1,8 +1,11 @@
 # End of trial period
 
+Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../../../billing/quickstart/index.md).
 
-The trial period ends automatically when you use up the [grant](../../usage-grant.md) or when it expires.
-
+| Payment method | Terms of termination |
+----- | -----
+| Wire transfer | The [grant](../../usage-grant.md) was used up or expired. |
+| Bank card | The [grant](../../usage-grant.md) or one of its parts was used up and/or the grant expired. |
 
 Unless you upgraded to the paid version, access to your resources will be suspended for 60 days after the trial period ends:
 * Your VM instances and DB clusters will be stopped.

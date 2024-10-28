@@ -25,8 +25,8 @@ description: In this tutorial, you will learn how to configure a {{ MY }} source
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
-    * [{{ MY }} change data capture and delivery to {{ DS }}](../../../tutorials/mmy-to-yds.md).
-    * [{{ MY }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mmy.md).
+    * [Capturing changes from {{ MY }} and delivering to {{ DS }}](../../../tutorials/mmy-to-yds.md).
+    * [Capturing changes from {{ MY }} and delivering to {{ KF }}](../../../tutorials/cdc-mmy.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
@@ -36,7 +36,7 @@ description: In this tutorial, you will learn how to configure a {{ MY }} source
 
     * [Loading {{ MY }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mmy-objs-migration.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
           connection {
             on_premise {
               hosts = ["<list_of_hosts>"]
-              port  = <pot_for_connection>
+              port  = <port_for_connection>
             }
           }
           database = "<name_of_database_to_migrate>"
@@ -280,7 +280,7 @@ Configure one of the supported data targets:
 * [{{ ES }}](../target/elasticsearch.md)
 * [{{ OS }}](../target/opensearch.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -293,7 +293,7 @@ After configuring the data source and target, [create and start the transfer](..
 Known issues when using a {{ MY }} endpoint:
 
 * [Single transaction log size exceeds 4 GB](#binlog-size).
-* [New tables are not added](#no-new-tables).
+* [New tables cannot be added](#no-new-tables).
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).

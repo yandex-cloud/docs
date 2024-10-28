@@ -8,7 +8,10 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 
 * Payment amount.
-* Banking information of Yandex.Cloud LLC (Russia) and Belarus, Cloud Services Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) for non-residents of Russia and Kazakhstan.
+* Banking information of Yandex.Cloud LLC (Russia) and Belarus, Cloud Services Kazakhstan LLP (Kazakhstan), Iron Hive doo Beograd (Serbia) or Direct Cursus Technology L.L.C. (Dubai) for non-residents of Russia and Kazakhstan.
+
+  {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
+
 * Your company or individual entrepreneur TIN.
 * [Personal account number](../concepts/personal-account.md#id) in the payment details.
 * [Contract number](../concepts/contract.md) in the payment details.
