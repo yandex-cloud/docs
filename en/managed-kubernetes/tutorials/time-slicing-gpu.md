@@ -109,7 +109,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endlist %}
 
-## Text Time-Slicing GPUs functionality {#check-time-slicing}
+## Test Time-Slicing GPUs functionality {#check-time-slicing}
 
 1. Create a test app:
    1. Save the following app creation specification to a YAML file named `nvidia-plugin-test.yml`.
