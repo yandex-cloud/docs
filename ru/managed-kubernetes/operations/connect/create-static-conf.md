@@ -291,7 +291,7 @@
      ```bash
      kubectl config set-cluster sa-test2 `
        --certificate-authority=ca.pem `
-       --embed-certs
+       --embed-certs `
        --server=$MASTER_ENDPOINT `
        --kubeconfig=test.kubeconfig
      ```
