@@ -48,7 +48,7 @@
       # Для аутентификации с IAM-токеном замените параметр api_key на iam_token
       def upload_talk(connection_id: str, metadata: Dict[str, str], api_key: str, text_data):
          credentials = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('api.talk-analytics.yandexcloud.net:443', credentials)
+         channel = grpc.secure_channel('api.speechsense.yandexcloud.net:443', credentials)
 
          talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 

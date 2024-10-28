@@ -28,14 +28,13 @@
 
   1. Получите IAM-токен: см. инструкцию для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. При обращении к {{ yagpt-full-name }} через API в каждом запросе передавайте полученные параметры:
+  1. При обращении к {{ yagpt-full-name }} через API передайте полученные параметры:
 
-     * в заголовке `Authorization` указывайте IAM-токен;
-     * в заголовке `x-folder-id` указывайте идентификатор каталога.
+     * в файле запроса в параметре `modelUri` указывайте идентификатор каталога;
+     * в запросе в заголовке `Authorization` указывайте IAM-токен.
 
      ```json
-     Authorization: Bearer <IAM-токен> 
-     x-folder-id: <идентификатор_каталога>
+     Authorization: Bearer <IAM-токен>
      ```
 
   Другие способы аутентификации в API описаны на странице [{#T}](../api-ref/authentication.md).
@@ -101,7 +100,6 @@
        --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --header "x-folder-id: ${FOLDER_ID}" \
        --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/completion"
      ```

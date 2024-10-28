@@ -30,7 +30,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
-* A multi-host cluster will get a new primary replica. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
+* A multi-host cluster will get a new [primary replica](../concepts/replication.md). Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
 
 We recommend changing the host class only when the cluster has no active workload.
 
@@ -366,7 +366,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       Changing the retention period affects both new automatic backups and existing backups.
 
-      For example, if the original retention period was 7 days and the remaining lifetime of a separate automatic backup is 1 day, then when the retention period increases to 9 days, the remaining lifetime of this backup becomes 3 days.
+      For example, if the original retention period is 7 days, and the remaining lifetime of a separate automatic backup is 1 day, then increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
@@ -380,7 +380,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
         {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    You can [get](cluster-list.md#list-clusters) the cluster ID and name with a list of clusters in the folder.
+    You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
@@ -475,7 +475,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console {#console}
 
     1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the row with the cluster you want to move.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select a folder you want to move the cluster to.
     1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.

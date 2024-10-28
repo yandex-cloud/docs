@@ -45,15 +45,16 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
       "description": "string",
       "typeId": "string",
       "size": "int64",
-      "blockSize": "int64",
+      // Includes only one of the fields `imageId`, `snapshotId`
+      "imageId": "string",
+      "snapshotId": "string",
+      // end of the list of possible fields
       "diskPlacementPolicy": {
         "placementGroupId": "string",
         "placementGroupPartition": "int64"
       },
-      // Includes only one of the fields `imageId`, `snapshotId`
-      "imageId": "string",
-      "snapshotId": "string"
-      // end of the list of possible fields
+      "blockSize": "int64",
+      "kmsKeyId": "string"
     },
     "diskId": "string"
     // end of the list of possible fields
@@ -69,15 +70,16 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
         "description": "string",
         "typeId": "string",
         "size": "int64",
-        "blockSize": "int64",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "int64"
         },
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string"
-        // end of the list of possible fields
+        "blockSize": "int64",
+        "kmsKeyId": "string"
       },
       "diskId": "string"
       // end of the list of possible fields
@@ -391,12 +393,6 @@ To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskType
 || size | **int64**
 
 Required field. Size of the disk, specified in bytes. ||
-|| blockSize | **int64**
-
-Block size of the disk, specified in bytes. The default is 4096. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
-
-Placement policy configuration. ||
 || imageId | **string**
 
 ID of the image to create the disk from.
@@ -407,6 +403,15 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 ID of the snapshot to restore the disk from.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+
+Placement policy configuration. ||
+|| blockSize | **int64**
+
+Block size of the disk, specified in bytes. The default is 4096. ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}

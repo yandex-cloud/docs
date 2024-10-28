@@ -26,7 +26,8 @@ To send requests to nodes, you must have the `{{ roles-datasphere-user }}` or `{
 ## Sample gRPC API call {#grpc-call-example}
 
 ```bash
-grpcurl -H "Authorization: Bearer <IAM_token>" \
+grpcurl \
+  -H "Authorization: Bearer <IAM_token>" \
   -d '{
   "folder_id": "<folder_ID>",
   "node_id": "<node_ID>",
@@ -38,9 +39,9 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 
 Where:
 
-* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) being used for authentication.
-* `<folder_ID>`: ID of the folder where the project and node were created.
-* `<node_ID>`: ID of the node.
+* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication.
+* `<folder_ID>`: ID of the folder the project and node are created in.
+* `<node_ID>`: Node ID.
 * `<input_variables>`: Object where keys match input variables.
 
 In a successful response, the object is returned:
@@ -61,9 +62,9 @@ You can use the [cURL](https://curl.se) utility to send REST requests.
 
 ```bash
 curl https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_ID>:execute \
-   -X POST \
-   -H "Authorization: Bearer <IAM_token>"
-   -d '{
+   --request POST \
+   --header "Authorization: Bearer <IAM_token>"
+   --data '{
       "folder_id": "<folder_ID>",
       "node_id": "<node_ID>",
       "input": { <input_variables> }
@@ -72,8 +73,8 @@ curl https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_ID>:execute \
 
 Where:
 
-* `<IAM_token>`: IAM token being used for authentication.
-* `<folder_ID>`: ID of the folder where the project and node were created.
+* `<IAM_token>`: IAM token used for authentication.
+* `<folder_ID>`: ID of the folder the project and node are created in.
 * `<node_ID>`: Node ID.
 * `<input_variables>`: Object where keys match input variables.
 

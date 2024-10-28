@@ -9,7 +9,7 @@ Adds a listener to the specified application load balancer.
 
 ## gRPC request
 
-**rpc AddListener ([AddListenerRequest](#yandex.cloud.apploadbalancer.v1.AddListenerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc AddListener ([AddListenerRequest](#yandex.cloud.apploadbalancer.v1.AddListenerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## AddListenerRequest {#yandex.cloud.apploadbalancer.v1.AddListenerRequest}
 

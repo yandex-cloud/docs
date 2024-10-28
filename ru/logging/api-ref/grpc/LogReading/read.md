@@ -206,7 +206,7 @@ Also may be provided by the user. ||
 Timestamp of the entry. ||
 || ingestedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Entry ingestion time observed by [LogIngestionService]. ||
+Entry ingestion time observed by [LogIngestionService](/docs/logging/api-ref/grpc/LogIngestion/). ||
 || savedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Entry save time.

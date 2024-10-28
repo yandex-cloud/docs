@@ -111,7 +111,7 @@ items:
         href: tutorials/clickhouse-for-graphite.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
-      - name: Migrating databases from Google BigQuery
+      - name: Migrating a database from Google BigQuery
         href: tutorials/bigquery-to-clickhouse.md
       - name: >-
           Delivering data from {{ mkf-name }} using {{ data-transfer-full-name
@@ -125,6 +125,8 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: Migrating a database from {{ GP }} to {{ CH }}
+        href: tutorials/greenplum-to-clickhouse.md
       - name: >-
           Migrating a database from {{ MY }} to {{ CH }} using {{
           data-transfer-full-name }}
@@ -548,7 +550,7 @@ items:
                 href: api-ref/Versions/index.md
               - name: List
                 href: api-ref/Versions/list.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

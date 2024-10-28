@@ -152,15 +152,90 @@ To disable the read-only mode:
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * New storage size in the `configSpec.resources.diskSize` parameter.
-    * List of settings to update (in this case, `configSpec.resources.diskSize`), in the `updateMask` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
+       --data '{
+                 "updateMask": "configSpec.resources.diskSize",
+                 "configSpec": {
+                   "resources": {
+                     "diskSize": "<storage_size_in_bytes>"
+                   }
+                 }
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+       Only one parameter is provided in this case.
+
+     * `configSpec.resources.diskSize`: New storage size in bytes.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.resources.disk_size"
+               ]
+             },
+             "config_spec": {
+               "resources": {
+                 "disk_size": "<storage_size_in_bytes>"
+               }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       Only one parameter is provided in this case.
+
+     * `config_spec.resources.disk_size`: New storage size in bytes.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -220,11 +295,141 @@ To disable the read-only mode:
 
         If you have set up the storage size to increase within the maintenance window, set up a schedule for the maintenance window.
 
-- API {#api}
+- REST API {#api}
 
-    To enable automatic increase of storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
+       --data '{
+                 "updateMask": "configSpec.diskSizeAutoscaling,maintenanceWindow",
+                 "configSpec": {
+                   "diskSizeAutoscaling": {
+                     "plannedUsageThreshold": "<scheduled_increase_percentage>",
+                     "emergencyUsageThreshold": "<immediate_increase_percentage>",
+                     "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                   }
+                 },
+                 "maintenanceWindow": {
+                   "weeklyMaintenanceWindow": {
+                     "day": "<day_of_week>",
+                     "hour": "<hour>"
+                   }
+                 }
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+       In this case, provide only `configSpec.diskSizeAutoscaling` and `maintenanceWindow`.
+
+     * `configSpec.diskSizeAutoscaling`: Automatic storage size increase settings:
+
+       * `plannedUsageThreshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
+
+         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
+
+         If you set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+
+       * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
+
+         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `plannedUsageThreshold`.
+
+       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+
+     * `maintenanceWindow`: Maintenance window schedule. It is required only if the `plannedUsageThreshold` parameter is set. Contains the following parameters:
+
+       * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+       * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.disk_size_autoscaling",
+                 "maintenance_window"
+               ]
+             },
+             "config_spec": {
+               "disk_size_autoscaling": {
+                 "planned_usage_threshold": "<scheduled_increase_percentage>",
+                 "emergency_usage_threshold": "<immediate_increase_percentage>",
+                 "disk_size_limit": "<maximum_storage_size_in_bytes>"
+               }
+             },
+             "maintenance_window": {
+               "weekly_maintenance_window": {
+                 "day": "<day_of_week>",
+                 "hour": "<hour>"
+               }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       In this case, provide only `config_spec.disk_size_autoscaling` and `maintenance_window`.
+
+     * `config_spec.disk_size_autoscaling`: Automatic storage size increase settings:
+
+       * `planned_usage_threshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
+
+         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
+
+         If you set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
+
+       * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
+
+         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `planned_usage_threshold`.
+
+       * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+
+     * `maintenance_window`: Maintenance window schedule. It is required only if the `planned_usage_threshold` parameter is set. Contains the following parameters:
+
+       * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+       * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 

@@ -473,6 +473,22 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Продукты Microsoft в {{ yandex-cloud }}
+        items:
+          - name: Развертывание Active Directory
+            href: tutorials/secure-password-script.md
+          - name: Развертывание Active Directory
+            href: tutorials/active-directory.md
+          - name: Развертывание Microsoft Exchange
+            href: tutorials/exchange.md
+          - name: Развертывание Remote Desktop Services
+            href: tutorials/rds.md
+          - name: >-
+              Развертывание группы доступности Always On с внутренним сетевым
+              балансировщиком
+            href: tutorials/mssql-alwayson-lb.md
+          - name: Развертывание Remote Desktop Gateway
+            href: tutorials/rds-gw.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

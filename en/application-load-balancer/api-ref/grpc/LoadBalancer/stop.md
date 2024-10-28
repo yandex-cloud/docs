@@ -9,7 +9,7 @@ Stops the specified application load balancer.
 
 ## gRPC request
 
-**rpc Stop ([StopLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.StopLoadBalancerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Stop ([StopLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.StopLoadBalancerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## StopLoadBalancerRequest {#yandex.cloud.apploadbalancer.v1.StopLoadBalancerRequest}
 

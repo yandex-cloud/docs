@@ -9,7 +9,7 @@ Creates a target group in the specified folder.
 
 ## gRPC request
 
-**rpc Create ([CreateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.CreateTargetGroupRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Create ([CreateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.CreateTargetGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateTargetGroupRequest {#yandex.cloud.apploadbalancer.v1.CreateTargetGroupRequest}
 

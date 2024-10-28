@@ -30,7 +30,8 @@ List backups using filters.
   "policyId": "string",
   // end of the list of possible fields
   "orderBy": "string",
-  "filter": "string"
+  "filter": "string",
+  "type": "ResourceType"
 }
 ```
 
@@ -78,6 +79,13 @@ Supported parameters are:
 
 Supported logic operators:
 * AND ||
+|| type | enum **ResourceType**
+
+Type of resource. Could be compute VM or baremetal server.
+
+- `RESOURCE_TYPE_UNSPECIFIED`
+- `COMPUTE`: Resource is Compute Cloud VM
+- `BMS`: Resource is baremetal server ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}

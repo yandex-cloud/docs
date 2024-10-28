@@ -42,15 +42,16 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
         "description": "string",
         "typeId": "string",
         "size": "string",
-        "blockSize": "string",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "string"
         },
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string"
-        // end of the list of possible fields
+        "blockSize": "string",
+        "kmsKeyId": "string"
       },
       "diskId": "string"
       // end of the list of possible fields
@@ -267,12 +268,6 @@ To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskType
 || size | **string** (int64)
 
 Required field. Size of the disk, specified in bytes. ||
-|| blockSize | **string** (int64)
-
-Block size of the disk, specified in bytes. The default is 4096. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
-
-Placement policy configuration. ||
 || imageId | **string**
 
 ID of the image to create the disk from.
@@ -283,6 +278,15 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 ID of the snapshot to restore the disk from.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+
+Placement policy configuration. ||
+|| blockSize | **string** (int64)
+
+Block size of the disk, specified in bytes. The default is 4096. ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}

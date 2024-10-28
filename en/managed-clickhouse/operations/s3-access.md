@@ -62,6 +62,12 @@ To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, y
 
 A link such as `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` with all parameters in the query string removed.
 
+{% note info %}
+
+You cannot use [signed links](../../storage/concepts/pre-signed-urls.md) to access a bucket from a cluster.
+
+{% endnote %}
+
 ## Examples of working with objects {#examples}
 
 You can use [object links](#get-link-to-object), such as `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.

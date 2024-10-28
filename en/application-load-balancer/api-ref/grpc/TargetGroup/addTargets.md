@@ -9,7 +9,7 @@ Adds targets to the specified target group.
 
 ## gRPC request
 
-**rpc AddTargets ([AddTargetsRequest](#yandex.cloud.apploadbalancer.v1.AddTargetsRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc AddTargets ([AddTargetsRequest](#yandex.cloud.apploadbalancer.v1.AddTargetsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## AddTargetsRequest {#yandex.cloud.apploadbalancer.v1.AddTargetsRequest}
 

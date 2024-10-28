@@ -75,7 +75,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a {{ PG }} cluster for 1С
+      - name: Creating a {{ PG }} cluster for 1C
         href: tutorials/1c-postgresql.md
       - name: >-
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
@@ -108,7 +108,7 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
       - name: >-
-          Migrating data from {{ objstorage-full-name }} using {{
+          Transferring data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
@@ -131,14 +131,14 @@ items:
             href: tutorials/replication-overview.md
           - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
-          - name: Migrating databases from {{ mpg-name }}
+          - name: Migrating a database from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
               Creating a logical replica of Amazon RDS for {{ PG }} in {{
               mpg-name }}
             href: operations/logical-replica-from-rds.md
           - name: >-
-              Migrating databases from {{ mpg-full-name }} to {{
+              Migrating a database from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
           - name: >-
@@ -153,6 +153,8 @@ items:
               Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: Migrating a database from {{ GP }} to {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
           - name: >-
               Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
               data-transfer-full-name }}

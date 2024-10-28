@@ -106,13 +106,14 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
+* [{#T}](opensearch-saml-keycloak.md)
 
 
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
-* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
-* [Migrating databases from {{ mpg-name }}](outbound-replication.md)
+* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md
+* [Migrating a database from {{ mpg-name }}](outbound-replication.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)

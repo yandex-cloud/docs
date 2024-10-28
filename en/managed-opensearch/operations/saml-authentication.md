@@ -2,9 +2,7 @@
 
 Security Assertion Markup Language (SAML) is used for exchanging authentication and authorization data between two parties. With SAML, you can implement a single sign-on system (SSO) to switch between applications without re-authentication.
 
-When using SAML and SSO, a {{ mos-name }} cluster gets information from an identity provider (IdP).
-
-For more information about SAML and SSO, see the [OASIS documentation](https://wiki.oasis-open.org/security/saml/).
+When using SAML and SSO, a {{ mos-name }} cluster gets information from an identity provider (IdP). For more information about SAML and SSO, see the [OASIS documentation](https://wiki.oasis-open.org/security/saml/).
 
 {{ mos-name }} works with any SAML 2.0 compatible identity provider.
 
@@ -26,24 +24,24 @@ To set up SAML authentication:
 
     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
+    URL example: `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
 1. Specify the **SP Entity ID (Audience URI)**.
 
     Use the URL with a [special cluster FQDN](connect.md#special-fqdns):
 
     ```text
-    https://c-<cluster_ID>rw.{{ dns-zone }}
+    https://c-<cluster_ID>rw.{{ dns-zone }}/
     ```
 
-    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
+    URL example: `https://c-e4ut2....rw.{{ dns-zone }}/`
 
 1. Specify the **Name ID Format**:
 
     * `email`, if you use [an identity federation with the Keycloak provider](../../organization/tutorials/federations/integration-keycloak.md).
     * `persistent`, for other providers.
 
-1. Using the data provided by the IdP:
+1. Get the data you need to set up SAML SSO on {{ OS }} side:
     * Copy the information about the Identity Provider Issuer.
     * Save the provider's metadata file in XML format.
 
@@ -109,12 +107,16 @@ For more information about SAML attributes, see the [{{ OS }} documentation]({{ 
 
 ## Configure roles for SSO {#roles-sso}
 
-To access the cluster via SSO, associate the cluster roles with the SSO users on the IdP side. To do this:
+To access the cluster via SSO, associate the cluster roles with the SSO users on the IdP side:
 
-1. [Map the roles](https://opensearch.org/docs/latest/security/access-control/users-roles/) of the {{ OS }} users on the IdP side to the roles in the cluster. Perform this operation as an [`admin` user](../concepts/index.md) in one of the following ways:
+1. [Map the roles](https://opensearch.org/docs/latest/security/access-control/users-roles/) of the {{ OS }} users on the IdP side to the roles in the cluster. Perform this operation as an [`admin`](../concepts/index.md) user in one of the following ways:
     * Using [OpenSearch Dashboards](https://opensearch.org/docs/latest/security/access-control/users-roles/#opensearch-dashboards-2).
     * Using the [{{ OS }} API](https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping).
 1. On the IdP side, create a user that meets the role mappings defined in {{ OS }}.
 1. Grant this user access to the [previously created application](#configuration-idp).
 
 To log in to {{ OS }} using the new user's credentials, go to the **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** page.
+
+## Examples of integration with providers {#examples}
+
+[{#T}](../tutorials/saml-keycloak.md).

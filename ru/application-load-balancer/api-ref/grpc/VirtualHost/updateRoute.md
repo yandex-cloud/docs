@@ -9,7 +9,7 @@ Updates the specified route of the specified virtual host.
 
 ## gRPC request
 
-**rpc UpdateRoute ([UpdateRouteRequest](#yandex.cloud.apploadbalancer.v1.UpdateRouteRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc UpdateRoute ([UpdateRouteRequest](#yandex.cloud.apploadbalancer.v1.UpdateRouteRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateRouteRequest {#yandex.cloud.apploadbalancer.v1.UpdateRouteRequest}
 

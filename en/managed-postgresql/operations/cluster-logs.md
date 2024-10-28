@@ -12,78 +12,139 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
 - Management console {#console}
 
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
-   1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
-   1. If required, request the `POOLER` log and specify the hosts and logging level in the line with the date input field.
+    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
+    1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
+    1. If required, request the `POOLER` log and specify the hosts and logging level in the line with the date input field.
 
-   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
+    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to view cluster logs:
+    1. View a description of the CLI command to view cluster logs:
 
-      ```bash
-      {{ yc-mdb-pg }} cluster list-logs --help
-      ```
+        ```bash
+        {{ yc-mdb-pg }} cluster list-logs --help
+        ```
 
-   1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
+    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
-      ```bash
-      {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> \
-         --limit <record_number_limit> \
-         --format <output_format> \
-         --service-type <service_type> \
-         --columns <list_of_columns_with_output_data> \
-         --filter <record_filter_settings> \
-         --since <left_boundary_of_time_range> \
-         --until <right_boundary_of_time_range>
-      ```
+        ```bash
+        {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> \
+           --limit <entry_number_limit> \
+           --format <output_format> \
+           --service-type <service_type> \
+           --columns <list_of_columns_for_data_output> \
+           --filter <entry_filtration_settings> \
+           --since <time_range_left_boundary> \
+           --until <time_range_right_boundary>
+        ```
 
-      Where:
+        Where:
 
-      * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-      * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-      * `--service-type`: Type of service to output records for (`postgresql` or `pooler`).
-      * `--columns`: List of columns with output data:
-         * `hostname`: [Host name](hosts.md#list-hosts).
-         * `db`: [Database name](databases.md#list-db).
-         * `level`: Logging level, such as `info`.
-         * `pid`: ID of the current session's server process.
-         * `text`: Message output by the component.
+        * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
+        * {% include [logs output format](../../_includes/cli/logs/format.md) %}
+        * `--service-type`: Type of the service for which you want to output records (`postgresql` or `pooler`).
+        * `--columns`: List of columns for data output:
+            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `db`: [Database name](databases.md#list-db).
+            * `level`: Logging level, e.g., `info`.
+            * `pid`: ID of the current session’s server process.
+            * `text`: Message output by the component.
 
-         {% note info %}
+            {% note info %}
 
-         The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
+            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
 
-         {% endnote %}
+            {% endnote %}
 
-         {% include [logs column format](../../_includes/cli/logs/column-format.md) %}
+            {% include [logs column format](../../_includes/cli/logs/column-format.md) %}
 
-      * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
-      * {% include [logs since time](../../_includes/cli/logs/since.md) %}
-      * {% include [logs until time](../../_includes/cli/logs/until.md) %}
+        * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
+        * {% include [logs since time](../../_includes/cli/logs/since.md) %}
+        * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-   To get a cluster log, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) gRPC API call, and provide in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
 
-   * Cluster ID in the `clusterId` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-   * Type of service whose logs you are requesting, in the `serviceType` parameter.
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:logs?serviceType=<service_type>&columnFilter=<column_list>&fromTime=<time_range_left_boundary>&toTime=<time_range_right_boundary>'
+     ```
 
-      * `POSTGRESQL`: {{ PG }} operations logs.
-      * `POOLER`: Connection pooler operations logs.
+     Where:
+
+     * `serviceType`: Type of the service to get logs for:
+
+       * `POSTGRESQL`: {{ PG }} operation logs.
+       * `POOLER`: Connection pooler operation logs.
+
+     * `columnFilter`: List of columns to output data for. To provide values, use the `message` object fields from the response to your request.
+     * `fromTime`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g.: `2024-09-18T15:04:05Z`.
+     * `toTime`: Right boundary of a time range. Use the same format as in `fromTime`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/listLogs.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "service_type": "<service_type>",
+             "column_filter": [
+               "<column_1>", "<column_2>", ..., "<column_N>"
+             ],
+             "from_time": "<time_range_left_boundary>",
+             "to_time": "<time_range_right_boundary>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.ListLogs
+     ```
+
+     Where:
+
+     * `service_type`: Type of the service to get logs for:
+
+       * `POSTGRESQL`: {{ PG }} operation logs.
+       * `POOLER`: Connection pooler operation logs.
+
+     * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
+     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
+     * `to_time`: Right boundary of a time range. Use the same format as in `from_time`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -95,29 +156,90 @@ This method allows you to get cluster logs in real time.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To view cluster logs as they become available, run this command:
+    To view cluster logs as they become available, run this command:
 
-   ```bash
-   {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> --follow
-   ```
+    ```bash
+    {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> --follow
+    ```
 
-   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-   To get a cluster log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) gRPC API call, and provide in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
 
-   * Cluster ID in the `clusterId` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-   * Type of service whose logs you are requesting, in the `serviceType` parameter.
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:stream_logs?serviceType=<service_type>&columnFilter=<column_list>'
+     ```
 
-      * `POSTGRESQL`: {{ PG }} operations logs.
-      * `POOLER`: Connection pooler operations logs.
+     Where:
+
+     * `serviceType`: Type of the service to get logs for:
+
+       * `POSTGRESQL`: {{ PG }} operation logs.
+       * `POOLER`: Connection pooler operation logs.
+
+     * `columnFilter`: List of columns to output data for. To provide values, use the `message` object fields from the response to your request.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/streamLogs.md#responses) to make sure the request was successful.
+
+     Once you run the command, it does not terminate. The command output displays new logs in real time.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "service_type": "<service_type>",
+             "column_filter": [
+               "<column_1>", "<column_2>", ..., "<column_N>"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.StreamLogs
+     ```
+
+     Where:
+
+     * `service_type`: Type of the service to get logs for:
+
+       * `POSTGRESQL`: {{ PG }} operation logs.
+       * `POOLER`: Connection pooler operation logs.
+
+     * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
+     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
+     * `to_time`: Right boundary of a time range. Use the same format as in `from_time`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure the request was successful.
+
+     Once you run the command, it does not terminate. The command output displays new logs in real time.
 
 {% endlist %}

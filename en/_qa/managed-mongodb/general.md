@@ -4,7 +4,7 @@
 
 With {{ mmg-short-name }}, you can:
 - Create a database with the required performance characteristics.
-- Scale processing power and storage dedicated for your databases as needed.
+- Scale processing power and storage dedicated for your databases.
 - Get database logs.
 
 {{ mmg-short-name }} takes on time-consuming {{ MG }} infrastructure administration tasks:
@@ -48,12 +48,12 @@ To create a database cluster in {{ mmg-short-name }}, you need to define its par
 - [Host class](../../managed-mongodb/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 - [Disk type](../../managed-mongodb/concepts/storage.md) and size (reserved in full when creating a cluster).
 - Network your cluster will be connected to.
-- Number of hosts for the cluster and the availability zone for each host.
+- Number of hosts for the cluster and the availability zone for each of them.
 
 For detailed instructions, see [{#T}](../../managed-mongodb/quickstart.md).
 
 
-#### How many database hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 The minimum number of hosts per cluster depends on the following:
 * Selected [platform and host class](../../managed-mongodb/concepts/instance-types.md).
@@ -78,7 +78,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 #### How are DB clusters maintained? {#service-window}
 
-Maintenance in {{ mmg-short-name }} implies:
+In {{ mmg-short-name }}, maintenance implies:
 
 - Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
@@ -110,11 +110,11 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mongodb/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in the [Pricing policy](../../managed-mongodb/pricing.md) section.
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-mongodb/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can change computing resources and storage size from the [management console]({{ link-console-main }}). All you need to do is choose a different host class for the required cluster.
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
@@ -144,7 +144,7 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 - Amount of disk space used.
 - Number of connections, and so on.
 
-Monitoring can be performed with a minimum granularity of 5 seconds.
+Monitoring can be performed with a minimum granularity of five seconds.
 
 #### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
 
@@ -152,8 +152,8 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of the disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 

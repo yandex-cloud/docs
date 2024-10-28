@@ -21,9 +21,9 @@ Prepare the infrastructure:
     1. [Create a {{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
 
         * Public access to cluster hosts: Allowed.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
 
     1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
@@ -95,15 +95,15 @@ Prepare the infrastructure:
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Comma (`,`).
-    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: Name of the CSV file in the bucket, e.g., `demo_data.csv`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Comma (`,`)
+    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: Name of the CSV file in the bucket, e.g., `demo_data.csv`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
         * `Id`: `Int64`
@@ -119,11 +119,11 @@ Prepare the infrastructure:
 
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Name of the {{ PG }} source cluster from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Name of the {{ PG }} source cluster from the drop-down list
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`
 
         1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
@@ -132,7 +132,7 @@ Prepare the infrastructure:
         1. In the `objstorage-to-postgres.tf` file, specify these variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: Put `1` to create a transfer.
+            * `transfer_enabled`: `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -187,7 +187,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
     - Manually {#manual}
 
         * [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md)
+        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
     - {{ TF }} {#tf}

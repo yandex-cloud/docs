@@ -6,7 +6,7 @@ editable: false
 
 
 
-This section presents {{ mmg-name }} pricing [rules](#rules) and [effective prices](#prices) for its resources.
+In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
@@ -28,7 +28,7 @@ The {{ mmg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. The supported resource configurations are described in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ MG }} host is unable to perform its main functions.
 
@@ -85,7 +85,7 @@ Calculation for the storage cost and total cost:
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-All prices below do not include VAT.
+Prices are net of VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

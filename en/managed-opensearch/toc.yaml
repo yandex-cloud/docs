@@ -81,6 +81,8 @@ items:
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-full-name }}
         href: tutorials/postgresql-to-opensearch.md
+      - name: Authentication in {{ OS }} Dashboards using {{ keycloak }}
+        href: tutorials/saml-keycloak.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -151,6 +153,8 @@ items:
                 href: api-ref/grpc/Cluster/delete.md
               - name: Backup
                 href: api-ref/grpc/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/grpc/Cluster/deleteBackup.md
               - name: Restore
                 href: api-ref/grpc/Cluster/restore.md
               - name: RescheduleMaintenance
@@ -231,6 +235,8 @@ items:
                 href: api-ref/Cluster/delete.md
               - name: Backup
                 href: api-ref/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/Cluster/deleteBackup.md
               - name: Restore
                 href: api-ref/Cluster/restore.md
               - name: RescheduleMaintenance

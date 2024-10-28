@@ -32,7 +32,9 @@ description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)
 * [{#T}](./rds-to-mpg.md)
+* [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./rdbms-to-clickhouse.md)
 * [{#T}](./postgresql-to-opensearch.md)
+
 
 To learn how to migrate {{ mpg-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

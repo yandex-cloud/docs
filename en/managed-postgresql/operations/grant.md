@@ -9,13 +9,13 @@ Atomic permissions in **{{ PG }}** are called _privileges_ and permission groups
 
 The user created with a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** cluster is the owner of the first database in the cluster. You can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 
-- [Updating the list of user roles](#grant-role).
+- [Updating the list of roles for a user](#grant-role).
 - [Granting a privilege to a user](#grant-privilege).
 - [Revoking a privilege from a user](#revoke-privilege).
 
 {% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
 
-## Updating the list of user roles {#grant-role}
+## Updating the list of roles for a user {#grant-role}
 
 To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` request are canceled during the next database operation.
 
@@ -39,7 +39,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
-  1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. In the user name row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -91,19 +91,127 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * Username in the `userName` parameter.
-    * List of new user roles in the `grants` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        This completely overwrites the existing roles: if you want to extend or reduce the available list, first request the current roles with user information via the [get](../api-ref/User/get.md) method.
+  1. To check the list of current roles, use the [User.get](../api-ref/User/get.md) method and execute this request, e.g., via {{ api-examples.rest.tool }}:
 
-    * List of user configuration fields to update (`grants` in this case) in the `updateMask` parameter.
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users/<username>'
+     ```
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](cluster-users.md#list-users).
+
+     The list of current roles is in the `grants` parameter in the command output.
+
+  1. To change the list of roles for a user, use the [User.update](../api-ref/User/update.md) method and execute this request:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users/<username>' \
+       --data '{
+                 "updateMask": "grants",
+                 "grants": [
+                   "role_1", "role_2", ..., “role_N"
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+       In this case, only one parameter is provided.
+
+     * `grants`: Array of strings with new roles. Each row corresponds to a separate role. The possible values are:
+
+       * `mdb_admin`
+       * `mdb_monitor`
+       * `mdb_replication`
+       * `mdb_superuser`
+
+  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. To check the list of current roles, use the [UserService/Get](../api-ref/grpc/User/get.md) call and execute this request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.UserService.Get
+     ```
+
+     The list of current roles is in the `grants` parameter in the command output.
+
+  1. To change the list of roles for a user, use the [UserService/Update](../api-ref/grpc/User/update.md) call and execute this request:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "update_mask": {
+               "paths": [
+                 "grants"
+               ]
+             },
+             "grants": [
+               "role_1", "role_2", ..., “role_N"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.UserService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       In this case, only one parameter is provided.
+
+     * `grants`: Array of strings with new roles. Each row corresponds to a separate role. The possible values are:
+
+       * `mdb_admin`
+       * `mdb_monitor`
+       * `mdb_replication`
+       * `mdb_superuser`
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](cluster-users.md#list-users).
+
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

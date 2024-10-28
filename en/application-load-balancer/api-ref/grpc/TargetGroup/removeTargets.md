@@ -9,7 +9,7 @@ Removes targets from the specified target group.
 
 ## gRPC request
 
-**rpc RemoveTargets ([RemoveTargetsRequest](#yandex.cloud.apploadbalancer.v1.RemoveTargetsRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc RemoveTargets ([RemoveTargetsRequest](#yandex.cloud.apploadbalancer.v1.RemoveTargetsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## RemoveTargetsRequest {#yandex.cloud.apploadbalancer.v1.RemoveTargetsRequest}
 

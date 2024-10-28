@@ -9,7 +9,7 @@ Deletes the specified listener.
 
 ## gRPC request
 
-**rpc RemoveListener ([RemoveListenerRequest](#yandex.cloud.apploadbalancer.v1.RemoveListenerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc RemoveListener ([RemoveListenerRequest](#yandex.cloud.apploadbalancer.v1.RemoveListenerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## RemoveListenerRequest {#yandex.cloud.apploadbalancer.v1.RemoveListenerRequest}
 

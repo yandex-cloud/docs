@@ -112,6 +112,10 @@ Existing set of `labels` is completely replaced by the provided set. ||
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -284,6 +288,9 @@ When true, indicates there is an image pool for fast creation disks from the ima
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}
@@ -330,4 +337,16 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

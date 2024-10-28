@@ -11,7 +11,7 @@ This request does not allow to update [TlsListener.defaultHandler](/docs/applica
 
 ## gRPC request
 
-**rpc UpdateSniMatch ([UpdateSniMatchRequest](#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc UpdateSniMatch ([UpdateSniMatchRequest](#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateSniMatchRequest {#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest}
 

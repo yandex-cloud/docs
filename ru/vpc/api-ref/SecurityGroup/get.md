@@ -22,7 +22,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 || securityGroupId | **string**
 
 Required field. ID of the Security Group resource to return.
-To get the security group ID, use a [SecurityGroup.List](/docs/vpc/api-ref/Address/list#List) request. ||
+To get the security group ID, use a [SecurityGroup.List] request. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.SecurityGroup}
