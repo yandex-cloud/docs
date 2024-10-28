@@ -9,7 +9,7 @@ Updates the specified listener of the specified application load balancer.
 
 ## gRPC request
 
-**rpc UpdateListener ([UpdateListenerRequest](#yandex.cloud.apploadbalancer.v1.UpdateListenerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc UpdateListener ([UpdateListenerRequest](#yandex.cloud.apploadbalancer.v1.UpdateListenerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateListenerRequest {#yandex.cloud.apploadbalancer.v1.UpdateListenerRequest}
 

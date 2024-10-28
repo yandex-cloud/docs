@@ -105,9 +105,9 @@ One of the requested log records. ||
 
 This token allows you to continue streaming logs starting from the exact same record.
 
-To do that, specify value of `nextRecordToken` as the value for [StreamLogs.recordToken](#yandex.cloud.mdb.opensearch.v1.StreamClusterLogsRequest) parameter in the next [StreamLogs](#StreamLogs) request.
+To do that, specify value of `nextRecordToken` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs](#StreamLogs) request.
 
-This value is interchangeable with [ListLogs.nextPageToken](/docs/managed-opensearch/api-ref/Backup/list#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) from [ListLogs](/docs/managed-opensearch/api-ref/Cluster/listLogs#ListLogs) method. ||
+This value is interchangeable with [ListLogs.next_page_token] from [ListLogs](/docs/managed-opensearch/api-ref/Cluster/listLogs#ListLogs) method. ||
 |#
 
 ## LogRecord {#yandex.cloud.mdb.opensearch.v1.LogRecord}

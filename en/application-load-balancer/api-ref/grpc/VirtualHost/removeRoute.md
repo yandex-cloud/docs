@@ -9,7 +9,7 @@ Deletes the specified route from the specified virtual host.
 
 ## gRPC request
 
-**rpc RemoveRoute ([RemoveRouteRequest](#yandex.cloud.apploadbalancer.v1.RemoveRouteRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc RemoveRoute ([RemoveRouteRequest](#yandex.cloud.apploadbalancer.v1.RemoveRouteRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## RemoveRouteRequest {#yandex.cloud.apploadbalancer.v1.RemoveRouteRequest}
 

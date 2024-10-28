@@ -37,9 +37,10 @@ To send a request to the classifier:
   
       ```bash
       export IAM_TOKEN=<IAM_token>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@<path_to_request_body_file>" \
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<path_to_request_body_file>" \
         "https://{{ api-host-llm }}:443/foundationModels/v1/textClassification"
       ```
 

@@ -9,7 +9,7 @@ Updates the specified backend.
 
 ## gRPC request
 
-**rpc UpdateBackend ([UpdateBackendRequest](#yandex.cloud.apploadbalancer.v1.UpdateBackendRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc UpdateBackend ([UpdateBackendRequest](#yandex.cloud.apploadbalancer.v1.UpdateBackendRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateBackendRequest {#yandex.cloud.apploadbalancer.v1.UpdateBackendRequest}
 

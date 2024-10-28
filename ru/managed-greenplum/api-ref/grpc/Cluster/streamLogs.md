@@ -56,7 +56,7 @@ If this field is not set, all existing logs are sent as well as the new ones as 
 In essence it has `tail -f` semantics. ||
 || recordToken | **string**
 
-Record token. Set `recordToken` to the [StreamLogs.nextRecordToken](#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) returned by the previous [StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
+Record token. Set `recordToken` to the [StreamLogs.next_record_token] returned by the previous [StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -96,9 +96,9 @@ One of the requested log records. ||
 
 This token allows you to continue streaming logs starting from the exact same record.
 
-To do that, specify value of `nextRecordToken` as the value for [StreamLogs.recordToken](#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest) parameter in the next [StreamLogs](#StreamLogs) request.
+To do that, specify value of `nextRecordToken` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs](#StreamLogs) request.
 
-This value is interchangeable with [ListLogs.nextPageToken](/docs/managed-greenplum/api-ref/grpc/Backup/list#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) from [ListLogs](/docs/managed-greenplum/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
+This value is interchangeable with [ListLogs.next_page_token] from [ListLogs](/docs/managed-greenplum/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
 |#
 
 ## LogRecord {#yandex.cloud.mdb.greenplum.v1.LogRecord}

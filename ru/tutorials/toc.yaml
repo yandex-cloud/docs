@@ -690,6 +690,8 @@ items:
     items:
       - name: Все руководства
         href: windows/index.md
+      - name: Безопасная передача пароля в скрипт инициализации
+        href: windows/secure-password-script.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange

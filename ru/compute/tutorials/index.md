@@ -37,3 +37,12 @@ description: Различные сценарии использования {{ c
 * [{#T}](ha-regional-glusterfs-high-performance.md)
 * [{#T}](backup-with-bacula.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+
+## Продукты Microsoft в {{ yandex-cloud }}
+
+* [{#T}](secure-password-script.md)
+* [{#T}](active-directory.md)
+* [{#T}](exchange.md)
+* [{#T}](rds.md)
+* [{#T}](mssql-alwayson-lb.md)
+* [{#T}](rds-gw.md)

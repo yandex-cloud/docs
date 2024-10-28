@@ -9,7 +9,7 @@ Creates a backend group in the specified folder.
 
 ## gRPC request
 
-**rpc Create ([CreateBackendGroupRequest](#yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Create ([CreateBackendGroupRequest](#yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateBackendGroupRequest {#yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest}
 

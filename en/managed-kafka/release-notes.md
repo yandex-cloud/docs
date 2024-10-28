@@ -9,23 +9,23 @@ description: This section contains {{ mkf-name }} release notes.
 
 ## July 2024 {#jule-2024}
 
-* Added automatic increase of disk size. In the [cluster settings](./operations/cluster-update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. You can choose to immediately increase the disk size or to increase it during the next maintenance window.
+Added automatic increase of disk size. In the [cluster settings](./operations/cluster-update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. You can choose to immediately increase the disk size or to increase it during the next maintenance window.
 
 ## March 2024 {#mar-2024}
 
-* Now you can [replace the availability zone](./operations/host-migration.md) for {{ mkf-name }} clusters.
+Now you can [replace the availability zone](./operations/host-migration.md) for {{ mkf-name }} clusters.
 
 ## Q4 2023 {#q4-2023}
 
-* New {{ KF }} version 3.5.1 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} 3.5.0 documentation](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) and the [{{ KF }} 3.5.1 documentation](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+New {{ KF }} version 3.5.1 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} 3.5.0 documentation](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) and the [{{ KF }} 3.5.1 documentation](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q2 2023 {#q2-2023}
 
-* New {{ KF }} version 3.4 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} documentation](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+New {{ KF }} version 3.4 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} documentation](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q1 2023 {#q1-2023}
 
-* New {{ KF }} version 3.3 is available in the `PRODUCTION` environment. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+New {{ KF }} version 3.3 is available in the `PRODUCTION` environment. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q4 2022 {#q4-2022}
 
@@ -54,4 +54,4 @@ description: This section contains {{ mkf-name }} release notes.
 
 ## Q1 2022 {#q1-2022}
 
-* A new version is available: {{ KF }} 3.0.
+A new version is available: {{ KF }} 3.0.

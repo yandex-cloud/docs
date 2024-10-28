@@ -11,7 +11,7 @@ This request does not allow to add [TlsListener.defaultHandler](/docs/applicatio
 
 ## gRPC request
 
-**rpc AddSniMatch ([AddSniMatchRequest](#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc AddSniMatch ([AddSniMatchRequest](#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## AddSniMatchRequest {#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest}
 

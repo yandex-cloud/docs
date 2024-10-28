@@ -31,7 +31,8 @@ To send requests to aliases, you must have the `{{ roles-datasphere-user }}` or 
 You can use the [gRPCurl](https://github.com/fullstorydev/grpcurl) utility to make gRPC calls.
 
 ```bash
-grpcurl -H "Authorization: Bearer <IAM_token>" \
+grpcurl \
+  -H "Authorization: Bearer <IAM_token>" \
   -d '{
   "folder_id": "<folder_ID>",
   "alias_name": "<alias_name>",
@@ -43,10 +44,10 @@ yandex.cloud.datasphere.v1.NodeService/ExecuteAlias
 
 Where:
 
-* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) being used for authentication.
+* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<alias_name>`: Alias name.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys are mapped to input variables.
 
 In a successful response, the object is returned:
 
@@ -63,20 +64,21 @@ In a successful response, the object is returned:
 You can use the [cURL](https://curl.se) utility to send REST requests.
 
 ```bash
-curl -H "x-node-alias: datasphere.user.<alias_name>" \
-   -H "Authorization: Bearer <IAM_token>" \
-   -H "x-folder-id: <folder_ID>" \
-   -X <request_type> \
-   -d '<input_variables>' \
+curl \
+   --header "x-node-alias: datasphere.user.<alias_name>" \
+   --header "Authorization: Bearer <IAM_token>" \
+   --header "x-folder-id: <folder_ID>" \
+   --request <request_type> \
+   --data '<input_variables>' \
    https://node-api.datasphere.yandexcloud.net/
 ```
 
 Where:
 
 * `<alias_name>`: Alias name.
-* `<IAM_token>`: IAM token being used for authentication.
+* `<IAM_token>`: IAM token used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<request_type>`: Type of the request to the alias.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys are mapped to input variables.
 
 The response returns a JSON object with output variables.

@@ -5,6 +5,7 @@ description: Различные сценарии использования Wind
 
 # Руководства по работе с Windows в {{ yandex-cloud }}
 
+* [Безопасная передача пароля в скрипт инициализации](secure-password-script.md)
 * [Развертывание Active Directory](active-directory.md)
 * [Развертывание Microsoft Exchange](exchange.md)
 * [Развертывание Microsoft Remote Desktop Services](rds.md)

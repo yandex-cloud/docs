@@ -9,7 +9,7 @@ Deletes the specified application load balancer.
 
 ## gRPC request
 
-**rpc Delete ([DeleteLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.DeleteLoadBalancerRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Delete ([DeleteLoadBalancerRequest](#yandex.cloud.apploadbalancer.v1.DeleteLoadBalancerRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## DeleteLoadBalancerRequest {#yandex.cloud.apploadbalancer.v1.DeleteLoadBalancerRequest}
 

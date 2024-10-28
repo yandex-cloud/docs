@@ -113,7 +113,7 @@
     ```python
     import requests
     req = {
-            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -126,8 +126,7 @@
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
-            "x-folder-id": "<идентификатор_каталога>", }
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -135,18 +134,17 @@
 
     Где:
 
-    * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
+    * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), у которого есть доступ к сервису {{ yagpt-name }}.
     * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
     * `maxTokens` — максимальное число токенов в ответе модели.
     * `<IAM-токен>` — значение [IAM-токена сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
-    * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
 
     Если вы использовали инструкцию для дообучения, укажите ее текст в сообщении с ролью `system`:
 
     ```python
     import requests
     req = {
-            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -163,8 +161,7 @@
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
-                       "x-folder-id": "<идентификатор_каталога>", }
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -180,7 +177,7 @@
     
        ```json
         {
-        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,
@@ -197,7 +194,7 @@
 
        Где:
 
-       * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
+       * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), у которого есть доступ к сервису {{ yagpt-name }}.
        * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
        * `maxTokens` — максимальное число токенов в ответе модели.
        * `text` — текст запроса.
@@ -206,7 +203,7 @@
 
        ```json
         {
-        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,

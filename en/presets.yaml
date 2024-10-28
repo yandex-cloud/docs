@@ -681,7 +681,7 @@ default:
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.talk-analytics.yandexcloud.net:443
+  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
@@ -7750,7 +7750,6 @@ default:
           button_add-host: Add host
           button_add-initialization-action: Add
           button_add-subcluster: Add
-          button_configure: Add
           button_configure-settings: Settings
           button_create: Create cluster
           button_create-shard: Create shard
@@ -7784,7 +7783,6 @@ default:
           field_diagnostics-sessions-interval: Sessions sampling interval
           field_diagnostics-statements-interval: Statements sampling interval
           field_initialization-action-args: Arguments
-          field_initialization-action-timeout: Timeout
           field_initialization-action-uri: URI
           field_security-group: Security groups
           host_column_assign_public_ip: Public access
@@ -7794,7 +7792,6 @@ default:
           host_column_zone: Availability zone
           label_autoscaling-activated: Autoscaling
           label_compute-subcluster: Compute
-          label_create-subcluster: ' Add subcluster'
           label_data-subcluster: Data
           label_deletion-protection: Deletion protection
           label_disk-size: Size
@@ -10189,7 +10186,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.7
+        tag: 1.14.8
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

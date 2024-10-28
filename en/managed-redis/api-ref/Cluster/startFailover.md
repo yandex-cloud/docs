@@ -360,7 +360,16 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
             "softLimit": "string",
             "softSeconds": "string"
           },
-          "maxmemoryPercent": "string"
+          "maxmemoryPercent": "string",
+          "luaTimeLimit": "string",
+          "replBacklogSizePercent": "string",
+          "clusterRequireFullCoverage": "boolean",
+          "clusterAllowReadsWhenDown": "boolean",
+          "clusterAllowPubsubshardWhenDown": "boolean",
+          "lfuDecayTime": "string",
+          "lfuLogFactor": "string",
+          "turnBeforeSwitchover": "boolean",
+          "allowDataLoss": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -380,7 +389,16 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
             "softLimit": "string",
             "softSeconds": "string"
           },
-          "maxmemoryPercent": "string"
+          "maxmemoryPercent": "string",
+          "luaTimeLimit": "string",
+          "replBacklogSizePercent": "string",
+          "clusterRequireFullCoverage": "boolean",
+          "clusterAllowReadsWhenDown": "boolean",
+          "clusterAllowPubsubshardWhenDown": "boolean",
+          "lfuDecayTime": "string",
+          "lfuLogFactor": "string",
+          "turnBeforeSwitchover": "boolean",
+          "allowDataLoss": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -400,7 +418,16 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
             "softLimit": "string",
             "softSeconds": "string"
           },
-          "maxmemoryPercent": "string"
+          "maxmemoryPercent": "string",
+          "luaTimeLimit": "string",
+          "replBacklogSizePercent": "string",
+          "clusterRequireFullCoverage": "boolean",
+          "clusterAllowReadsWhenDown": "boolean",
+          "clusterAllowPubsubshardWhenDown": "boolean",
+          "lfuDecayTime": "string",
+          "lfuLogFactor": "string",
+          "turnBeforeSwitchover": "boolean",
+          "allowDataLoss": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1170,6 +1197,33 @@ Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
 Redis maxmemory percent ||
+|| luaTimeLimit | **string** (int64)
+
+Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
+|| replBacklogSizePercent | **string** (int64)
+
+Replication backlog size as a percentage of flavor maxmemory ||
+|| clusterRequireFullCoverage | **boolean**
+
+Controls whether all hash slots must be covered by nodes ||
+|| clusterAllowReadsWhenDown | **boolean**
+
+Allows read operations when cluster is down ||
+|| clusterAllowPubsubshardWhenDown | **boolean**
+
+Permits Pub/Sub shard operations when cluster is down ||
+|| lfuDecayTime | **string** (int64)
+
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
+|| lfuLogFactor | **string** (int64)
+
+Determines how the frequency counter represents key hits. ||
+|| turnBeforeSwitchover | **boolean**
+
+Allows to turn before switchover in RDSync ||
+|| allowDataLoss | **boolean**
+
+Allows some data to be lost in favor of faster switchover/restart ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

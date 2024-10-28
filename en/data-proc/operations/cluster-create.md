@@ -83,63 +83,82 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ dataproc-name }} cluster.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** in the drop-down list.
-  1. Enter a name for the {{ dataproc-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The naming requirements are as follows:
+  1. Enter a name for the {{ dataproc-name }} cluster. Optionally, add cluster description.
+
+     The naming requirements are as follows:
+
      * It must be unique within the folder.
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
-  1. Select a suitable [image version](../concepts/environment.md) and the services you want to use in the {{ dataproc-name }} cluster.
+  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Specify the following cluster settings:
 
-     {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+     * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
 
-     {% note tip %}
+        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
-     To use the most recent image version, specify `2.0`.
+        {% note tip %}
 
-     {% endnote %}
+        To use the most recent image version, specify `2.0`.
 
-  1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-  1. Select or create a service account to grant {{ dataproc-name }} cluster access. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
+        {% endnote %}
 
-     {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+     * Public part of the SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information on how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. Select the availability zone for the {{ dataproc-name }} cluster.
-  1. If required, configure the [properties of {{ dataproc-name }} cluster components, jobs, and the environment](../concepts/settings-list.md).
-  1. If necessary, specify custom [initialization scripts](../concepts/init-action.md) for {{ dataproc-name }} cluster hosts. For each script, specify:
-     * **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}**: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
-     * (Optional) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-timeout }}**: Script execution timeout, in seconds. If your initialization script runs longer than this time period, it will be terminated.
-     * (Optional) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}**: List of arguments for your initialization script, enclosed in square brackets (`[]`) and separated by commas, e.g.:
+     * Service account to which you need to grant access to the {{ dataproc-name }} cluster. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
 
-       ```text
-       ["arg1","arg2",...,"argN"]
-       ```
+        {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
 
-  1. Select the name of a bucket in {{ objstorage-name }} to store job dependencies and results.
-  1. Select a network for the {{ dataproc-name }} cluster.
-  1. Select security groups that have the required permissions.
+     * Availability zone for the {{ dataproc-name }} cluster.
+     * (Optional) [Cluster component properties](../concepts/settings-list.md).
+     * (Optional) Custom [initialization scripts](../concepts/init-action.md) for cluster hosts. For each script, specify the following information:
 
-     {% note warning %}
+        * URI link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` schema.
+        * (Optional) Script timeout (in seconds). If your initialization script runs longer than the specified time period, it will be terminated.
+        * (Optional) Arguments enclosed in square brackets and separated by commas. The initialization script will use these arguments when it runs. Example of arguments:
 
-     When you create a {{ dataproc-name }} cluster, security group settings are verified. If the {{ dataproc-name }} cluster cannot operate properly with these settings, a warning will appear. A sample functional configuration is provided [above](#change-security-groups).
+          ```text
+          ["arg1","arg2",...,"argN"]
+          ```
 
-     {% endnote %}
+     * [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
+     * Bucket to use by the cluster.
 
-  1. Enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
-  1. [{{ cloud-logging-full-name }}](../../logging/) stores {{ dataproc-name }} cluster logs. Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
+        Depending on the format you selected, either pick a name from the list or specify it manually. You can get it with a [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
 
-     For the function to work, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `logging.writer` role to the service account of the {{ dataproc-name }} cluster. For more information, see the [{{ cloud-logging-name }} documentation](../../logging/security/index.md).
-  1. Configure {{ dataproc-name }} subclusters: maximum one subcluster with a master host (**Master**) and subclusters for data storage or processing.
+     * Format in which to specify a network for the {{ dataproc-name }} cluster.
+     * Network for the cluster.
+     * Security groups with the required permissions.
 
-     Roles of {{ dataproc-name }} subclusters for data storage and processing are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. You can use a [storage](../concepts/storage.md) on a {{ dataproc-name }} subcluster for data processing only to temporarily store the files being processed.
+        {% note warning %}
 
-     For each {{ dataproc-name }} subcluster, you can configure:
-     * Number of hosts.
-     * [Host class](../concepts/instance-types.md): Platform and computing resources available to the host.
+        When you create a {{ dataproc-name }} cluster, security group settings are verified. If the {{ dataproc-name }} cluster cannot operate properly with these settings, you will get a warning. A sample functional configuration is provided [above](#change-security-groups).
+
+        {% endnote %}
+
+     * [UI Proxy](./connect-interfaces.md#ui-proxy). If the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option is enabled, {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md) will be available.
+     * {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) the cluster will send logs to.
+
+        To save logs in a log group, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `logging.writer` [role](../../logging/security/index.md#logging-writer) to the cluster service account.
+
+  1. Configure the {{ dataproc-name }} subclusters. The following types are available:
+
+     * Subcluster with a master host (`{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`). There can only be one such subcluster.
+     * Data storage subclusters (`{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`). These are used to deploy storage components.
+     * Data processing subclusters (`{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`). These are used to deploy computing components. The [storage](../concepts/storage.md) of such a subcluster can only be used to temporarily store processed files.
+
+     For each {{ dataproc-name }} subcluster, specify:
+
+     * Subcluster name.
+     * Number of hosts (there can only be one master host).
+     * [Host class](../concepts/instance-types.md), i.e., the platform and computing resources available to the host.
      * Storage size and type.
-     * Subnet of the network where the {{ dataproc-name }} cluster resides.
+     * Subnet.
 
-       In the subnet, you need to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the {{ dataproc-name }} subcluster with a master host. For more information, see [{#T}](#setup-network).
-     * To access {{ dataproc-name }} subcluster hosts from the internet, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to {{ dataproc-name }} subcluster hosts using SSL. For more information, see [{#T}](connect.md).
+        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [{#T}](#setup-network).
+
+     * Access to {{ dataproc-name }} subcluster hosts from the internet. Select the **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** option to enable access. In this case, you can only connect to {{ dataproc-name }} subcluster hosts using SSL. For more information, see [{#T}](connect.md).
 
        {% note warning %}
 
@@ -147,18 +166,18 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
        {% endnote %}
 
-  1. In {{ dataproc-name }} subclusters for data processing, you can specify [autoscaling](../concepts/autoscaling.md) parameters.
+  1. (Optional) Set up [automatic scaling](../concepts/autoscaling.md) for data processing subclusters.
 
-     1. Under **{{ ui-key.yacloud.mdb.forms.label_create-subcluster }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure }}**.
-     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** field, select `COMPUTENODE`.
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_scaling }}**, enable the **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}** setting.
+     1. In the `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` subcluster settings, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Set autoscaling parameters.
      1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU utilization, disable the **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** setting and specify the target CPU utilization level.
      1. Click **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
-  1. Configure additional {{ dataproc-name }} cluster settings, if required:
-     **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages {{ dataproc-name }} cluster protection against accidental deletion by a user.
 
-     Enabled protection will not prevent a manual connection to the {{ dataproc-name }} cluster and data deletion.
+  1. (Optional) Add and set up additional subclusters for data storage or processing.
+  1. (Optional) Use additional settongs to enable protection against accidental cluster deletion.
+
+     With the protection enabled, one can still connect to the {{ dataproc-name }} cluster manually and delete the data.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI {#cli}
@@ -247,7 +266,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        * `resource-preset`: [Host class](../concepts/instance-types.md).
        * `disk-type`: [Storage type](../concepts/storage.md), which can be `network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`.
        * `disk-size`: Storage size in GB.
-       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
+       * `subnet-name`: Subnet name.
        * `hosts-count`: Number of hosts in the {{ dataproc-name }} subclusters for data storage or processing. The minimum value is `1`, and the maximum value is `32`.
        * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can either be `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster using SSL. For more information, see [{#T}](connect.md).
 
@@ -297,7 +316,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `hosts-count`: Minimum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `32`.
      * `max-hosts-count`: Maximum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. Its possible values are `true` or `false`.
-     * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
+     * `warmup-duration`: Time required to warm up a VM instance, in `<value>s`. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
      * `measurement-duration`: Period, in seconds, for which the average utilization is calculated for each instance, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
      * `cpu-utilization-target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.

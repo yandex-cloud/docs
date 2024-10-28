@@ -44,7 +44,8 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
     },
     "generation2Features": "Generation2HardwareFeatures"
     // end of the list of possible fields
-  }
+  },
+  "kmsKeyId": "string"
 }
 ```
 
@@ -99,6 +100,9 @@ List of IDs of the snapshot schedules to attach the disk to. ||
 
 Specify the overrides to hardware_generation of a source disk, image or snapshot,
 or to the default values if the source does not define it. ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -200,6 +204,10 @@ and UEFI boot (with UEFI related features).
       },
       "generation2Features": "Generation2HardwareFeatures"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -343,6 +351,9 @@ Placement policy configuration. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy2}
@@ -394,4 +405,16 @@ and UEFI boot (with UEFI related features).
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

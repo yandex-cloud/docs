@@ -12,6 +12,7 @@ description: Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](mmy-to-mgp.md)
 * [Exporting cluster data to a cold storage in {{ objstorage-full-name }}](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
+* [{#T}](./managed-kafka-to-greenplum.md)
 
 ## Delivering data using {{ data-transfer-name }} {#data-transfer}
 

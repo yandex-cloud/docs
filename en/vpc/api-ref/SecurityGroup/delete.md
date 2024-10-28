@@ -21,7 +21,7 @@ DELETE https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 
 Required field. ID of the security group to delete.
 
-To get a address ID make a [SecurityGroup.List](/docs/vpc/api-ref/Address/list#List) request. ||
+To get a address ID make a [SecurityGroup.List] request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

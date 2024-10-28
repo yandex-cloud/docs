@@ -37,7 +37,7 @@ Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrailsRequest.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailsResponse) returned by a previous list request. ||
+[ListTrailsRequest.next_page_token] returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters subscription locks listed in the response.

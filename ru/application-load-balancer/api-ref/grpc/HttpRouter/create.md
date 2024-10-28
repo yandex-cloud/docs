@@ -9,7 +9,7 @@ Creates an HTTP router in the specified folder.
 
 ## gRPC request
 
-**rpc Create ([CreateHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Create ([CreateHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateHttpRouterRequest {#yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest}
 

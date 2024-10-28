@@ -1,7 +1,7 @@
 # Sharding {{ MG }} collections
 
 
-While sharding a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
+When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
 - either `MONGOS` and `MONGOCFG`
 - or `MONGOINFRA`
 
@@ -13,7 +13,7 @@ Ease of use and actual performance improvements significantly depend on the shar
 
 You should use sharding for:
 
-* Large data volumes. Consider sharding if your collection size is 200 GB or larger.
+* Data of significant size: if the collection takes up more than 200 GB.
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
@@ -31,7 +31,7 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
 1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
 
    ```text
-   sh.enableSharding("<db_name>")
+   sh.enableSharding("<DB_name>")
    ```
 
    You can request the host type with a [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
@@ -39,13 +39,13 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
 1. Define an index for the sharded collection:
 
    ```text
-   db.getSiblingDB("<db_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
+   db.getSiblingDB("<DB_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
    ```
 
 1. Enable collection sharding:
 
    ```text
-   sh.shardCollection( "<db_name>.<collection>", { "<index>": <index_type> } )
+   sh.shardCollection( "<DB_name>.<collection>", { "<index>": <index_type> } )
    ```
 
    For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).

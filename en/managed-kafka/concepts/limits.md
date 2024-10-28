@@ -1,6 +1,6 @@
 ---
 title: Quotas and limits in {{ mkf-name }}
-description: '{{ mkf-name }} has limits and quotas on the number of clusters, total number of processor cores for all broker hosts, total amount of virtual memory for all broker hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article.'
+description: '{{ mkf-name }} has limits and quotas for the number of clusters, total number of processor cores for all broker hosts, total amount of virtual memory for all broker hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

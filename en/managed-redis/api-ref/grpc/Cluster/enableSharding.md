@@ -331,7 +331,16 @@ Required field. Required. ID of the Redis cluster to return. ||
             "softLimit": "google.protobuf.Int64Value",
             "softSeconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemoryPercent": "google.protobuf.Int64Value",
+          "luaTimeLimit": "google.protobuf.Int64Value",
+          "replBacklogSizePercent": "google.protobuf.Int64Value",
+          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
+          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
+          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
+          "lfuDecayTime": "google.protobuf.Int64Value",
+          "lfuLogFactor": "google.protobuf.Int64Value",
+          "turnBeforeSwitchover": "google.protobuf.BoolValue",
+          "allowDataLoss": "google.protobuf.BoolValue"
         },
         "userConfig": {
           "maxmemoryPolicy": "MaxmemoryPolicy",
@@ -351,7 +360,16 @@ Required field. Required. ID of the Redis cluster to return. ||
             "softLimit": "google.protobuf.Int64Value",
             "softSeconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemoryPercent": "google.protobuf.Int64Value",
+          "luaTimeLimit": "google.protobuf.Int64Value",
+          "replBacklogSizePercent": "google.protobuf.Int64Value",
+          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
+          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
+          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
+          "lfuDecayTime": "google.protobuf.Int64Value",
+          "lfuLogFactor": "google.protobuf.Int64Value",
+          "turnBeforeSwitchover": "google.protobuf.BoolValue",
+          "allowDataLoss": "google.protobuf.BoolValue"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "MaxmemoryPolicy",
@@ -371,7 +389,16 @@ Required field. Required. ID of the Redis cluster to return. ||
             "softLimit": "google.protobuf.Int64Value",
             "softSeconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemoryPercent": "google.protobuf.Int64Value",
+          "luaTimeLimit": "google.protobuf.Int64Value",
+          "replBacklogSizePercent": "google.protobuf.Int64Value",
+          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
+          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
+          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
+          "lfuDecayTime": "google.protobuf.Int64Value",
+          "lfuLogFactor": "google.protobuf.Int64Value",
+          "turnBeforeSwitchover": "google.protobuf.BoolValue",
+          "allowDataLoss": "google.protobuf.BoolValue"
         }
       },
       "diskSizeAutoscaling": {
@@ -1074,6 +1101,33 @@ Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
+|| luaTimeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
+|| replBacklogSizePercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Replication backlog size as a percentage of flavor maxmemory ||
+|| clusterRequireFullCoverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether all hash slots must be covered by nodes ||
+|| clusterAllowReadsWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows read operations when cluster is down ||
+|| clusterAllowPubsubshardWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Permits Pub/Sub shard operations when cluster is down ||
+|| lfuDecayTime | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
+|| lfuLogFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Determines how the frequency counter represents key hits. ||
+|| turnBeforeSwitchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to turn before switchover in RDSync ||
+|| allowDataLoss | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows some data to be lost in favor of faster switchover/restart ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

@@ -11,7 +11,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-## Request to the model via the REST API {#request}
+## Request to a model via the REST API {#request}
 
 {% list tabs group=programming_language %}
 
@@ -48,23 +48,24 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
   
      {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
   
-  1. To send the request to the model, run this command:
+  1. Send a request to the model by running this command:
   
      ```bash
      export FOLDER_ID=<folder_ID>
      export IAM_TOKEN=<IAM_token>
-     curl --request POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -H "x-folder-id: ${FOLDER_ID}" \
-       -d "@<path_to_JSON_file>" \
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --header "x-folder-id: ${FOLDER_ID}" \
+       --data "@<path_to_JSON_file>" \
        "https://llm.{{ api-host }}/foundationModels/v1/completion"
      ```
   
      Where:
   
      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-     * `IAM_TOKEN`: IAM token received [before getting started](#before-begin).
+     * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
   
      {% cut "Result:" %}
   
@@ -137,7 +138,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
          run(args.iam_token, args.folder_id, args.user_text)
      ```
 
-  1. Run the `test.py` file substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
+  1. Run the `test.py` file, substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
 
      ```bash
      export IAM_TOKEN=<IAM_token>
@@ -159,7 +160,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 {% endlist %}
 
-## Request to the model via the gRPC API {#request-grpc}
+## Request to a model via the gRPC API {#request-grpc}
 
 {% list tabs group=programming_language %}
 
@@ -167,7 +168,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. Clone the {{ yandex-cloud }} API repository by entering the code into a notebook cell.
+  1. Clone the {{ yandex-cloud }} API repository by entering the code into a notebook cell:
 
      ```bash
      git clone https://github.com/yandex-cloud/cloudapi
@@ -179,7 +180,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
      pip install grpcio-tools
      ```
 
-  1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository:
+  1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository:
 
      ```bash
      cd <path_to_cloudapi_folder>
@@ -254,7 +255,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
          run(args.iam_token, args.folder_id, args.user_text)
      ```
 
-  1. Run the `test.py` file substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
+  1. Run the `test.py` file, substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
 
      ```bash
      export IAM_TOKEN=<IAM_token>
@@ -280,7 +281,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 With the `stream` parameter enabled, the server will provide not just the final text generation result but intermediate results as well. Each intermediate response contains the whole currently available generation result. Until the final response is received, the generation results may change as new messages arrive. 
 
-The `stream` parameter's operation is most evident when creating and processing large texts.
+You can see most clearly how the `stream` parameter works when creating and processing large texts.
 
 {% note warning %}
 
@@ -288,7 +289,7 @@ The `stream` parameter is not available for the model's [asynchronous mode](asyn
 
 {% endnote %}
 
-Generate the gRPC client interface code as described in [this guide](#request-grpc). At Step 6, generate a file named `test.py` with the code to access the model.
+Generate the gRPC client interface code as described in [this guide](#request-grpc). At _Step 6_, generate a file named `test.py` with the code to access the model.
 
 ```python
 # coding=utf8

@@ -16,12 +16,13 @@ Request example:
   export FOLDER_ID=<folder_ID>
   export IAM_TOKEN=<IAM_token>
 
-  curl --request POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -H "x-data-logging-enabled: false" \
-    -H "x-folder-id: ${FOLDER_ID}" \
-    -d "@<path_to_JSON_file>" \
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --header "x-data-logging-enabled: false" \
+    --header "x-folder-id: ${FOLDER_ID}" \
+    --data "@<path_to_JSON_file>" \
     "https://llm.{{ api-host }}/foundationModels/v1/completion"
   ```
 

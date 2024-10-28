@@ -29,13 +29,13 @@ Required field. ID of the secret to list versions for. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListVersionsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse)
+results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListVersionsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse) returned by a previous list request. ||
+[ListVersionsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListVersionsResponse}

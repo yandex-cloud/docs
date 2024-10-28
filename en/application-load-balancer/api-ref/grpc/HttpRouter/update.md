@@ -9,7 +9,7 @@ Updates the specified HTTP router.
 
 ## gRPC request
 
-**rpc Update ([UpdateHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Update ([UpdateHttpRouterRequest](#yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateHttpRouterRequest {#yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest}
 

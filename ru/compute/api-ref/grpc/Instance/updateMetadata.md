@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Instance/updateMetadata.md
 
 # Compute Cloud API, gRPC: InstanceService.UpdateMetadata {#UpdateMetadata}
 
-Updates the metadata of the specified instance.
+Updates the metadata of the specified instance. For more information on metadata, see [VM metadata](/docs/compute/concepts/vm-metadata).
 
 ## gRPC request
 

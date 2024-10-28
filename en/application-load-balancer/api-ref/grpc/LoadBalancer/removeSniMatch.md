@@ -11,7 +11,7 @@ This request does not allow to delete [TlsListener.defaultHandler](/docs/applica
 
 ## gRPC request
 
-**rpc RemoveSniMatch ([RemoveSniMatchRequest](#yandex.cloud.apploadbalancer.v1.RemoveSniMatchRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc RemoveSniMatch ([RemoveSniMatchRequest](#yandex.cloud.apploadbalancer.v1.RemoveSniMatchRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## RemoveSniMatchRequest {#yandex.cloud.apploadbalancer.v1.RemoveSniMatchRequest}
 

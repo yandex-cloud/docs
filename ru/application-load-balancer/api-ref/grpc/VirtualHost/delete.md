@@ -9,7 +9,7 @@ Deletes the specified virtual host.
 
 ## gRPC request
 
-**rpc Delete ([DeleteVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Delete ([DeleteVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## DeleteVirtualHostRequest {#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest}
 

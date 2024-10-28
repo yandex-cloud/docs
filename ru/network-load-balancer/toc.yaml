@@ -73,6 +73,12 @@ items:
         href: tutorials/updating-under-load.md
       - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
         href: tutorials/dns-integration.md
+      - name: Развертывание Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: >-
+          Развертывание группы доступности Always On с внутренним сетевым
+          балансировщиком
+        href: tutorials/mssql-alwayson-lb.md
   - name: Концепции
     items:
       - name: Обзор

@@ -35,7 +35,7 @@ Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrailOperationsRequest.nextPageToken](/docs/audit-trails/api-ref/Trail/list#yandex.cloud.audittrails.v1.ListTrailsResponse) returned by a previous list request. ||
+[ListTrailOperationsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## Response {#yandex.cloud.audittrails.v1.ListTrailOperationsResponse}
@@ -77,8 +77,8 @@ List of operations for the specified trail. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListTrailOperationsResponse.pageSize](/docs/audit-trails/api-ref/Trail/list#yandex.cloud.audittrails.v1.ListTrailsRequest), use the `next_page_token` as the value
-for the [ListTrailOperationsResponse.pageToken](/docs/audit-trails/api-ref/Trail/list#yandex.cloud.audittrails.v1.ListTrailsRequest) query parameter in the next list request.
+is larger than [ListTrailOperationsResponse.page_size], use the `next_page_token` as the value
+for the [ListTrailOperationsResponse.page_token] query parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 

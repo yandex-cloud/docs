@@ -10,5 +10,6 @@ description: Различные сценарии использования {{ l
 * [{#T}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](lockbox-and-airflow.md)
-* [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](secure-password-script.md)
+* [{#T}](data-transfer-direct-to-mch.md)

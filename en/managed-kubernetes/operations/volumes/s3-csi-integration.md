@@ -287,7 +287,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
         accessModes:
           - ReadWriteMany
         claimRef:
-          namespace: defalt
+          namespace: default
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi

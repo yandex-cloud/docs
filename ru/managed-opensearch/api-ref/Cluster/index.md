@@ -17,6 +17,7 @@ A set of methods for managing OpenSearch clusters.
 || [Update](update.md) | Updates the specified OpenSearch cluster. ||
 || [Delete](delete.md) | Deletes the specified OpenSearch cluster. ||
 || [Backup](backup.md) | Creates a backup for the specified OpenSearch cluster. ||
+|| [DeleteBackup](deleteBackup.md) | Delete backup for the specified OpenSearch cluster. ||
 || [Restore](restore.md) | Creates a new OpenSearch cluster using the specified backup. ||
 || [RescheduleMaintenance](rescheduleMaintenance.md) | Reschedules a planned maintenance operation. ||
 || [ListBackups](listBackups.md) | Returns a list of available backups for the specified OpenSearch cluster. ||
