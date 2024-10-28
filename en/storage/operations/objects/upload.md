@@ -42,7 +42,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-       s3 cp <local_file_path>/ s3://<bucket_name>/<object_key>
+       s3 cp <local_file_path> s3://<bucket_name>/<object_key>
      ```
 
      Where:
