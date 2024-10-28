@@ -9,7 +9,10 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ### New features {#new-features-september}
 
-[{{ metastore-full-name }}](../concepts/metastore.md) clusters are now part of {{ metadata-hub-name }}.
+* [{{ metastore-full-name }}](../concepts/metastore.md) clusters are now part of {{ metadata-hub-name }}.
+* [{{ schema-registry-name }}](../quickstart/schema-registry.md) is available in [Preview](../../overview/concepts/launch-stages.md).
+* {{ data-transfer-full-name }} users can now specify a {{ connection-manager-name }} connection ID to [configure the {{ mpg-short-name }} endpoint](../../data-transfer/operations/endpoint/source/postgresql.md).
+* In {{ datalens-full-name }}, you can now use {{ connection-manager-name }} to create [{{ PG }}](../../datalens/operations/connection/create-postgresql.md#conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md#conn-man), and [{{ MY }}](../../datalens/operations/connection/create-mysql.md#conn-man) connections.
 
 ## August {#august}
 

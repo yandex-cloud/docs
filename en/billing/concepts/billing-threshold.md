@@ -19,8 +19,6 @@ The billing threshold amount and the total arrears when you are blocked may be d
 
 The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
-
 ## Billing threshold amount {#amount}
 
 The billing threshold amount is calculated individually and depends on a combination of factors, including:

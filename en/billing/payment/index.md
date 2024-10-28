@@ -9,6 +9,7 @@ Individuals:
 
 Businesses and individual entrepreneurs:
 * [Billing cycle](billing-cycle-business.md)
+* [Paying by bank card](payment-methods-card-business.md)
 * [Bank account transfers](payment-methods-business.md)
 * [Reporting documents](documents.md)
 * [Promo code activation](../operations/activate-promocode.md)

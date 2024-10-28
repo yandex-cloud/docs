@@ -13,6 +13,8 @@ For more information, see [How to pay for resources](../../billing/payment/index
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
+#### What cards are accepted for payment? {#card-types}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
 Depending on the currency, the minimum payment amount is:
@@ -49,6 +51,16 @@ Depending on the currency, the minimum payment amount is:
 
 
 
+#### I linked a card to my business billing account. When will money be debited from it? {#unlink-card}
+
+If this is your trial period, funds will not be debited from the bank card you linked.
+Since you do not automatically upgrade to the paid version at the end of the trial period, funds are only debited after activating the paid version and using {{ yandex-cloud }} services.
+
+If you upgraded to the paid version and used {{ yandex-cloud }} services, do the following to stop incurring charges:
+
+1. Settle your arrears (if any).
+1. Delete all billable service resources.
+1. Contact [technical support]({{ link-console-support }}) to deactivate your account.
 
 #### I linked a cloud to a new billing account. How do I pay for services now? {#unlink-cloud}
 
@@ -62,7 +74,9 @@ For more information, see [Pricing](../../billing/pricing.md).
 
 #### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
-According to the [offer]({{ billing-oferta-url }}?lang=en), you can pay within 14 calendar days (not counting public holidays) after the reporting period ends. If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
+
+You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you signed the contract with, you can find more details in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
+ If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}
 

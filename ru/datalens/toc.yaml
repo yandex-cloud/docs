@@ -140,7 +140,11 @@ items:
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
           - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
+            items:
+              - name: Обзор
+                href: concepts/datalens-usage-analytics.md
+              - name: Подключение
+                href: operations/connection/create-usage-tracking.md
       - name: Партнерские подключения
         items:
           - name: Создание подключения к Экстрактору 1С

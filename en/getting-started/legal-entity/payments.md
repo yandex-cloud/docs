@@ -22,6 +22,11 @@ To top up your personal account:
 
 {% list tabs group=payments %}
 
+- Bank card {#card}
+
+   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. We accept Visa and MasterCard.
+
+   Your payment will be processed in real time and completed within 15 minutes.
 
 - Bank transfer {#transfer}
 
@@ -31,7 +36,10 @@ To top up your personal account:
 
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russia), Cloud Services Kazakhstan LLP (Kazakhstan), and SAG (for non-residents of Russia and Kazakhstan).
+   * Banking information of Yandex.Cloud LLC (Russia), Cloud Services Kazakhstan LLP (Kazakhstan), Iron Hive doo Beograd (Serbia) or Direct Cursus Technology L.L.C. (Dubai) (for non-residents of Russia and Kazakhstan).
+
+     {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
+     
    * Your company or individual entrepreneur TIN.
    * [Personal account number](../../billing/concepts/personal-account.md#id) in the payment details.
    * [Contract number](../../billing/concepts/contract.md) in the payment details.

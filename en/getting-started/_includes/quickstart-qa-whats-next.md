@@ -2,6 +2,13 @@
 
 ### Questions about billing accounts and paid accounts {#billing-account}
 
+#### Why do I need a billing account with a linked bank card? {#linked-bank-card}
+
+Billing accounts are used to identify users paying for {{ yandex-cloud }} resources. Even if you plan to use only free services, you still need a billing account: grants and promo codes are credited to it.
+
+To activate a billing account, we require you to link a bank card to make sure that you are a human and not a robot. When linking the card, a small amount will be debited and immediately returned. That is how we verify that your card is real.
+
+Payment for {{ yandex-cloud }} services and resources will be debited from your bank card only after you explicitly allow this, that is, after you switch to a paid account.
 
 #### What happens after the trial period ends? Will you start debiting money right away? {#payment-after-trial}
 
@@ -9,6 +16,7 @@
 
 However, if your [grant](../usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../free-trial/concepts/trial-ending.md).
 
+To activate a billing account, we require you to link a bank card to make sure that you are a human and not a robot. When linking the card, a small amount will be debited and immediately returned. That is how we verify that your card is real.
 
 ### Questions about the initial grant {#grant}
 
@@ -18,9 +26,11 @@ No, you cannot switch back to the trial version, but the grant will not be lost.
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
 
+The cloud may be blocked for a few reasons:
 
-The initial grant is provisionally divided into two parts that can be used at the same time. One part covers payment for the Compute service, the other part — the rest of the {{ yandex-cloud }} services. If you run out of one part, you can continue using the cloud by switching to a paid account. The unspent part of the grant will be preserved. For more information about using the initial grant and switching to a paid period, see [{#T}](../free-trial/concepts/upgrade-to-paid.md).
+1. Make sure that a valid card is linked to your account. If you linked the card and then deleted it, your account may be blocked.
 
+1. The initial grant is provisionally divided into two parts that can be used at the same time. One part covers payment for the Compute service, the other part — the rest of the {{ yandex-cloud }} services. If you run out of one part, you can continue using the cloud by switching to a paid account. The unspent part of the grant will be preserved. For more information about using the initial grant and switching to a paid period, see [{#T}](../free-trial/concepts/upgrade-to-paid.md).
 
 #### I could not use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 

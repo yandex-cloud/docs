@@ -48,7 +48,9 @@ Some {{ yandex-cloud }} maintenance operations may affect the performance or ava
 
 ### Infrastructure failure {#infra}
 
-If there is a {{ yandex-cloud }} failure that can potentially affect the security or availability of your data, technical support will notify you by email as soon as the scope and impact of the problem are identified. Failure notifications will be sent to the subscribers of the folder hosting the affected resource.
+If there is a {{ yandex-cloud }} failure that can potentially affect the security or availability of your data, our support team will notify you by email as soon as the scope and impact of the problem are identified. Failure notifications will be sent to the subscribers of the folder hosting the affected resource.
+
+Our support team does not send notifications about platform incidents. You can check the availability of services on the platform component status [page](https://status.cloud.yandex.ru/dashboard) or follow the announcements in our [Telegram channel](https://t.me/yandexcloudalerts).
 
 ### Information security incident {#security}
 
