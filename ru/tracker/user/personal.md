@@ -6,7 +6,7 @@
 
 Вы можете настроить вашу [стартовую страницу](startpage.md) в старом интерфейсе так, чтобы на ней отображался любой из предложенных вариантов:
 
-* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page);
+* [**{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}**](startpage.md#my-page);
 * [фильтр](create-filter.md);
 * [дашборд](dashboard.md);
 * [доска задач](../manager/create-agile-board.md).

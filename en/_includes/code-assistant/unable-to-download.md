@@ -1,0 +1,1 @@
+If you cannot download it for any reason, contact your system administrator so that they open network access to {{ yandex-cloud }} resources.

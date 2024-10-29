@@ -14,11 +14,11 @@
 ### Создайте форму 
 
 1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
-1. В блоке **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. В блоке **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Создайте новую форму:
 	* Укажите название `Заявка на отпуск`;
 	* Добавьте описание, например `Форма заявки на отпуск`;
-	* Нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+	* Нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Дождитесь загрузки страницы и нажмите кнопку **Полная версия {{ forms-full-name }}**.
 1. Создайте форму заявки, например со следующими полями:
 	* `ФИО` (короткий текст, обязательное поле);
@@ -43,7 +43,7 @@
 1. Сохраните форму, нажав кнопку **Сохранить**.
 1. Вернитесь в конструктор формы, нажав вверху страницы кнопку **В конструктор**.
 1. Нажмите кнопку **Опубликовать** и в появившемся диалоге скопируйте ссылку на форму.
-1. Вернитесь в настройки очереди `Vacations Queue` и нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-forms }}**.
+1. Вернитесь в настройки очереди `Vacations Queue` и нажмите **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-forms }}**.
 1. Нажмите **Добавить форму** и заполните появившуюся форму, указав в поле **Ссылка на форму** полученную выше ссылку.
 1. Сохраните интеграцию формы, нажав кнопку **Сохранить**.
 
@@ -51,7 +51,7 @@
 
 Для выполнения регулярных действий в очереди, в {{ tracker-name }} предусмотрены [автодействия](user/autoactions.md). Настройте регулярную проверку очереди `Vacations Queue` на наличие не взятых в работу заявок с помощью автодействия. Чтобы не перегружать сотрудников, ответственных за оформление отпусков, частыми напоминаниями, настройте отправку напоминаний раз в сутки и не раньше, чем за две недели до указанного в заявке начала отпуска.
 
-1. Вернитесь в настройки очереди `Vacations Queue` и нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-autoactions }}**.
+1. Вернитесь в настройки очереди `Vacations Queue` и нажмите **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-autoactions }}**.
 1. Дождитесь загрузки страницы и нажмите **Создать автодействие**.
 1. В поле **Тип автодействия** активируйте **Обновление задач**.
 1. В поле **Название** укажите, например, `vacation_warning`.
@@ -72,7 +72,7 @@
 
 ## Проверьте работу автодействия
 
-1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**.
+1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}**.
 1. Кликните виджет с названием `Отпуск`.
 1. Заполните форму. В поле **Начало** укажите дату через неделю от сегодняшней.
 1. Отправьте форму.

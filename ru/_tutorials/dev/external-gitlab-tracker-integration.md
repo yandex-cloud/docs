@@ -1,7 +1,7 @@
 # Интеграция {{ GL }} с {{ tracker-full-name }}
 
 
-В [задачах {{ tracker-name }}](../../tracker/about-tracker.md#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ](../../tracker/glossary.md#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
+В [задачах {{ tracker-name }}](../../tracker/about-tracker.md#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ](../../tracker/glossary.md#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [{{ ui-key.startrek.ui_Issues_smart-components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
 
 Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [{{ mgl-name }}](../../managed-gitlab/).
 
@@ -99,7 +99,7 @@
 
 1. [Создайте задачу](../../tracker/user/create-ticket.md#create-task) в {{ tracker-name }}.
 1. [Создайте мерж-реквест]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) в {{ GL }} и укажите в его названии или описании [ключ задачи](../../tracker/glossary.md#key).
-1. Убедитесь, что в задаче {{ tracker-name }} в разделе [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md) появилась ссылка на мерж-реквест из {{ GL }}.
+1. Убедитесь, что в задаче {{ tracker-name }} в разделе [{{ ui-key.startrek.ui_Issues_smart-components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md) появилась ссылка на мерж-реквест из {{ GL }}.
 
     Если вы использовали {{ mgl-name }} и включили автоматическое комментирование при [создании хука](#create-hook), то в задаче появится комментарий со ссылкой на мерж-реквест и информацией о нем.
 

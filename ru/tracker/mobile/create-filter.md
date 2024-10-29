@@ -16,6 +16,6 @@
 
 {% note info %}
 
-Чтобы сохранить фильтр, используйте веб-версию {{ tracker-name }}. Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**. 
+Чтобы сохранить фильтр, используйте веб-версию {{ tracker-name }}. Ваши сохраненные фильтры доступны в поле выбора **Все задачи** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**. 
 
 {% endnote %}

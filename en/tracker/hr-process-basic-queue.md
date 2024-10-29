@@ -8,7 +8,7 @@ description: Follow this guide to create an HR management queue.
 To enable the HR department employees to plan and track general HR tasks, create a queue and invite them to it:
 
 1. Create a queue:
-   1. In the left-hand panel, select ![](../_assets/tracker/svg/queues-ni.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Create queue**.
+   1. In the left-hand panel, select ![](../_assets/tracker/svg/queues-ni.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Create queue**.
    1. Select the basic **Start now** queue template.
    1. Give the queue a name, e.g., `HR Tasks`.
    1. Click **Create**.

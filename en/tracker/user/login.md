@@ -22,7 +22,7 @@ To create and edit issues, you will need [full access](../access.md) to {{ track
 
 To log in to {{ tracker-full-name }}:
 
-1. Go to the [{{ tracker-name }}]({{ link-tracker }}). Click **{{ ui-key.startrek.ui_components_promo_Page.login-button-label }}**.
+1. Go to the [{{ tracker-name }}]({{ link-tracker }}). Click **{{ ui-key.startrek.ui_Common_pages_promo_Page.login-button-label }}**.
 
 1. Select an account you use to work in {{ tracker-name }}:
 

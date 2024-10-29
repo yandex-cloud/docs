@@ -5,11 +5,11 @@ description: Follow this guide to add SSH keys to a user profile, which will all
 
 # Adding an SSH key
 
-Upload SSH keys to the organization user or service account profile in {{ org-name }} so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
+Upload SSH keys to the organization user or [service account](../../iam/concepts/users/service-accounts.md) profile in {{ org-name }} so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
 
-To add an SSH key to a user profile, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
+To add an SSH key to a user profile or service account, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
 
-To add an SSH key to an OS Login profile:
+To add a public SSH key to an OS Login profile:
 
 {% list tabs group=instructions %}
 
@@ -18,7 +18,7 @@ To add an SSH key to an OS Login profile:
   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
   1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
-  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) and select the required user.
+  1. In the left-hand panel, select the ![icon-users](../../_assets/console-icons/person.svg) [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) section and select the required user.
   1. Go to the **SSH keys** tab and click **Add key**.
   1. In the window that opens, enter a public SSH key manually or upload it from a file.
   1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -72,7 +72,7 @@ To add an SSH key to an OS Login profile:
       +----------------------+-----------------------+---------------------------------+----------------------+
       ```
 
-  1. Upload the SSH key to the user profile:
+  1. Upload the SSH key to your user or service account profile:
 
       ```bash
       yc organization-manager oslogin user-ssh-key create \
@@ -131,7 +131,7 @@ To add an SSH key to an OS Login profile:
       * `name`: Uploaded key name.
       * `expires_at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any time and date for the uploaded key, after which the key becomes invalid. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
 
-      For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
 
   1. Make sure the configuration files are correct.
 

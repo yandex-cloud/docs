@@ -4,7 +4,7 @@ The method returns the query execution status. Use the method to track the query
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Query {#request}
+## Request {#request}
 
 `GET` request to `/queries/{query_id}/status?project={folder_id}`, where `{folder_id}` is the folder ID and `{query_id}` is the query ID.
 
@@ -20,13 +20,13 @@ If successful, an HTTP response with code 200 and the query execution status (`R
 
 ## Example {#example}
 
-Query:
+Request:
 
 ```json
-curl -X 'GET' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/status?project=b1gaue5b382m********' \
-  -H 'accept: application/json'
-}
+curl \
+  --request 'GET' \
+  --header 'accept: application/json' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/status?project=b1gaue5b382m********'
 ```
 
 Response:

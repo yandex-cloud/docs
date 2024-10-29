@@ -18,7 +18,7 @@ If you want to get notified about changes in a specific issue, subscribe to it.
 
 1. Open the issue page.
 
-1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **Add me**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
+1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **Add me**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 
 If you followed the steps correctly, your name will be added to the Followers field. Now you will get emails with notifications about any changes in this issue.
@@ -35,9 +35,9 @@ Subscribe to changes in the queue to track changes to all its issues.
 
 1. Open the [queue page](queue.md).
 
-1. In the upper-right corner, click ![](../../_assets/tracker/svg/actions.svg). Then click ![](../../_assets/tracker/svg/subscribe.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.subscribe }}** and select a value:
-   - Select **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-new-tickets }}** to get notifications on new issues created in the queue. You will also subscribe to notifications on all events specified in the [notification settings](user-notifications.md#sec_add_role) for the **{{ ui-key.startrek-backend.roles.role.name.queue-follower-key-value }}** role.
-   - Select **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-all }}** to get notifications on all changes to issues in the queue.
+1. In the upper-right corner, click ![](../../_assets/tracker/svg/actions.svg). Then click ![](../../_assets/tracker/svg/subscribe.svg)&nbsp;**{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe }}** and select a value:
+   - Select **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe-new-tickets }}** to get notifications on new issues created in the queue. You will also subscribe to notifications on all events specified in the [notification settings](user-notifications.md#sec_add_role) for the **{{ ui-key.startrek-backend.roles.role.name.queue-follower-key-value }}** role.
+   - Select **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe-all }}** to get notifications on all changes to issues in the queue.
 
 You can also [select events](user-subscriptions.md) you want to get notified about.
 

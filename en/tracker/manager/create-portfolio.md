@@ -24,7 +24,7 @@ To create a project portfolio:
 
 1. Enter a name for the portfolio, set its end date, and click **Create**.
 
-1. In the **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab, add the following information:
+1. In the **About the portfolio** tab, add the following information:
 
    * Portfolio description: What you are working on and what goals you want to achieve.
    * Attachments: Working materials of the portfolio.
@@ -142,4 +142,4 @@ To delete a portfolio:
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
 
-1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_portfolios_PortfolioMenu.remove-portfolio }}**.
+1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete portfolio**.

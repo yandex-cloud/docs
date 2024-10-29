@@ -8,7 +8,7 @@ For example, if you provide the users of your service with the ability to upload
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. Select **{{ objstorage-name }}**.
   1. Click the name of the bucket you need.
   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
@@ -23,7 +23,7 @@ For example, if you provide the users of your service with the ability to upload
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -128,7 +128,7 @@ For example, if you provide the users of your service with the ability to upload
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can verify changes to your bucket in the [management console]({{ link-console-main }}).
 

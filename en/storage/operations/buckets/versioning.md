@@ -23,7 +23,7 @@ Enable bucket versioning:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command to edit a bucket ACL:
 
      ```bash
      yc storage bucket update --help

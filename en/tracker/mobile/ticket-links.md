@@ -16,7 +16,7 @@ Issue links are created automatically when an issue key is entered into the issu
 
 Create links with other issues:
 
-1. Insert the issue key into the issue's description or comment body. You will see the linked issue in the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab.
+1. Insert the issue key into the issue's description or comment body. You will see the linked issue in the **Links** tab.
 
 1. If necessary, change the [link type](#change-link-type) to any of the ones available.
 
@@ -32,7 +32,7 @@ To create a sub-issue:
 
 1. Fill in the fields the same way as when [creating a new issue](./create-ticket.md).
 
-1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**. You will see a link to the parent issue next to the sub-issue name.
+1. Click **Create issue**. You will see a link to the parent issue next to the sub-issue name.
 
 ## Changing the link type {#change-link-type}
 
@@ -40,7 +40,7 @@ To change an issue's [link type](../user/links.md):
 
 1. Open one of the two linked issues.
 
-1. Click the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab.
+1. Click the **Links** tab.
 
 1. Next to the linked issue, tap ![](../../_assets/horizontal-ellipsis.svg) → **Change link type** and choose a new type.
 
@@ -50,6 +50,6 @@ To remove an issue's link:
 
 1. Open one of the two linked issues.
 
-1. Click the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab.
+1. Click the **Links** tab.
 
 1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) and select **Remove link**.

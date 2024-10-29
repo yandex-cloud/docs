@@ -53,6 +53,8 @@ items:
         href: operations/get-stats.md
   - name: Tutorials
     items:
+      - name: Connecting BareMetal to Cloud Backup
+        href: tutorials/backup-baremetal.md
       - name: Linking a backup policy to a VM automatically
         items:
           - name: Overview

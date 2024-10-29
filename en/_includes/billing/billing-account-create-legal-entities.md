@@ -14,7 +14,7 @@ To create a billing account:
 
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** section, you can select one of them or add a new one.
 
-1. Select the **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}** payer type.
+1. Select the **Legal entity or individual entrepreneur** payer type.
 
 1. Select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** or **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method. You can [change the payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
 

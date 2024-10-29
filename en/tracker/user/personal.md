@@ -6,7 +6,7 @@ You can manage your issues more easily by customizing the {{ tracker-name }} int
 
 You can set up your [start page](startpage.md) in the old interface to show one of the selected options:
 
-* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page)
+* [**{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}**](startpage.md#my-page)
 * [Filter](create-filter.md)
 * [Dashboard](dashboard.md)
 * [Issue board](../manager/create-agile-board.md)

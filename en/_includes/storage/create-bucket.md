@@ -6,7 +6,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. Select **{{ objstorage-name }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. On the bucket creation page:
@@ -31,7 +31,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
 
-          The "colder" classes are for long-term storage of objects you intend to use less frequently. The "colder" the storage, the less you pay for it, but also the more expensive it is to read and write data.
+          "Cold" classes are designed to store objects that you plan to use less frequently for longer periods of time. The "colder" your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
 
       1. Add [labels](../../storage/concepts/tags.md), if required:
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -86,7 +86,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         * `cold`: Cold storage.
         * `ice`: Ice storage.
 
-        The "colder" classes are for long-term storage of [objects](../../storage/concepts/object.md) you intend to use less frequently. The "colder" the storage, the less you pay for it, but also the more expensive it is to read and write data.
+        "Cold" classes are designed to store [objects](../../storage/concepts/object.md) that you plan to use less frequently for longer periods of time. The "colder" your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
 
       * `--max-size`: Maximum bucket size, in bytes. Default value: `0` (unlimited).
       * Parameters for enabling [public access](../../storage/security/public-access.md) to a bucket:
@@ -101,11 +101,11 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       * Parameters to configure the bucket [ACL](../../storage/concepts/acl.md):
         * `--acl`: Predefined ACL. For a list of possible values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls). You cannot use this parameter together with the `--grants` parameter.
         * `--grants`: Configures permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [public groups](../../storage/concepts/acl.md#public-groups) (a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with the `--acl` parameter. The parameter value is specified in the following format: `grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>`, where:
-          * `grant-type`: Type of the permission grantee. The possible values are:
+          * `grant-type`: Permission grantee type. The possible values are:
             * `grant-type-account`: User, [service account](../../iam/concepts/users/service-accounts.md), or [user group](../../organization/concepts/groups.md).
             * `grant-type-all-authenticated-users`: [Public group](../../storage/concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
             * `grant-type-all-users`: Public group that includes all internet users.
-          * `grantee-id`: ID of the user, service account, or user group to which you need to grant permission. It is only specified if `grant-type=grant-type-account`.
+          * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. Specified only if `grant-type=grant-type-account`.
           * `permission`: ACL permission type. Possible values: `permission-full-control`, `permission-write`, `permission-read`. For more information about permissions, see [Permission types](../../storage/concepts/acl.md#permissions-types).
 
           To configure multiple permissions, specify the `--grants` parameter multiple times.
@@ -188,13 +188,13 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   Where:
   * Possible types of ACL permissions:
-    * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (e.g., lifecycle, CORS, or static hosting), and read all objects in the bucket.
+    * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, or static hosting), and read all objects in the bucket.
     * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. Can only be used together with `--grant-read`.
     * `--grant-full-control`: Full access to the bucket and the objects in it.
 
     You can set multiple permissions within the same command.
   * The possible permission grantees are:
-    * `id=<grantee_ID>`: ID of the user, service account, or user group to which you need to grant permission.
+    * `id=<grantee_ID>`: ID of the user, service account, or user group you need to grant a permission to.
     * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../storage/concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
     * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group that includes all internet users.
 
@@ -202,7 +202,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% endcut %}
 
-  You can learn more about the `aws s3api create-bucket` command in the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
+  For more information about the `aws s3api create-bucket` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
 
 - {{ TF }} {#tf}
 
@@ -276,8 +276,8 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       Where:
       * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the [bucket](../../storage/concepts/bucket.md):
 
-        * `name`: Service account name.
-        * `bucket`: Bucket name.
+        * `name`: Service account name
+        * `bucket`: Bucket name
 
 
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -290,7 +290,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `cold`: Cold storage.
           * `ice`: Ice storage.
 
-          The "colder" classes are for long-term storage of objects you intend to use less frequently. The "colder" the storage, the less you pay for it, but also the more expensive it is to read and write data.
+          "Cold" classes are designed to store objects that you plan to use less frequently for longer periods of time. The "colder" your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
 
         * `anonymous_access_flags`: [Access](../../storage/concepts/bucket.md#bucket-access) settings:
 
@@ -300,9 +300,9 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         * `tags`: Bucket [labels](../../storage/concepts/tags.md) in `key = "value"` format.
 
-      `name`: Required parameter Other parameters are optional. By default, the `max-size` value is `0`, public access to the bucket is disabled, and the storage class is set to `standard`.
+      `name`: Required parameter. Other parameters are optional. By default, the `max-size` value is `0`, public access to the bucket is disabled, and the storage class is set to `standard`.
 
-      For more information about the `yandex_storage_bucket` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create resources:
 

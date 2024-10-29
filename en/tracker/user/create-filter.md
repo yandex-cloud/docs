@@ -26,7 +26,7 @@ There are several ways to set the filter conditions:
 
    Add the issue parameters and specify their possible values:
 
-   1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** above the issue list.
+   1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** above the issue list.
 
    1. Select an issue parameter and then set its value.
 
@@ -46,11 +46,11 @@ There are several ways to set the filter conditions:
 
    {% endnote %}
 
-- **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**
+- **Query language**
 
    You can use the query language to set special conditions that are not accessible via regular parameters. For instance, you can find issues that have been opened within the last week. For more information about the query language, see [{#T}](query-filter.md).
 
-   1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
+   1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/query-language.svg) **Query language**. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
 
    1. Use the [query language](query-filter.md) to add parameters.
 
@@ -58,7 +58,7 @@ There are several ways to set the filter conditions:
 
 ### Step 3. Set up the layout for the issue list
 
-- If you want to hide or display certain issue parameters, on the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **Apply**.
+- If you want to hide or display certain issue parameters, on the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **Apply**.
 
 - To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** above the list and select the parameter.
 
@@ -66,7 +66,7 @@ There are several ways to set the filter conditions:
 
 ### Step 4. Save filters
 
-If you often use a filter, save it. Your saved filters will be available in the **{{ ui-key.startrek.ui_components_filter-pane.all-issues-filter-title }}** checkbox under **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
+If you often use a filter, save it. Your saved filters will be available in the **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.all-issues-filter-title }}** checkbox under **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
 
 1. Click **Save** above the issue list.
 
@@ -74,29 +74,29 @@ If you often use a filter, save it. Your saved filters will be available in the 
 
 1. Click **Save**.
 
-To save a filtered issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** and select the download file format or simply copy the list to the clipboard.
+To save a filtered issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Export** and select the download file format or simply copy the list to the clipboard.
 
 ## Editing a filter {#edit}
 
 #### Changing filter parameters
 
-1. In the **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}** field at the top of the window, select your filter.
+1. In the **{{ ui-key.startrek.ui_Issues_pages_page-issues_touch.all-issues-filter-title }}** field at the top of the window, select your filter.
 
 1. [Change the issue search criteria](#set-conditions) using quick filters, parameters, or the query language.
 
 1. Click **Save** above the issue list:
 
-   * To save the filter with the current name, click **{{ ui-key.startrek.ui_components_filter-pane.action-title-save }}**.
+   * To save the filter with the current name, click **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.action-title-save }}**.
 
-   * To save the filter under a different name, click **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Then enter the filter name, select the category, and click **Save**.
+   * To save the filter under a different name, click **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.action-title-save-as }}**. Then enter the filter name, select the category, and click **Save**.
 
 
 #### Removing filters
 
-1. In the **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}** field at the top of the window, select your filter.
+1. In the **{{ ui-key.startrek.ui_Issues_pages_page-issues_touch.all-issues-filter-title }}** field at the top of the window, select your filter.
 
 1. Delete your filter using one of the methods:
 
    * To the right of the filter name, click ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.
 
-   * In the top-right corner of the page, click ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}**, then select ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.
+   * In the top-right corner of the page, click ![](../../_assets/tracker/svg/actions.svg) **Filter actions**, then select ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.

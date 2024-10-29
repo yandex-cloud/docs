@@ -12,6 +12,6 @@ You can use a form to create issues as follows:
 
 - The form is [added to a queue in {{ tracker-name }}](../manager/attach-form.md) as a template for quick creation of standard issues.
 
-   In the case of this form publication method, go to the issue page, then click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**, select the form, and fill out its fields. An issue will be created based on the entered data.
+   In the case of this form publication method, go to the issue page, then click **Create issue**, select the form, and fill out its fields. An issue will be created based on the entered data.
 
 To learn more about integration with {{ forms-full-name }}, see [{#T}](../manager/forms-integration.md).

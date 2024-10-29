@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Образы с поддержкой OS Login доступны в [{{ marketplace-full-name }}](/marketplace) и содержат `OS Login` в названии.
+Образы с поддержкой OS Login доступны в [{{ marketplace-full-name }}](/marketplace). Для ВМ, созданных из таких образов, в [консоли управления]({{ link-console-main }}) в форме создания и редактирования ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** активна опция **Доступ по OS Login**. Если эта опция неактивна, значит выбранный образ не поддерживает доступ по OS Login.
 
 {% endnote %}
 

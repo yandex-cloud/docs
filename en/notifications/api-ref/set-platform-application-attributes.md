@@ -1,6 +1,6 @@
 # SetPlatformApplicationAttributes
 
-Sets parameters of the [mobile push notification channel](../concepts/index.md#mobile-channel).
+Sets parameters of the [mobile push notification channel](../concepts/push.md).
 
 ## HTTP request {#request}
 
@@ -10,45 +10,45 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `SetPlatformApplicationAttributes`. |
-| `PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`. |
-| `Attributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N`: Numerical value.<br/>Example: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`. |
-| `Attributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N`: Numerical value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default).</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `SetPlatformApplicationAttributes`.
+`PlatformApplicationArn` | **string**<br/>This is a required field.<br/>Mobile push notification channel ID. <br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`Attributes.entry.N.key` | **string**<br/>This is a required field.<br/>[Attribute](#attributes) key. `N` is a numeric value.<br/>Example: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.
+`Attributes.entry.N.value` | **string**<br/>This is a required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.
+`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ### Attributes {#attributes}
 
 #### Common attributes {#attributes-common}
 
-| Attribute | Description |
+Attribute | Description
 --- | ---
-| `Description` | **string**<br/>App description.<br/>Example: `Test application`. |
+`Description` | **string**<br/>Application description.<br/>Example: `Test application`.
 
 #### APNS and APNS_SANDBOX attributes {#attributes-apns}
 
-| Attribute | Description |
+Attribute | Description
 --- | ---
-| `PlatformPrincipal` | **string**<br/>Token in `.p8` format or SSL certificate in `.p12` format. Token-based authentication is preferred as it is more progressive. |
-| `PlatformCredential` | **string**<br/>Token ID or a private key of the SSL certificate |
-| `ApplePlatformTeamID` | **string**<br/>Developer ID, only when using a token |
-| `ApplePlatformBundleID` | **string**<br/>App ID (bundle ID), only when using a token |
+`PlatformPrincipal` | **string**<br/>Token in `.p8` format or SSL certificate in `.p12` format. Token-based authentication is preferred as it is more modern.
+`PlatformCredential` | **string**<br/>Token ID or private key of the SSL certificate.
+`ApplePlatformTeamID` | **string**<br/>Developer ID, only when using a token.
+`ApplePlatformBundleID` | **string**<br/>App ID (bundle ID), only when using a token.
 
 #### FCM attributes {#attributes-fcm}
 
-| Attribute | Description |
+Attribute | Description
 --- | ---
-| `PlatformCredential` | **string**<br/>Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the Legacy API. The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting from June 2024. |
+`PlatformCredential` | **string**<br/>Key of the Google Cloud service account in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API. The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting from June 2024.
 
 #### HMS attributes {#attributes-hms}
 
-| Attribute | Description |
+Attribute | Description
 --- | ---
-| `PlatformPrincipal` | **string**<br/>Key ID |
-| `PlatformCredential` | **string**<br/>API key |
+`PlatformPrincipal` | **string**<br/>Key ID
+`PlatformCredential` | **string**<br/>API key
 
-For more information about authentication attributes, see the [Mobile push notification channels](../concepts/index.md#mobile-channel) subsection.
+For more information about authentication attributes, see the [Mobile push notification channels](../concepts/push.md) subsection.
 
 ## Response {#response}
 
@@ -64,24 +64,24 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <SetPlatformApplicationAttributes>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   </SetPlatformApplicationAttributes>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SetPlatformApplicationAttributes>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+  </SetPlatformApplicationAttributes>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    }
+  }
+  ```
 
 {% endlist %}
 

@@ -77,7 +77,8 @@ The default sorting order is ascending. ||
       ],
       "users": [
         {
-          "subjectId": "string"
+          "subjectId": "string",
+          "subjectType": "string"
         }
       ]
     }
@@ -165,4 +166,7 @@ Required field.  ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#

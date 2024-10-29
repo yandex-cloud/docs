@@ -15,6 +15,6 @@ The revision history saves:
 
 By default, entries in the revision history are listed chronologically.
 
-To change the order of entries, click the ![](../../_assets/tracker/svg/new-first.svg) **{{ ui-key.startrek.ui_components_entity-page_ActivitySection.new-activity-on-top }}** button to the right of the **{{ ui-key.startrek.ui_components_entity-page_ActivitySection.activity }}** section.
+To change the order of entries, click the ![](../../_assets/tracker/svg/new-first.svg) **New comments first** button to the right of the **Activity** section.
 
 The project or portfolio comments will also get reordered.

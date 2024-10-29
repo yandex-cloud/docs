@@ -17,7 +17,8 @@ Returns a RDP file for the specified desktop.
 {
   "desktopId": "string",
   "user": {
-    "subjectId": "string"
+    "subjectId": "string",
+    "subjectType": "string"
   }
 }
 ```
@@ -41,6 +42,9 @@ User of the desktop. ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#
 
 ## RdpFileResponse {#yandex.cloud.clouddesktop.v1.api.RdpFileResponse}

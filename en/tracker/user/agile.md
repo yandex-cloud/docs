@@ -32,7 +32,7 @@ Make sure that the queue for creating issues in is specified in the [board setti
 
 1. Open issues boards.
 
-1. In the bottom-right corner, click **{{ ui-key.startrek.ui_components_agile_common_AddIssueButton.add-issue-button }}**.
+1. In the bottom-right corner, click **Add issue**.
 
 1. Enter the issuer name and select its type.
 
@@ -100,13 +100,13 @@ To add multiple issues to the board at once, use the [bulk change](../manager/bu
 
 1. Choose the issues you want to add to the board and click **Edit fields**.
 
-1. To add an issue to a backlog, start typing the backlog name in the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field and pick the option you need from the list that appears. If you do not see the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field, add it by clicking **Choose fields**.
+1. To add an issue to a backlog, start typing the backlog name in the **Board** field and pick the option you need from the list that appears. If you do not see the **Board** field, add it by clicking **Choose fields**.
 
 1. To add an issue to a sprint, start typing the sprint name in the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field and pick the option you need from the list that appears. The board field is populated automatically.
 
    If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Choose fields**.
 
-1. Click **{{ ui-key.startrek.ui_components_TransitionScreen.screen-next-button }}** and wait until your issues are processed.
+1. Click **Continue** and wait until your issues are processed.
 
 ## Remove an issue from the board {#remove-tasks}
 
@@ -153,7 +153,7 @@ If there are too many issues on the board, you can always hide some of them usin
 
 * The issue's key or name. Start typing the text in the field on the top panel. Only the issues whose key or name includes this text will remain on the board.
 
-* Quick filters. By default, the board has only two quick filters: **{{ ui-key.startrek.ui_components_agile_common_QuickFiltersItem.quick-filter--assignee-me }}** and **{{ ui-key.startrek.ui_components_agile_common_QuickFiltersItem.quick-filter--author-me }}**. To add new filters, click![](../../_assets/tracker/edit-agile.png) in the filter panel.
+* Quick filters. By default, the board has only two quick filters: **Assigned to me** and **Created by me**. To add new filters, click![](../../_assets/tracker/edit-agile.png) in the filter panel.
 
 ## Fullscreen mode {#fullscreen}
 

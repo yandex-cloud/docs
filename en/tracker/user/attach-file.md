@@ -5,7 +5,7 @@ The files that you add in {{ tracker-name }} don't consume space on Yandex&#160;
 
 To attach a file to an issue description, use one of the methods:
 
-* Click ![](../../_assets/tracker/svg/icon-file.svg) **{{ ui-key.startrek.ui_components_attachments-manager.attach }}** next to the issue description.
+* Click ![](../../_assets/tracker/svg/icon-file.svg) **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}** next to the issue description.
 
 * Drag files to the issue description.
 

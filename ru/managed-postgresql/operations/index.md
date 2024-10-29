@@ -38,6 +38,7 @@ description: На странице представлен список поша�
 * [Использование pg_repack](./extensions/pg_repack.md)
 * [Использование pgaudit](./extensions/pgaudit.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
+* [Использование postgresql_anonymizer](./extensions/pg_anon.md)
 * [Использование словаря Hunspell для полнотекстового поиска](./extensions/hunspell.md)
 
 ## Логи и мониторинг {#logs-and-monitoring}

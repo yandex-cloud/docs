@@ -16,13 +16,13 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди, а также какие типы задач и резолюции определены в каждом из них.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди, а также какие типы задач и резолюции определены в каждом из них.
 
 1. Чтобы добавить тип задачи в существующий процесс, в блоке с этим процессом нажмите **Добавить тип задачи** и выберите тип задачи из списка системных типов задач. О том, как добавить тип задачи в новый рабочий процесс, читайте в [инструкции по созданию рабочего процесса](add-workflow.md#create).
 
-Чтобы определить для задачи очереди тип по умолчанию, в поле {{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} выберите один из вариантов.
+Чтобы определить для задачи очереди тип по умолчанию, в поле {{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} выберите один из вариантов.
 
 ## Создать тип задачи {#create-ticket-type}
 
@@ -51,9 +51,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новый тип задач и в строке этого рабочего процесса нажмите ![](../../_assets/tracker/svg/arrow.svg).
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новый тип задач и в строке этого рабочего процесса нажмите ![](../../_assets/tracker/svg/arrow.svg).
 
 1. Нажмите **Добавить тип задачи**, начните вводить название нового типа задач и нажмите на кнопку создания.
 
@@ -72,8 +72,8 @@
 
 1. С помощью фильтров [найдите все задачи очереди](quick-filters.md), которые относятся к удаляемому типу и измените его на любой другой, поддержанный в очереди.
 
-1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в котором содержится тип задач, который вы хотите удалить.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в котором содержится тип задач, который вы хотите удалить.
 
 1. Наведите курсор на строку с удаляемым типом задач, нажмите на тип задач и в строке этого рабочего процесса нажмите ![](../../_assets/tracker/svg/actions.svg) → **Удалить тип задачи из очереди**.

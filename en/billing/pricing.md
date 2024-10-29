@@ -24,6 +24,7 @@ Billable service costs are calculated based on the amount of consumed resources 
 * [{{ sf-full-name }}](../functions/pricing.md)
 * [{{ interconnect-full-name }}](../interconnect/pricing.md)
 * [{{ cloud-logging-full-name }}](../logging/pricing.md)
+* [{{ cns-full-name }}](../notifications/pricing.md)
 * [{{ compute-full-name }}](../compute/pricing.md)
 * [{{ container-registry-full-name }}](../container-registry/pricing.md)
 * [{{ dataproc-full-name }}](../data-proc/pricing.md)

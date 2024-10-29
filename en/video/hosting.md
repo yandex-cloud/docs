@@ -43,6 +43,7 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
 1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 [Learn more about videos](./concepts/videos.md)

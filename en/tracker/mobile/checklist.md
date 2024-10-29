@@ -12,7 +12,7 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. To specify the assignee and deadline for this item, tap ![](../../_assets/horizontal-ellipsis.svg) and select the appropriate action.
 
-1. To add another item, enter its description and press Enter on the phone keyboard. If you are adding a new item to a ready-made checklist, first tap **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
+1. To add another item, enter its description and press Enter on the phone keyboard. If you are adding a new item to a ready-made checklist, first tap **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
 
 ## Managing a checklist {#checklist-operations}
 
@@ -24,9 +24,9 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 * To uncheck an item, tap the checkbox ![](../../_assets/tracker/checklist-checkmark.png).
 
-* To add an item to the checklist, tap **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
+* To add an item to the checklist, tap **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
 
-* To delete a checklist item, tap ![](../../_assets/horizontal-ellipsis.svg) next to it and select **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.remove-item-title }}**.
+* To delete a checklist item, tap ![](../../_assets/horizontal-ellipsis.svg) next to it and select **Delete item**.
 
 * To delete a checklist, tap ![](../../_assets/tracker/delete-checklist-mobile.png) at the top of the list.
 

@@ -4,10 +4,27 @@ stage: preview
 noIndex: true
 items:
   - name: Getting started
-    href: quickstart.md
+    expanded: true
+    items:
+      - name: Overview
+        href: quickstart.md
+      - name: Getting started with Push notifications
+        href: quickstart-push.md
+      - name: Getting started with SMS
+        href: quickstart-sms.md
   - name: Concepts
-    href: concepts/index.md
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Push notifications
+        href: concepts/push.md
+      - name: SMS
+        href: concepts/sms.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Tools
+    expanded: true
     items:
       - name: AWS CLI
         href: tools/aws-cli.md

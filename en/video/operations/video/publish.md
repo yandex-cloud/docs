@@ -20,7 +20,7 @@ You can publish a video and check its availability.
 
 - API {#api}
 
-  Use the [VideoService/Create](../../api-ref/grpc/Video/create.md) gRPC API call.
+  Use the [performAction](../../api-ref/Video/create.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/PerformAction](../../api-ref/grpc/Video/performAction.md) gRPC API call.
 
 {% endlist %}
 
@@ -40,7 +40,7 @@ You can publish a video and check its availability.
 
 - API {#api}
 
-  Use the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call.
+  Use the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call.
 
 {% endlist %}
 

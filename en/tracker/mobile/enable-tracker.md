@@ -18,7 +18,7 @@ If the administrator of your organization already connected {{ tracker-name }}, 
 
 1. Log in to your [Yandex account]({{ link-passport }}). If you do not have an account, [create]({{ support-passport-create }}) one.
 
-   * If you don't have an organization in {{ yandex-cloud }}, the {{ tracker-full-name }} activation window opens. Accept the {{ yandex-cloud }} terms of use and tap **{{ ui-key.startrek.ui_components_PageHiThere.wrong-user-btn }}**. Your organization is automatically created and {{ tracker-full-name }} is activated.
+   * If you don't have an organization in {{ yandex-cloud }}, the {{ tracker-full-name }} activation window opens. Accept the {{ yandex-cloud }} terms of use and tap **Log in**. Your organization is automatically created and {{ tracker-full-name }} is activated.
 
    * If {{ tracker-name }} is not enabled for your organization yet, it will be activated automatically the first time you log in to the mobile app.
 

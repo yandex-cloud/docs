@@ -51,8 +51,8 @@ To invoice your organization:
 1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **All services**.
 1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select a billing account.
-1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
-1. Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+1. Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 1. The document will open in a new browser tab and will be saved in `.pdf` format.
 
 #### How to connect to EDM? {#edm}

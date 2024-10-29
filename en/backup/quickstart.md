@@ -15,6 +15,8 @@ To get started with {{ backup-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
+
 ## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -138,19 +140,12 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a VM with a {{ backup-name }} connection in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a VM with a {{ backup-name }} connection.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-
-      1. Enter the VM name. The naming requirements are as follows:
-
-          {% include [name-format](../_includes/name-format.md) %}
-
-      1. Select an [availability zone](../overview/concepts/geo-scope.md) to place your VM in.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select one of the [supported operating systems](./concepts/vm-connection.md#os), e.g., [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
-
+  1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../compute/concepts/image.md) with a [supported OS](./concepts/vm-connection.md#os), e.g., [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../overview/concepts/geo-scope.md) to place your VM in.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** and **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, set the preferred VM parameters.
 
       {% include [vm-requirements](../_includes/backup/vm-requirements.md) %}
@@ -162,19 +157,18 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 
           Instead of assigning a public IP address to your VM, you can link the subnet hosting this VM to a [route table](../vpc/concepts/routing.md#rt-vm) allowing internet access via a [NAT gateway](../vpc/concepts/gateways.md) or a custom router.
 
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the security group you [configured previously](#sg-setup).
+      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the security group you [configured earlier](#sg-setup).
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+  1. {% include [section-access](../_includes/compute/create/section-access.md) %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name:
 
-      1. Select the service account you [created earlier](#prepare-service-account).
-      1. Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
-
-          You will need to create a key pair for the SSH connection yourself; see [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+      {% include [name-format](../_includes/name-format.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      {% include [backup-enable](../_includes/compute/backup-enable.md) %}
+      1. Select the service account you [created earlier](#prepare-service-account).
+      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](operations/policy-vm/create.md) a new one.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

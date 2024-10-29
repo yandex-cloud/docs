@@ -426,7 +426,7 @@
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
+       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
             
      - CLI {#cli}
      

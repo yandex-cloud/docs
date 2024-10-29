@@ -305,7 +305,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
       * Node group ID in the `nodeGroupId` parameter.
 
-      * `updateMask` set to `nodeTemplate.metadata`.
+      * `updateMask` parameter set to `nodeTemplate.metadata`.
 
           {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -443,7 +443,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it is started (wi
   If this is your first time connecting to a {{ managed-k8s-name }} node, you may get an unknown host warning:
 
   ```bash
-  The authenticity of host '130.193.40.101 (130.193.40.101)' cannot be established.
+  The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHk********.
   Are you sure you want to continue connecting (yes/no)?
   ```

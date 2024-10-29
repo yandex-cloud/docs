@@ -1,6 +1,6 @@
 ---
 title: Bucket
-description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create two buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
   - bucket
@@ -81,7 +81,7 @@ You can:
 
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
-For more information on configuring access, see [{#T}](../operations/buckets/access-via-vpc.md).
+For more information on configuring the access, see [{#T}](../operations/buckets/access-via-vpc.md).
 
 
 ## Public access to buckets {#bucket-access}
@@ -100,14 +100,14 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 
 ## Recommendations and limitations {#details-of-usage}
 
+- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket capacity may be exceeded (e.g., during fast sequential upload of multiple objects).  
+- In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
 - Buckets cannot be nested.
-- In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 - You can delete only an empty bucket.
-- After deleting a bucket, you may not be able to immediately create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
-- Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
-- After deleting objects from a bucket, their storage capacity is retained for some time.
+- After you delete objects from a bucket, the vacated space is not considered free for a while longer.
+- After deleting a bucket, you may not be able to create a new one with the same name right away. There is also a risk that another {{ yandex-cloud }} user may create a bucket with this name before you claim it again. Do not delete buckets without a good reason.
 
   {% note info %}
 

@@ -14,7 +14,7 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. На панели слева выберите **Автодействия**.
 
@@ -46,7 +46,7 @@
 
 1. В блоке **Действие** нажмите кнопку **Создать задачу**.
 
-1. В окне **Создание задачи** заполните поля шаблона для автоматического создания задач и нажмите кнопку **{{ ui-key.startrek.ui_components_FieldEdit.form-submit }}**.
+1. В окне **Создание задачи** заполните поля шаблона для автоматического создания задач и нажмите кнопку **Сохранить**.
  
 1. Если вы хотите создавать несколько задач в одном автодействии, снова нажмите кнопку **Создать задачу** и заполните поля новой задачи.
 

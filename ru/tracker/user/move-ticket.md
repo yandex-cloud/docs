@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте задачу, которую хотите перенести.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.move-issue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.move-issue }}**.
 
 1. Укажите очередь, в которую вы хотите перенести задачу и нажмите кнопку **Сохранить**.
 

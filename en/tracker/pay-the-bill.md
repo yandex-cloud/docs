@@ -60,9 +60,9 @@ To check your account balance:
 
 1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.switch_accounts }}** page.
 
-1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
+1. Click **Top up balance** in the section with the account name.
 
-1. Enter your payment amount and click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** again.
+1. Enter your payment amount and click **Top up balance** again.
 
 ## Top up your account via bank transfer {#transfer}
 
@@ -70,9 +70,9 @@ To check your account balance:
 
 1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.accounts.label_title }}** page.
 
-1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
+1. Click **Top up balance** in the section with the account name.
 
-1. Enter the payment amount and click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-dialog-ok-issue }}**. The system will generate a payment invoice.
+1. Enter the payment amount and click **Issue an invoice**. The system will generate a payment invoice.
 
 1. Print the invoice and use it to make a payment in a bank or using a banking client system.
 

@@ -18,13 +18,13 @@
 
 * Если у задачи есть блокеры, которые не входят в текущий проект, на диаграмме слева от полосы задачи появится значок ![](../../_assets/tracker/svg/blocker.svg) с их количеством. 
 
-   * Чтобы включить отображение внешних блокеров в списке задач, перейдите в [](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** → **{{ ui-key.startrek.ui_components_Gantt.show-external-blockers }}**.
+   * Чтобы включить отображение внешних блокеров в списке задач, перейдите в [](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Настройки диаграммы** → **Показывать внешние блокеры**.
 
    * В списке задач внешние блокеры выделены серым цветом и отображаются под зависимой задачей. Если включен [иерархический тип отображения](#trees), блокеры отображаются под веткой задач. Внешние блокеры нельзя перемещать в списке, но их можно открыть и отредактировать.
 
    * Сроки начала работ и дедлайн для внешних блокеров можно [изменять](#timing).
 
-   * Чтобы удалить связь между внешним блокером и зависимой задачей, нажмите значок ![](../../_assets/tracker/svg/blocker.svg), а затем ![](../../_assets/tracker/svg/del-link.svg) **{{ ui-key.startrek.ui_components_Gantt.delete-link }}**.
+   * Чтобы удалить связь между внешним блокером и зависимой задачей, нажмите значок ![](../../_assets/tracker/svg/blocker.svg), а затем ![](../../_assets/tracker/svg/del-link.svg) **Удалить связь**.
 
 ## Изменить сроки задач {#timing}
 
@@ -96,12 +96,12 @@
 
 ## Действия с задачами {#issue-actions}
 
-Чтобы в блоке со списком задач открыть меню действий с задачей, справа от названия задачи нажмите ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}**.
+Чтобы в блоке со списком задач открыть меню действий с задачей, справа от названия задачи нажмите ![](../../_assets/tracker/svg/actions.svg) **Меню действий задачи**.
 
 В меню доступны действия:
-* ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**;
-* ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (только при ручной сортировке);
-* ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (только при ручной сортировке);
+* ![](../../_assets/tracker/text-edit/link.svg) **Скопировать ссылку**;
+* ![](../../_assets/tracker/svg/move-up.svg) **Перенести наверх списка** (только при ручной сортировке);
+* ![](../../_assets/tracker/svg/move-down.svg) **Перенести вниз списка** (только при ручной сортировке);
 * ![](../../_assets/tracker/svg/convert.svg) **Преобразовать в [веху](../manager/milestones.md) или задачу**.
-* ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**;
-* ![](../../_assets/tracker/svg/gantt-palette.svg) **Выбрать цвет** (только при настройке цвета **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**).
+* ![](../../_assets/tracker/svg/icon-remove.svg) **Удалить из проекта**;
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **Выбрать цвет** (только при настройке цвета **назначать вручную**).

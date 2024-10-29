@@ -17,7 +17,7 @@ If filtering by parameters does not provide enough filtering options for you, us
 
 1. Go to the queue page.
 
-1. Above the issue list, click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
+1. Above the issue list, click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 
 1. Set the value for the parameter.
 
@@ -27,7 +27,7 @@ Set up the fields visible to you in the issue list to see only those parameters 
 
 1. Go to the queue page.
 
-1. Click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoardSettings_Header.settings }}** above the issue list, on the right.
+1. Click ![](../../_assets/tracker/svg/list-settings.svg) **Settings** above the issue list, on the right.
 
 1. Select the parameters that you want to see in the issue list.
 
@@ -50,7 +50,7 @@ To save your issue list to a file:
 
 1. In the upper-right corner, click ![](../../_assets/tracker/svg/actions.svg) **Actions with queue**.
 
-1. Then click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.export }}**.
+1. Then click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.export }}**.
 
 1. Select the format for saving the list.
 

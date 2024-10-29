@@ -12,9 +12,9 @@ To add a resolution to a queue:
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. To see what issue types and resolutions are set in each workflow, click ![](../../_assets/tracker/svg/arrow.svg) in the respective workflow line.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. To see what issue types and resolutions are set in each workflow, click ![](../../_assets/tracker/svg/arrow.svg) in the respective workflow line.
 
 1. To add a resolution to an existing workflow, hover over the part of this workflow line containing resolutions. Click the ![](../../_assets/tracker/svg/add-filter.svg) icon that appears and select a resolution from the list. To learn how to add a resolution to a new workflow, see the [guide on creating workflows](./add-workflow.md#create).
 
@@ -45,9 +45,9 @@ You can also create a resolution on the workflows page. The new resolution will 
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add your new resolution to.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add your new resolution to.
 
 1. Hover over the part of the line with resolutions. Click the ![](../../_assets/tracker/svg/add-filter.svg) icon that appears, start typing the name of the new resolution, and click the **Create** button.
 
@@ -66,8 +66,8 @@ Before removing a resolution from the queue, make sure none of the queue issues 
 
 1. Use filters to [find all the issues in the queue](quick-filters.md) that include the resolution to be deleted. After that, change the resolution for such issues or update their status.
 
-1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow containing the resolution you want to remove.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow containing the resolution you want to remove.
 
 1. Hover over the line with the resolution to be removed and click the cross icon next to this resolution.

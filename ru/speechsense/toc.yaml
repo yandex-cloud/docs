@@ -95,6 +95,8 @@ items:
             href: concepts/reports/neuro-parameters.md
       - name: Поддерживаемые форматы аудио
         href: concepts/formats.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

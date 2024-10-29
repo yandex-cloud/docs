@@ -5,7 +5,7 @@
 
 Вы можете прикрепить файл к описанию задачи одним из способов:
 
-* Нажмите кнопку ![](../../_assets/tracker/svg/icon-file.svg) **{{ ui-key.startrek.ui_components_attachments-manager.attach }}** под описанием задачи.
+* Нажмите кнопку ![](../../_assets/tracker/svg/icon-file.svg) **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}** под описанием задачи.
 
 * Перетащите файлы в описание задачи.
    

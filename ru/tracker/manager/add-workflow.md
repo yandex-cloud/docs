@@ -26,9 +26,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.action-new-process }}**. Откроется визуальный редактор рабочих процессов.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList.action-new-process }}**. Откроется визуальный редактор рабочих процессов.
 
 1. [Добавляйте на схему статусы](./workflow-status-edit.md#add-status) и [настраивайте переходы](./workflow-action-edit.md#add-action) между ними. Придерживайтесь [правил](#rules).
 
@@ -37,13 +37,13 @@
 Чтобы скопировать процесс из другой очереди:
 
 1. Перейдите на страницу очереди, в которую нужно скопировать процесс.
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На вкладке **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** нажмите ![](../../_assets/tracker/svg/copy-process.svg).
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
+1. На вкладке **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** нажмите ![](../../_assets/tracker/svg/copy-process.svg).
 1. В открывшемся окне заполните поля:
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-queue }}**.
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-workflow }}**. 
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-name }}**.
-1. Нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.action-copy }}**.
+   * **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog.label-queue }}**.
+   * **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog.label-workflow }}**. 
+   * **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog.label-name }}**.
+1. Нажмите **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog.action-copy }}**.
 
 ## Удалить рабочий процесс {#section_s35_xz5_vbb}
 
@@ -57,8 +57,8 @@
 
 1. Откройте страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
 
 1. Выберите рабочий процесс и нажмите кнопку ![](../../_assets/tracker/button-delete.png).

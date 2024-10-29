@@ -62,7 +62,7 @@ description: Из статьи вы узнаете, как управлять п
 
 1. Откройте страницу задачи. Задача не должна принадлежать другому проекту. Чтобы удалить задачу из проекта, очистите поле **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** на панели справа.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.convert-to-project }}** и нажмите **Конвертировать**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.convert-to-project }}** и нажмите **Конвертировать**.
 
 
 ## Добавить задачи в проект {#add-tickets}
@@ -77,7 +77,7 @@ description: Из статьи вы узнаете, как управлять п
 
 ### Со страницы проекта {#from-project}
 
-1. Перейдите на вкладку **Список задач** и нажмите **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
+1. Перейдите на вкладку **Список задач** и нажмите **Добавить задачу**.
 
 1. Чтобы создать новую задачу: 
    
@@ -93,7 +93,7 @@ description: Из статьи вы узнаете, как управлять п
 
 1. Откройте страницу задачи.
 
-1. Нажмите на поле **Проект** на панели справа. Если поля **Проект** нет, добавьте его с помощью кнопки **{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**.
+1. Нажмите на поле **Проект** на панели справа. Если поля **Проект** нет, добавьте его с помощью кнопки **Добавить параметры**.
 
 1. В поле **Основной** или **Дополнительные** начните вводить название проекта и выберите подходящий вариант из списка. Нажмите **Сохранить**.
 
@@ -103,7 +103,7 @@ description: Из статьи вы узнаете, как управлять п
 
 1. Выберите задачи, которые вы хотите добавить в проект.
 
-1. На панели снизу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**.
+1. На панели снизу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-projects }}**.
 
 1. Начните вводить название проекта и выберите подходящий вариант из списка. 
 
@@ -115,9 +115,9 @@ description: Из статьи вы узнаете, как управлять п
 
 1. В верхнем правом углу нажмите **Импорт задач**.
 
-1. Нажмите ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}** и задайте условие для выбора задач. 
+1. Нажмите ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**Добавить параметры** и задайте условие для выбора задач. 
 
-1. Нажмите **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}** и дождитесь окончания импорта задач.
+1. Нажмите **Импортировать** и дождитесь окончания импорта задач.
 
 ## Добавить связи для проекта {#links}
 

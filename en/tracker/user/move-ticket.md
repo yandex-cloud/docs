@@ -17,7 +17,7 @@ To move a issue:
 
 1. Open the issue that you want to move.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.move-issue }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.move-issue }}**.
 
 1. Specify the queue to which you want to move the issue, then click **Save**.
 

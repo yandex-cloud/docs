@@ -19,7 +19,7 @@ By default, [buckets](../../concepts/bucket.md) are created with restricted [acc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ objstorage-name }}**.
   1. Click the bucket name.
   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
@@ -169,7 +169,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ objstorage-name }}**.
   1. Click the bucket name.
   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.

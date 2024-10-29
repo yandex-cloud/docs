@@ -267,6 +267,10 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
+  link-ca-jb-2024-1: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
+  link-ca-jb-2024-2: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
@@ -4734,162 +4738,39 @@ default:
                 issue: Create issue
               transition: Change issue status
     startrek:
-      ui_components_actions-panel_ActionsPanel:
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
+        enable-backlog: Enable backlog
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader:
+        settings: Settings
+      ui_Common_pages_page-my_PageMy:
+        page-title: My page
+      ui_Common_pages_promo_Page:
+        login-button-label: Log in to Tracker
+      ui_Common_smart-components_actions-panel_ActionsPanel:
         action-menu-title: Actions
-      ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
-        server-url-label: Link to repository
-      ui_components_admin-repositories_ConnectRepositoryDialog:
+      ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog:
         connect: Connect
         token-label: Token
-      ui_components_admin-tab-types_AdminTabTypes:
-        title: Issues types
-      ui_components_agile_agile-board_AgileBoardActionsMenu:
-        delete-board-menu-item: Delete board
-        migration-rollback: Switch back to the old version
-      ui_components_agile_agile-board_AgileBoardAddColumnButton:
-        new-column-button: Add column
-      ui_components_agile_agile-board_AgileBoardColumnHeader:
-        column-menu--add-note: Add note
-        column-menu--delete: Delete
-        column-menu--edit: Edit
-      ui_components_agile_agile-board_AgileBoardCreateModal:
-        board-type--scrum: With backlog and sprints
-        board-type--simple: Basic
-        submit-btn: Create
-      ui_components_agile_agile-board_AgileBoardEmptyScreen:
-        empty-screen--new-issue: New issue
-      ui_components_agile_agile-board_AgileBoardIssue:
-        issue-actions--delete-from-board: Remove from board
-        issue-actions--move-down: Move to bottom of column
-        issue-actions--move-up: Move to top of column
-      ui_components_agile_agile-board_AgileBoardMigrationForm:
-        submit-btn: Start switching
-      ui_components_agile_agile-board_AgileBoardUnusedStatuses:
-        unused-statuses-add-to-column: Add to column
-        unused-statuses-create-column: Create column
-      ui_components_agile_backlog_BacklogAddColumnButton:
-        add-column: Add column
-      ui_components_agile_backlog_BacklogIssue:
-        backlog-default-column: Backlog
-      ui_components_agile_common_AddIssueButton:
-        add-issue-button: Add issue
-      ui_components_agile_common_AgileFilters:
-        action-title-save: Save
-        all-issues-filter-title: All issues
-        reset-button: Reset
-      ui_components_agile_common_AgileTabs:
-        backlog: Backlog
-        board: Board
-        poker: Planning poker
-      ui_components_agile_common_BulkActionsPanel:
-        add-to-sprint: Add to sprint
-      ui_components_agile_common_ColumnForm:
-        create-column-label--statuses: Column statuses
-        create-column-submit-button--create: Add
-      ui_components_agile_common_FieldsSelect:
-        fields-settings: Card fields
-      ui_components_agile_common_FinishedSprintsButton:
-        finished-sprints: Finished sprints
-      ui_components_agile_common_IssueActionsMenu:
-        select-issue: Select
-      ui_components_agile_common_QuickFilterPopup:
-        filters-manage: Manage filters
-      ui_components_agile_common_QuickFiltersItem:
-        quick-filter--assignee-me: Assigned to me
-        quick-filter--author-me: Created by me
-      ui_components_agile_common_SprintForm:
-        create-sprint: Create sprint
-        edit-sprint: Edit sprint
-      ui_components_agile_common_SprintFormFields:
-        take-sprint-to-work: Take to work
-      ui_components_agile_common_StartSprintButton:
-        start: Start
-      ui_components_agile_common_UnusedStatusesButton:
-        unused-statuses-button: Unused statuses
-      ui_components_agile_common_ViewModeControl:
-        columns: Columns
-        columnsByStatus: Columns by statuses
-        customColumns: Custom columns
-      ui_components_agile_poker_hooks:
-        add-issue-to-poker: Add to poker
-      ui_components_agile_poker_PokerButton:
-        poker: Poker
-      ui_components_agile_poker_PokerIssueForm:
-        apply-estimate: Set an estimate
-        show-estimates: Show estimates
-      ui_components_agile_settings_AgileSettingsLayout:
-        issue-updates: Automatic issues addition and removal
-        poker: Poker
-      ui_components_agile_settings_BoardIssueUpdatesSettings:
-        import-title: Adding issues to the board
-        removal-title: Removal of issues from the board
-      ui_components_agile_settings_PokerSettings:
-        aggregation-function-field-label: Calculation of the final score
-        deck-field-label: Deck of estimates
-        display-estimated-field-label: Display estimated issues
-        save: Save
-      ui_components_App:
-        title-queues: Queue
-      ui_components_attachments-manager:
+      ui_Common_smart-components_attachments-manager:
         attach: Attach files
         attachments-section-title: Files
-      ui_components_bulk_BulkChangeParametersDialog:
+      ui_Common_smart-components_bulk_BulkChangeParametersDialog:
         button-submit-text: Apply
-      ui_components_BulkSuggestPopup:
+      ui_Common_smart-components_BulkSuggestPopup:
         apply: Apply
-      ui_components_CreateIssueForm:
-        create-issue: Create issue
-      ui_components_dashboard_CollapseHeader:
-        copy-menu-item: Copy
-      ui_components_dashboard_DashboardActionsMenu:
-        set-start-page-action: Set as start page
-      ui_components_dashboard_DashboardHeader:
-        dashboard-header-add-button: Add
-        dashboard-header-add-orgAdmin: Information for employees
-        dashboard-header-settings-button: Edit
-      ui_components_dashboard_FilterEditor:
-        editor-source-radio-query: Query language
-      ui_components_dashboard_InfoPresetsWidget:
-        choose-template-button: Select template
-        widget-title: Workflow templates
-      ui_components_dashboard_IssuesStatEditor:
-        editor-sort-by-field-label: Sorting
-        editor-source-radio-parameters: Parameters
-      ui_components_dashboard_OrgAdminEditor:
-        editor-published-field-label: Widget published
-        editor-save-button: Save
-      ui_components_dashboard_TableWidget:
-        show-all: Show All
-      ui_components_entity-page_ActivitySection:
-        activity: Activity
-        new-activity-on-top: New comments first
-      ui_components_entity-page_checklist_ChecklistActionsMenu:
+      ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu:
         remove-title: Delete checklist
-      ui_components_entity-page_checklist_ChecklistItem:
-        button-cancel: Cancel
-        button-submit: Save
-        remove-item-title: Delete item
-      ui_components_entity-page_checklist_Footer:
+      ui_Common_smart-components_entity-page_checklist_Footer:
         new-item-button-caption: Add item
-      ui_components_entity-page_checklist_Header:
+      ui_Common_smart-components_entity-page_checklist_Header:
         header-title: Checklist
-      ui_components_entity-page_comments_CommentEditor_mobile:
-        write-comment: Write a comment
-      ui_components_entity-page_macros_FavoriteButton:
+      ui_Common_smart-components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Add to favorites
-      ui_components_entity-page_macros_MacrosExecutor:
-        apply-button-label: Run
-      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+      ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Edit parameters list
-      ui_components_FieldEdit:
-        form-submit: Save
-      ui_components_filter-field:
-        save-button: Save
-      ui_components_filter-pane_FieldsSelectButton:
+      ui_Common_smart-components_filter-pane_FieldsSelectButton:
         add-filter-field-button-title: Add a field for filtering
-      ui_components_filter-pane_ViewModeSwitch:
-        mode-gantt: Gantt chart
-      ui_components_filter-pane:
+      ui_Common_smart-components_filter-pane:
         action-title-save: Save
         action-title-save-as: Save as new
         all-issues-filter-title: All issues
@@ -4897,35 +4778,66 @@ default:
         list-mode-tree: Tree list
         reset-button: Reset
         search-placeholder: Search by issue name
-      ui_components_FilterExportMenu:
-        menu-item-export: Export
-        title: Filter actions
-      ui_components_FormField_TimeTrackingBlock:
+      ui_Common_smart-components_FormField_TimeTrackingBlock:
         field-comment-title: Comment
         field-datetime-title: Date to log work for
         field-estimation-title: Overall task estimation
         field-remain-title: Time left
         field-spent-title: Time spent
-      ui_components_Gantt_IssueActionsCell:
-        issue-action-menu-title: Issue actions menu
-      ui_components_Gantt:
-        color-type-by-manual: manual
-        color-type-by-parameter: by task parameters
-        color-type-monochrome: monochrome
-        delete-link: Remove link
-        exit: Exit
-        scale-days: Week
-        scale-month: Month
-        scale-quarters: Quarter
-        shift-blocked-with-blocker: >-
-          Automatically move the deadline of the dependent issue when the
-          blocking issue's deadline changes
-        show-external-blockers: Show external blockers
-        show-issue-assignee: assignee
-        show-issue-title: name
-        show-links: Show blocking links
-        timeline-config: Chart settings
-      ui_components_issue-actions_IssueMenu:
+      ui_Common_smart-components_page-admin_OrganizationSmallPane:
+        add-org-button: Add organization
+      ui_Common_smart-components_page-admin_OrgGroupsPane:
+        access-level_full-access: Full
+        access-level_read_only: Read
+        title_access: Access to Tracker
+      ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane:
+        federation-task-action: Connect
+        source-title: Yandex Cloud Organization
+      ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane:
+        domain-task-action: Connect
+        source-title: Yandex 360 for Business
+      ui_Common_smart-components_page-admin_PageAdmin:
+        access-and-payment: Access and payment
+        menu-item-groups: Groups
+        menu-item-orgs: Organizations
+        menu-item-repositories: Repositories
+        menu-item-users: Users
+      ui_Common_smart-components_SortButton:
+        default-title: Sort
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody:
+        column-comment: Comment
+        column-date: Log date
+        column-spent: Time spent
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog:
+        title: Time tracking history
+      ui_Common_smart-components_TrackerSearch:
+        queues: Queues
+      ui_Dashboards_smart-components_DashboardHeader:
+        dashboard-header-add-button: Add
+        dashboard-header-add-orgAdmin: Information for employees
+        dashboard-header-settings-button: Edit
+      ui_Dashboards_smart-components_InfoPresetsWidget:
+        choose-template-button: Select template
+        widget-title: Workflow templates
+      ui_Dashboards_smart-components_OrgAdminEditor:
+        editor-published-field-label: Widget published
+        editor-save-button: Save
+      ui_Issues_pages_page-issues_touch:
+        all-issues-filter-title: All issues
+        query-language: Query language
+      ui_Issues_pages_PageCreateIssue:
+        change-template: Edit form
+        change-title-and-description: Change title and description
+        create-new: Create form
+        create-new-template: Create new form
+        description-placeholder: Add a description of the issue so the assignee knows what to do
+        switch-to-admin-panel: Switch to admin panel
+        try-yandex-forms: Try Yandex Forms for creating issues
+      ui_Issues_pages_PageCreateIssueForm:
+        continue: Continue
+      ui_Issues_pure-components_issue-comments-templates:
+        create-template-item: Create template
+      ui_Issues_smart-components_issue-actions_IssueMenu:
         add-notification: Add reminder
         add-worklog: Add time spent
         calendar-event-me: Schedule a time to work on this issue
@@ -4936,22 +4848,16 @@ default:
         move-issue: Change queue
         title: Actions
         to-subissue: Convert to sub-issue
-      ui_components_issue-actions_worklog_AddWorklogDialog:
+      ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog:
         apply-button: Save
         date-label: Started
         duration-label: Time spent
-      ui_components_issue-comments-templates:
-        create-template-item: Create template
-      ui_components_issue-links_ExternalLinksCollapse:
+      ui_Issues_smart-components_issue-links_ExternalLinksCollapse:
         external-relations: Links to external applications
-      ui_components_issue-links_InternalLinksCollapse:
-        relations: Related issues
-      ui_components_issue-templates_Select:
+      ui_Issues_smart-components_issue-templates_Select:
         manage-templates: Manage templates
         select-template: Apply template
-      ui_components_IssueActionsButton:
-        menu-item-create-subticket: Create sub-issue
-      ui_components_IssueBulkActionPanel:
+      ui_Issues_smart-components_IssueBulkActionPanel:
         add-link: Add link
         add-me-to-followers: Add me as follower
         add-to-board: Add to board
@@ -4964,77 +4870,15 @@ default:
         move: Move
         remove-from-both-fields: From both fields
         remove-me-from: Remove move from field...
-      ui_components_issues_create-issue-popup_NewIssueForm:
-        milestone-type: Milestone
-      ui_components_issues-import_IssuesImportDialog:
-        import: Import
-      ui_components_issues-import_IssuesImportFilters:
-        add-parameters: Add parameters
-      ui_components_IssuesGroupHeader:
-        no-epic: No epic
-      ui_components_IssuesPresetSelect:
+      ui_Issues_smart-components_IssuesPresetSelect:
         preset_assignee: Assigned to me
         preset_author: Created by me
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
-      ui_components_IssueTabs:
-        description-tab: Description
-        fields-tab: Parameters
-        links-tab: Links
-      ui_components_ModalTextEditor:
-        save: Save
-      ui_components_navigation:
-        invite-user: Add user
-      ui_components_new-process_ProcessTypeStepRedesign:
-        information-time-tracking-title: Time tracking
-        process-type-development: Development
-        process-type-project: Project management
-        process-type-standard: Basic
-        process-type-support: Support
-      ui_components_new-process_QueueSetupForm:
-        next-button: Next
-      ui_components_page-admin_BillingAccountInfo:
-        person-type-company: Legal entity or individual entrepreneur
-        person-type-invididual: Individual
-        rebind-account: Change billing account
-        refill-balance: Top up balance
-        refill-dialog-ok-issue: Issue an invoice
-      ui_components_page-admin_BillingAccountList:
-        bind: Link
-        create-account: Create new account
-      ui_components_page-admin_BillingScreen:
-        create-account: Create
-      ui_components_page-admin_ChangeOrganizationModal:
-        add-button: Change organization
-      ui_components_page-admin_OrganizationSmallPane:
-        add-org-button: Add organization
-      ui_components_page-admin_OrgMainInfoPane:
-        org-manage-button: Manage organization
-      ui_components_page-admin_OrgPanes_CloudOrgPane:
-        federation-task-action: Connect
-        source-title: Yandex Cloud Organization
-      ui_components_page-admin_OrgPanes_DirectoryOrgPane:
-        domain-task-action: Connect
-        source-title: Yandex 360 for Business
-      ui_components_page-admin_OrgUsersPane:
-        access-level_full-access: Full
-        access-level_read_only: Read
-        title_access: Access to Tracker
-      ui_components_page-admin_PageAdmin:
-        access-and-payment: Access and payment
-        menu-item-groups: Groups
-        menu-item-orgs: Organizations
-        menu-item-repositories: Repositories
-        menu-item-users: Users
-      ui_components_page-issues_touch_FilterSettingsMenu:
-        item-filters: Filters
-        item-group: Grouping
-      ui_components_page-issues_touch:
-        all-issues-filter-title: All issues
-        query-language: Query language
-      ui_components_page-my_PageMy:
-        page-title: My page
-      ui_components_page-queue-admin_AliasesCreateForm:
+      ui_Portfolios_smart-components_project-list_utils:
+        field-name-resolution: Resolution
+        filter-macro-empty_: No value
+      ui_Queues_pages_page-queue-admin_AliasesCreateForm:
         mail-address: Email
         mail-allow-external: Accept letters not only from employees of the organization
         mail-archive-folder: Archive folder
@@ -5047,7 +4891,7 @@ default:
         mail-settings-title: Mail for receiving emails
         mail-ssl: Secure connection (SSL)
         save-button: Save
-      ui_components_page-queue-admin_AliasesFormSendPanel:
+      ui_Queues_pages_page-queue-admin_AliasesFormSendPanel:
         send-mail-login: Login
         send-mail-password: Password
         send-mail-port: Port
@@ -5056,87 +4900,28 @@ default:
         send-settings-title: Email for sending responses
         signature-settings-title: Signatures
         test-mail-button: Send a test email
-      ui_components_page-queue-admin_AliasesStateList:
+      ui_Queues_pages_page-queue-admin_AliasesStateList:
         action-add-mail: Add an email
         action-domain: Connect a domain
-      ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu:
-        add-form: Add form
-        create-new: Create new
-      ui_components_page-queue-admin_QueueActionsMenu:
+      ui_Queues_pages_page-queue-admin_QueueActionsMenu:
         remove-queue-action: Delete queue
-      ui_components_page-queue-admin_QueueAdminPageContent:
+      ui_Queues_pages_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
         menu-item-autoactions: Auto actions
         menu-item-forms: Form integration
         menu-item-permissions: Permissions
         menu-item-timetracking: Time tracking
         menu-item-workflows: Workflows
-      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+      ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
         change-owner: Change owner
         set-as-default: Set as default
-      ui_components_page-queue-admin_Signature:
-        alias-title: Alias
-      ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
-        enable-backlog: Enable backlog
-      ui_components_PageAgileBoard_PageAgileBoardHeader:
-        settings: Settings
-      ui_components_PageAgileBoardSettings_Header:
-        settings: Settings
-      ui_components_PageCreateIssue:
-        change-template: Edit form
-        change-title-and-description: Change title and description
-        create-new: Create form
-        create-new-template: Create new form
-        description-placeholder: Add a description of the issue so the assignee knows what to do
-        switch-to-admin-panel: Switch to admin panel
-        try-yandex-forms: Try Yandex Forms for creating issues
-      ui_components_PageCreateIssueForm:
-        continue: Continue
-      ui_components_PageHiThere:
-        wrong-user-btn: Log in
-      ui_components_PageIssues:
-        search-title: Search by all tasks
-      ui_components_PageQueue_header:
+      ui_Queues_pages_PageQueue_header:
         export: Export
         settings: Queue settings
         subscribe: Subscribe
         subscribe-all: Subscribe to all notifications
         subscribe-new-tickets: Subscribe to new issues
-      ui_components_PageQueues:
-        new-queue: New queue
-      ui_components_portfolios_Header:
-        description-tab: About the portfolio
-        projects-tab: Projects
-      ui_components_portfolios_portfolio-page_ListFilterPane:
-        filter-issues: Issues
-        filter-projects: Projects
-        search-placeholder: Search
-      ui_components_portfolios_PortfolioMenu:
-        remove-portfolio: Delete portfolio
-      ui_components_projects_hooks:
-        copy-to-clipboard: Copy link
-        delete-from-project: Delete from project
-        issue-actions--move-down: Move to bottom of list
-        issue-actions--move-up: Move to top of list
-      ui_components_projects_Sidebar:
-        sidebar-param-title--endDate: Deadline
-        sidebar-param-title--lead: Responsible
-        sidebar-param-title--startDate: Start date
-        sidebar-param-title--status: Status
-        sidebar-param-title--teamUsers: Participants
-      ui_components_projects_Table:
-        add-issue: Add issue
-        add-sub-issue: Add sub-issue
-      ui_components_projects_utils:
-        field-name-resolution: Resolution
-        filter-macro-empty_: No value
-      ui_components_promo_Page:
-        login-button-label: Log in to Tracker
-      ui_components_queue-admin-tab-integrations_IntegrationForms:
-        title: Forms
-      ui_components_queue-admin-tab-main_QueueAdminTabMain:
-        save: Save
-      ui_components_queue-admin-tab-timetracking_TimetackingForm:
+      ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
         field-can-assignee-update-time: Allow the assignee to edit logged time
         field-show-time-field-on-close: Automatically calculate spent time when closing the task
         field-track-time-in-issues: Advanced time tracking
@@ -5144,40 +4929,34 @@ default:
         field-use-summary-time: Display the Overall task estimation field
         field-working-calendar: Work schedule
         save: Save
-      ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
+      ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog:
         action-copy: Copy
         label-name: New workflow name
         label-queue: Copy from queue
         label-workflow: Copying workflow
-      ui_components_queue-admin-tab-workflows_WorkflowsStateList:
+      ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Create workflow
         default-type-title: Default issue type
-      ui_components_QueueAdminTemplateOptions:
+      ui_Queues_smart-components_new-process_ProcessTypeStepRedesign:
+        information-time-tracking-title: Time tracking
+        process-type-development: Development
+        process-type-project: Project management
+        process-type-standard: Basic
+        process-type-support: Support
+      ui_Queues_smart-components_new-process_QueueSetupForm:
+        next-button: Next
+      ui_Queues_smart-components_QueueAdminTemplateOptions:
         allow-empty-template: Allow issues to be created without a form
         always: Always
         never: Never
         team: Only for the queue team
-      ui_components_settings_IssueUpdatesSettings:
-        save: Save
-      ui_components_SortButton:
-        default-title: Sort
-      ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
-        column-comment: Comment
-        column-date: Log date
-        column-spent: Time spent
-      ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: Time tracking history
-      ui_components_TrackerSearch:
-        queues: Queues
-      ui_components_TransitionScreen:
-        screen-next-button: Continue
-      ui_components_workflow-conditions_ConditionsMenu:
+      ui_Queues_smart-components_workflow-conditions_ConditionsMenu:
         add-condition: Add condition
-      ui_components_workflow-conditions_WorkflowGroupCondition:
+      ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition:
         add-conditions-group: Add condition group
-      ui_components_workflow-functions_WorkflowFunctionMenu:
+      ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu:
         menu-title: Add automation
-      ui_components_workflow-functions:
+      ui_Queues_smart-components_workflow-functions:
         type-AddCommentFunction: Add comment
         type-AddTextToFieldFunction: Fill in the field
         type-CalculateFieldFunction: Enter totals in the field
@@ -5310,10 +5089,12 @@ default:
             label_from: From
             label_product: Products
             label_service: Services
+            label_title: Usage details
             label_title-usage-short: Consumption for
             label_to: To
             label_top-cost: Consumption cost
             label_top-total: Due and payable
+            popup-csv_button_download: Download
             tab_label: By labels
             tab_product: By product
             tab_service: By service
@@ -6137,19 +5918,6 @@ default:
         title_section-server-network-settings: Network settings
         title_section-server-product: Image
         title_server-access: Access
-      billing:
-        account:
-          dashboard-overview:
-            button_refill: Top up account
-            popup-refill_button_company-action: Issue receipt
-          detail:
-            button_export: Export details
-            label_title: Usage details
-            popup-csv_button_download: Download
-            tab_product: By product
-          switch_detail: Usage details
-        label_accounts: Accounts
-        label_service: Billing
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
@@ -6678,6 +6446,7 @@ default:
         instance:
           access-method:
             field_os-login-access-method: Access by OS Login
+            label_oslogin-control-ssh-option-title: SSH key
           console:
             connect: Connect
           edit-network-interface:
@@ -6751,7 +6520,7 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Add network interface
             section_access: Access
-            section_additional: Additional settings
+            section_additional: Additional
             section_backup: Cloud Backup
             section_base: General information
             section_coi: Docker container settings
@@ -8477,7 +8246,6 @@ default:
           overview:
             button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
-            column_subnetwork_id: ID
             section_subnetworks: Subnets
           security-groups:
             button_add-rule: Add rule
@@ -8789,6 +8557,9 @@ default:
                         title: Password
                       user:
                         title: User
+                    ConnmanConnection:
+                      connection_id:
+                        title: Connection
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Add a column for missing keys
@@ -9371,9 +9142,6 @@ default:
               console:
                 form:
                   postgres:
-                    ConnmanConnection:
-                      connection_id:
-                        title: Connection ID
                     OnPremisePostgres:
                       ca_certificate:
                         title: CA certificate

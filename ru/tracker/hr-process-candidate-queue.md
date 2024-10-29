@@ -15,11 +15,11 @@
 ### Создайте форму 
 
 1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
-1. В блоке **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. В блоке **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Создайте новую форму:
 	* Укажите название `Кандидат`;
 	* Добавьте описание, например `Форма заявки на вакансию`;
-	* Нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+	* Нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Дождитесь загрузки страницы и выберите виджет **Текст**.
 1. В поле **Вопрос** введите `ФИО`.
 1. Нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Добавить вопрос** и выберите опцию **Текст**.
@@ -47,7 +47,7 @@
 
 ### Создайте тестовую задачу
 
-1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**.
+1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}**.
 1. Кликните виджет с названием `Кандидат`.
 1. Заполните форму. В качестве адреса почты укажите свой адрес. 
 1. Нажмите кнопку **Отправить**.

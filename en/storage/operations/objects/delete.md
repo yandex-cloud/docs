@@ -22,7 +22,7 @@ To delete an object:
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ objstorage-name }}**.
   1. Click the name of the bucket you need.
-  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and click **{{ ui-key.yacloud.storage.file.button_delete }}** in the menu that opens.
+  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name; in the menu that opens, click **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
      To do the same with multiple objects, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
@@ -208,7 +208,7 @@ To delete an object:
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the changes in the [management console]({{ link-console-main }}).
 

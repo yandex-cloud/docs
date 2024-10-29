@@ -23,9 +23,9 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
 1. Подтвердите удаление.
 

@@ -18,13 +18,13 @@ To go to the Gantt chart:
 
 * If an issue has blockers outside the current project, you will see the ![](../../_assets/tracker/svg/blocker.svg) icon with their number to the left of the issue bar.
 
-   * To enable the display of external blockers in the issue list, go to [](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** → **{{ ui-key.startrek.ui_components_Gantt.show-external-blockers }}**.
+   * To enable the display of external blockers in the issue list, go to [](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** → **Show external blockers**.
 
    * External blockers are highlighted in gray and can be found under the dependent issue in the issue list. If you enable [displaying issues as a hierarchy](#trees), blockers are shown under an issue branch. You cannot move external blockers in the list, but you can still open and edit them.
 
    * You can [change](#timing) the start date and deadline of external blockers.
 
-   * To delete links between external blockers and their dependent issues, click ![](../../_assets/tracker/svg/blocker.svg), and then ![](../../_assets/tracker/svg/del-link.svg) **{{ ui-key.startrek.ui_components_Gantt.delete-link }}**.
+   * To delete links between external blockers and their dependent issues, click ![](../../_assets/tracker/svg/blocker.svg), and then ![](../../_assets/tracker/svg/del-link.svg) **Remove link**.
 
 ## Changing issue deadlines {#timing}
 
@@ -96,12 +96,12 @@ To turn off comparison mode, hover over ![](../../_assets/console-icons/clock-ar
 
 ## Actions with issues {#issue-actions}
 
-To open the issue actions menu in the issue list section, click ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}** to the right of the issue name.
+To open the issue actions menu in the issue list section, click ![](../../_assets/tracker/svg/actions.svg) **Issue actions menu** to the right of the issue name.
 
 In the menu, you have the following actions available:
-* ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**.
-* ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (for manual sorting only).
-* ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (for manual sorting only).
+* ![](../../_assets/tracker/text-edit/link.svg) **Copy link**.
+* ![](../../_assets/tracker/svg/move-up.svg) **Move to top of list** (for manual sorting only).
+* ![](../../_assets/tracker/svg/move-down.svg) **Move to bottom of list** (for manual sorting only).
 * ![](../../_assets/tracker/svg/convert.svg) **Convert to a [milestone](../manager/milestones.md) or issue**.
-* ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**.
-* ![](../../_assets/tracker/svg/gantt-palette.svg) **Choose color** (only when the **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}** setting is enabled).
+* ![](../../_assets/tracker/svg/icon-remove.svg) **Delete from project**.
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **Choose color** (only when the **manual** setting is enabled).

@@ -4,7 +4,7 @@ Create a trail to upload management event audit logs of resources in an individu
 
 To complete the tutorial successfully, you must have an ArcSight instance installed.
 
-The solution described in the tutorial follows the procedure below:
+The solution described in the tutorial follows the steps below:
 1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
 1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) interface to a folder on an intermediate VM.
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) collects logs from the folder and delivers them to ArcSight for analysis.
@@ -38,7 +38,7 @@ The infrastructure support cost includes:
 
 * Fee for using VM instances (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 * Fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
@@ -48,7 +48,7 @@ The infrastructure support cost includes:
 You can use a VM that has access to an ArcSight instance or create a new one:
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a Linux image based on [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
-1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
+1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
 ### Create a bucket for audit logs {#create-backet}
 
@@ -56,10 +56,10 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a bucket in, e.g., `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
-   1. On the bucket creation page:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket, e.g., `example-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. On the bucket creation page:
       1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
@@ -77,13 +77,13 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify:
-      * **{{ ui-key.yacloud.common.name }}**: `arcsight-kms`
-      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
-      * Leave the other parameters at their default settings.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), go to `example-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify:
+     * **{{ ui-key.yacloud.common.name }}**: `arcsight-kms`.
+     * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
+     * Leave the other parameters at their default settings.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -93,10 +93,11 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select the `arcsight-kms` key.
-   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+  1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `arcsight-kms`.
+  1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 {% endlist %}
 
@@ -104,26 +105,26 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 You need to create two accounts: one for a trail and one for a bucket.
 
-Create the `sa-arcsight` service account:
+Create a service account named `sa-arcsight`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account according to the naming requirements:
+  1. In the [management console]({{ link-console-main }}), go to `example-folder`.
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Enter a name for the service account according to the naming requirements:
+  
+       {% include [name-format](../../_includes/name-format.md) %}
 
-      {% include [name-format](../../_includes/name-format.md) %}
-
-      For example, `sa-arcsight`.
-
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-
+       Example: `sa-arcsight`.
+  
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  
 {% endlist %}
 
-Create the `sa-arcsight-bucket` service account the same way.
+Similarly, create a service account named `sa-arcsight-bucket`.
 
 ### Create a static key {#create-access-key}
 
@@ -133,13 +134,13 @@ You will need the key ID and secret key when mounting the bucket.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose `sa-arcsight-bucket` and click the row with its name.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** on the top panel.
-   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-   1. Save the ID and private key.
+  1. In the [management console]({{ link-console-main }}), go to `example-folder`.
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. Select the `sa-arcsight-bucket` service account and click the row with its name.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** on the top panel.
+  1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. Save the ID and private key.
 
       {% note alert %}
 
@@ -149,7 +150,7 @@ You will need the key ID and secret key when mounting the bucket.
 
 - CLI {#cli}
 
-   1. Create an access key for `sa-arcsight-bucket`:
+  1. Create an access key for the `sa-arcsight-bucket` service account:
 
       ```bash
       yc iam access-key create --service-account-name sa-arcsight-bucket
@@ -166,75 +167,75 @@ You will need the key ID and secret key when mounting the bucket.
       secret: JyT*******zMP1
       ```
 
-   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 {% endlist %}
 
 ## Assign roles to the service accounts {#add-roles}
 
-Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDecrypter` roles:
+Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDecrypter` roles to the `sa-arcsight` service account:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. The `audit-trails.viewer` [role](../../audit-trails/security/#roles) to the folder:
-
+  1. `audit-trails.viewer` [role](../../audit-trails/security/#roles) for the folder:
+     
       ```
       yc resource-manager folder add-access-binding \
       --role audit-trails.viewer \
       --id <folder_ID> \
       --service-account-id <service_account_ID>
       ```
-
+      
       Where:
-
+  
       * `--role`: Role being assigned.
-      * `--id`: ID of `example-folder`.
-      * `--service-account-id`: ID of the `sa-arcsight` service account.
+      * `--id`: `example-folder` ID.
+      * `--service-account-id`: `sa-arcsight` service account ID.
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
-
-   1. The `storage.uploader` [role](../../storage/security/#storage-uploader) to the folder with a bucket:
-
+  
+  1. Assign the `storage.uploader` [role](../../storage/security/#storage-uploader) for the folder the bucket is in:
+     
       ```
       yc resource-manager folder add-access-binding \
       --role storage.uploader \
       --id <folder_ID> \
       --service-account-id <service_account_ID>
       ```
-
+  
       Where:
-
+  
       * `--role`: Role being assigned.
-      * `--id`: ID of `example-folder`.
-      * `--service-account-id`: ID of the `sa-arcsight` service account.
+      * `--id`: `example-folder` ID.
+      * `--service-account-id`: `sa-arcsight` service account ID.
 
-   1. The `kms.keys.encrypterDecrypter` [role](../../kms/security/#service) to the `arcsight-kms` encryption key:
-
+  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/#service) for the `arcsight-kms` encryption key:
+  
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
       --id <key_ID> \
       --service-account-id <service_account_ID>
       ```
-
+  
       Where:
-
+  
       * `--role`: Role being assigned.
       * `--id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `--service-account-id`: ID of the `sa-arcsight` service account.
+      * `--service-account-id`: `sa-arcsight` service account ID.
 
 {% endlist %}
 
-Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypter` roles:
+Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-arcsight-bucket` service account:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. The `storage.viewer` role to the folder:
-
+  1. `storage.viewer` role for the folder:
+     
       ```
       yc resource-manager folder add-access-binding \
       --id <folder_ID> \
@@ -243,26 +244,26 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
       ```
 
       Where:
-
-      * `--id`: ID of `example-folder`.
+  
+      * `--id`: `example-folder` ID.
       * `--role`: Role being assigned.
-      * `--service-account-id`: ID of `sa-arcsight-bucket`.
-
-   1. The `kms.keys.encrypterDecrypter` role to the `arcsight-kms` encryption key:
-
+      * `--service-account-id`: `sa-arcsight-bucket` service account ID.
+  
+  1. `kms.keys.encrypterDecrypter` role for the `arcsight-kms` encryption key:
+  
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
       --id <key_ID> \
       --service-account-id <service_account_ID>
       ```
-
+  
       Where:
-
+  
       * `--role`: Role being assigned.
       * `--id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `--service-account-id`: ID of the `sa-arcsight-bucket` service account.
-
+      * `--service-account-id`: `sa-arcsight-bucket` service account ID.
+  
 {% endlist %}
 
 ## Create a trail {#create-trail}
@@ -271,46 +272,46 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
+  1. In the [management console]({{ link-console-main }}), go to `example-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created, e.g., `arcsight-trail`.
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
+     * **{{ ui-key.yacloud.common.name }}**: Name of the trail you want to create, e.g., `arcsight-trail`.
+     * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
-      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+     * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+     * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
+     * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+  
+     {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key used to [encrypt](../../storage/concepts/encryption.md) the bucket.
+  
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
 
-      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key the bucket is [encrypted](../../storage/concepts/encryption.md) with.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
+     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
-
-   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
-
-   {% note warning %}
-
-   The solution will delete the logs from the bucket after they are exported to ArcSight. If you need to keep the logs in the bucket, create a separate bucket and trail.
-
-   {% endnote %}
+  {% note warning %}
+  
+  The solution will delete the logs from the bucket after they are exported to ArcSight. If you need to keep the logs in the bucket, create a separate bucket and trail.
+  
+  {% endnote %}
 
 {% endlist %}
 
 ## Mount a bucket {#mount-bucket}
 
 A bucket is mounted on an intermediate VM where ArcSight SmartConnector is installed.
-To mount the bucket, create a file with the `sa-arcsight-bucket` service account static access key.
+To mount the bucket, create a file with the static access key of the `sa-arcsight-bucket` service account.
 
 1. On the intermediate VM, create a file with the static access key:
 
@@ -325,7 +326,7 @@ To mount the bucket, create a file with the `sa-arcsight-bucket` service account
    sudo apt install s3fs
    ```
 
-1. Create a directory where the bucket will be mounted. For example: `mybucket` in the home directory:
+1. Create a directory to mount the bucket to, e.g., `mybucket`, in your home directory:
 
    ```bash
    sudo mkdir ${HOME}/mybucket
@@ -352,17 +353,17 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 {% endnote %}
 
 1. On the intermediate VM, [install](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_smartconn_install/) `ArcSight SmartConnector`:
-   1. When installing it, select **ArcSight FlexConnector JSON Folder Follower** and specify the path to the `mybucket` folder.
-   1. Specify **JSON configuration filename prefix**: `yc`.
+    1. When installing it, select **ArcSight FlexConnector JSON Folder Follower** and specify the path to the `mybucket` folder.
+    1. Specify **JSON configuration filename prefix**: `yc`.
 1. [Download](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight/tree/main/arcsight_content) the `arcsight_content` files.
-1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/flexagent` folder.
-1. Copy the `map.0.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/map` folder.
-1. Edit the file `<agent_installation_folder>/current/user/agent/agent.properties`:
+1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the folder with this address: `<agent_installation_folder>/current/user/agent/flexagent`.
+1. Copy the `map.0.properties` file from the `flex` folder to the folder with this address: `<agent_installation_folder>/current/user/agent/map`.
+1. Edit the `<agent_installation_folder>/current/user/agent.properties` file:
 
-   ```bash
-   agents[0].mode=DeleteFile
-   agents[0].proccessfoldersrecursively=true
-   ```
+    ```bash
+    agents[0].mode=DeleteFile
+    agents[0].proccessfoldersrecursively=true
+    ```
 
 1. Start the connector and make sure that events are received by ArcSight:
 
@@ -373,5 +374,5 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
-1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
+1. [Delete](../../kms/operations/key.md#delete) the {{ kms-name }} key.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the intermediate VM if you created it in {{ compute-short-name }}.

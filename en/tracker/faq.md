@@ -65,7 +65,7 @@ To delete a queue:
 
 1. Go to the **Basic settings** tab.
 
-1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
+1. Click **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
 1. Confirm the deletion.
 
@@ -91,7 +91,7 @@ If you can access the queue page but some of the issues remain inaccessible, the
 
 ## How can I find the queue owner? {#section_hgc_xyk_nbb}
 
-The owner is specified on the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
+The owner is specified on the **Description** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
 
 ## Why cannot I use widgets grouped by the {{ ui-key.startrek-backend.fields.issue.summary-key-value }} field? {#section_del_widget}
 

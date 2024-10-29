@@ -11,7 +11,7 @@ The signing process consists of the following stages:
 1. [Generating a signing key](#signing-key-gen).
 1. [Signing a string with a key](#signing).
 
-Use [HMAC](https://ru.wikipedia.org/wiki/HMAC) with the [SHA256](https://ru.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume that there is a `sign(KEY, STRING)` function that encodes the input string with the specified key.
+Use [HMAC](https://ru.wikipedia.org/wiki/HMAC) with the [SHA256](https://ru.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume the existence of the `sign(KEY, STRING)` function that encodes the input string with the specified key.
 
 ## Generate a string to sign {#string-to-sign-gen}
 
@@ -22,6 +22,8 @@ The string to sign (`StringToSign`) depends on the {{ objstorage-name }} usage s
 * [Signing a URL with query parameters](../concepts/pre-signed-urls.md).
 
 ## Generating a signing key {#signing-key-gen}
+
+To generate a signing key, you need static access keys for {{ objstorage-name }}. To learn how to get them, see [Getting started](index.md#before-you-begin).
 
 {% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
 
@@ -39,7 +41,7 @@ To debug the process of generating a [сanonical request](../concepts/pre-signed
 
 {% note info %}
 
-Make sure that the service account you are using to run `aws` commands has the permissions to perform the requested actions. For example, to create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../security/index.md#storage-uploader) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to the service account. For more information, see [{#T}](../security/overview.md).
+Make sure that the service account you are using to run `aws` commands has the permissions required to perform the requested actions. For example, to create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../security/index.md#storage-uploader) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to the service account. For more information, see [{#T}](../security/overview.md).
 
 {% endnote %}
 
@@ -47,38 +49,38 @@ Make sure that the service account you are using to run `aws` commands has the p
 
 - AWS CLI {#aws-cli}
 
-   In the terminal, run the bucket creation command and see how request parameters are generated:
+  In the terminal, run the bucket creation command and see how request parameters are generated:
 
-   ```bash
-   aws s3api create-bucket \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --bucket <bucket_name> \
-     --debug
-   ```
+  ```bash
+  aws s3api create-bucket \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --bucket <bucket_name> \
+    --debug
+  ```
 
-   Result:
+  Result:
 
-   ```text
-   2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - CanonicalRequest:
-   PUT
-   /<bucket_name>
+  ```text
+  2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - CanonicalRequest:
+  PUT
+  /<bucket_name>
 
-   host:{{ s3-storage-host }}
-   x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b********
-   x-amz-date:20240603T100236Z
+  host:{{ s3-storage-host }}
+  x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b********
+  x-amz-date:20240603T100236Z
 
-   host;x-amz-content-sha256;x-amz-date
-   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b********
+  host;x-amz-content-sha256;x-amz-date
+  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b********
 
-   2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - StringToSign:
-   AWS4-HMAC-SHA256
-   20240603T100236Z
-   20240603/{{ region-id }}/s3/aws4_request
-   7877a13bafaa45f9751e7f345b64a63acc6de279ff927736e906d7c5********
+  2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - StringToSign:
+  AWS4-HMAC-SHA256
+  20240603T100236Z
+  20240603/{{ region-id }}/s3/aws4_request
+  7877a13bafaa45f9751e7f345b64a63acc6de279ff927736e906d7c5********
 
-   2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - Signature:
-   90545034742d1e057c8eeb2cca3c23a38a3ced5ef847f61ac80cb8e1********
-   ```
+  2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - Signature:
+  90545034742d1e057c8eeb2cca3c23a38a3ced5ef847f61ac80cb8e1********
+  ```
 
 {% endlist %}
 

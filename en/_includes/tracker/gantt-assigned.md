@@ -6,6 +6,6 @@ On the Gantt chart, you can appoint or change the issue's assignee:
 
 {% note info %}
 
-If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the issue bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **assignee** item under **Issue bar**.
+If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the issue bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** and select the **assignee** item under **Issue bar**.
 
 {% endnote %}

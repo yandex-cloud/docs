@@ -30,11 +30,11 @@ description: Из статьи вы узнаете, как можно посмо
     * **Я исполнитель**.
     * **Я наблюдатель**.
     * **Ждут ответа**.
-    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset-deadline }}**.
+    * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset-deadline }}**.
 
 * Чтобы отфильтровать задачи по [резолюции](../manager/create-resolution.md), нажмите кнопку **Резолюция** и выберите нужные значения из списка.
 
-* Чтобы использовать [дополнительные параметры поиска](./default-filters.md#add-condition), нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
+* Чтобы использовать [дополнительные параметры поиска](./default-filters.md#add-condition), нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
 
 ## Найти задачи по названию {#search-name}
 
@@ -42,7 +42,7 @@ description: Из статьи вы узнаете, как можно посмо
 
 1. На панели слева откройте ![](../../_assets/tracker/svg/tasks.svg) **Задачи** или перейдите по [ссылке]({{ link-tracker }}issues/).
 
-1. В поле **{{ ui-key.startrek.ui_components_filter-pane.search-placeholder }}** введите текст для поиска.
+1. В поле **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.search-placeholder }}** введите текст для поиска.
 
 Поиск задачи осуществляется с учетом указанных фильтров.
 

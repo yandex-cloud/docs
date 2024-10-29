@@ -389,6 +389,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
+      - name: Развертывание Remote Desktop Gateway
+        href: tutorials/rds-gw.md
       - name: Начало работы с Packer
         href: tutorials/packer-quickstart.md
       - name: Передача логов с ВМ в {{ cloud-logging-full-name }}
@@ -473,6 +475,14 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Создание бастионного хоста
+        href: tutorials/bastion.md
+      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+        href: tutorials/route-switcher.md
+      - name: >-
+          Создание туннеля между двумя подсетями при помощи OpenVPN Access
+          Server
+        href: tutorials/site-to-site-openvpn.md
       - name: Продукты Microsoft в {{ yandex-cloud }}
         items:
           - name: Развертывание Active Directory

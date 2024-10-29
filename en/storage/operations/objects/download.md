@@ -48,7 +48,7 @@ To download an object group with a specified prefix (a [directory](../../concept
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
   * `<bucket_name>`: Name of the bucket you want to download the object from.
   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
-  * `<local_path>`: Path to the folder to save the downloaded object to. e.g., `~/downloads/`.
+  * `<local_path>`: Path to the folder to save the downloaded object to. For example: `~/downloads/`.
 
   **Downloading a directory (all objects with a specified prefix)**
 

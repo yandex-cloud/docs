@@ -1,6 +1,6 @@
 ---
-title: How to get an embed code or link to a broadcast in {{ video-full-name }}
-description: Follow this guide to get a {{ video-full-name }} embed code or link to a broadcast.
+title: How to get an embed code or broadcast link in {{ video-full-name }}
+description: Follow this guide to get a {{ video-full-name }} embed code or broadcast link.
 ---
 
 # Getting an embed code or link to a broadcast
@@ -16,8 +16,8 @@ description: Follow this guide to get a {{ video-full-name }} embed code or link
 
   1. Set the required playback parameters for the broadcast:
 
-      1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`.
-      1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`.
+      1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`
+      1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`
       1. `Display controls in the player`.
 
       {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
@@ -31,6 +31,6 @@ description: Follow this guide to get a {{ video-full-name }} embed code or link
 
 - API {#api}
 
-  Use the [EpisodeService/GetPlayerURL](../../api-ref/grpc/Episode/getPlayerURL.md) gRPC API call or the [getPlayerURL](../../api-ref/Episode/getPlayerURL.md) REST API method for the [Episode](../../api-ref/Video/index.md) resource.
+  Use the [getPlayerURL](../../api-ref/Episode/getPlayerURL.md) REST API method for the [Episode](../../api-ref/Episode/index.md) resource or the [EpisodeService/GetPlayerURL](../../api-ref/grpc/Episode/getPlayerURL.md) gRPC API call.
 
 {% endlist %}

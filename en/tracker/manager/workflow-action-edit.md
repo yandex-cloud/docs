@@ -10,9 +10,9 @@ You can set up transitions between statuses within a workflow using the workflow
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow whose status transitions you want to edit.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow whose status transitions you want to edit.
 
 The workflow visual editor will open. You can use it to edit existing transitions. To do this, just click the appropriate transition in the diagram to open its settings page. You can also [add new transitions](#add-action) to the diagram.
 
@@ -22,21 +22,21 @@ You can configure automated actions to be performed by {{ tracker-name }} during
 
 To add an auto action:
 
-1. In the transition settings, open the **Automation** section and click **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
+1. In the transition settings, open the **Automation** section and click **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
 
 1. Select the automations you need from the list and configure them. If there is no suitable automation, set up a [trigger](../user/trigger.md).
 
 Possible auto actions at issue status change include:
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SendEmailFunction }}**: Send emails to specific employees or users performing certain issue roles (for example, to the issue reporter or assignee).
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddCommentFunction }}**: Make a comment in the issue on behalf of a certain user (employee or robot).
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetActiveSprintFunction }}**: Add an issue to an active sprint on the selected board.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetCurrentTimeFunction }}**: Write the transition time to the selected field.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-CalculateFieldFunction }}**: Sum up the contents of multiple fields and write the resulting value to another field.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-MoveUsersFunction }}**: Move or copy users from one field to another.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveUsersFromCcFunction }}**: Remove a user from the list of issue followers, for example, if the required information was received from them and their participation in the issue is no longer required.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddTextToFieldFunction }}**: Fill in an issue field. When setting up this type of automation, a filter by the type of field value will be helpful.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveFieldValueFunction }}**: Remove the contents of any issue field.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-UnsetResolutionFunction }}**: If the issue was completed with a certain resolution, this resolution will be canceled.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SendEmailFunction }}**: Send emails to specific employees or users performing certain issue roles (for example, to the issue reporter or assignee).
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-AddCommentFunction }}**: Make a comment in the issue on behalf of a certain user (employee or robot).
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SetActiveSprintFunction }}**: Add an issue to an active sprint on the selected board.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SetCurrentTimeFunction }}**: Write the transition time to the selected field.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-CalculateFieldFunction }}**: Sum up the contents of multiple fields and write the resulting value to another field.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-MoveUsersFunction }}**: Move or copy users from one field to another.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-RemoveUsersFromCcFunction }}**: Remove a user from the list of issue followers, for example, if the required information was received from them and their participation in the issue is no longer required.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-AddTextToFieldFunction }}**: Fill in an issue field. When setting up this type of automation, a filter by the type of field value will be helpful.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-RemoveFieldValueFunction }}**: Remove the contents of any issue field.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-UnsetResolutionFunction }}**: If the issue was completed with a certain resolution, this resolution will be canceled.
 
 ### Transition conditions {#conditions}
 
@@ -55,9 +55,9 @@ You can set up conditions under which a transition will be active:
 
 To add transition conditions:
 
-1. In the transition settings, open the **Transition conditions** section and click **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
+1. In the transition settings, open the **Transition conditions** section and click **{{ ui-key.startrek.ui_Queues_smart-components_workflow-conditions_ConditionsMenu.add-condition }}**.
 
-1. Select the appropriate conditions from the list and configure them. To set a group of conditions using **AND** and **OR** operators, click **{{ ui-key.startrek.ui_components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
+1. Select the appropriate conditions from the list and configure them. To set a group of conditions using **AND** and **OR** operators, click **{{ ui-key.startrek.ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
 
 ### Transition screen {#screen}
 
@@ -89,9 +89,9 @@ To add a transition between statuses added to a workflow:
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you need. The workflow visual editor will open.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you need. The workflow visual editor will open.
 
 1. In the top panel of the workflow visual editor, click **Add transition**. Fill in the **Source status** and **New status** fields with the appropriate values from the lists. To add a transition for statuses that a workflow does not contain yet, [add them](./workflow-status-edit.md#add-status) first.
 

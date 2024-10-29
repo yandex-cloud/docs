@@ -30,19 +30,19 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Перейдите на вкладку **Права доступа**.
 
 1. Нажмите на аватар возле имени владельца. Откроется окно смены владельца очереди.
 
-1. Нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.change-owner }}**.
+1. Нажмите **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.change-owner }}**.
 
 1. Введите имя или логин нового владельца.
 
 1. Нажмите кнопку **Сохранить**.
 
-1. Если требуется, чтобы все новые задачи автоматически назначались на владельца, включите опцию **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.set-as-default }}**.
+1. Если требуется, чтобы все новые задачи автоматически назначались на владельца, включите опцию **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.set-as-default }}**.
 
 1. Нажмите **Сохранить**.
 
@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Перейдите на вкладку **Команда очереди**.
 

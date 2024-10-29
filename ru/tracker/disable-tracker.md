@@ -15,17 +15,17 @@
 
 {% note info %}
 
-Чтобы не платить за использование {{ tracker-name }}, вы можете отключить платные возможности и оставить сотрудникам только бесплатный доступ в режиме [«{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}»](access.md#readonly). Полностью отключить {{ tracker-name }} невозможно. 
+Чтобы не платить за использование {{ tracker-name }}, вы можете отключить платные возможности и оставить сотрудникам только бесплатный доступ в режиме [«{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgGroupsPane.access-level_read_only }}»](access.md#readonly). Полностью отключить {{ tracker-name }} невозможно. 
 
 {% endnote %}
 
 Чтобы прекратить использование платных возможностей {{ tracker-full-name }}, отзовите у сотрудников организации полный доступ в {{ tracker-name }}. Если полный доступ есть не более чем у 5 пользователей, использование {{ tracker-name }} не тарифицируется. Подробнее читайте в разделе [{#T}](pricing.md).
 
-1. На панели слева {{ tracker-name }} нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева {{ tracker-name }} нажмите **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. Убедитесь, что настройка **Полный доступ для новых пользователей** отключена.
 
-1. Для сотрудников, у которых нужно отозвать доступ, в столбце **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** выберите **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}**.
+1. Для сотрудников, у которых нужно отозвать доступ, в столбце **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgGroupsPane.title_access }}** выберите **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgGroupsPane.access-level_read_only }}**.
 
 
 После того как у сотрудников будет отозван полный доступ в {{ tracker-name }}, они не смогут создавать и обновлять задачи. Возможность просматривать информацию в {{ tracker-name }} сохранится.

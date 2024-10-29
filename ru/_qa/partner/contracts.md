@@ -51,8 +51,8 @@
 1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/dots-9.svg) **Все сервисы**.
 1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Выберите платежный аккаунт.
-1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
-1. Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+1. Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 1. Документ откроется в новой вкладке браузера и сохранится в формате `.pdf`.
 
 #### Как подключиться к ЭДО? {#edm}

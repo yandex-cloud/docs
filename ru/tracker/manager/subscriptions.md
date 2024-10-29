@@ -12,7 +12,7 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg)&nbsp;**{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Перейдите на вкладку **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**.
 

@@ -14,7 +14,7 @@
 
    {% endnote %}
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-notification }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.add-notification }}**.
 
 1. Укажите дату и время напоминания.
 
@@ -46,6 +46,6 @@
 
 1. Откройте страницу задачи.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.calendar-event-me }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Common_smart-components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.calendar-event-me }}**.
    
 1. Введите информацию о событии в календаре, при необходимости добавьте участников встречи и нажмите **Создать**.

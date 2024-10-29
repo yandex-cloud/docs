@@ -30,7 +30,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to delete a bucket:
+  1. See the description of the CLI command to delete a bucket:
 
       ```bash
       yc storage bucket delete --help
@@ -59,7 +59,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       yc storage bucket delete --name <bucket_name>
       ```
 
-      Where `--name`: Name of the bucket to delete.
+      Where `--name` is the name of the bucket to delete.
 
       {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
@@ -99,7 +99,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
     ```
 
-    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
+    Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
 
     Example of the command for deleting all buckets whose names start with `samplebucket`:
 
@@ -122,7 +122,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       --bucket $x}
     ```
 
-    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
+    Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
 
     Example of the command for deleting all buckets whose names start with `samplebucket`:
 
@@ -189,7 +189,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the changes in the [management console]({{ link-console-main }}).
 

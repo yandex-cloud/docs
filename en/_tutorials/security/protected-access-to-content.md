@@ -9,7 +9,7 @@ To configure secure access to content in {{ cdn-name }}:
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM with a web server](#create-web-server).
 1. [Create and configure a public DNS zone](#configure-dns).
-1. [Add a TLS certificate to {{ certificate-manager-name }}](#issue-certificate).
+1. [Add a TLS certificate to {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Prepare a source bucket for the CDN resource](#setup-bucket-origin).
 1. [Create a CDN resource](#setup-cdn-resource).
 1. [Create a CNAME resource record for the CDN resource](#create-cdn-cname-record).
@@ -124,7 +124,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the `webserver-network` network you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
-      | Traffic<br/>routing | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | Incoming | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Incoming | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
@@ -344,8 +344,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       1. Specify the zone settings consistent with your domain:
 
          1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a period. For example, the `example.com.` zone name corresponds to the `example.com` domain. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-         1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
-         1. **{{ ui-key.yacloud.common.name }}**: `my-domain-zone`.
+         1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
+         1. **{{ ui-key.yacloud.common.name }}**: `my-domain-zone`
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -381,7 +381,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
     {% endlist %}
 
-1. Delegate your domain to {{ dns-name }}. To do this, in your domain registrar account, specify these DNS server addresses in the domain settings: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
+1. Delegate your domain to {{ dns-name }}. To do this, in your domain registrar's account, specify the addresses of these DNS servers in your domain settings: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
 1. In your DNS zone, create an A resource record pointing to the public IP address of the previously created VM with a web server:
 
@@ -435,7 +435,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
     {% endlist %}
 
 
-## Add a TLS certificate to {{ certificate-manager-name }} {{ certificate-manager-full-name }}
+## Add a TLS certificate to {{ certificate-manager-full-name }} {#issue-certificate}
 
 1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domains that the web server and CDN resource will use.
 
@@ -589,8 +589,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             ```
 
             Where:
-            * `<dns_challenge_value>`: Value saved in the previous step that is required to check permissions for the relevant domain using a CNAME record.
-            * `<subdomain>`: Name that you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will appear as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
+            * `<dns_challenge_value>`: Value saved in the previous step that is required to check you rights to the relevant domain using a CNAME record.
+            * `<subdomain>`: Name you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will look as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
 
             Result:
 
@@ -666,9 +666,10 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
       1. On the page with a list of buckets, select the bucket you created.
-      1. In the left-hand menu, select ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-      1. Go to the **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** section.
-      1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
+      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
+         * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+         * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
     - {{ yandex-cloud }} CLI {#cli}
@@ -760,7 +761,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             --index-document index.html
           ```
 
-          Where `<file_name>`: Name of the previously created bucket e.g., `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
 
     - API {#api}
 
@@ -791,7 +792,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             s3 cp ./index.html s3://<bucket_name>/index.html
           ```
 
-          Where `<file_name>`: Name of the previously created bucket e.g., `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -848,7 +849,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
       1. In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
       1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then select the previously created `mymanagedcert` certificate from the list that opens.
-      1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that appears, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the previously created bucket used by the CDN resource as a source.
+      1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the previously created bucket used by the CDN resource as a source.
       1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
       1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
       1. In the **{{ ui-key.yacloud.cdn.field_secure-key-type }}** field, select `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
@@ -1189,7 +1190,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
     <body>
 
       <h2>Secure link generator</h2>
-      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The referenced content is available only to the user the link was generated for by the website (verified by IP address).</p>
+      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The content at this link is available only to the user the link was generated for by the website (verified by IP address).</p>
       <br>
 
       <?php

@@ -15,7 +15,7 @@
 ### Настройте предустановленный процесс
 
 1. Откройте страницу очереди.
-1. В верхнем правом углу нажмите ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** и выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
+1. В верхнем правом углу нажмите ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}** и выберите **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
 1. Выберите предустановленный рабочий процесс **Recruiting**.
 1. На странице процесса поменяйте название на **Квалифицированные кадры**.
 1. Укажите тип задач, к которым применим этот процесс. Для этого нажмите ![](../_assets/tracker/svg/icon-add.svg) справа от названия процесса и введите имя нового типа задачи, например `Специалисты`.
@@ -41,11 +41,11 @@
 ### Создайте форму для первого процесса
 
 1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
-1. В блоке **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. В блоке **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Создайте новую форму:
 	* Укажите название `Специалист`;
 	* Добавьте описание, например `Форма вакансии для квалифицированных сотрудников`;
-	* Нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+	* Нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Дождитесь загрузки страницы и выберите виджет **Текст**.
 1. В поле **Вопрос** введите `Название`.
 1. Нажмие кнопку ![](../_assets/tracker/svg/icon-add.svg) **Добавить вопрос**.
@@ -66,7 +66,7 @@
 Если вы хотите ограничить доступ к форме:
 
 1. На странице создания новой задачи наведите курсор на виджет с названием нужной вам формы, например `Специалист`.
-1. Кликните ![](../_assets/tracker/svg/actions.svg) и выберите опцию ![](../_assets/tracker/icon-edit.png)**{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
+1. Кликните ![](../_assets/tracker/svg/actions.svg) и выберите опцию ![](../_assets/tracker/icon-edit.png)**{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-template }}**.
 1. Внизу на странице перейдите по ссылке **Полная версия {{ forms-full-name }}**.
 1. На вкладке **Настройки** в блоке **Кто может заполнять форму** активируйте опцию **Только сотрудники организации**.
 1. Нажмите кнопку **Сохранить**.
@@ -74,11 +74,11 @@
 ### Создайте форму для второго процесса
 
 Аналогично создайте и настройте форму для вакансий, не требующих квалификации. 
-Для этого на странице создания новой задачи нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new-template }}** и повторите описанные выше действия с соответствующими второму рабочему процессу значениями.
+Для этого на странице создания новой задачи нажмите кнопку **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new-template }}** и повторите описанные выше действия с соответствующими второму рабочему процессу значениями.
 
 ### Создайте тестовые задачи и сгруппируйте по типу
 
-1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**.
+1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}**.
 1. Кликните виджет с названием нужной вам формы, например `Специалист`.
 1. Заполните форму и нажмите кнопку **Отправить**.
 1. Аналогично создайте задачу с типом `Неспециалист`.

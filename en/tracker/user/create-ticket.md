@@ -15,7 +15,7 @@ To create an issue:
 
 1. Add an issue description. Use [YFM markup](markup.md) to format text.
 
-1. To add files or images to the issue, click **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
+1. To add files or images to the issue, click **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**.
 
 1. To add a list of steps for issue resolution, click **Add checklist**.
 
@@ -27,7 +27,7 @@ To create an issue:
 
       You can also leave the values at defaults to come back to them later.
 
-1. If necessary, configure [additional parameters](create-param.md#default-fields): To do this, add fields by clicking ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** and fill them out.
+1. If necessary, configure [additional parameters](create-param.md#default-fields): To do this, add fields by clicking ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** and fill them out.
 
    {% note info %}
 
@@ -35,7 +35,7 @@ To create an issue:
 
    {% endnote %}
 
-1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
+1. Click **Create issue**.
 
 ## Automation features {#avto}
 
@@ -49,7 +49,7 @@ If no simplified form was added to the queue, a standard issue creation form wil
 
 If you need to create a lot of similar issues, make a [template](ticket-template.md) for them.
 
-To create an issue using a template, click ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_issue-templates_Select.select-template }}** in the top-right corner. Select a suitable template or click `{{ ui-key.startrek.ui_components_issue-templates_Select.manage-templates }}` to create a new one.
+To create an issue using a template, click ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_Issues_smart-components_issue-templates_Select.select-template }}** in the top-right corner. Select a suitable template or click `{{ ui-key.startrek.ui_Issues_smart-components_issue-templates_Select.manage-templates }}` to create a new one.
 
 If you apply a template, the issue fields will be set to template values that you can edit.
 
@@ -71,11 +71,11 @@ To create a sub-issue:
 
 1. Open the issue page to create a sub-issue for.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.create-subissue }}**.
 
 1. Fill in the fields the same way as when [creating a new issue](#create-task).
 
-1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
+1. Click **Create issue**.
 
 
 #### The next step

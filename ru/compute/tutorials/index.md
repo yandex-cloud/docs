@@ -7,10 +7,8 @@ description: Различные сценарии использования {{ c
 
 * [{#T}](ntp.md)
 * [{#T}](vm-autoscale/index.md)
-
 * [{#T}](vm-scale-scheduled.md)
 * [{#T}](autoscale-monitoring.md)
-
 * [{#T}](updating-under-load.md)
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](packer-quickstart.md)
@@ -37,6 +35,9 @@ description: Различные сценарии использования {{ c
 * [{#T}](ha-regional-glusterfs-high-performance.md)
 * [{#T}](backup-with-bacula.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+* [{#T}](bastion.md)
+* [{#T}](route-switcher.md)
+* [{#T}](site-to-site-openvpn.md) 
 
 ## Продукты Microsoft в {{ yandex-cloud }}
 

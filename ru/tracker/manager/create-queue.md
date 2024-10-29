@@ -13,7 +13,7 @@
 
 Чтобы создать новую очередь:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Создать очередь**.
 
 1. Выберите шаблон очереди.
     
@@ -54,7 +54,7 @@
 
 Если вы хотите использовать настройки существующей очереди, скопируйте ее:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Создать очередь**.
 
 1. Нажмите **Копировать настройки очереди**.
 
@@ -80,7 +80,7 @@
 
 Если для ваших задач не подходит ни один из заготовленных шаблонов, вы можете задать все настройки новой очереди самостоятельно:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Создать очередь**.
 
 1. Нажмите **Создать вручную**.
 

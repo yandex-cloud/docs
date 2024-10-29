@@ -25,7 +25,7 @@ description: В этом разделе описан язык запросов {
 
 1. Откройте страницу [**Задачи**]({{ link-tracker }}issues).
 
-1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**.
+1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **Язык запросов**.
 
 1. Введите запрос и нажмите кнопку **Применить**.
 

@@ -19,8 +19,8 @@ To open the list of project issues:
 To open the issue actions menu in the list of project issues, click ![](../../_assets/tracker/svg/actions.svg) **Actions** at the end of the line with an issue description.
 
 In the menu, you have the following actions available:
-* ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**.
-* ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (for manual sorting only).
-* ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (for manual sorting only).
+* ![](../../_assets/tracker/text-edit/link.svg) **Copy link**.
+* ![](../../_assets/tracker/svg/move-up.svg) **Move to top of list** (for manual sorting only).
+* ![](../../_assets/tracker/svg/move-down.svg) **Move to bottom of list** (for manual sorting only).
 * ![](../../_assets/tracker/svg/convert.svg) **Convert to a [milestone](milestones.md) or issue**.
-* ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**.
+* ![](../../_assets/tracker/svg/icon-remove.svg) **Delete from project**.
