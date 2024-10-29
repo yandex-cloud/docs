@@ -10,7 +10,7 @@
 
 1. На панели слева нажмите **Очереди** и выберите из списка нужную очередь.
 
-1. Нажмите **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. Если вы не видите кнопку **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**, значит у вас нет прав для настройки очереди. Если права вам необходимы, обратитесь к владельцу очереди.
+1. Нажмите **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. Если вы не видите кнопку **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**, значит у вас нет прав для настройки очереди. Если права вам необходимы, обратитесь к владельцу очереди.
 
 Доступы в очереди настраиваются с помощью следующих прав:
 

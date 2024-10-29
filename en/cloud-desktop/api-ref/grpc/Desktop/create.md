@@ -18,7 +18,8 @@ Creates desktop in the specified folder.
   "desktopGroupId": "string",
   "users": [
     {
-      "subjectId": "string"
+      "subjectId": "string",
+      "subjectType": "string"
     }
   ]
 }
@@ -41,6 +42,9 @@ List of users. ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -78,7 +82,8 @@ Required field. Identity of the access binding. ||
     ],
     "users": [
       {
-        "subjectId": "string"
+        "subjectId": "string",
+        "subjectType": "string"
       }
     ]
   }
@@ -214,4 +219,7 @@ Required field.  ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#

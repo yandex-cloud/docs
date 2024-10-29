@@ -14,7 +14,7 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. На панели слева выберите **Автоматизация** → **Макросы** и нажмите кнопку **Создать макрос**.
 
@@ -37,7 +37,7 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. На панели слева выберите **Автоматизация** → **Макросы** и наведите указатель на нужный макрос.
 
@@ -59,7 +59,7 @@
     Вы можете выбрать несколько макросов одновременно. Если макросы изменяют один и тот же параметр, к параметру будет применен макрос, который выбран последним.
 
 
-1. Чтобы выполнить макрос, нажмите кнопку **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**.
+1. Чтобы выполнить макрос, нажмите кнопку **Выполнить**.
 
 
 ## Пример макроса {#macro_example}
@@ -92,4 +92,4 @@
 
 1. Нажмите ![](../../_assets/tracker/svg/macros.svg) **Макросы** и выберите макрос из раскрывающегося списка.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**. Задача будет переведена на вторую линию поддержки.
+1. Нажмите кнопку **Выполнить**. Задача будет переведена на вторую линию поддержки.

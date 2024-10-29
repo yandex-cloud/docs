@@ -1,6 +1,6 @@
 # CreatePlatformApplication
 
-Creates a [mobile push notification channel](../concepts/index.md#mobile-channel).
+Creates a [mobile push notification channel](../concepts/push.md).
 
 ## HTTP request {#request}
 
@@ -50,7 +50,7 @@ Attribute | Description
 `PlatformPrincipal` | **string**<br/>Key ID
 `PlatformCredential` | **string**<br/>API key
 
-For more information about authentication attributes, see the [Mobile push notification channels](../concepts/index.md#mobile-channel) subsection.
+For more information about authentication attributes, see the [Mobile push notification channels](../concepts/push.md) subsection.
 
 ## Response {#response}
 

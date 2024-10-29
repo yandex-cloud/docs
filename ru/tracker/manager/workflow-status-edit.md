@@ -12,9 +12,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса, статусы которого вы хотите редактировать.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса, статусы которого вы хотите редактировать.
 
 Откроется визуальный редактор рабочих процессов. Здесь можно редактировать уже добавленные статусы — для этого достаточно нажать на статус на схеме, и откроется страница с его настройками. Кроме того, на схему можно [добавлять новые статусы](#add-status).
 
@@ -116,9 +116,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новый статус, и нажмите на его название. Откроется визуальный редактор рабочих процессов.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новый статус, и нажмите на его название. Откроется визуальный редактор рабочих процессов.
 
 1. На верхней панели визуального редактора процессов нажмите **Добавить статус**. Начните вводить название нового статуса и нажмите на кнопку создания.
 
@@ -137,9 +137,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
 
 1. На верхней панели визуального редактора процессов нажмите **Добавить статус**. Начните вводить название нового статуса и нажмите на кнопку создания.
 
@@ -161,8 +161,8 @@
 
 Чтобы удалить статус из рабочего процесса:
 
-1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Откройте в редакторе рабочий процесс, из которого хотите удалить статус.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Откройте в редакторе рабочий процесс, из которого хотите удалить статус.
 
 1. Нажмите на удаляемый статус и нажмите на клавиатуре **Delete** или перейдите в настройки статуса и нажмите ![](../../_assets/tracker/svg/actions.svg) → **Убрать из процесса**.

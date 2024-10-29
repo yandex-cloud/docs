@@ -17,7 +17,7 @@
 
 1. Перейдите на страницу очереди.
 
-1. Над списком задач нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
+1. Над списком задач нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
 
 1. Задайте значение для параметра.
 
@@ -27,7 +27,7 @@
 
 1. Перейдите на страницу очереди.
 
-1. Нажмите кнопку ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoardSettings_Header.settings }}** над списком задач справа.
+1. Нажмите кнопку ![](../../_assets/tracker/svg/list-settings.svg) **Настройки** над списком задач справа.
 
 1. Выберите параметры, которые вы хотите видеть в списке задач.
 
@@ -50,7 +50,7 @@
 
 1. В правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/actions.svg) **Действия над очередью**.
 
-1. Затем нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.export }}**.
+1. Затем нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.export }}**.
 
 1. Выберите формат, в котором вы хотите сохранить список задач.
 

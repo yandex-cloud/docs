@@ -7,9 +7,9 @@ description: This section contains {{ video-name }} release notes.
 
 ## September 2024 {#sep-2024}
 
-* Added support for [video](./concepts/videos.md) subtitle uploading.
-* Published [video player SDK for JavaScript](./sdk/javascript/index.md)
-* Added support for [REST API methods](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) for the service; published a [reference](./api-ref/).
+* Added support for [video](./concepts/videos.md#subtitles) [subtitle](./concepts/videos.md) uploading.
+* Published [Video player SDK for JavaScript](./sdk/javascript/index.md)
+* Added support for [REST API methods](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) for {{ video-name }}; published a [reference](./api-ref/).
 
 ## August 2024 {#aug-2024}
 

@@ -62,7 +62,7 @@ To create a project based on an issue:
 
 1. Open the issue page. The issue should not belong to another project. To delete an issue from the project, clear the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.convert-to-project }}**, then click **Convert**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.convert-to-project }}**, then click **Convert**.
 
 
 ## Adding issues to a project {#add-tickets}
@@ -77,7 +77,7 @@ You can add your issue to up to 40 projects, including the main one.
 
 ### From the project page {#from-project}
 
-1. Go to the **Issue list** tab, then click **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
+1. Go to the **Issue list** tab, then click **Add issue**.
 
 1. To create a new issue:
 
@@ -93,7 +93,7 @@ You can add your issue to up to 40 projects, including the main one.
 
 1. Open the issue page.
 
-1. Click the **Project** field on the right-hand panel. If you do not see the **Project** field, add it by clicking **{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**.
+1. Click the **Project** field on the right-hand panel. If you do not see the **Project** field, add it by clicking **Add parameters**.
 
 1. In the **Main** or **Additional** field, start typing the project name and pick the option you need from the list. Click **Save**.
 
@@ -103,7 +103,7 @@ You can add your issue to up to 40 projects, including the main one.
 
 1. Select the issues that you want to add to the project.
 
-1. In the left-hand panel, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**.
+1. In the left-hand panel, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-projects }}**.
 
 1. Start typing the project name and pick the option you need from the list that appears.
 
@@ -115,9 +115,9 @@ You can add your issue to up to 40 projects, including the main one.
 
 1. In the top-right corner, click **Import issues**.
 
-1. Click ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}** and specify an issue selection criterion.
+1. Click ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**Add parameters** and specify an issue selection criterion.
 
-1. Click **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}** and wait until your issues are imported.
+1. Click **Import** and wait until your issues are imported.
 
 ## Adding links for a project {#links}
 

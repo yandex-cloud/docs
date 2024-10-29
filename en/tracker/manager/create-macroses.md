@@ -14,7 +14,7 @@ Each {{ tracker-name }} queue has its own set of macros. To create a new macro f
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. On the left-hand panel, select **Automation** → **Macros** and click **Create macro**.
 
@@ -37,7 +37,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. On the left-hand panel, select **Automation** → **Macros** and hover over the macro you need.
 
@@ -59,7 +59,7 @@ To execute the macro:
    You can select multiple macros at the same time. If the macros affect the same parameter, the last selected macro will be applied to the parameter.
 
 
-1. To execute the macro, click **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**.
+1. To execute the macro, click **Run**.
 
 
 ## Example of a macro {#macro_example}
@@ -94,4 +94,4 @@ To execute the created macro:
 
 1. Click ![](../../_assets/tracker/svg/macros.svg) **Macros** and select a macro from the drop-down list.
 
-1. Click **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**. The issue will be forwarded to Tier 2 support.
+1. Click **Run**. The issue will be forwarded to Tier 2 support.

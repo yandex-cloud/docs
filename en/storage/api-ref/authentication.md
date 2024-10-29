@@ -24,7 +24,7 @@ For a full list of S3 API methods, see [S3 API reference](../s3/api-ref/).
 
 If you want to use the AWS S3 API directly (without an SDK or apps), you will need to [sign requests](../s3/signing-requests.md) yourself. You can test the request and signature generation process using the AWS CLI in [debug mode](../s3/signing-requests.md#debugging).
 
-### AWS S3 API usage example {#s3-api-example}
+### AWS S3 API use case {#s3-api-example}
 
 Starting from version [8.3.0](https://curl.se/changes.html), the `curl` utility supports automatic generation of the [signature string](../s3/signing-requests.md#string-to-sign-gen), [request signing](../s3/signing-requests.md#signing), and substitution of the required headers when working with the AWS S3 API.
 
@@ -40,7 +40,7 @@ Below are examples of requests for uploading an object to a bucket.
 
 {% list tabs %}
 
-- Curl 8.3.0 and higher
+- curl 8.3.0 and higher
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -85,7 +85,7 @@ Below are examples of requests for uploading an object to a bucket.
 
   Where `DIRECTORY_PATH` is the path to the directory you want to archive.
 
-- Curl 8.2.1 and lower
+- curl 8.2.1 and lower
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -134,7 +134,7 @@ For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an IAM toke
 For a full list of {{ yandex-cloud }} API calls and methods, see [gRPC API](../api-ref/grpc/) and [REST API](../api-ref/) references.
 
 
-### {{ yandex-cloud }} API usage example {#example}
+### {{ yandex-cloud }} API use case {#example}
 
 In the example, a 50GB bucket is created with a standard storage class.
 
@@ -192,10 +192,11 @@ In the example, a 50GB bucket is created with a standard storage class.
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data '{
       "name": "<bucket_name>",
       "folderId": "<folder_ID>",
       "defaultStorageClass": "STANDARD",

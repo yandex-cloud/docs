@@ -5,14 +5,14 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Concepts
-    items:
-      - name: Overview
-        href: concepts/index.md
-      - name: Quotas and limits
-        href: concepts/limits.md
+    href: concepts/index.md
+  - name: Quotas and limits
+    href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: FAQ
+    href: qa.md
 base: en/code-assistant
 deepBase: 2

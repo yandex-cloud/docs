@@ -6,7 +6,7 @@ description: Узнайте, как настроить стартовую стр
 # Стартовая страница
 
 
-Стартовая страница открывается при нажатии на логотип {{ tracker-name }}. Вы можете [выбрать](#change-start-page), какую страницу использовать в качестве стартовой. По умолчанию выбрана [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](https://tracker.yandex.ru/pages/my) — персональная для каждого пользователя страница с несколькими виджетами:
+Стартовая страница открывается при нажатии на логотип {{ tracker-name }}. Вы можете [выбрать](#change-start-page), какую страницу использовать в качестве стартовой. По умолчанию выбрана [**{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}**](https://tracker.yandex.ru/pages/my) — персональная для каждого пользователя страница с несколькими виджетами:
 
 * [информация для сотрудников](#staff-widget) — настраивается администратором для всех сотрудников организации;
 * [полезная информация о {{ tracker-name }}](#tracker-info);
@@ -31,8 +31,8 @@ description: Узнайте, как настроить стартовую стр
 Виджет с информацией для сотрудников публикует администратор организации, и только администратор может редактировать его или удалить.
 
 Чтобы опубликовать виджет:
-1. На странице **{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}** нажмите **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-settings-button }}** → **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-add-button }}** → **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-add-orgAdmin }}**.
-1. Включите опцию **{{ ui-key.startrek.ui_components_dashboard_OrgAdminEditor.editor-published-field-label }}**.
+1. На странице **{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}** нажмите **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-settings-button }}** → **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-add-button }}** → **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-add-orgAdmin }}**.
+1. Включите опцию **{{ ui-key.startrek.ui_Dashboards_smart-components_OrgAdminEditor.editor-published-field-label }}**.
 
    {% note tip %}
 
@@ -41,7 +41,7 @@ description: Узнайте, как настроить стартовую стр
    {% endnote %}
 
 1. Заполните содержимое виджета.
-1. Нажмите **{{ ui-key.startrek.ui_components_dashboard_OrgAdminEditor.editor-save-button }}**.
+1. Нажмите **{{ ui-key.startrek.ui_Dashboards_smart-components_OrgAdminEditor.editor-save-button }}**.
 
 ### Виджет с полезной информацией о {{ tracker-name }} {#tracker-info}
 
@@ -76,7 +76,7 @@ description: Узнайте, как настроить стартовую стр
 
 
 
-В качестве стартовой страницы вы можете использовать любой [фильтр](create-filter.md), [дашборд](dashboard.md) или [доску задач](../manager/create-agile-board.md). При этом **{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}** останется доступной по прямой ссылке: [https://tracker.yandex.ru/pages/my](https://tracker.yandex.ru/pages/my) или по нажатию на домик в шапке {{ tracker-name }}.
+В качестве стартовой страницы вы можете использовать любой [фильтр](create-filter.md), [дашборд](dashboard.md) или [доску задач](../manager/create-agile-board.md). При этом **{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}** останется доступной по прямой ссылке: [https://tracker.yandex.ru/pages/my](https://tracker.yandex.ru/pages/my) или по нажатию на домик в шапке {{ tracker-name }}.
 
 Пока сменить стартовую страницу можно только в старом интерфейсе:
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}

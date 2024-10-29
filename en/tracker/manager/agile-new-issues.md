@@ -10,7 +10,7 @@ Customize the layout of issue cards to see only relevant parameters on the board
 
 By default, the issue card displays the values of such fields as the key, name, assignee, and some others. To set up the fields to be displayed on the issue card:
 
-1. On the board page, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_FieldsSelect.fields-settings }}** in the right-hand corner of the search, sort, and group panel.
+1. On the board page, click ![](../../_assets/tracker/svg/actions.svg) → **Card fields** in the right-hand corner of the search, sort, and group panel.
 
 1. Select the issue fields to be shown on the card. You can add or remove any field, except for the issue name (the **Issue** field) that can't be removed.
 
@@ -36,9 +36,9 @@ Managing issues on {{ tracker-name }} boards is like working with stickers on a 
 
    {% endnote %}
 
-* To move a card within the column, hover over it, click ![](../../_assets/tracker/svg/actions.svg) in the top-right corner, and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--move-up }}** or **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--move-down }}**.
+* To move a card within the column, hover over it, click ![](../../_assets/tracker/svg/actions.svg) in the top-right corner, and select **Move to top of column** or **Move to bottom of column**.
 
-* To delete an issue from the board, in the top-right corner of the card, click ![](../../_assets/tracker/svg/actions.svg), then select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--delete-from-board }}**.
+* To delete an issue from the board, in the top-right corner of the card, click ![](../../_assets/tracker/svg/actions.svg), then select **Remove from board**.
 
    {% note info %}
 
@@ -54,21 +54,21 @@ If there are too many issues on the board, you can always hide some of them usin
 
 To create a filter on the board:
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-filters }}**. The filter setup panel will be shown above the board's columns.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Filters**. The filter setup panel will be shown above the board's columns.
 
 1. Click ![](../../_assets/tracker/svg/add-filter.svg). Select the parameter to filter your issues and set the value for it.
 
    Add multiple parameters to the filter if needed.
 
-1. To reset the filter, click ![](../../_assets/tracker/svg/clear-filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_agile_common_AgileFilters.reset-button }}**.
+1. To reset the filter, click ![](../../_assets/tracker/svg/clear-filter.svg)&nbsp;**Reset**.
 
-1. To save the filter, click ![](../../_assets/tracker/svg/save-filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_agile_common_AgileFilters.action-title-save }}**:
+1. To save the filter, click ![](../../_assets/tracker/svg/save-filter.svg)&nbsp;**Save**:
 
    1. Name the filter.
 
    1. Select for whom the filter will be fixed at the top of the board: only for yourself or for every user. Fixed filters are shown as buttons at the top of the board.
 
-   1. Click **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.action-title-save }}**.
+   1. Click **Save**.
 
    Saved filters are available for all users.
 
@@ -80,11 +80,11 @@ To create a filter on the board:
 
    {% endnote %}
 
-   1. Click ![](../../_assets/tracker/svg/settings.svg) in the filters panel or click ![](../../_assets/horizontal-ellipsis.svg) in the top-right corner of the page and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**.
+   1. Click ![](../../_assets/tracker/svg/settings.svg) in the filters panel or click ![](../../_assets/horizontal-ellipsis.svg) in the top-right corner of the page and select **Manage filters**.
 
    1. Select the filters to be shown on the board and click **Apply**.
 
-1. To edit or delete a saved filter, in the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**. After that, next to the filter name, click ![](../../_assets/tracker/svg/settings.svg).
+1. To edit or delete a saved filter, in the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Manage filters**. After that, next to the filter name, click ![](../../_assets/tracker/svg/settings.svg).
 
 ## Grouping issues {#group}
 
@@ -110,11 +110,11 @@ You can move issues across groups on a [board](agile-new.md) or in a [backlog](b
 
 ## Sorting issues on a board {#sorting}
 
-You can sort issues on a board manually or based on preset parameters, such as priority, deadline, or assignee. To sort issues, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-sort-by-field-label }}** at the top of the board and select the appropriate parameter from the list. Next to the sorting button, there is a button that allows you to manage the sorting direction.
+You can sort issues on a board manually or based on preset parameters, such as priority, deadline, or assignee. To sort issues, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**Sorting** at the top of the board and select the appropriate parameter from the list. Next to the sorting button, there is a button that allows you to manage the sorting direction.
 
 ## Bulk changes to issues {#bulk}
 
-You can make bulk changes to issues on a board. Open an issue card on the board, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_IssueActionsMenu.select-issue }}** and then click other issues to perform the same action on. Once you select all issues, choose the appropriate action in the board's bottom panel:
+You can make bulk changes to issues on a board. Open an issue card on the board, click ![](../../_assets/tracker/svg/actions.svg) → **Select** and then click other issues to perform the same action on. Once you select all issues, choose the appropriate action in the board's bottom panel:
 
 * Move the issue up or down the column.
 * Change the issue status.

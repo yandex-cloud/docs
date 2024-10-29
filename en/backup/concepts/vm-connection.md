@@ -2,6 +2,8 @@
 
 To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
 For the connection to work properly, assign a [service account](#sa) with the `backup.editor` role to your VM and configure [network access](#vm-network-access) for the VM.
@@ -10,7 +12,7 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-You can also link a policy to a virtual machine while creating it. Policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
+You can also link a policy to a virtual machine while creating it. A policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
 ## VM configuration requirements {#requirements}
 

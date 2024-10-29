@@ -10,7 +10,7 @@ rpc for bulk get
 ## HTTP request
 
 ```
-POST https://speechsense.{{ api-host }}/speechsense/v1/talks/get
+POST https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/get
 ```
 
 ## Body parameters {#yandex.cloud.speechsense.v1.GetTalkRequest}

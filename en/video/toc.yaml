@@ -28,6 +28,8 @@ items:
             href: operations/video/upload.md
           - name: Editing a video
             href: operations/video/update.md
+          - name: Managing subtitles
+            href: operations/video/subtitles.md
           - name: Downloading a video
             href: operations/video/download.md
           - name: Publishing a video

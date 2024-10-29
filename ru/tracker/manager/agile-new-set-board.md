@@ -8,7 +8,7 @@
 
 1. Откройте страницу доски.
 
-1. В крайней левой колонке нажмите значок ![](../../_assets/tracker/svg/add-task.svg) и выберите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardEmptyScreen.empty-screen--new-issue }}**.
+1. В крайней левой колонке нажмите значок ![](../../_assets/tracker/svg/add-task.svg) и выберите **Новая задача**.
 
 1. Введите название задачи.
 
@@ -38,7 +38,7 @@
 
 1. Откройте страницу задачи.
 
-1. Нажмите на поле **{{ ui-key.startrek-backend.fields.issue.boards }}** на панели справа. Если поля **{{ ui-key.startrek-backend.fields.issue.boards }}** нет, добавьте его с помощью кнопки **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
+1. Нажмите на поле **{{ ui-key.startrek-backend.fields.issue.boards }}** на панели справа. Если поля **{{ ui-key.startrek-backend.fields.issue.boards }}** нет, добавьте его с помощью кнопки **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 1. Начните вводить название доски и выберите подходящий вариант из списка.
 
@@ -48,7 +48,7 @@
 
 1. Выберите задачи, которые вы хотите добавить на доску.
 
-1. На панели снизу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**.
+1. На панели снизу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-board }}**.
 
 1. Начните вводить название доски и выберите подходящий вариант из списка. 
 
@@ -58,8 +58,8 @@
 
 Чтобы автоматически добавлять на доску задачи, например, все задачи очереди с определенным исполнителем, используйте автодобавление:
 
-1. На доске нажмите **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}** → **{{ ui-key.startrek.ui_components_agile_settings_AgileSettingsLayout.issue-updates }}**.
-1. В блоке **{{ ui-key.startrek.ui_components_agile_settings_BoardIssueUpdatesSettings.import-title }}** нажмите **+ {{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**. Выберите из списка параметр и укажите значение. Например, чтобы добавить на доску все задачи, в которых вы являетесь исполнителем, выберите параметр **Исполнитель** и укажите для него значение **Я**. Чтобы добавить дополнительные параметры, повторите этот шаг.
+1. На доске нажмите **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}** → **Автоматическое добавление и удаление задач**.
+1. В блоке **Добавление задач на доску** нажмите **+ Добавить параметры**. Выберите из списка параметр и укажите значение. Например, чтобы добавить на доску все задачи, в которых вы являетесь исполнителем, выберите параметр **Исполнитель** и укажите для него значение **Я**. Чтобы добавить дополнительные параметры, повторите этот шаг.
 
 На странице отобразится количество добавляемых на доску задач. При первой выгрузке будут добавлены задачи, которые удовлетворяют сформулированному условию, за исключением:
 
@@ -74,8 +74,8 @@
 
 Действует ограничение на количество задач на доске: их должно быть не больше 2000. Чтобы доска не переполнялась, можно настроить автоматическое удаление задач с доски и, например, удалять все закрытые задачи или задачи, которые были закрыты несколько месяцев назад.
 
-1. На доске нажмите **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}** → **{{ ui-key.startrek.ui_components_agile_settings_AgileSettingsLayout.issue-updates }}**.
-1. В блоке **{{ ui-key.startrek.ui_components_agile_settings_BoardIssueUpdatesSettings.removal-title }}** добавьте все нужные статусы и время нахождения задачи в этом статусе.
+1. На доске нажмите **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}** → **Автоматическое добавление и удаление задач**.
+1. В блоке **Удаление задач с доски** добавьте все нужные статусы и время нахождения задачи в этом статусе.
 
 Как только условие будет выполнено, задача будет удалена с доски.
 
@@ -115,6 +115,6 @@
 
 1. Перейдите на доску.
 
-1. В правом верхнем углу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.delete-board-menu-item }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить доску**.
 
 1. Подтвердите удаление.

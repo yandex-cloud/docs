@@ -1,0 +1,1 @@
+The SMS notification channel with an individual sender is originally created in the sandbox.

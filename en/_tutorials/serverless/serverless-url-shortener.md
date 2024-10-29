@@ -94,7 +94,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
            document.getElementById("shortened").innerHTML = `<a href=${url}>${url}</a>`
          })
          .catch(error => {
-           document.getElementById("shortened").innerHTML = `<p>The ${error} error occurred, please try again</p>`
+           document.getElementById("shortened").innerHTML = `<p>An error (${error}) occurred. Try again.</p>`
          })
        }
      </script>
@@ -108,9 +108,10 @@ To create a bucket to place the HTML page of your service in and configure it fo
   1. Click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Specify the previously prepared `index.html` file.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
-  1. In the left-hand panel, select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. Select **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
-  1. Specify the website's home page: `index.html`.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
+        * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+        * Specify the website's home page: `index.html`.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 {% endlist %}
@@ -360,8 +361,8 @@ To publish the service via {{ api-gw-name }}:
          get:
            x-yc-apigateway-integration:
              type: object_storage
-             bucket: <bucket_name> # <-- bucket name
-             object: index.html # <-- html file name
+             bucket: <bucket_name>#<-- bucket name
+             object: index.html # <-- HTML file name
              presigned_redirect: false
              service_account: <service_account_id> # <-- service account ID
            operationId: static
@@ -391,8 +392,8 @@ To publish the service via {{ api-gw-name }}:
      {% endcut %}
 
      Edit the specification code:
-     * Replace `<service_account_ID>` with the ID of the previously created service account.
-     * Replace `<function_ID>` with the ID of the previously created function.
+     * Replace `<service_account_id>` with the ID of the previously created service account.
+     * Replace `<function_id>` with the ID of the previously created function.
      * Replace `<bucket_name>` with the name of the previously created bucket.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Click the name of the API gateway you created.

@@ -44,8 +44,8 @@ To make API requests, a user or service account must have at least the `editor` 
 ```bash
 export IAM_TOKEN=<IAM_token>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=CreatePlatformApplication" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "FolderId=<folder_ID>" \
@@ -61,7 +61,7 @@ Where:
 * `Action`: [Operation type](index.md#actions).
 * `ResponseFormat`: Response format, JSON or XML.
 * `FolderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
 * `Platform`: Mobile platform type:
   * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
   * `GCM`: Firebase Cloud Messaging (FCM).
@@ -80,7 +80,7 @@ Where:
     Token-based authentication is preferred as it is more modern.
   * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API.
 
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting from June 2024.
+    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting June 2024.
   * HMS:
     * `PlatformPrincipal`: Key ID.
     * `PlatformCredential`: API key.
@@ -95,8 +95,8 @@ For more information, see [{#T}](create-platform-application.md).
 ```bash
 export IAM_TOKEN=<IAM_token>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=ListPlatformApplications" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "FolderId=<folder_ID>" \
@@ -116,8 +116,8 @@ For more information, see [{#T}](list-platform-applications.md).
 ```bash
 export IAM_TOKEN=<IAM_token>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=CreatePlatformEndpoint" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "PlatformApplicationArn=<notification_channel_ARN>" \
@@ -143,8 +143,8 @@ For more information, see [{#T}](create-platform-endpoint.md).
 ```bash
 export IAM_TOKEN=<IAM_token>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=Publish" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "TargetArn=<endpoint_ID>" \
@@ -166,8 +166,8 @@ Where:
 ```bash
 export IAM_TOKEN=<IAM_token>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=Publish" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "TargetArn=<endpoint_ID>" \

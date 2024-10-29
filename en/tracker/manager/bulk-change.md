@@ -12,7 +12,7 @@ To change the issue status:
 
    If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.change-status }}** under the issue list and select the status.
+1. Click **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.change-status }}** under the issue list and select the status.
 
    Only status transitions that are included in the [workflow](workflow.md) are available for bulk change. If you select a status change that is available only to part of the issues, only this part will change their status.
 
@@ -30,7 +30,7 @@ To edit the issue queue:
 
    If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.move }}** under the issue list.
+1. Click **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.move }}** under the issue list.
 
 1. Select the queue that the issues will be moved to.
 
@@ -50,7 +50,7 @@ To add a link to multiple issues at once:
 
    If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-link }}** under the list of issues, select the [link type](../user/links.md), and create the link:
+1. Click **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-link }}** under the list of issues, select the [link type](../user/links.md), and create the link:
 
    * To create an issue, click the **New issue** tab. Give your issue a name and press **Enter**.
 
@@ -68,9 +68,9 @@ To add issues to a board or project:
 
 1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list.
 
-   * To add issues to the board, click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**. Select one or more boards, then click **{{ ui-key.startrek.ui_components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
+   * To add issues to the board, click **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-board }}**. Select one or more boards, then click **{{ ui-key.startrek.ui_Common_smart-components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
 
-   * To add the issue to a project, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**. All the subissues will also be added to the project
+   * To add the issue to a project, select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-projects }}**. All the subissues will also be added to the project
 
 ## Changing field settings {#change-parameters}
 
@@ -82,7 +82,7 @@ To edit issue parameters:
 
    If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
+1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.edit-parameters }}**.
 
 1. Select relevant parameters. If the fields you need are not in the list, use the **Edit parameter list** button to add them.
 
@@ -90,11 +90,11 @@ To edit issue parameters:
 
    Some fields, such as **Followers**, **{{ ui-key.startrek-backend.messages.workflow.field.maillists }}**, or **Tags**, may contain a list of values. New values are added to the end of the list by default. To overwrite a field, select **Delete values**.
 
-1. Click **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
+1. Click **{{ ui-key.startrek.ui_Common_smart-components_BulkSuggestPopup.apply }}**.
 
 ## Becoming an issue participant {#change-my-tickets}
 
-To add or remove oneself from the **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}** or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}** field in an issue:
+To add or remove oneself from the **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee }}** or **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.followers }}** field in an issue:
 
 1. Open the issue list.
 
@@ -104,6 +104,6 @@ To add or remove oneself from the **{{ ui-key.startrek.ui_components_IssueBulkAc
 
 1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select one of the options.
 
-   * To become an issue participant, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-me-to-followers }}** or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee-me }}**.
+   * To become an issue participant, select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-me-to-followers }}** or **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee-me }}**.
 
-   * To withdraw your participation in the issue, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-me-from }}** and specify **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}**, **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}**, or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-from-both-fields }}**.
+   * To withdraw your participation in the issue, select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.remove-me-from }}** and specify **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.followers }}**, **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee }}**, or **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.remove-from-both-fields }}**.

@@ -17,7 +17,7 @@
 Чтобы привязать платежный аккаунт:
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 1. Перейдите в раздел **Администрирование** → **Биллинг**. На странице отображаются все ваши платежные аккаунты из {{ yandex-cloud }}.
-1. Рядом с нужным аккаунтом нажмите **{{ ui-key.startrek.ui_components_page-admin_BillingAccountList.bind }}**.
+1. Рядом с нужным аккаунтом нажмите **Привязать**.
 
 {% note warning  %}
 
@@ -29,7 +29,7 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. Перейдите в раздел **Администрирование** → **Биллинг** и нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
+1. Перейдите в раздел **Администрирование** → **Биллинг** и нажмите **+ Создать новый аккаунт**.
 
 1. Выберите страну, резидентом которой является плательщик.
 
@@ -61,11 +61,11 @@
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**.
+1. Нажмите кнопку **Создать**.
 
    {% note info %}
 
-   Нажимая кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, вы принимаете [оферту {{ yandex-cloud }}]({{ link-cloud-oferta }}).
+   Нажимая кнопку **Создать**, вы принимаете [оферту {{ yandex-cloud }}]({{ link-cloud-oferta }}).
 
    {% endnote %}
 
@@ -103,7 +103,7 @@
 
 Замена платежного аккаунта организации возможна только один раз в месяц. Чтобы заменить платежный аккаунт:
 1. Перейдите в раздел **Администрирование** → **Биллинг**. На странице отображается платежный аккаунт, привязанный к {{ tracker-name }}.
-2. Перейдите по ссылке **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** в верхнем правом углу. Выберите платежный аккаунт, на который хотите заменить текущий, или нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**. 
+2. Перейдите по ссылке **Заменить платёжный аккаунт** в верхнем правом углу. Выберите платежный аккаунт, на который хотите заменить текущий, или нажмите **+ Создать новый аккаунт**. 
    Если вы решили создать новый аккаунт, воспользуйтесь [инструкцией](#create).
 
 ![](../_assets/tracker/changelogs/change-ba.png =690x)

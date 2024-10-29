@@ -6,7 +6,7 @@
 
 1. На панели слева нажмите ![](../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Управление шаблонами**. Вы также можете перейти по ссылке [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
 
-1. Выберите опцию **Задачи** и нажмите кнопку **{{ ui-key.startrek.ui_components_issue-comments-templates.create-template-item }}**.
+1. Выберите опцию **Задачи** и нажмите кнопку **{{ ui-key.startrek.ui_Issues_pure-components_issue-comments-templates.create-template-item }}**.
 
 1. Задайте название и описание шаблона.
 

@@ -10,7 +10,7 @@ Access can be restricted in the queue settings. To open settings:
 
 1. In the left-hand panel, click **Queues** and select a queue from the list.
 
-1. Click **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. If you do not see the **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** button, it means you have no rights to configure the queue. If you need these rights, contact the queue owner.
+1. Click **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. If you do not see the **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}** button, it means you have no rights to configure the queue. If you need these rights, contact the queue owner.
 
 Queue access is configured using the following permissions:
 

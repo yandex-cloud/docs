@@ -10,7 +10,7 @@ rpc for searching talks. will return ids only
 ## HTTP request
 
 ```
-POST https://speechsense.{{ api-host }}/speechsense/v1/talks/search
+POST https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/search
 ```
 
 ## Body parameters {#yandex.cloud.speechsense.v1.SearchTalkRequest}

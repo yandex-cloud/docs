@@ -37,7 +37,7 @@ To fix the issue, delete the stuck resources manually.
 
      ```bash
      kubectl api-resources --verbs=list --namespaced --output=name \
-        | xargs --max-args=1 kubectl get --show-kind \
+       | xargs --max-args=1 kubectl get --show-kind \
        --ignore-not-found --namespace=<namespace>
      ```
 

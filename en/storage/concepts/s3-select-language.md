@@ -193,9 +193,9 @@ SELECT s.CAST FROM S3Object s
 
 `WHERE` and `SELECT` clauses may contain SQL scalar expressions returning scalar values. These may appear as follows:
 
-* `literal`: SQL literal. A literal is an explicit numeric, character, string, or boolean value (constant) not represented by an ID.
+* `literal`. SQL literal. A literal is an explicit numeric, character, string, or boolean value (constant) not represented by an ID.
 
-* `column_reference`: A reference to a column in `column_name` or `alias.column_name` format used to access a column using column header.
+* `column_reference`. A reference to a column in `column_name` or `alias.column_name` format used to access a column using column header.
 
   Example:
 
@@ -203,7 +203,7 @@ SELECT s.CAST FROM S3Object s
   SELECT city.name FROM S3Object city
   ```
 
-* `unary_op expression`: In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
+* `unary_op expression`. In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
 
   Example:
 
@@ -211,7 +211,7 @@ SELECT s.CAST FROM S3Object s
   SELECT -5 FROM S3Object
   ```
 
-* `expression binary_op expression`: In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
+* `expression binary_op expression`. In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
 
   Examples:
 
@@ -223,7 +223,7 @@ SELECT s.CAST FROM S3Object s
   SELECT result FROM S3Object WHERE result>=1 AND result<=5
   ```
 
-* `func_name`: In this expression, `func_name` is the name of a callable scalar function.
+* `func_name`. In this expression, `func_name` is the name of a callable scalar function.
 
   Example:
 
@@ -231,7 +231,7 @@ SELECT s.CAST FROM S3Object s
   SELECT CAST(status AS INT) FROM S3Object
   ```
 
-* `expression [ NOT ] BETWEEN expression AND expression`: Checks if a value belongs to a range.
+* `expression [ NOT ] BETWEEN expression AND expression`. Checks if a value belongs to a range.
 
   Example:
 

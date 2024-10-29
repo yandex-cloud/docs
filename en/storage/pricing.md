@@ -27,7 +27,7 @@ The {{ objstorage-name }} usage cost is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
+Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 ### Performing operations with data {#rules-operations}
 
@@ -62,7 +62,7 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-^2^ The first 1 GB of data stored in regular storage per month is free of charge.
+^2^ The first 1 GB of data in standard storage per month is free of charge.
 
 
 
@@ -125,4 +125,4 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are fre
 
 
 
-  {% include [usd-egress](../_pricing_examples/storage/usd-egress.md) %}
+{% include [usd-egress](../_pricing_examples/storage/usd-egress.md) %}

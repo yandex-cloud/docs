@@ -6,7 +6,7 @@ Employees on a probation period perform routine actions whose tracking can be au
 
 To have the probation period end date set automatically, create a trigger that will fire when an issue is created:
 
-1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
 1. In the **Name** field, enter a trigger name, e.g., `probation_setup`.
 1. Under **Trigger conditions**, select **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**.
@@ -23,7 +23,7 @@ To have the probation period end date set automatically, create a trigger that w
 To make sure you do not miss anything important in the course of new employee onboarding, add checklist creation to trigger actions:
 
 1. Under **Trigger actions**, select **Create checklist** in the **Add new action** field.
-1. In the form that opens, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** and enter a description of the first item, such as `Assign a supervisor`.
+1. In the form that opens, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** and enter a description of the first item, such as `Assign a supervisor`.
 1. Repeat the steps to add other items to the checklist.
 1. To save the trigger, click **Create**.
 

@@ -17,7 +17,7 @@ The log includes records about the changes in queue settings. Each record includ
 
 1. Open the queue page.
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Go to the **Changelog** tab.
 

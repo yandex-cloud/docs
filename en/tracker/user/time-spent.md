@@ -9,7 +9,7 @@ The time spent is counted in work weeks (five work days), work days (eight hours
 There are two ways to manage time tracking:
 
 * [Basic method](#limited-spent-time): Use the **Add time spent** action in the list of actions.
-* [Advanced method](#extended-spent-time): Use the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section in the right-hand panel.
+* [Advanced method](#extended-spent-time): Use the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section in the right-hand panel.
 
 We recommend using the advanced method for tracking time, as it has more flexible configuration options and is easy to use.
 
@@ -36,15 +36,15 @@ To log spent time:
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_Common_smart-components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.add-worklog }}**.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field.
+1. Fill in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field.
 
    Here is an example:
    * 1 week and 3 days: `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
+1. Fill in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
 
    {% note info %}
 
@@ -56,7 +56,7 @@ To log spent time:
 
 1. Leave a comment, if needed. The comment will not be visible in the issue but will be saved in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz) and the [History of issue changes](#records-history).
 
-1. Click **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.apply-button }}**.
+1. Click **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.apply-button }}**.
 
 {% note info %}
 
@@ -74,7 +74,7 @@ You can view the time spent on an issue under **Time tracking** in the right-han
 
 If the issue does not show the **Time tracking** section, add it:
 
-1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** in the right-hand panel.
+1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** in the right-hand panel.
 
 1. In the **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** group, enable **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** and **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**.
 
@@ -92,24 +92,24 @@ With advanced time tracking, you can:
 To enable advanced time tracking for queue issues:
 
 1. Open the [queue page](queue.md).
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** tab.
-1. Enable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**.
-1. In **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}**, choose one of the options.
-1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** tab.
+1. Enable **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**.
+1. In **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}**, choose one of the options.
+1. Click **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time tracking** issue fields will be transferred to this section.
+As a result, a new section called **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time tracking** issue fields will be transferred to this section.
 
-To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time tracking** category.
+To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time tracking** category.
 
 ### Logging spent time {#add-extended-time-spent}
 
 To log spent time:
 
-1. Make sure the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** option is enabled in the queue settings.
+1. Make sure the **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** option is enabled in the queue settings.
 1. Open the issue page.
-1. In the right-hand panel, click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**.
-1. Fill in the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}** field.
+1. In the right-hand panel, click **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**.
+1. Fill in the **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.save }}** field.
 
    Here is an example:
 
@@ -117,24 +117,24 @@ To log spent time:
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
    * Four [preferred time units](../manager/queue-spent-time.md#displayed-time): `4`.
 
-1. In the **{{ ui-key.startrek.ui_components_FormField_TimeTrackingBlock.field-datetime-title }}** field, enter the date and time to display in the logged time record.
-1. You can optionally add a comment on the record in the **{{ ui-key.startrek.ui_components_FormField_TimeTrackingBlock.field-comment-title }}** field.
-1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
+1. In the **{{ ui-key.startrek.ui_Common_smart-components_FormField_TimeTrackingBlock.field-datetime-title }}** field, enter the date and time to display in the logged time record.
+1. You can optionally add a comment on the record in the **{{ ui-key.startrek.ui_Common_smart-components_FormField_TimeTrackingBlock.field-comment-title }}** field.
+1. Click **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
 You can also log the time you spent using the [basic time tracking method](#add-limited-time-spent).
 
 ### Viewing and editing the record history {#records-history}
 
-To open the logged time history for an issue, click ![](../../_assets/tracker/svg/history.svg) in the right-hand panel on the right side of the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** field. This will open the **{{ ui-key.startrek.ui_components_FormField_TimeTrackingBlock.field-comment-title }}** window.
+To open the logged time history for an issue, click ![](../../_assets/tracker/svg/history.svg) in the right-hand panel on the right side of the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** field. This will open the **{{ ui-key.startrek.ui_Common_smart-components_FormField_TimeTrackingBlock.field-comment-title }}** window.
 
 {% note alert %}
 
-You can edit the record history only if the [time tracking settings](../manager/queue-spent-time.md) have the **{{ ui-key.startrek.ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog.title }}** option enabled.
+You can edit the record history only if the [time tracking settings](../manager/queue-spent-time.md) have the **{{ ui-key.startrek.ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog.title }}** option enabled.
 
 {% endnote %}
 
-The author of a record can update the record **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-can-assignee-update-time }}** and **{{ ui-key.startrek.ui_components_timetracking-history-dialog_TimeTrackingDialogBody.column-date }}** fields. To do this, click ![](../../_assets/tracker/svg/icon-edit2.svg) to the right of the appropriate field value and enter a new one. You cannot edit the **{{ ui-key.startrek.ui_components_timetracking-history-dialog_TimeTrackingDialogBody.column-spent }}** field.
+The author of a record can update the record **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-can-assignee-update-time }}** and **{{ ui-key.startrek.ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody.column-date }}** fields. To do this, click ![](../../_assets/tracker/svg/icon-edit2.svg) to the right of the appropriate field value and enter a new one. You cannot edit the **{{ ui-key.startrek.ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody.column-spent }}** field.
 
-If a record was edited, you will see the ![](../../_assets/tracker/svg/history.svg) icon to the right of the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-can-assignee-update-time }}** field value. If you hover over it, a pop-up window with the record change history will appear.
+If a record was edited, you will see the ![](../../_assets/tracker/svg/history.svg) icon to the right of the **{{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm.field-can-assignee-update-time }}** field value. If you hover over it, a pop-up window with the record change history will appear.
 
-The author of a record can also delete it. To do that, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_timetracking-history-dialog_TimeTrackingDialogBody.column-comment }}** on the right side of the record.
+The author of a record can also delete it. To do that, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody.column-comment }}** on the right side of the record.

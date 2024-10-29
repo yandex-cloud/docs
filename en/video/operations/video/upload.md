@@ -30,6 +30,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
   This will open the video management page. After processing is complete, the video will be available for viewing.
@@ -43,7 +44,11 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - API {#api}
 
-  Use the [VideoService/Create](../../api-ref/grpc/Video/create.md) gRPC API call.
+  Use the [create](../../api-ref/Video/create.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/Create](../../api-ref/grpc/Video/create.md) gRPC API call.
+  
+  The request will register the video in the channel. After that, upload your video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. You can either code the upload yourself in any programming language or use [ready-made](https://tus.io/implementations) libraries for this purpose.
+  
+  For more information about uploading videos, see [Getting started with the {{ video-full-name }} API](../../api-ref/quickstart.md#create-video).
 
 {% endlist %}
 
@@ -65,9 +70,10 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
   As soon as they are processed, the videos will be available for viewing.
 
-  If you need to, [edit](./update.md) the title and cover separately for each video you uploaded.
+  If required, [add](./update.md) subtitles and [edit](./update.md) the title and the cover separately for each video you uploaded.
 
 {% endlist %}
+
 
 #### See also {#see-also}
 

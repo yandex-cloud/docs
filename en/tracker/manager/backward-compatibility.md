@@ -28,9 +28,9 @@ Before deleting a workflow, make sure you maintain backward compatibility for ex
 
 Once you ensured backward compatibility for the issue types of the workflow to be deleted, you can proceed to deleting it:
 
-1. Open the queue page and go to its settings by clicking ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. Open the queue page and go to its settings by clicking ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab, find the workflow you want to delete.
+1. In the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab, find the workflow you want to delete.
 
 1. Delete the [resolutions](./create-resolution.md#delete-resolution) and [issue types](./add-ticket-type.md#delete-ticket-type) in this workflow.
 

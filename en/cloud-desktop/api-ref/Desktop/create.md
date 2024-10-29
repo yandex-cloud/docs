@@ -20,7 +20,8 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
   "desktopGroupId": "string",
   "users": [
     {
-      "subjectId": "string"
+      "subjectId": "string",
+      "subjectType": "string"
     }
   ]
 }
@@ -43,6 +44,9 @@ List of users. ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -88,7 +92,8 @@ Required field. Identity of the access binding. ||
     ],
     "users": [
       {
-        "subjectId": "string"
+        "subjectId": "string",
+        "subjectType": "string"
       }
     ]
   }
@@ -262,4 +267,7 @@ Required field.  ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#

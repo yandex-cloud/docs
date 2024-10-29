@@ -25,9 +25,9 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-users }}**.
 
-1. Для сотрудников, которые будут работать с задачами, в столбце **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** выберите **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_full-access }}**. 
+1. Для сотрудников, которые будут работать с задачами, в столбце **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgGroupsPane.title_access }}** выберите **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgGroupsPane.access-level_full-access }}**. 
 
 {% note info %}
 
@@ -49,7 +49,7 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. В правом верхнем углу страницы выберите опцию **Полный доступ для всех новых пользователей**:
 
@@ -67,7 +67,7 @@
 
 Если вы работаете через организацию {{ yandex-360 }} для бизнеса, вы можете создать группы сотрудников и настраивать доступ на группу. Подробнее о создании группы [в документации Яндекс 360 для бизнеса](https://yandex.ru/support/business/projects.html). Для настройки полного доступа для группы пользователей необходимо [подключить платежный аккаунт](billing-account.md).
 
-Чтобы настроить доступ для группы пользователей, откройте **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** и выберите нужный уровень доступа для каждой группы.
+Чтобы настроить доступ для группы пользователей, откройте **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-groups }}** и выберите нужный уровень доступа для каждой группы.
 
 {% note warning %}
 

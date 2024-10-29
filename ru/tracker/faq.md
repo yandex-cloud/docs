@@ -65,7 +65,7 @@
 
 1. Перейдите на вкладку **Основные параметры**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
 1. Подтвердите удаление.
 
@@ -91,7 +91,7 @@
 
 ## Как узнать владельца очереди {#section_hgc_xyk_nbb}
 
-Владелец указан на вкладке **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** на странице очереди. Подробнее читайте в разделе [Список задач очереди](user/queue.md).
+Владелец указан на вкладке **Описание** на странице очереди. Подробнее читайте в разделе [Список задач очереди](user/queue.md).
 
 ## Почему нельзя использовать виджеты с группировкой по полю «{{ ui-key.startrek-backend.fields.issue.summary-key-value }}» {#section_del_widget}
 

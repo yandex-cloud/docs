@@ -1,0 +1,1 @@
+{{ cloud-desktop-name }} leverages [{{ iam-full-name }} roles](../../cloud-desktop/security/index.md) and [access control lists (ACL)](../../cloud-desktop/concepts/acl.md) to manage access. [This example](../../cloud-desktop/concepts/acl.md#example) shows how access control works in {{ cloud-desktop-name }}.

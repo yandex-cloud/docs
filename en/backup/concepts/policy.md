@@ -10,7 +10,7 @@ By default, VMs in {{ backup-name }} are not linked to any backup policies. To s
 
 The backup policy specifies:
 
-* Backup frequency: By hour, day, week, or month. The time is provided for the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+* Backup frequency: By hour, day, week, or month. All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
 * Settings for [storing backups](#retention).
 

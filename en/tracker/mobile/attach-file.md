@@ -11,9 +11,9 @@ To attach a file to an issue description:
 
    * To add a photo or video from your phone's camera, tap **Camera**. When everything is ready, tap **OK**. To take a new photo or video, tap **Repeat**.
 
-   * To attach files from your phone, tap **{{ ui-key.startrek.ui_components_attachments-manager.attachments-section-title }}** and select them.
+   * To attach files from your phone, tap **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attachments-section-title }}** and select them.
 
-1. Tap **{{ ui-key.startrek.ui_components_ModalTextEditor.save }}**.
+1. Tap **Save**.
 
 You can similarly attach a file to a comment.
 

@@ -16,7 +16,7 @@ To configure a widget, set the following:
 
 - **Cells**: Parameter whose totals are displayed at intersections.
 
-- **Number of rows on page**: Maximum number of table rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
+- **Number of rows on page**: Maximum number of table rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **Show All** at the bottom of the widget.
 
 - **Sort rows**: Sorting order for table rows.
 

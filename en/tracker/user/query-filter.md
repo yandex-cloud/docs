@@ -25,7 +25,7 @@ To set up a filter using a query language:
 
 1. Open the [**Issues** page]({{ link-tracker }}issues).
 
-1. Click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}** in the top-right corner of the page.
+1. Click ![](../../_assets/tracker/svg/query-language.svg) **Query language** in the top-right corner of the page.
 
 1. Enter a query and click **Apply**.
 

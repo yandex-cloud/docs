@@ -17,7 +17,7 @@
 1. На доске нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
 1. Перейдите на страницу полной формы создания задачи. Для этого нажмите ![](../../_assets/tracker/svg/open-full.svg) (**Открыть полную форму**).
 1. Заполните все необходимые поля задачи. В поле **Тип** укажите `{{ ui-key.startrek-backend.fields.issue.epic }}`. 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
+1. Нажмите кнопку **Создать задачу**.
 
 ## Добавить задачу в эпик {#add-to-epic}
 
@@ -25,7 +25,7 @@
 
 ### Добавить со страницы эпика {#add-from-epic}
 
-1. На странице эпика в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **Добавить связь**.
+1. На странице эпика в блоке **Связанные задачи** нажмите **Добавить связь**.
 
 1. Выберите тип связи **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}**.
 
@@ -33,7 +33,7 @@
 
 ### Добавить со страницы задачи {#add-from-task}
 
-1. На странице задачи в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **Добавить связь**.
+1. На странице задачи в блоке **Связанные задачи** нажмите **Добавить связь**.
 
 1. Выберите тип связи **{{ ui-key.startrek-backend.fields.issue.epic }}**.
 
@@ -57,11 +57,11 @@
 
 ### Удалить задачу на странице задачи {#remove-from-task}
 
-На странице задачи в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** в секции **{{ ui-key.startrek-backend.fields.issue.epic }}** удалите связь с эпиком.
+На странице задачи в блоке **Связанные задачи** в секции **{{ ui-key.startrek-backend.fields.issue.epic }}** удалите связь с эпиком.
 
 ### Удалить задачу на доске {#remove-on-board}
 
-На доске [сгруппируйте задачи по эпику](#group-by-epic) и перетащите карточку задачи в раздел **{{ ui-key.startrek.ui_components_IssuesGroupHeader.no-epic }}**.
+На доске [сгруппируйте задачи по эпику](#group-by-epic) и перетащите карточку задачи в раздел **Без эпика**.
 
 ## Сгруппировать задачи по эпикам {#group-by-epic}
 
@@ -76,7 +76,7 @@
 
 Чтобы отфильтровать задачи по эпику на доске:
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-filters }}**. Над колонками доски отобразится панель для настройки фильтра. 
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Фильтры**. Над колонками доски отобразится панель для настройки фильтра. 
 1. Нажмите значок ![](../../_assets/tracker/svg/add-filter.svg). Выберите **{{ ui-key.startrek-backend.fields.issue.epic }}**. 
 1. В диалоговом окне введите ключ эпика, по которому хотите отфильтровать задачи.
 
@@ -84,7 +84,7 @@
 
 Вы также можете отфильтровать задачи в очереди или на странице задач с помощью [языка запросов](../user/query-filter.md):
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**. Все текущие параметры поиска, которые были заданы с помощью быстрых фильтров и условий, отобразятся в строке запроса.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/query-language.svg) **Язык запросов**. Все текущие параметры поиска, которые были заданы с помощью быстрых фильтров и условий, отобразятся в строке запроса.
 1. Добавьте в строку условия для фильтрации по эпику. Например:
 
 	* Отобразить все задачи, у которых есть эпик:

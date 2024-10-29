@@ -12,7 +12,7 @@ Planning poker is only available for **Scrum** boards.
 
 ## Estimating effort for issues {#section_estimate}
 
-1. To go to the planning poker page, open your board and click **{{ ui-key.startrek.ui_components_agile_poker_PokerButton.poker }}** in the top-right corner.
+1. To go to the planning poker page, open your board and click **Poker** in the top-right corner.
 
 1. Ask other planners to go to the poker page. All users visiting the page can be seen in the **Team** section.
 
@@ -24,11 +24,11 @@ Planning poker is only available for **Scrum** boards.
 
 1. Wait until the other planners assign their values. In the **Team** section, you will see ![](../../_assets/tracker/estimate-done.png) under planner names.
 
-1. Click **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.show-estimates }}**. The scores chosen by the other users appear under their names.
+1. Click **Show estimates**. The scores chosen by the other users appear under their names.
 
     The final score will be [calculated automatically](#section_calc) and then saved in the **Estimate** field. You can change this value if needed.
 
-1. Click **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}** to finalize the score. The score value from the **Estimate** field is copied to the **{{ ui-key.startrek-backend.fields.issue.storyPoints }}** field in the issue, and the issue disappears from the poker page.
+1. Click **Set an estimate** to finalize the score. The score value from the **Estimate** field is copied to the **{{ ui-key.startrek-backend.fields.issue.storyPoints }}** field in the issue, and the issue disappears from the poker page.
 
 ## Configuring the estimation scale {#section_scale}
 
@@ -52,6 +52,6 @@ You can select how the values assigned by planners will affect the final effort 
 
 1. Go to the **Planning poker** tab.
 
-1. In the **{{ ui-key.startrek.ui_components_agile_settings_PokerSettings.aggregation-function-field-label }}** field, choose a calculation function. **{{ ui-key.startrek-backend.messages.boards.poker.aggregate.function.maximum.double }}** is selected by default.
+1. In the **Calculation of the final score** field, choose a calculation function. **{{ ui-key.startrek-backend.messages.boards.poker.aggregate.function.maximum.double }}** is selected by default.
 
 1. Click **Save**.

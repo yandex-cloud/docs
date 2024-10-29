@@ -15,7 +15,7 @@
 
 1. Добавьте описание задачи. Для форматирования текста используйте [разметку YFM](markup.md).
 
-1. Чтобы добавить в задачу файлы или изображения, нажмите **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
+1. Чтобы добавить в задачу файлы или изображения, нажмите **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**.
 
 1. Чтобы добавить список этапов выполнения задачи, нажмите кнопку **Добавить чеклист**.
 
@@ -27,7 +27,7 @@
     
         Вы также можете оставить значения по умолчанию, чтобы настроить их позже.
 
-1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и заполните их.
+1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и заполните их.
 
     {% note info %}
 
@@ -35,7 +35,7 @@
 
     {% endnote %}
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
+1. Нажмите кнопку **Создать задачу**.
 
 ## Возможности автоматизации {#avto}
 
@@ -49,7 +49,7 @@
 
 Если вам приходится создавать много похожих задач, создайте для них [шаблон](ticket-template.md).
 
-Чтобы создать задачу с помощью шаблона, в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_issue-templates_Select.select-template }}**. Выберите подходящий шаблон или нажмите `{{ ui-key.startrek.ui_components_issue-templates_Select.manage-templates }}`, чтобы создать новый.
+Чтобы создать задачу с помощью шаблона, в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_Issues_smart-components_issue-templates_Select.select-template }}**. Выберите подходящий шаблон или нажмите `{{ ui-key.startrek.ui_Issues_smart-components_issue-templates_Select.manage-templates }}`, чтобы создать новый.
 
 Если вы примените шаблон, поля задачи получат значения из шаблона и останутся доступными для редактирования.
 
@@ -71,11 +71,11 @@
 
 1. Откройте страницу задачи, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.create-subissue }}**.
 
 1. Заполните поля так же, как при [создании новой задачи](#create-task).
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
+1. Нажмите кнопку **Создать задачу**.
 
 
 #### Следующий шаг 

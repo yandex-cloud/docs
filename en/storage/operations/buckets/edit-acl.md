@@ -1,6 +1,6 @@
 ---
 title: Editing a bucket's ACL in {{ objstorage-full-name }}
-description: Apart from {{ iam-short-name }}, you can also use an access control list (ACL) to manage access to an {{ objstorage-name }} bucket.
+description: To manage an {{ objstorage-name }} bucket access, apart from {{ iam-short-name }}, you can also use an access control list, or ACL.
 ---
 
 # Editing a bucket's ACL
@@ -17,7 +17,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ objstorage-name }}**.
   1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the bucket name and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
@@ -81,7 +81,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   Setting up individual permissions
 
-  : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
+  : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
 
         * [User](../../../iam/operations/users/get.md).
@@ -97,16 +97,15 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
        ```
 
        Where:
-       * `grant-type`: Permission grantee type. The possible values are as follows:
+       * `grant-type`: Permission grantee type. The possible values are:
          * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
          * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
          * `grant-type-all-users`: Public group that includes all internet users.
-       * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. Specify only if `grant-type=grant-type-account`.
-       * `permission`: ACL permission type. The possible values are as follows:
+       * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. Specified only if `grant-type=grant-type-account`.
+       * `permission`: ACL permission type. The possible values are:
          * `permission-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, or static hosting), and read all objects in the bucket.
          * `permission-write`: Permission to write, overwrite, and delete objects in the bucket. Can only be used together with `permission-read`.
          * `permission-full-control`: Full access to the bucket and the objects in it.
-
          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
        To configure multiple permissions, specify the `--grants` parameter multiple times. For example, to grant a write permission for a bucket, run the following command:
@@ -123,7 +122,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   {% note info %}
 
-  To manage bucket ACLs, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account through which the AWS CLI works.
+  To manage bucket ACL settings, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account used by the AWS CLI.
 
   {% endnote %}
 
@@ -158,10 +157,10 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
     * `--endpoint`: {{ objstorage-name }} endpoint.
     * `--bucket`: Bucket name.
     * `--acl`: Predefined ACL. For the list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
-  
+
   Setting up individual permissions
 
-  : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
+  : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
 
         * [User](../../../iam/operations/users/get.md).
@@ -239,7 +238,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
      * `secret_key`: Private access key value.
      * `bucket`: Bucket name. This is a required parameter.
      * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional parameter. To manage this parameter, the service account for which the static access keys were obtained must have the `storage.admin` [role](../../security/index.md#roles-list) for a bucket or folder.
-       * `type`: Permission grantee type. The possible values are as follows:
+       * `type`: Permission grantee type. The possible values are:
          * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
          * `Group`: For a [public group](../../concepts/acl.md#public-groups).
        * `permissions`: Type of ACL [permissions](../../concepts/acl.md#permissions-types). The possible values are:
@@ -258,13 +257,13 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
-       * `uri`: Public group ID. Used with the `Group` type of permission grantee. The possible values are as follows:
+       * `uri`: Public group ID. Used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 
      Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
 

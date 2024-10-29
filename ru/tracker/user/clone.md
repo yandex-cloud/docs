@@ -12,7 +12,7 @@
 
 1. Откройте страницу задачи.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.clone-issue-action-title }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.clone-issue-action-title }}**.
 
 1. Выберите очередь, в которой вы хотите создать задачу-клон.
 

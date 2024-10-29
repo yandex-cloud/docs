@@ -6,7 +6,7 @@ To find the issues you're working on, use the _system filters_ preset. The filte
 
 Find your issues using preset system filters.
 
-1. In the top-left corner, tap **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** and select one of the options:
+1. In the top-left corner, tap **All issues** and select one of the options:
 
    * **Favorite issues**: Issues you [added to Favorites](../user/favourites.md#task-fav).
 
@@ -20,7 +20,7 @@ Find your issues using preset system filters.
 
    * **Waiting for response**: Issues you were [invited to comment](comments.md#call-comment) on.
 
-   * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are the reporter, assignee, or follower and where:
+   * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are the reporter, assignee, or follower and where:
 
    * Issues that have exceeded their deadlines in the past two weeks ![](../../_assets/tracker/deadline-red.png).
 

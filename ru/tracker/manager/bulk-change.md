@@ -12,7 +12,7 @@
    
    Если вы хотите выбрать сразу все задачи на странице очереди или фильтра, поставьте отметку ![](../../_assets/tracker/svg/check.svg) над списком задач.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.change-status }}** под списком задач и выберите статус. 
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.change-status }}** под списком задач и выберите статус. 
    
    Доступны только те переходы между статусами, которые разрешены в [воркфлоу](workflow.md). Если вы выберете переход, который доступен только для части задач, статус изменится только у них.
    
@@ -30,7 +30,7 @@
    
    Если вы хотите выбрать сразу все задачи на странице очереди или фильтра, поставьте отметку ![](../../_assets/tracker/svg/check.svg) над списком задач.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.move }}** под списком задач.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.move }}** под списком задач.
 
 1. Выберите очередь, в которую будут перемещены задачи.
 
@@ -50,7 +50,7 @@
    
    Если вы хотите выбрать сразу все задачи на странице очереди или фильтра, поставьте отметку ![](../../_assets/tracker/svg/check.svg) над списком задач.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-link }}** под списком задач, выберите [тип связи](../user/links.md) и создайте связь:
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-link }}** под списком задач, выберите [тип связи](../user/links.md) и создайте связь:
 
       * Чтобы создать новую задачу, выберите вкладку **Новая задача**. Введите название и нажмите клавишу **Enter**.
         
@@ -68,9 +68,9 @@
 
 1. Нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) под списком задач.
 
-   * Чтобы добавить задачи на доску, выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**. Выберите одну или несколько досок и нажмите **{{ ui-key.startrek.ui_components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
+   * Чтобы добавить задачи на доску, выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-board }}**. Выберите одну или несколько досок и нажмите **{{ ui-key.startrek.ui_Common_smart-components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
 
-   * Чтобы добавить задачу в проект, выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**. Все подзадачи также будут добавлены в проект.
+   * Чтобы добавить задачу в проект, выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-projects }}**. Все подзадачи также будут добавлены в проект.
 
 ## Изменить параметры {#change-parameters}
 
@@ -82,7 +82,7 @@
    
    Если вы хотите выбрать сразу все задачи на странице очереди или фильтра, поставьте отметку ![](../../_assets/tracker/svg/check.svg) над списком задач.
 
-1. Нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) под списком задач и выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
+1. Нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) под списком задач и выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.edit-parameters }}**.
 
 1. Выберите нужные параметры. Если нужных полей нет в списке, добавьте их с помощью кнопки **Изменить список параметров**.
 
@@ -90,11 +90,11 @@
    
    Некоторые поля могут содержать список значений (например, поля «Наблюдатели», «{{ ui-key.startrek-backend.messages.workflow.field.maillists }}» или «Теги»). По умолчанию новые значения дописываются в конец списка. Чтобы перезаписать поле, включите опцию **Удалить значения**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Common_smart-components_BulkSuggestPopup.apply }}**.
 
 ## Стать участником задач {#change-my-tickets}
 
-Чтобы добавить или удалить себя из полей **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}** или **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}** в задачах:
+Чтобы добавить или удалить себя из полей **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee }}** или **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.followers }}** в задачах:
 
 1. Откройте список задач.
 
@@ -104,6 +104,6 @@
 
 1. Нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) под списком задач и выберите вариант:
 
-   * Чтобы стать участником задачи, выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-me-to-followers }}** или **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee-me }}**.
+   * Чтобы стать участником задачи, выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-me-to-followers }}** или **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee-me }}**.
 
-   * Чтобы отменить свое участие в задаче, выберите **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-me-from }}** и укажите вариант: **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}**, **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}** или **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-from-both-fields }}**.
+   * Чтобы отменить свое участие в задаче, выберите **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.remove-me-from }}** и укажите вариант: **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.followers }}**, **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.assignee }}** или **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.remove-from-both-fields }}**.

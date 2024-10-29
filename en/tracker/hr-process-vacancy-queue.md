@@ -15,7 +15,7 @@ You can set up multiple workflows for different types of issues in a single queu
 ### Configure a built-in workflow
 
 1. Open the queue page.
-1. In the top-right corner, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** and select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
+1. In the top-right corner, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}** and select **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
 1. Select the built-in **Recruiting** workflow.
 1. On the workflow page, rename the workflow to **Qualified personnel**.
 1. Specify the type of issues this workflow applies to. To do this, click ![](../_assets/tracker/svg/icon-add.svg) to the right of the workflow name and enter a name for a new issue type, such as `Experts`.
@@ -41,11 +41,11 @@ You can use {{ forms-full-name }} to create standard issues in a queue more easi
 ### Create a form for the first workflow
 
 1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
-1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. Under **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Expert`.
    * Add a description, e.g., `Vacancy form for qualified personnel`.
-   * Click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+   * Click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Wait for the page to load and select the **Text** widget.
 1. In the **Question** field, enter `Name`.
 1. Click ![](../_assets/tracker/svg/icon-add.svg) **Add question**.
@@ -66,7 +66,7 @@ You can use {{ forms-full-name }} to create standard issues in a queue more easi
 If you want to restrict access to the form:
 
 1. On the issue creation page, hover over the widget with the name of the form you need, e.g., `Expert`.
-1. Click ![](../_assets/tracker/svg/actions.svg) and select ![](../_assets/tracker/icon-edit.png)**{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
+1. Click ![](../_assets/tracker/svg/actions.svg) and select ![](../_assets/tracker/icon-edit.png)**{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-template }}**.
 1. At the bottom of the page, follow the **{{ forms-full-name }} full version** link.
 1. In the **Settings** tab, select **Only employees of the organization** under **Who can fill out the form**.
 1. Click **Save**.
@@ -74,11 +74,11 @@ If you want to restrict access to the form:
 ### Create a form for the second workflow
 
 Repeat the steps to create and set up a form for vacancies that require no qualification.
-Open the issue creation page, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new-template }}**, and perform the same actions as described above using the values corresponding to the second workflow.
+Open the issue creation page, click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new-template }}**, and perform the same actions as described above using the values corresponding to the second workflow.
 
 ### Create test issues and group them by type
 
-1. On the issue creation page, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
+1. On the issue creation page, select **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
 1. Click the widget with the name of the form you need, e.g., `Expert`.
 1. Fill out the form and click **Submit**.
 1. In the same way, create an issue of the `Nonexpert` type.

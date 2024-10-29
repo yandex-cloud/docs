@@ -9,7 +9,7 @@ You can provide initial parameters to [Cloud Video Player](./index.md#initialize
 
 #### element {#element}
 
-Embed element. This is a required parameter. This can be either an `HTMLElement` pointer or an ID selector.
+Embed element. This is a required parameter. This can be either a pointer to a certain `HTMLElement` or an ID selector.
 
 Player creation examples:
 
@@ -106,7 +106,7 @@ Examples:
     var player = Ya.playerSdk.init({ ..., hiddenControls: 'play,settings', ...});
     ```
 
-* Hiding the play/pause and settings buttons by providing `hiddenControls` as an array:
+* Hide the play/pause and settings buttons by providing `hiddenControls` as an array:
 
     ```javascript
     var player = Ya.playerSdk.init({ ..., hiddenControls: ['play','settings'], ...});
@@ -118,7 +118,7 @@ Examples:
     var player = Ya.playerSdk.init({ ..., hiddenControls: '*', ...});
     ```
 
-* To hide all interface elements except the specified one, you can use the `!` operator. For example, the following code will hide all controls except the play/pause button:
+* You can hide all interface elements except a specific one using the `!` operator. For example, the following code will hide all controls except the play/pause button:
 
     ```javascript
     var player = Ya.playerSdk.init({ ..., hiddenControls: '*,!play', ...});
@@ -127,7 +127,7 @@ Examples:
 Interface elements you can hide:
 
 * `*`: All interface elements.
-* `play`: Interface element displaying the **Play**, **Pause**, and **Repeat** buttons. It turns off play/pause when clicking on the player.
+* `play`: Interface element displaying the **Play**, **Pause**, and **Repeat** buttons. It turns off play or pause when clicking the player.
 * `contextMenu`: Context menu.
 * `fullscreen`: Full screen toggle button.
 * `live`: **Go back to live** button.
@@ -139,7 +139,7 @@ Interface elements you can hide:
 * `settings`: Settings button.
 * `startScreen`: Start screen.
 * `startScreenPlay`: Play button on the start screen.
-* `subtitlesToggle`: Subtitles toggle button.
+* `subtitlesToggle`: Button to toggle subtitles.
 * `timeline`: Timeline. It turns off rewinding and fast forwarding from the keyboard or by touching the sensor screen.
 * `timelinePreview`: Preview on the timeline.
 * `time`: Current playback time.

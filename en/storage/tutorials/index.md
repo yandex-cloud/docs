@@ -40,6 +40,7 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./opensearch-to-object-storage.md)
 * [{#T}](./ydb-to-object-storage.md)
+* [{#T}](./greenplum-yezzey.md)
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)

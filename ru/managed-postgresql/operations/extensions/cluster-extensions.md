@@ -19,7 +19,8 @@
 * `pg_cron` — необходима для работы [расширения pg_cron](https://github.com/citusdata/pg_cron);
 * `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://pghintplan.osdn.jp/pg_hint_plan.html);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
-* `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb).
+* `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb);
+* `anon` — необходима для использования [расширения postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/).
 
 {% note warning %}
 
@@ -327,6 +328,7 @@
 || <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Содержит функции для геокодирования на основе данных в формате [TIGER](https://wiki.openstreetmap.org/wiki/TIGER).</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
 || <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Содержит типы данных и функции расширения `postgis` для управления топологическими объектами.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
 || <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Добавляет поддержку [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) для доступа к внешним серверам {{ PG }}.</p><p>Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 ||
+|| <p>[postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/)</p><p>Позволяет замаскировать или заменить данные в базе данных {{ PG }}.</p><p>Требует [подключения библиотеки общего пользования](#libraries-connection) `anon`.</p><p>Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).</p> | - | - | - | - | 1.3.2 | 1.3.2 ||
 || <p>[rum](https://github.com/postgrespro/rum)</p><p>Добавляет метод доступа для работы с индексами `RUM`.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Содержит тип данных `seg` для представления отрезков линий или интервалов с плавающей запятой.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 ||
 || <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Содержит набор функций для определения сходства массивов.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||

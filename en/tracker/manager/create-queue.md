@@ -13,7 +13,7 @@ The user who created the queue becomes its owner. The owner either configures th
 
 To create a new queue:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **New queue**.
 
 1. Select queue template Depending on the issue types and statuses, templates belong to one of the categories:
 
@@ -56,7 +56,7 @@ You can use the queue key in order to:
 
 If you want to use the settings of an existing queue, copy the queue:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **New queue**.
 
 1. Click **Copy queue**.
 
@@ -82,7 +82,7 @@ If you want to use the settings of an existing queue, copy the queue:
 
 If none of the preset queue types fit your issues, you can set all parameters for your new queue manually:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **New queue**.
 
 1. Click **Configure the queue manually**.
 

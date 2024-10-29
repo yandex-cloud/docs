@@ -26,9 +26,9 @@ To create a form for your issues:
 
 1. Select a queue in the field located at the top of the page.
 
-1. If there are no forms in the queue, select **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**. If you already have forms, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new-template }}**.
+1. If there are no forms in the queue, select **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**. If you already have forms, click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new-template }}**.
 
-1. Enter a name and description for the form and click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+1. Enter a name and description for the form and click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 
 1. Add fields to the form.
 
@@ -87,10 +87,10 @@ To go to the queue forms, in the left panel, click ![](../../_assets/tracker/sv
 
 To change the form order on the issue creation page, click ![](../../_assets/tracker/svg/range.svg) and drag the form.
 
-You can set up your issues to be created without a form or only with a form. To do this, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** in the top-right corner.
-* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.always }}**: All users will be able to create issues without a form.
-* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**: Users will only be able to create issues using a form.
-* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.team }}**: Only the members of the [queue team](../manager/queue-team.md) will be able to create issues without a form.
+You can set up your issues to be created without a form or only with a form. To do this, select **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** in the top-right corner.
+* **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.always }}**: All users will be able to create issues without a form.
+* **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}**: Users will only be able to create issues using a form.
+* **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.team }}**: Only the members of the [queue team](../manager/queue-team.md) will be able to create issues without a form.
 
 ### Changing form parameters {#edit-template-name}
 
@@ -98,9 +98,9 @@ To change the name or description of a form:
 
 1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.change-title-and-description }}**.
+1. Select **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-title-and-description }}**.
 
-1. Enter a new name and description for the form and click **{{ ui-key.startrek.ui_components_queue-admin-tab-main_QueueAdminTabMain.save }}**.
+1. Enter a new name and description for the form and click **Save**.
 
 ### Change the form {#edit-template}
 
@@ -108,7 +108,7 @@ To change the form:
 
 1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
+1. Select **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-template }}**.
 
 1. Edit the form's questions in the embedded {{ forms-full-name }} builder and set up integrations with {{ tracker-name }}, same as when [creating a form](#create-template).
 
@@ -118,6 +118,6 @@ To delete a form:
 
 1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.switch-to-admin-panel }}**.
+1. Select **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.switch-to-admin-panel }}**.
 
 1. In the queue settings next to the form, click ![](../../_assets/tracker/icon-delete.png).

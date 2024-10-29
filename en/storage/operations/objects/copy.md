@@ -44,7 +44,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 {% endlist %}
 
@@ -130,6 +130,6 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 {% endlist %}

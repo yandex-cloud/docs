@@ -20,7 +20,7 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
 1. Open the [queue page](user/queue.md).
 
-1. In the top-right corner of the page, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the page, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Go to the **Queue fields** tab.
 

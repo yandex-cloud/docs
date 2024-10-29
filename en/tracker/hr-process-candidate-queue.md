@@ -15,11 +15,11 @@ To allow candidates to submit a request on their own, create a queue and a reque
 ### Create a form
 
 1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
-1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. Under **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Candidate`.
    * Add a description, e.g., `Vacancy request form`.
-   * Click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+   * Click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Wait for the page to load and select the **Text** widget.
 1. In the **Question** field, enter `Full name`.
 1. Click ![](../_assets/tracker/svg/icon-add.svg) **Add question** and select **Text**.
@@ -47,7 +47,7 @@ To allow candidates to submit a request on their own, create a queue and a reque
 
 ### Create a test issue
 
-1. On the issue creation page, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
+1. On the issue creation page, select **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
 1. Click the widget named `Candidate`.
 1. Fill out the form. Specify your own email address.
 1. Click **Send**.

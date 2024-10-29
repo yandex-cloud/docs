@@ -45,6 +45,12 @@ items:
             href: operations/folder/notify.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: tutorials/multi-folder-vpc.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex Cloud

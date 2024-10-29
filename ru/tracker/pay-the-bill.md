@@ -60,9 +60,9 @@
 
 1. На странице **{{ ui-key.yacloud_billing.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
-1. В блоке с названием аккаунта нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}**.
+1. В блоке с названием аккаунта нажмите кнопку **Пополнить баланс**.
 
-1. Введите сумму платежа и снова нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}**.
+1. Введите сумму платежа и снова нажмите кнопку **Пополнить баланс**.
 
 ## Пополнить счет банковским переводом {#transfer}
 
@@ -70,9 +70,9 @@
 
 1. На странице **{{ ui-key.yacloud_billing.billing.accounts.label_title }}** выберите ваш платежный аккаунт.  
 
-1. В блоке с названием аккаунта нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}**.
+1. В блоке с названием аккаунта нажмите кнопку **Пополнить баланс**.
 
-1. Введите сумму платежа и нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-dialog-ok-issue }}**. Система сформирует счет для оплаты. 
+1. Введите сумму платежа и нажмите кнопку **Выписать счёт**. Система сформирует счет для оплаты. 
 
 1. Распечатайте счет и используйте его для оплаты в отделении банка или через систему клиент-банк.
 

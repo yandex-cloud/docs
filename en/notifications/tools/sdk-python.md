@@ -61,7 +61,7 @@ print ("Platform application ARN:", response['PlatformApplicationArn'])
 ```
 
 Where:
-* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
 * `Platform`: Mobile platform type:
   * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
   * `GCM`: Firebase Cloud Messaging (FCM).
@@ -172,8 +172,8 @@ print ("Message id:", response["MessageId"])
 ```
 
 Where:
-* `TargetArn`: Mobile endpoint ID (ARN).
-* `Message`: Message.
+* `TargetArn`: Mobile endpoint ID (ARN)
+* `Message`: Message
 
 ## See also {#see-also}
 

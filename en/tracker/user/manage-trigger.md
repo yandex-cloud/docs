@@ -13,7 +13,7 @@ Only [queue owners](../manager/queue-access.md) can create, edit, and delete tri
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. On the left-hand panel, select **Automation** → **Triggers**.
 

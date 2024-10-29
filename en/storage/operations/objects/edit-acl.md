@@ -19,7 +19,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. Select **{{ objstorage-name }}**.
     1. Click the bucket name.
     1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
@@ -40,7 +40,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
   {% note info %}
 
-  To manage object ACLs, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account through which the AWS CLI works.
+  To manage bucket ACL settings, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account used by the AWS CLI.
 
   {% endnote %}
 
@@ -83,7 +83,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
   **Setting up individual permissions**
 
-  1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
+  1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
 
       * [User](../../../iam/operations/users/get.md).
@@ -178,7 +178,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the security group update in the [management console]({{ link-console-main }}).
 

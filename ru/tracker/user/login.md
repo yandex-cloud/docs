@@ -22,7 +22,7 @@
 
 Чтобы войти в {{ tracker-full-name }}:
 
-1. Перейдите в [{{ tracker-name }}]({{ link-tracker }}). Нажмите кнопку **{{ ui-key.startrek.ui_components_promo_Page.login-button-label }}**.
+1. Перейдите в [{{ tracker-name }}]({{ link-tracker }}). Нажмите кнопку **{{ ui-key.startrek.ui_Common_pages_promo_Page.login-button-label }}**.
 
 1. Выберите аккаунт, который вы используете для работы в {{ tracker-name }}:
 

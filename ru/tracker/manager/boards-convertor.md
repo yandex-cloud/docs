@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 * название;
 * добавленные задачи;
 * распределение статусов по колонкам;
-* фильтры «{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }}» и «{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }}»;
+* фильтры «{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_author }}» и «{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_assignee }}»;
 * фильтр для добавления задач.
 
 Тип доски при миграции также сохраняется: **Простая** и **Канбан** (не отличаются по функциональности) преобразуются в простые доски, а **Скрам** — в доски с бэклогом и спринтами.
@@ -61,11 +61,11 @@ description: Следуя данной инструкции, вы сможете
 
 1. Изучите окно миграции:
    * есть ошибки — следуйте инструкциям для их устранения и повторите попытку миграции.
-   * нет ошибок — нажмите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardMigrationForm.submit-btn }}**. Миграция может занять несколько минут.
+   * нет ошибок — нажмите **Начать миграцию**. Миграция может занять несколько минут.
 
 ## Возвращение к старой версии доски {#backward}
 
-Если после миграции вы поймете, что новые технологии вам не подходят, то сможете вернуть вашу доску к исходному виду. Для этого на верхней панели доски нажмите ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.migration-rollback }}** и дождитесь завершения миграции.
+Если после миграции вы поймете, что новые технологии вам не подходят, то сможете вернуть вашу доску к исходному виду. Для этого на верхней панели доски нажмите ![](../../_assets/tracker/svg/actions.svg) → **Миграция в старую версию** и дождитесь завершения миграции.
 
 {% note warning %}
 

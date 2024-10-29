@@ -22,7 +22,7 @@ For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
 | Action | Description |
 | --- | --- |
-| [Create](create-platform-application.md) | Creating a [mobile push notification channel](../concepts/index.md#mobile-channel) |
+| [Create](create-platform-application.md) | Creating a [mobile push notification channel](../concepts/push.md) |
 | [GetAttributes](get-platform-application-attributes.md) | Getting parameters of the mobile push notification channel |
 | [SetAttributes](set-platform-application-attributes.md) | Setting parameters of the mobile push notification channel |
 | [List](list-platform-applications.md) | Getting a list of mobile push notification channels |

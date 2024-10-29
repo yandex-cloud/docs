@@ -19,7 +19,7 @@ Select your billing account type on the tab below:
 
    To request a reconciliation report:
    1. In the top-left corner of the management console, click ![image](../../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-   2. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+   2. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, select a billing account.
    3. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    4. Open the **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}** tab:
    5. Click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.

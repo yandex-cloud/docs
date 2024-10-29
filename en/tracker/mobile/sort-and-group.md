@@ -6,7 +6,7 @@ You can sort and group your issues using different parameters.
 
 1. Open the issue list.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/sorting.svg) **{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-sort-by-field-label }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/sorting.svg) **Sorting**.
 
 1. Select the sort parameter and the sort order: descending or ascending.
 
@@ -16,7 +16,7 @@ You can sort and group your issues using different parameters.
 
 1. Open the issue list.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/group.svg) **{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-group }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/group.svg) **Grouping**.
 
 1. Select the parameter to group your issues by.
 

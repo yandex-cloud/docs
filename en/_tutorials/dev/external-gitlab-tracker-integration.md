@@ -1,7 +1,7 @@
 # {{ GL }} integration with {{ tracker-full-name }}
 
 
-In [{{ tracker-name }} issues](../../tracker/about-tracker.md#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key](../../tracker/glossary.md#key) in the name or description of a new merge request. The links will be placed in [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
+In [{{ tracker-name }} issues](../../tracker/about-tracker.md#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key](../../tracker/glossary.md#key) in the name or description of a new merge request. The links will be placed in [{{ ui-key.startrek.ui_Issues_smart-components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
 
 You can also enable automatic creation of issue comments with information about merge requests. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
 
@@ -99,7 +99,7 @@ To set up integration for an individual {{ GL }} project, create one.
 
 1. [Create an issue](../../tracker/user/create-ticket.md#create-task) in {{ tracker-name }}.
 1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key](../../tracker/glossary.md#key) in its name or description.
-1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} merge request under [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md).
+1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} merge request under [{{ ui-key.startrek.ui_Issues_smart-components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md).
 
    If you used {{ mgl-name }} and enabled auto comments when [creating a hook](#create-hook), the issue will show a comment with the merge request link and details.
 

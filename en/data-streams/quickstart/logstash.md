@@ -1,6 +1,6 @@
 ---
-title: Tutorial on collecting and delivering data to {{ ydb-full-name }} using Logstash
-description: In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Logstash.
+title: Tutorial on collecting and delivering {{ ydb-full-name }} data using Logstash
+description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using Logstash.
 ---
 
 # Logstash
@@ -24,7 +24,7 @@ description: In this tutorial, you'll learn how to collect and deliver data to {
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
 1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **Logstash** tab.
-1. Copy the sample configuration file and paste it into the `/usr/share/logstash/bin/mypipeline.conf` file.
+1. Copy the configuration file example and paste it into the `/usr/share/logstash/bin/mypipeline.conf` file.
 
    Sample configuration file:
 
@@ -61,7 +61,10 @@ description: In this tutorial, you'll learn how to collect and deliver data to {
 1. Send test data to Logstash:
 
    ```bash
-   curl -H "content-type: application/json" -XPUT 'http://127.0.0.1:8888/kinesis' -d '{"user_id":"user1", "score": 100}'
+   curl \
+     --request PUT 'http://127.0.0.1:8888/kinesis' \
+     --header "content-type: application/json" \
+     --data '{"user_id":"user1", "score": 100}'
    ```
 
    If the setup was a success, a message will appear in the Logstash console about receiving data and sending it to {{ yds-name }} over the AWS Kinesis Data Streams protocol:

@@ -16,7 +16,7 @@ If you already have a user account, log in to the management console and create 
    * Select the payer country.
    * Specify the name of the billing account to be displayed in the list of billing accounts.
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_persons }}** section, you can select one of them or add a new one.
-1. To add a new payer, select **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}**: `{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}`.
+1. To add a new payer, select **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}**: `Legal entity or individual entrepreneur`.
 
    * Select a payment method: `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}` or `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
    * Enter the legal information of your organization.

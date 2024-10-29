@@ -48,6 +48,8 @@ items:
     items:
       - name: Desktops and their groups
         href: concepts/desktops-and-groups.md
+      - name: Access control lists (ACLs)
+        href: concepts/acl.md
       - name: Disks
         href: concepts/disks.md
       - name: Images

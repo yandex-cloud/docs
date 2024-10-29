@@ -1,6 +1,6 @@
 # Managing object locks in buckets
 
-You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. When object lock is enabled, you can lock an object version so that it would not be deleted or overwritten. You can also set default object locks for a bucket that will apply to all new object versions.
+You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. When object lock is enabled, you can lock an object version so that it would not be deleted or overwritten. You can also set default object locks for a bucket that will apply to all new object versions.
 
 {% note info %}
 

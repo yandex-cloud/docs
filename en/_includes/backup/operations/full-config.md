@@ -191,10 +191,10 @@ Attribute sections with multiple nested values.
   | `scheduling.backupSets.sinceLastExecTime.delay.type` | Units of time used to set the interval between backups. | <ul><li>`TYPE_UNSPECIFIED`: Not set.</li><li>`SECONDS`: Seconds.</li><li>`MINUTES`: Minutes.</li><li>`HOURS`: Hours.</li><li>`DAYS`: Days.</li><li>`WEEKS`: Weeks.</li><li>`MONTHS`: Months.</li></ul> |
   | `scheduling.backupSets.sinceLastExecTime.delay.count` | Duration of the interval between backups in time units set by the `delay.type` attribute. | Integer |
   | `scheduling.enabled` | Making scheduled backups. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-  | `scheduling.maxParallelBackups` | Maximum number of parallel backups allowed. Unlimited if no value is specified. | Integer |
+  | `scheduling.maxParallelBackups` | Maximum permissible number of parallel backups. Unlimited if no value is specified. | Integer |
   | `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. | <ul><li>`TYPE_UNSPECIFIED`: Not set.</li><li>`SECONDS`: Seconds.</li><li>`MINUTES`: Minutes.</li><li>`HOURS`: Hours.</li><li>`DAYS`: Days.</li><li>`WEEKS`: Weeks.</li><li>`MONTHS`: Months.</li></ul> |
   | `scheduling.randMaxDelay.count` | Maximum delay before running parallel jobs in time units set by the `randMaxDelay.type` attribute. The delay is determined randomly but it may not exceed the value set here. | Integer |
   | `scheduling.scheme` | Backup schedule scheme. | <ul><li>`SCHEME_UNSPECIFIED`: Not set.</li><li>`SIMPLE`: Simple.</li><li>`ALWAYS_FULL`: Always full.</li><li>`ALWAYS_INCREMENTAL`: Always incremental.</li><li>`WEEKLY_INCREMENTAL`: Weekly: incremental.</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.</li><li>`CUSTOM`: User-defined.</li><li>`CDP`: Continuous data protection.</li></ul> |
-  | `scheduling.weeklyBackupDay` | Day of the week to make weekly backups on. | Integer from 1 to 7 |
+  | `scheduling.weeklyBackupDay` | Day of the week for the weekly backup. | Integer from 1 to 7 |
 
 {% endlist %}

@@ -14,7 +14,7 @@ To schedule creation of issues:
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. In the left-hand panel, select **Auto actions**.
 
@@ -46,7 +46,7 @@ To schedule creation of issues:
 
 1. Under **Action**, click **Create issue**.
 
-1. Fill in the fields of the automatic issue creation template in the **Create issue** window and click **{{ ui-key.startrek.ui_components_FieldEdit.form-submit }}**.
+1. Fill in the fields of the automatic issue creation template in the **Create issue** window and click **Save**.
 
 1. If you want to include multiple issues in one auto action, click **Create issue** again and fill in the fields for the new issue.
 

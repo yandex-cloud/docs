@@ -6,7 +6,7 @@
 
 Найдите ваши задачи с помощью предустановленных системных фильтров.
 
-1. В левом верхнем углу экрана нажмите **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** и выберите один из вариантов:
+1. В левом верхнем углу экрана нажмите **Все задачи** и выберите один из вариантов:
 
     * **Избранные задачи** – задачи, которые вы [добавили в избранное](../user/favourites.md#task-fav).
 
@@ -20,7 +20,7 @@
 
     * **Ждут ответа** – задачи, в которых вас [призвали в комментарии](comments.md#call-comment).
 
-    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем и в которых:
+    * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_deadline }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем и в которых:
             
     * дедлайн уже наступил за последние две недели ![](../../_assets/tracker/deadline-red.png);
               

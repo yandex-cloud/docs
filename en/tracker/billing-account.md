@@ -17,7 +17,7 @@ If you link a billing account with a valid [trial period](../getting-started/fre
 To link a billing account:
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 1. Go to the **Administration** → **Billing** section. The page shows all your billing accounts from {{ yandex-cloud }}.
-1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountList.bind }}** next to the relevant billing account.
+1. Click **Link** next to the relevant billing account.
 
 {% note warning %}
 
@@ -29,7 +29,7 @@ If different users are responsible for {{ tracker-name }} and billing account ad
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. Go to **Administration** → **Billing** and click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
+1. Go to **Administration** → **Billing** and click **+ Create new account**.
 
 1. Select the country that the payer is a resident of.
 
@@ -61,11 +61,11 @@ If different users are responsible for {{ tracker-name }} and billing account ad
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**.
+1. Click **Create**.
 
    {% note info %}
 
-   By clicking **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, you accept the [{{ yandex-cloud }} offer]({{ link-cloud-oferta }}).
+   By clicking **Create**, you accept the [{{ yandex-cloud }} offer]({{ link-cloud-oferta }}).
 
    {% endnote %}
 
@@ -103,7 +103,7 @@ Once the billing account is created, [link it to {{ tracker-name }}](#bind). You
 
 You can only change an organization's billing account once a month. To change a billing account:
 1. Go to the **Admin settings** → **Billing** section. The page displays the billing account linked to {{ tracker-name }}.
-1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** in the top-right corner. Select the billing account you want to use instead of the current one or click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
+1. Click **Change billing account** in the top-right corner. Select the billing account you want to use instead of the current one or click **+ Create new account**.
    If you want to create a new account, follow [this guide](#create).
 
 ![](../_assets/tracker/changelogs/change-ba.png =690x)

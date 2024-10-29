@@ -39,7 +39,7 @@
 
 * Вы назначены заказчиком.
 * Изменено описание.
-* Изменены следующие поля: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* Изменены следующие поля: **Дата начала**, **Дедлайн**, **Ответственный**, **Участники**.
 * После изменения даты начала или даты завершения изменились кварталы, на которые поставлен проект.
 * Добавлен комментарий.
 * Добавлена реакция на комментарий.
@@ -51,7 +51,7 @@
 Если вы заказчик в портфеле, то будете получать уведомления о следующих изменениях в нем:
 
 * Вы назначены заказчиком.
-* Изменены следующие поля: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--status }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* Изменены следующие поля: **Дата начала**, **Дедлайн**, **Статус**, **Ответственный**, **Участники**.
 * После изменения даты начала или даты завершения изменились кварталы, на которые поставлен портфель.
 * Добавлен комментарий.
 * Добавлена реакция на комментарий.
@@ -62,9 +62,9 @@
 Если вы участник в портфеле или проекте, то будете получать уведомления о следующих изменениях в нем:
 
 * Вы назначены участником.
-* Изменены следующие поля: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* Изменены следующие поля: **Дата начала**, **Дедлайн**, **Ответственный**, **Участники**.
 * После изменения даты начала или даты завершения изменились кварталы, на которые поставлен проект или портфель.
 * Изменено описание.
 * Добавлен комментарий.
 * Добавлена реакция на комментарий.
-* Для портфелей: изменено поле **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--status }}**.
+* Для портфелей: изменено поле **Статус**.

@@ -10,7 +10,7 @@ rpc for uploading text talk document
 ## HTTP request
 
 ```
-POST https://speechsense.{{ api-host }}/speechsense/v1/talks/uploadText
+POST https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/uploadText
 ```
 
 ## Body parameters {#yandex.cloud.speechsense.v1.UploadTextRequest}

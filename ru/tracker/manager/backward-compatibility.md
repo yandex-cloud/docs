@@ -28,9 +28,9 @@
 
 После того как вы поддержали обратную совместимость для типов задач удаляемого рабочего процесса, можно приступать к его удалению:
 
-1. Откройте страницу очереди и перейдите в ее настройки: нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. Откройте страницу очереди и перейдите в ее настройки: нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. На вкладке **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** найдите рабочий процесс, который хотите удалить.
+1. На вкладке **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** найдите рабочий процесс, который хотите удалить.
 
 1. Удалите [резолюции](./create-resolution.md#delete-resolution) и [типы задач](./add-ticket-type.md#delete-ticket-type) в этом процессе.
 

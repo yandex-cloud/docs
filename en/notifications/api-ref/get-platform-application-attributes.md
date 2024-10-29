@@ -1,6 +1,6 @@
 # GetPlatformApplicationAttributes
 
-Gets parameters of the [mobile push notification channel](../concepts/index.md#mobile-channel).
+Gets parameters of the [mobile push notification channel](../concepts/push.md).
 
 ## HTTP request {#request}
 
@@ -10,11 +10,11 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `GetPlatformApplicationAttributes`. |
-| `PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default)</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `GetPlatformApplicationAttributes`.
+`PlatformApplicationArn` | **string**<br/>This is a required field.<br/>ID of a mobile push notification channel. <br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -30,59 +30,59 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <GetPlatformApplicationAttributesResponseXML>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   	  <GetPlatformApplicationAttributesResult>
-   		  <Attributes>
-   			  <entry>
-   				  <key>string</key>
-   				  <value>string</value>
-   			  </entry>
-   		  </Attributes>
-   	  </GetPlatformApplicationAttributesResult>
-   </GetPlatformApplicationAttributesResponseXML>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <GetPlatformApplicationAttributesResponseXML>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+	  <GetPlatformApplicationAttributesResult>
+		  <Attributes>
+			  <entry>
+				  <key>string</key>
+				  <value>string</value>
+			  </entry>
+		  </Attributes>
+	  </GetPlatformApplicationAttributesResult>
+  </GetPlatformApplicationAttributesResponseXML>
+  ```
 
-   Where:
-   * `RequestId`: Request ID.
-   * `Attributes`: Notification channel attributes. The following attributes are supported:
-      * `ApplePlatformTeamID`: Developer ID, only when using a token.
-      * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
-      * `AppleCertificateExpiryDate`: Certificate expiry date, only when using a certificate.
+  Where:
+  * `RequestId`: Request ID
+  * `Attributes`: Notification channel attributes. The following attributes are supported:
+    * `ApplePlatformTeamID`: Developer ID, only when using a token.
+    * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
+    * `AppleCertificateExpiryDate`: Certificate expiry date, only when using a certificate.
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     },
-     "GetPlatformApplicationAttributesResult": {
-       "Attributes": {
-         "Attribute": "string"
-       }
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    },
+    "GetPlatformApplicationAttributesResult": {
+      "Attributes": {
+        "Attribute": "string"
+      }
+    }
+  }
+  ```
 
-   Where:
-   * `RequestId`: Request ID.
-   * `Attributes`: Notification channel attributes. The following attributes are supported:
-      * `ApplePlatformTeamID`: Developer ID, only when using a token.
-      * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
-      * `AppleCertificateExpiryDate`: Certificate expiry date, only when using a certificate.
-      * `Name`: Name of the mobile push notification channel.
-      * `Description`: Description of the mobile push notification channel.
-      * `Platform`: Platform for sending mobile push notifications:
-         * `APNS`: [Apple Push Notification service](https://developer.apple.com/notifications/).
-         * `APNS_SANDBOX`: Apple Push Notification service for testing the app.
-         * `FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).
-         * `HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).
-      * `CreatedAt`: Date and time when the mobile push notification channel was created.
+  Where:
+  * `RequestId`: Request ID
+  * `Attributes`: Notification channel attributes. The following attributes are supported:
+    * `ApplePlatformTeamID`: Developer ID, only when using a token.
+    * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
+    * `AppleCertificateExpiryDate`: Certificate expiry date, only when using a certificate.
+    * `Name`: Name of the mobile push notification channel.
+    * `Description`: Description of the mobile push notification channel.
+    * `Platform`: Platform for sending mobile push notifications:
+      * `APNS`: [Apple Push Notification service](https://developer.apple.com/notifications/).
+      * `APNS_SANDBOX`: Apple Push Notification service for app testing.
+      * `FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).
+      * `HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).
+    * `CreatedAt`: Date and time when the mobile push notification channel was created.
 
 {% endlist %}
 

@@ -14,7 +14,7 @@
 
 Для различных процедур, связанных с оформлением и введением сотрудника в рабочий режим, создайте отдельные типы задач. Например, для выдачи доступов и оборудования создайте тип задачи «Доступы и оборудование»:
 
-1. На странице очереди новых сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди новых сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. На панели слева выберите **Типы задач**.
 1. Дождитесь загрузки страницы и нажмите кнопку **Добавить тип задачи**.
 1. В появившейся форме:
@@ -37,7 +37,7 @@
 
 Для автоматизации копирования задачи из очереди кандидатов `Candidates Queue` в очередь сотрудников `Employment Queue` создайте триггер, срабатывающий на переход статуса задачи кандидата в состояние "Принят":
 
-1. На странице очереди кандидатов `Candidates Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди кандидатов `Candidates Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
 1. В поле **Название** введите название триггера, например `employ_candidate`.
 1. В блоке **Условия срабатывания** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}**  → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
@@ -84,7 +84,7 @@
 
 ### Создайте триггер 
 
-1. На странице очереди сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
 1. В поле **Название** введите название триггера, например `start_employment`.
 1. В блоке **Условия срабатывания** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
