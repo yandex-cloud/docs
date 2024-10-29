@@ -1,5 +1,6 @@
 # Загрузка состояний {{ TF }} в {{ objstorage-full-name }}
 
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
 В инструкции описываются шаги загрузки состояния {{ TF }} в [{{ objstorage-name }}](../../storage/).
 
@@ -17,8 +18,6 @@
 1. [Получите состояние из бэкенда](#retrieve-state).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а его провайдеры – под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
