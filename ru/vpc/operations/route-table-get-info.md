@@ -1,5 +1,5 @@
 ---
-title: "Получить информацию о таблице маршрутизации в {{ vpc-full-name }}"
+title: Получить информацию о таблице маршрутизации в {{ vpc-full-name }}
 ---
 
 # Получить информацию о таблице маршрутизации
@@ -8,7 +8,7 @@ title: "Получить информацию о таблице маршрути
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [таблица маршрутизации](../concepts/static-routes.md).
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [таблица маршрутизации](../concepts/routing.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
   1. Выберите нужную таблицу маршрутизации.
@@ -20,7 +20,7 @@ title: "Получить информацию о таблице маршрути
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../cli/) для получения информации о [таблице маршрутизации](../concepts/static-routes.md):
+  1. Посмотрите описание команды [CLI](../../cli/) для получения информации о [таблице маршрутизации](../concepts/routing.md):
 
      ```bash
      yc vpc route-table get --help
@@ -51,7 +51,7 @@ title: "Получить информацию о таблице маршрути
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы получить информацию о [таблице маршрутизации](../concepts/static-routes.md) с помощью {{ TF }}:
+  Чтобы получить информацию о [таблице маршрутизации](../concepts/routing.md) с помощью {{ TF }}:
 
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
@@ -71,7 +71,7 @@ title: "Получить информацию о таблице маршрути
      * `output "route-table"` — выходная переменная, которая содержит информацию о статических маршрутах таблицы маршрутизации:
        * `value` — возвращаемое значение.
 
-     Вместо `static_route` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_route_table` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_route_table).
+     Вместо `static_route` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_route_table` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_route_table).
 
   1. Создайте ресурсы:
 
@@ -97,6 +97,6 @@ title: "Получить информацию о таблице маршрути
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/static-routes.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get).
+  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/routing.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md).
 
 {% endlist %}

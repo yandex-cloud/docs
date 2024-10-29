@@ -246,7 +246,7 @@ Firebase:
 
 - API {#api}
 
-  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create).
+  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md).
 
 {% endlist %}
 
@@ -385,7 +385,7 @@ Firebase:
 
    - API {#api}
 
-     Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+     Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
    {% endlist %}
 
@@ -414,8 +414,9 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `bucket-for-tutorial`.
-     1. Перейдите на вкладку ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-     1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+     1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+     1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+        * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -499,7 +500,7 @@ Firebase:
 
    - API {#api}
 
-     Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
+     Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
 
    {% endlist %}
 

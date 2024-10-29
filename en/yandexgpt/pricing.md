@@ -2,24 +2,28 @@
 editable: false
 ---
 
-# {{ yagpt-full-name }} pricing
+# {{ yagpt-full-name }} pricing policy
 
-{{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is billed as per the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage. 
 
 In the [management console]({{ link-console-main }}/link/yandexgpt), {{ gpt-freetier }} free prompts per hour are available to new users without a [billing account](../billing/concepts/billing-account.md).
 
 ## What goes into the cost of using {{ yagpt-full-name }} {#rules}
 
-### Pricing unit {#unit}
+### Billing unit {#unit}
 
-A pricing unit means a single billing unit. The cost of a billing unit is different for text generation and vectorization.
+Pricing is based on a billing unit. The cost of a billing unit is different for text generation and vectorization.
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of [prompt](concepts/tokens.md) and response [tokens](concepts/index.md#working-mode) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
-* [Model](concepts/models.md) that gets a request.
-* Model [working mode](concepts/index.md#working-mode).
+* [Model](concepts/models.md) that gets the request.
+* Model's [working mode](concepts/index.md#working-mode). 
 
 The number of [prompt](concepts/index.md) and response [tokens](concepts/tokens.md) for the same text may vary depending on model.
 

@@ -21,7 +21,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки созданных с помощью {{ TF }} ресурсов входят:
+В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
 * Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
@@ -33,7 +33,7 @@
 
 {% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
-{% cut "Управление ресурсами от имени от имени аккаунта на Яндексе или федеративного аккаунта" %}
+{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
 
 {% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 

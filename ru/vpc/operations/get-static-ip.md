@@ -21,7 +21,7 @@
        * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
        * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
    1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
-  
+
 - CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
@@ -42,7 +42,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: e9b6un9gkso6********
       folder_id: b1g7gvsi89m3********
       created_at: "2021-01-19T17:52:42Z"
@@ -82,7 +82,7 @@
        }
      }
      ```
-     
+
      Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
 
   1. Создайте ресурсы:
@@ -97,7 +97,7 @@
 
 - API {#api}
 
-  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/address_service.md#Create) и передайте в запросе:
+  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/Address/create.md) и передайте в запросе:
 
     * Идентификатор каталога, в котором будет размещен статический IP-адрес, в параметре `folderId`.
     * Имя статического публичного IP-адреса в параметре `name`. Формат имени:

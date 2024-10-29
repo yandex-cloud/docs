@@ -12,18 +12,18 @@ Connect to a database:
 
 - Connecting without SSL {#without-ssl}
 
-   ```bash
-   psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
-         port={{ port-mgp }} \
-         sslmode=disable \
-         dbname=postgres \
-         user=<username> \
-         target_session_attrs=read-write"
-   ```
+  ```bash
+  psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+        port={{ port-mgp }} \
+        sslmode=disable \
+        dbname=postgres \
+        user=<username> \
+        target_session_attrs=read-write"
+  ```
 
 - Connecting via SSL {#with-ssl}
 
-   {% include [default-connstring](default-connstring.md) %}
+  {% include [default-connstring](default-connstring.md) %}
 
 {% endlist %}
 
@@ -46,49 +46,49 @@ Required packages:
 
 - Connecting via SSL {#with-ssl}
 
-   ```csharp
-   using System;
-   using System.Threading.Tasks;
-   using Microsoft.EntityFrameworkCore;
+  ```csharp
+  using System;
+  using System.Threading.Tasks;
+  using Microsoft.EntityFrameworkCore;
 
-   namespace ConsoleApp
-   {
-       public class VersionString
-       {
-           public int id { get; set; }
-           public string versionString { get; set; }
-       }
-       public class ApplicationContext : DbContext
-       {
-           public ApplicationContext()
-           {
-               Database.EnsureCreated();
-           }
-           protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-           {
-               var host      = "c-<cluster_ID>.rw.{{ dns-zone }}";
-               var port      = "{{ port-mgp }}";
-               var db        = "postgres";
-               var username  = "<username>";
-               var password  = "<user_password>";
-               optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
-           }
-           public DbSet<VersionString> VersionStrings { get; set; }
+  namespace ConsoleApp
+  {
+      public class VersionString
+      {
+          public int id { get; set; }
+          public string versionString { get; set; }
+      }
+      public class ApplicationContext : DbContext
+      {
+          public ApplicationContext()
+          {
+              Database.EnsureCreated();
+          }
+          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+          {
+              var host      = "c-<cluster_ID>.rw.{{ dns-zone }}";
+              var port      = "{{ port-mgp }}";
+              var db        = "postgres";
+              var username  = "<username>";
+              var password  = "<user_password>";
+              optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
+          }
+          public DbSet<VersionString> VersionStrings { get; set; }
 
-       }
-       class Program
-       {
-           static async Task Main(string[] args)
-           {
-               using (ApplicationContext db = new ApplicationContext())
-               {
-                   var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
-                   Console.WriteLine(versionStrings[0].versionString);
-               }
-           }
-       }
-   }
-   ```
+      }
+      class Program
+      {
+          static async Task Main(string[] args)
+          {
+              using (ApplicationContext db = new ApplicationContext())
+              {
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  Console.WriteLine(versionStrings[0].versionString);
+              }
+          }
+      }
+  }
+  ```
 
 {% endlist %}
 
@@ -105,7 +105,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.go`
 
@@ -160,7 +160,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       go run connect.go
@@ -168,7 +168,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.go`
 
@@ -219,7 +219,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       	connConfig.TLSConfig = &tls.Config{
       		RootCAs:            rootCertPool,
-      		InsecureSkipVerify: true,
+      		ServerName: "c-<cluster_ID>.rw.{{ dns-zone }}",
       	}
 
       	conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -244,7 +244,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       go run connect.go
@@ -258,100 +258,100 @@ Before connecting:
 
 1. Install the dependencies:
 
-   ```bash
-   sudo apt update && sudo apt install --yes default-jdk maven
-   ```
+    ```bash
+    sudo apt update && sudo apt install --yes default-jdk maven
+    ```
 
 1. Create a folder for the Maven project:
 
-   ```bash
-   cd ~/ && mkdir --parents project/src/java/com/example && cd project/
-   ```
+    ```bash
+    cd ~/ && mkdir --parents project/src/java/com/example && cd project/
+    ```
 
 1. Create a configuration file for Maven:
 
-   {% cut "pom.xml" %}
+    {% cut "pom.xml" %}
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <project xmlns="http://maven.apache.org/POM/4.0.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-     <modelVersion>4.0.0</modelVersion>
-     <groupId>com.example</groupId>
-     <artifactId>app</artifactId>
-     <packaging>jar</packaging>
-     <version>0.1.0</version>
-     <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-     </properties>
-     <dependencies>
-       <dependency>
-         <groupId>org.postgresql</groupId>
-         <artifactId>postgresql</artifactId>
-         <version>42.2.16</version>
-       </dependency>
-     </dependencies>
-     <build>
-       <finalName>${project.artifactId}-${project.version}</finalName>
-       <sourceDirectory>src</sourceDirectory>
-       <resources>
-         <resource>
-           <directory>src</directory>
-         </resource>
-       </resources>
-       <plugins>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-assembly-plugin</artifactId>
-           <executions>
-             <execution>
-               <goals>
-                 <goal>attached</goal>
-               </goals>
-               <phase>package</phase>
-               <configuration>
-                 <descriptorRefs>
-                   <descriptorRef>
-                   jar-with-dependencies</descriptorRef>
-                 </descriptorRefs>
-                 <archive>
-                   <manifest>
-                     <mainClass>com.example.App</mainClass>
-                   </manifest>
-                 </archive>
-               </configuration>
-             </execution>
-           </executions>
-         </plugin>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-jar-plugin</artifactId>
-           <version>3.1.0</version>
-           <configuration>
-             <archive>
-               <manifest>
-                 <mainClass>com.example.App</mainClass>
-               </manifest>
-             </archive>
-           </configuration>
-         </plugin>
-       </plugins>
-     </build>
-   </project>
-   ```
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <packaging>jar</packaging>
+      <version>0.1.0</version>
+      <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>42.2.16</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+          <resource>
+            <directory>src</directory>
+          </resource>
+        </resources>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>attached</goal>
+                </goals>
+                <phase>package</phase>
+                <configuration>
+                  <descriptorRefs>
+                    <descriptorRef>
+                    jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                  <archive>
+                    <manifest>
+                      <mainClass>com.example.App</mainClass>
+                    </manifest>
+                  </archive>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.example.App</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </project>
+    ```
 
-   {% endcut %}
+    {% endcut %}
 
-   You can check the current `postgresql` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/org.postgresql/postgresql).
+    You can check the current `postgresql` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `src/java/com/example/App.java`
 
@@ -383,7 +383,7 @@ Before connecting:
       }
       ```
 
-   1. Building and connecting:
+  1. Building and connecting:
 
       ```bash
       mvn clean package && \
@@ -392,7 +392,7 @@ Before connecting:
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `src/java/com/example/App.java`
 
@@ -424,7 +424,7 @@ Before connecting:
       }
       ```
 
-   1. Building and connecting:
+  1. Building and connecting:
 
       ```bash
       mvn clean package && \
@@ -446,62 +446,62 @@ npm install pg
 
 - Connecting without SSL {#without-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```javascript
-   "use strict";
-   const pg = require("pg");
+    ```javascript
+    "use strict";
+    const pg = require("pg");
 
-   const config = {
-       connectionString:
-           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
-   };
+    const config = {
+        connectionString:
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
+    };
 
-   const conn = new pg.Client(config);
+    const conn = new pg.Client(config);
 
-   conn.connect((err) => {
-       if (err) throw err;
-   });
-   conn.query("SELECT version()", (err, q) => {
-       if (err) throw err;
-       console.log(q.rows[0]);
-       conn.end();
-   });
-   ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
 - Connecting via SSL {#with-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```javascript
-   "use strict";
-   const fs = require("fs");
-   const pg = require("pg");
+    ```javascript
+    "use strict";
+    const fs = require("fs");
+    const pg = require("pg");
 
-   const config = {
-       connectionString:
-           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres",
-       ssl: {
-           rejectUnauthorized: true,
-           ca: fs
-               .readFileSync("/home/<home_directory>/.postgresql/root.crt")
-               .toString(),
-       },
-   };
+    const config = {
+        connectionString:
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres",
+        ssl: {
+            rejectUnauthorized: true,
+            ca: fs
+                .readFileSync("/home/<home_directory>/.postgresql/root.crt")
+                .toString(),
+        },
+    };
 
-   const conn = new pg.Client(config);
+    const conn = new pg.Client(config);
 
-   conn.connect((err) => {
-       if (err) throw err;
-   });
-   conn.query("SELECT version()", (err, q) => {
-       if (err) throw err;
-       console.log(q.rows[0]);
-       conn.end();
-   });
-   ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
-   For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
+    For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
 {% endlist %}
 
@@ -525,7 +525,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `/etc/odbc.ini`
 
@@ -540,17 +540,17 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Pqopt=target_session_attrs=read-write
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       isql -v postgresql
       ```
 
-      Once connected to the DBMS, run `SELECT @@version;`.
+      After connecting to the DBMS, run the `SELECT version();` command.
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `/etc/odbc.ini`
 
@@ -566,13 +566,13 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Sslmode=verify-full
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       isql -v postgresql
       ```
 
-      Once connected to the DBMS, run `SELECT @@version;`.
+      After connecting to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
@@ -588,7 +588,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.php`
 
@@ -612,7 +612,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ?>
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       php connect.php
@@ -620,7 +620,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.php`
 
@@ -644,7 +644,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ?>
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       php connect.php
@@ -654,7 +654,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 ### PowerShell {#powershell}
 
-Before connecting, install the current version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/). Select the *Command Line Tools* install only.
+Before connecting, install the current version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/). Select the *Command Line Tools* installation only.
 
 Connect to a database:
 
@@ -662,25 +662,25 @@ Connect to a database:
 
 - Connecting without SSL {#without-ssl}
 
-   ```powershell
-   & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-       host=c-<cluster_ID>.rw.{{ dns-zone }} `
-       port={{ port-mgp }} `
-       sslmode=disable `
-       dbname=postgres `
-       user=<username>"
-   ```
+  ```powershell
+  & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
+      host=c-<cluster_ID>.rw.{{ dns-zone }} `
+      port={{ port-mgp }} `
+      sslmode=disable `
+      dbname=postgres `
+      user=<username>"
+  ```
 
 - Connecting via SSL {#with-ssl}
 
-   ```powershell
-   & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-       host=c-<cluster_ID>.rw.{{ dns-zone }} `
-       port={{ port-mgp }} `
-       sslmode=verify-full `
-       dbname=postgres `
-       user=<username>"
-   ```
+  ```powershell
+  & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
+      host=c-<cluster_ID>.rw.{{ dns-zone }} `
+      port={{ port-mgp }} `
+      sslmode=verify-full `
+      dbname=postgres `
+      user=<username>"
+  ```
 
 {% endlist %}
 
@@ -705,7 +705,7 @@ pip3 install psycopg2-binary
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.py`
 
@@ -730,7 +730,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       python3 connect.py
@@ -738,7 +738,7 @@ pip3 install psycopg2-binary
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.py`
 
@@ -763,7 +763,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       python3 connect.py
@@ -783,7 +783,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.rb`
 
@@ -806,7 +806,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       ruby connect.rb
@@ -814,7 +814,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.rb`
 
@@ -837,7 +837,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       ruby connect.rb

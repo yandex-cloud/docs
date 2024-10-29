@@ -135,8 +135,8 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - API
 
-   1. Create a network named `usergate-network` using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../../vpc/api-ref/Network/create.md) method for the Network resource.
-   1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the REST API [create](../../vpc/api-ref/Subnet/create.md) method for the Subnet resource.
+   1. Create a network named `usergate-network` using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) call or the REST API [create](../../vpc/api-ref/Network/create.md) method for the Network resource.
+   1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the REST API [create](../../vpc/api-ref/Subnet/create.md) method for the Subnet resource.
 
 {% endlist %}
 
@@ -168,7 +168,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports the traffic will come to or from.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic transmission over any protocol.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: Rule will apply to the VMs from the current group or the selected security group.
 
          1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -330,7 +330,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - API
 
-   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
+   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
 {% endlist %}
 

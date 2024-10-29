@@ -1,6 +1,6 @@
 ---
-title: "Locking {{ TF }} states"
-description: "When using {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. This is what {{ TF }} state locking is used for."
+title: Locking {{ TF }} states
+description: When using {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. This is what {{ TF }} state locking is used for.
 ---
 
 # Locking {{ TF }} states using {{ ydb-full-name }}
@@ -35,7 +35,7 @@ The infrastructure support cost for {{ TF }} states includes:
 * Data storage fees (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
-The cost for supporting the infrastructure deployed through {{ TF }} in this sample scenario includes:
+The cost of support for the example infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -150,7 +150,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        endpoints = {
          s3       = "https://{{ s3-storage-host }}"
          dynamodb = "<Document_API_DB_endpoint>"
-
+       }
        bucket            = "<bucket_name>"
        region            = "{{ region-id }}"
        key               = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
@@ -161,11 +161,11 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        skip_credentials_validation = true
        skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
        skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
-       }
      }
+   }
 
-     provider "yandex" {
-        zone = "<default_availability_zone>"
+   provider "yandex" {
+     zone = "<default_availability_zone>"
    }
    ```
 

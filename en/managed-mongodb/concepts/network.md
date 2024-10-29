@@ -1,6 +1,6 @@
 ---
-title: "Network in {{ mmg-full-name }}"
-description: "In this tutorial, you will learn about the basic network interface settings for a {{ MG }} cluster."
+title: Networking in {{ mmg-full-name }}
+description: In this tutorial, you will learn about the basic network interface settings for a {{ MG }} cluster.
 ---
 
 # Networking in {{ mmg-name }}
@@ -14,12 +14,12 @@ When creating a cluster, you can:
 
 * Request public access to connect to the cluster from outside {{ yandex-cloud }}.
 
-You can create a cluster without specifying any subnets for the hosts if the availability zone selected for each host contains exactly one subnet of the cluster network.
+You do not need to specify subnets for the hosts if the availability zone of each host contains only one subnet of the cluster network.
 
 
 ## Host name and FQDN {#hostname}
 
-{{ mmg-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
+{{ mmg-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
 {% include [see-fdqn-host](../../_includes/mdb/mmg/fqdn-host.md) %}
 

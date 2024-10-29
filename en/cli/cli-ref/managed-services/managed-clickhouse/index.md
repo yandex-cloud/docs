@@ -37,6 +37,8 @@ Aliases:
 	- [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster clear-compression](cluster/clear-compression.md) — Clear compression settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster set-compression](cluster/set-compression.md) — Set compression settings for a ClickHouse cluster.
+	- [yc managed-clickhouse cluster clear-query-masking-rules](cluster/clear-query-masking-rules.md) — Clear query masking rules settings for a ClickHouse cluster.
+	- [yc managed-clickhouse cluster set-query-masking-rules](cluster/set-query-masking-rules.md) — Set query masking rules settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-external-dictionaries](cluster/list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-external-dictionary](cluster/add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-external-dictionary](cluster/remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.
@@ -119,4 +121,5 @@ Aliases:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

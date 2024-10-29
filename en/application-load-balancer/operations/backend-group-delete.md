@@ -1,6 +1,6 @@
 ---
-title: "How to delete a backend group"
-description: "Follow this guide to delete a backend group."
+title: How to delete a backend group
+description: Follow this guide to delete a backend group.
 ---
 
 # Deleting a backend group
@@ -97,6 +97,6 @@ To delete a [backend group](../concepts/backend-group.md):
 
 - API {#api}
 
-   Use the [delete](../api-ref/BackendGroup/delete.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Delete](../api-ref/grpc/backend_group_service.md#Delete) gRPC API call.
+   Use the [delete](../api-ref/BackendGroup/delete.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Delete](../api-ref/grpc/BackendGroup/delete.md) gRPC API call.
 
 {% endlist %}

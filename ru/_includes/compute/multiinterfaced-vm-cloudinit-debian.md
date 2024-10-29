@@ -1,6 +1,6 @@
 В секциях конфигурации `Primary network interface` и `Other network interfaces` по аналогии задайте настройки для нужного количества сетевых интерфейсов ВМ, создаваемых на ВМ. Нумерация интерфейсов начинается с нуля. В приведенном примере настройки задаются для трех интерфейсов. На одну ВМ можно добавить не более восьми сетевых интерфейсов.
 
-```
+```yaml
 #cloud-config
 
 datasource:
@@ -11,7 +11,7 @@ users:
   - name: <имя_пользователя>
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
-    ssh-authorized-keys:
+    ssh_authorized_keys:
       - <публичный_SSH-ключ>
 write_files:
   - path: "/etc/network/interfaces"

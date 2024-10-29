@@ -1,6 +1,6 @@
 ---
-title: "Creating a registry"
-description: "Follow this guide to create a registry."
+title: Creating a registry
+description: Follow this guide to create a registry.
 ---
 
 # Creating a registry
@@ -19,11 +19,7 @@ description: "Follow this guide to create a registry."
       * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
       * **{{ ui-key.yacloud.common.password }}** that you will use to access the registry. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
 
-         {% note info %}
-
-         Make sure to save your password, as you will need it for [authentication](../../concepts/authorization.md).
-
-         {% endnote %}
+         {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
       * (Optional) To assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
 
@@ -174,7 +170,7 @@ description: "Follow this guide to create a registry."
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
 
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -201,6 +197,6 @@ description: "Follow this guide to create a registry."
 
 - API {#api}
 
-   To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
+   To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/Registry/create.md) gRPC API call.
 
 {% endlist %}

@@ -1,10 +1,14 @@
 ---
-title: "Правила тарификации для {{ kms-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ kms-name }}."
+title: Правила тарификации для {{ kms-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ kms-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ kms-name }}
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 Стоимость использования {{ kms-name }} складывается из:
 
@@ -23,9 +27,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 Тарификация почасовая. Цена за месяц использования указывается для справки из расчета 720 часов в месяц. Значение округлено.

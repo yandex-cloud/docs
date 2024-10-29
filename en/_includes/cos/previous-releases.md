@@ -1,3 +1,7 @@
+### Version 3.0.0 {#version3.0.0}
+
+* Upgraded to Ubuntu 22.04.
+
 ### Version 2.3.0 {#version2.3.0}
 
 * Fixed the `gpu-standard-v3` platform issues.
@@ -10,7 +14,7 @@
 
 ### Version 2.1.1 {#version2.1.1}
 
-* Added a rotation of Docker container logs using the `local` logging driver.
+* Added rotation of Docker container logs using the `local` logging driver.
 * Disabled the `rpcbind` system service.
 * Fixed a network connection leak in the system when updating Docker Compose projects.
 
@@ -30,7 +34,7 @@
 
 * Enabled strict mode for the `net.ipv4.conf.all.rp_filter` kernel parameter.
 * Fixed the `logrotate` utility configuration.
-* Deleted the `daemon.json` Docker configuration file that unnecessarily disabled Docker container access to the internet.
+* Deleted the `daemon.json` Docker configuration file that incorrectly disabled Docker container access to the internet.
 
 ### Version 2.0.2 {#version2.0.2}
 
@@ -58,7 +62,7 @@
 
 ### Version 1.2.0 {#version1.2.0}
 
-* Added the option to use the OS Login service with the OS Login users automatically added to the `docker` group.
+* Added the option to use OS Login where OS Login users are automatically added to the `docker` group.
 * Improved updating Docker Compose projects (added the `--delete-orphans` flag to delete the old version of a project).
 
 ### Version 1.1.2 {#version1.1.2}
@@ -83,7 +87,7 @@ Fixes in automatic launch of Docker containers:
 ### Version 1.0.2 {#version1.0.2}
 
 Fix in automatic launch of Docker containers:
-* Added a detailed error message when using `docker login` for a domain with Docker Credential Helper configured.
+* Added a detailed error message when using `docker login` for a domain with a Docker credential helper configured.
 
 ### Version 1.0.1 {#version1.0.1}
 

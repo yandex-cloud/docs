@@ -1,6 +1,6 @@
 ---
-title: "How to create a repository in {{ container-registry-full-name }}"
-description: "Follow this guide to create a repository."
+title: How to create a repository in {{ container-registry-full-name }}
+description: Follow this guide to create a repository.
 ---
 
 # Creating a repository
@@ -57,6 +57,6 @@ To create a repository:
 
 - API {#api}
 
-   To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/repository_service.md#Upsert) gRPC API call.
+   To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/Repository/upsert.md) gRPC API call.
 
 {% endlist %}

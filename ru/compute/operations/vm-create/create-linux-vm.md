@@ -1,6 +1,6 @@
 ---
-title: "Как создать виртуальную машину Linux на базе публичного образа"
-description: "Следуя данной инструкции, вы сможете создать виртуальную машину с операционной системой Linux."
+title: Как создать виртуальную машину Linux на базе публичного образа
+description: Следуя данной инструкции, вы сможете создать виртуальную машину с операционной системой Linux.
 ---
 
 # Создать виртуальную машину из публичного образа Linux
@@ -9,7 +9,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  
+
   @[youtube](https://www.youtube.com/watch?v=PN3b26KXb78)
 
 
@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`.
+         Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -158,7 +158,7 @@ description: "Следуя данной инструкции, вы сможет�
 
        * `metadata` — в метаданных необходимо передать открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 
-           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в файле и передайте в блоке `metadata`.
+           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в файле и передайте в блоке `metadata`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
@@ -192,7 +192,8 @@ description: "Следуя данной инструкции, вы сможет�
        ```bash
        export IAM_TOKEN=CggaATEVAgA...
        export FAMILY=ubuntu-1804
-       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+       curl \
+         --header "Authorization: Bearer ${IAM_TOKEN}" \
          "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
        ```
 
@@ -202,8 +203,14 @@ description: "Следуя данной инструкции, вы сможет�
      ```bash
      export IAM_TOKEN=CggaATEVAgA...
      export FOLDER_ID=b1gvmob95yys********
-     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+     curl \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
+     ```
+
+     Результат:
+
+     ```
      {
        "subnets": [
         {
@@ -236,7 +243,7 @@ description: "Следуя данной инструкции, вы сможет�
          "cores": "2"
        },
        "metadata": {
-         "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+         "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
        },
        "bootDiskSpec": {
          "diskSpec": {
@@ -287,10 +294,11 @@ description: "Следуя данной инструкции, вы сможет�
 
      ```bash
      export IAM_TOKEN=CggaATEVAgA...
-     curl -X POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -d '@body.json' \
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --data '@body.json' \
        https://compute.{{ api-host }}/compute/v1/instances
      ```
 

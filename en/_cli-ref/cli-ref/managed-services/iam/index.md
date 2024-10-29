@@ -15,6 +15,7 @@ Syntax:
 #### Command Tree
 
 - [yc iam create-token](create-token.md) — Create IAM token and print to STDOUT
+- [yc iam revoke-token](revoke-token.md) — Revoke IAM token
 - [yc iam role](role/index.md) — Manage roles
 	- [yc iam role get](role/get.md) — Show information about the specified role
 	- [yc iam role list](role/list.md) — List roles
@@ -44,6 +45,7 @@ Syntax:
 - [yc iam api-key](api-key/index.md) — Manage service account API keys
 	- [yc iam api-key get](api-key/get.md) — Show information about the specified API key
 	- [yc iam api-key list](api-key/list.md) — List API keys for the specified service account
+	- [yc iam api-key list-scopes](api-key/list-scopes.md) — List of scopes
 	- [yc iam api-key create](api-key/create.md) — Create an API key for the specified service account
 	- [yc iam api-key delete](api-key/delete.md) — Delete the specified API key
 - [yc iam user-account](user-account/index.md) — Manage user accounts
@@ -52,9 +54,8 @@ Syntax:
 	- [yc iam service-control get](service-control/get.md) — Show information about state of specified service
 	- [yc iam service-control list](service-control/list.md) — List service states
 	- [yc iam service-control enable](service-control/enable.md) — Enable service access to cloud
-	- [yc iam service-control pause](service-control/pause.md) — Pause service access to cloud
-	- [yc iam service-control resume](service-control/resume.md) — Resume service access to cloud
 	- [yc iam service-control disable](service-control/disable.md) — Disable service access to cloud
+- [yc iam workload-identity](workload-identity/index.md) — Manage workload identity
 
 #### Global Flags
 
@@ -73,4 +74,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

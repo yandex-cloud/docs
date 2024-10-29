@@ -1,12 +1,12 @@
 ---
-title: "What objects can be transferred"
-description: "With {{ data-transfer-full-name }}, you can easily transfer table data, empty objects, and views."
+title: What objects can be transferred
+description: With {{ data-transfer-full-name }}, you can easily transfer table data, empty objects, and views.
 ---
 # What objects can be transferred
 
 The main objects transferred are tables and data schemas.
 
-In addition, certain types of endpoints support a transfer of [empty objects](#features-common-processing-of-empty-objects) or [views](#features-common-processing-of-views).
+In addition, certain types of endpoints support a transfer of [empty objects](#features-common-processing-of-empty-objects) or [views](#features-common-processing-of-views). There are also limits on [complex data types](#features-common-processing-complex-data-types).
 
 ## Processing empty objects {#features-common-processing-of-empty-objects}
 
@@ -38,5 +38,9 @@ In general, {{ data-transfer-full-name }} transfers `VIEW` objects (from databas
 * {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _between endpoints of different types_, such as from {{ PG }} to {{ CH }}, transfer `VIEW` objects as regular tables and not as regular views. This feature allows converting and exporting data to external databases and can be helpful when making regular transfers of the {{ dt-type-copy }} type.
 
 Some sources may impose additional restrictions on transfers of `VIEW` and similar objects. For more information about how to work with views from particular sources, see [{{ data-transfer-full-name }} specifics for sources and targets](work-with-endpoints.md).
+
+## Processing complex data types {#features-common-processing-complex-data-types}
+
+In transfers _between endpoints of different types_ (e.g., from {{ PG }} to {{ CH }}), it is not recommended to transfer data of complex types (e.g., arrays of numbers). {{ data-transfer-name }} does not support conversion of such data, because each DBMS has its own limitations and rules for data types. When using complex types, the transfer may not work correctly.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

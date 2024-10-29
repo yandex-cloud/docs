@@ -1,13 +1,13 @@
 ---
-title: "How to delete a bucket"
-description: "Follow this guide to delete a bucket."
+title: How to delete a bucket
+description: Follow this guide to delete a bucket.
 ---
 
 # Deleting a bucket
 
 {% note warning %}
 
-You can only delete empty buckets. In the management console, information about the number of objects in a bucket is updated with a few minutes' delay.
+You can delete only an empty bucket. In the management console, information about the number of objects in a bucket is updated with a few minutes' delay.
 
 {% endnote %}
 
@@ -17,26 +17,26 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a bucket.
-   1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
-   1. To delete a single bucket, click ![image](../../../_assets/console-icons/ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
+  1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
+  1. To delete a single bucket, click ![image](../../../_assets/console-icons/ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
-   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
+  {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to delete a bucket:
+  1. View a description of the CLI command to delete a bucket:
 
       ```bash
       yc storage bucket delete --help
       ```
 
-   1. Get a list of buckets in the default folder:
+  1. Get a list of buckets in the default folder:
 
       ```bash
       yc storage bucket list
@@ -52,149 +52,151 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Use the `NAME` column to save the name of the bucket you are going to delete.
-   1. Delete the bucket:
+  1. Use the `NAME` column to save the name of the bucket you are going to delete.
+  1. Delete the bucket:
 
       ```bash
       yc storage bucket delete --name <bucket_name>
       ```
 
-      Where `--name` is the name of the bucket to delete.
+      Where `--name`: Name of the bucket to delete.
 
       {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
 - AWS CLI {#aws-cli}
 
-   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   In the terminal, run the `aws s3api delete-bucket` command:
+  In the terminal, run the `aws s3api delete-bucket` command:
 
-   ```bash
-   aws s3api delete-bucket \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --bucket <bucket_name>
-   ```
+  ```bash
+  aws s3api delete-bucket \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --bucket <bucket_name>
+  ```
 
-   Where:
-   * `--bucket`: Name of the bucket to be deleted.
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+  Where:
+  * `--bucket`: Name of the bucket to delete.
+  * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-   You can also use the `aws s3 rb` command:
+  You can also use the `aws s3 rb` command:
 
-   ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
-     s3 rb s3://<bucket_name>
-   ```
+  ```bash
+  aws --endpoint-url=https://{{ s3-storage-host }} \
+    s3 rb s3://<bucket_name>
+  ```
 
-   To simultaneously delete multiple buckets, run this command:
+  To simultaneously delete multiple buckets, run this command:
 
-   {% include [sa-acl-bucket-list-note.md](../../../_includes/storage/sa-acl-bucket-list-note.md) %}
+  {% include [sa-acl-bucket-list-note.md](../../../_includes/storage/sa-acl-bucket-list-note.md) %}
 
-   * **Bash:**
+  * **Bash**:
 
-      ```bash
-      aws s3api list-buckets \
-        --endpoint-url=https://{{ s3-storage-host }} \
-        --query '<query>' \
-        --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
-      ```
+    ```bash
+    aws s3api list-buckets \
+      --endpoint-url=https://{{ s3-storage-host }} \
+      --query '<query>' \
+      --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
+    ```
 
-      Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
-      Sample command for deleting all buckets whose names start with `samplebucket`:
+    Example of the command for deleting all buckets whose names start with `samplebucket`:
 
-      ```bash
-      aws s3api list-buckets \
-        --endpoint-url=https://{{ s3-storage-host }} \
-        --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' \
-        --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
-      ```
+    ```bash
+    aws s3api list-buckets \
+      --endpoint-url=https://{{ s3-storage-host }} \
+      --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' \
+      --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
+    ```
 
-   * **PowerShell:**
+  * **PowerShell**:
 
-      ```powershell
-      Foreach($x in (aws s3api list-buckets `
-        --endpoint-url=https://{{ s3-storage-host }} `
-        --query '<query>' `
-        --output text)) `
-        {aws s3api delete-bucket `
-        --endpoint-url=https://{{ s3-storage-host }} `
-        --bucket $x}
-      ```
+    ```powershell
+    Foreach($x in (aws s3api list-buckets `
+      --endpoint-url=https://{{ s3-storage-host }} `
+      --query '<query>' `
+      --output text)) `
+      {aws s3api delete-bucket `
+      --endpoint-url=https://{{ s3-storage-host }} `
+      --bucket $x}
+    ```
 
-      Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
-      Sample command for deleting all buckets whose names start with `samplebucket`:
+    Example of the command for deleting all buckets whose names start with `samplebucket`:
 
-      ```powershell
-      Foreach($x in (aws s3api list-buckets `
-        --endpoint-url=https://{{ s3-storage-host }} `
-        --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' `
-        --output text)) `
-        {aws s3api delete-bucket `
-        --endpoint-url=https://{{ s3-storage-host }} `
-        --bucket $x}
-      ```
+    ```powershell
+    Foreach($x in (aws s3api list-buckets `
+      --endpoint-url=https://{{ s3-storage-host }} `
+      --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' `
+      --output text)) `
+      {aws s3api delete-bucket `
+      --endpoint-url=https://{{ s3-storage-host }} `
+      --bucket $x}
+    ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To delete a bucket created with {{ TF }}:
-   1. Open the {{ TF }} configuration file and delete the fragment describing the bucket.
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      {% cut "Example bucket description in a {{ TF }} configuration" %}
 
-      ```hcl
-      ...
-      resource "yandex_storage_bucket" "test" {
-        access_key = "YCAJEX9Aw2ge********-w-lJ"
-        secret_key = "YCONxG7rSdz********_NRy5VbKzKlqZ********"
-        bucket     = "<bucket_name>"
-      }
-      ...
-      ```
+  To delete a bucket created with {{ TF }}:
+  1. Open the {{ TF }} configuration file and delete the fragment describing the bucket.
 
-      {% endcut %}
+     {% cut "Example bucket description in a {{ TF }} configuration" %}
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Check the configuration using this command:
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "test" {
+       access_key = "YCAJEX9Aw2ge********-w-lJ"
+       secret_key = "YCONxG7rSdz********_NRy5VbKzKlqZ********"
+       bucket     = "<bucket_name>"
+     }
+     ...
+     ```
 
-      ```bash
-      terraform validate
-      ```
+     {% endcut %}
 
-      If the configuration is correct, you will get this message:
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Check the configuration using this command:
 
-      ```text
-      Success! The configuration is valid.
-      ```
+     ```bash
+     terraform validate
+     ```
 
-   1. Run this command:
+     If the configuration is correct, you will get this message:
 
-      ```bash
-      terraform plan
-      ```
+     ```text
+     Success! The configuration is valid.
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Run this command:
 
-      ```bash
-      terraform apply
-      ```
+     ```bash
+     terraform plan
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the configuration changes:
 
-      You can check the changes in the [management console]({{ link-console-main }}).
+     ```bash
+     terraform apply
+     ```
+
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+
+     You can check the changes in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
+  To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/Bucket/delete.md) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
 
-   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
+  {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
 {% endlist %}

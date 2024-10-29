@@ -2,17 +2,17 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к базам данных {{ PG }}, {{ MY }} и {{ CH }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к базам данных {{ PG }}, {{ MY }}, {{ CH }} и {{ RD }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 
 1. Чтобы включить интеграцию сервиса с кластерами управляемых баз данных, обратитесь в [техническую поддержку]({{ link-console-support }}). Когда доступ к {{ connection-manager-full-name }} будет подтвержден, подключения для кластеров управляемых баз данных начнут создаваться автоматически.
-1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md) или [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md).
+1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md), [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md) или [{{ mch-short-name }}](../../managed-clickhouse/operations/cluster-create.md).
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно проверить подключение.
 1. Выберите сервис **{{ metadata-hub-full-name }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
 
-В списке подключений вы можете просмотреть подключения, созданные для ваших кластеров, и [настроить доступ](../operations/connection-access.md) к ним. В списке [зависимостей](../operations/view-connection.md#dependencies) подключения вы сможете просмотреть, для каких кластеров управляемых баз данных используется это подключение. 
+В списке подключений вы можете просмотреть подключения, созданные для ваших кластеров, и [настроить доступ](../operations/connection-access.md) к ним. В списке [зависимостей](../operations/view-connection.md#dependencies) подключения вы сможете просмотреть, для каких кластеров управляемых баз данных используется это подключение.
 
 ## Управление подключениями к базам данных {#database-connections}
 

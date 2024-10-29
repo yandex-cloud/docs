@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for {{ ml-platform-full-name }}"
-description: "Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services."
+title: Tutorials for {{ ml-platform-full-name }}
+description: 'Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services.'
 ---
 
 # {{ ml-platform-full-name }} tutorials
@@ -25,8 +25,10 @@ description: "Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](node-from-model.md)
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
+* [{#T}](grpc-node.md)
 * [{#T}](yagpt-tuning.md)
 * [{#T}](yagpt-tuning-classifier.md)
+* [{#T}](stable-diffusion.md)
 
 ## Analytics {#analytics}
 

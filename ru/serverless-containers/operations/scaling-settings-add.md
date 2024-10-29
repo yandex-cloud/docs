@@ -27,7 +27,7 @@
 
     Чтобы добавить настройки масштабирования для контейнера, выполните команду:
 
-    ```
+    ```bash
     yc serverless container revision deploy \
 	  --container-id <идентификатор_контейнера> \
 	  --image <URL_Docker-образа> \
@@ -49,7 +49,7 @@
 
     Результат:
 
-    ```
+    ```text
     id: bbajn5q2d74c********
 	container_id: bba3fva6ka5g********
 	created_at: "2021-07-09T15:04:55.135Z"
@@ -68,7 +68,7 @@
 
 - API {#api}
 
-  Чтобы добавить настройки масштабирования контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
+  Чтобы добавить настройки масштабирования контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ container-registry-full-name }}"
-description: "{{ container-registry-full-name }} has limits and quotas for the maximum number of registries and the number of simultaneous image scans running in a single cloud. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ container-registry-full-name }}
+description: '{{ container-registry-full-name }} has limits and quotas for the maximum number of registries and the number of simultaneous image scans running in a single cloud. For more information about the service restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ container-registry-name }}

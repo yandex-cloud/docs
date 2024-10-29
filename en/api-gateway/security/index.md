@@ -1,13 +1,13 @@
 ---
-title: "Access management in {{ api-gw-full-name }}"
-description: "Access management in {{ api-gw-full-name }}, an API gateway service with OpenAPI 3.0 support. To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud)."
+title: Access management in {{ api-gw-full-name }}
+description: Access management in {{ api-gw-full-name }}, an API gateway service with OpenAPI 3.0 support. To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud).
 ---
 
 # Access management in {{ api-gw-name }}
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ api-gw-name }} resources (API gateways), assign the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md) the required roles from the list below. Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
+To allow access to {{ api-gw-name }} resources (API gateways), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -37,7 +37,7 @@ You can assign a role for an [API gateway](../concepts/index.md) via the YC CLI 
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ api-gw-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ api-gw-name }}.
 
 ### Service roles {#service-roles}
 
@@ -68,3 +68,5 @@ The list below shows all roles that are considered when verifying access rights 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

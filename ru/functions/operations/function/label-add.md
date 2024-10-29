@@ -1,11 +1,21 @@
 ---
-title: "Добавить метку функции"
-description: "Следуя данной инструкции, вы сможете добавить метку функции."
+title: Добавить метку функции
+description: Следуя данной инструкции, вы сможете добавить метку функции.
 ---
 
 # Добавить метку функции
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+    
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Выберите функцию.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**. 
+    1. Введите ключ и значение и нажмите **Enter**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
@@ -105,6 +115,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-    Чтобы добавить метку функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
+    Чтобы добавить метку функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md).
 
 {% endlist %}

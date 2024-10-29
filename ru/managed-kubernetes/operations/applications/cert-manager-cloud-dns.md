@@ -6,6 +6,12 @@
 * [DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01). Для прохождения проверки используется сервис [{{ dns-full-name }}](../../../dns/). Вместе с cert-manager устанавливается плагин {{ dns-full-name }} ACME webhook, который обеспечивает интеграцию с сервисом.
 * [HTTP-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-http-01). Для прохождения проверки используется Ingress-контроллер, который нужно установить в кластер.
 
+{% note info %}
+
+Приложение cert-manager c плагином {{ dns-full-name }} ACME webhook поддерживает работу с [Wildcard-сертификатами](../../../glossary/ssl-certificate.md#types).
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -47,7 +53,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с cert-manager и плагином {{ dns-full-name }} выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.tag }} \
      --untar && \
@@ -66,6 +71,9 @@
    * `https://acme-staging-v02.api.letsencrypt.org/directory` — тестовый URL.
 
    Эта команда также создаст новое пространство имен, необходимое для работы cert-manager.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 1. Убедитесь, что [под](../../concepts/index.md#pod) cert-manager перешел в состояние `Running`:
 
    ```bash

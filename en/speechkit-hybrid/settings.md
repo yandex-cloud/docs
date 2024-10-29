@@ -1,6 +1,6 @@
 ---
-title: "{{ sk-hybrid-name }} settings"
-description: "In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components."
+title: '{{ sk-hybrid-name }} settings'
+description: In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components.
 ---
 
 # {{ sk-hybrid-name }} service settings
@@ -28,6 +28,10 @@ If you run containers using the `docker compose` command, add or edit service sp
 | STT/TTS server | `SERVICE_PORT` | Port for making requests to speech/text processing services |
 | STT server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` setting in `<FQDN_License_server>:<port>` format |
 | TTS server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` setting in `<FQDN_License_server>:<port>` format |
+| {{ PG }} server | `POSTGRES_JDBC_URL` | Server URL in the `jdbc:postgresql://host:<port>/database?properties` format |
+| {{ PG }} server | `POSTGRES_USER` | Server user name |
+| {{ PG }} server | `POSTGRES_PASSWORD` | Password to access the server |
+| Billing server | `STATIC_API_KEY` | [API key](../iam/concepts/authorization/api-key.md) for authentication on the server |
 
 ## Reserved ports {#reserved-ports}
 
@@ -47,7 +51,7 @@ The example assumes that the License server is running on host `172.10.19.12` an
 docker run -it \
    --env LICENSE_SERVICE_ENDPOINTS=172.10.19.12:8083 \
    --env SERVICE_PORT=17019 \
-   cr.yandex/<registry_ID>/stt/cpu_x86_64/stt_server:<STT_application_version>
+   {{ registry }}/<registry_ID>/stt/cpu_x86_64/stt_server:<STT_application_version>
 ```
 
 Where:

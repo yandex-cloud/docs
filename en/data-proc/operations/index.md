@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ dataproc-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ dataproc-name }}."
+title: Step-by-step guides for {{ dataproc-full-name }}
+description: This page provides a list of step-by-step guides for {{ dataproc-name }}.
 ---
 
 # Step-by-step guides for {{ dataproc-name }}
@@ -14,7 +14,7 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md)
 * [Deleting a cluster](cluster-delete.md)
 
-## Subclusters {{ dataproc-name }}
+## {{ dataproc-name }} subclusters
 
 * [Managing subclusters](subclusters.md)
 * [{#T}](subcluster-update.md)
@@ -23,6 +23,7 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 
 * [{#T}](connect-interfaces.md)
 * [{#T}](sqoop-usage.md)
+* [Configuring {{ IBRG }}](./apache-iceberg.md)
 
 ### Delta Lake
 
@@ -38,13 +39,6 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 * [{#T}](jobs-pyspark.md)
 * [{#T}](jobs-hive.md)
 * [{#T}](jobs-mapreduce.md)
-
-## {{ metastore-full-name }} clusters
-
-* [{#T}](./metastore/cluster-create.md)
-* [{#T}](./metastore/dataproc-connect.md)
-* [{#T}](./metastore/export-and-import.md)
-* [{#T}](./metastore/cluster-delete.md)
 
 ## Logs and monitoring
 

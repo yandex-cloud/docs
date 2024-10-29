@@ -1,6 +1,6 @@
 ---
-title: "Creating a stream in the AWS CLI"
-description: "This guide describes how you can create a stream in the AWS CLI."
+title: Creating a stream in the AWS CLI
+description: This guide describes how you can create a stream in the AWS CLI.
 ---
 
 # Creating a stream in the AWS CLI

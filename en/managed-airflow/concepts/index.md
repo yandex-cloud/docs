@@ -1,21 +1,17 @@
 ---
-title: "Resource relationships in {{ maf-full-name }}"
-description: "{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented workflows. {{ maf-full-name }} helps you deploy and maintain {{ AF }} server clusters in the {{ yandex-cloud }} infrastructure."
+title: Resource relationships in {{ maf-full-name }}
+description: '{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented workflows. {{ maf-full-name }} helps you deploy and maintain {{ AF }} server clusters in the {{ yandex-cloud }} infrastructure.'
 ---
 
 # Resource relationships in {{ maf-name }}
 
 {{ maf-name }} helps you deploy and maintain clusters of [{{ AF }}](https://airflow.apache.org/) servers in the {{ yandex-cloud }} infrastructure.
 
-
-The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-
 ## About {{ AF }} {#about-the-service}
 
 {{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, e.g., [data processing in {{ SPRK }}](../tutorials/data-proc-automation.md).
 
-{{ AF }} uses the _Workflows as code_ approach. It implies that each workflow is implemented using a Python script. Each file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
+{{ AF }} uses the _Workflows as code_ approach. It implies that each workflow is implemented using a Python 3.8 script. A file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
 
 {{ AF }} is not used for streaming and continuous data processing. If such processing is required, you can develop a solution based on [{{ mkf-full-name }}](../../managed-kafka/index.yaml).
 
@@ -23,7 +19,7 @@ For more information, see the [{{ AF }} documentation](https://airflow.apache.or
 
 ## {{ maf-name }} architecture {#architecture}
 
-The {{ maf-name }} architecture is as follows:
+The {{ maf-name }} architecture is presented on the diagram:
 
 ![architecture](../../_assets/managed-airflow/architecture.svg)
 
@@ -35,15 +31,15 @@ To ensure isolated data storage, the service limits the use of the {{ PG }} clus
 * {{ AF }} clusters can work only with tables created by {{ AF }}. You cannot create and modify schemas, tables, functions, procedures, and triggers yourself.
 * Read and write speed, as well as the available database storage space, are limited.
 
-   {% note warning %}
+    {% note warning %}
 
-   Any malicious attempt to bypass these restrictions will result in your cluster being locked under Clause 7 of the [Acceptable Use Policy]({{ link-cloud-aup }}).
+    Any malicious attempt to bypass these restrictions will result in your cluster being locked under Clause 7 of the [Acceptable Use Policy]({{ link-cloud-aup }}).
 
-   {% endnote %}
+    {% endnote %}
 
 ## {{ AF }} cluster {#cluster}
 
-The main entity operated by {{ maf-name }} is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
+The main entity {{ maf-name }} operates is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
 
 A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources, e.g., a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 

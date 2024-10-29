@@ -38,7 +38,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
@@ -56,7 +56,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: e2l46k8conff********
       folder_id: b1g7gvsi89m3********
       created_at: "2021-01-14T09:36:46Z"
@@ -72,7 +72,7 @@
 
 - API {#api}
 
-  Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update) и передайте в запросе:
+  Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/Address/update.md) и передайте в запросе:
 
   * Идентификатор адреса, который нужно сделать статическим, в параметре `addressId`.
 

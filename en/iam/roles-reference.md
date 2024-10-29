@@ -1,10 +1,9 @@
 ---
-title: "{{ yandex-cloud }} role reference"
-description: "The article provides a full reference and description of roles for {{ yandex-cloud }} services."
+title: '{{ yandex-cloud }} role reference'
+description: The article provides a full reference and description of roles for {{ yandex-cloud }} services.
 ---
 
 # {{ yandex-cloud }} role reference
-
 
 ## Primitive roles {#primitive-roles}
 
@@ -12,24 +11,14 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
 
-#### {{ roles-auditor }} {#auditor}
-
-{% include [auditor](../_roles/primitive-roles/auditor.md) %}
-
-#### {{ roles-viewer }} {#viewer}
-
-{% include [viewer](../_roles/primitive-roles/viewer.md) %}
-
-#### {{ roles-editor }} {#editor}
-
-{% include [editor](../_roles/primitive-roles/editor.md) %}
-
-#### {{ roles-admin }} {#admin}
-
-{% include [admin](../_roles/primitive-roles/admin.md) %}
+{% include [roles-primitive](../_includes/roles-primitive.md) %}
 
 
 ## Service roles {#auxiliary-roles}
+
+#### quota-manager.viewer {#quota-manager-viewer}
+
+{% include [quota-manager.viewer](../_roles/quota-manager/viewer.md) %}
 
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
@@ -230,6 +219,23 @@ For more information, see [{#T}](../billing/security/index.md).
 For more information, see [{#T}](../cdn/security/index.md).
 
 
+## {{ cloud-desktop-full-name }} {#desktop-roles}
+
+#### vdi.viewer {#vdi-viewer}
+
+{% include [vdi.viewer](../_roles/vdi/viewer.md) %}
+
+#### vdi.editor {#vdi-editor}
+
+{% include [vdi.editor](../_roles/vdi/editor.md) %}
+
+#### vdi.admin {#vdi-admin}
+
+{% include [vdi.admin](../_roles/vdi/admin.md) %}
+
+For more information, see [{#T}](../cloud-desktop/security/index.md).
+
+
 ## {{ dns-full-name }} {#dns-roles}
 
 #### dns.auditor {#dns-auditor}
@@ -319,9 +325,52 @@ For more information, see [{#T}](../logging/security/index.md).
 
 ## {{ marketplace-full-name }} {#marketplace-roles}
 
+### Partner roles {#marketplace-partner-roles}
+
 #### marketplace.meteringAgent {#marketplace-meteringagent}
 
 {% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
+#### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
+
+{% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.product.creator {#marketplace-product-creator}
+
+{% include [marketplace.product.creator](../_roles/marketplace/product/creator.md) %}
+
+#### marketplace.product.admin {#marketplace-product-admin}
+
+{% include [marketplace.product.admin](../_roles/marketplace/product/admin.md) %}
+
+#### marketplace.publishers.reportViewer {#marketplace-publishers-reportViewer}
+
+{% include [marketplace.publishers.reportViewer](../_roles/marketplace/publishers/reportViewer.md) %}
+
+#### marketplace.publishers.viewer {#marketplace-publishers-viewer}
+
+{% include [marketplace.publishers.viewer](../_roles/marketplace/publishers/viewer.md) %}
+
+#### marketplace.publishers.editor {#marketplace-publishers-editor}
+
+{% include [marketplace.publishers.editor](../_roles/marketplace/publishers/editor.md) %}
+
+#### marketplace.publishers.admin {#marketplace-publishers-admin}
+
+{% include [marketplace.publishers.admin](../_roles/marketplace/publishers/admin.md) %}
+
+#### marketplace.publishers.owner {#marketplace-publishers-owner}
+
+{% include [marketplace.publishers.owner](../_roles/marketplace/publishers/owner.md) %}
+
+#### marketplace.publishers.member {#marketplace-publishers-member}
+
+{% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
+
+For more information, see [{#T}](../marketplace/security/partners.md).
+
+
+### User roles {#marketplace-user-roles}
 
 #### license-manager.auditor {#license-manager-auditor}
 
@@ -359,6 +408,10 @@ For more information, see [{#T}](../marketplace/security/index.md).
 #### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
 {% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
+
+{% include [organization-manager.federations.userAdmin](../_roles/organization-manager/federations/userAdmin.md) %}
 
 #### organization-manager.federations.admin {#organization-manager-federations-admin}
 
@@ -523,6 +576,38 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 
 ## {{ datalens-full-name }} {#datalens-roles}
+
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
+
+{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
+
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
+
+{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
+
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
+
+{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
+
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
+
+{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
+
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
+
+{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
+
+#### datalens.collections.viewer {#datalens-collections-viewer}
+
+{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.editor {#datalens-collections-editor}
+
+{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
+
+#### datalens.collections.admin {#datalens-collections-admin}
+
+{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
 
 #### datalens.visitor {#datalens-visitor}
 
@@ -728,6 +813,7 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 #### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
 
 {% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
 
 #### iam.auditor {#iam-auditor}
 
@@ -1291,6 +1377,10 @@ For more information, see [{#T}](../storage/security/index.md).
 
 ## {{ yq-full-name }} {#query-roles}
 
+#### yq.auditor {#query-auditor}
+
+{% include [query.auditor](../_roles/yq/auditor.md) %}
+
 #### yq.viewer {#query-viewer}
 
 {% include [query.viewer](../_roles/yq/viewer.md) %}
@@ -1345,7 +1435,9 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
 
+
 For more information, see [{#T}](../search-api/security/index.md).
+
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -1558,6 +1650,14 @@ For more information, see [{#T}](../vision/security/index.md).
 
 ## {{ websql-full-name }} {#websql-roles}
 
+#### websql.executedQueries.auditor {#websql-executedQueries-auditor}
+
+{% include [websql.executedQueries.auditor](../_roles/websql/executedQueries/auditor.md) %}
+
+#### websql.savedQueries.auditor {#websql-savedQueries-auditor}
+
+{% include [websql.savedQueries.auditor](../_roles/websql/savedQueries/auditor.md) %}
+
 #### websql.executedQueries.viewer {#websql-executedQueries-viewer}
 
 {% include [websql.executedQueries.viewer](../_roles/websql/executedQueries/viewer.md) %}
@@ -1582,6 +1682,10 @@ For more information, see [{#T}](../vision/security/index.md).
 
 {% include [websql.savedQueries.admin](../_roles/websql/savedQueries/admin.md) %}
 
+#### websql.auditor {#websql-auditor}
+
+{% include [websql.auditor](../_roles/websql/auditor.md) %}
+
 #### websql.viewer {#websql-viewer}
 
 {% include [websql.viewer](../_roles/websql/viewer.md) %}
@@ -1598,6 +1702,7 @@ For more information, see [{#T}](../vision/security/index.md).
 
 {% include [websql.admin](../_roles/websql/admin.md) %}
 
+For more information, see [{#T}](../websql/security/index.md).
 
 
 ## {{ wiki-full-name }} {#wiki-roles}

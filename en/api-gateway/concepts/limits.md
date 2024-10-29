@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ api-gw-full-name }}"
-description: "{{ api-gw-name }} has limits and quotas for the number of API gateways per cloud and the number of concurrent requests to all API gateways in each availability zone. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ api-gw-full-name }}
+description: '{{ api-gw-name }} has limits and quotas for the number of API gateways per cloud and the number of concurrent requests to all API gateways in each availability zone. For more information about the service restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ api-gw-name }}
@@ -11,4 +11,4 @@ description: "{{ api-gw-name }} has limits and quotas for the number of API gate
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
-{% include [functions-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}

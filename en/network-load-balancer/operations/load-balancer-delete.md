@@ -1,6 +1,6 @@
 ---
-title: "Deleting a network load balancer"
-description: "Follow this guide to delete a network load balancer."
+title: Deleting a network load balancer
+description: Follow this guide to delete a network load balancer.
 ---
 
 # Deleting a network load balancer
@@ -78,7 +78,7 @@ description: "Follow this guide to delete a network load balancer."
 
 - API {#api}
 
-   To delete a network load balancer, use the [delete](../api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../api-ref/grpc/network_load_balancer_service.md#Delete) gRPC API call.
+   To delete a network load balancer, use the [delete](../api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../api-ref/grpc/NetworkLoadBalancer/delete.md) gRPC API call.
 
 {% endlist %}
 

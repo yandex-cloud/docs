@@ -1,6 +1,6 @@
 ---
-title: "Создание API-шлюза"
-description: "Следуя данной инструкции, вы сможете создать API-шлюз."
+title: Создание API-шлюза
+description: Следуя данной инструкции, вы сможете создать API-шлюз.
 ---
 
 # Создание API-шлюза
@@ -49,7 +49,7 @@ paths:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать [API-шлюз](../concepts/index.md).
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать [API-шлюз](../concepts/index.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите название API-шлюза.
@@ -92,7 +92,7 @@ paths:
 
 - API {#api}
 
-  Чтобы создать [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create).
+  Чтобы создать [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/ApiGateway/create.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

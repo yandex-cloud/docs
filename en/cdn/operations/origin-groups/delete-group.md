@@ -1,6 +1,6 @@
 ---
-title: "How to delete an origin group in {{ cdn-full-name }}"
-description: "In this tutorial, you will learn how to delete a {{ cdn-name }} origin group."
+title: How to delete an origin group in {{ cdn-full-name }}
+description: In this tutorial, you will learn how to delete a {{ cdn-name }} origin group.
 ---
 
 # Deleting an origin group
@@ -74,7 +74,7 @@ To delete an [origin group](../../concepts/origins.md):
 
 - API {#api}
 
-   Use the [delete](../../api-ref/OriginGroup/delete.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete) gRPC API call.
+   Use the [delete](../../api-ref/OriginGroup/delete.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Delete](../../api-ref/grpc/OriginGroup/delete.md) gRPC API call.
 
 {% endlist %}
 

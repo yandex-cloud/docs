@@ -2,7 +2,7 @@
 noIndex: true
 ---
 
-# Workaround для загрузки образов с DockerHub
+# Workaround для загрузки образов с Docker Hub
 
 ## Описание проблемы {#issue-description}
 
@@ -30,16 +30,15 @@ See 'docker run --help'.
 - Добавить зеркала в конфигурацию Docker
 
 
-    Вы можете добавить в конфигурацию Docker альтернативные реестры docker-образов.
-    Для этого откройте файл с конфигурацией  Docker   укажите в нем список URL-адресов зеркал внутри блока
-    `registry-mirrors` через запятую, например:
+    Вы можете добавить в конфигурацию Docker альтернативные реестры Docker-образов.
+    Для этого откройте файл с конфигурацией Docker и укажите в нем список URL-адресов (зеркал внутри блока `registry-mirrors`) через запятую, например:
 
     ```
     "registry-mirrors": ["https://mirror.gcr.io", "https://registry.docker-cn.com", "https://c.163.com/"] 
 
     ```
 
-    Путь к конфигурационному файлу Docker зависит от используемой на хосте операционной системы (и наличия прав суперпользователя):
+    Путь к конфигурационному файлу Docker зависит от используемой на хосте операционной системы и наличия прав суперпользователя:
 
     #|
     ||
@@ -80,19 +79,17 @@ See 'docker run --help'.
     ||
     |#
 
-    {% note alert "Внимание" %}
-    
-    Использование сторонних зеркал может быть сопряжено с рисками атак на цепочки поставок. \
-    Владелец зеркала может контролировать содержимое популярных образов и подменять образы на другие по своему усмотрению. 
+- {{ GL }} Dependency proxy 
 
-    Yandex Cloud не несет ответственность за содержимое внешних зеркал.
+    {% note alert %}
+    
+    Использование сторонних зеркал может быть сопряжено с рисками атак на цепочки поставок. Владелец зеркала может контролировать содержимое популярных образов и подменять образы на другие по своему усмотрению. 
+
+    {{ yandex-cloud }} не несет ответственность за содержимое внешних зеркал.
 
     {% endnote %}
-  
-- Gitlab Dependency proxy 
 
-    Вы также можете воспользоваться Dependency proxy, предоставляемым сервисом GitLab.
-    Для этого понадобится сначала создать новую [группу](https://docs.gitlab.com/ee/user/group/), затем, внутри это группы выпустить новый ключ API с правами `read_registry`.
+    Вы также можете воспользоваться Dependency proxy, предоставляемым сервисом {{ GL }}. Для этого понадобится сначала создать новую [группу](https://docs.gitlab.com/ee/user/group/), затем, внутри это группы выпустить новый ключ API с правами `read_registry`.
 
     Чтобы после этого скачать нужный вам образ утилитой Docker, воспользуйтесь командой следующего вида:
 
@@ -100,29 +97,35 @@ See 'docker run --help'.
     docker pull gitlab.com/<GROUP_NAME>/dependency_proxy/containers/hello-world:latest
     ```
 
-- Публичное зеркало Container Registry
+- Публичное зеркало {{ container-registry-name }}
 
-    Вы можете скачать большую часть популярных Docker-образов, используя наше зеркало, работающее внутри Yandex Cloud.
+    Вы можете скачать большую часть популярных Docker-образов, используя наше зеркало, работающее внутри {{ yandex-cloud }}.
 
     Для этого используйте команду следующего вида:
 
     ```
-    docker pull cr.yandex/mirror/hello-world
+    docker pull {{ registry }}/mirror/hello-world
     ```
 
-- Приватный реестр Container Registry
+- Приватный реестр {{ container-registry-name }}
 
     1. Используйте команду из способа выше для скачивания Docker-образа на вашу локальную машину.
-    2. Загрузите полученный Docker-образ в  в приватный реестр Yandex Container Registry [по этой инструкции](https://yandex.cloud/ru/docs/container-registry/operations/docker-image/docker-image-push).
-
-    Не забудьте заменить в вашей CI/CD-cистеме ссылки для скачивания docker-образов на новые.
+    1. Загрузите полученный Docker-образ в приватный реестр {{ container-registry-full-name }} [по этой инструкции](../../../container-registry/operations/docker-image/docker-image-push.md).
+    Не забудьте заменить в вашей CI/CD-cистеме ссылки для скачивания Docker-образов на новые.
 
 {% endlist %}
 
-## DaemonSet для Managed Service for Kubernetes
+{% note warning %}
 
-Наша команда поддержки подготовила манифест объекта DaemonSet для кластеров Kubernetes.
-Этот DaemonSet создает внутри кластера привилегированный под, который обновляет конфигурацию `containerd` таким образом, чтобы запросы к реестру `hub.docker.io` перенаправлялись на `cr.yandex/mirror`.
+В ближайшее время будет доступен DaemonSet для {{ managed-k8s-name }}, перенаправляющий запросы в реестр `dockerhub.com` на другое зеркало.
+
+О готовности DaemonSet мы сообщим в этом руководстве дополнительно.
+
+{% endnote %}
+
+## DaemonSet для {{ managed-k8s-name }}
+
+Наша команда поддержки подготовила манифест объекта DaemonSet для кластеров {{ k8s }}. Этот DaemonSet создает внутри кластера привилегированный под, который обновляет конфигурацию `containerd` таким образом, чтобы запросы к реестру `hub.docker.io` перенаправлялись на `cr.yandex/mirror`.
 
 Текст манифеста следует скопировать в файл с расширением YAML и применить к кластеру с помощью команды `kubectl apply -f filename.yaml`:
 
@@ -160,14 +163,14 @@ data:
       [plugins."io.containerd.grpc.v1.cri"]
           stream_server_address = "127.0.0.1"
           enable_tls_streaming = false
-          sandbox_image = "cr.yandex/crpsjg1coh47p81vh2lc/pause:3.9"
+          sandbox_image = "{{ registry }}/crpsjg1coh47p81vh2lc/pause:3.9"
           [plugins."io.containerd.grpc.v1.cri".containerd]
               snapshotter = "overlayfs"
 
       [plugins."io.containerd.grpc.v1.cri".registry]
         [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
           [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-            endpoint = ["https://cr.yandex/v2/mirror/io/docker","https://mirror.gcr.io"]
+            endpoint = ["https://{{ registry }}/v2/mirror/io/docker","https://mirror.gcr.io"]
 kind: ConfigMap
 metadata:
   name: configtoml
@@ -200,7 +203,7 @@ spec:
       hostIPC: true
       containers:
       - name: config-updater
-        image: cr.yandex/yc/mk8s-openssl:stable
+        image: {{ registry }}/yc/mk8s-openssl:stable
         command:
           - sh
           - -c

@@ -1,0 +1,1 @@
+If the target endpoint cleanup policy is set to `Do not cleanup` and the transfer has already been activated, i.e., the tables being transferred to the targets are not empty, the transfer speed will be significantly reduced due to repeated insert attempts and errors they cause.

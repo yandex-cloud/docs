@@ -24,13 +24,13 @@
 
     Чтобы создать функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless function create --name=go-function
     ```
 
     Результат:
 
-    ```
+    ```text
     id: b09bhaokchn9********
     folder_id: aoek49ghmknnp********
     created_at: "2023-08-16T19:01:37.475Z"
@@ -77,7 +77,7 @@
       return json.Marshal(JSONString(s))
     }
     ```
-    
+
 1. Добавьте файл `hello.go` в ZIP-архив `hello-go.zip`.
 
 ### Создайте версию функции {#create-version}
@@ -108,8 +108,8 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    
-    ```
+
+    ```bash
     yc serverless function version create \
       --function-name=go-function \
       --runtime golang119 \
@@ -118,7 +118,7 @@
       --execution-timeout 3s \
       --source-path ./hello-go.zip
     ```
-  
+
 
     Где:
 
@@ -131,8 +131,8 @@
 
     Результат:
 
-    
-    ```
+
+    ```yaml
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
@@ -148,7 +148,7 @@
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
-  
+
 
 - API {#api}
 

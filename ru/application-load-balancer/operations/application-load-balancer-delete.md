@@ -1,6 +1,6 @@
 ---
-title: "Как удалить L7-балансировщик в {{ alb-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить L7-балансировщик." 
+title: Как удалить L7-балансировщик в {{ alb-full-name }}
+description: Следуя данной инструкции, вы сможете удалить L7-балансировщик.
 ---
 
 # Удалить L7-балансировщик
@@ -38,7 +38,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```bash
+     ```text
      done (1m10s)
      ```
 
@@ -60,7 +60,7 @@ description: "Следуя данной инструкции, вы сможет�
        allocation_policy {
          location {
            zone_id   = "{{ region-id }}-a"
-           subnet_id = yandex_vpc_subnet.test-subnet.id 
+           subnet_id = yandex_vpc_subnet.test-subnet.id
          }
        }
 
@@ -121,6 +121,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/LoadBalancer/delete.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Delete](../api-ref/grpc/load_balancer_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../api-ref/LoadBalancer/delete.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Delete](../api-ref/grpc/LoadBalancer/delete.md).
 
 {% endlist %}

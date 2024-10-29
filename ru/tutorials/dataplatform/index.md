@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства для построения Data Platform на базе {{ yandex-cloud }}"
-description: "На странице представлен список практических руководств для построения Data Platform на базе {{ yandex-cloud }} с применением различных СУБД."
+title: Практические руководства для построения Data Platform на базе {{ yandex-cloud }}
+description: На странице представлен список практических руководств для построения Data Platform на базе {{ yandex-cloud }} с применением различных СУБД.
 ---
 
 # Построение Data Platform на базе {{ yandex-cloud }}
@@ -31,7 +31,7 @@ description: "На странице представлен список прак
 
 ## {{ AF }} {#airflow}
 
-* [{#T}](yandex-query-automation.md)
+* [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](lockbox-and-airflow.md)
 
@@ -50,6 +50,8 @@ description: "На странице представлен список прак
 * [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](ydb-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -96,9 +98,15 @@ description: "На странице представлен список прак
 
 ## {{ OS }} {#opensearch}
 
+* [{#T}](opensearch-index-policy.md)
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
+* [{#T}](opensearch-to-object-storage.md)
+* [{#T}](opensearch-to-ydb.md)
+* [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](postgresql-to-opensearch.md)
+* [{#T}](opensearch-saml-keycloak.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -118,6 +126,7 @@ description: "На странице представлен список прак
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ RD }} {#redis}
@@ -132,6 +141,9 @@ description: "На странице представлен список прак
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-object-storage.md)
+* [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 
@@ -144,7 +156,9 @@ description: "На странице представлен список прак
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
+* [{#T}](data-proc-and-kafka.md)
 * [{#T}](data-proc-and-airflow.md)
+* [{#T}](dataproc-to-dataproc.md)
 * [{#T}](metastore-import.md)
 
 

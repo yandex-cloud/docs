@@ -1,9 +1,9 @@
 # Other
 
 
-### Can I get logs of my operations with services? {#logs}
+### How do I get the logs of my actions in the services? {#logs}
 
-Yes, you can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
+You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
 
 {% include [copy-folder](../../_qa/datalens/copy-folder.md) %}
 

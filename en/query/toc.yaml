@@ -1,10 +1,5 @@
 title: Yandex Query
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in Russia.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -46,7 +41,7 @@ items:
             href: concepts/match-recognize.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
   - name: Step-by-step guides
     items:
@@ -82,13 +77,17 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Working with {{ mch-name }} databases
         href: sources-and-sinks/clickhouse.md
+      - name: Working with {{ mgp-name }} databases
+        href: sources-and-sinks/greenplum.md
+      - name: Working with {{ mmy-name }} databases
+        href: sources-and-sinks/mysql.md
       - name: Working with {{ mpg-name }} databases
         href: sources-and-sinks/postgresql.md
       - name: Working with {{ ydb-name }} databases
         href: sources-and-sinks/ydb.md
       - name: Writing metrics to {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
-  - name: Use cases
+  - name: Tutorials
     items:
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
@@ -96,14 +95,14 @@ items:
         href: tutorials/debezium.md
       - name: Visualizing {{ datalens-name }} data in {{ objstorage-name }}
         href: tutorials/datalens.md
-      - name: Processing {{ at-name }} events
+      - name: Processing {{ at-name }} audit logs
         href: tutorials/audit-trails.md
       - name: Processing files with billing details
         href: tutorials/billing.md
       - name: Analyzing data with Jupyter
         href: tutorials/jupyter.md
-      - name: Automating with {{ maf-short-name }}
-        href: tutorials/airflow.md
+      - name: Automating tasks using {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
   - name: Working with YQL
     items:
       - name: Overview
@@ -114,7 +113,7 @@ items:
         href: yql-tutorials/select-specific-columns.md
       - name: Sorting and filtering
         href: yql-tutorials/sort-filter.md
-      - name: Data aggregation
+      - name: Aggregating data
         href: yql-tutorials/basic-aggregation.md
       - name: Additional selection criteria
         href: yql-tutorials/conditional-values.md
@@ -161,3 +160,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/query
+deepBase: 2

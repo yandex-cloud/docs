@@ -2,11 +2,13 @@
 editable: false
 ---
 
-# {{ mos-name }} pricing
+# {{ mos-name }} pricing policy
 
-In this section, you can find {{ mos-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
+In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -33,11 +35,11 @@ The {{ mos-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost depends on what resources you allocate for it. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+Host operation cost depends on what resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ OS }} host is unable to perform its main functions.
+Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ OS }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -47,11 +49,11 @@ You pay for the following:
 
 * Storage taken up by backups over specified cluster storage.
 
-   * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mos-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+    * When performing automatic backups, {{ mos-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
+    * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -60,7 +62,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -71,6 +73,8 @@ CVoS discount is only available for certain types of resources. For non-supporte
 ## Prices for the Russia region {#prices}
 
 
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 

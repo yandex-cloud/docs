@@ -52,7 +52,8 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `ai-user`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -130,9 +131,9 @@
   
       ```bash
       export IAM_TOKEN=<IAM-токен>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@<путь_к_файлу_с_телом_запроса>" \
+      curl --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<путь_к_файлу_с_телом_запроса>" \
         "https://{{ api-host-llm }}:443/foundationModels/v1/textClassification"
       ```
   

@@ -123,7 +123,7 @@ resource "yandex_compute_disk" "boot-disk" {
   type     = "network-ssd"
   zone     = "{{ region-id }}-a"
   size     = "24"
-  image_id = yandex_compute_image.ubuntu-image.id
+  image_id = data.yandex_compute_image.ubuntu-image.id
 }
 
 resource "yandex_compute_instance" "vm-bitrix" {
@@ -148,7 +148,7 @@ resource "yandex_compute_instance" "vm-bitrix" {
   }
 
   metadata = {
-     user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+     user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 

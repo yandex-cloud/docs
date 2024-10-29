@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ network-load-balancer-full-name }}"
-description: "Управление доступом в сервисе сетевого балансировщика {{ network-load-balancer-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+title: Управление доступом в {{ network-load-balancer-full-name }}
+description: Управление доступом в сервисе сетевого балансировщика {{ network-load-balancer-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
 # Управление доступом в {{ network-load-balancer-name }}
@@ -45,6 +45,8 @@ description: "Управление доступом в сервисе сетев
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 ## Какие роли мне необходимы {#choosing-roles}
 

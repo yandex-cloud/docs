@@ -31,7 +31,7 @@
 
 Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
 
-```
+```text
 [default]
 access_key = id
 secret_key = secretKey
@@ -44,7 +44,7 @@ host_bucket = %(bucket)s.{{ s3-storage-host }}
 
 Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр
 
-```
+```text
 website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
@@ -80,7 +80,7 @@ s3cmd mb s3://bucket
 
 ### Загрузить объект в холодное хранилище {#uploading-object}
 
-```
+```bash
 s3cmd --storage-class COLD put local_file s3://bucket/object
 ```
 

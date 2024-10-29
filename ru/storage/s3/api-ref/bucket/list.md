@@ -4,9 +4,11 @@
 
 {% include [sa-acl-bucket-list-note.md](../../../../_includes/storage/sa-acl-bucket-list-note.md) %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 GET / HTTP/2
 ```
 
@@ -27,7 +29,7 @@ GET / HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ListAllMyBucketsResult>
   <Buckets>
     <Bucket>

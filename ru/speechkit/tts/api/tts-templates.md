@@ -25,18 +25,19 @@
 
 Ограничения на параметры шаблона:
 
-* Длительность фразы для синтеза — не более {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальная для восприятия длительность фразы — не более 16 секунд, как в разговорной речи.
+* Максимальная длительность фразы для синтеза — {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальная для восприятия длительность фразы — не более 16 секунд, как в разговорной речи.
 * Длина шаблона — не более {{ tts-v3-count }} нормализованного текста.
+* Нормализованный текст переменной части занимает не больше 25% от длины шаблона. То же ограничение действует на длительность переменной части относительно длительности итоговой аудиозаписи.
 
 {% note warning %}
 
 Отправляйте в API синтеза шаблоны с переменными частями. Неизменяемые фразы отправлять не нужно.
 
-Примеры неизменяемых фраз:
+>Примеры неизменяемых фраз:
+>
 >Здравствуйте, с вами говорят из клиники "МедСити".
 >
 >Добрый день, это компания по вывозу строительного мусора "Вывозов".
->
 
 {% endnote %}
 
@@ -55,7 +56,7 @@
        ```bash
        git clone https://github.com/yandex-cloud/cloudapi
        ```
-       
+
     1. Установите зависимости с помощью [менеджера пакетов pip](https://pip.pypa.io/en/stable/):
 
         ```bash
@@ -79,7 +80,7 @@
         ```bash
         cd <путь_к_папке_cloudapi> && \
         mkdir output && \
-        python -m grpc_tools.protoc -I . -I third_party/googleapis \
+        python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \
           --grpc_python_out=output \
           google/api/http.proto \
@@ -106,7 +107,7 @@
 
           def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
               template = "<шаблонная_фраза_с_разметкой>"
-              # Пример шаблона: 'Напоминаем, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
+              # Пример шаблона: 'Напоминаем, что {date} в {time}, ваш ребенок записан на процедуру {procedure}.'
               request = tts_pb2.UtteranceSynthesisRequest(
                   output_audio_spec=tts_pb2.AudioFormatOptions(
                       container_audio=tts_pb2.ContainerAudio(
@@ -200,7 +201,7 @@
 
               with open(args.input, 'rb') as file:
                   speech = file.read()
-    
+
               audio = synthesize(args.token, speech)
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')
@@ -212,7 +213,7 @@
 
         ```bash
         export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
-        python output/test.py \
+        python3 output/test.py \
           --token ${IAM_TOKEN} \
           --input sample.wav \
           --output speech.wav

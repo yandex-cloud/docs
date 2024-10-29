@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-to-mpg'
+---
+
 # Поставка данных в {{ mpg-full-name }} с помощью {{ data-transfer-full-name }}
 
 

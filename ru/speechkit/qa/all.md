@@ -1,6 +1,6 @@
 ---
-title: "{{ speechkit-full-name }}. Ответы на вопросы"
-description: "Как получить логи моей работы в сервисе {{ speechkit-full-name }}? Ответы на этот и другие вопросы в данной статье."
+title: '{{ speechkit-full-name }}. Ответы на вопросы'
+description: Как получить логи моей работы в сервисе {{ speechkit-full-name }}? Ответы на этот и другие вопросы в данной статье.
 ---
 
 # Вопросы и ответы про {{ speechkit-short-name }}

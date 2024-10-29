@@ -1,10 +1,5 @@
 title: Yandex Lockbox
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -14,7 +9,7 @@ items:
         href: operations/index.md
       - name: Creating secrets
         href: operations/secret-create.md
-      - name: Updating secrets
+      - name: Updating a secret
         href: operations/secret-update.md
       - name: Configuring access to a secret
         href: operations/secret-access.md
@@ -24,7 +19,7 @@ items:
         href: operations/secret-delete.md
       - name: Deactivating and activating a secret
         href: operations/secret-activation-manage.md
-      - name: Managing secret versions
+      - name: Secret version management
         href: operations/secret-version-manage.md
       - name: Serverless
         items:
@@ -56,6 +51,13 @@ items:
         href: tutorials/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
+      - name: Deploying a fault-tolerant architecture with preemptible VMs
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
@@ -74,60 +76,113 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: PayloadService
-            href: api-ref/grpc/payload_service.md
-          - name: SecretService
-            href: api-ref/grpc/secret_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Payload
+            items:
+              - name: Overview
+                href: api-ref/grpc/Payload/index.md
+              - name: Get
+                href: api-ref/grpc/Payload/get.md
+          - name: Secret
+            items:
+              - name: Overview
+                href: api-ref/grpc/Secret/index.md
+              - name: Get
+                href: api-ref/grpc/Secret/get.md
+              - name: List
+                href: api-ref/grpc/Secret/list.md
+              - name: Create
+                href: api-ref/grpc/Secret/create.md
+              - name: Update
+                href: api-ref/grpc/Secret/update.md
+              - name: Delete
+                href: api-ref/grpc/Secret/delete.md
+              - name: Activate
+                href: api-ref/grpc/Secret/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/Secret/deactivate.md
+              - name: ListVersions
+                href: api-ref/grpc/Secret/listVersions.md
+              - name: AddVersion
+                href: api-ref/grpc/Secret/addVersion.md
+              - name: ScheduleVersionDestruction
+                href: api-ref/grpc/Secret/scheduleVersionDestruction.md
+              - name: CancelVersionDestruction
+                href: api-ref/grpc/Secret/cancelVersionDestruction.md
+              - name: ListOperations
+                href: api-ref/grpc/Secret/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Secret/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Secret/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Secret/updateAccessBindings.md
       - name: REST
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Payload
             items:
               - name: Overview
                 href: api-ref/Payload/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Payload/get.md
           - name: Secret
             items:
               - name: Overview
                 href: api-ref/Secret/index.md
-              - name: activate
-                href: api-ref/Secret/activate.md
-              - name: addVersion
-                href: api-ref/Secret/addVersion.md
-              - name: cancelVersionDestruction
-                href: api-ref/Secret/cancelVersionDestruction.md
-              - name: create
-                href: api-ref/Secret/create.md
-              - name: deactivate
-                href: api-ref/Secret/deactivate.md
-              - name: delete
-                href: api-ref/Secret/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Secret/get.md
-              - name: list
+              - name: List
                 href: api-ref/Secret/list.md
-              - name: listAccessBindings
-                href: api-ref/Secret/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Secret/listOperations.md
-              - name: listVersions
-                href: api-ref/Secret/listVersions.md
-              - name: scheduleVersionDestruction
-                href: api-ref/Secret/scheduleVersionDestruction.md
-              - name: setAccessBindings
-                href: api-ref/Secret/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Secret/create.md
+              - name: Update
                 href: api-ref/Secret/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Secret/delete.md
+              - name: Activate
+                href: api-ref/Secret/activate.md
+              - name: Deactivate
+                href: api-ref/Secret/deactivate.md
+              - name: ListVersions
+                href: api-ref/Secret/listVersions.md
+              - name: AddVersion
+                href: api-ref/Secret/addVersion.md
+              - name: ScheduleVersionDestruction
+                href: api-ref/Secret/scheduleVersionDestruction.md
+              - name: CancelVersionDestruction
+                href: api-ref/Secret/cancelVersionDestruction.md
+              - name: ListOperations
+                href: api-ref/Secret/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Secret/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Secret/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Secret/updateAccessBindings.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/lockbox
+deepBase: 2

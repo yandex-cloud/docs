@@ -2,9 +2,11 @@
 
 Возвращает конфигурацию жизненных циклов объектов в бакете из {{ objstorage-name }}.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?lifecycle HTTP/2
 ```
 

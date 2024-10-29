@@ -1,13 +1,18 @@
 ---
-title: "How to create a {{ GP }} connection in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}."
+title: How to create a {{ GP }} connection in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}.
 ---
 
 # Creating a {{ GP }} connection
 
+
+
+{% note warning %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Connecting to {{ GP }} {#greenplum-connection}
+{% endnote %}
+
 
 To create a {{ GP }} connection:
 
@@ -21,23 +26,29 @@ To create a {{ GP }} connection:
 
    - Select in organization {#organization}
 
-      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
+     {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
-      * **Cluster**: Specify a cluster from the list of available {{ GP }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
+     * **Cloud and folder**: Select the folder where the cluster is located.
+     * **Cluster**: Specify a cluster from the list of available {{ GP }} clusters. Cluster settings must have the **{{ datalens-short-name }}** access option enabled. If you do not have an available cluster, click **Create new**.
 
-         {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
+       {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
-      * **Hostname**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
-      * **Path to database**: Specify the name of the database to connect to.
-      * **Username**: Specify the username for the {{ GP }} connection.
-      * **Password**: Enter the password for the user.
-      * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-      * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+     * **Host type**. Select a host type:
+       
+       * **Regular** (default): Allows you to select regular hosts to connect to.
+       * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-greenplum/operations/connect.md#fqdn-master) for connection, which always points to the primary {{ GP }} master host.
+
+     * **Hostname**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+     * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
+     * **Path to database**: Specify the name of the database to connect to.
+     * **Username**: Specify the username for the {{ GP }} connection.
+     * **Password**: Enter the password for the user.
+     * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually {#manual}
 
-      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
+     {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
       * **Hostname**: Specify the path to a master host or a {{ GP }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**: Specify the {{ GP }} connection port. The default port is 5432.
@@ -45,7 +56,7 @@ To create a {{ GP }} connection:
       * **Username**: Specify the username for the {{ GP }} connection.
       * **Password**: Enter the password for the user.
       * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-      * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
 
@@ -58,6 +69,8 @@ To create a {{ GP }} connection:
 
 
 1. Enter a name for the connection and click **Create**.
+
+
 
 ## Additional settings {#additional-settings}
 

@@ -1,6 +1,6 @@
 ---
-title: "Deleting a function"
-description: "Follow this guide to delete a function."
+title: Deleting a function
+description: Follow this guide to delete a function.
 ---
 
 # Deleting a function
@@ -105,7 +105,7 @@ description: "Follow this guide to delete a function."
 
 - API {#api}
 
-   To delete a function, use the [delete](../../functions/api-ref/Function/delete.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Delete](../../functions/api-ref/grpc/function_service.md#Delete) gRPC API call.
+   To delete a function, use the [delete](../../functions/api-ref/Function/delete.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Delete](../../functions/api-ref/grpc/Function/delete.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

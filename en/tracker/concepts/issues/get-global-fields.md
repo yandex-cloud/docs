@@ -1,6 +1,6 @@
 ---
-title: "How to get global fields with the help of the {{ tracker-full-name }} API"
-description: "In this tutorial, you will learn how to get global fields in {{ tracker-name }}."
+title: How to get global fields with the help of the {{ tracker-full-name }} API
+description: In this tutorial, you will learn how to get global fields in {{ tracker-name }}.
 sourcePath: en/tracker/api-ref/concepts/issues/get-global-fields.md
 ---
 

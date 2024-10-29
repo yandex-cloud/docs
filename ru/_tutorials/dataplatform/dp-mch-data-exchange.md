@@ -16,7 +16,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роль `dataproc.agent`.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
@@ -61,7 +61,7 @@
         * С базой данных `db1`.
         * С пользователем `user1`.
 
-    
+
     1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
@@ -278,6 +278,9 @@
     1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
     1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+    1. [Подсеть](../../vpc/operations/subnet-delete.md).
+    1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+    1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Облачную сеть](../../vpc/operations/network-delete.md).
     1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 

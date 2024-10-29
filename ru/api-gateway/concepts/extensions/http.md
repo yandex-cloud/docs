@@ -17,6 +17,7 @@
 `timeouts`|`object`| Необязательный параметр. `read` и `connect` таймауты для выполнения вызова, в секундах.
 `omitEmptyHeaders`|`boolean`| Необязательный параметр. Если установлено значение `true`, пустые заголовки не передаются.
 `omitEmptyQueryParameters`|`boolean`| Необязательный параметр. Если установлено значение `true`, пустые query-параметры не передаются.
+`serviceAccountId` | `string` | Идентификатор сервисного аккаунта. Используется для авторизации при обращении к указанному URL. Значение [верхнеуровневого параметра](index.md#top-level) `serviceAccountId` игнорируется.
 
 ## Спецификация расширения {#spec}
 
@@ -72,7 +73,7 @@ paths:
         in: query
         required: false
         schema:
-          type: string      
+          type: string
 ```
 
 Пример проксирования всех запросов на `https://example.com`, где:
@@ -97,7 +98,7 @@ paths:
           Bar-Header: [ "one", "two" ]
           Single-header: three
         omitEmptyHeaders: true
-        omitEmptyQueryParameters: true  
+        omitEmptyQueryParameters: true
       parameters:
       - name: path
         in: path

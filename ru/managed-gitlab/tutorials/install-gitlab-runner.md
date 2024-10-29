@@ -40,7 +40,7 @@
 1. Добавьте репозиторий с {{ GLR }} в менеджер пакетов:
 
    ```bash
-   curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+   curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
 1. Установите {{ GLR }}:

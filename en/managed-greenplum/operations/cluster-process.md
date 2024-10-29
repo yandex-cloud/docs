@@ -1,11 +1,11 @@
 ---
-title: "How to manage client processes and user sessions in {{ mgp-full-name }}"
-description: "Follow this guide to manage client processes and user sessions."
+title: How to manage client processes and user sessions in {{ mgp-full-name }}
+description: Follow this guide to manage client processes and user sessions.
 ---
 
 # Managing client processes and user sessions
 
-{{ GP }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md) can:
+{{ GP }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin) can:
 
 * [{#T}](#list).
 * [{#T}](#cancel-sessions).

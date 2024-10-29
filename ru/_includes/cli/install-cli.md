@@ -79,8 +79,8 @@
         1. Выполните команду:
 
 
-            
-            
+
+
             ```bash
             iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
@@ -99,8 +99,8 @@
         1. Выполните команду:
 
 
-            
-            
+
+
             ```bash
             @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
@@ -117,6 +117,4 @@
 
 {% endlist %}
 
-
-
-
+Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).

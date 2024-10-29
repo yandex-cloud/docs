@@ -14,11 +14,11 @@ The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 - Yandex account {#yandex-account}
 
-   {% include [include](../_includes/cli/create-profile.md) %}
+  {% include [include](../_includes/cli/create-profile.md) %}
 
 - Federated account {#federated-account}
 
-   {% include [include](../_includes/cli/auth-federated-user.md) %}
+  {% include [include](../_includes/cli/auth-federated-user.md) %}
 
 {% endlist %}
 
@@ -41,9 +41,9 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
      --description "my first network via yc"
    ```
 
-1. Create a subnet in the cloud network `my-yc-network`:
+1. In the `my-yc-network` cloud network, create a subnet:
 
-   
+
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
@@ -80,7 +80,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
 
    Result:
 
-   ```yaml
+   ```text
    - id: skesdqhkc644********
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -96,11 +96,11 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
        my-label: my-value
    ```
 
-1. Create a VM and connect it to the `my-yc-subnet-a` subnet:
+1. Create a VM and connect it to `my-yc-subnet-a`:
    1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
    1. Create a Linux VM:
 
-      
+
       ```bash
       yc compute instance create \
         --name my-yc-instance \
@@ -111,7 +111,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
 
 
 
-      Where `ssh-key` is the path to a public key for SSH access. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
+      Where `ssh-key` is the path to a public key for SSH access. The VM will automatically create the `yc-user` user with the specified public key.
 1. Connect to the VM over SSH:
    1. Find out the VM's [public IP address](../vpc/concepts/address.md#public-addresses). To do this, view detailed information about your VM:
 
@@ -134,7 +134,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
       ssh yc-user@130.193.32.90
       ```
 
-1. Delete the `my-yc-instance` VM, `my-yc-subnet-a`, and `my-yc-network`:
+1. Delete the `my-yc-instance` VM, `my-yc-subnet-a` subnet, and `my-yc-network` network:
 
    ```bash
    yc compute instance delete my-yc-instance

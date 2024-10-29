@@ -1,10 +1,5 @@
 title: Yandex API Gateway
 href: index.yaml
-label:
-  title: RU
-  description: The service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -14,8 +9,7 @@ items:
         href: operations/index.md
       - name: Creating an API gateway
         href: operations/api-gw-create.md
-      - name: Managing API gateways
-        expanded: true
+      - name: Managing an API gateway
         items:
           - name: Updating API gateways and their specifications
             href: operations/api-gw-update.md
@@ -29,14 +23,56 @@ items:
             href: operations/api-gw-canary.md
           - name: Viewing monitoring charts
             href: operations/api-gw-monitoring.md
-          - name: Viewing execution logs
-            href: operations/api-gw-logs.md
+          - name: Managing logs
+            items:
+              - name: Viewing logs
+                href: operations/api-gw-logs.md
+              - name: Writing logs
+                href: operations/api-gw-logs-write.md
           - name: Disconnecting a domain
             href: operations/api-gw-domain-detach.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway
             href: operations/api-gw-delete.md
+      - name: Getting information about a trigger
+        items:
+          - name: Getting a list of triggers
+            href: operations/trigger/trigger-list.md
+          - name: Getting information about a trigger
+            href: operations/trigger/trigger-info.md
+      - name: Creating a trigger
+        items:
+          - name: Creating a timer
+            href: operations/trigger/timer-create.md
+          - name: Creating a trigger for {{ message-queue-name }}
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Creating a trigger for {{ objstorage-name }}
+            href: operations/trigger/os-trigger-create.md
+          - name: Creating a trigger for {{ container-registry-name }}
+            href: operations/trigger/cr-trigger-create.md
+          - name: Creating a trigger for {{ cloud-logging-name }}
+            href: operations/trigger/cloud-logging-trigger-create.md
+          - name: Creating a trigger for {{ iot-name }}
+            items:
+              - name: Device
+                href: operations/trigger/iot-core-trigger-create.md
+              - name: Broker
+                href: operations/trigger/iot-core-trigger-broker-create.md
+          - name: Creating a trigger for budgets
+            href: operations/trigger/budget-trigger-create.md
+          - name: Creating a trigger for {{ yds-name }}
+            href: operations/trigger/data-streams-trigger-create.md
+          - name: Creating an email trigger
+            href: operations/trigger/mail-trigger-create.md
+      - name: Managing a trigger
+        items:
+          - name: Updating a trigger
+            href: operations/trigger/trigger-update.md
+          - name: Viewing monitoring charts
+            href: operations/trigger/trigger-monitoring.md
+          - name: Deleting a trigger
+            href: operations/trigger/trigger-delete.md
       - name: Specification constructor
         items:
           - name: Overview
@@ -49,7 +85,7 @@ items:
             href: operations/spec-constructor/object-storage.md
           - name: '{{ serverless-containers-name }}'
             href: operations/spec-constructor/containers.md
-          - name: HTTP Access
+          - name: Access over HTTP
             href: operations/spec-constructor/http.md
           - name: '{{ message-queue-name }}'
             href: operations/spec-constructor/ymq.md
@@ -59,6 +95,10 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
+          - name: '{{ yagpt-full-name }}'
+            href: operations/spec-constructor/yagpt.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -75,7 +115,7 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Working with an API gateway using the WebSocket protocol
+      - name: Working with an API gateway via WebSocket
         href: tutorials/api-gw-websocket.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
@@ -89,6 +129,10 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
+      - name: >-
+          Using {{ api-gw-name }} to set up speech synthesis in {{
+          speechkit-full-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -103,12 +147,14 @@ items:
             items:
               - name: Static response
                 href: concepts/extensions/dummy.md
-              - name: HTTP Access
+              - name: Access over HTTP
                 href: concepts/extensions/http.md
               - name: '{{ sf-name }}'
                 href: concepts/extensions/cloud-functions.md
               - name: '{{ serverless-containers-name }}'
                 href: concepts/extensions/containers.md
+              - name: '{{ sws-name }}'
+                href: concepts/extensions/sws.md
               - name: '{{ objstorage-name }}'
                 href: concepts/extensions/object-storage.md
               - name: '{{ ml-platform-short-name }}'
@@ -139,6 +185,32 @@ items:
             href: concepts/extensions/canary.md
           - name: Request rate limit
             href: concepts/extensions/rate-limit.md
+          - name: Response code replacement
+            href: concepts/extensions/status-mapping.md
+          - name: Transformation of response and request bodies
+            href: concepts/extensions/schema-mapping.md
+      - name: Trigger
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for {{ message-queue-name }}
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for {{ objstorage-name }}
+            href: concepts/trigger/os-trigger.md
+          - name: Trigger for {{ container-registry-name }}
+            href: concepts/trigger/cr-trigger.md
+          - name: Trigger for {{ cloud-logging-full-name }}
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Trigger for {{ iot-full-name }}
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Trigger for budgets
+            href: concepts/trigger/budget-trigger.md
+          - name: Trigger for {{ yds-name }}
+            href: concepts/trigger/data-streams-trigger.md
+          - name: Email trigger
+            href: concepts/trigger/mail-trigger.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -147,6 +219,8 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
+  - name: CLI Triggers reference
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -157,10 +231,42 @@ items:
         items:
           - name: Overview
             href: apigateway/api-ref/grpc/index.md
-          - name: ApiGatewayService
-            href: apigateway/api-ref/grpc/apigateway_service.md
-          - name: OperationService
-            href: apigateway/api-ref/grpc/operation_service.md
+          - name: ApiGateway
+            items:
+              - name: Overview
+                href: apigateway/api-ref/grpc/ApiGateway/index.md
+              - name: Get
+                href: apigateway/api-ref/grpc/ApiGateway/get.md
+              - name: List
+                href: apigateway/api-ref/grpc/ApiGateway/list.md
+              - name: Create
+                href: apigateway/api-ref/grpc/ApiGateway/create.md
+              - name: Update
+                href: apigateway/api-ref/grpc/ApiGateway/update.md
+              - name: Delete
+                href: apigateway/api-ref/grpc/ApiGateway/delete.md
+              - name: AddDomain
+                href: apigateway/api-ref/grpc/ApiGateway/addDomain.md
+              - name: RemoveDomain
+                href: apigateway/api-ref/grpc/ApiGateway/removeDomain.md
+              - name: GetOpenapiSpec
+                href: apigateway/api-ref/grpc/ApiGateway/getOpenapiSpec.md
+              - name: ListOperations
+                href: apigateway/api-ref/grpc/ApiGateway/listOperations.md
+              - name: ListAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/listAccessBindings.md
+              - name: SetAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: apigateway/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: apigateway/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: apigateway/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -169,30 +275,38 @@ items:
             items:
               - name: Overview
                 href: apigateway/api-ref/ApiGateway/index.md
-              - name: addDomain
-                href: apigateway/api-ref/ApiGateway/addDomain.md
-              - name: create
-                href: apigateway/api-ref/ApiGateway/create.md
-              - name: delete
-                href: apigateway/api-ref/ApiGateway/delete.md
-              - name: get
+              - name: Get
                 href: apigateway/api-ref/ApiGateway/get.md
-              - name: getOpenapiSpec
-                href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
-              - name: list
+              - name: List
                 href: apigateway/api-ref/ApiGateway/list.md
-              - name: listAccessBindings
-                href: apigateway/api-ref/ApiGateway/listAccessBindings.md
-              - name: listOperations
-                href: apigateway/api-ref/ApiGateway/listOperations.md
-              - name: removeDomain
-                href: apigateway/api-ref/ApiGateway/removeDomain.md
-              - name: setAccessBindings
-                href: apigateway/api-ref/ApiGateway/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: apigateway/api-ref/ApiGateway/create.md
+              - name: Update
                 href: apigateway/api-ref/ApiGateway/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: apigateway/api-ref/ApiGateway/delete.md
+              - name: AddDomain
+                href: apigateway/api-ref/ApiGateway/addDomain.md
+              - name: RemoveDomain
+                href: apigateway/api-ref/ApiGateway/removeDomain.md
+              - name: GetOpenapiSpec
+                href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
+              - name: ListOperations
+                href: apigateway/api-ref/ApiGateway/listOperations.md
+              - name: ListAccessBindings
+                href: apigateway/api-ref/ApiGateway/listAccessBindings.md
+              - name: SetAccessBindings
+                href: apigateway/api-ref/ApiGateway/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: apigateway/api-ref/Operation/index.md
+              - name: Get
+                href: apigateway/api-ref/Operation/get.md
+              - name: Cancel
+                href: apigateway/api-ref/Operation/cancel.md
   - name: Websocket API reference
     items:
       - name: Authentication with the API
@@ -201,8 +315,16 @@ items:
         items:
           - name: Overview
             href: apigateway/websocket/api-ref/grpc/index.md
-          - name: ConnectionService
-            href: apigateway/websocket/api-ref/grpc/connection_service.md
+          - name: Connection
+            items:
+              - name: Overview
+                href: apigateway/websocket/api-ref/grpc/Connection/index.md
+              - name: Get
+                href: apigateway/websocket/api-ref/grpc/Connection/get.md
+              - name: Send
+                href: apigateway/websocket/api-ref/grpc/Connection/send.md
+              - name: Disconnect
+                href: apigateway/websocket/api-ref/grpc/Connection/disconnect.md
       - name: REST
         items:
           - name: Overview
@@ -211,12 +333,82 @@ items:
             items:
               - name: Overview
                 href: apigateway/websocket/api-ref/Connection/index.md
-              - name: disconnect
-                href: apigateway/websocket/api-ref/Connection/disconnect.md
-              - name: get
+              - name: Get
                 href: apigateway/websocket/api-ref/Connection/get.md
-              - name: send
+              - name: Send
                 href: apigateway/websocket/api-ref/Connection/send.md
+              - name: Disconnect
+                href: apigateway/websocket/api-ref/Connection/disconnect.md
+  - name: API Triggers reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/grpc/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/grpc/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/grpc/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/grpc/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/grpc/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/grpc/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/grpc/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/grpc/Trigger/listOperations.md
+      - name: REST
+        items:
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
@@ -224,3 +416,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/api-gateway
+deepBase: 2

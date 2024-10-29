@@ -1,7 +1,6 @@
 # How to change the format and data in the issued payment invoices
 
 
-
 ## Issue description {#case-description}
 
 You need to adjust the layout or format of the invoice issued for the consumption of Yandex Cloud services.
@@ -29,5 +28,5 @@ If you can't find the payment details for the invoice, you can [create a new req
 When creating the request, make sure to specify:
 
 1. Billing account ID.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
+   You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. List of documents documents required to make a payment.

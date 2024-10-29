@@ -19,7 +19,7 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. (Optional) In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of a static access key for the service account. You can also create a secret when creating an S3 connector.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. Fill out the fields below:
+1. Fill in the fields as follows:
    * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format-2.md) %}
@@ -63,6 +63,8 @@ You can attach the S3 storage to your project again when needed.
 
 ## Sharing an S3 connector {#share}
 
+{% include [zones](../../../_includes/datasphere/zones.md) %}
+
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/bucket.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Select your S3 connector in the list.
@@ -81,3 +83,5 @@ You can only delete a [deactivated](#unmount) connector, unavailable to the com
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

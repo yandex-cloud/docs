@@ -1,9 +1,15 @@
 ---
-title: "How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}"
-description: "In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}."
+title: How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}
+description: In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}.
 ---
 
 # Exporting logs to {{ objstorage-name }}
+
+{% note info %}
+
+To start log export, the user or service account must have the `logging.editor` [role](../../iam/roles-reference.md#logging-roles) or higher.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -24,6 +30,6 @@ description: "In this tutorial, you will learn how to export logs from {{ cloud-
 
 - API {#api}
 
-    To export logs, use the [run](../api-ref/Export/run.md) REST API method for the [Export](../api-ref/Export/index.md) resource or the [ExportService/Run](../api-ref/grpc/export_service.md#Run) gRPC API call.
+    To export logs, use the [run](../api-ref/Export/run.md) REST API method for the [Export](../api-ref/Export/index.md) resource or the [ExportService/Run](../api-ref/grpc/Export/run.md) gRPC API call.
 
 {% endlist %}

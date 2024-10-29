@@ -64,11 +64,11 @@
      - name: yc-user
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - "<публичный_SSH-ключ>"
    ```
 
-   Где `ssh-authorized-keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   Где `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
@@ -134,7 +134,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         data.yandex_compute_image.container-optimized-image: Refreshing state...
 
         An execution plan has been generated and is shown below.
@@ -154,7 +154,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         yandex_compute_instance.instance-based-on-coi: Creating...
         yandex_compute_instance.instance-based-on-coi: Still creating... [10s elapsed]
         yandex_compute_instance.instance-based-on-coi: Still creating... [20s elapsed]
@@ -194,7 +194,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         Warning: Permanently added '<публичный_IP-адрес>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
@@ -233,7 +233,7 @@
 
 1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
-   
+
    ```
    provider "yandex" {
      token     = "<OAuth-токен>"
@@ -353,7 +353,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         data.yandex_compute_image.container-optimized-image: Refreshing state...
         
         An execution plan has been generated and is shown below.
@@ -373,7 +373,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         yandex_compute_instance_group.ig-with-coi: Creating...
         yandex_compute_instance_group.ig-with-coi: Still creating... [10s elapsed]
         yandex_compute_instance_group.ig-with-coi: Still creating... [20s elapsed]
@@ -414,7 +414,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         Warning: Permanently added '<публичный_IP-адрес_ВМ_1>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 

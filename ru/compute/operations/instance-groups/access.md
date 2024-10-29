@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к группе виртуальных машин"
-description: "Следуя данной инструкции, вы сможете настроить права доступа группе виртуальных машин."
+title: Настроить права доступа к группе виртуальных машин
+description: Следуя данной инструкции, вы сможете настроить права доступа группе виртуальных машин.
 ---
 
 # Настроить права доступа к группе виртуальных машин
@@ -75,7 +75,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../api-ref/grpc/instance_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -95,7 +95,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
   1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -143,7 +143,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/InstanceGroup/setAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/SetAccessBindings](../../api-ref/grpc/instance_group_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../instancegroup/api-ref/InstanceGroup/setAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/SetAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md).
 
 {% endlist %}
 
@@ -161,7 +161,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -180,7 +180,7 @@ description: "Следуя данной инструкции, вы сможет�
      {{ yc-compute-ig }} list-access-bindings <имя_или_идентификатор_группы_ВМ>
      ```
 
-  1. Чтобы удалить привязку прав доступа, выполните команду:
+  1. Чтобы отозвать права доступа, выполните команду:
 
      ```bash
      {{ yc-compute-ig }} remove-access-binding <имя_или_идентификатор_группы_ВМ> \
@@ -203,6 +203,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../api-ref/grpc/instance_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

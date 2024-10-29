@@ -1,6 +1,6 @@
 ---
-title: "Сценарии хранения и восстановления данных в {{ yandex-cloud }}"
-description: "Различные сценарии хранения и восстановления данных в {{ yandex-cloud }}."
+title: Сценарии хранения и восстановления данных в {{ yandex-cloud }}
+description: Различные сценарии хранения и восстановления данных в {{ yandex-cloud }}.
 ---
 
 # Хранение и восстановление данных
@@ -17,3 +17,4 @@ description: "Различные сценарии хранения и восст
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](kubernetes-backup.md)
 * [Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме](ha-regional-glusterfs.md)
 * [Развертывание параллельной файловой системы GlusterFS в высокопроизводительном режиме](ha-regional-glusterfs-high-performance.md)
+* [Автоматическая привязка политики резервного копирования {{ backup-full-name }} к ВМ](vm-with-backup-policy/index.md)

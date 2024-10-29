@@ -2,7 +2,7 @@
 
 Make sure it meets all [fault tolerance conditions](../../managed-kafka/concepts/index.md#fault-tolerance).
 
-#### What do I do if I get an error like "disk size must be at least ... according to topics partitions number and replication factor but size is ..."? {#disk-size}
+#### What do I do if I get an error like "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
 
 The error results from the fact that your topics' log segments take up more space than is available in broker storage. For more information about calculating the required space, see [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
 
@@ -32,11 +32,15 @@ For `disk.used_bytes`, use notification thresholds. The recommended values are a
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)
 
 #### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-kafka/operations/cluster-update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, [increase the storage size](../../managed-kafka/operations/storage-space.md#change-disk-size).
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

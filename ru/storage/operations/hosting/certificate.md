@@ -1,3 +1,8 @@
+---
+title: Настройка HTTPS для хостинга в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить  HTTPS для хостинга в {{ objstorage-name }}.
+---
+
 # Настройка HTTPS
 
 Если бакет используется для [хостинга статического сайта](../../concepts/hosting.md), то для доступа к сайту по протоколу [HTTPS](../../../glossary/ssl-certificate.md) необходимо загрузить собственный сертификат безопасности и соответствующий ему секретный ключ.
@@ -18,11 +23,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Нажмите на имя необходимого бакета.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-    1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+    1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
     
@@ -69,7 +73,7 @@
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -126,7 +130,7 @@
 
 - API {#api}
 
-  Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
+  Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 
@@ -148,18 +152,17 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Нажмите на имя необходимого бакета.
-   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-   1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
-   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}`.
-   1. Добавьте сертификат и секретный ключ.
+   1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
+   1. Добавьте **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** и **{{ ui-key.yacloud.storage.bucket.https.field_private-key }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - API {#api}
 
-  Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
+  Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 

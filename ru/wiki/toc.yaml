@@ -1,10 +1,5 @@
 title: Yandex Wiki
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -162,6 +157,8 @@ items:
     href: at-ref.md
   - name: История изменений
     items:
+      - name: Май 2024
+        href: release-notes/2405.md
       - name: Февраль 2024
         href: release-notes/index.md
       - name: Декабрь 2023
@@ -203,3 +200,4 @@ items:
   - name: Служба поддержки
     href: feedback.md
 base: ru/wiki
+deepBase: 2

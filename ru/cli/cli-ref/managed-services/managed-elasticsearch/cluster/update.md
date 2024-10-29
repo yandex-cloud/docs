@@ -24,6 +24,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>New description for the ElasticSearch cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the ElasticSearch cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ElasticSearch cluster.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--service-account-id`|<b>`string`</b><br/>Service account for the Elasticsearch cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--version`|<b>`string`</b><br/>Set new version of the Elasticsearch server software|
@@ -57,4 +59,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

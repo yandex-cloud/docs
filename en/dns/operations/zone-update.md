@@ -106,6 +106,6 @@ To update a DNS zone:
 
 - API {#api}
 
-   To update a DNS zone, use the [update](../api-ref/DnsZone/update.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Update](../api-ref/grpc/dns_zone_service.md#Update) gRPC API call.
+   To update a DNS zone, use the [update](../api-ref/DnsZone/update.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Update](../api-ref/grpc/DnsZone/update.md) gRPC API call.
 
 {% endlist %}

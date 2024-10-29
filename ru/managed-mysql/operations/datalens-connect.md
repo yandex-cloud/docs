@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по подключению к кластеру {{ MY }} из {{ datalens-name }}"
-description: "Из статьи вы узнаете, как подключиться к кластеру {{ MY }} из {{ datalens-name }}."
+title: Инструкция по подключению к кластеру {{ MY }} из {{ datalens-name }}
+description: Из статьи вы узнаете, как подключиться к кластеру {{ MY }} из {{ datalens-name }}.
 ---
 
 # Подключение к кластеру {{ MY }} из {{ datalens-name }}
@@ -50,7 +50,7 @@ description: "Из статьи вы узнаете, как подключить
 
 После создания подключения вы сможете:
 * [Изменить](#update-connector) или [удалить](#delete-connector) это подключение.
-* [Создавать датасеты](../../datalens/concepts/dataset/index.md) с данными кластера, используя это подключение.
+* [Создавать датасеты](../../datalens/dataset/index.md) с данными кластера, используя это подключение.
 * Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart/index.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
 ## Просмотреть список подключений кластера {#connectors-list}
@@ -103,7 +103,7 @@ description: "Из статьи вы узнаете, как подключить
   1. Откройте вкладку **Выбрать в каталоге**.
   1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.
   1. Выберите базу данных и пользователя из выпадающих списков.
-  1. Введите пароль пользователя. См. также [{#T}](../../datalens/operations/connection/create-mysql.md) и [{#T}](../../datalens/concepts/dataset/settings.md#access-management) в документации {{ datalens-name }}.
+  1. Введите пароль пользователя. См. также [{#T}](../../datalens/operations/connection/create-mysql.md) и [{#T}](../../datalens/dataset/create-dataset.md#access) в документации {{ datalens-name }}.
 
   Если кластер и {{ datalens-name }} находятся в разных каталогах:
   1. Перейдите на вкладку **Указать вручную**.

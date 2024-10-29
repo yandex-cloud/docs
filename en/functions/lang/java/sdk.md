@@ -1,11 +1,11 @@
 ---
-title: "Using the SDK for Java functions in {{ sf-full-name }}. Overview"
-description: "You can manage Java functions in {{ sf-name }} using the SDK."
+title: Using the SDK for Java functions in {{ sf-full-name }}. Overview
+description: You can manage Java functions in {{ sf-name }} using the SDK.
 ---
 
 # Using the SDK for Java functions
 
-The runtime environment does not have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
+The [runtime environment](../../concepts/runtime/index.md) does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
 
 * `java-sdk-functions`: Only for Java 11
 * `java-sdk-serverless`: Java 17 or higher
@@ -14,9 +14,9 @@ Other modules are available for any version of Java.
 
 [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) lets you manage resources {{ yandex-cloud }} on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
 
-### Example {#example}
+## Example {#example}
 
-The following function receives the `folderId` as an input, authorizes in the SDK, gets a list of all {{ compute-name }} instances in the specified folder, and restarts stopped instances. As a result, it returns a message with the number of running instances.
+The following function receives the folder ID (`folderId`) as an input, gets authenticated in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running instances.
 
 {% note warning %}
 
@@ -36,21 +36,21 @@ import java.util.function.Function;
 public class Handler implements Function<String, String> {
   @Override
   public String apply(String folderId) {
-    // SDK authorization using service account
+    // Authorization in SDK via a service account
     var defaultComputeEngine = Auth.computeEngineBuilder().build();
     var factory = ServiceFactory.builder()
             .credentialProvider(defaultComputeEngine)
             .build();
     var instanceService = factory.create(InstanceServiceGrpc.InstanceServiceBlockingStub.class, InstanceServiceGrpc::newBlockingStub);
     var listInstancesRequest = InstanceServiceOuterClass.ListInstancesRequest.newBuilder().setFolderId(folderId).build();
-    // Retrieving Compute Instance list based on FolderId in request
+    // Getting a list of VMs based on folderId specified in the request
     var listInstancesResponse = instanceService.list(listInstancesRequest);
     var instances = listInstancesResponse.getInstancesList();
     var count = 0;
     for (var instance : instances) {
       if (instance.getStatus() != InstanceOuterClass.Instance.Status.RUNNING) {
         var startInstanceRequest = InstanceServiceOuterClass.StartInstanceRequest.newBuilder().setInstanceId(instance.getId()).build();
-        // Launching Compute Instance with specifid ID
+        // Starting VMs with VM IDs specified in the request
         var startInstanceResponse = instanceService.start(startInstanceRequest);
         if (!startInstanceResponse.hasError()) {
           count++;

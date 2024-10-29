@@ -1,6 +1,6 @@
 ---
-title: "Как работает связь между {{ tracker-full-name }} и {{ GL }}"
-description: "Из статьи вы узнаете, как работает связь между {{ tracker-name }} и {{ GL }}."
+title: Как работает связь между {{ tracker-full-name }} и {{ GL }}
+description: Из статьи вы узнаете, как работает связь между {{ tracker-name }} и {{ GL }}.
 ---
 
 # {{ GL }}

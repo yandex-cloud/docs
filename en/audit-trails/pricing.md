@@ -1,10 +1,14 @@
 ---
-title: "{{ at-full-name }} pricing policy"
-description: "This article describes the {{ at-name }} pricing policy."
+title: '{{ at-full-name }} pricing policy'
+description: This article describes the {{ at-name }} pricing policy.
 editable: false
 ---
 
-# {{ at-full-name }} pricing
+# {{ at-full-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 Delivered [data events](./concepts/events-data-plane.md) are billed.
 
@@ -13,10 +17,11 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 {% include [usd](../_pricing/audit-trails/usd.md) %}
-
 
 
 
@@ -29,11 +34,10 @@ For example, delivering 17,000 data events will cost:
 
 
 
-> (17,000 / 100,000) × $0.288 = 0.17 × $0.288 = $0.05
->
-> Total: $0.05
 
 
+
+{% include [usd-formula](../_pricing_examples/audit-trails/usd-formula.md) %}
 
 
 ### Examples of cost calculation {#price-example}
@@ -45,17 +49,11 @@ For example, delivering 17,000 data events will cost:
   * Number of times the secret is accessed: 7,000.
 
 
-  
-  > (2 × 7,000 / 100,000) × $0.288 = 0.14 × $0.288 = $0.04
-  >
-  > Total: $0.04
 
-  Where:
 
-  * 2: Number of events delivered per a single access to a secret.
-  * 7,000: Number of times the secret is accessed.
-  * 0.288: Price of delivering 100,000 events.
-  * 100,000: Divide to reduce the number of events to a billing unit.
+
+
+  {% include [usd-lockbox](../_pricing_examples/audit-trails/usd-lockbox.md) %}
 
 
 ##### Example 2
@@ -63,22 +61,15 @@ For example, delivering 17,000 data events will cost:
   Calculating the cost of delivering events when using {{ objstorage-full-name }} buckets.
 
   Total number of delivered events: 25,000. Out of which:
-  * Number of [management](./concepts/events.md#objstorage) events transferred when using buckets: 1,000.
-     This includes the events of creating and deleting buckets, changing access policies, ACL and encryption settings.
+  * Number of [management](./concepts/events.md#objstorage) events transmitted when using buckets: 1,000.
+      This includes the events of creating and deleting buckets, changing access policies, ACL and encryption settings.
 
-  * Number of [data](./concepts/events-data-plane.md#objstorage) events transferred when using buckets: 24,000.
-     This includes the events of creating objects in buckets and changing object tags.
+  * Number of [data](./concepts/events-data-plane.md#objstorage) events transmitted when using buckets: 24,000.
+      This includes the events of creating objects in buckets and changing object tags.
 
 
-  
-  > ((25,000 - 1,000) / 100,000) × $0.288 = 0.24 × $0.288 = $0.07
-  >
-  > Total: $0.07
 
-  Where:
 
-  * 25,000: Total number of delivered {{ objstorage-name }} events.
-  * 1,000: Number of delivered management events that are not billed.
-  * 0.288: Price of delivering 100,000 events.
-  * 100,000: Divide to reduce the number of events to a billing unit.
 
+
+  {% include [usd-storage](../_pricing_examples/audit-trails/usd-storage.md) %}

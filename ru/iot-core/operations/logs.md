@@ -27,12 +27,12 @@
 
   1. Посмотрите журнал подключений реестра:
   
-        ```
+        ```bash
         yc iot registry logs my-registry
         ```
-		
+
         Результат:
-        ```
+        ```text
         2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
         2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
         2019-09-19 18:52:30     disconnected: client disconnected
@@ -42,7 +42,7 @@
         2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53209", clientID: "YCCmdLine"
         2019-09-19 18:53:32     disconnected: client disconnected
         ```
-  
+
 {% endlist %}
 
 ## Посмотрите журнал подключений устройства {#device}
@@ -72,12 +72,12 @@
 
     1. Посмотрите журнал подключений устройства:
 
-        ```
+        ```bash
         yc iot devices logs my-device
         ```
 
         Результат:
-        ```
+        ```text
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
         2019-09-19 18:52:38     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53201", clientID: "YCCmdLine"
@@ -91,5 +91,5 @@
         2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53220", clientID: "YCCmdLine"
         2019-09-19 18:53:04     disconnected: client disconnected
         ```
-  
+
 {% endlist %}

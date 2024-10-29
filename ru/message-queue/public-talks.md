@@ -1,6 +1,6 @@
 ---
-title: "Публичные материалы про сервис {{ message-queue-full-name }}"
-description: "Из статьи вы узнаете, какие публичные материалы про сервис {{ message-queue-name }}."
+title: Публичные материалы про сервис {{ message-queue-full-name }}
+description: Из статьи вы узнаете, какие публичные материалы про сервис {{ message-queue-name }}.
 ---
 
 # Публичные материалы 

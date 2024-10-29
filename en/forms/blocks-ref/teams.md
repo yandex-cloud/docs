@@ -1,6 +1,6 @@
 ---
-title: "Teams"
-description: "In this block, you can specify a team in {{ org-full-name }}. Team names will be suggested to you as you type."
+title: Teams
+description: In this block, you can specify a team in {{ org-full-name }}. Team names will be suggested to you as you type.
 ---
 
 # Teams

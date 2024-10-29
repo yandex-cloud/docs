@@ -213,7 +213,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -234,8 +234,8 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - API {#api}
 
-   1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the API [create](../vpc/api-ref/Network/create.md) REST API method.
-   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets in three availability zones by using the [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../vpc/api-ref/Subnet/create.md) REST API method.
+   1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/Network/create.md) gRPC API call or the API [create](../vpc/api-ref/Network/create.md) REST API method.
+   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets in three availability zones by using the [SubnetService/Create](../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -284,19 +284,29 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](storage/terraform-role.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](storage/terraform-sa-key.md) %}
+
    1. Add the parameters of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
 
       ```hcl
       ...
 
       resource "yandex_storage_bucket" "canary-bucket-blue" {
-        bucket = "<blue_bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<blue_bucket_name>"
+        acl        = "public-read"
       }
 
       resource "yandex_storage_bucket" "canary-bucket-green" {
-        bucket = "<green_bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<green_bucket_name>"
+        acl        = "public-read"
       }
       ```
 
@@ -304,7 +314,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -429,7 +439,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -484,7 +494,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
 
       1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
@@ -592,7 +602,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -613,9 +623,9 @@ To create security groups:
 
 - API {#api}
 
-   Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
+   Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
-   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) field for the REST API.
 
 {% endlist %}
 
@@ -652,7 +662,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/BackendGroup/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -846,7 +856,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -867,8 +877,8 @@ To create security groups:
 
 - API {#api}
 
-   1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+   1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -1069,7 +1079,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1090,7 +1100,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/LoadBalancer/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -1256,7 +1266,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1306,7 +1316,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../cdn/api-ref/grpc/Resource/create.md) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1330,7 +1340,7 @@ To configure DNS:
    {% endlist %}
 
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` to link them to the copied domain name:
+1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` so that they point to the copied domain name:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1434,7 +1444,7 @@ To configure DNS:
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -1455,8 +1465,8 @@ To configure DNS:
 
    - API {#api}
 
-      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
+      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -1532,8 +1542,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1557,8 +1567,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1619,8 +1629,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1699,7 +1709,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1726,8 +1736,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1749,8 +1759,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1811,8 +1821,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1889,7 +1899,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1911,8 +1921,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 

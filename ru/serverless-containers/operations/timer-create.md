@@ -58,8 +58,8 @@
       --payload <сообщение> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -119,7 +119,7 @@
           payload         = "<сообщение>"
         }
         dlq {
-          queue_id           = "<идентификатор_очереди_DLQ>"
+          queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
           service_account_id = "<идентификатор_сервисного_аккаунта>"
         }
       }
@@ -150,7 +150,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
@@ -158,7 +158,7 @@
 
 - API {#api}
 
-  Чтобы создать таймер, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать таймер, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -168,4 +168,5 @@
 
 ## См. также {#see-also}
 
-* [Таймер, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/timer-create.md).
+* [{#T}](../../functions/operations/trigger/timer-create.md)
+* [{#T}](../../api-gateway/operations/trigger/timer-create.md)

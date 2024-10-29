@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
-   
+
    ```yaml
    ---
    apiVersion: v1
@@ -104,8 +104,8 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    spec:
      containers:
        - name: app
-        image: ubuntu
-        command: ["/bin/sh"]
+         image: ubuntu
+         command: ["/bin/sh"]
          args:
            ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
          volumeMounts:
@@ -188,7 +188,7 @@ When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/s
 To restore the snapshot:
 1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
 
-   
+
    ```yaml
    ---
    apiVersion: v1

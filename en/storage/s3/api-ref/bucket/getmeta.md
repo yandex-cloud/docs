@@ -1,4 +1,4 @@
-# getMeta method
+# GetMeta method
 
 Returns the bucket's metadata or an error.
 
@@ -7,23 +7,23 @@ Use this method to check:
 - Whether the bucket exists.
 - Whether the user has sufficient permissions to access the bucket.
 
-
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 HEAD /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -37,3 +37,4 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data and means that the bucket exists and the user has sufficient permissions to access it.
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

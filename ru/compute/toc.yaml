@@ -1,10 +1,5 @@
 title: Yandex Compute Cloud
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -28,6 +23,8 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Создать ВМ из пользовательского образа
             href: operations/vm-create/create-from-user-image.md
+          - name: Создать ВМ с пользовательским скриптом конфигурации
+            href: operations/vm-create/create-with-cloud-init-scripts.md
           - name: Создать ВМ с GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Сделать ВМ прерываемой
@@ -132,7 +129,7 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Настроить OS Login на существующей ВМ
                 href: operations/vm-connect/enable-os-login.md
-              - name: Экспортировать сертификат OS Login
+              - name: Экспортировать SSH-сертификат
                 href: operations/vm-connect/os-login-export-certificate.md
               - name: Подключиться к ВМ по OS Login
                 href: operations/vm-connect/os-login.md
@@ -378,26 +375,120 @@ items:
         href: tutorials/index.md
       - name: Настройка синхронизации часов с помощью NTP
         href: tutorials/ntp.md
-      - name: Работа с группой ВМ с автомасштабированием
-        href: tutorials/vm-autoscale.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        items:
+          - name: Обзор
+            href: tutorials/vm-autoscale/index.md
+          - name: Консоль управления
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
-      - name: Передача логов с ВМ в Yandex Cloud Logging
+      - name: Начало работы с Packer
+        href: tutorials/packer-quickstart.md
+      - name: Передача логов с ВМ в {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: tutorials/packer-custom-image.md
+      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
+        href: tutorials/hystax-migration.md
+      - name: Защита от сбоев с помощью Hystax Acura
+        href: tutorials/hystax-disaster-recovery.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Маршрутизация через NAT-инстанс
+        items:
+          - name: Обзор
+            href: tutorials/nat-instance/index.md
+          - name: Консоль управления
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
+      - name: >-
+          Создание триггера для бюджетов, который вызывает функцию для остановки
+          ВМ
+        href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: Интернет-магазин на платформе OpenCart
+        items:
+          - name: Обзор
+            href: tutorials/opencart/index.md
+          - name: Консоль управления
+            href: tutorials/opencart/console.md
+          - name: '{{ TF }}'
+            href: tutorials/opencart/terraform.md
+      - name: Создание веб-приложения на Python с использованием фреймворка Flask
+        href: tutorials/flask.md
+      - name: Создание SAP-программы в {{ yandex-cloud }}
+        href: tutorials/sap.md
+      - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
+        href: tutorials/minecraft-server.md
+      - name: Автоматизация сборки образов с помощью Jenkins и Packer
+        href: tutorials/jenkins.md
+      - name: Создание тестовых виртуальных машин через {{ GL }} CI
+        href: tutorials/test-vms-creation-via-gitlab-ci.md
+      - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
+        href: tutorials/hpc-on-preemptible.md
+      - name: Однонодовый файловый сервер
+        items:
+          - name: Обзор
+            href: tutorials/single-node-file-server/index.md
+          - name: Консоль управления
+            href: tutorials/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: tutorials/single-node-file-server/terraform.md
+      - name: Настройка SFTP-сервера на Centos 7
+        href: tutorials/backup-and-archive-to-sftp.md
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокодоступном режиме
+        href: tutorials/ha-regional-glusterfs.md
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокопроизводительном режиме
+        href: tutorials/ha-regional-glusterfs-high-performance.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Продукты Microsoft в {{ yandex-cloud }}
+        items:
+          - name: Развертывание Active Directory
+            href: tutorials/secure-password-script.md
+          - name: Развертывание Active Directory
+            href: tutorials/active-directory.md
+          - name: Развертывание Microsoft Exchange
+            href: tutorials/exchange.md
+          - name: Развертывание Remote Desktop Services
+            href: tutorials/rds.md
+          - name: >-
+              Развертывание группы доступности Always On с внутренним сетевым
+              балансировщиком
+            href: tutorials/mssql-alwayson-lb.md
+          - name: Развертывание Remote Desktop Gateway
+            href: tutorials/rds-gw.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
@@ -532,36 +623,386 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: DiskPlacementGroupService
-            href: api-ref/grpc/disk_placement_group_service.md
-          - name: DiskService
-            href: api-ref/grpc/disk_service.md
-          - name: DiskTypeService
-            href: api-ref/grpc/disk_type_service.md
-          - name: FilesystemService
-            href: api-ref/grpc/filesystem_service.md
-          - name: GpuClusterService
-            href: api-ref/grpc/gpu_cluster_service.md
-          - name: HostGroupService
-            href: api-ref/grpc/host_group_service.md
-          - name: HostTypeService
-            href: api-ref/grpc/host_type_service.md
-          - name: ImageService
-            href: api-ref/grpc/image_service.md
-          - name: InstanceService
-            href: api-ref/grpc/instance_service.md
-          - name: PlacementGroupService
-            href: api-ref/grpc/placement_group_service.md
-          - name: SnapshotScheduleService
-            href: api-ref/grpc/snapshot_schedule_service.md
-          - name: SnapshotService
-            href: api-ref/grpc/snapshot_service.md
-          - name: ZoneService
-            href: api-ref/grpc/zone_service.md
-          - name: InstanceGroupService
-            href: api-ref/grpc/instance_group_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: DiskPlacementGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/DiskPlacementGroup/index.md
+              - name: Get
+                href: api-ref/grpc/DiskPlacementGroup/get.md
+              - name: List
+                href: api-ref/grpc/DiskPlacementGroup/list.md
+              - name: Create
+                href: api-ref/grpc/DiskPlacementGroup/create.md
+              - name: Update
+                href: api-ref/grpc/DiskPlacementGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/DiskPlacementGroup/delete.md
+              - name: ListDisks
+                href: api-ref/grpc/DiskPlacementGroup/listDisks.md
+              - name: ListOperations
+                href: api-ref/grpc/DiskPlacementGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/DiskPlacementGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/DiskPlacementGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/DiskPlacementGroup/updateAccessBindings.md
+          - name: Disk
+            items:
+              - name: Overview
+                href: api-ref/grpc/Disk/index.md
+              - name: Get
+                href: api-ref/grpc/Disk/get.md
+              - name: List
+                href: api-ref/grpc/Disk/list.md
+              - name: Create
+                href: api-ref/grpc/Disk/create.md
+              - name: Update
+                href: api-ref/grpc/Disk/update.md
+              - name: Delete
+                href: api-ref/grpc/Disk/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Disk/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Disk/move.md
+              - name: Relocate
+                href: api-ref/grpc/Disk/relocate.md
+              - name: ListSnapshotSchedules
+                href: api-ref/grpc/Disk/listSnapshotSchedules.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Disk/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Disk/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Disk/updateAccessBindings.md
+          - name: DiskType
+            items:
+              - name: Overview
+                href: api-ref/grpc/DiskType/index.md
+              - name: Get
+                href: api-ref/grpc/DiskType/get.md
+              - name: List
+                href: api-ref/grpc/DiskType/list.md
+          - name: Filesystem
+            items:
+              - name: Overview
+                href: api-ref/grpc/Filesystem/index.md
+              - name: Get
+                href: api-ref/grpc/Filesystem/get.md
+              - name: List
+                href: api-ref/grpc/Filesystem/list.md
+              - name: Create
+                href: api-ref/grpc/Filesystem/create.md
+              - name: Update
+                href: api-ref/grpc/Filesystem/update.md
+              - name: Delete
+                href: api-ref/grpc/Filesystem/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Filesystem/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Filesystem/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Filesystem/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Filesystem/updateAccessBindings.md
+          - name: GpuCluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/GpuCluster/index.md
+              - name: Get
+                href: api-ref/grpc/GpuCluster/get.md
+              - name: List
+                href: api-ref/grpc/GpuCluster/list.md
+              - name: Create
+                href: api-ref/grpc/GpuCluster/create.md
+              - name: Update
+                href: api-ref/grpc/GpuCluster/update.md
+              - name: Delete
+                href: api-ref/grpc/GpuCluster/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/GpuCluster/listOperations.md
+              - name: ListInstances
+                href: api-ref/grpc/GpuCluster/listInstances.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/GpuCluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/GpuCluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/GpuCluster/updateAccessBindings.md
+          - name: HostGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/HostGroup/index.md
+              - name: Get
+                href: api-ref/grpc/HostGroup/get.md
+              - name: List
+                href: api-ref/grpc/HostGroup/list.md
+              - name: Create
+                href: api-ref/grpc/HostGroup/create.md
+              - name: Update
+                href: api-ref/grpc/HostGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/HostGroup/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/HostGroup/listOperations.md
+              - name: ListInstances
+                href: api-ref/grpc/HostGroup/listInstances.md
+              - name: ListHosts
+                href: api-ref/grpc/HostGroup/listHosts.md
+              - name: UpdateHost
+                href: api-ref/grpc/HostGroup/updateHost.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/HostGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/HostGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/HostGroup/updateAccessBindings.md
+          - name: HostType
+            items:
+              - name: Overview
+                href: api-ref/grpc/HostType/index.md
+              - name: Get
+                href: api-ref/grpc/HostType/get.md
+              - name: List
+                href: api-ref/grpc/HostType/list.md
+          - name: Image
+            items:
+              - name: Overview
+                href: api-ref/grpc/Image/index.md
+              - name: Get
+                href: api-ref/grpc/Image/get.md
+              - name: GetLatestByFamily
+                href: api-ref/grpc/Image/getLatestByFamily.md
+              - name: List
+                href: api-ref/grpc/Image/list.md
+              - name: Create
+                href: api-ref/grpc/Image/create.md
+              - name: Update
+                href: api-ref/grpc/Image/update.md
+              - name: Delete
+                href: api-ref/grpc/Image/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Image/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Image/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Image/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Image/updateAccessBindings.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Instance/index.md
+              - name: Get
+                href: api-ref/grpc/Instance/get.md
+              - name: List
+                href: api-ref/grpc/Instance/list.md
+              - name: Create
+                href: api-ref/grpc/Instance/create.md
+              - name: Update
+                href: api-ref/grpc/Instance/update.md
+              - name: Delete
+                href: api-ref/grpc/Instance/delete.md
+              - name: UpdateMetadata
+                href: api-ref/grpc/Instance/updateMetadata.md
+              - name: GetSerialPortOutput
+                href: api-ref/grpc/Instance/getSerialPortOutput.md
+              - name: Stop
+                href: api-ref/grpc/Instance/stop.md
+              - name: Start
+                href: api-ref/grpc/Instance/start.md
+              - name: Restart
+                href: api-ref/grpc/Instance/restart.md
+              - name: AttachDisk
+                href: api-ref/grpc/Instance/attachDisk.md
+              - name: DetachDisk
+                href: api-ref/grpc/Instance/detachDisk.md
+              - name: AttachFilesystem
+                href: api-ref/grpc/Instance/attachFilesystem.md
+              - name: DetachFilesystem
+                href: api-ref/grpc/Instance/detachFilesystem.md
+              - name: AttachNetworkInterface
+                href: api-ref/grpc/Instance/attachNetworkInterface.md
+              - name: DetachNetworkInterface
+                href: api-ref/grpc/Instance/detachNetworkInterface.md
+              - name: AddOneToOneNat
+                href: api-ref/grpc/Instance/addOneToOneNat.md
+              - name: RemoveOneToOneNat
+                href: api-ref/grpc/Instance/removeOneToOneNat.md
+              - name: UpdateNetworkInterface
+                href: api-ref/grpc/Instance/updateNetworkInterface.md
+              - name: ListOperations
+                href: api-ref/grpc/Instance/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Instance/move.md
+              - name: Relocate
+                href: api-ref/grpc/Instance/relocate.md
+              - name: SimulateMaintenanceEvent
+                href: api-ref/grpc/Instance/simulateMaintenanceEvent.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Instance/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Instance/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Instance/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: PlacementGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/PlacementGroup/index.md
+              - name: Get
+                href: api-ref/grpc/PlacementGroup/get.md
+              - name: List
+                href: api-ref/grpc/PlacementGroup/list.md
+              - name: Create
+                href: api-ref/grpc/PlacementGroup/create.md
+              - name: Update
+                href: api-ref/grpc/PlacementGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/PlacementGroup/delete.md
+              - name: ListInstances
+                href: api-ref/grpc/PlacementGroup/listInstances.md
+              - name: ListOperations
+                href: api-ref/grpc/PlacementGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/PlacementGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/PlacementGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/PlacementGroup/updateAccessBindings.md
+          - name: SnapshotSchedule
+            items:
+              - name: Overview
+                href: api-ref/grpc/SnapshotSchedule/index.md
+              - name: Get
+                href: api-ref/grpc/SnapshotSchedule/get.md
+              - name: List
+                href: api-ref/grpc/SnapshotSchedule/list.md
+              - name: Create
+                href: api-ref/grpc/SnapshotSchedule/create.md
+              - name: Update
+                href: api-ref/grpc/SnapshotSchedule/update.md
+              - name: Delete
+                href: api-ref/grpc/SnapshotSchedule/delete.md
+              - name: UpdateDisks
+                href: api-ref/grpc/SnapshotSchedule/updateDisks.md
+              - name: Disable
+                href: api-ref/grpc/SnapshotSchedule/disable.md
+              - name: Enable
+                href: api-ref/grpc/SnapshotSchedule/enable.md
+              - name: ListOperations
+                href: api-ref/grpc/SnapshotSchedule/listOperations.md
+              - name: ListSnapshots
+                href: api-ref/grpc/SnapshotSchedule/listSnapshots.md
+              - name: ListDisks
+                href: api-ref/grpc/SnapshotSchedule/listDisks.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/SnapshotSchedule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/SnapshotSchedule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/SnapshotSchedule/updateAccessBindings.md
+          - name: Snapshot
+            items:
+              - name: Overview
+                href: api-ref/grpc/Snapshot/index.md
+              - name: Get
+                href: api-ref/grpc/Snapshot/get.md
+              - name: List
+                href: api-ref/grpc/Snapshot/list.md
+              - name: Create
+                href: api-ref/grpc/Snapshot/create.md
+              - name: Update
+                href: api-ref/grpc/Snapshot/update.md
+              - name: Delete
+                href: api-ref/grpc/Snapshot/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Snapshot/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Snapshot/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Snapshot/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Snapshot/updateAccessBindings.md
+          - name: Zone
+            items:
+              - name: Overview
+                href: api-ref/grpc/Zone/index.md
+              - name: Get
+                href: api-ref/grpc/Zone/get.md
+              - name: List
+                href: api-ref/grpc/Zone/list.md
+          - name: Compute Cloud Instance Groups API
+            items:
+              - name: Overview
+                href: instancegroup/api-ref/grpc/index.md
+              - name: InstanceGroup
+                items:
+                  - name: Overview
+                    href: instancegroup/api-ref/grpc/InstanceGroup/index.md
+                  - name: Get
+                    href: instancegroup/api-ref/grpc/InstanceGroup/get.md
+                  - name: List
+                    href: instancegroup/api-ref/grpc/InstanceGroup/list.md
+                  - name: Create
+                    href: instancegroup/api-ref/grpc/InstanceGroup/create.md
+                  - name: CreateFromYaml
+                    href: instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md
+                  - name: Update
+                    href: instancegroup/api-ref/grpc/InstanceGroup/update.md
+                  - name: UpdateFromYaml
+                    href: instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md
+                  - name: Stop
+                    href: instancegroup/api-ref/grpc/InstanceGroup/stop.md
+                  - name: RollingRestart
+                    href: instancegroup/api-ref/grpc/InstanceGroup/rollingRestart.md
+                  - name: RollingRecreate
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/rollingRecreate.md
+                  - name: Start
+                    href: instancegroup/api-ref/grpc/InstanceGroup/start.md
+                  - name: Delete
+                    href: instancegroup/api-ref/grpc/InstanceGroup/delete.md
+                  - name: ListInstances
+                    href: instancegroup/api-ref/grpc/InstanceGroup/listInstances.md
+                  - name: DeleteInstances
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md
+                  - name: StopInstances
+                    href: instancegroup/api-ref/grpc/InstanceGroup/stopInstances.md
+                  - name: ListOperations
+                    href: instancegroup/api-ref/grpc/InstanceGroup/listOperations.md
+                  - name: ListLogRecords
+                    href: instancegroup/api-ref/grpc/InstanceGroup/listLogRecords.md
+                  - name: ListAccessBindings
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md
+                  - name: ResumeProcesses
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
+                  - name: PauseProcesses
+                    href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: instancegroup/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: instancegroup/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: instancegroup/api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -570,356 +1011,371 @@ items:
             items:
               - name: Overview
                 href: api-ref/DiskPlacementGroup/index.md
-              - name: create
-                href: api-ref/DiskPlacementGroup/create.md
-              - name: delete
-                href: api-ref/DiskPlacementGroup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/DiskPlacementGroup/get.md
-              - name: list
+              - name: List
                 href: api-ref/DiskPlacementGroup/list.md
-              - name: listAccessBindings
-                href: api-ref/DiskPlacementGroup/listAccessBindings.md
-              - name: listDisks
-                href: api-ref/DiskPlacementGroup/listDisks.md
-              - name: listOperations
-                href: api-ref/DiskPlacementGroup/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/DiskPlacementGroup/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/DiskPlacementGroup/create.md
+              - name: Update
                 href: api-ref/DiskPlacementGroup/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/DiskPlacementGroup/delete.md
+              - name: ListDisks
+                href: api-ref/DiskPlacementGroup/listDisks.md
+              - name: ListOperations
+                href: api-ref/DiskPlacementGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/DiskPlacementGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/DiskPlacementGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/DiskPlacementGroup/updateAccessBindings.md
           - name: Disk
             items:
               - name: Overview
                 href: api-ref/Disk/index.md
-              - name: create
-                href: api-ref/Disk/create.md
-              - name: delete
-                href: api-ref/Disk/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Disk/get.md
-              - name: list
+              - name: List
                 href: api-ref/Disk/list.md
-              - name: listAccessBindings
-                href: api-ref/Disk/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Disk/listOperations.md
-              - name: move
-                href: api-ref/Disk/move.md
-              - name: relocate
-                href: api-ref/Disk/relocate.md
-              - name: setAccessBindings
-                href: api-ref/Disk/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Disk/create.md
+              - name: Update
                 href: api-ref/Disk/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Disk/delete.md
+              - name: ListOperations
+                href: api-ref/Disk/listOperations.md
+              - name: Move
+                href: api-ref/Disk/move.md
+              - name: Relocate
+                href: api-ref/Disk/relocate.md
+              - name: ListAccessBindings
+                href: api-ref/Disk/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Disk/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Disk/updateAccessBindings.md
           - name: DiskType
             items:
               - name: Overview
                 href: api-ref/DiskType/index.md
-              - name: get
+              - name: Get
                 href: api-ref/DiskType/get.md
-              - name: list
+              - name: List
                 href: api-ref/DiskType/list.md
           - name: Filesystem
             items:
               - name: Overview
                 href: api-ref/Filesystem/index.md
-              - name: create
-                href: api-ref/Filesystem/create.md
-              - name: delete
-                href: api-ref/Filesystem/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Filesystem/get.md
-              - name: list
+              - name: List
                 href: api-ref/Filesystem/list.md
-              - name: listAccessBindings
-                href: api-ref/Filesystem/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Filesystem/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Filesystem/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Filesystem/create.md
+              - name: Update
                 href: api-ref/Filesystem/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Filesystem/delete.md
+              - name: ListOperations
+                href: api-ref/Filesystem/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Filesystem/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Filesystem/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Filesystem/updateAccessBindings.md
           - name: GpuCluster
             items:
               - name: Overview
                 href: api-ref/GpuCluster/index.md
-              - name: create
-                href: api-ref/GpuCluster/create.md
-              - name: delete
-                href: api-ref/GpuCluster/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/GpuCluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/GpuCluster/list.md
-              - name: listAccessBindings
-                href: api-ref/GpuCluster/listAccessBindings.md
-              - name: listInstances
-                href: api-ref/GpuCluster/listInstances.md
-              - name: listOperations
-                href: api-ref/GpuCluster/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/GpuCluster/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/GpuCluster/create.md
+              - name: Update
                 href: api-ref/GpuCluster/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/GpuCluster/delete.md
+              - name: ListOperations
+                href: api-ref/GpuCluster/listOperations.md
+              - name: ListInstances
+                href: api-ref/GpuCluster/listInstances.md
+              - name: ListAccessBindings
+                href: api-ref/GpuCluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/GpuCluster/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/GpuCluster/updateAccessBindings.md
           - name: HostGroup
             items:
               - name: Overview
                 href: api-ref/HostGroup/index.md
-              - name: create
-                href: api-ref/HostGroup/create.md
-              - name: delete
-                href: api-ref/HostGroup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/HostGroup/get.md
-              - name: list
+              - name: List
                 href: api-ref/HostGroup/list.md
-              - name: listAccessBindings
-                href: api-ref/HostGroup/listAccessBindings.md
-              - name: listHosts
-                href: api-ref/HostGroup/listHosts.md
-              - name: listInstances
-                href: api-ref/HostGroup/listInstances.md
-              - name: listOperations
-                href: api-ref/HostGroup/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/HostGroup/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/HostGroup/create.md
+              - name: Update
                 href: api-ref/HostGroup/update.md
-              - name: updateAccessBindings
-                href: api-ref/HostGroup/updateAccessBindings.md
-              - name: updateHost
+              - name: Delete
+                href: api-ref/HostGroup/delete.md
+              - name: ListOperations
+                href: api-ref/HostGroup/listOperations.md
+              - name: ListInstances
+                href: api-ref/HostGroup/listInstances.md
+              - name: ListHosts
+                href: api-ref/HostGroup/listHosts.md
+              - name: UpdateHost
                 href: api-ref/HostGroup/updateHost.md
+              - name: ListAccessBindings
+                href: api-ref/HostGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/HostGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/HostGroup/updateAccessBindings.md
           - name: HostType
             items:
               - name: Overview
                 href: api-ref/HostType/index.md
-              - name: get
+              - name: Get
                 href: api-ref/HostType/get.md
-              - name: list
+              - name: List
                 href: api-ref/HostType/list.md
           - name: Image
             items:
               - name: Overview
                 href: api-ref/Image/index.md
-              - name: create
-                href: api-ref/Image/create.md
-              - name: delete
-                href: api-ref/Image/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Image/get.md
-              - name: getLatestByFamily
+              - name: GetLatestByFamily
                 href: api-ref/Image/getLatestByFamily.md
-              - name: list
+              - name: List
                 href: api-ref/Image/list.md
-              - name: listAccessBindings
-                href: api-ref/Image/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Image/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Image/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Image/create.md
+              - name: Update
                 href: api-ref/Image/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Image/delete.md
+              - name: ListOperations
+                href: api-ref/Image/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Image/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Image/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Image/updateAccessBindings.md
           - name: Instance
             items:
               - name: Overview
                 href: api-ref/Instance/index.md
-              - name: addOneToOneNat
-                href: api-ref/Instance/addOneToOneNat.md
-              - name: attachDisk
-                href: api-ref/Instance/attachDisk.md
-              - name: attachFilesystem
-                href: api-ref/Instance/attachFilesystem.md
-              - name: attachNetworkInterface
-                href: api-ref/Instance/attachNetworkInterface.md
-              - name: create
-                href: api-ref/Instance/create.md
-              - name: delete
-                href: api-ref/Instance/delete.md
-              - name: detachDisk
-                href: api-ref/Instance/detachDisk.md
-              - name: detachFilesystem
-                href: api-ref/Instance/detachFilesystem.md
-              - name: detachNetworkInterface
-                href: api-ref/Instance/detachNetworkInterface.md
-              - name: get
+              - name: Get
                 href: api-ref/Instance/get.md
-              - name: getSerialPortOutput
-                href: api-ref/Instance/getSerialPortOutput.md
-              - name: list
+              - name: List
                 href: api-ref/Instance/list.md
-              - name: listAccessBindings
-                href: api-ref/Instance/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Instance/listOperations.md
-              - name: move
-                href: api-ref/Instance/move.md
-              - name: relocate
-                href: api-ref/Instance/relocate.md
-              - name: removeOneToOneNat
-                href: api-ref/Instance/removeOneToOneNat.md
-              - name: restart
-                href: api-ref/Instance/restart.md
-              - name: setAccessBindings
-                href: api-ref/Instance/setAccessBindings.md
-              - name: simulateMaintenanceEvent
-                href: api-ref/Instance/simulateMaintenanceEvent.md
-              - name: start
-                href: api-ref/Instance/start.md
-              - name: stop
-                href: api-ref/Instance/stop.md
-              - name: update
+              - name: Create
+                href: api-ref/Instance/create.md
+              - name: Update
                 href: api-ref/Instance/update.md
-              - name: updateAccessBindings
-                href: api-ref/Instance/updateAccessBindings.md
-              - name: updateMetadata
+              - name: Delete
+                href: api-ref/Instance/delete.md
+              - name: UpdateMetadata
                 href: api-ref/Instance/updateMetadata.md
-              - name: updateNetworkInterface
+              - name: GetSerialPortOutput
+                href: api-ref/Instance/getSerialPortOutput.md
+              - name: Stop
+                href: api-ref/Instance/stop.md
+              - name: Start
+                href: api-ref/Instance/start.md
+              - name: Restart
+                href: api-ref/Instance/restart.md
+              - name: AttachDisk
+                href: api-ref/Instance/attachDisk.md
+              - name: DetachDisk
+                href: api-ref/Instance/detachDisk.md
+              - name: AttachFilesystem
+                href: api-ref/Instance/attachFilesystem.md
+              - name: DetachFilesystem
+                href: api-ref/Instance/detachFilesystem.md
+              - name: AttachNetworkInterface
+                href: api-ref/Instance/attachNetworkInterface.md
+              - name: DetachNetworkInterface
+                href: api-ref/Instance/detachNetworkInterface.md
+              - name: AddOneToOneNat
+                href: api-ref/Instance/addOneToOneNat.md
+              - name: RemoveOneToOneNat
+                href: api-ref/Instance/removeOneToOneNat.md
+              - name: UpdateNetworkInterface
                 href: api-ref/Instance/updateNetworkInterface.md
+              - name: ListOperations
+                href: api-ref/Instance/listOperations.md
+              - name: Move
+                href: api-ref/Instance/move.md
+              - name: Relocate
+                href: api-ref/Instance/relocate.md
+              - name: SimulateMaintenanceEvent
+                href: api-ref/Instance/simulateMaintenanceEvent.md
+              - name: ListAccessBindings
+                href: api-ref/Instance/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Instance/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Instance/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: PlacementGroup
             items:
               - name: Overview
                 href: api-ref/PlacementGroup/index.md
-              - name: create
-                href: api-ref/PlacementGroup/create.md
-              - name: delete
-                href: api-ref/PlacementGroup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/PlacementGroup/get.md
-              - name: list
+              - name: List
                 href: api-ref/PlacementGroup/list.md
-              - name: listAccessBindings
-                href: api-ref/PlacementGroup/listAccessBindings.md
-              - name: listInstances
-                href: api-ref/PlacementGroup/listInstances.md
-              - name: listOperations
-                href: api-ref/PlacementGroup/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/PlacementGroup/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/PlacementGroup/create.md
+              - name: Update
                 href: api-ref/PlacementGroup/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/PlacementGroup/delete.md
+              - name: ListInstances
+                href: api-ref/PlacementGroup/listInstances.md
+              - name: ListOperations
+                href: api-ref/PlacementGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/PlacementGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/PlacementGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/PlacementGroup/updateAccessBindings.md
           - name: SnapshotSchedule
             items:
               - name: Overview
                 href: api-ref/SnapshotSchedule/index.md
-              - name: create
-                href: api-ref/SnapshotSchedule/create.md
-              - name: delete
-                href: api-ref/SnapshotSchedule/delete.md
-              - name: disable
-                href: api-ref/SnapshotSchedule/disable.md
-              - name: enable
-                href: api-ref/SnapshotSchedule/enable.md
-              - name: get
+              - name: Get
                 href: api-ref/SnapshotSchedule/get.md
-              - name: list
+              - name: List
                 href: api-ref/SnapshotSchedule/list.md
-              - name: listAccessBindings
-                href: api-ref/SnapshotSchedule/listAccessBindings.md
-              - name: listDisks
-                href: api-ref/SnapshotSchedule/listDisks.md
-              - name: listOperations
-                href: api-ref/SnapshotSchedule/listOperations.md
-              - name: listSnapshots
-                href: api-ref/SnapshotSchedule/listSnapshots.md
-              - name: setAccessBindings
-                href: api-ref/SnapshotSchedule/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/SnapshotSchedule/create.md
+              - name: Update
                 href: api-ref/SnapshotSchedule/update.md
-              - name: updateAccessBindings
-                href: api-ref/SnapshotSchedule/updateAccessBindings.md
-              - name: updateDisks
+              - name: Delete
+                href: api-ref/SnapshotSchedule/delete.md
+              - name: UpdateDisks
                 href: api-ref/SnapshotSchedule/updateDisks.md
+              - name: Disable
+                href: api-ref/SnapshotSchedule/disable.md
+              - name: Enable
+                href: api-ref/SnapshotSchedule/enable.md
+              - name: ListOperations
+                href: api-ref/SnapshotSchedule/listOperations.md
+              - name: ListSnapshots
+                href: api-ref/SnapshotSchedule/listSnapshots.md
+              - name: ListDisks
+                href: api-ref/SnapshotSchedule/listDisks.md
+              - name: ListAccessBindings
+                href: api-ref/SnapshotSchedule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/SnapshotSchedule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/SnapshotSchedule/updateAccessBindings.md
           - name: Snapshot
             items:
               - name: Overview
                 href: api-ref/Snapshot/index.md
-              - name: create
-                href: api-ref/Snapshot/create.md
-              - name: delete
-                href: api-ref/Snapshot/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Snapshot/get.md
-              - name: list
+              - name: List
                 href: api-ref/Snapshot/list.md
-              - name: listAccessBindings
-                href: api-ref/Snapshot/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Snapshot/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Snapshot/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Snapshot/create.md
+              - name: Update
                 href: api-ref/Snapshot/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Snapshot/delete.md
+              - name: ListOperations
+                href: api-ref/Snapshot/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Snapshot/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Snapshot/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Snapshot/updateAccessBindings.md
           - name: Zone
             items:
               - name: Overview
                 href: api-ref/Zone/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Zone/get.md
-              - name: list
+              - name: List
                 href: api-ref/Zone/list.md
-          - name: Operation
+          - name: Compute Cloud Instance Groups API
             items:
               - name: Overview
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
-          - name: InstanceGroup
-            items:
-              - name: Overview
-                href: api-ref/InstanceGroup/index.md
-              - name: create
-                href: api-ref/InstanceGroup/create.md
-              - name: createFromYaml
-                href: api-ref/InstanceGroup/createFromYaml.md
-              - name: delete
-                href: api-ref/InstanceGroup/delete.md
-              - name: get
-                href: api-ref/InstanceGroup/get.md
-              - name: list
-                href: api-ref/InstanceGroup/list.md
-              - name: listAccessBindings
-                href: api-ref/InstanceGroup/listAccessBindings.md
-              - name: listInstances
-                href: api-ref/InstanceGroup/listInstances.md
-              - name: listLogRecords
-                href: api-ref/InstanceGroup/listLogRecords.md
-              - name: listOperations
-                href: api-ref/InstanceGroup/listOperations.md
-              - name: pauseProcesses
-                href: api-ref/InstanceGroup/pauseProcesses.md
-              - name: resumeProcesses
-                href: api-ref/InstanceGroup/resumeProcesses.md
-              - name: rollingRecreate
-                href: api-ref/InstanceGroup/rollingRecreate.md
-              - name: rollingRestart
-                href: api-ref/InstanceGroup/rollingRestart.md
-              - name: setAccessBindings
-                href: api-ref/InstanceGroup/setAccessBindings.md
-              - name: start
-                href: api-ref/InstanceGroup/start.md
-              - name: stop
-                href: api-ref/InstanceGroup/stop.md
-              - name: update
-                href: api-ref/InstanceGroup/update.md
-              - name: updateAccessBindings
-                href: api-ref/InstanceGroup/updateAccessBindings.md
-              - name: updateFromYaml
-                href: api-ref/InstanceGroup/updateFromYaml.md
+                href: instancegroup/api-ref/index.md
+              - name: InstanceGroup
+                items:
+                  - name: Overview
+                    href: instancegroup/api-ref/InstanceGroup/index.md
+                  - name: Get
+                    href: instancegroup/api-ref/InstanceGroup/get.md
+                  - name: List
+                    href: instancegroup/api-ref/InstanceGroup/list.md
+                  - name: Create
+                    href: instancegroup/api-ref/InstanceGroup/create.md
+                  - name: CreateFromYaml
+                    href: instancegroup/api-ref/InstanceGroup/createFromYaml.md
+                  - name: Update
+                    href: instancegroup/api-ref/InstanceGroup/update.md
+                  - name: UpdateFromYaml
+                    href: instancegroup/api-ref/InstanceGroup/updateFromYaml.md
+                  - name: Stop
+                    href: instancegroup/api-ref/InstanceGroup/stop.md
+                  - name: RollingRestart
+                    href: instancegroup/api-ref/InstanceGroup/rollingRestart.md
+                  - name: RollingRecreate
+                    href: instancegroup/api-ref/InstanceGroup/rollingRecreate.md
+                  - name: Start
+                    href: instancegroup/api-ref/InstanceGroup/start.md
+                  - name: Delete
+                    href: instancegroup/api-ref/InstanceGroup/delete.md
+                  - name: ListInstances
+                    href: instancegroup/api-ref/InstanceGroup/listInstances.md
+                  - name: ListOperations
+                    href: instancegroup/api-ref/InstanceGroup/listOperations.md
+                  - name: ListLogRecords
+                    href: instancegroup/api-ref/InstanceGroup/listLogRecords.md
+                  - name: ListAccessBindings
+                    href: instancegroup/api-ref/InstanceGroup/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: instancegroup/api-ref/InstanceGroup/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      instancegroup/api-ref/InstanceGroup/updateAccessBindings.md
+                  - name: ResumeProcesses
+                    href: instancegroup/api-ref/InstanceGroup/resumeProcesses.md
+                  - name: PauseProcesses
+                    href: instancegroup/api-ref/InstanceGroup/pauseProcesses.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: instancegroup/api-ref/Operation/index.md
+                  - name: Get
+                    href: instancegroup/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: instancegroup/api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
@@ -951,3 +1407,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/compute
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "Maintenance in {{ mkf-full-name }}"
-description: "Maintenance in {{ mkf-name }} means automatic installation of ClickHouse updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+title: Maintenance in {{ mkf-full-name }}
+description: Maintenance in {{ mkf-name }} means automatic installation of ClickHouse updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mkf-name }}

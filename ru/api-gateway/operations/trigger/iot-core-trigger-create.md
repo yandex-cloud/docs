@@ -1,6 +1,6 @@
 ---
-title: "Создать триггер, который передает сообщения в соединения по протоколу WebSocket {{ api-gw-full-name }} из топика реестра или устройства {{ iot-full-name }}"
-description: "Создайте триггер для топика устройства или реестра {{ iot-name }} для отправки копий сообщений в соединения по протоколу WebSocket {{ api-gw-full-name }}." 
+title: Создать триггер, который передает сообщения в соединения по протоколу WebSocket {{ api-gw-full-name }} из топика реестра или устройства {{ iot-full-name }}
+description: Создайте триггер для топика устройства или реестра {{ iot-name }} для отправки копий сообщений в соединения по протоколу WebSocket {{ api-gw-full-name }}.
 ---
 
 # Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства {{ iot-full-name }}
@@ -42,7 +42,7 @@ description: "Создайте триггер для топика устройс
 
         * Введите имя и описание триггера.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `API-шлюз`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
 
@@ -113,7 +113,7 @@ description: "Создайте триггер для топика устройс
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 

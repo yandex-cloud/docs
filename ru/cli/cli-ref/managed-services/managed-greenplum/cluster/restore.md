@@ -33,6 +33,7 @@ Syntax:
 |`--datalens-access`|Allow access for DataLens.|
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
+|`--yandexquery-access`|Allow access for Yandex Query.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--zone-id`|<b>`string`</b><br/>Network name.|
 |`--subnet-id`|<b>`string`</b><br/>Name of the subnet. It must be specified if the selected availability zone includes two or more subnets.|
@@ -45,6 +46,8 @@ Syntax:
 |`--segment-host-count`|<b>`int`</b><br/>Number of segment hosts.|
 |`--segment-in-host`|<b>`int`</b><br/>Number of segments on host.|
 |`--restore-only`|<b>`value[,value]`</b><br/>A list of databases and tables to restore.|
+|`--master-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum master subcluster.|
+|`--segment-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum segment subcluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -63,4 +66,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

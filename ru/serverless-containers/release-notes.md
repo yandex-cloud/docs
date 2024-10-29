@@ -1,3 +1,8 @@
+---
+title: История изменений в {{ serverless-containers-full-name }}
+description: В разделе представлена история изменений сервиса {{ serverless-containers-name }}.
+---
+
 # История изменений в {{ serverless-containers-full-name }}
 
 ## Апрель 2024 {#april-2024}

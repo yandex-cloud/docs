@@ -2,28 +2,29 @@
 
 Deletes a CORS configuration for a bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}?cors HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `cors` | Required parameter that indicates the type of operation. |
+`cors` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 
 ## Response {#response}
@@ -36,4 +37,6 @@ Responses can only contain [common response headers](../common-response-headers.
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-If there is no CORS configuration, {{ objstorage-name }} returns the code `204 No Content`.
+If the CORS configuration does not exist, {{ objstorage-name }} will return the `204 No Content` code.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

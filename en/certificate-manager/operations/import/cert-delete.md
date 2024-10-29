@@ -1,6 +1,6 @@
 ---
-title: "How to delete custom certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to delete a custom certificate."
+title: How to delete custom certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to delete a custom certificate.
 ---
 
 # Deleting a custom certificate
@@ -110,6 +110,6 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
 - API {#api}
 
-   To delete a certificate, use the [delete](../../api-ref/Certificate/delete.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Delete](../../api-ref/grpc/certificate_service.md#Delete) gRPC API call.
+   To delete a certificate, use the [delete](../../api-ref/Certificate/delete.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Delete](../../api-ref/grpc/Certificate/delete.md) gRPC API call.
 
 {% endlist %}

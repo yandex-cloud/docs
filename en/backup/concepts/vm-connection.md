@@ -8,13 +8,13 @@ For the connection to work properly, assign a [service account](#sa) with the `b
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM to the [backup policy](policy.md).
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
+
+You can also link a policy to a virtual machine while creating it. Policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
+
 ## VM configuration requirements {#requirements}
 
-A VM's minimum configuration required to install and correctly run the {{ backup-name }} agent is as follows:
-* Free disk space:
-  * For Linux-based VMs: 2 GB.
-  * For Windows-based VMs: 1.2 GB.
-* RAM: For backups, 1 GB of RAM is required per TB of a backup. The amount of RAM used depends on the volume and type of data being handled by the agent.
+{% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
 
 ## Supported operating systems {#os}
 
@@ -53,7 +53,7 @@ The OS must be installed from a public image (a {{ marketplace-full-name }} prod
 
 {% endnote %}
 
-### Installing the agent on your own {#self-install}
+### Unaided installation {#self-install}
 
 You can install the {{ backup-name }} agent yourself:
 
@@ -62,13 +62,13 @@ You can install the {{ backup-name }} agent yourself:
 
 For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
 
-If you have issues while installing the agent, [contact]({{ link-console-support }}) support.
+If you have issues while installing the agent, [contact]({{ link-console-support }}) technical support.
 
 ## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.
 
-When you create a VM for which you want to set up backups in {{ backup-name }}, you need to link to it a service account with the [`backup.editor` role](../security/index.md).
+When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`backup.editor` role](../security/index.md).
 
 You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a service account with relevant roles.
 
@@ -80,22 +80,10 @@ For the {{ backup-name }} agent to exchange data with the [backup provider](inde
 
 - Egress traffic {#outgoing}
 
-   | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-   --- | --- | --- | ---
-   | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
-   | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `178.176.128.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
-   | `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `8443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `44445` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `51.250.1.0/24` |
+  {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
 {% endlist %}
 
-To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/static-routes.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
+To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
 
 The VM's [security group](../../vpc/concepts/security-groups.md) rules must allow access to the specified resources. You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
-

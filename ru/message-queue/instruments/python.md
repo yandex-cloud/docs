@@ -1,12 +1,14 @@
 # Пример использования {{ message-queue-full-name }} на Python
 
-Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python. Версии `boto3` старше 1.26.0 не поддерживаются.
+{% note warning %}
+
+Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python.
+
+{% endnote %}
 
 ## Установка {#install}
 
 Для установки воспользуйтесь инструкциями в репозитории разработчика: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
-
-Для установки `boto3` версии 1.26.0 укажите `boto3==1.26.0` в файле `requirements.txt` и запустите `pip install -r requirements.txt`, либо используйте команду `pip install boto3==1.26.0`. Используйте команду `pip show boto3` чтобы проверить, какая версия установлена.
 
 ## Подготовка к работе {#prepare}
 
@@ -22,9 +24,9 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере:
 
-1. Устанавливается соединение с {{ message-queue-name }}. 
+1. Устанавливается соединение с {{ message-queue-name }}.
 1. Создается очередь с именем `mq_example_boto3`. 
-1. В очередь передается сообщение с текстом `boto3 sample message`. 
+1. В очередь передается сообщение с текстом `boto3 sample message`.
 1. Сообщение считывается из очереди и отображается в терминале.
 1. Полученное сообщение удаляется из очереди.
 1. Удаляется созданная очередь сообщений.

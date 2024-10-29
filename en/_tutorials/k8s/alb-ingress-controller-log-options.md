@@ -1,5 +1,4 @@
-# Logging settings for {{ alb-name }} Ingress controllers
-
+# Logging settings for {{ alb-full-name }} Ingress controllers
 
 You can configure the logging settings for [L7 balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
 
@@ -355,7 +354,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
    * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
    * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
 
-      * `http`: HTTP/1.1; default value
+      * `http`: HTTP/1.1, default
       * `http2`: HTTP/2
       * `grpc`: gRPC
 

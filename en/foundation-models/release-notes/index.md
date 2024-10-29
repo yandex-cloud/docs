@@ -1,6 +1,6 @@
 ---
-title: "{{ foundation-models-full-name }} release notes"
-description: "This page presents {{ foundation-models-full-name }} release notes."
+title: '{{ foundation-models-full-name }} release notes'
+description: This page presents {{ foundation-models-full-name }} release notes.
 ---
 
 # {{ foundation-models-full-name }} release notes

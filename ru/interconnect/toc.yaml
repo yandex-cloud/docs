@@ -1,10 +1,5 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
-label:
-  title: Скоро
-  description: Сервис в ближайшее время будет доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Концепции
     expanded: true
@@ -54,8 +49,13 @@ items:
           Добавить публичное соединение в прямое или партнерское транковое
           подключение
         href: operations/pub-add.md
+  - name: Практические руководства
+    items:
+      - name: Интеграция с корпоративным сервисом DNS
+        href: tutorials/dns-integration.md
   - name: Правила тарификации
     href: pricing.md
   - name: История изменений
     href: release-notes.md
 base: ru/interconnect
+deepBase: 2

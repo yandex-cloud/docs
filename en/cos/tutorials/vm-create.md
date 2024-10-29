@@ -22,7 +22,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
       * (Optional) Enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container to run on the VM. The naming requirements are as follows:
          * The name must be from 3 to 63 characters long.
          * It may contain Latin letters, numbers, and hyphens.
-         * It must start with a letter. The last character cannot be a hyphen.
+         * Use a letter for the first character. Do not use a hyphen for the last character.
       * Specify the [**{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**](../concepts/docker-image.md) to be used to run the Docker container on the VM. You can do this in one of the following ways:
          * By selecting one of the available images. To do this, start typing the image name in the search bar. The image search reads all the available cloud folders.
          * By specifying the image name manually. To do this, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and enter the image name. You can specify an image from {{ container-registry-name }} or any publicly available Docker image library (such as [Docker Hub](https://hub.docker.com)).
@@ -65,7 +65,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         --public-ip \
         --platform standard-v3 \
         --container-name=my-app \
-        --container-image={{ registry }}/mirror/ubuntu:16.04 \
+        --container-image={{ registry }}/mirror/ubuntu:20.04 \
         --container-command=sleep \
         --container-arg="1000" \
         --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -75,7 +75,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
       Where:
       * `--name`: VM name.
       * `--zone`: Availability zone.
-      * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
+      * `--ssh-key`: Contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * `--service-account-name`: Name of the service account.
       * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
       * `--public-ip`: Public IP address allocated to the VM.
@@ -144,7 +144,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
       * `--coi-spec-file`: Path to the Docker container [specification file](../concepts/coi-specifications.md#coi-spec).
       * `--name`: VM name.
       * `--zone`: Availability zone.
-      * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file.
+      * `--ssh-key`: Contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
       * `--service-account-name`: Name of the service account.
       * `--public-ip`: Public IP address allocated to the VM.

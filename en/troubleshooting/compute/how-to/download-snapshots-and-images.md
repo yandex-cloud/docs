@@ -1,7 +1,6 @@
 # How to save snapshots and images locally
 
 
-
 ## Scenario description {#case-description}
 
 You need to save snapshots or images locally.

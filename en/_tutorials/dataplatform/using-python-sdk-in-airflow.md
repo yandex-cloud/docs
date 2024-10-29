@@ -1,8 +1,8 @@
 # Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud }} Python SDK
 
-When working with {{ maf-name }}, you can use the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) to make requests to the {{ yandex-cloud }} API. The service supports sending requests to any type of cloud resources. Also, you do not need to manually set up authentication in the cloud. {{ yandex-cloud }} Python SDK authenticates via the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account linked to the {{ AF }} cluster.
+When working with {{ maf-name }}, you can use the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) to make requests to the {{ yandex-cloud }} API. The service supports sending requests to any type of cloud resources. You do not need to set up authentication in the cloud manually. {{ yandex-cloud }} Python SDK authenticates via the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account linked to the {{ AF }} cluster.
 
-Below, we consider a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) sending a request to the {{ yandex-cloud }} API. The request returns a list of virtual machines in the folder where the {{ AF }} cluster is created.
+As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) which submits a request to the {{ yandex-cloud }} API. The request returns a list of virtual machines in the folder where the {{ AF }} cluster is created.
 
 To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud }} API:
 
@@ -12,34 +12,25 @@ To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-{% note info %}
-
-{{ maf-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
-
-## Prepare the infrastructure {#create-infrastracture}
+## Prepare the infrastructure {#create-infrastructure}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 
    * `compute.viewer`
    * `managed-airflow.integrationProvider`
 
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account. Save its ID and the secret key.
-
 1. [Create an {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) bucket in any configuration.
 
 1. [Create a {{ maf-name }} cluster](../../managed-airflow/operations/cluster-create.md#create-cluster) with the following parameters:
 
    * **Service account**: `airflow-sa`
-   * **Bucket name**: Name of the bucket you created
-   * **Key ID** and **secret key**: Belong to the static access key
+   * **Bucket name**: Name of the new bucket
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) in any configuration.
 
 ## Prepare the DAG file and run the graph {#dag}
 
-1. Create a local file named `test_python_sdk.py` and copy the following script into it:
+1. Create a local file named `test_python_sdk.py` and copy the following script to it:
 
    {% cut "test_python_sdk.py" %}
 
@@ -78,15 +69,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-   To authenticate in the cloud, the IAM token of the service account attached to the {{ AF }} cluster is used. The `yandexcloud.SDK()` object has default parameters and is automatically populated with the data required to authenticate with the IAM token.
+   To authenticate in the cloud, the IAM token of the service account attached to the {{ AF }} cluster is used. The `yandexcloud.SDK()` object is created with default parameters and automatically populated with the data required to authenticate with the IAM token.
 
-1. [Upload](../../storage/operations/objects/upload.md) the `test_python_sdk.py` DAG file to the bucket you created previously. This will automatically create a graph with the same name in the {{ AF }} web interface.
+1. [Upload](../../storage/operations/objects/upload.md) the `test_python_sdk.py` DAG file to the bucket you created earlier. This will automatically create a graph with the same name in the {{ AF }} web interface.
 
 1. [Open the {{ AF }} web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 
-1. Make sure that a new graph named `test_python_sdk` has appeared in the **DAGs** section.
+1. Make sure a new graph named `test_python_sdk` has appeared in the **DAGs** section.
 
-   It may take several minutes to upload a DAG file from the bucket.
+   It may take a few minutes to upload a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -98,7 +89,7 @@ To check the result in the {{ AF }} web interface:
 1. Go to the **Grid** section.
 1. Select the **list_instances** task.
 1. Go to **Logs**.
-1. Make sure the logs list the virtual machines from the folder where the {{ AF }} cluster is created. This indicates the query was successful.
+1. Make sure the logs list the virtual machines from the folder where the {{ AF }} cluster is created. This means the query was successful.
 
 ## Delete the resources you created {#clear-out}
 

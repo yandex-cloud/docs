@@ -1,6 +1,6 @@
 ---
-title: "Как изменить основные настройки ресурса в {{ cdn-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить основные настройки ресурса." 
+title: Как изменить основные настройки ресурса в {{ cdn-full-name }}
+description: Следуя данной инструкции, вы сможете изменить основные настройки ресурса.
 ---
 
 # Изменение основных настроек ресурса
@@ -27,24 +27,37 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% endnote %}
 
-      Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+      * Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
 
-      * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+          * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
 
-      * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
-          {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
 
-          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+              {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-      Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
 
-      Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+      * Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе:
 
-      {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+          1. Включите опцию **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
+          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** задайте правило. Например: `/(.*) /new-folder/$1`.
 
-      Подробнее см. в разделе [{#T}](enable-secure-token.md).
+              {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+
+          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
+
+              {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+      * Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+          {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+          {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+
+          Подробнее см. в разделе [{#T}](enable-secure-token.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -68,7 +81,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Результат:
 
-      ```bash
+      ```text
       id: s0me1dkfjq********
       folder_id: s0mef01der7p********
       cname: testexample.com
@@ -116,6 +129,17 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
+      Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе, используйте параметры:
+
+      * `--rewrite-body` – правило Rewrite. Например: `--rewrite-body '/(.*) /new-folder/$1'`.
+
+          {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+      * `--rewrite-flag` – [флаг](../../concepts/http-rewrite.md#flag). Возможные значения:
+
+          {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+      Чтобы отключить перенаправление запросов на CDN-ресурсе, используйте параметр `--clear-rewrite`.
+
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       Чтобы отключить политику доступа по IP-адресам, используйте параметр `--clear-ip-address-acl`.
@@ -135,25 +159,25 @@ description: "Следуя данной инструкции, вы сможет�
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 
   1. Проверьте конфигурацию командой:
-     ```
+     ```bash
      terraform validate
      ```
 
      Если конфигурация является корректной, появится сообщение:
 
-     ```
+     ```text
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
-     ```
+     ```bash
      terraform plan
      ```
 
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
-     ```
+     ```bash
      terraform apply
      ```
 
@@ -161,13 +185,13 @@ description: "Следуя данной инструкции, вы сможет�
 
      Проверить изменение CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc cdn resource list
      ```
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/Resource/update.md).
 
   Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
 
@@ -191,7 +215,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Результат:
 
-    ```bash
+    ```text
     id: s0me1dkfjq********
 
     ...

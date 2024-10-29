@@ -138,7 +138,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
    * ID of the folder to host the database in the `folderId` parameter.
    * Database name in the `name` parameter.
@@ -251,7 +251,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+   To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/Database/update.md) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -306,11 +306,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
          * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
          * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
-         * (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
-         * Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
-         * Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-         * Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
+         * (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
+         * Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+         * Specify the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+         * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.
@@ -452,7 +452,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
    * ID of the folder to host the database in the `folderId` parameter.
    * Database name in the `name` parameter.
@@ -542,7 +542,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+   To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/Database/update.md) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -575,23 +575,23 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 - API {#api}
 
-   To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
+   To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/Database/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
 ## Assigning a role for a database {#add-access-binding}
 
-You can grant a user, service account, or user group access to a {{ ydb-name }} database. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the appropriate role, [find out](../security/index.md#roles-list) which ones exist in the service.
+You can grant access to a {{ ydb-name }} database to a user, service account, or user group. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the one you need, [learn](../security/index.md#roles-list) about the service's roles.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
+   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Click the name of the database you need.
+   1. Click the name of the database.
    1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select the group, user, or service account to grant access to the database.
+   1. Select the group, user, or service account you want to grant access to the database.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -603,19 +603,19 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    To assign a role for a database:
 
-   1. See the description of the CLI command for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc ydb database add-access-binding --help
       ```
 
-   1. Get a list of databases along with their IDs:
+   1. Get a list of databases with their IDs:
 
       ```bash
       yc ydb database list
       ```
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
+   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
    1. Use one of these commands to assign a role:
 
       * To a user:
@@ -656,12 +656,12 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - API {#api}
 
-   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/database_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
-   * ID of the subject being assigned the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
-   * Type of the subject being assigned the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * ID of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
 
 {% endlist %}
 
@@ -671,17 +671,17 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
+   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Click the name of the database you need.
+   1. Click the name of the database.
    1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select the group, user, or service account to grant access to the database.
+   1. Select the group, user, or service account you want to grant access to the database.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -689,29 +689,29 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    To assign multiple roles for a database:
 
-   1. Make sure the database has no roles assigned that you would rather not lose:
+   1. Make sure the database has no roles assigned that you would not want to lose:
 
       ```bash
       yc ydb database list-access-bindings \
          --id <database_ID>
       ```
 
-   1. See the CLI command description for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc ydb database set-access-bindings --help
       ```
 
-   1. Get a list of databases along with their IDs:
+   1. Get a list of databases with their IDs:
 
       ```bash
       yc ydb database list
       ```
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you assign roles to.
+   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Use one of the commands below to assign roles:
 
-      * To a user with a Yandex account:
+      * To a Yandex account user:
 
          ```bash
          yc ydb database set-access-bindings \
@@ -755,13 +755,13 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings) gRPC API call. Provide an array of objects in your request, with each object associated with a particular role and containing the following data:
+   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
-   * ID of the subject being assigned the roles in the `access_bindings[].subject.id` parameter.
-   * Type of the subject being assigned the roles in the `access_bindings[].subject.type` parameter.
+   * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.
+   * Type of the subject you are assigning the roles to in the `access_bindings[].subject.type` parameter.
 
 {% endlist %}
 
@@ -829,7 +829,7 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - API {#api}
 
-   To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
+   To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

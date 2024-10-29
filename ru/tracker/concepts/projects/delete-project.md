@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/delete-project.md
 
 Чтобы удалить проект, используйте HTTP-запрос с методом `DELETE`.
 
-```
+```http
 DELETE /{{ ver }}/projects/<идентификатор_проекта>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

@@ -1,9 +1,9 @@
 ---
-title: "Сценарии использования {{ org-full-name }}"
-description: "Различные сценарии использования {{ org-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования по управлению федерациями удостоверений в {{ org-full-name }}
+description: Различные сценарии по управлению федерациями удостоверений {{ org-full-name }} в {{ yandex-cloud }}.
 ---
 
-# Практические руководства по управлению федерациями удостоверений в {{ org-full-name }}
+# Управление федерациями удостоверений в {{ org-name }}
 
 * [{#T}](integration-adfs.md)
 * [{#T}](integration-gworkspace.md)
@@ -12,5 +12,6 @@ description: "Различные сценарии использования {{ 
 
 ## Сопоставление групп пользователей
 
+* [{#T}](./group-mapping/adfs.md)
 * [{#T}](./group-mapping/entra-id.md)
 * [{#T}](./group-mapping/keycloak.md)

@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с помощью AWS CLI"
-description: "Следуя данной инструкции, вы сможете создать бакета и загрузить в него объект с помощью AWS CLI."
+title: Начало работы с помощью AWS CLI
+description: Следуя данной инструкции, вы сможете создать бакета и загрузить в него объект с помощью AWS CLI.
 ---
 
 # Как начать работать с AWS CLI в {{ objstorage-full-name }}
@@ -50,21 +50,22 @@ description: "Следуя данной инструкции, вы сможет�
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
       1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       Подробнее см. в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
-    
-      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %} 
+
+      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
   1. Создайте статический ключ доступа {#create-keys}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-      1. Выберите сервисный аккаунт и нажмите на строку с его именем.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. В открывшемся списке выберите нужный сервисный аккаунт.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
       1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -89,9 +90,9 @@ description: "Следуя данной инструкции, вы сможет�
     - Linux {#linux}
 
       1. В терминале выполните команду:
-    
+
           ```bash
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --output "awscliv2.zip"
           unzip awscliv2.zip
           sudo ./aws/install
           ```
@@ -101,9 +102,9 @@ description: "Следуя данной инструкции, вы сможет�
     - macOS {#macos}
 
       1. В терминале выполните команду:
-    
+
           ```bash
-          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
           sudo installer -pkg AWSCLIV2.pkg -target /
           ```
 
@@ -138,11 +139,12 @@ description: "Следуя данной инструкции, вы сможет�
 
             Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
-     
 
           Значения остальных параметров оставьте без изменений.
 
+
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
       1. Задайте эндпоинт {{ objstorage-name }}:
 
@@ -154,7 +156,7 @@ description: "Следуя данной инструкции, вы сможет�
 
           * `~/.aws/config`:
 
-            
+
             ```text
             [default]
             region = {{ region-id }}

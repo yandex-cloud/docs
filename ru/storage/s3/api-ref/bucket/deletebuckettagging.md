@@ -1,8 +1,10 @@
 # Метод deleteBucketTagging
 
-Удаляет [метки](../../../concepts/tags.md) бакета. 
+Удаляет [метки](../../../concepts/tags.md) бакета.
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

@@ -1,6 +1,5 @@
 # Настройка Ingress-контроллера {{ alb-full-name }}
 
-
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере {{ managed-k8s-name }} приложениям через {{ alb-name }}:
@@ -365,6 +364,16 @@ yc certificate-manager certificate list
        * `m` — минуты.
        * `h` — часы.
 
+     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+
+       Чтобы включить поддержку сервиса, в аннотации Ingress укажите заранее созданный [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}:
+
+       ```yaml
+       ingress.alb.yc.io/security-profile-id: <идентификатор_профиля_безопасности>
+       ```
+
+       {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 
      {% endcut %}
@@ -616,6 +625,16 @@ yc certificate-manager certificate list
        * `s` — секунды.
        * `m` — минуты.
        * `h` — часы.
+
+     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+
+       Чтобы включить поддержку сервиса, в аннотации Ingress укажите заранее созданный [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}:
+
+       ```yaml
+       ingress.alb.yc.io/security-profile-id: <идентификатор_профиля_безопасности>
+       ```
+
+       {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 

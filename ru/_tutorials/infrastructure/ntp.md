@@ -1,5 +1,5 @@
 ---
-description: "Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах {{ yandex-cloud }} под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации."
+description: Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах {{ yandex-cloud }} под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации.
 keywords:
   - ntp
   - ntp server
@@ -76,7 +76,7 @@ keywords:
 
   1. Укажите адреса рекомендуемых серверов в секции `[Time]` в параметре `FallbackNTP=`, например:
      
-      
+
       ```text
       FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
@@ -120,7 +120,7 @@ keywords:
 
   1. Укажите адреса рекомендуемых серверов. Адреса серверов по умолчанию закомментируйте символом `#` в начале строки, например:
      
-      
+
       ```text
       # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
       # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
@@ -165,7 +165,7 @@ keywords:
 
   1. Укажите адреса рекомендуемых серверов, например:
 
-      
+
 
       ```powershell
       w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
@@ -237,7 +237,7 @@ keywords:
 
   Результат:
 
-  
+
   ```bash
       remote           refid      st t when poll reach   delay   offset  jitter
   ==============================================================================
@@ -265,7 +265,7 @@ keywords:
 
   Результат:
 
-  
+
   ```powershell
   ...
   [TimeProviders]

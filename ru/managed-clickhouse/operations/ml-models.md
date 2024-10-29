@@ -11,14 +11,11 @@
 {{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
 
 
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-full-name }}.
-
-1. Настройте доступ к файлу модели, используя [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
-
-    1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
-    1. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
-    1. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
-
+1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к файлу модели.
+1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
+1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
 1. [Получите ссылку](s3-access.md#get-link-to-object) на файл модели.
 
 
@@ -47,7 +44,7 @@
 
 - API {#api}
 
-    Чтобы получить список моделей в кластере, воспользуйтесь методом REST API [list](../api-ref/MlModel/list.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/List](../api-ref/grpc/ml_model_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список моделей в кластере, воспользуйтесь методом REST API [list](../api-ref/MlModel/list.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/List](../api-ref/grpc/MlModel/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -79,7 +76,7 @@
 
 - API {#api}
 
-    Чтобы получить детальную информацию о модели, воспользуйтесь методом REST API [get](../api-ref/MlModel/get.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Get](../api-ref/grpc/ml_model_service.md#Get) и передайте в запросе:
+    Чтобы получить детальную информацию о модели, воспользуйтесь методом REST API [get](../api-ref/MlModel/get.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Get](../api-ref/grpc/MlModel/get.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
@@ -164,7 +161,7 @@
 
 - API {#api}
 
-    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) и передайте в запросе:
+    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/MlModel/create.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
@@ -182,7 +179,7 @@
 1. [Подключитесь к кластеру](connect/clients.md).
 1. Выполните SQL-запрос вида:
 
-   ```
+   ```sql
    SELECT 
        catboostEvaluate('<путь_к_файлу_модели>', 
                      <имя_столбца_1>,
@@ -268,7 +265,7 @@
 
 - API {#api}
 
-    Чтобы изменить модель, воспользуйтесь методом REST API [update](../api-ref/MlModel/update.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Update](../api-ref/grpc/ml_model_service.md#Update) и передайте в запросе:
+    Чтобы изменить модель, воспользуйтесь методом REST API [update](../api-ref/MlModel/update.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Update](../api-ref/grpc/MlModel/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Имя модели в параметре `mlModelName`.
@@ -295,7 +292,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-delete-ml-model }}**.
+    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -334,7 +331,7 @@
 
 - API {#api}
 
-    Чтобы удалить модель, воспользуйтесь методом REST API [delete](../api-ref/MlModel/delete.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Delete](../api-ref/grpc/ml_model_service.md#Delete) и передайте в запросе:
+    Чтобы удалить модель, воспользуйтесь методом REST API [delete](../api-ref/MlModel/delete.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Delete](../api-ref/grpc/MlModel/delete.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.

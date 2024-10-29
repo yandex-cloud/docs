@@ -1,6 +1,6 @@
 ---
-title: "Введение в работу с {{ ydb-short-name }} через {{ TF }}"
-description: "Статья содержит: описание основных команд {{ TF }} CLI, а также список инструкций по работе с {{ ydb-short-name }} с помощью {{ TF }}."
+title: Введение в работу с {{ ydb-short-name }} через {{ TF }}
+description: 'Статья содержит: описание основных команд {{ TF }} CLI, а также список инструкций по работе с {{ ydb-short-name }} с помощью {{ TF }}.'
 ---
 
 # Введение в работу с {{ ydb-short-name }} через {{ TF }}
@@ -33,10 +33,10 @@ description: "Статья содержит: описание основных �
 | [yandex_ydb_database_dedicated]({{ tf-provider-resources-link }}/ydb_database_dedicated) | База данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
 | [yandex_ydb_database_iam_binding]({{ tf-provider-resources-link }}/ydb_database_iam_binding) | [Привязка](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к базе данных |
 | [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless) | [Бессерверная](../concepts/resources.md#serverless) база данных (Serverless) |
-| [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Топик](https://ydb.tech/docs/ru/concepts/topic) |
-| [yandex_ydb_table]({{ tf-provider-resources-link }}/ydb_table) | [Таблица](https://ydb.tech/docs/ru/concepts/datamodel/table) |
-| [yandex_ydb_table_changefeed]({{ tf-provider-resources-link }}/ydb_table_changefeed) | [Change Data Capture](https://ydb.tech/docs/ru/concepts/cdc) |
-| `yandex_ydb_table_index` | [Вторичный индекс таблицы](https://ydb.tech/docs/ru/concepts/secondary_indexes) |
+| [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Топик]({{ ydb.docs }}/concepts/topic) |
+| [yandex_ydb_table]({{ tf-provider-resources-link }}/ydb_table) | [Таблица]({{ ydb.docs }}/concepts/datamodel/table) |
+| [yandex_ydb_table_changefeed]({{ tf-provider-resources-link }}/ydb_table_changefeed) | [Change Data Capture]({{ ydb.docs }}/concepts/cdc) |
+| `yandex_ydb_table_index` | [Вторичный индекс таблицы]({{ ydb.docs }}/concepts/secondary_indexes) |
 
 ## Источники данных {#data-sources}
 
@@ -44,5 +44,5 @@ description: "Статья содержит: описание основных �
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_ydb_database_dedicated]({{ tf-provider-datasources-link }}/datasource_ydb_database_dedicated) | Информация о базе данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
-| [yandex_ydb_database_serverless]({{ tf-provider-datasources-link }}/datasource_ydb_database_serverless) | Информация о [бессерверной](../concepts/resources.md#serverless) базе данных (Serverless) |
+| [yandex_ydb_database_dedicated]({{ tf-provider-datasources-link }}/ydb_database_dedicated) | Информация о базе данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
+| [yandex_ydb_database_serverless]({{ tf-provider-datasources-link }}/ydb_database_serverless) | Информация о [бессерверной](../concepts/resources.md#serverless) базе данных (Serverless) |

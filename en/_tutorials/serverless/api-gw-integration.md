@@ -83,7 +83,7 @@ The cost of resources for the integration includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -96,7 +96,7 @@ The cost of resources for the integration includes:
          sudo ./aws/install
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash
@@ -150,7 +150,7 @@ The cost of resources for the integration includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -162,7 +162,7 @@ The cost of resources for the integration includes:
          sudo installer -pkg AWSCLIV2.pkg -target /
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash
@@ -641,5 +641,5 @@ To stop paying for the resources you created:
    terraform destroy
    ```
 
-   Confirm resource deletion: type `yes` in the terminal and press **Enter**.
+   Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
 * [Delete](../../storage/operations/buckets/delete.md) the bucket with the function file.

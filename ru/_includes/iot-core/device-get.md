@@ -60,7 +60,7 @@
      * `output "device_params"` — выходная переменная, которая содержит информацию о реестре, которому принадлежит устройство:
        * `value` — возвращаемое значение.
 
-     Вместо `registry_id` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_device` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_iot_core_device).
+     Вместо `registry_id` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_device` см. в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_device).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -79,6 +79,6 @@
  
 - API {#api}
 
-  Чтобы получить подробную информацию об устройстве, воспользуйтесь методом REST API [get](../../iot-core/api-ref/Device/get.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Get](../../iot-core/api-ref/grpc/device_service.md#Get).
+  Чтобы получить подробную информацию об устройстве, воспользуйтесь методом REST API [get](../../iot-core/api-ref/Device/get.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Get](../../iot-core/api-ref/grpc/Device/get.md).
 
 {% endlist %}

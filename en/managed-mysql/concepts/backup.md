@@ -1,6 +1,6 @@
 ---
-title: "MySQL backups"
-description: "{{ mmy-short-name }} provides automatic and manual MySQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day."
+title: MySQL backups
+description: '{{ mmy-short-name }} provides automatic and manual MySQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
 keywords:
   - backup
   - database backup

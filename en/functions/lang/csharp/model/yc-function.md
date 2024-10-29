@@ -4,7 +4,7 @@ You can set a handler function in C# by implementing the [YcFunction](https://gi
 
 {% note warning %}
 
-You should specify both values for `YcFunction` type parameters: the first one being the input argument type and the second one the type of the return value. The `handle` method also has [invocation context](../context.md) as its second argument.
+You should specify both values for the `YcFunction` type parameters: the first one being the input argument type and the second one, the type of the returned value. The `handle` method also has [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 
@@ -20,7 +20,7 @@ public class Handler : YcFunction<int, String> {
 Examples of invalid handlers:
 ```C#
 // YcFunction has only one parameter type specified
-// Handler should not have any type parameters (see [the handler requirements](index.md))
+// Handler should not have any type parameters
 public class Handler<T> : YcFunction<T, int> {
   public int FunctionHandler(T i, Context c) {
     return 2;
@@ -29,7 +29,7 @@ public class Handler<T> : YcFunction<T, int> {
 ```
 
 ```C#
-// YcFunction does not have both parameter types specified
+// YcFunction has neither of the parameter types specified
 public class Handler : YcFunction {
   public Object FunctionHandler(Object i, Context c) {
     return i;
@@ -37,11 +37,13 @@ public class Handler : YcFunction {
 }
 ```
 
+To learn more about the handler requirements, see [{#T}](index.md).
+
 You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires a public `getter` method. Otherwise, the field will not be included in the response.
+Fields of these classes may have any [access modifiers](https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires the `getter` public method. Otherwise, the field will not be included in the response.
 
 {% endnote %}
 
@@ -78,13 +80,13 @@ public class Handler : YcFunction<int, bool> {
 
 Example of input data:
 
-```
+```text
 41
 ```
 
 The log will contain the following:
 
-```
+```text
 Function name: <function_name>
 Function version: <function_version_ID>
 Service account token: <service_account_token>
@@ -92,6 +94,6 @@ Service account token: <service_account_token>
 
 Returned string:
 
-```
+```text
 false
 ```

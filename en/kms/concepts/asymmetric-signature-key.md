@@ -1,6 +1,6 @@
 ---
-title: "Asymmetric signature key pair in {{ kms-short-name }}"
-description: "This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}."
+title: Asymmetric signature key pair in {{ kms-short-name }}
+description: This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}.
 ---
 
 # Asymmetric signature key pair in {{ kms-short-name }}
@@ -35,7 +35,7 @@ A digital signature key pair in {{ kms-short-name }} may have the following para
     * `Active`: Key pair can be used for signing data and verifying the signature.
     * `Inactive`: Key pair cannot be used.
 
-    You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricSignatureKeyService/Update](../api-ref/grpc/asymmetric_signature_key_service.md#Update) gRPC API call.
+    You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricSignatureKeyService/Update](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/update.md) gRPC API call.
 
 ## Using a digital signature key pair {#use}
 

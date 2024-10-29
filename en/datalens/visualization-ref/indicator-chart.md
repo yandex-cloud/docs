@@ -42,10 +42,33 @@ To create an indicator:
 1. Select the **Indicator** chart type.
 1. Drag a dimension or measure from the dataset to the **Measure** section. The value is displayed as a number.
 
-You can also change the size and color of the indicator:
+## Additional settings {#additional-settings}
+
+### Changing indicator size and color {#size-color-setting}
+
+To change indicator size and color:
 
 1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg).
 1. In the **Indicator settings** window, select the size and color and click **Apply**.
+
+### Customizing header display {#indicator-title}
+
+To customize header display:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Select header display options:
+
+   * `Field name`: Show field name in header.
+   * `Manually`: Rename header.
+   * `Hide`: Hide header.
+
+1. Click **Apply**.
+
+{% cut "Chart settings window" %}
+
+![indicator-chart-settings](../../_assets/datalens/release-notes/preview-disable.png)
+
+{% endcut %}
 
 ## Recommendations {#recommendations}
 

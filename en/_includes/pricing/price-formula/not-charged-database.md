@@ -1,5 +1,4 @@
-The following initial amounts are offered free of charge each month:
-
-* 1000000 operations (in Request Units).
-* 1 GB/month of data storage.
-
+You get the following at no charge every month:
+* First 1,000,000 operations (in Request Units).
+* First 1 GB/month of data storage.
+* Storing automatic backups (two full backups of your DBs for the last two days).

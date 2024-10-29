@@ -1,4 +1,4 @@
 Создавать новую ревизию необходимо в следующих случаях:
 
-* загрузка новой версии Docker-образа в {{ container-registry-name }};
+* загрузка новой версии Docker-образа в [{{ container-registry-full-name }}](../../container-registry/);
 * изменение настроек ревизии.

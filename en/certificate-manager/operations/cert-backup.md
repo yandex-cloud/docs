@@ -1,6 +1,6 @@
 ---
-title: "Backing up TLS certificates"
-description: "To back up and save your TLS certificate, get the certificate ID and contents and keep the resulting files in a secure place for long-term storage. Repeat the procedure for each certificate you want to back up. To restore a TLS certificate, follow the steps in the article."
+title: Backing up TLS certificates
+description: To back up and save your TLS certificate, get the certificate ID and contents and keep the resulting files in a secure place for long-term storage. Repeat the procedure for each certificate you want to back up. To restore a TLS certificate, follow the steps in the article.
 ---
 
 # Back up certificates
@@ -38,7 +38,7 @@ To save a certificate:
 
    - API {#api}
 
-      To get the certificate ID, use the [list](../api-ref/Certificate/list.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/List](../api-ref/grpc/certificate_service.md#List) gRPC API call.
+      To get the certificate ID, use the [list](../api-ref/Certificate/list.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/List](../api-ref/grpc/Certificate/list.md) gRPC API call.
 
 
    {% endlist %}
@@ -71,7 +71,7 @@ To save a certificate:
 
    - API {#api}
 
-      To get the certificate contents, use the [get](../api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get) gRPC API call.
+      To get the certificate contents, use the [get](../api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../api-ref/grpc/CertificateContent/get.md) gRPC API call.
 
    {% endlist %}
 
@@ -134,7 +134,7 @@ To restore a user certificate from the certificate chain and key files:
 
    - API {#api}
 
-      To import a certificate, use the [create](../api-ref/Certificate/create.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create) gRPC API call.
+      To import a certificate, use the [create](../api-ref/Certificate/create.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/Create](../api-ref/grpc/Certificate/create.md) gRPC API call.
 
    {% endlist %}
 

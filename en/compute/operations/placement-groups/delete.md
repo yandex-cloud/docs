@@ -123,6 +123,6 @@ Delete a [placement group](../../concepts/placement-groups.md).
 
 - API {#api}
 
-   Use the [delete](../../api-ref/PlacementGroup/delete.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Delete](../../api-ref/grpc/placement_group_service.md#Delete) gRPC API call.
+   Use the [delete](../../api-ref/PlacementGroup/delete.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Delete](../../api-ref/grpc/PlacementGroup/delete.md) gRPC API call.
 
 {% endlist %}

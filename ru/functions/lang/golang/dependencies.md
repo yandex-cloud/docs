@@ -20,6 +20,8 @@
 
 Название модуля в файле `go.mod` не должно быть `main`.
 
+{% include [move-groups-api](../../../_includes/functions/go-mod-lang-version-notice.md) %}
+
 {% endnote %}
 
 ### dep

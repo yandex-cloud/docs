@@ -1,10 +1,5 @@
 title: Yandex Object Storage
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -34,7 +29,7 @@ items:
             href: operations/buckets/cors.md
           - name: Configuring access permissions using {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Editing a bucket ACL
+          - name: Editing a bucket's ACL
             href: operations/buckets/edit-acl.md
           - name: Access policy management
             href: operations/buckets/policy.md
@@ -42,6 +37,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Accessing a bucket using {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: >-
+              Accessing a bucket using a service connection from {{
+              vpc-short-name }}
+            href: operations/buckets/access-via-vpc.md
           - name: Managing bucket versioning
             href: operations/buckets/versioning.md
           - name: Enabling logging
@@ -78,11 +77,13 @@ items:
             href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
-          - name: Editing an object ACL
+          - name: Editing an object's ACL
             href: operations/objects/edit-acl.md
           - name: Object label management
             href: operations/objects/tagging.md
-      - name: Static website hosting
+          - name: Managing an object's custom metadata
+            href: operations/objects/object-meta.md
+      - name: Hosting static websites
         items:
           - name: Hosting setup
             href: operations/hosting/setup.md
@@ -99,11 +100,13 @@ items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
       - name: >-
-          Getting {{ objstorage-full-name }} object query statistics using {{
-          yq-full-name }}
+          Getting statistics of queries to {{ objstorage-full-name }} objects
+          using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
+      - name: Getting statistics of queries to objects using {{ yq-full-name }}
+        href: tutorials/server-logs-yq.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
@@ -114,9 +117,7 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
-      - name: >-
-          Using initialization actions to configure GeeseFS in {{
-          dataproc-full-name }}
+      - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
@@ -124,6 +125,12 @@ items:
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Using hybrid storage in {{ mch-full-name }}
+        href: tutorials/clickhouse-hybrid-storage.md
+      - name: >-
+          Loading data from {{ mos-full-name }} to {{ objstorage-full-name }}
+          using {{ data-transfer-full-name }}
+        href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
       - name: Regular recognition of audio files in buckets
@@ -135,25 +142,66 @@ items:
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: tutorials/storage-vpc-access.md
       - name: >-
-          Transferring data to {{ mpg-full-name }} using {{
-          data-transfer-full-name }}
+          Migrating data to {{ mpg-full-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/object-storage-to-postgresql.md
       - name: >-
-          Loading data to {{ mgp-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ mgp-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-greenplum.md
       - name: >-
-          Loading data to {{ mch-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ mch-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
-          Loading data to {{ ydb-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ ydb-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-ydb.md
-      - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
+      - name: >-
+          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
+          }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
+          Uploading data from {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-object-storage.md
+      - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
+      - name: Migrating data from {{ ES }} to {{ mos-full-name }}
+        href: tutorials/elasticsearch-to-opensearch.md
+      - name: Uploading {{ TF }} states to {{ objstorage-name }}
+        href: tutorials/terraform-state-storage.md
+      - name: Locking {{ TF }} states using {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
+      - name: Static website in {{ objstorage-full-name }}
+        items:
+          - name: Overview
+            href: tutorials/static/index.md
+          - name: Management console
+            href: tutorials/static/console.md
+          - name: Terraform
+            href: tutorials/static/terraform.md
+      - name: Publishing game updates
+        href: tutorials/prefetch.md
+      - name: Creating a VM backup with Hystax Acura Backup
+        href: tutorials/hystax-backup.md
+      - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
+        href: tutorials/object-storage-cloudberry.md
+      - name: Backup to {{ objstorage-name }} via Duplicati
+        href: tutorials/object-storage-duplicati.md
+      - name: Backup to {{ objstorage-name }} via Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
+        href: tutorials/object-storage-veritas.md
+      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
+        href: tutorials/kubernetes-backup.md
   - name: Concepts
     items:
       - name: Overview
@@ -174,7 +222,7 @@ items:
         href: concepts/lifecycles.md
       - name: CORS
         href: concepts/cors.md
-      - name: Static website hosting
+      - name: Hosting static websites
         href: concepts/hosting.md
       - name: Pre-signed URLs
         href: concepts/pre-signed-urls.md
@@ -182,7 +230,7 @@ items:
         href: concepts/multipart.md
       - name: Access control lists (ACLs)
         href: concepts/acl.md
-      - name: Bucket Policy
+      - name: Bucket policy
         href: concepts/policy.md
       - name: Uploading files via an HTML form
         href: concepts/presigned-post-forms.md
@@ -190,7 +238,7 @@ items:
         href: concepts/storage-class.md
       - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
@@ -256,7 +304,7 @@ items:
         href: security/index.md
       - name: Access control lists (ACLs)
         href: security/acl.md
-      - name: Bucket Policy
+      - name: Bucket policy
         href: security/policy.md
       - name: Public access
         href: security/public-access.md
@@ -464,10 +512,36 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: BucketService
-                href: api-ref/grpc/bucket_service.md
-              - name: OperationService
-                href: api-ref/grpc/operation_service.md
+              - name: Bucket
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Bucket/index.md
+                  - name: List
+                    href: api-ref/grpc/Bucket/list.md
+                  - name: Get
+                    href: api-ref/grpc/Bucket/get.md
+                  - name: Create
+                    href: api-ref/grpc/Bucket/create.md
+                  - name: Update
+                    href: api-ref/grpc/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/grpc/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/grpc/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/grpc/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
           - name: REST
             items:
               - name: Overview
@@ -476,24 +550,32 @@ items:
                 items:
                   - name: Overview
                     href: api-ref/Bucket/index.md
-                  - name: create
-                    href: api-ref/Bucket/create.md
-                  - name: delete
-                    href: api-ref/Bucket/delete.md
-                  - name: deleteHTTPSConfig
-                    href: api-ref/Bucket/deleteHTTPSConfig.md
-                  - name: get
-                    href: api-ref/Bucket/get.md
-                  - name: getHTTPSConfig
-                    href: api-ref/Bucket/getHTTPSConfig.md
-                  - name: getStats
-                    href: api-ref/Bucket/getStats.md
-                  - name: list
+                  - name: List
                     href: api-ref/Bucket/list.md
-                  - name: setHTTPSConfig
-                    href: api-ref/Bucket/setHTTPSConfig.md
-                  - name: update
+                  - name: Get
+                    href: api-ref/Bucket/get.md
+                  - name: Create
+                    href: api-ref/Bucket/create.md
+                  - name: Update
                     href: api-ref/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -505,3 +587,4 @@ items:
   - name: FAQ
     href: qa.md
 base: en/storage
+deepBase: 2

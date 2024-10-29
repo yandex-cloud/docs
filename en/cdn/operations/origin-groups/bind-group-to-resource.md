@@ -143,7 +143,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
         token     = "<OAuth_token>"
@@ -174,7 +174,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - API {#api}
 
-   To add an origin group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+   To add an origin group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -361,7 +361,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - API {#api}
 
-   To add an origin group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+   To add an origin group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
 
 {% endlist %}
 

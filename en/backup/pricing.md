@@ -6,7 +6,9 @@ editable: false
 
 
 
-To calculate the cost of using {{ backup-name }}, see the prices on this page.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
@@ -16,7 +18,7 @@ The cost of {{ backup-name }} depends on the number of protected VMs and the tot
 
 You start paying for a VM in {{ backup-name }} as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the VM status, you will be charged for the VM until you unlink it from the policy.
 
-If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
+If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
 
 The minimum billing unit is 1 VM per hour.
 
@@ -43,6 +45,7 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The monthly prices are based on 720 hours per month.
 
@@ -68,13 +71,6 @@ Here is an example of calculating the cost of {{ backup-name }} for one month fo
 
 
 
-> 1 VM × $1.910400 + 50 GB × $0.033600 = $3.590400
+{% include [usd-backup](../_pricing_examples/backup/usd.md) %}
 
-> Total: $3.590400, cost of using {{ backup-name }} to protect one VM with a total of 50 GB of backups per month, without VAT.
-
-Where:
-* 1: Number of VMs linked to backup policies.
-* $1.910400: Price of connecting 1 VM to {{ backup-name }} per month, without VAT.
-* 50 GB: Total size of backups.
-* $0.033600: Price of storing 1 GB of backups per month, without VAT.
 

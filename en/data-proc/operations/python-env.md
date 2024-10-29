@@ -1,6 +1,6 @@
 ---
-title: "How to set up and use Python virtual environments in {{ dataproc-full-name }}"
-description: "Follow this guide to set up and use Python virtual environments."
+title: How to set up and use Python virtual environments in {{ dataproc-full-name }}
+description: Follow this guide to set up and use Python virtual environments.
 ---
 
 # Setting up and using Python virtual environments
@@ -21,9 +21,9 @@ When using PySpark, it is often required to install or update Python packages in
 
 ## Setting up a Python virtual environment {#prepare}
 
-1. If you do not have a service account with the `dataproc.agent` role, [create](../../iam/operations/sa/create.md) one.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 1. In {{ objstorage-name }}, [create a bucket](../../storage/operations/buckets/create.md) to store cluster logs and a virtual environment archive.
-1. [Configure an ACL](../../storage/operations/buckets/edit-acl.md) for the bucket by granting `READ and WRITE` permissions to the service account with the `dataproc.agent` role.
+1. [Configure an ACL](../../storage/operations/buckets/edit-acl.md) for the bucket by granting the `READ and WRITE` permissions to the service account.
 1. [Create](./cluster-create.md) a temporary {{ dataproc-name }} cluster. When creating it, specify:
 
    * {{ dataproc-name }} version, same as that of the cluster to use the environment on. This ensures compatibility.

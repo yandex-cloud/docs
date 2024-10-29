@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage objects in a {{ objstorage-full-name }} bucket"
-description: "In this tutorial, you will learn about S3 API methods that can be used to manage objects in a bucket."
+title: What S3 API methods can be used to manage objects in a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn about S3 API methods that can be used to manage objects in a bucket.
 ---
 
 # All Object methods
@@ -19,3 +19,5 @@ description: "In this tutorial, you will learn about S3 API methods that can be 
 | [putObjectTagging](object/putobjecttagging.md) | Adds [labels](../../concepts/tags.md) to an object. |
 | [getObjectTagging](object/getobjecttagging.md) | Returns object labels. |
 | [deleteObjectTagging](object/deleteobjecttagging.md) | Deletes object labels. |
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

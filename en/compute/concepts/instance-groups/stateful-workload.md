@@ -23,7 +23,7 @@ You can store application states on _secondary_ disks of the group instances if 
 * Do not delete VM instances via instance group interfaces:
    * In the [management console]({{ link-console-main }}), on the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}** tab.
    * Using the CLI [{{ yc-compute-ig }} delete-instances](../../../cli/cli-ref/managed-services/compute/instance-group/delete-instances.md) command.
-   * Using the [InstanceGroupService/DeleteInstances](../../api-ref/grpc/instance_group_service.md#DeleteInstances) gRPC API call.
+   * Using the [InstanceGroupService/DeleteInstances](../../instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md) gRPC API call.
 
    These actions will delete the secondary disk along with the VM. You can directly [delete](../../operations/vm-control/vm-delete.md) a VM in {{ compute-name }} without deleting its secondary disk.
 

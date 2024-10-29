@@ -1,6 +1,9 @@
-# {{ resmgr-full-name }} release notes
+---
+title: '{{ resmgr-full-name }} release notes'
+description: This section contains {{ resmgr-name }} release notes.
+---
 
-This section contains {{ resmgr-name }} release notes.
+# {{ resmgr-full-name }} release notes
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 

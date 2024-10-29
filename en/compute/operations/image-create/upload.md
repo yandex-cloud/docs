@@ -1,6 +1,6 @@
 ---
-title: "Uploading a disk image to the cloud"
-description: "This tutorial describes the procedure for uploading a Linux OS image file to an {{ objstorage-name }} storage as well as for creating an image from it and a virtual machine in {{ compute-name }}."
+title: Uploading a disk image to the cloud
+description: This tutorial describes the procedure for uploading a Linux OS image file to an {{ objstorage-name }} storage as well as for creating an image from it and a virtual machine in {{ compute-name }}.
 keywords:
   - upload image
   - upload disk image
@@ -24,6 +24,8 @@ In {{ compute-name }}, you can only create images using files uploaded to {{ obj
 ## Prepare an image file {#prepare-file}
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
+
+{% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
 For setup instructions, see [{#T}](custom-image.md).
 
@@ -131,7 +133,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - API {#api}
 
-   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
+   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call. In the request, specify the link to the image.
 
 {% endlist %}
 

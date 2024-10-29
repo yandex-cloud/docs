@@ -4,7 +4,9 @@ Deletes bucket [labels](../../../concepts/tags.md).
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
+## Request {#request}
 
 ```http
 DELETE /{bucket}?tagging HTTP/2
@@ -12,15 +14,15 @@ DELETE /{bucket}?tagging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `tagging` | Required parameter that indicates the type of operation. |
+`tagging` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
@@ -37,3 +39,5 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

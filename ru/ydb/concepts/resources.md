@@ -1,6 +1,6 @@
 ---
-title: "Термины и определения для {{ ydb-full-name }}"
-description: "На странице представлены термины и определения для сервиса {{ ydb-name }}."
+title: Термины и определения для {{ ydb-full-name }}
+description: На странице представлены термины и определения для сервиса {{ ydb-name }}.
 sourcePath: overlay/public_talks.md
 ---
 
@@ -8,7 +8,7 @@ sourcePath: overlay/public_talks.md
 
 ## База данных {#database}
 
-[База данных {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/databases#database) в {{ ydb-name }} может быть создана в [бессерверной](../operations/manage-databases.md#create-db-serverless) (Serverless) конфигурации или с [выделенными серверами](../operations/manage-databases.md#create-db-dedicated) (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless-and-dedicated.md).
+[База данных {{ ydb-short-name }}]({{ ydb.docs }}/concepts/databases#database) в {{ ydb-name }} может быть создана в [бессерверной](../operations/manage-databases.md#create-db-serverless) (Serverless) конфигурации или с [выделенными серверами](../operations/manage-databases.md#create-db-dedicated) (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless-and-dedicated.md).
 
 ### Бессерверная база данных (Serverless) {#serverless}
 
@@ -53,13 +53,13 @@ sourcePath: overlay/public_talks.md
 
 В {{ ydb-name }} обслуживанием кластеров занимается команда сервиса, а разработчики приложений взаимодействуют напрямую с БД {{ ydb-short-name }}.
 
-Подробнее о кластерах {{ ydb-short-name }} читайте в [документации](https://ydb.tech/ru/docs/concepts/databases#cluster).
+Подробнее о кластерах {{ ydb-short-name }} читайте в [документации]({{ ydb.docs }}/concepts/databases#cluster).
 
 ## Группы хранения {#storage-groups}
 
 В {{ ydb-full-name }} используется по 3 диска в каждой из 3 зон доступности, как для БД на выделенных ресурсах, так и для бессерверных БД. Такая конфигурация гарантирует устойчивость при отказе одной из зон или отказе одного из дисков, а также обеспечивает избыточность с коэффициентом 3.
 
-Подробнее о группах хранения {{ ydb-short-name }} читайте в [документации](https://ydb.tech/ru/docs/concepts/databases#storage-groups).
+Подробнее о группах хранения {{ ydb-short-name }} читайте в [документации]({{ ydb.docs }}/concepts/databases#storage-groups).
 
 ## Регионы и зоны доступности {#regions-az}
 

@@ -1,6 +1,6 @@
 ---
-title: "Backups in {{ sf-full-name }}"
-description: "Data in {{ sf-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get lists of functions and function versions, information about function versions, lists of triggers, and information about triggers."
+title: Backups in {{ sf-full-name }}
+description: Data in {{ sf-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get lists of functions and function versions, information about function versions, lists of triggers, and information about triggers.
 ---
 
 # Backups in {{ sf-name }}

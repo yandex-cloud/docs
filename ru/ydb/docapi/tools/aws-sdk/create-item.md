@@ -3,12 +3,12 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 ---
 # Добавление записи
 
-Чтобы добавить новую запись в таблицу `Series`:  
+Чтобы добавить новую запись в таблицу `Series`:
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
-  
+
   1. Создайте проект `SeriesItemOps01`:
 
       ```bash
@@ -19,7 +19,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       ```
 
       В результате выполнения команды в текущем рабочем каталоге будет создан каталог проекта с именем `SeriesItemOps01`, структурой подкаталогов и файлом описания проекта `pom.xml`.
-  
+
   1. Перейдите в каталог проекта:
 
       ```bash
@@ -107,7 +107,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesItemOps01.java`, например с помощью редактора nano:
-  
+
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps01.java
       ```
@@ -197,7 +197,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 - Python {#python}
 
   1. Создайте файл `SeriesItemOps01.py`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesItemOps01.py
       ```
@@ -261,7 +261,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 - PHP {#php}
 
   1. Создайте файл `SeriesItemOps01.php`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesItemOps01.php
       ```
@@ -344,7 +344,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 - Node.js {#node}
 
   1. Создайте файл `SeriesItemOps01.js`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesItemOps01.js
       ```
@@ -356,7 +356,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
-  
+
       ```javascript
       const AWS = require("@aws-sdk/client-dynamodb");
       const { marshall } = require("@aws-sdk/util-dynamodb");
@@ -393,9 +393,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
               console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
           })
       ```
-  
+
       Первичный ключ обязателен. Этот код добавляет запись, которая имеет первичный ключ (`series_id`, `title`) и атрибуты внутри `info`. Блок `info` хранит JSON, который предоставляет дополнительную информацию о сериале.
-  
+
   1. Запустите программу:
 
       ```bash
@@ -404,7 +404,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Добавление новой записи...
       Сериал успешно добавлен: {}
       ```
@@ -412,7 +412,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 - Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps01.rb`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesItemOps01.rb
       ```
@@ -427,7 +427,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
       ```ruby
       require 'aws-sdk-dynamodb'
-      
+
       def add_item_to_table(dynamodb_client, table_item)
         dynamodb_client.put_item(table_item)
         puts "Загружен '#{table_item[:item][:title]} " \
@@ -436,20 +436,20 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
         puts "Ошибка загрузки сериала '#{table_item[:item][:title]} " \
           "(#{table_item[:item][:series_id]})': #{e.message}"
       end
-      
+
       def run_me
         region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
-      
+
         Aws.config.update(
           endpoint: '<Document_API_эндпоинт>',
           region: region
         )
-      
+
         dynamodb_client = Aws::DynamoDB::Client.new
-      
+
         item = {
           series_id: series_id,
           title: title,
@@ -458,20 +458,20 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
             series_info: "Supernatural is an American television series created by Eric Kripke"
           }
         }
-      
+
         table_item = {
           table_name: table_name,
           item: item
         }
-      
+
         puts "Загрузка сериала '#{item[:title]} (#{item[:series_id]})' " \
           "в таблицу '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)
       end
-      
+
       run_me if $PROGRAM_NAME == __FILE__
       ```
-  
+
   1. Запустите программу:
 
       ```bash

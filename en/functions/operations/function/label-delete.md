@@ -1,11 +1,20 @@
 ---
-title: "Deleting a function label"
-description: "Follow this guide to delete a function label."
+title: Deleting a function label
+description: Follow this guide to delete a function label.
 ---
 
 # Deleting a function label
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Select a function.
+   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../../_assets/console-icons/xmark.svg) next to its name.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -104,6 +113,6 @@ description: "Follow this guide to delete a function label."
 
 - API {#api}
 
-   To delete a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
+   To delete a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 {% endlist %}

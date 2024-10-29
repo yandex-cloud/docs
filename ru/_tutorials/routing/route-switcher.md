@@ -1,7 +1,7 @@
 # Реализация отказоустойчивых сценариев для сетевых виртуальных машин
 
 
-В {{ yandex-cloud }} можно развернуть облачную инфраструктуру с использованием виртуальных машин (далее сетевых ВМ), выполняющих функции межсетевого экранирования, сетевой безопасности и маршрутизации трафика. С помощью [статической маршрутизации](../../vpc/concepts/static-routes.md) трафик из подсетей направляется на сетевые ВМ. 
+В {{ yandex-cloud }} можно развернуть облачную инфраструктуру с использованием виртуальных машин (далее сетевых ВМ), выполняющих функции межсетевого экранирования, сетевой безопасности и маршрутизации трафика. С помощью [статической маршрутизации](../../vpc/concepts/routing.md) трафик из подсетей направляется на сетевые ВМ. 
 
 Для обеспечения высокой доступности можно развернуть несколько сетевых ВМ в разных [зонах доступности](../../overview/concepts/geo-scope.md) и настроить автоматическое переключение исходящего из подсетей трафика с одной сетевой ВМ на другую с помощью [модуля route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
@@ -65,7 +65,7 @@
 
 ## Настройте профиль CLI {#setup-profile}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизируйтесь от имени пользователя.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
    {% list tabs group=instructions %}
@@ -73,7 +73,8 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -91,7 +92,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-06-20T09:03:11.665153755Z"
@@ -100,7 +101,7 @@
 
    - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
    {% endlist %}
 
@@ -128,7 +129,7 @@
 
    - API {#api}
 
-      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
    {% endlist %}
 
@@ -154,7 +155,7 @@
 
          Результат:
 
-         ```bash
+         ```text
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********
          created_at: "2023-06-20T09:16:43.479156798Z"
@@ -168,7 +169,7 @@
 
          Результат:
 
-         ```bash
+         ```text
          Profile 'sa-terraform' created and activated
          ```
 
@@ -237,7 +238,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       192.240.24.87
       ```
 
@@ -387,7 +388,7 @@
 
    - API {#api}
 
-      Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop).
+      Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/Instance/stop.md).
 
    {% endlist %}
 
@@ -429,7 +430,7 @@
 
    - API {#api}
 
-      Воспользуйтесь методом REST API [start](../../compute/api-ref/Instance/start.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../compute/api-ref/grpc/instance_service.md#Start).
+      Воспользуйтесь методом REST API [start](../../compute/api-ref/Instance/start.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../compute/api-ref/grpc/Instance/start.md).
 
    {% endlist %}
 

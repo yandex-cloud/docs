@@ -1,6 +1,6 @@
 ---
-title: "Storage class in {{ objstorage-full-name }}"
-description: "{{ objstorage-name }} allows you to store objects in storages of various classes depending on your requirements for storage duration and frequency of operations with objects. The service offers standard, cold, and ice storage."
+title: Storage class in {{ objstorage-full-name }}
+description: '{{ objstorage-name }} allows you to store objects in storages of various classes depending on your requirements for storage duration and frequency of operations with objects. The service offers standard, cold, and ice storage.'
 ---
 
 # Storage class

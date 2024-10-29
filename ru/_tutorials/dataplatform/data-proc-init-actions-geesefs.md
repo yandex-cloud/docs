@@ -1,4 +1,4 @@
-# Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}
+# Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}
 
 
 В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов [скрипты инициализации](../../data-proc/concepts/init-action.md) (initialization actions).
@@ -15,7 +15,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}.
 

@@ -1,6 +1,6 @@
 # Метаданные виртуальной машины
 
-Сведения о [ВМ](vm.md) доступны в сервисе метаданных. Вы можете передавать любые ключи и значения в метаданных, а затем запрашивать метаданные [изнутри](../operations/vm-info/get-info.md#inside-instance) ВМ или [снаружи](../operations/vm-info/get-info.md#outside-instance). Подробнее о настройке сервиса метаданных см. в разделе [{#T}](../operations/vm-info/get-info.md#metadata-options).
+Сведения о [ВМ](./vm.md) доступны в сервисе метаданных. Вы можете передавать любые ключи и значения в метаданных, а затем запрашивать метаданные [изнутри](../operations/vm-info/get-info.md#inside-instance) ВМ или [снаружи](../operations/vm-info/get-info.md#outside-instance). Подробнее о настройке сервиса метаданных см. в разделе [{#T}](../operations/vm-info/get-info.md#metadata-options).
 
 Метаданные также используются программами, которые запускаются при старте ВМ.
 
@@ -18,15 +18,27 @@
 
 - Консоль управления {#console}
 
+  {% note info %}
+
+  При создании пользователей ВМ через метаданные с помощью ключа `user-data` все пользователи будут перезаписаны, в том числе пользователь по умолчанию, заданный в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**. Чтобы этого избежать, передавайте в значении ключа `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+
+
+  {% endnote %}
+
   Метаданные передаются в блоке **{{ ui-key.yacloud.common.metadata }}** в формате `Ключ:Значение`.
-  
+
   Например, чтобы создать в ОС виртуальной машины нескольких пользователей, добавьте ключ `user-data` и в его значении укажите конфигурацию:
 
   {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
 
-  При создании пользователей через метаданные указывайте в ключе `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
-
 - CLI {#cli}
+
+  {% note info %}
+
+  При создании пользователей ВМ через метаданные с помощью ключа `user-data` все пользователи будут перезаписаны, в том числе пользователь по умолчанию, заданный в параметре `--ssh-key`. Чтобы этого избежать, передавайте в значении ключа `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в параметре `--ssh-key`.
+
+
+  {% endnote %}
 
   В [CLI](../../glossary/cli.md) метаданные можно передать в любом из трех параметров:
 
@@ -55,6 +67,13 @@
 
 - {{ TF }} {#tf}
 
+  {% note info %}
+
+  При создании пользователей ВМ через метаданные с помощью ключа `user-data` все пользователи будут перезаписаны, в том числе пользователь по умолчанию, заданный в параметре `ssh-keys`. Чтобы этого избежать, передавайте в значении ключа `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в параметре `ssh-keys`.
+
+
+  {% endnote %}
+
   В {{ TF }} метаданные можно указать любым из трех способов:
   * В виде отдельного файла с пользовательскими метаданными, который будет обработан агентом cloud-init. Для этого в блоке `metadata` укажите путь к файлу с пользовательскими метаданными, например к `cloud-init.yaml`:
 
@@ -77,7 +96,7 @@
     ```hcl
     ...
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <содержимое_SSH-ключа>"
+      user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - <содержимое_SSH-ключа>"
     }
     ...
     ```
@@ -128,10 +147,11 @@
 - Linux {#linux}
 
   * `serial-port-enable` — флаг, включающий доступ к [серийной консоли](../operations/serial-console/index.md). `1` — включить, `0` (по умолчанию) — выключить.
-  * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
   * `enable-oslogin` — флаг, включающий доступ через [OS Login](../operations/vm-connect/os-login.md). `true` — включить, `false` (по умолчанию) — выключить.
+  * `install-unified-agent` — флаг, устанавливающий агент для сбора метрик и логов [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup). `1` — установить, `0` (по умолчанию) — не устанавливать.
+  * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
 
-    Cloud-init поддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh-authorized-keys`:
+    Cloud-init поддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh_authorized_keys`:
 
     {% include [user-data](../../_includes/compute/user-data.md) %}
 
@@ -139,9 +159,11 @@
 
     ```json
     "metadata": {
-      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
+      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
     }
     ```
+
+    В ключе `user-data` также можно описать [скрипты для установки программного обеспечения](../operations/vm-create/create-with-cloud-init-scripts.md#examples), которые нужно выполнить при создании новой машины.
 
   * `ssh-keys` — ключ для доставки SSH-ключа на ВМ Linux через {{ TF }}. Указывается в формате `<имя_пользователя>:<содержимое_SSH-ключа>`, например `user:ssh-ed25519 AAC4NzaC1... user@example.com`. Если указать несколько ключей, будет использован только первый из них.
 
@@ -170,13 +192,14 @@
    ```
 
 1. Идентификационный документ можно получить в форматах [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) и [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata). Выполните команду:
-   
+
    {% list tabs %}
-   
+
    - GCE
 
      ```bash
-     curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+     curl \
+       --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
      ```
 
    - EC2
@@ -184,18 +207,18 @@
      ```bash
      curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
-     
-   {% endlist %}   
 
-   Пример ответа: 
-   
-   ```
+   {% endlist %}
+
+   Пример ответа:
+
+   ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
 {% note info %}
 
-Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ. 
+Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ.
 
 {% endnote %}
 
@@ -215,12 +238,13 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`: 
-     
+  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`:
+
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
        ```
 
      * **EC2**:
@@ -228,12 +252,11 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
        ```
-  
+
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
-     
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -253,7 +276,6 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
 
 
 
@@ -264,7 +286,7 @@
      openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - DSA
 
@@ -274,12 +296,13 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`: 
-   
+  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`:
+
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
        ```
 
      * **EC2**:
@@ -290,9 +313,8 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
      MAAwHhcNMjMwNjA3MDY1NjI0WhcNMzMwNjA0MDY1NjI0WjAAMIIDRjCCAjkGByqG
@@ -319,7 +341,6 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
-     
 
 
 
@@ -329,7 +350,7 @@
      openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - BASE64
 
@@ -339,12 +360,14 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`: 
-   
+  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`:
+
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | base64 -d >> signature
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | \
+         base64 -d >> signature
        ```
 
      * **EC2**:
@@ -352,13 +375,14 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
        ```
-  
+
   1. Получите идентификационный документ и сохраните его в файл `document`:
 
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
        ```
 
      * **EC2**:
@@ -369,9 +393,8 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -391,7 +414,6 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
 
 
 
@@ -407,17 +429,18 @@
      openssl dgst -sha256 -verify key -signature signature document
      ```
 
-     Если подпись верна, появится сообщение `Verified OK`. 
+     Если подпись верна, появится сообщение `Verified OK`.
 
 {% endlist %}
 
 Сопоставьте идентификационный документ из метаданных ВМ с документом, сохраненным в файле:
 
-```
-curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
+```bash
+curl http://169.254.169.254/latest/vendor/instance-identity/document | \
+openssl dgst -sha256
 ```
 
-```
+```bash
 openssl dgst -sha256 < document
 ```
 
@@ -426,3 +449,4 @@ openssl dgst -sha256 < document
 #### См. также {#see-also}
 
 * [{#T}](instance-groups/instance-template.md).
+* [Создание виртуальной машины с пользовательским скриптом конфигурации](../operations/vm-create/create-with-cloud-init-scripts.md).

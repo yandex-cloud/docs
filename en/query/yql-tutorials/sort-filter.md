@@ -23,8 +23,8 @@ LIMIT 10                    -- Use only 10 entries.
 Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [WHERE](https://ydb.tech/en/docs/yql/reference/syntax/select#where).
-* [ORDER BY](https://ydb.tech/en/docs/yql/reference/syntax/select#order-by).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* [WHERE]({{ ydb.docs }}/yql/reference/syntax/select#where)
+* [ORDER BY]({{ ydb.docs }}/yql/reference/syntax/select#order-by)

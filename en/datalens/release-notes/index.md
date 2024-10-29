@@ -1,115 +1,102 @@
 ---
-title: "{{ datalens-full-name }} release notes for June 2024"
-description: "Check out {{ datalens-full-name }} release notes for June 2024."
+title: '{{ datalens-full-name }} release notes: August 2024'
+description: Check out {{ datalens-full-name }} release notes for August 2024.
 ---
 
-# {{ datalens-full-name }} release notes: June 2024
-
-* [Updates](#updates)
-* [Fixes and improvements](#fixes)
-* [Mobile version updates](#mobile-version-changes)
-
-## Updates {#updates}
-
-### Viewing linked objects {#related-objects-view}
-
-You can now see where an object is used or which objects it is using. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) → **Linked objects** on the navigation page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a given dataset.
-
-{% cut "Linked object window" %}
-
-![image](../../_assets/datalens/release-notes/related-objects-view.png)
-
-{% endcut %}
-
-### Basic background color for widgets {#background-base-color}
-
-Now you can set the same background color for the [Text](../dashboard/widget.md#text) and [Header](../dashboard/widget.md#title) widgets as for charts and selectors: white for the light interface theme and dark gray for the dark one. To do this, set the background color to ![image](../../_assets/console-icons/chart-column.svg) **Basic** in the widget settings window.
-
-{% cut "**Text** widget settings window" %}
-
-![image](../../_assets/datalens/release-notes/background-base-color.png)
-
-{% endcut %}
-
-### Disabling default preview in a dataset {#preview-disable}
-
-Now you can [disable](../concepts/dataset/settings.md#preview-default) default data preview at the dataset level. This is especially useful when editing datasets with large numbers of complex [calculated fields](../concepts/calculations/index.md).
-
-### Displaying a header in the indicator {#indicator-title}
-
-You can now customize header appearance in the [Indicator](../visualization-ref/indicator-chart.md) chart's [settings](../concepts/chart/settings.md#common-settings):
-
-* `Field name`: Show header field name.
-* `Manually`: Rename header.
-* `Hide`: Hide header.
-
-{% cut "**Indicator** chart settings window" %}
-
-![image](../../_assets/datalens/release-notes/preview-disable.png)
-
-{% endcut %}
-
-### QL charts based on {{ ydb-name }} {#ydb-ql-chart}
-
-Now you can create [QL charts](../concepts/chart/ql-charts.md) based on a [{{ ydb-name }} connection](../operations/connection/create-ydb.md).
+# {{ datalens-full-name }} release notes: August 2024
 
 
-### Undoing and redoing changes in the wizard {#undo-redo}
+* [Changes in basic features](#base)
+* [Changes available with the _Business_ service plan](#business)
 
-When editing a chart, you can now undo/redo any change introduced within the current version:
-
-* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
-* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+## Changes in basic features {#base}
 
 
 
-## Fixes and improvements {#fixes}
+### Searching by fields in the wizard and dataset {#search-in-wizard}
 
-### Pivot table sorting {#pivot-table-sorted}
-
-Fixed a row sorting issue for the [pivot table](../visualization-ref/pivot-table-chart.md). The issue occurred after editing a [parameter](../concepts/parameters.md) in the [calculated field](../concepts/calculations/index.md) of a column or row.
-
-### Date filtering in charts {#chart-date-filter}
-
-Fixed the date filtering behavior in charts. Now, dashboard [filters](../concepts/chart/settings.md#filter) use by default the **Equals** comparison operation instead of **Belongs to range** for fields of the [Date](../concepts/data-types.md#date) and [Date and time](../concepts/data-types.md#datetime) types.
+In the wizard and dataset, added the ability to search not only by name but also by field description.
 
 
-### Other fixes and improvements {#other-fixes}
+### List of published objects {#public-objects-list}
 
-{% list tabs %}
-
-- Fixes
-
-   * Increased the number of dashboard tabs whose names are not truncated in the drop-down list.
-   * Increased the width of the default value setting window for the **Calendar** type selector.
-   * Fixed line sorting in descending order for negative values in tooltips.
-   * Fixed an error where the chart saving option was not available after adding/removing a [tooltip](../visualization-ref/table-chart.md#hint-column) to/from a table field in the wizard.
-   * Fixed a header display issue in **Indicator** type charts where the chart name was always substituted from the dataset field name.
-   * Fixed an interface display issue in tables occurring on selecting a palette in a [linear indicator](../visualization-ref/table-chart.md#add-linear-indicator).
-   * Fixed a value loading error for chart [color customization](../concepts/chart/settings.md#color-settings).
-   * Fixed a pagination error in the [Pivot table](../visualization-ref/pivot-table-chart.md) type chart.
-   * Fixed tooltip display in the **Checkbox** type selector.
-   * Fixed incorrect chart rendering when the **Empty values (null)** parameter is set to `Do not show`.
-   * Fixed an issue where empty charts were invisibly overlapping the space below them on the dashboard.
-   * Fixed an error occurring on duplicating a dashboard from the navigation panel.
-   * Now, if you change field visibility (![image](../../_assets/console-icons/eye-slash.svg)) in the dataset field editor, an attempt to close the page will prompt an unsaved changes warning.
-   * Fixed the calculation of the [Text](../dashboard/widget.md#text) widget minimum height with **Auto height** enabled.
-   * Fixed display of the tooltip input field in the selector settings window. It is now displayed only if the **Tooltip** option is enabled.
-
-- Improvements
-
-   * Added a panel for migrating legacy dashboard configurations.
-   * Modified the navigation interface. Now, when you select multiple items from the navigation list for a bulk action, the ![image](../../_assets/console-icons/ellipsis.svg) icon at the top of the window gets hidden.
-
-{% endlist %}
+The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-admin) can [view a list](../concepts/datalens-public.md#public-objects-list) of all published objects.
 
 
-## Mobile version updates {#mobile-version-changes}
+### Support ticket creation form {#support-form}
 
-* The new menu at the top of the screen allows you to switch between navigation pages (**Charts**, **Dashboards**, and **Collections and workbooks**), change settings (language, theme), and contact support.
-* You can now open a chart preview from the new **Charts** navigation page.
-* Improved the **Collections and workbooks** navigation page.
-* Improved the appearance of pages and windows with bigger font sizes and interface elements.
-* Added a table of contents for dashboards.
-* Clicking the **Share** button now opens the link settings window.
+Updated the support ticket creation form.
+
+
+![image](../../_assets/datalens/release-notes/support-form.png)
+
+
+
+### Position of selector title {#selector-title-position}
+
+Added a selector setting that allows you to specify the position of the title: `Left` (default) or `Top`.
+
+
+### **Selector** widget improvements {#group-selectors-fix}
+
+Fixed these group selector related errors:
+
+* Widget failed to regain its original height after canceling the edits made in the selector.
+* Dashboard stopped working correctly on canceling selector deletion in a widget with two selectors and auto update.
+* Navigation window reopened after a dataset was selected in the widget.
+* Widget width went incorrect after other selectors were added to the widget's group.
+
+### Displaying a tooltip next to the selector title {#selector-tooltips}
+
+Fixed the error that caused the system tooltip next to the selector title to remain visible when hovering over ![icon](../../_assets/console-icons/circle-question.svg).
+
+### Tooltip text in the selector {#selector-hint-text}
+
+In the selector's **Tooltip** setting, fixed an error where the text from the dataset field description was not added to the selector's tooltip text field.
+
+
+### Auto update of selectors on a public dashboard {#selector-auto-update}
+
+Fixed the error that interrupted a public dashboard's operation upon enabling a selector's **Dependent selector auto update** setting on that dashboard.
+
+
+### SQL source name in a dataset {#dataset-sql-source-name}
+
+Fixed the error that caused an SQL source name to reset to default after each subquery edit in the dialog box for [adding the SQL source](../dataset/create-dataset.md#add-data) in a dataset.
+
+
+### Display of heat map charts {#heat-map-fix}
+
+Fixed the display of [heat map](../visualization-ref/heat-map-chart.md) charts in the wizard.
+
+
+### Documentation link in the migration section {#migrate-link}
+
+Fixed the [documentation](../concepts/organizations.md#migration) link in the description of the section about migration from a folder to an organization.
+
+### Usernames in {{ datalens-short-name }} Usage Analytics Light {#usage-analytics-light-user-name}
+
+Fixed the display of usernames in [{{ datalens-short-name }} Usage Analytics Light](../operations/connection/create-usage-tracking.md#light-dash).
+
+## Changes available with the _Business_ service plan {#business}
+
+### Object publishing prohibition {#publication-disable}
+
+Added the ability to [prohibit publishing](../concepts/datalens-public.md#publication-disable) charts and dashboards at the {{ datalens-short-name }} instance level.
+
+### Embedding private objects {#private-embedded-hints}
+
+Improved the interface for [embedding private objects](../security/private-embedded-objects.md):
+
+* In the **Embedding keys** dialog box, added tooltips about embedding a private object with links to the relevant documentation.
+* In the **Create embedding** dialog box, the **Key** field is blocked if the workbook does not contain any available keys for the object.
+* In the **Embedding settings** dialog box:
+
+  * Added tooltips about embedding a private object with links to the relevant documentation.
+  * In the table with the list of embeddings:
+
+    * When hovering over a row, you will now see buttons for copying the embedding ID and name.
+    * A click on a row now opens an information window about the embedding in view mode.
+    * Changed the color of dependent objects and parameters.
+    * Parameters and dependent objects displayed in the button now also state the number of objects that did not fit (when there are more than three of them).
 

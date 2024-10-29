@@ -8,11 +8,11 @@ To view a list of internal addresses used in a subnet:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with the subnet.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. Click the subnet name.
-   1. Go to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
+  1. In the [management console]({{ link-console-main }}), go to the folder the subnet is in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Click the subnet name.
+  1. Go to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
 
 - CLI {#cli}
 
@@ -34,7 +34,7 @@ To view a list of internal addresses used in a subnet:
 
       Result:
 
-      ```bash
+      ```text
       +-----------+------------+---------------------------------------+
       |  ADDRESS  | IP VERSION |              REFERENCES               |
       +-----------+------------+---------------------------------------+
@@ -48,7 +48,7 @@ To view a list of internal addresses used in a subnet:
 
 - API {#api}
 
-   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) gRPC API call and provide the ID of the subnet you want to change in the `subnetId` request parameter.
+   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) gRPC API call and provide the ID of the subnet you want to update in the `subnetId` request parameter.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

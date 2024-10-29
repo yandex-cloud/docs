@@ -4,23 +4,28 @@ editable: false
 
 # Technical support pricing
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 ## Prices for the Russia region {#prices}
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
+The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans activated. For the services available under various plans, see [Requesting technical support](overview.md).
 
 
 
 
-| Service plan | Basic | Business | Premium |
---- |----------------|------------------------------|--------
-| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Contact us |
+Service plan | Basic           | Business                       | Premium 
+--- |-------------------|------------------------------|--------
+ **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Contact us
 
 
 {% note info %}
@@ -51,34 +56,22 @@ The price is calculated based on the amount of resources consumed over the curre
 
 
 
-If a customer consumes $800 worth of resources a month, technical support will cost:
-{{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64.
-This amount will be charged to a single billing account.
+{% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba.md) %}
 
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}
 
-If an organization with an activated support service plan uses resources paid from different billing accounts, the percentage portion of the plan cost will be charged to each billing account according to the cost of consumed resources. The fixed portion will be paid by one account only: the one specified when selecting the Business service plan.
+If an organization with an activated support service plan uses resources paid from different billing accounts, the percentage part of the plan will be charged to each billing account according to the cost of consumed resources. The fixed part will be paid by only one account: the one specified when selecting the _Business_ service plan.
 
 
 
 
-An organization with the Business service plan activated pays for resources from different billing accounts:
-
-* Account 1: Consumes $400 worth of resources a month.
-* Account 2: Consumes $80 worth of resources a month.
-
-The fixed amount will only be paid by one of the accounts, for example, Account 1.
-
-The cost of support will be:
-
-* {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $400 * 0.05 = $44 for Account 1.
-* $80 * 0.05 = $4 for Account 2.
+{% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
 
 
 
 ### Premium {#premium}
 
-The <q>Premium</q> plan includes all the services offered under the other service plans and can be supplemented based on your requirements.
+The [Premium plan](/support) covers all services of other plans and can be further enhanced to best suit your requirements. It may include troubleshooting recommendations for interactions of {{ yandex-cloud }} services with third-party software, consulting sessions with a dedicated support engineer based on your {{ yandex-cloud }} usage scenario, and services of a personal technical manager.
 
-To get an estimate of the Premium service plan cost, please contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
+For a cost estimate for the _Premium_ plan, contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).

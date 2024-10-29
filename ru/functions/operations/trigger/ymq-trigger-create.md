@@ -74,8 +74,8 @@
       --queue-service-account-id <идентификатор_сервисного_аккаунта> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --batch-size 1 \
-      --batch-cutoff 10s
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания>
     ```
 
     Где:
@@ -91,8 +91,8 @@
         1. Идентификатор очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
 
     * `--invoke-function-id` — идентификатор функции.
-    * `--queue-service-account-name` — сервисный аккаунт с правами на чтение из очереди сообщений.
-    * `--invoke-function-service-account-id` — сервисный аккаунт с правами на вызов функции.
+    * `--queue-service-account-name` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
+    * `--invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
     * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
     * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
 
@@ -137,8 +137,8 @@
        message_queue {
          queue_id           = "<идентификатор_очереди>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
-         batch_size         = "<время_ожидания>"
-         batch_cutoff       = "<размер_группы_событий>"
+         batch_size         = "<размер_группы_сообщений>"
+         batch_cutoff       = "<максимальное_время_ожидания>"
      }
      ```
 
@@ -167,7 +167,7 @@
            1. Идентификатор очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
 
        * `service_account_id` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
-       * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+       * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
        * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
 
      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
@@ -176,15 +176,15 @@
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
      ```bash
-     yc serverless trigger get <идентификатор_триггера>
+     yc serverless trigger list
      ```
 
 - API {#api}
 
-  Чтобы создать триггер для {{ message-queue-full-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ message-queue-full-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -208,4 +208,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ message-queue-short-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/ymq-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/ymq-trigger-create.md)

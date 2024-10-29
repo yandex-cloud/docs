@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
 1. {% include [Создать бакеты и выдать SA кластера права на них](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,51 +16,56 @@
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание PySpark {#create-job}
 
-1. {% include [Скачать и загрузить файл с тестовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
+1. {% include [Загрузить файл с тестовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Скачайте и загрузите в бакет для исходных данных файл с кодом программы анализа [word_count.py](https://{{ s3-storage-host }}/examples/pyspark/word_count.py) на языке Python:
+1. Загрузите файл с кодом программы анализа на языке Python:
 
-    {% cut "word_count.py" %}
-
-    ```python
-    import sys
-    from pyspark import SparkConf, SparkContext
+    1. Скопируйте и сохраните в файле `word_count.py`:
 
 
-    def main():
+        {% cut "word_count.py" %}
 
-        if len(sys.argv) != 3:
-            print('Usage job.py <входная_директория> <выходная_директория>')
-            sys.exit(1)
-
-        in_dir = sys.argv[1]
-        out_dir = sys.argv[2]
-
-        conf = SparkConf().setAppName("Word count - PySpark")
-        sc = SparkContext(conf=conf)
-
-        text_file = sc.textFile(in_dir)
-        counts = text_file.flatMap(lambda line: line.split(" ")) \
-            .map(lambda word: (word, 1)) \
-            .reduceByKey(lambda a, b: a + b)
-
-        if out_dir.startswith('s3a://'):
-            counts.saveAsTextFile(out_dir) 
-        else:
-            default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
-            counts.saveAsTextFile(default_fs + out_dir)
+        ```python
+        import sys
+        from pyspark import SparkConf, SparkContext
 
 
-    if __name__ == "__main__":
-        main()
-    ```
+        def main():
 
-    {% endcut %}
+            if len(sys.argv) != 3:
+                print('Usage job.py <входная_директория> <выходная_директория>')
+                sys.exit(1)
+
+            in_dir = sys.argv[1]
+            out_dir = sys.argv[2]
+
+            conf = SparkConf().setAppName("Word count - PySpark")
+            sc = SparkContext(conf=conf)
+
+            text_file = sc.textFile(in_dir)
+            counts = text_file.flatMap(lambda line: line.split(" ")) \
+                .map(lambda word: (word, 1)) \
+                .reduceByKey(lambda a, b: a + b)
+
+            if out_dir.startswith('s3a://'):
+                counts.saveAsTextFile(out_dir) 
+            else:
+                default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
+                counts.saveAsTextFile(default_fs + out_dir)
+
+
+        if __name__ == "__main__":
+            main()
+        ```
+
+        {% endcut %}
+
+    1. [Загрузите](../../../storage/operations/objects/upload) файл `word_count.py` в бакет для исходных данных.
 
 1. [Создайте задание PySpark](../operations/jobs-pyspark#create) с параметрами:
 

@@ -1,11 +1,13 @@
 ---
-title: "Viewing CDN resource statistics"
-description: "Follow this guide to view the CDN resource statistics."
+title: Viewing CDN resource statistics
+description: Follow this guide to view the CDN resource statistics.
 ---
 
 # Viewing CDN resource statistics
 
-{{ cdn-name }} automatically sends CDN resource performance metrics to the [{{ monitoring-full-name }}](../../../monitoring/) service.
+{{ cdn-name }} automatically sends CDN resource performance metrics to [{{ monitoring-full-name }}](../../../monitoring/).
+
+On average, {{ cdn-short-name }} metrics are updated every 3 minutes.
 
 For a full list of metrics, see the [reference](../../metrics.md).
 
@@ -19,7 +21,7 @@ For a full list of metrics, see the [reference](../../metrics.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. Select the CDN resource statistics you want to view.
    1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
-   1. Select the time period to view statistics for: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
+   1. Select the time period to view statistics for: one hour, three hours, one day, one week, or one month.
 
       The tab displays the following dashboards:
 

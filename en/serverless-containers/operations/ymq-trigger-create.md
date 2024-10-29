@@ -13,14 +13,14 @@ To create a trigger, you need:
    * [Create a container](create.md).
    * [Create a container revision](manage-revision.md#create).
 
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a container.
    * To read from the queue the trigger receives messages from.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* A message queue that the trigger receives messages from. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will collect messages from. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -30,7 +30,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -44,14 +44,14 @@ To create a trigger, you need:
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with rights to read messages from this message queue.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Batch size. The values may range from 1 to 1,000. The default value is 1.
-      * Maximum wait time. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**​. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**​. The values may range from 1 to 1,000. The default value is 1.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified batch size.
+      {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -72,8 +72,8 @@ To create a trigger, you need:
      --queue-service-account-id <service_account_ID> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --batch-size 1 \
-     --batch-cutoff 10s
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time>
    ```
 
    Where:
@@ -84,8 +84,8 @@ To create a trigger, you need:
       {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
    * `--invoke-container-id`: Container ID.
-   * `--queue-service-account-name`: Service account with permissions to read messages from the queue.
-   * `--invoke-container-service-account-id`: Service account with permissions to invoke the container.
+   * `--queue-service-account-id`: ID of the service account with permissions to read messages from the queue.
+   * `--invoke-container-service-account-id`: ID of the service account with permissions to invoke the container.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
@@ -119,8 +119,7 @@ To create a trigger, you need:
 
    1. In the configuration file, describe the trigger parameters:
 
-      
-      ```
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<trigger_name>"
         container {
@@ -130,12 +129,11 @@ To create a trigger, you need:
         message_queue {
           queue_id           = "<queue_ID>"
           service_account_id = "<service_account_ID>"
-          batch_cutoff       = "<timeout>"
-          batch_size         = "<event_batch_size>"
+          batch_cutoff       = "<maximum_wait_time>"
+          batch_size         = "<message_batch_size>"
         }
       }
       ```
-
 
       Where:
 
@@ -153,9 +151,9 @@ To create a trigger, you need:
 
             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
-         * `service_account_id`: Service account with permissions to read messages from the queue.
+         * `service_account_id`: ID of the service account with permissions to read messages from the queue.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
          * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
@@ -164,7 +162,7 @@ To create a trigger, you need:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
@@ -172,7 +170,7 @@ To create a trigger, you need:
 
 - API {#api}
 
-   To create a trigger for {{ message-queue-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ message-queue-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -197,4 +195,5 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/ymq-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/ymq-trigger-create.md)

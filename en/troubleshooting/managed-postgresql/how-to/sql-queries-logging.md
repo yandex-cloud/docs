@@ -1,7 +1,6 @@
 # How to enable SQL query logging
 
 
-
 ## Scenario description {#case-description}
 
 You need to enable SQL query logging.
@@ -15,10 +14,14 @@ Additionally, check the `Auto explain sample rate=1` and `Auto explain log analy
 Next, enable the `Log min duration statement` parameter. We do not recommend setting the value to `1 ms` as this would keep the cluster busy with log recording only.
 
 You can enable this parameter via the UI, on the cluster settings page, using **DBMS settings** or this YC CLI command:
-```yc managed-postgresql cluster update-config <имя кластера> --set log_min_duration_statement=100
+
+```
+yc managed-postgresql cluster update-config <имя кластера> --set log_min_duration_statement=100
 ```
 
 After that, you can view the log records, for example, via the YC CLI:
-```yc managed-postgresql cluster list-logs --service-type postgresql --since '2h' --until '1s' --id=YOUR-CLUSTER-ID
+
+```
+yc managed-postgresql cluster list-logs --service-type postgresql --since '2h' --until '1s' --id=YOUR-CLUSTER-ID
 ```
 

@@ -1,8 +1,10 @@
 # User groups
 
-For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it is more convenient to grant roles and permissions to a group rather than individually. You can [set up a group member's access](../operations/manage-groups.md#access) to clouds, folders, service accounts, and organizations in {{ yandex-cloud }}.
+For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it is more convenient to grant roles and permissions to a group rather than individually. You can [set up a group member's access](../operations/access-group.md) to clouds, folders, service accounts, and organizations in {{ yandex-cloud }}.
 
-Other users will be able to [manage the group](../operations/manage-groups.md#access-manage-group) if you grant them appropriate [roles](../security/index.md#service-roles), e.g., `organization-manager.groups.memberAdmin` to view data and add group members.
+Other users will be able to [manage the group](../operations/access-manage-group.md) if you grant them the relevant [roles](../security/index.md#service-roles), e.g., `organization-manager.groups.memberAdmin` to view data and add group members.
+
+In addition to groups created by the administrator, {{ yandex-cloud }} also has [system groups](../../iam/concepts/access-control/system-group.md) (`All users in organization X` and `All users in federation N`) and [public groups](../../iam/concepts/access-control/public-group.md) (`All authenticated users` and `All users`).
 
 Groups may only have a one-level structure. You cannot create nested groups. Membership in a group provides all of its members with equal rights.
 

@@ -36,7 +36,7 @@
 1. Получите ключи безопасности WordPress:
 
    ```bash
-   curl -s https://api.wordpress.org/secret-key/1.1/salt/
+   curl --silent https://api.wordpress.org/secret-key/1.1/salt/
    ```
 
    Сохраните вывод команды — полученные ключи будут нужны на следующем шаге.
@@ -101,7 +101,7 @@
 	 - Консоль управления {#console}
 
 	   1. Перейдите на страницу кластера {{ MY }} в [консоли управления]({{ link-console-main }}).
-       1. На вкладке **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.cluster.databases.button_action-connect }}**.
+       1. На вкладке **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
        1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}`, где `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` — это FQDN хоста с ролью `MASTER`.
 
      - CLI {#cli}
@@ -112,7 +112,7 @@
        yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
        ```
 
-       
+
        ```text
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |

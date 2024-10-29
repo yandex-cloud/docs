@@ -15,13 +15,13 @@
 
   Get a list of registry certificates:
 
-  ```
+  ```bash
   yc iot registry certificate list --registry-name my-registry
   ```
 
   Result:
 
-  ```
+  ```text
   +------------------------------------------+---------------------+
   |               FINGERPRINT                |     CREATED AT      |
   +------------------------------------------+---------------------+
@@ -32,6 +32,6 @@
 
 - API {#api}
 
-  To get a list of registry certificates, use the [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/ListCertificates](../../iot-core/api-ref/grpc/registry_service.md#ListCertificates) gRPC API call.
+  To get a list of registry certificates, use the [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/ListCertificates](../../iot-core/api-ref/grpc/Registry/listCertificates.md) gRPC API call.
 
 {% endlist %}

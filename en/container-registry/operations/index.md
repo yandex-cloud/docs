@@ -1,15 +1,11 @@
 ---
-title: "How to work with Docker images. Step-by-step guides"
-description: "Step-by-step guides on using Docker images in {{ yandex-cloud }}. In this tutorial, you will learn how to manage Docker images, registries, repositories, and automated policies. Find out how to create, delete, push, and pull Docker images."
+title: How to work with Docker images. Step-by-step guides
+description: Step-by-step guides on using Docker images in {{ yandex-cloud }}. In this tutorial, you will learn how to manage Docker images, registries, repositories, and automated policies. Find out how to create, delete, push, and pull Docker images.
 ---
 
 # Step-by-step guides for {{ container-registry-name }}
 
-To work with Docker images, [authenticate in {{ container-registry-name }}](authentication.md).
-
-## Working with {{ coi }} {#coi}
-
-For more information about working with a {{ coi }} image, see the [{{ cos-name }}](../../cos/) documentation.
+To work with Docker images, [configure Docker](./configure-docker.md) and [get authenticated in {{ container-registry-name }}](./authentication.md).
 
 ## Managing a Docker image {#docker-images}
 
@@ -61,3 +57,7 @@ For more information about working with a {{ coi }} image, see the [{{ cos-name 
 * [{#T}](roles/grant.md)
 * [{#T}](roles/get-assigned-roles.md)
 * [{#T}](roles/revoke.md)
+
+## Working with {{ coi }} {#coi}
+
+For more information about working with a {{ coi }}, see the [{{ cos-name }}](../../cos/) documentation.

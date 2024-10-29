@@ -1,6 +1,6 @@
 ---
-title: "How to update a secret in {{ lockbox-full-name }}"
-description: "Follow this guide to update a secret."
+title: How to update a secret in {{ lockbox-full-name }}
+description: Follow this guide to update a secret.
 ---
 
 # Updating secrets
@@ -14,9 +14,11 @@ To update a secret:
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the required secret.
-   1. In the menu that opens, select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.common.edit }}**.
    1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**.
+   1. Change the secret type and specify either key and value or value generation parameters.
+
+      When you change the secret type, key, or generation parameters, a new version will be created.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -93,7 +95,7 @@ To update a secret:
 
 - API {#api}
 
-   To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/secret_service.md#Update) gRPC API call.
+   To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/Secret/update.md) gRPC API call.
 
 {% endlist %}
 

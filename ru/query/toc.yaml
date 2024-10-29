@@ -1,10 +1,5 @@
 title: Yandex Query
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -82,13 +77,17 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
+      - name: Работа с базами данных {{ mgp-name }}
+        href: sources-and-sinks/greenplum.md
+      - name: Работа с базами данных {{ mmy-name }}
+        href: sources-and-sinks/mysql.md
       - name: Работа с базами данных {{ mpg-name }}
         href: sources-and-sinks/postgresql.md
       - name: Работа с базами данных {{ ydb-name }}
         href: sources-and-sinks/ydb.md
       - name: Запись метрик в {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
@@ -102,8 +101,8 @@ items:
         href: tutorials/billing.md
       - name: Анализ данных с помощью Jupyter
         href: tutorials/jupyter.md
-      - name: Автоматизация с помощью {{ maf-short-name }}
-        href: tutorials/airflow.md
+      - name: Автоматизация задач с помощью {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
   - name: Работа с YQL
     items:
       - name: Обзор
@@ -165,3 +164,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/query
+deepBase: 2

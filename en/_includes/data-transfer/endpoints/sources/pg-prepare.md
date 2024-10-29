@@ -49,9 +49,11 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       Then specify the number of jobs and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
 
-   1. Configure WAL monitoring. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, [logical replication]({{ pg-docs }}/logicaldecoding.html) is used. To perform it, the transfer creates a replication slot with the `slot_name` equal to the transfer ID that you can get by selecting the transfer from the list of your transfers. The WAL size may increase for different reasons: due to a long-running transaction or a transfer issue. Therefore, we recommend setting up WAL monitoring on the source side.
+   1. Configure WAL monitoring. {#wal-setup-recommendation}
 
-      1. To monitor the size of the used storage or disk, [set up an alert using the monitoring tools](../../../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (see the `disk.used_bytes` description).
+      For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, [logical replication]({{ pg-docs }}/logicaldecoding.html) is used. To perform it, the transfer creates a replication slot with the `slot_name` equal to the transfer ID, which you can get by selecting the transfer from the list of your transfers. Your WAL may grow due to different reasons: a long-running transaction or a transfer issue. Therefore, we recommend you to configure WAL monitoring on the source side.
+
+      1. To monitor storage or disk space usage, [use the monitoring tools to configure an alert](../../../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (see the `disk.used_bytes` description).
 
       1. Set the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} version 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../../../managed-postgresql/operations/replication-slots.md#delete).
 
@@ -195,9 +197,9 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-      Then specify the number of jobs and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
+      Then specify the number of [workers](../../../../data-transfer/concepts/index.md#worker) and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
 
-   1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) block to the source configuration:
+   1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) section to the source configuration:
 
       ```yaml
       ignore_slots:

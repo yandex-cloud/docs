@@ -1,10 +1,5 @@
 title: Yandex Vision OCR
 href: index.yaml
-label:
-  title: RU
-  description: The service is available in Russia only.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -87,30 +82,54 @@ items:
             items:
               - name: Overview
                 href: ocr/api-ref/grpc/index.md
-              - name: TextRecognitionService
-                href: ocr/api-ref/grpc/ocr_service.md
-              - name: TextRecognitionAsyncService
-                href: ocr/api-ref/grpc/TextRecognitionAsyncService.md
-              - name: OperationService
-                href: ocr/api-ref/grpc/operation_service.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: ocr/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: ocr/api-ref/grpc/Operation/cancel.md
+              - name: TextRecognitionAsync
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/grpc/TextRecognitionAsync/index.md
+                  - name: Recognize
+                    href: ocr/api-ref/grpc/TextRecognitionAsync/recognize.md
+                  - name: GetRecognition
+                    href: ocr/api-ref/grpc/TextRecognitionAsync/getRecognition.md
+              - name: TextRecognition
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/grpc/TextRecognition/index.md
+                  - name: Recognize
+                    href: ocr/api-ref/grpc/TextRecognition/recognize.md
           - name: REST
             items:
               - name: Overview
                 href: ocr/api-ref/index.md
-              - name: TextRecognition
+              - name: Operation
                 items:
                   - name: Overview
-                    href: ocr/api-ref/TextRecognition/index.md
-                  - name: recognize
-                    href: ocr/api-ref/TextRecognition/recognize.md
+                    href: ocr/api-ref/Operation/index.md
+                  - name: Get
+                    href: ocr/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: ocr/api-ref/Operation/cancel.md
               - name: TextRecognitionAsync
                 items:
                   - name: Overview
                     href: ocr/api-ref/TextRecognitionAsync/index.md
-                  - name: getRecognition
-                    href: ocr/api-ref/TextRecognitionAsync/getRecognition.md
-                  - name: recognize
+                  - name: Recognize
                     href: ocr/api-ref/TextRecognitionAsync/recognize.md
+                  - name: GetRecognition
+                    href: ocr/api-ref/TextRecognitionAsync/getRecognition.md
+              - name: TextRecognition
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/TextRecognition/index.md
+                  - name: Recognize
+                    href: ocr/api-ref/TextRecognition/recognize.md
       - name: Vision API
         hidden: true
         items:
@@ -118,8 +137,12 @@ items:
             items:
               - name: Overview
                 href: vision/api-ref/grpc/index.md
-              - name: VisionService
-                href: vision/api-ref/grpc/vision_service.md
+              - name: Vision
+                items:
+                  - name: Overview
+                    href: vision/api-ref/grpc/Vision/index.md
+                  - name: BatchAnalyze
+                    href: vision/api-ref/grpc/Vision/batchAnalyze.md
           - name: REST
             items:
               - name: Overview
@@ -128,7 +151,7 @@ items:
                 items:
                   - name: Overview
                     href: vision/api-ref/Vision/index.md
-                  - name: batchAnalyze
+                  - name: BatchAnalyze
                     href: vision/api-ref/Vision/batchAnalyze.md
       - name: Classifier API
         hidden: true
@@ -137,8 +160,12 @@ items:
             items:
               - name: Overview
                 href: classifier/api-ref/grpc/index.md
-              - name: ImageClassifierService
-                href: classifier/api-ref/grpc/image_classifier_service.md
+              - name: ImageClassifier
+                items:
+                  - name: Overview
+                    href: classifier/api-ref/grpc/ImageClassifier/index.md
+                  - name: Annotate
+                    href: classifier/api-ref/grpc/ImageClassifier/annotate.md
   - name: Release notes
     href: release-notes.md
   - name: Troubleshooting
@@ -150,3 +177,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/vision
+deepBase: 2

@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination-paid-resources.md) %}
+{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination/paid-resources.md) %}
 
 ### Create a cloud network {#create-network}
 
@@ -86,7 +86,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of [subnets](../../vpc/concepts/network.md#subnet) that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of [subnets](../../vpc/concepts/network.md#subnet) that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
       1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
@@ -140,7 +140,7 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
 
-      The minimum configuration is enough for functional website testing:
+      This minimum configuration is enough for functional website testing:
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -261,7 +261,7 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Copy the IP address of the load balancer that you created.
    1. On the site of your DNS hosting provider, go to the DNS settings.
-   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it refers to the copied IP address:
+   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it points to the copied IP address:
 
       ```text
       my-site.com. A <L7_load_balancer_IP_address>
@@ -296,21 +296,15 @@ After configuring DNS, [test the hosting](#test).
 
 ## Test the hosting {#test}
 
-{% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
+{% include [tls-termination-test](../_tutorials_includes/tls-termination/test.md) %}
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `mysite-alb` L7 load balancer.
-   1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `mysite-router` HTTP router.
-   1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `my-site-bg` backend group.
-   1. [Delete](../../compute/operations/instance-groups/delete.md) the `mysite-ig` instance group.
-   1. [Delete](../../vpc/operations/address-delete.md) the static public IP address you reserved.
-   1. If you used {{ dns-name }}, [delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone.
-
-{% endlist %}
+1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `mysite-alb` L7 load balancer.
+1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `mysite-router` HTTP router.
+1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `my-site-bg` backend group.
+1. [Delete](../../compute/operations/instance-groups/delete.md) the `mysite-ig` instance group.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address you reserved.
+1. If you used {{ dns-name }}, [delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone.

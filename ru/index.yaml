@@ -46,12 +46,18 @@ links:
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/
+  - title: Code Assistant
+    description: AI-ассистент разработчика c функцией автодополнения кода
+    href: code-assistant/
   - title: Compute Cloud
     description: Виртуальные машины и диски
     href: compute/
   - title: Container Registry
     description: Управление Docker-образами
     href: container-registry/
+  - title: Cloud Registry
+    description: Управление артефактами
+    href: registry/
   - title: Container Solution
     description: Сценарии использования виртуальных машин
     href: cos/
@@ -172,6 +178,9 @@ links:
   - title: Serverless Containers
     description: Запуск контейнеров без Kubernetes®
     href: serverless-containers/
+  - title: Serverless Integrations
+    description: Интеграция сервисов Yandex Cloud друг с другом
+    href: serverless-integrations/
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/

@@ -13,11 +13,11 @@
 - Статусы всех операций удаления.
 - Только статусы с ошибкой удаления. В этом случае, если не произошло ни одной ошибки, ответ будет пустым.
 
-
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 POST /{bucket}?delete HTTP/2
 ```
 
@@ -51,7 +51,7 @@ POST /{bucket}?delete HTTP/2
 
 Перечень ключей на удаление передается в XML формате.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Delete>
     <Quiet>true</Quiet>
@@ -85,7 +85,7 @@ POST /{bucket}?delete HTTP/2
 
 ### Структура данных {#response-scheme}
 
-```
+```xml
 <DeleteResult>
   <Deleted>
     <Key>some/key.txt</Key>

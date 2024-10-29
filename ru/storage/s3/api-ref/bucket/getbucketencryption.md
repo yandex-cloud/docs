@@ -2,10 +2,11 @@
 
 Возвращает информацию о шифровании бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?encryption HTTP/2
 ```
 
@@ -33,7 +34,7 @@ GET /{bucket}?encryption HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ServerSideEncryptionConfiguration>
    <Rule>
       <ApplyServerSideEncryptionByDefault>

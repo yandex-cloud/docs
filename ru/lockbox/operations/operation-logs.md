@@ -45,7 +45,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: e6qj8hr2mfoj********
     description: Update secret
     created_at: "2024-03-27T02:47:03.482004186Z"
@@ -74,7 +74,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Secret/listOperations.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListOperations](../api-ref/grpc/secret_service.md#ListOperations).
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Secret/listOperations.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListOperations](../api-ref/grpc/Secret/listOperations.md).
 
 {% endlist %}
 
@@ -100,7 +100,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: e6qj8hr2mfoj********
       description: Update secret
       created_at: "2024-03-27T02:47:03.482Z"
@@ -131,7 +131,7 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

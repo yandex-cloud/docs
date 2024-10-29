@@ -1,0 +1,17 @@
+title: '{{ cloudml-full-name }}'
+href: index.yaml
+noIndex: true
+items:
+  - name: Функциональные характеристрики и архитектура
+    href: architecture.md
+  - name: Системные требования
+    href: system-requirements.md
+  - name: Начало работы
+    href: quickstart.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Документация "{{ cloudml-full-name }}"
+    href: docs.md
+    hidden: true
+base: ru/cloudai-hybrid
+deepBase: 2

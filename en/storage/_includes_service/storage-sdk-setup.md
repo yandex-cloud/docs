@@ -1,21 +1,21 @@
 1. Go to the `~/.aws/` directory (for macOS and Linux) or `C:\Users\<username>\.aws\` (for Windows).
-1. Create a file named `credentials` with authentication data for {{ objstorage-name }} and copy the following information to it:
+1. Create a file named `credentials` with the credentials for {{ objstorage-name }} and copy the following information to it:
 
-   ```
-   [default]
-     aws_access_key_id = <static_key_ID>
-     aws_secret_access_key = <secret_key>
-   ```
+    ```text
+    [default]
+      aws_access_key_id = <static_key_ID>
+      aws_secret_access_key = <secret_key>
+    ```
 
-1. Create a file named `config` with the default region parameters and copy the following information to it:
+1. Create a file named `config` with the default region settings and copy the following information to it:
 
-   ```
-   [default]
-     region={{ region-id }}
-   ```
+    ```text
+    [default]
+      region={{ region-id }}
+    ```
 
-   {% note info %}
+    {% note info %}
 
-   Some apps designed to work with Amazon S3 don't let you set the region, so {{ objstorage-name }} also accepts the value `us-east-1`.
+    Some apps designed to work with Amazon S3 do not allow you to specify the region; this is why {{ objstorage-name }} may also accept the `us-east-1` value.
 
-   {% endnote %}
+    {% endnote %}

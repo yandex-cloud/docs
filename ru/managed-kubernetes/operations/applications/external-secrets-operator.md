@@ -1,7 +1,7 @@
 # Установка External Secrets Operator с поддержкой {{ lockbox-name }}
 
 
-[External Secrets Operator](/marketplace/products/yc/external-secrets) — оператор {{ k8s }}, который интегрирует внешние системы управления секретами, такие как [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних API и автоматически вводит значения в {{ k8s }} Secret.
+[External Secrets Operator](/marketplace/products/yc/external-secrets) — оператор {{ k8s }}, который интегрирует внешние системы управления секретами, такие как [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних [API](../../../glossary/rest-api.md) и автоматически вводит значения в {{ k8s }} Secret.
 
 External Secrets Operator с поддержкой {{ lockbox-name }} позволяет настроить синхронизацию [секретов {{ lockbox-name }}](../../../lockbox/concepts/secret.md) с [секретами](../../concepts/encryption.md) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
@@ -46,7 +46,6 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с приложением External Secrets Operator выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_external-secrets.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_external-secrets.helmChart.tag }} \
      --untar && \
@@ -58,6 +57,8 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
    ```
 
    Эта команда создаст новое пространство имен, необходимое для работы External Secrets Operator.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

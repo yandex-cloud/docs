@@ -138,7 +138,7 @@
 
 - API {#api}
 
-  Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+  Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
   * Имя БД в параметре `name`.
@@ -251,7 +251,7 @@
 
 - API {#api}
 
-  Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/Database/update.md) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -297,7 +297,7 @@
   1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-network }}** настройте параметры сети:
       1. (Опционально) В поле **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** выберите опцию **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}**, если вы планируете отправлять запросы к базе не только из сети {{ yandex-cloud }}, но и через интернет.
 
-          {% include  [traffic_metering](../_includes/traffic_metering.md) %}
+          {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
@@ -306,11 +306,11 @@
           * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-          * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.
-          * (Опционально) Введите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** подсети.
-          * Выберите из списка **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** нужную зону.
-          * Задайте адрес подсети в формате [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+          * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
+          * (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
+          * Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
+          * Задайте адрес подсети в формате [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+          * Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
     Дождитесь, когда статус БД изменится на `Running`.
@@ -389,7 +389,7 @@
         network_id          = "<идентификатор_сети>"
         subnet_ids          = ["<идентификатор_подсети_1>", "<идентификатор_подсети_2>", "<идентификатор_подсети_3>"]
 
-        resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"      
+        resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"
         deletion_protection = "<защита_от_удаления>"
 
         scale_policy {
@@ -401,7 +401,7 @@
         storage_config {
           group_count     = <количество_групп_хранения>
           storage_type_id = "<тип_носителя>"
-        }     
+        }
       }
      ```
 
@@ -452,7 +452,7 @@
 
 - API {#api}
 
-  Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+  Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
   * Имя БД в параметре `name`.
@@ -542,7 +542,7 @@
 
 - API {#api}
 
-  Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/Database/update.md) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -575,7 +575,7 @@
 
 - API {#api}
 
-  Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+  Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/Database/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -656,7 +656,7 @@
 
 * API {#api}
 
-  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/database_service.md#UpdateAccessBindings) и передайте в запросе:
+  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) и передайте в запросе:
 
   * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
   * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
@@ -681,7 +681,7 @@
 
 * CLI {#cli}
 
-  {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+  {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -755,9 +755,9 @@
 
 * API {#api}
 
-  {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+  {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-  Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+  Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
   * Роль в параметре `access_bindings[].role_id`.
   * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
@@ -829,7 +829,7 @@
 
 - API {#api}
 
-  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
+  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

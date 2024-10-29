@@ -1,6 +1,6 @@
 ---
-title: "Authenticating in {{ yandex-cloud }} and managing {{ ydb-short-name }} databases using {{ TF }}"
-description: "Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or a federated account."
+title: Authenticating in {{ yandex-cloud }} and managing {{ ydb-short-name }} databases using {{ TF }}
+description: Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or federated account.
 ---
 
 # Getting authentication credentials
@@ -16,7 +16,7 @@ You can create and set up a service account by following these steps:
     * The name must be 3 to 63 characters long.
     * The name may contain lowercase Latin letters, numbers, and hyphens.
     * The first character of the name must be a letter, the last one cannot be a hyphen.
-1. Assign the service account the roles required to manage {{ ydb-short-name }} resources: `admin`, `ydb.admin`.
+1. Assign the service account the roles required to manage {{ ydb-short-name }} resources: `admin` and `ydb.admin`.
 
 1. Click **Create**.
 
@@ -30,13 +30,13 @@ Go to **Service account** and create an authorized key for {{ TF }} authenticati
 Now to the final step in authentication setup: create a special profile for connecting to {{ yandex-cloud }} on the local machine using yc CLI.
 
 Run the following commands:
-1. Create a `yc` profile to perform operations on behalf of the service account. Specify the profile name: `yc config profile create <profile_name>`. The terminal will display the following message: `Profile '<profile_name>' created and activated.`
+1. Create a `yc` profile to run operations under the service account. Specify the profile name: `yc config profile create <profile_name>`. The terminal will display the following message: `Profile '<profile_name>' created and activated.`
 1. Configure the profile with the following commands:
-   ```bash
-   yc config set service-account-key <uploaded_key>
-   yc config set cloud-id <cloud_ID>
-   yc config set folder-id <folder_ID>
-   ```
+    ```bash
+    yc config set service-account-key <uploaded_key>
+    yc config set cloud-id <cloud_ID>
+    yc config set folder-id <folder_ID>
+    ```
 
 Where:
 * `service-account-key`: JSON file containing the authorized key of the service account.
@@ -49,24 +49,24 @@ Add the credentials to the environment variables:
 
 - Bash {#bash}
 
-   ```bash
-   export YC_TOKEN=$(yc iam create-token)
-   export YC_CLOUD_ID=$(yc config get cloud-id)
-   export YC_FOLDER_ID=$(yc config get folder-id)
-   ```
+    ```bash
+    export YC_TOKEN=$(yc iam create-token)
+    export YC_CLOUD_ID=$(yc config get cloud-id)
+    export YC_FOLDER_ID=$(yc config get folder-id)
+    ```
 
 - PowerShell {#powershell}
 
-   ```powershell
-   $Env:YC_TOKEN=$(yc iam create-token)
-   $Env:YC_CLOUD_ID=$(yc config get cloud-id)
-   $Env:YC_FOLDER_ID=$(yc config get folder-id)
-   ```
+    ```powershell
+    $Env:YC_TOKEN=$(yc iam create-token)
+    $Env:YC_CLOUD_ID=$(yc config get cloud-id)
+    $Env:YC_FOLDER_ID=$(yc config get folder-id)
+    ```
 {% endlist %}
 
-{{ TF }} will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, {{ TF }} will be returning an authentication error. In that case, update the environment variable: re-run the `export YC_TOKEN=$(yc iam create-token)` command.
+{{ TF }} will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, {{ TF }} will be returning an authentication error. In that case, update the environment variable: re-run the `YC_TOKEN=$(yc iam create-token)` command.
 
-You can automate the process of obtaining a new token using `crontab`: enter `crontab -e`, and then enter `0 * * * * export YC_TOKEN=$(yc iam create-token)`. Now, `crontab` will independently update the token every hour within the current session. To update the token when opening a new session, run one of the following commands:
+You can automate the process of getting a new token with`crontab`: enter `crontab -e`, and then enter `0 * * * * export YC_TOKEN=$(yc iam create-token)`. Now, `crontab` will independently update the token every hour within the current session. To update the token when opening a new session, run one of the following commands:
 ```bash
 echo "export YC_TOKEN=$(yc iam create-token)" >> ~/.bashrc # Command for bash shell
 echo "export YC_TOKEN=$(yc iam create-token)" >> ~/.zshrc # Command for zsh shell

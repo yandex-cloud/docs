@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ managed-k8s-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ managed-k8s-name }}.
+---
+
 # Справочник {{ TF }} для {{ managed-k8s-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -17,5 +22,5 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/datasource_kubernetes_cluster) | Информация о [кластере {{ k8s }}](./concepts/index.md#kubernetes-cluster) |
-| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/datasource_kubernetes_node_group) | Информация о [группе узлов](./concepts/index.md#node-group) |
+| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/kubernetes_cluster) | Информация о [кластере {{ k8s }}](./concepts/index.md#kubernetes-cluster) |
+| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/kubernetes_node_group) | Информация о [группе узлов](./concepts/index.md#node-group) |

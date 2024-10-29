@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mrd-full-name }}"
-description: "Follow this guide to create a {{ RD }} cluster and connect to it."
+title: Getting started with {{ mrd-full-name }}
+description: Follow this guide to create a {{ RD }} cluster and connect to it.
 ---
 
 # Getting started with {{ mrd-name }}
@@ -12,11 +12,12 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. If no public access is set up for a cluster, you can only connect to it from inside {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example (for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):
@@ -32,7 +33,7 @@ To get started with the service:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
 
@@ -41,7 +42,7 @@ To get started with the service:
    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 
-1. If using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Connect to the cluster using `redis-cli`.

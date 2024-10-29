@@ -1,6 +1,6 @@
 ---
-title: "How to create an AppMetrica connection in {{ datalens-full-name }}"
-description: "Follow this guide to create an AppMetrica connection."
+title: How to create an AppMetrica connection in {{ datalens-full-name }}
+description: Follow this guide to create an AppMetrica connection.
 ---
 
 # Creating an AppMetrica connection

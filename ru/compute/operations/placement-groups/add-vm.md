@@ -43,7 +43,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: epdlv1pp5401********
      ...
      ```
@@ -75,7 +75,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: epdlv1pp5401********
      ...
      status: STOPPED
@@ -103,7 +103,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: epdlv1pp5401********
      ...
      placement_policy:
@@ -212,7 +212,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 

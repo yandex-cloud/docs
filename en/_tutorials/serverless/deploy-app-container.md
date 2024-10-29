@@ -76,9 +76,9 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 
 - API {#api}
 
-   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-   To assign the service account a role for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call.
+   To assign the service account a role for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
 
 
 {% endlist %}
@@ -153,12 +153,12 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 
 - API {#api}
 
-   1. To create a [cloud network](../../vpc/concepts/network.md), use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call, and provide the following in the request:
+   1. To create a [cloud network](../../vpc/concepts/network.md), use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call, and provide the following in the request:
 
       * ID of the folder to host the network.
       * Name of the new `mongo-express-network` network in the `name` parameter.
 
-   1. To add a rule to a security group, use the [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in your request:
+   1. To add a rule to a security group, use the [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in your request:
 
       * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
 
@@ -209,7 +209,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
       * Enter the VM user name in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
 
@@ -219,7 +219,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - CLI {#cli}
 
-   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the public and private key pair for SSH access to the VM.
+   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
 
    1. Create the `docker-spec.yaml` Docker container specification file:
 
@@ -280,7 +280,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create the [secret](../../lockbox/concepts/secret.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [secret](../../lockbox/concepts/secret.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name: `mongodb-creds`.
@@ -328,7 +328,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
 
 - API {#api}
 
-   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create) gRPC API call.
+   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -367,7 +367,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
 - API {#api}
 
-   To create a registry, use the [create](../../container-registry/api-ref/Registry/create.md) REST API method for the [Registry](../../container-registry/api-ref/Registry/) resource or the [RegistryService/CreateRegistryRequest](../../container-registry/api-ref/grpc/registry_service.md#Create) gRPC API call.
+   To create a registry, use the [create](../../container-registry/api-ref/Registry/create.md) REST API method for the [Registry](../../container-registry/api-ref/Registry/) resource or the [RegistryService/CreateRegistryRequest](../../container-registry/api-ref/grpc/Registry/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -444,13 +444,13 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
          ```
          docker tag mongo-express \
-         {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         {{ registry }}/<registry_ID>/mongo-express:mongo-tag
          ```
 
       1. Push the `mongo-express` image to the registry:
 
          ```
-         docker push {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         docker push {{ registry }}/<registry_ID>/mongo-express:mongo-tag
          ```
 
    {% endlist %}
@@ -463,7 +463,7 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your container.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
    1. Enter `mongo-express-container` as your container name.
@@ -552,9 +552,9 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
 
 - API {#api}
 
-   To create a container, use the [create](../../serverless-containers/containers/api-ref/Container/create.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create) gRPC API call.
+   To create a container, use the [create](../../serverless-containers/containers/api-ref/Container/create.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/Container/create.md) gRPC API call.
 
-   To create a container revision, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
+   To create a container revision, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
 
 {% endlist %}
 
@@ -652,7 +652,7 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
 
 - API {#api}
 
-   To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+   To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
 
 {% endlist %}
 

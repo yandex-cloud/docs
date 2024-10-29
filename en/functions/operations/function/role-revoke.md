@@ -1,6 +1,6 @@
 ---
-title: "Revoking roles assigned to a function"
-description: "Follow this guide to revoke the roles assigned to a function."
+title: Revoking roles assigned to a function
+description: Follow this guide to revoke the roles assigned to a function.
 ---
 
 # Revoking roles assigned to a function
@@ -37,7 +37,7 @@ description: "Follow this guide to revoke the roles assigned to a function."
       ```
       done (1s)
       ```
-   * All authorized users (`{{ subjects-allAuthenticatedUsers }}` system group):
+   * All authorized users (the [All authenticated users](../../../iam/concepts/access-control/public-group.md) `public group`):
       ```
       yc serverless function remove-access-binding \
         --id <function_ID> \
@@ -51,6 +51,6 @@ description: "Follow this guide to revoke the roles assigned to a function."
 
 - API {#api}
 
-   To revoke function roles, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings) gRPC API call.
+   To revoke function roles, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

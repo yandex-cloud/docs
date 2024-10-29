@@ -90,13 +90,17 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    Where:
    * `--bucket`: Bucket name.
    * `--tagging`: Array of bucket labels, where:
-      * `Key`: Label key of the `string` type.
-      * `Value`: Label value of the `string` type.
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `Key`: Label key of the `string` type
+      * `Value`: Label value of the `string` type
+   * `--endpoint-url`: {{ objstorage-name }} endpoint
 
 - {{ TF }} {#tf}
 
    {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -132,7 +136,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
-   To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
+   To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
    **Sample gRPC API call**
 
@@ -263,7 +267,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - API {#api}
 
-   To view bucket labels, use the [get](../../api-ref/Bucket/get.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) gRPC API call, or the [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md) S3 API method.
+   To view bucket labels, use the [get](../../api-ref/Bucket/get.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Get](../../api-ref/grpc/Bucket/get.md) gRPC API call, or the [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md) S3 API method.
 
    **Sample gRPC API call**
 
@@ -392,6 +396,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the bucket.
@@ -424,7 +430,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - API {#api}
 
-   To delete bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md) S3 API method.
+   To delete bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md) S3 API method.
 
    **Sample gRPC API call**
 

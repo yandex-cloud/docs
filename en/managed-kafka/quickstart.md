@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ mkf-full-name }}"
-description: "Follow this guide to create and set up an {{ KF }} cluster."
+title: Getting started with {{ mkf-full-name }}
+description: Follow this guide to create and set up an {{ KF }} cluster.
 ---
 
 # Getting started with {{ mkf-name }}
@@ -14,27 +14,28 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
 
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+
    {% note info %}
 
-   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   It is assumed that you are connecting to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-
-1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
+1. Install the `kafkacat` utility, which is an open source app that can function as a universal data producer or consumer:
 
    ```bash
    sudo apt-get install kafkacat
@@ -48,7 +49,7 @@ To create a cluster:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state, to `Alive`. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
 
 Then create a topic in the cluster.
 
@@ -88,7 +89,7 @@ You can connect the producer and consumer to the cluster on behalf of one user. 
 To connect to a cluster:
 
 
-1. If using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Install an SSL certificate on the VM:

@@ -1,10 +1,5 @@
 title: Yandex Data Streams
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in Russia.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -64,6 +59,8 @@ items:
         href: concepts/limits.md
       - name: Comparison with Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
+      - name: Transactions involving data streams and YDB tables
+        href: concepts/topic-table-transactions.md
   - name: Tutorials
     items:
       - name: Entering data into storage systems
@@ -88,6 +85,12 @@ items:
         href: tutorials/kafka-to-yds.md
       - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: tutorials/ydb-to-yds.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them with {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -135,3 +138,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/data-streams
+deepBase: 2

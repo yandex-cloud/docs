@@ -1,6 +1,6 @@
 ---
-title: "Page structure elements in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn about page structure elements in {{ wiki-name }}."
+title: Page structure elements in {{ wiki-full-name }}
+description: In this tutorial, you will learn about page structure elements in {{ wiki-name }}.
 ---
 
 # Page structure

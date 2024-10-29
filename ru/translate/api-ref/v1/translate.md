@@ -1,6 +1,6 @@
 ---
-title: "Перевод текста"
-description: "Переводит заданный текст на указанный язык."
+title: Перевод текста
+description: Переводит заданный текст на указанный язык.
 ---
 
 # Перевод текста
@@ -9,9 +9,11 @@ description: "Переводит заданный текст на указанн
 
 Переводит заданный текст на указанный язык.
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
+
 ## Запрос {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/translate
 ```
 
@@ -51,12 +53,13 @@ POST https://translate.{{ api-host }}/translate/v1/translate
 ```httpget
 export FOLDER_ID=<идентификатор_каталога>
 export TOKEN=<IAM-токен>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
-     -d "folderId=${FOLDER_ID}&target=en" \
-     --data-urlencode "text=привет мир" \
-     --data-urlencode "text=доброе утро" \
-     "https://translate.{{ api-host }}/translate/v1/translate"
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data "folderId=${FOLDER_ID}&target=en" \
+  --data-urlencode "text=привет мир" \
+  --data-urlencode "text=доброе утро" \
+  "https://translate.{{ api-host }}/translate/v1/translate"
 ```
 
 ### Пример ответа {#response-example}

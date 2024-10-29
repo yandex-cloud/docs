@@ -1,6 +1,6 @@
 ---
-title: "How to update Let's Encrypt certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to update a Let's Encrypt certificate."
+title: How to update Let's Encrypt certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to update a Let's Encrypt certificate.
 ---
 
 # Editing a Let's Encrypt certificate
@@ -110,6 +110,6 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - API {#api}
 
-   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
+   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/Certificate/update.md) gRPC API call.
 
 {% endlist %}

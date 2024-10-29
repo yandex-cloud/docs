@@ -2,9 +2,11 @@
 
 Добавляет шифрование бакету. Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным [ключом {{ kms-short-name }}](../../../../kms/concepts/key.md). Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?encryption HTTP/2
 ```
 
@@ -32,7 +34,7 @@ PUT /{bucket}?encryption HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ServerSideEncryptionConfiguration>
    <Rule>
       <ApplyServerSideEncryptionByDefault>

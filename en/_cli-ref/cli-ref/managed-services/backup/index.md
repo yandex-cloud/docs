@@ -35,6 +35,13 @@ Syntax:
 	- [yc backup policy delete](policy/delete.md) — Delete policy(-es)
 	- [yc backup policy apply](policy/apply.md) — Apply policy to vm(-s)
 	- [yc backup policy revoke](policy/revoke.md) — Revoke policy from vm(-s)
+	- [yc backup policy execute](policy/execute.md) — Execute policy for vm
+- [yc backup agent](agent/index.md) — Manage backup agents
+	- [yc backup agent install](agent/install.md) — Installs backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent installer script and launch downloaded agent installer script.
+	- [yc backup agent reinstall](agent/reinstall.md) — Reinstalls backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent reinstaller script and launch downloaded agent reinstaller script.
+	- [yc backup agent debug-info](agent/debug-info.md) — Displays backup agent installation logs. Attention! This command could be executed only on instances with oslogin support. This command will execute ssh connection on given instance, and fetch agent logs.
+- [yc backup provider](provider/index.md) — Manage backup provider
+	- [yc backup provider activate](provider/activate.md) — Activate backup provider
 
 #### Global Flags
 
@@ -53,4 +60,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

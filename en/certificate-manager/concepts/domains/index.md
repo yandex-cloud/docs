@@ -1,6 +1,6 @@
 ---
-title: "Domain"
-description: "A domain is a unique domain name that can be used in {{ yandex-cloud }} services that require confirmation of the user's rights to the domain."
+title: Domain
+description: A domain is a unique domain name that can be used in {{ yandex-cloud }} services that require confirmation of the user's rights to the domain.
 ---
 
 # Domain

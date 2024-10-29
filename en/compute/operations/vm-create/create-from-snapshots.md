@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM with disks from snapshots"
-description: "Use this guide to create a VM with disks restored from snapshots that exist in a folder."
+title: How to create a VM with disks from snapshots
+description: Use this guide to create a VM with disks restored from snapshots that exist in a folder.
 ---
 
 # Create a VM with disks restored from snapshots

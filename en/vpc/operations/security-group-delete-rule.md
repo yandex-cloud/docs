@@ -1,6 +1,6 @@
 ---
-title: "Deleting a rule from a security group"
-description: "Follow this guide to delete a rule from a security group."
+title: Deleting a rule from a security group
+description: Follow this guide to delete a rule from a security group.
 ---
 
 # Deleting a rule from a security group
@@ -161,7 +161,7 @@ description: "Follow this guide to delete a rule from a security group."
 
 - API {#api}
 
-   To delete a rule from a security group, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
+   To delete a rule from a security group, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in the request:
 
    * ID of the security group you want to delete rules from, in the `securityGroupId` parameter.
    * IDs of the rules to be deleted, in the `deletionRuleIds[]` array.

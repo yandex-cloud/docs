@@ -1,6 +1,6 @@
 # Работа с датасетами
 
-Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`. 
+Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`.
 
 ## Создать и инициализировать датасет {#create}
 
@@ -220,10 +220,12 @@
 Вы можете удалить датасет, только если он:
 
 * не активирован в собственном проекте;
-* не используется в других проектах; 
+* не используется в других проектах;
 * недоступен в сообществе.
 
 Чтобы удалить датасет:
 
 1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a Docker image from a {{ container-registry-full-name }} registry"
-description: "In this tutorial, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry."
+title: How to delete a Docker image from a {{ container-registry-full-name }} registry
+description: In this tutorial, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry.
 ---
 
 # Deleting a Docker image from a registry
@@ -10,6 +10,8 @@ description: "In this tutorial, you will learn how to delete a Docker image from
 Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action operation: when you delete a Docker image, its layers are physically removed **1 hour later**. Information about the total size of the registry is also updated 1 hour later.
 
 {% endnote %}
+
+To delete a Docker image from the registry, you need the `container-registry.images.pusher` [role](../../security/index.md#container-registry-images-pusher) or higher.
 
 {% list tabs group=instructions %}
 

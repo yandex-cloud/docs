@@ -12,6 +12,7 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ PG }} clusters](managed-postgresql.md)
 * [Migrating {{ MY }} clusters](managed-mysql-to-mysql.md)
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
+* [Data resharding in a {{ mch-name }} cluster](mch-mch-resharding.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
 * [Migrating {{ MG }} clusters](managed-mongodb.md)
 * [Migrating {{ MG }} cluster from 4.4 to 6.0](mongodb-versions.md)
@@ -30,6 +31,8 @@ Migration with data storage type changed.
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} to {{ OS }}](mes-to-mos.md)
+* [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ PG }} to {{ OS }}](postgresql-to-opensearch.md)
 
 ## Change data capture {#cdc}
 
@@ -38,13 +41,13 @@ CDC is used for creating apps that are sensitive to real-time data changes, exch
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
-* {{ MY }} change data capture and delivery to
+* {{ MY }} change data capture and delivery to:
    * [{{ KF }}](cdc-mmy.md)
    * [{{ DS }}](mmy-to-yds.md)
-* {{ PG }} change data capture and delivery to
+* {{ PG }} change data capture and delivery to:
    * [{{ KF }}](cdc-mpg.md)
    * [{{ DS }}](mpg-to-yds.md)
-* {{ ydb-short-name }} change data capture and delivery to
+* {{ ydb-short-name }} change data capture and delivery to:
    * [{{ KF }}](cdc-ydb.md)
    * [{{ DS }}](ydb-to-yds.md)
 
@@ -66,7 +69,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} to {{ OS }}](trails-to-os.md)
 
-## Loading data to data marts {#upload-to-data-mart}
+## Uploading data to data marts {#upload-to-data-mart}
 
 Loading data to data marts is a process of transferring prepared data to storage for subsequent visualization. Sources are data storages used for massively parallel processing of data. Targets are data storages that can quickly deliver data.
 
@@ -83,6 +86,8 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ objstorage-name }} to {{ MY }}](objs-mmy-migration.md)
 * [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} to {{ ydb-short-name }}](object-storage-to-ydb.md)
+* [{{ ydb-short-name }} to {{ CH }}](ydb-to-clickhouse.md)
+* [{{ OS }} to {{ CH }}](opensearch-to-clickhouse.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 
@@ -92,6 +97,8 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 
 * [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ OS }} to {{ objstorage-name }}](opensearch-to-object-storage.md)
+* [{{ ydb-short-name }} to {{ objstorage-name }}](ydb-to-object-storage.md)
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

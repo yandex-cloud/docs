@@ -1,12 +1,12 @@
 ---
-title: "{{ alb-full-name }} use cases"
-description: "Various {{ alb-full-name }} use cases in {{ yandex-cloud }}"
+title: '{{ alb-full-name }} use cases'
+description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ alb-name }} tutorials
 
 * [{#T}](virtual-hosting.md)
-* [{#T}](alb-with-ddos-protection.md)
+* [{#T}](alb-with-ddos-protection/index.md)
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](l7-bluegreen-deploy.md)
 * [{#T}](tls-termination/index.md)
@@ -15,3 +15,5 @@ description: "Various {{ alb-full-name }} use cases in {{ yandex-cloud }}"
 * [{#T}](gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](application-load-balancer-website.md)
+* [{#T}](custom-health-checks.md)

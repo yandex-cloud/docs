@@ -71,7 +71,9 @@
     s3 mb s3://<имя_бакета>
   ```
 
+
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
 ## Особенности {#specifics}
 
@@ -88,7 +90,7 @@
        После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
 
     * Создайте псевдоним (alias) с помощью команды:
-    
+
       ```bash
       alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
       ```
@@ -166,7 +168,7 @@ make_bucket: bucket-name
   ```bash
   aws s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
   ```
-  
+
   Результат:
 
   ```text
@@ -180,7 +182,6 @@ aws s3 ls --recursive s3://bucket-name
 ```
 
 Результат:
-
 ```text
 2022-09-05 17:10:34      10023 other/test1.png
 2022-09-05 17:10:34      57898 other/test2.png
@@ -212,7 +213,7 @@ aws s3 ls --recursive s3://bucket-name
   ```
 
   Результат:
-  
+
   ```text
   delete: s3://bucket-name/path_style_prefix/test1.log
   delete: s3://bucket-name/path_style_prefix/subprefix/test2.log

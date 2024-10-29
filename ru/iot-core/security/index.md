@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ iot-full-name }}"
-description: "Управление доступом облачного MQTT-сервера {{ iot-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе."
+title: Управление доступом в {{ iot-full-name }}
+description: Управление доступом облачного MQTT-сервера {{ iot-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
 ---
     
 # Управление доступом в {{ iot-name }}
@@ -49,3 +49,5 @@ description: "Управление доступом облачного MQTT-се
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

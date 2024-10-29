@@ -1,4 +1,4 @@
-# Performance analysis and tuning of {{ mmy-name }}
+# {{ mmy-name }} performance analysis and tuning
 
 The following issues normally impact {{ mmy-name }} cluster performance:
 
@@ -8,7 +8,7 @@ The following issues normally impact {{ mmy-name }} cluster performance:
 
 [Monitoring](../../managed-mysql/operations/monitoring.md) tools for {{ MY }} to [troubleshoot performance issues](../../managed-mysql/operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
 
-## Before you begin {#before-start}
+## Getting started {#before-start}
 
 1. Select databases to troubleshoot.
 1. [Enable statistics collection](../../managed-mysql/operations/performance-diagnostics.md).
@@ -83,9 +83,9 @@ LIMIT  10
 
 The query returns the 10 longest running queries in the entire server history.
 
-You should pay attention to queries with high `ROWS_EXAMINED`, `ROWS_SORTED`, or the `FULL_SCAN` flag.
+You should pay attention to queries with high `ROWS_EXAMINED`, `ROWS_SORTED` values, or the `FULL_SCAN` flag.
 
-To learn more about the information in the output, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+To learn more about the information in the output, see the [{{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html) documentation.
 
 ## Detecting locks {#localize-locking-issues}
 
@@ -93,23 +93,23 @@ Cluster performance may degrade because of locks obtained when there are multipl
 
 To troubleshoot, check lock queues in queries:
 
-- Table-level lock queue:
+  - Table-level lock queue:
 
-   ```sql
-   SELECT * FROM sys.schema_table_lock_waits 
-   ```
+    ```sql
+    SELECT * FROM sys.schema_table_lock_waits 
+    ```
 
-- Individual row-level lock queue:
+  - Individual row-level lock queue:
 
-   ```sql
-   SELECT * FROM sys.innodb_lock_waits
-   ```
+    ```sql
+    SELECT * FROM sys.innodb_lock_waits
+    ```
 
-## Solving problems {#solving}
+## Troubleshooting {#solving}
 
-You can try to tune any problematic queries identified in the course of troubleshooting. There are several ways to optimize:
+You can try and optimize the problematic queries you have diagnosed. There are several ways to approach such optimization:
 
-- Analyze the query plan using the [`EXPLAIN` command](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) and use the query optimization techniques from the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).
+- Analyze the query plan using [the `EXPLAIN` command](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) and use the query optimization techniques from the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).
 
 - [Optimize InnoDB tables](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html) to reduce disk workload.
 

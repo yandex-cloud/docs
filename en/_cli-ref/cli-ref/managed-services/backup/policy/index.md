@@ -26,6 +26,7 @@ Aliases:
 - [yc backup policy delete](delete.md) — Delete policy(-es)
 - [yc backup policy apply](apply.md) — Apply policy to vm(-s)
 - [yc backup policy revoke](revoke.md) — Revoke policy from vm(-s)
+- [yc backup policy execute](execute.md) — Execute policy for vm
 
 #### Global Flags
 
@@ -44,4 +45,5 @@ Aliases:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

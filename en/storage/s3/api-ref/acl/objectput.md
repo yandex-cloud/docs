@@ -4,32 +4,34 @@ Uploads an access control list for an object.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Don't use XML documents and `X-Amz-Grant*` headers in the same request.
+ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Do not use an XML document and `X-Amz-Grant*` headers in the same request.
 
 {% endnote %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
-```
+```http
 PUT /{bucket}/{key}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
+`bucket` | Bucket name.
+`key` | Object key. ID for saving the object in {{ objstorage-name }}.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `acl` | Required parameter that indicates the type of operation. |
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 You can also use the headers listed below.
 
@@ -48,3 +50,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

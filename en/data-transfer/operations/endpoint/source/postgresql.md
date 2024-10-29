@@ -1,43 +1,44 @@
 ---
-title: "How to configure a {{ PG }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}."
+title: How to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to configure a {{ PG }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ PG }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
-1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data from {{ PG }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
-   * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
-   * [Migrating with change of storage: {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
-   * [Migration with change of storage: {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+    * [Migrating a {{ PG }}](../../../tutorials/managed-postgresql.md) cluster.
+    * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
+    * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+    * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+    * [Migration with change of storage from {{ PG }} to {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
-* [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/mpg-to-yds.md).
-* [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-mpg.md).
+    * [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/mpg-to-yds.md).
+    * [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-mpg.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-   * [Loading data from {{ PG }} to the {{ CH }} data mart](../../../tutorials/rdbms-to-clickhouse.md).
+    * [Loading data from {{ PG }} to the {{ CH }} data mart](../../../tutorials/rdbms-to-clickhouse.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-   * [Loading {{ PG }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mpg-to-objstorage.md).
+    * [Loading {{ PG }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mpg-to-objstorage.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -45,7 +46,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ PG }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -68,49 +69,49 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `postgres-source`.
+    * Endpoint type: `postgres-source`.
 
-   {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `postgres_source`.
+    * Endpoint type: `postgres_source`.
 
-   {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Here is an example of the configuration file structure:
-
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       postgres_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         connection {
-           mdb_cluster_id = "<cluster_ID>"
-         }
-         database = "<migrated_database_name>"
-         user     = "<username_for_connection>"
-         password {
-           raw = "<user_password>"
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+    Here is an example of the configuration file structure:
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        postgres_source {
+          security_groups = ["<list_of_security_group_IDs>"]
+          connection {
+            mdb_cluster_id = "<cluster_ID>"
+          }
+          database = "<name_of_database_to_migrate>"
+          user     = "<username_for_connection>"
+          password {
+            raw = "<user_password>"
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
+
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
 {% endlist %}
 
@@ -122,52 +123,52 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-   {% include [On premise PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `postgres-source`.
+    * Endpoint type: `postgres-source`.
 
-   {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `postgres_source`.
+    * Endpoint type: `postgres_source`.
 
-   {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Here is an example of the configuration file structure:
-
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       postgres_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         connection {
-           on_premise {
-             hosts = ["<list_of_hosts>"]
-             port  = <port_for_connection>
-           }
-         }
-         database = "<migrated_database_name>"
-         user     = "<username_for_connection>"
-         password {
-           raw = "<user_password>"
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+    Here is an example of the configuration file structure:
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        postgres_source {
+          security_groups = ["<list_of_security_group_IDs>"]
+          connection {
+            on_premise {
+              hosts = ["<list_of_hosts>"]
+              port  = <port_for_connection>
+            }
+          }
+          database = "<name_of_database_to_migrate>"
+          user     = "<username_for_connection>"
+          password {
+            raw = "<user_password>"
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
+
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
 {% endlist %}
 
@@ -176,16 +177,16 @@ For OnPremise, all fields are filled in manually.
 {% list tabs group=instructions %}
 
 - Management console {#console}
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**: 
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
-      The lists include the name of the [schema]({{pg-docs}}/ddl-schemas.html) (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{pg-docs}}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
-        * `<schema_name>.<table_name>`: Fully qualified table name.
+        * `<schema_name>.<table_name>`: Full table name.
         * `<schema_name>.*`: All tables in the specified schema.
 
       Table names must match this regular expression:
@@ -199,10 +200,16 @@ For OnPremise, all fields are filled in manually.
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If required, select the DB schema elements to transfer when activating or deactivating a transfer.
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
+          
+            {% note warning %}
+
+            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).
+
+            {% endnote %}
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
@@ -212,102 +219,102 @@ For OnPremise, all fields are filled in manually.
         ^[-_a-zA-Z0-9]*$
         ```
 
-        Double quotes in a schema name are not supported.
+        Double quotes are not supported in schema names.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Specifics of working with endpoints](../../../concepts/work-with-endpoints.md#postgresql).
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If required, specify detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
 
 - CLI {#cli}
 
-   * `--include-table`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+    * `--include-table`: List of included tables. Only the data from the tables listed here will be transferred.
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `--exclude-table`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `--exclude-table`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
-      * `<schema_name>.<table_name>`: Fully qualified table name.
-      * `<schema_name>.*`: All tables in the specified schema.
+        * `<schema_name>.<table_name>`: Full table name.
+        * `<schema_name>.*`: All tables in the specified schema.
 
-      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
+        {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `--slot-lag-limit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
-   * `--service-schema`: Name of the DB schema for service tables.
+    * `--service-schema`: Name of the DB schema for service tables.
 
-   * Schema transfer settings:
+    * Schema transfer settings:
 
-      * `--transfer-before-data`: At the initial stage of the transfer.
-      * `--transfer-after-data`: At the final stage of the transfer.
+        * `--transfer-before-data`: At the initial stage of the transfer.
+        * `--transfer-after-data`: At the final stage of the transfer.
 
 - {{ TF }} {#tf}
 
-   * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+    * `include_tables`: List of included tables. Only the data from the tables listed here will be transferred.
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
-      * `<schema_name>.<table_name>`: Fully qualified table name.
+      * `<schema_name>.<table_name>`: Full table name.
       * `<schema_name>.*`: All tables in the specified schema.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `slot_gigabyte_lag_limit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
-   * `service_schema`: DB schema name for housekeeping tables.
+    * `service_schema`: Name of the DB schema for service tables.
 
-   * `object_transfer_settings`: Schema transfer settings:
+    * `object_transfer_settings`: Schema transfer settings:
 
-      * `sequence`: Sequences.
-      * `sequence_owned_by`: User sequences.
-      * `table`: Tables.
-      * `primary_key`: Primary keys.
-      * `fk_constraint`: Foreign keys.
-      * `default_values`: Default values.
-      * `constraint`: Constraints.
-      * `index`: Indexes.
-      * `view`: Views.
-      * `function`: Functions.
-      * `trigger`: Triggers.
-      * `type`: Types.
-      * `rule`: Rules.
-      * `collation`: Collation rules.
-      * `policy`: Policies.
-      * `cast`: Type casts.
+        * `sequence`: Sequences.
+        * `sequence_owned_by`: Custom sequences.
+        * `table`: Tables.
+        * `primary_key`: Primary keys.
+        * `fk_constraint`: Foreign keys.
+        * `default_values`: Default values.
+        * `constraint`: Constraints.
+        * `index`: Indexes.
+        * `view`: Views.
+        * `function`: Functions.
+        * `trigger`: Triggers.
+        * `type`: Types.
+        * `rule`: Rules.
+        * `collation`: Sorting rules.
+        * `policy`: Policies.
+        * `cast`: Type casts.
 
-      You can specify one of the following values for each entity:
+        You can specify one of the following values for each entity:
 
-      * `BEFORE_DATA`: Move when activating the transfer.
-      * `AFTER_DATA`: Move when deactivating the transfer.
-      * `NEVER`: Do not move.
+        * `BEFORE_DATA`: Transferring when activating the transfer.
+        * `AFTER_DATA`: Transferring when deactivating the transfer.
+        * `NEVER`: No tansfer.
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   * `includeTables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+    * `includeTables`: List of included tables. Only the data from the tables listed here will be transferred.
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
-      * `<schema_name>.<table_name>`: Fully qualified table name.
-      * `<schema_name>.*`: All tables in the specified schema.
+        * `<schema_name>.<table_name>`: Full table name.
+        * `<schema_name>.*`: All tables in the specified schema.
 
-      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
+        {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `slotByteLagLimit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
-   * `serviceSchema`: Name of the DB schema for service tables.
+    * `serviceSchema`: Name of the DB schema for service tables.
 
-   * `objectTransferSettings`: Settings for transferring the schema at the initial and final stages of the transfer (`BEFORE_DATA` and `AFTER_DATA` values, respectively).
+    * `objectTransferSettings`: Settings for transferring the schema at the initial and final stages of the transfer (`BEFORE_DATA` and `AFTER_DATA`, respectively).
 
 {% endlist %}
 
@@ -323,42 +330,42 @@ During a transfer, the database schema is transferred from the source to the tar
 
 1. At the activation stage.
 
-   This step is performed when the transfer is activated before copying or replicating data to create a schema on the target. You can choose which parts of the schema will be migrated. By default, this is `TABLE`, `VIEW`, `PRIMARY KEY`, `SEQUENCE`, `SEQUENCE OWNED BY`, `RULE`, `TYPE`, `FUNCTION`, and `DEFAULT`.
+    This step is performed when the transfer is activated before copying or replicating data to create a schema on the target. You can choose which parts of the schema will be migrated. By default, these are: `TABLE`, `VIEW`, `PRIMARY KEY`, `SEQUENCE`, `SEQUENCE OWNED BY`, `RULE`, `TYPE`, `FUNCTION`, and `DEFAULT`.
 
 1. At the deactivation stage.
 
-   This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. You can choose which parts of the schema will be migrated.
+    This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. You can choose which parts of the schema will be migrated.
 
-   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
+    At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
 
-   It's recommended to include resource-intensive operations like index migration in the final stage of migration. Migrating indexes at the beginning of the transfer can slow it down.
+    It is recommended to include resource-intensive operations, e.g., index migration, in the final stage of migration. Migrating indexes at the beginning of the transfer can slow it down.
 
-The transfer of the schema at both the initial and final stages is performed using the `pg_dump` [utility](https://www.postgresql.org/docs/current/app-pgdump.html).
+To transfer the schema at both the initial and final stages, one uses the [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) utility.
 
 {% note info %}
 
-When editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status, the table schemas on the target are preserved. In this case, only the schemas of the tables that are missing on the target at the time of restart are transferred to the target.
+When editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status, the table schemas on the target are preserved. In this case, only the table schemas that are missing on the target at the transfer restart will be transferred to the target.
 
 {% endnote %}
 
-Replication cannot guarantee that sequence values are preserved, so we recommend updating the `sequences` on the target.
+Replication cannot guarantee that sequence values are preserved, so we recommend updating the `sequence` on the target.
 
 ## Configuring the data target {#supported-targets}
 
 Configure one of the supported data targets:
 
-* [{{ PG }}](../target/postgresql.md).
-* [{{ MY }}](../target/mysql.md).
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ GP }}](../target/greenplum.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ KF }}](../target/kafka.md).
-* [{{ DS }}](../target/data-streams.md).
-* [{{ ES }}](../target/elasticsearch.md).
-* [{{ OS }}](../target/opensearch.md).
+* [{{ PG }}](../target/postgresql.md)
+* [{{ MY }}](../target/mysql.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
+* [{{ ES }}](../target/elasticsearch.md)
+* [{{ OS }}](../target/opensearch.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -375,6 +382,7 @@ Known issues when using a {{ PG }} endpoint:
 * [VIEW transfer error](#view).
 * [Error when adding a table entry by constraint](#constraint).
 * [Error when migrating all schema tables](#schema).
+* [Unable to create objects involving extension functions](#extension-functions).
 * [Low transfer speed](#low-speed).
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
@@ -385,10 +393,10 @@ Known issues when using a {{ PG }} endpoint:
 * [Cannot create a replication slot at the activation step](#lock-replication).
 * [Excessive WAL size increase](#excessive-wal).
 * [Error when replicating from an external source](#external-replication).
-* [Error when transfering tables without primary keys](#primary-keys).
+* [Error when transferring tables without primary keys](#primary-keys).
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see the [Troubleshooting](../../../troubleshooting/index.md) section.
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -399,6 +407,8 @@ See a full list of recommendations in the [Troubleshooting](../../../troubleshoo
 {% include [constraint](../../../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

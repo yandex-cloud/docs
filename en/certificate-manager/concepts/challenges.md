@@ -26,7 +26,7 @@ Certificate checks can have the following statuses:
 
 {% note info %}
 
-You cannot use the `HTTP` challenge type for [Wildcard certificates](https://en.wikipedia.org/wiki/Wildcard_certificate).
+You cannot use the `HTTP` check type for [Wildcard certificates](https://en.wikipedia.org/wiki/Wildcard_certificate).
 
 {% endnote %}
 
@@ -36,12 +36,12 @@ To check the rights for the `example.com` domain:
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the name of the certificate you need.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
-   1. Use your hosting control panel to create a file on the server with the name and path matching the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field under **HTTP record**, e.g.:
+   1. Use your hosting control panel to create a file on the server with the name and path matching the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field under **HTTP record**. For example:
 
       * `/.well-known/acme-challenge/`: File path.
       * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`: File name.
 
-   1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**, e.g.:
+   1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**. For example:
 
       > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
@@ -52,7 +52,7 @@ To check the rights for the `example.com` domain:
 
 ## DNS {#dns}
 
-If you do not have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains in `*.example.com` format, use `DNS` as the challenge type.
+If you do not have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains in `*.example.com` format, use the `DNS` check type.
 
 To pass the check, you need to add a special DNS record of one of the following two types: `TXT` or `CNAME`.
 

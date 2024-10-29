@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ container-registry-full-name }}"
-description: "This page presents questions and answers about {{ container-registry-name }}."
+title: Questions and answers about {{ container-registry-full-name }}
+description: This page presents questions and answers about {{ container-registry-name }}.
 ---
 
 # FAQ about {{ container-registry-name }}
@@ -15,13 +15,13 @@ The Docker client assigns the `latest` tag automatically if the Docker image is 
 
 #### How do I make a registry public? {#public-registry}
 
-You can issue the [container-registry.images.puller](../security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [allUsers](../../iam/concepts/access-control/system-group.md) system group.
+You can grant the [container-registry.images.puller](../security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [All users](../../iam/concepts/access-control/public-group.md) public group.
 
 {% note alert %}
 
 This makes all Docker images in the registry available without [authentication](../operations/authentication.md).
 
-Do not assign the `container-registry.images.pusher`, `editor` or `admin` roles to the system group for the registry. This will enable anyone with your registry ID to use the registry.
+Do not assign the `container-registry.images.pusher`, `editor`, or `admin` roles for the registry to the public group. This will enable anyone with your registry ID to use the registry.
 
 {% endnote %}
 
@@ -50,7 +50,7 @@ You can use `sudo` or configure [non-root access](https://docs.docker.com/engine
 
    The top section of the `.bashrc` file contains a condition preventing its commands from running non-interactively. That is why the commands can run when connecting to the VM manually, but fail to run when doing so via SSH.
 
-#### What does "Error response from daemon: pull access denied for <cr.yandex/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
+#### What does "Error response from daemon: pull access denied for <{{ registry }}/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
 
 The [IP address](../../vpc/concepts/address.md) that the pull Docker image request is received from has no PULL permission.
 

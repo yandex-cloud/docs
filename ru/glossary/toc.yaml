@@ -103,10 +103,14 @@ items:
         href: ssh-keygen.md
   - name: Безопасность
     items:
+      - name: Control Plane и Data Plane
+        href: control-plane.md
       - name: DDoS
         href: ddos.md
       - name: IPsec
         href: ipsec.md
+      - name: SASL
+        href: sasl.md
       - name: SSL-сертификат
         href: ssl-certificate.md
       - name: TLS
@@ -114,3 +118,4 @@ items:
       - name: WAF
         href: waf.md
 base: ru/glossary
+deepBase: 2

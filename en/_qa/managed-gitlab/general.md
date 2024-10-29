@@ -4,7 +4,7 @@ The main advantage of {{ mgl-name }} is that it reduces the installation and adm
 
 #### How to migrate data from {{ GL }} to {{ mgl-name }}? {#migration}
 
-You can migrate data from a {{ GL }} custom installation to {{ mgl-name }}. To do it, follow [this guide](../../managed-gitlab/operations/instance/migration.md). Before starting, see [how to run migration](../../managed-gitlab/concepts/migration.md).
+You can migrate data from a {{ GL }} custom installation to {{ mgl-name }} by following [this guide](../../managed-gitlab/operations/instance/migration.md). Before you begin, see [how to run migration](../../managed-gitlab/concepts/migration.md).
 
 You cannot migrate data from {{ GL }}.com to {{ mgl-name }}: migration is only available for {{ GL }} installed on a server or local computer (self-managed {{ GL }}).
 
@@ -43,4 +43,6 @@ For more information about roles, see the [{{ GL }} documentation]({{ gl.docs }}
 
 #### I get `500 Internal Server Error` when opening an instance. What could be the problem? {#500-error}
 
-The instance disk space may be full. [Check and clean it up](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+The instance disk space may be full. To clean up disk space and recover access to the instance, contact [technical support]({{ link-console-support }}).
+
+For more information on how to prevent instance disk space overflow, see [this guide](../../managed-gitlab/operations/instance/clean-up-disk-space.md).

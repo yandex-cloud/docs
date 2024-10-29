@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mos-full-name }}"
-description: "Follow this guide to create an {{ OS }} cluster and connect to it."
+title: Getting started with {{ mos-full-name }}
+description: Follow this guide to create an {{ OS }} cluster and connect to it.
 ---
 
 # Getting started with {{ mos-name }}
@@ -20,6 +20,7 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to an {{ OS }} cluster both from inside {{ yandex-cloud }} and from the internet:
 
    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
@@ -40,7 +41,7 @@ These instructions assume that you are connecting to the cluster from the intern
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Set the cluster parameters.
 
-   
+
    To gain access to the {{ OS }} Dashboards web interface, request public access. To do this, navigate to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
@@ -90,7 +91,7 @@ To connect to a cluster:
 
 1. In the browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
 
-   
+
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
 
 

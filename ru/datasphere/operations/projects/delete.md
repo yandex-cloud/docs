@@ -1,6 +1,6 @@
 ---
-title: "Как удалить ноутбук или проект в {{ ml-platform-full-name }}"
-description: "Из статьи вы узнаете, как удалить ноутбук или проект в {{ ml-platform-name }}."
+title: Как удалить ноутбук или проект в {{ ml-platform-full-name }}
+description: Из статьи вы узнаете, как удалить ноутбук или проект в {{ ml-platform-name }}.
 ---
 
 # Удалить ноутбук или проект
@@ -25,3 +25,5 @@ description: "Из статьи вы узнаете, как удалить но�
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. В правом верхнем углу экрана нажмите **{{ ui-key.yc-ui-datasphere.common.more }}** и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. В открывшемся окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

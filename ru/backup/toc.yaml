@@ -1,10 +1,5 @@
 title: Yandex Cloud Backup
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -34,6 +29,8 @@ items:
             href: operations/policy-vm/update.md
           - name: Привязать ВМ к политике
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Получить информацию о политике
+            href: operations/policy-vm/get-info.md
           - name: Отвязать ВМ от политики
             href: operations/policy-vm/detach-vm.md
           - name: Удалить политику
@@ -52,6 +49,20 @@ items:
             href: operations/backup-vm/delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+      - name: Посмотреть статистику резервного копирования
+        href: operations/get-stats.md
+  - name: Практические руководства
+    items:
+      - name: Подключение сервера BareMetal к Cloud Backup
+        href: tutorials/backup-baremetal.md
+      - name: Автоматическая привязка политики резервного копирования к ВМ
+        items:
+          - name: Обзор
+            href: tutorials/vm-with-backup-policy/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-with-backup-policy/terraform.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -86,16 +97,80 @@ items:
         items:
           - name: Overview
             href: backup/api-ref/grpc/index.md
-          - name: BackupService
-            href: backup/api-ref/grpc/backup_service.md
-          - name: PolicyService
-            href: backup/api-ref/grpc/policy_service.md
-          - name: ProviderService
-            href: backup/api-ref/grpc/provider_service.md
-          - name: ResourceService
-            href: backup/api-ref/grpc/resource_service.md
-          - name: OperationService
-            href: backup/api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Backup/index.md
+              - name: List
+                href: backup/api-ref/grpc/Backup/list.md
+              - name: ListArchives
+                href: backup/api-ref/grpc/Backup/listArchives.md
+              - name: ListFiles
+                href: backup/api-ref/grpc/Backup/listFiles.md
+              - name: Get
+                href: backup/api-ref/grpc/Backup/get.md
+              - name: StartRecovery
+                href: backup/api-ref/grpc/Backup/startRecovery.md
+              - name: StartFilesRecovery
+                href: backup/api-ref/grpc/Backup/startFilesRecovery.md
+              - name: Delete
+                href: backup/api-ref/grpc/Backup/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: backup/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: backup/api-ref/grpc/Operation/cancel.md
+          - name: Policy
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Policy/index.md
+              - name: List
+                href: backup/api-ref/grpc/Policy/list.md
+              - name: Create
+                href: backup/api-ref/grpc/Policy/create.md
+              - name: Get
+                href: backup/api-ref/grpc/Policy/get.md
+              - name: Update
+                href: backup/api-ref/grpc/Policy/update.md
+              - name: Delete
+                href: backup/api-ref/grpc/Policy/delete.md
+              - name: Apply
+                href: backup/api-ref/grpc/Policy/apply.md
+              - name: ListApplications
+                href: backup/api-ref/grpc/Policy/listApplications.md
+              - name: Execute
+                href: backup/api-ref/grpc/Policy/execute.md
+              - name: Revoke
+                href: backup/api-ref/grpc/Policy/revoke.md
+          - name: Provider
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Provider/index.md
+              - name: Activate
+                href: backup/api-ref/grpc/Provider/activate.md
+              - name: ListActivated
+                href: backup/api-ref/grpc/Provider/listActivated.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Resource/index.md
+              - name: List
+                href: backup/api-ref/grpc/Resource/list.md
+              - name: Get
+                href: backup/api-ref/grpc/Resource/get.md
+              - name: Delete
+                href: backup/api-ref/grpc/Resource/delete.md
+              - name: ListTasks
+                href: backup/api-ref/grpc/Resource/listTasks.md
+              - name: ListDirectory
+                href: backup/api-ref/grpc/Resource/listDirectory.md
+              - name: CreateDirectory
+                href: backup/api-ref/grpc/Resource/createDirectory.md
+              - name: ListOperations
+                href: backup/api-ref/grpc/Resource/listOperations.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -104,60 +179,70 @@ items:
             items:
               - name: Overview
                 href: backup/api-ref/Backup/index.md
-              - name: delete
-                href: backup/api-ref/Backup/delete.md
-              - name: get
-                href: backup/api-ref/Backup/get.md
-              - name: list
+              - name: List
                 href: backup/api-ref/Backup/list.md
-              - name: listArchives
+              - name: ListArchives
                 href: backup/api-ref/Backup/listArchives.md
-              - name: listFiles
+              - name: ListFiles
                 href: backup/api-ref/Backup/listFiles.md
-              - name: startRecovery
+              - name: Get
+                href: backup/api-ref/Backup/get.md
+              - name: StartRecovery
                 href: backup/api-ref/Backup/startRecovery.md
+              - name: Delete
+                href: backup/api-ref/Backup/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: backup/api-ref/Operation/index.md
+              - name: Get
+                href: backup/api-ref/Operation/get.md
+              - name: Cancel
+                href: backup/api-ref/Operation/cancel.md
           - name: Policy
             items:
               - name: Overview
                 href: backup/api-ref/Policy/index.md
-              - name: apply
-                href: backup/api-ref/Policy/apply.md
-              - name: create
-                href: backup/api-ref/Policy/create.md
-              - name: delete
-                href: backup/api-ref/Policy/delete.md
-              - name: execute
-                href: backup/api-ref/Policy/execute.md
-              - name: get
-                href: backup/api-ref/Policy/get.md
-              - name: list
+              - name: List
                 href: backup/api-ref/Policy/list.md
-              - name: listApplications
-                href: backup/api-ref/Policy/listApplications.md
-              - name: revoke
-                href: backup/api-ref/Policy/revoke.md
-              - name: update
+              - name: Create
+                href: backup/api-ref/Policy/create.md
+              - name: Get
+                href: backup/api-ref/Policy/get.md
+              - name: Update
                 href: backup/api-ref/Policy/update.md
+              - name: Delete
+                href: backup/api-ref/Policy/delete.md
+              - name: Apply
+                href: backup/api-ref/Policy/apply.md
+              - name: ListApplications
+                href: backup/api-ref/Policy/listApplications.md
+              - name: Execute
+                href: backup/api-ref/Policy/execute.md
+              - name: Revoke
+                href: backup/api-ref/Policy/revoke.md
           - name: Provider
             items:
               - name: Overview
                 href: backup/api-ref/Provider/index.md
-              - name: activate
+              - name: Activate
                 href: backup/api-ref/Provider/activate.md
-              - name: listActivated
+              - name: ListActivated
                 href: backup/api-ref/Provider/listActivated.md
           - name: Resource
             items:
               - name: Overview
                 href: backup/api-ref/Resource/index.md
-              - name: delete
-                href: backup/api-ref/Resource/delete.md
-              - name: get
-                href: backup/api-ref/Resource/get.md
-              - name: list
+              - name: List
                 href: backup/api-ref/Resource/list.md
-              - name: listTasks
+              - name: Get
+                href: backup/api-ref/Resource/get.md
+              - name: Delete
+                href: backup/api-ref/Resource/delete.md
+              - name: ListTasks
                 href: backup/api-ref/Resource/listTasks.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
@@ -165,3 +250,4 @@ items:
   - name: Решение проблем
     href: qa/troubleshooting.md
 base: ru/backup
+deepBase: 2

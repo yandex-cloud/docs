@@ -5,8 +5,14 @@ items:
     items:
       - name: Все руководства
         href: security/index.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: security/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: security/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: security/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: security/alb-with-ddos-protection/terraform.md
       - name: Терминирование TLS-соединений
         items:
           - name: Обзор
@@ -17,6 +23,8 @@ items:
             href: security/tls-termination/terraform.md
       - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
+      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
+        href: security/metastore-logging.md
       - name: Запись логов балансировщика в {{ PG }}
         href: security/logging.md
       - name: >-
@@ -29,6 +37,8 @@ items:
           Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
           Ansible
         href: security/sa-oslogin-ansible.md
+      - name: Организация защищенного доступа к контенту в {{ cdn-name }}
+        href: security/protected-access-to-content.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -73,6 +83,16 @@ items:
           Развертывание параллельной файловой системы GlusterFS в
           высокопроизводительном режиме
         href: archive/ha-regional-glusterfs-high-performance.md
+      - name: >-
+          Автоматическая привязка политики резервного копирования {{ backup-name
+          }} к ВМ
+        items:
+          - name: Обзор
+            href: archive/vm-with-backup-policy/index.md
+          - name: Консоль управления, CLI, API
+            href: archive/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: archive/vm-with-backup-policy/terraform.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -113,6 +133,10 @@ items:
         href: testing/loadtesting-external-agent.md
       - name: Нагрузочный тест с помощью JMeter
         href: testing/loadtesting-jmeter.md
+      - name: >-
+          Получение статистики запросов к объектам {{ objstorage-name }} с
+          использованием {{ yq-name }}
+        href: testing/server-logs-yq.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства
@@ -124,9 +148,15 @@ items:
           - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+              Отказоустойчивый сайт с балансировкой нагрузки через {{
               network-load-balancer-name }}
-            href: web/load-balancer-website.md
+            items:
+              - name: Обзор
+                href: web/load-balancer-website/index.md
+              - name: Консоль управления
+                href: web/load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/load-balancer-website/terraform.md
           - name: >-
               Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
               alb-name }}
@@ -135,8 +165,14 @@ items:
               Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
               }}
             href: web/cdn-storage-integration.md
-          - name: Работа с группой ВМ с автомасштабированием
-            href: infrastructure-management/vm-autoscale.md
+          - name: Работа с группой ВМ с автоматическим масштабированием
+            items:
+              - name: Обзор
+                href: infrastructure-management/vm-autoscale/index.md
+              - name: Консоль управления, CLI и API
+                href: infrastructure-management/vm-autoscale/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-autoscale/terraform.md
           - name: Масштабирование группы ВМ по расписанию
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
@@ -187,8 +223,14 @@ items:
             href: infrastructure-management/ntp.md
           - name: Настройки DHCP для работы с корпоративным DNS-сервером
             href: routing/dhcp-options.md
-          - name: Маршрутизация с помощью NAT-инстанса
-            href: routing/nat-instance.md
+          - name: Маршрутизация через NAT-инстанс
+            items:
+              - name: Обзор
+                href: routing/nat-instance/index.md
+              - name: Консоль управления
+                href: routing/nat-instance/console.md
+              - name: '{{ TF }}'
+                href: routing/nat-instance/terraform.md
           - name: Установка виртуального роутера Cisco CSR 1000v
             href: routing/cisco.md
           - name: Установка виртуального роутера Mikrotik CHR
@@ -215,9 +257,9 @@ items:
           - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Настройка {{ dns-name }} для доступа к кластерам управляемых баз
-              данных из других облачных сетей
-            href: dataplatform/mdb-dns-peering.md
+              Настройка {{ dns-full-name }} для доступа к кластеру {{
+              mch-full-name }} из других облачных сетей
+            href: dataplatform/clickhouse-dns-peering.md
           - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
@@ -298,7 +340,7 @@ items:
             href: web/gatsby-static-website.md
       - name: 1С
         items:
-          - name: Интернет-магазин на 1С-Битрикс
+          - name: Интернет-магазин на «1С-Битрикс»
             items:
               - name: Обзор
                 href: internet-store/bitrix-shop/index.md
@@ -328,6 +370,8 @@ items:
             href: ml-ai/recognizer-bot.md
           - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
+          - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
+            href: infrastructure/gta-v-server.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -341,8 +385,8 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          "Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}"
+          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md
@@ -390,16 +434,18 @@ items:
         href: dataplatform/mkf-yds-stream.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
-      - name: Управление схемами данных в {{ mkf-name }}
-        href: dataplatform/schema-registry-overview.md
-      - name: Использование {{ mkf-msr }} с {{ mkf-name }}
-        href: dataplatform/managed-schema-registry.md
-      - name: Использование Confluent Schema Registry с {{ mkf-name }}
-        href: dataplatform/confluent-schema-registry.md
+      - name: Использование схем формата данных с {{ mkf-name }}
+        items:
+          - name: Управление схемами данных в {{ mkf-name }}
+            href: dataplatform/schema-registry-overview.md
+          - name: Использование {{ mkf-msr }} с {{ mkf-name }}
+            href: dataplatform/managed-schema-registry.md
+          - name: Использование Confluent Schema Registry с {{ mkf-name }}
+            href: dataplatform/confluent-schema-registry.md
       - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
         href: dataplatform/lockbox-and-airflow.md
       - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
-        href: dataplatform/yandex-query-automation.md
+        href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
@@ -420,6 +466,7 @@ items:
           Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
+        hidden: true
       - name: Получение данных из {{ RMQ }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
@@ -445,6 +492,14 @@ items:
           помощью {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
+          Миграция данных со сменой хранилища из {{ mos-name }} в {{ mch-name }}
+          с помощью {{ data-transfer-full-name }}
+        href: dataplatform/opensearch-to-clickhouse.md
+      - name: >-
+          Загрузка данных из {{ ydb-full-name }} в {{ mch-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/ydb-to-clickhouse.md
+      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
@@ -455,11 +510,17 @@ items:
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-name }}
+          Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
+          {{ dataproc-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
+      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-full-name }}
+        href: dataplatform/data-proc-and-kafka.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
+      - name: >-
+          Совместная работа с таблицами {{ dataproc-name }} с использованием {{
+          metastore-name }}
+        href: dataplatform/dataproc-to-dataproc.md
       - name: >-
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
@@ -494,6 +555,7 @@ items:
         href: dataplatform/objs-mmy-migration.md
       - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
@@ -518,12 +580,30 @@ items:
           Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: dataplatform/mmy-to-mgp.md
+      - name: Настройка политики индексов в {{ mos-full-name }}
+        href: dataplatform/opensearch-index-policy.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
           помощью {{ data-transfer-name }}
         href: dataplatform/mos-migration-from-standalone.md
+      - name: >-
+          Загрузка данных из {{ mos-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/opensearch-to-object-storage.md
+      - name: >-
+          Миграция данных из {{ mos-full-name }} в {{ ydb-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/opensearch-to-ydb.md
+      - name: >-
+          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
+      - name: >-
+          Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с
+          помощью {{ keycloak }}
+        href: dataplatform/opensearch-saml-keycloak.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
@@ -534,6 +614,7 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
@@ -542,6 +623,7 @@ items:
         href: dataplatform/./debezium-mpg.md
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
@@ -558,6 +640,10 @@ items:
           Миграция данных из {{ mpg-name }} в {{ mmy-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
+      - name: >-
+          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -576,26 +662,36 @@ items:
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
+        hidden: true
       - name: >-
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
+        hidden: true
       - name: >-
           Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
           помощью {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-ydb.md
+      - name: >-
+          Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/ydb-to-object-storage.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md
+      - name: Безопасная передача пароля в скрипт инициализации
+        href: windows/secure-password-script.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
@@ -630,12 +726,16 @@ items:
         href: routing/route-switcher.md
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Next-Generation Firewall
+          выделением DMZ на основе Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
           Сегментация облачной инфраструктуры с помощью решения Check Point
           Next-Generation Firewall
         href: routing/network-segmentation-checkpoint.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе UserGate NGFW
+        href: routing/high-accessible-dmz-usergate.md
       - name: Настройка защищенного туннеля GRE поверх IPsec
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}
@@ -676,7 +776,7 @@ items:
             href: datalens/data-from-metrica-yc-visualization.md
           - name: 'AppMetrica: прямое подключение'
             href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: экспорт, постобоработка и визуализация данных'
+          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
             href: datalens/data-from-appmetrica-yc-visualization.md
           - name: 'Битрикс24: прямое подключение'
             href: datalens/data-from-bitrix24-visualization.md
@@ -742,4 +842,13 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: serverless/deploy-app-container.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: serverless/events-from-postbox-to-yds.md
+      - name: >-
+          Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
+          speechkit-full-name }}
+        href: serverless/speechkit-integrarion-via-agi-gw.md
 base: ru/tutorials
+deepBase: 2

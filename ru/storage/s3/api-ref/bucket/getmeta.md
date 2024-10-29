@@ -7,11 +7,11 @@
 - Существует ли бакет.
 - Достаточно ли у пользователя прав для доступа к бакету.
 
-
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 HEAD /{bucket} HTTP/2
 ```
 

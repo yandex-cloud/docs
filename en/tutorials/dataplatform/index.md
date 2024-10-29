@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for building a data platform based on {{ yandex-cloud }}"
-description: "This page provides a list of tutorials for building a data platform based on {{ yandex-cloud }} using various DBMS."
+title: Tutorials for building a data platform based on {{ yandex-cloud }}
+description: This page provides a list of tutorials for building a data platform based on {{ yandex-cloud }} using various DBMS.
 ---
 
 # Building a data platform based on {{ yandex-cloud }}
@@ -31,7 +31,7 @@ description: "This page provides a list of tutorials for building a data platfor
 
 ## {{ AF }} {#airflow}
 
-* [{#T}](yandex-query-automation.md)
+* [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](lockbox-and-airflow.md)
 
@@ -47,8 +47,11 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](yds-to-clickhouse.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
+* [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](ydb-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -95,16 +98,22 @@ description: "This page provides a list of tutorials for building a data platfor
 
 ## {{ OS }} {#opensearch}
 
+* [{#T}](opensearch-index-policy.md)
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
+* [{#T}](opensearch-to-object-storage.md)
+* [{#T}](opensearch-to-ydb.md)
+* [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](postgresql-to-opensearch.md)
+* [{#T}](opensearch-saml-keycloak.md)
 
 
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
-* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
-* [Migrating databases from {{ mpg-name }}](outbound-replication.md)
+* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md
+* [Migrating a database from {{ mpg-name }}](outbound-replication.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
@@ -117,6 +126,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ RD }} {#redis}
@@ -131,6 +141,9 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-object-storage.md)
+* [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 
@@ -143,7 +156,9 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
+* [{#T}](data-proc-and-kafka.md)
 * [{#T}](data-proc-and-airflow.md)
+* [{#T}](dataproc-to-dataproc.md)
 * [{#T}](metastore-import.md)
 
 

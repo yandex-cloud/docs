@@ -1,6 +1,6 @@
 ---
-title: "How to set up a secure network configuration in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}."
+title: How to set up a secure network configuration in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}.
 ---
 
 # Setting up a secure network configuration
@@ -62,7 +62,7 @@ Configure routing between the remote network and your IPSec instance. In the exa
 
 ### Create a route table {#create-route-table}
 
-Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
+Create a route table and add [static routes](../../vpc/concepts/routing.md):
 
 {% list tabs group=instructions %}
 
@@ -131,7 +131,7 @@ For a VPN to work properly, allow receiving and transmitting traffic to UDP port
       1. In the window that opens, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}** in the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, specify the internal network CIDR: `10.0.0.0/8`.
-      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}** and specify the remote site CIDR: `192.168.0.0/24`.
+      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}** and specify the remote site CIDR: `192.168.0.0/24`.
    1. Create the same rules for incoming traffic.
 
 {% endlist %}
@@ -204,7 +204,7 @@ The network load balancer will distribute the internet service's incoming traffi
    1. Enter the load balancer name: `web-service-lb`.
    1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_list }}` and specify a static public address.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-   1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields.  Click **{{ ui-key.yacloud.common.add }}**.
+   1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields. Click **{{ ui-key.yacloud.common.add }}**.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
    1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click the list and then click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
    1. In the window that opens, enter the target group name: `web-tg`.

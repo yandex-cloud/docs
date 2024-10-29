@@ -1,6 +1,6 @@
 ---
-title: "Setting up variables for API gateway specifications"
-description: "Follow this guide to set up variables for API gateway specifications."
+title: Setting up variables for API gateway specifications
+description: Follow this guide to set up variables for API gateway specifications.
 ---
 
 # Setting up variables
@@ -23,7 +23,7 @@ x-yc-apigateway:
         - "prod"
         - "testing"
         - "dev"
-      description: "API Gateway installation"
+      description: "API Gateway installation."
 
 paths:
   /env/info:
@@ -45,7 +45,7 @@ By default, variables take the values specified in the `default` field of the [O
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
+   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, list all the variables declared in the specification and their values.
@@ -58,7 +58,6 @@ By default, variables take the values specified in the `default` field of the [O
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To set up your variables:
-
    1. If necessary, edit the OpenAPI specification file or create a new one.
    1. View a description of the CLI command for updating an API gateway:
 
@@ -81,7 +80,6 @@ By default, variables take the values specified in the `default` field of the [O
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To provide the values of the variables declared in the API gateway specification:
-
    1. Open the {{ TF }} configuration file and add the `variables` section to it:
 
       ```hcl
@@ -125,7 +123,6 @@ By default, variables take the values specified in the `default` field of the [O
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
       ```bash
@@ -142,7 +139,7 @@ By default, variables take the values specified in the `default` field of the [O
 
 - API {#api}
 
-   To set up variables for an API gateway specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+   To set up variables for an API gateway specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 {% endlist %}
 

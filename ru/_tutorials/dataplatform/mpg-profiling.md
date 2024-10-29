@@ -10,6 +10,7 @@
 
 Ниже приводятся советы по диагностике и решению этих проблем.
 
+Чтобы обнаружить возможные проблемы в кластере, [используйте инструменты](../../managed-postgresql/tutorials/performance-problems.md) для анализа состояния кластера комплексно.
 
 ## Перед началом работы {#before-start}
 
@@ -58,7 +59,7 @@
 
     [Создайте](https://www.postgresql.org/docs/current/sql-createindex.html) или [обновите](https://www.postgresql.org/docs/current/sql-reindex.html) необходимые индексы.
 
-    
+
     {% note tip %}
 
     Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** на странице управления кластером.
@@ -125,7 +126,7 @@
 SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
     ON pl.pid = psa.pid;
 ```
-   
+
    Подробнее о выборке запросов с блокировками см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html).
 
 

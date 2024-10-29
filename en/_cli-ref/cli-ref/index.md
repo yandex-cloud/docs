@@ -61,7 +61,11 @@ Syntax:
 - [yc desktops](managed-services/desktops/index.md) — [PREVIEW] Manage Desktop resources
 - [yc storage](managed-services/storage/index.md) — Manage Yandex Object Storage resources
 - [yc backup](managed-services/backup/index.md) — Manage Yandex Cloud Backup resources
+- [yc marketplace](managed-services/marketplace/index.md) — Manage Yandex Marketplace resources
 - [yc loadtesting](managed-services/loadtesting/index.md) — Manage Yandex Load Testing resources
 - [yc audit-trails](managed-services/audit-trails/index.md) — Manage Audit Trails resources
 - [yc smartcaptcha](managed-services/smartcaptcha/index.md) — Manage Yandex SmartCaptcha resources
 - [yc smartwebsecurity](managed-services/smartwebsecurity/index.md) — Manage Yandex SmartWebSecurity resources
+- [yc managed-airflow](managed-services/managed-airflow/index.md) — Manage Airflow clusters.
+- [yc cloudrouter](managed-services/cloudrouter/index.md) — Manage Yandex Cloud Router resources
+- [yc cic](managed-services/cic/index.md) — Manage Yandex Cloud Interconnect resources

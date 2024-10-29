@@ -14,3 +14,4 @@ items:
   - name: Upgrading to the paid version
     href: concepts/upgrade-to-paid.md
 base: en/free-trial
+deepBase: 2

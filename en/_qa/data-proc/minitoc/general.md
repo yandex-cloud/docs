@@ -10,7 +10,7 @@
 
 * [I get the `^M: bad interpreter` error when running the initialization script. How do I fix this?](#syntax-error)
 
-* [When I run a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this?](#sharedPrefixes-property)
+* [When running a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this?](#sharedPrefixes-property)
 
 * [Why does the `NAT should be enabled on the subnet` error occur and how do I fix it?](#nat)
 
@@ -29,3 +29,5 @@
 * [How do I run jobs?](#jobs)
 
 * [What security group limits are there?](#security-groups)
+
+* [Can I get superuser permissions on hosts?](#connect-root)

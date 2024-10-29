@@ -1,6 +1,6 @@
 ---
-title: "Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from an {{ iot-full-name }} broker topic"
-description: "Create a trigger for an {{ iot-name }} broker topic to process message copies in a {{ serverless-containers-name }} container."
+title: Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from an {{ iot-full-name }} broker topic
+description: Create a trigger for an {{ iot-name }} broker topic to process message copies in a {{ serverless-containers-name }} container.
 ---
 
 # Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} broker topic
@@ -17,7 +17,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Broker](../../iot-core/concepts/index.md#broker) whose topic the trigger will accept copies of messages from. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
+* [Broker](../../iot-core/concepts/index.md#broker) from the topic of which the trigger will collect message copies. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -27,7 +27,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -46,13 +46,19 @@ The trigger must be in the same cloud as the broker whose topic it reads message
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** field, specify the broker.
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger will fire for all broker topics.
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -68,13 +74,13 @@ The trigger must be in the same cloud as the broker whose topic it reads message
    yc serverless trigger create iot-broker \
      --name <trigger_name> \
      --broker-id <broker_ID> \
-     --mqtt-topic '<broker_MQTT_topic>' \
-     --batch-size <message_batch_size \
+     --mqtt-topic '<MQTT_topic>' \
+     --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -114,7 +120,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 - API {#api}
 
-   To create a trigger for {{ iot-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ iot-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -124,4 +130,5 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages from topics to a {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

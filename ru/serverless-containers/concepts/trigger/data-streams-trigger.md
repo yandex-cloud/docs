@@ -22,4 +22,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/data-streams-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/data-streams-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

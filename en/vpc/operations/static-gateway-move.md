@@ -1,6 +1,6 @@
 ---
-title: "How to move a NAT gateway to a different folder"
-description: "Use this guide to move a NAT gateway to a different folder."
+title: How to move a NAT gateway to a different folder
+description: Use this guide to move a NAT gateway to a different folder.
 ---
 
 # Moving a NAT gateway to a different folder
@@ -94,7 +94,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 - API {#api}
 
-   To move a [NAT gateway](../concepts/gateways.md) to a different folder, use the [move](../api-ref/Gateway/move.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Move](../api-ref/grpc/gateway_service.md#Move) gRPC API call, and provide the following in the request:
+   To move a [NAT gateway](../concepts/gateways.md) to a different folder, use the [move](../api-ref/Gateway/move.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Move](../api-ref/grpc/Gateway/move.md) gRPC API call, and provide the following in the request:
 
    * ID of the NAT gateway to be moved, in the `gatewayId` parameter.
 

@@ -1,8 +1,191 @@
 # Записать логи в журнал выполнения функции
 
+{% include [logging-note](../../../_includes/functions/logging-note.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+    
+    1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится функция.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Выберите функцию, для которой хотите настроить логирование.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+    1. В блоке **{{ ui-key.yacloud.logging.label_title }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — чтобы выключить логирование.
+        * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать [логи](../../concepts/logs.md) в [лог-группу](../../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится функция.
+            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
+        * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
+            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
+            1. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте](../../../logging/operations/create-group.md) ее.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. 
+    
+    {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    ### Назначение логирования {#destination}
+
+    {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
+
+    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор лог-группы в параметре `--log-group-id` при [создании версии функции](version-manage.md). Лог-группа должна находиться в том же каталоге, в котором находится функция.
+
+    ### Минимальный уровень логирования {#log-level}
+
+    Чтобы задать минимальный уровень логирования, укажите его в параметре `--min-log-level` при создании версии функции. 
+    
+    {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+    ### Отключение логирования {#disabled}
+
+    Чтобы отключить логирование, при создании версии функции укажите параметр `--no-logging`.
+
+    ### Пример команды {#example}
+    
+    Чтобы записывать логи в пользовательскую лог-группу, выполните команду:
+        
+    ```
+    {{ yc-serverless }} function version create \
+      --function-id <идентификатор_функции> \
+      --runtime <среда_выполнения> \
+      --entrypoint <точка_входа> \
+      --memory <объем_RAM> \
+      --source-path <ZIP-архив_c_кодом_функции> \
+      --log-group-id <идентификатор_лог-группы> \
+      --min-log-level <минимальный_уровень_логирования>
+    ```
+
+    Где:
+    * `--function-id` — идентификатор функции.
+    * `--runtime` — среда выполнения.
+    * `--entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
+    * `--memory` — объем RAM.
+    * `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
+    * `--log-group-id` — идентификатор лог-группы, в которую будут записываться логи.
+    * `--min-log-level` — минимальный уровень логирования. Необязательный параметр.
+
+    Результат:
+    ```
+    done (4s)
+    id: d4ech7qdki6r********
+    function_id: d4e7tbg7m4np********
+    created_at: "2024-04-19T10:13:00.019Z"
+    runtime: python37
+    entrypoint: index.handler
+    resources:
+      memory: "134217728"
+    execution_timeout: 5s
+    image_size: "53248"
+    status: ACTIVE
+    tags:
+      - $latest
+    log_options:
+      log_group_id: e23u2vn449av********
+      min_level: DEBUG
+    ```
+
+- {{ TF }} {#tf}
+    
+    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+    
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+    ### Назначение логирования {#destination}
+
+    {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
+
+    Чтобы записывать логи в пользовательскую лог-группу, в блоке `log_options` укажите идентификатор лог-группы в параметре `log_group_id` при [создании версии функции](version-manage.md). Лог-группа должна находиться в том же каталоге, в котором находится функция.
+
+    ### Минимальный уровень логирования {#log-level}
+
+    Чтобы задать минимальный уровень логирования, укажите его в параметре `log_group_id` при создании версии функции.
+
+    {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+    ### Отключение логирования {#disabled}
+
+    Чтобы отключить логирование, при создании версии функции в блоке `log_options` укажите параметр `disabled` со значением `true`.
+
+    ### Пример {#example}
+
+    Чтобы записывать логи в пользовательскую лог-группу:
+
+    1. Откройте файл конфигурации {{ TF }} и добавьте к описанию ресурса `yandex_function` блок `log_options`:
+
+        Примеры структуры конфигурационного файла:
+
+        ```hcl
+        resource "yandex_function" "<имя_функции>" {
+          name       = "<имя_функции>"
+          user_hash  = "<произвольная_строка>"
+          runtime    = "<среда_выполнения>"
+          entrypoint = "<точка_входа>"
+          memory     = "<объем_RAM>"
+          content {
+            zip_filename = "<имя_ZIP-архива>"
+          }
+          log_options {
+            log_group_id = "<идентификатор_лог-группы>"
+            min_level = "<минимальный_уровень_логирования>"
+          }
+        }
+        ```
+
+        Где:
+        * `name` — имя функции.
+        * `user_hash` — произвольная строка, определяющая версию функции.
+        * `runtime` — [среда выполнения](../../concepts/runtime/index.md) функции.
+        * `entrypoint` — имя функции в исходном коде, которая будет служить точкой входа в приложения.
+        * `memory` — объем памяти в мегабайтах, отведенный для выполнения функции.
+        * `content` — исходный код функции.
+          * `zip_filename` — имя ZIP-архива, содержащего исходный код функции.
+        * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+        * `min_level` — минимальный уровень логирования. Необязательный параметр.
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+        ```
+        terraform validate
+        ```
+
+        Если конфигурация является корректной, появится сообщение:
+          
+        ```
+        Success! The configuration is valid.
+        ```
+
+    1. Выполните команду:
+
+        ```
+        terraform plan
+        ```
+          
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+        ```
+        terraform apply
+        ```
+    
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+    Чтобы записывать логи в журнал выполнения функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions).
+
+{% endlist %}
+
+## Структурированные логи {#structured-logs}
+
 Кроме текстовых записей, в стандартный поток вывода (`stdout`) и стандартный поток вывода ошибок (`stderr`) можно писать [структурированные логи](../../concepts/logs.md#structured-logs).
 
-## Примеры функций
+### Примеры функций
 
 {% list tabs group=programming_language %}
 

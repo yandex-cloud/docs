@@ -30,7 +30,7 @@
 
     1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md). Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-    
+
     1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
@@ -206,6 +206,8 @@
     ```
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
+
+{% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 

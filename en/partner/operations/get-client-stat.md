@@ -15,7 +15,7 @@ You can view details of how customers use services:
    1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
    1. Click the appropriate account name and select ![image](../../_assets/console-icons/layout-cells-large.svg) **Usage details**.
 
-   For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
+      For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
 
 - Partner portal {#partner}
 
@@ -24,7 +24,7 @@ You can view details of how customers use services:
    * **Dashboard** section
 
       1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
-      1. Select the appropriate customer account from the list and click it.
+      1. Select the customer's account from the list and click it.
       1. Go to the **Service usage** tab.
 
    * **Rewards** section
@@ -41,3 +41,5 @@ You can view details of how customers use services:
          You can download a `.csv` file with detailed statistics by customer. To do this, click **Download CSV**.
 
 {% endlist %}
+
+You can also [view your service usage information](../../billing/operations/dashboard.md) in {{ datalens-full-name }}.

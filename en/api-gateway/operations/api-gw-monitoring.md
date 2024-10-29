@@ -1,6 +1,6 @@
 ---
-title: "Viewing monitoring charts in {{ api-gw-full-name }}"
-description: "You can view monitoring charts in {{ api-gw-full-name }} for such measures as the number of queries to an API gateway, number of errors accessing the API gateway, and the time of requests to the API server. To view the chart, click {{ api-gw-name }} in the folder with the API gateway you want to get details about. In the window that opens, select the API gateway that you want to view monitoring charts for."
+title: Viewing monitoring charts in {{ api-gw-full-name }}
+description: You can view monitoring charts in {{ api-gw-full-name }} for such measures as the number of requests to the API gateway, number of errors accessing the API gateway, and the time of requests to the API gateway. To view the chart, click {{ api-gw-name }} in the folder with the API gateway you want to get details about. In the window that opens, select the API gateway that you want to view monitoring charts for.
 ---
 
 # Viewing monitoring charts in {{ api-gw-name }}
@@ -15,21 +15,21 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
+   1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Select the API gateway whose monitoring charts you want to view.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_monitoring }}** tab.
    1. The following charts will open on the page:
 
-      * **Requests**: Number of API gateway requests. Metrics contain the following labels:
-         * **stable**: Events handled by the current {{ api-gw-short-name }} release.
-         * **canary**: Events handled by the [canary release](../concepts/extensions/canary.md).
-         * **total**: Events handled by the canary or current release.
+      * **Requests**: Number of requests to API gateway. Metrics contain the following labels:
+         * **stable**: Events processed by the current {{ api-gw-short-name }} release.
+         * **canary**: Events processed by the [canary release](../concepts/extensions/canary.md).
+         * **total**: Events processed by the canary or current release.
       * **Errors**: Number of API gateway access errors. Metrics contain the following labels:
-         * **stable**: Events that are not handled by the current {{ api-gw-short-name }} release.
-         * **canary**: Events that are not handled by the canary release.
-         * **total**: Events that are not handled by the canary or current release.
-      * **Latency**: Amount of time it takes for an API gateway request to run.
+         * **stable**: Events not processed by the current {{ api-gw-short-name }} release.
+         * **canary**: Events not processed by the canary release.
+         * **total**: Events not processed by the canary or current release.
+      * **Latency**: Execution time of requests to the API gateway.
 
       * **Connections**: Number of web sockets connected to an API gateway.
 
@@ -46,3 +46,4 @@ The chart update period is 15 seconds.
       You can select a time period to display information for on a graph, such as an hour, three hours, a day, a week, a month, or a custom interval.
 
 {% endlist %}
+

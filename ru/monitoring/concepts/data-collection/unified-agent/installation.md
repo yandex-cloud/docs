@@ -1,6 +1,6 @@
 ---
-title: "Как установить и запустить {{ unified-agent-full-name }}"
-description: "Из статьи вы узнаете, как установить и запустить {{ unified-agent-full-name }}."
+title: Как установить и запустить {{ unified-agent-full-name }}
+description: Из статьи вы узнаете, как установить и запустить {{ unified-agent-full-name }}.
 ---
 
 # Установка и запуск {{ unified-agent-full-name }}
@@ -14,6 +14,21 @@ description: "Из статьи вы узнаете, как установить
 - CentOS 7 или старше (Docker-образ);
 - Fedora 32 или старше (Docker-образ);
 - Fedora CoreOS (Docker-образ).
+
+
+{% list tabs %}
+
+- VK
+
+  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239453&hash=1cd0d8eb71fb0296" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+- YouTube
+
+  @[youtube](https://youtu.be/EY6c_6YYF10)
+
+{% endlist %}
+
+
 
 ## Подготовка к установке {#before-you-begin}
 
@@ -92,29 +107,33 @@ description: "Из статьи вы узнаете, как установить
 
   {{ unified-agent-short-name }} распространяется в виде deb-пакета для операционных систем Ubuntu 14.04 или старше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
-  Чтобы скачать последнюю версию агента в виде deb-пакета выполните команду:
+  Чтобы установить {{ unified-agent-short-name }}:
 
-  ```bash
-  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
-  ```
+  1. Скачайте последнюю версию deb-пакета:
 
-  Поддерживаемые значения параметра `ubuntu_name`:
-  * `ubuntu-14.04-trusty`;
-  * `ubuntu-16.04-xenial`;
-  * `ubuntu-18.04-bionic`;
-  * `ubuntu-20.04-focal`;
-  * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
+      ```bash
+      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ```
 
-  Чтобы узнать все доступные версии агента выполните команду:
-  ```(bash)
-  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
-  ```
+      Для `ubuntu_name` укажите версию операционной системы:
+        * `ubuntu-14.04-trusty`;
+        * `ubuntu-16.04-xenial`;
+        * `ubuntu-18.04-bionic`;
+        * `ubuntu-20.04-focal`;
+        * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
 
-  Чтобы установить deb-пакет, выполните команду:
+      Также вы можете скачать определенную версию {{ unified-agent-short-name }}. Для этого посмотрите все доступные версии и укажите нужную вместо значения `latest-version`:
 
-  ```bash
-  sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
-  ```
+      ```(bash)
+      curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+      ```
+
+  1. Посмотрите версию deb-пакета с помощью команды `ls`.
+  1. Установите deb-пакет:
+
+      ```bash
+      sudo dpkg -i yandex-unified-agent_24.09.03_amd64.deb
+      ```
 
   Чтобы убедиться, что {{ unified-agent-short-name }} успешно установлен и запущен, выполните команду `systemctl status unified-agent`. Пример работы команды:
 
@@ -139,12 +158,12 @@ description: "Из статьи вы узнаете, как установить
   Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+  curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -159,20 +178,45 @@ description: "Из статьи вы узнаете, как установить
 
 - При создании ВМ {#vm}
 
-  Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./inputs.md#linux_metrics_input), а также [метрики здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
+  Вы можете установить {{ unified-agent-short-name }} при создании виртуальной машины в консоли управления, через CLI, API или {{ TF }}.
 
-  Устанавливаемый агент является обычным [агентом Unified Agent](./index.md), который можно дополнительно [настроить](./configuration.md) для поставки собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  Чтобы установить агент из [консоли управления]({{ link-console-main }}), в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**.
 
-  Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
+  Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
-  ```
+  ```text
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
+  Чтобы установить агент с помощью {{ TF }}, добавьте в конфигурационный файл метаданные:
 
-  Для корректной установки агента и отправки метрик у созданной виртуальной машины должен быть доступ в интернет. 
+  ```hcl
+  resource "yandex_compute_instance" "this" {
+  ...
+  resources {
+    ...
+  }
 
-  Обновление и поддержка агента выполняется самостоятельно.
+  ...
+
+  metadata = {
+    ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>",
+    "install-unified-agent": "1"
+  }
+  }
+  ```
+
+  Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет.
+
+  Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yandex/unified_agent/config.yml`.
+
+  В файле конфигурации настроена отправка [базовых метрик виртуальной машины](./inputs.md#linux_metrics_input) и [метрик здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
+
+  Дополнительно можно [настроить](./configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
   
+  После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
+  
+  Обновление и поддержка агента выполняется самостоятельно.
+
 {% endlist %}
 
 ## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} {#configure-docker}

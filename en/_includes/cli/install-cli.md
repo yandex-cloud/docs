@@ -4,14 +4,9 @@
 
    1. Run this command:
 
-
-      
-      
       ```bash
-      curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
       ```
-
-
 
       The script will install the CLI and add the executable file path to the `PATH` environment variable.
 
@@ -35,14 +30,9 @@
 
    1. Run this command:
 
-
-      
-      
       ```bash
-      curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
       ```
-
-
 
       The script will install the CLI and add the executable file path to the `PATH` environment variable.
    1. Restart your terminal for the changes to take effect.
@@ -89,8 +79,8 @@
       1. Run this command:
 
 
-         
-         
+
+
          ```bash
          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
          ```
@@ -109,8 +99,8 @@
       1. Run this command:
 
 
-         
-         
+
+
          ```bash
          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
          ```
@@ -127,6 +117,4 @@
 
 {% endlist %}
 
-
-
-
+If you get an error during CLI installation, see [CLI troubleshooting](../../cli/error.md#failure-writing-output-to-destination).

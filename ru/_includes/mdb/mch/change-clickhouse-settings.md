@@ -1,16 +1,16 @@
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    Чтобы задать настройки {{ CH }}:
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. Задайте [настройки {{ CH }}](../../../managed-clickhouse/concepts/settings-list.md#dbms-cluster-settings).
+   1. Задайте [настройки {{ CH }}](../../../managed-clickhouse/concepts/settings-list.md#server-level-settings).
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../cli-install.md) %}
 
@@ -37,7 +37,7 @@
          --set <имя_параметра_1>=<значение_1>,...
       ```
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    Чтобы задать настройки {{ CH }}:
 
@@ -113,9 +113,9 @@
 
    {% include [Terraform timeouts](terraform/timeouts.md) %}
 
-* API {#api}
+- API {#api}
 
-   Чтобы задать настройки {{ CH }}, воспользуйтесь методом REST API [update](../../../managed-clickhouse/api-ref/Cluster/update.md) для ресурса [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+   Чтобы задать настройки {{ CH }}, воспользуйтесь методом REST API [update](../../../managed-clickhouse/api-ref/Cluster/update.md) для ресурса [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
    * Нужные значения в параметре `configSpec.clickhouse.config`.

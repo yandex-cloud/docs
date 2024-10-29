@@ -1,6 +1,6 @@
 ---
-title: "MQTT server connection parameters"
-description: "This article describes MQTT server connection parameters."
+title: MQTT server connection parameters
+description: This article describes MQTT server connection parameters.
 ---
 
 # MQTT server connection parameters

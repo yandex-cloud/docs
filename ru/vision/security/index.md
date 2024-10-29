@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ vision-full-name }}"
-description: "Управление доступом в сервисе компьютерного зрения и анализа изображений {{ vision-full-name }}. Разрешения выдаются при назначении роли. Роль можно назначить на каталог или облако — все разрешения от облака наследуются. Чтобы пользоваться сервисом, необходима одна из ролей — editor, admin, resource-manager.clouds.owner."
+title: Управление доступом в {{ vision-full-name }}
+description: Управление доступом в сервисе компьютерного зрения и анализа изображений {{ vision-full-name }}. Разрешения выдаются при назначении роли. Роль можно назначить на каталог или облако — все разрешения от облака наследуются. Чтобы пользоваться сервисом, необходима одна из ролей — editor, admin, resource-manager.clouds.owner.
 ---
 
 # Управление доступом в {{ vision-name }}
@@ -44,6 +44,8 @@ description: "Управление доступом в сервисе компь
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 #### Что дальше {#what-is-next}
 

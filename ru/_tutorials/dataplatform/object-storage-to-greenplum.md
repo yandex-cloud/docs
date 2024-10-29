@@ -12,6 +12,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
+
 1. Подготовьте инфраструктуру:
 
     {% list tabs group=instructions %}
@@ -23,7 +24,7 @@
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
 
-        
+
         1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
 
 
@@ -126,8 +127,8 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
-        * `Id` : `Int64`;
-        * `Name` : `UTF8`.
+        * `Id`: `Int64`;
+        * `Name`: `UTF8`.
 
     Остальные параметры оставьте по умолчанию.
 

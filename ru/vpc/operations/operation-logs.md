@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: enp75021agjg********
     description: Create network
     created_at: "2024-02-01T10:16:51.955935138Z"
@@ -76,7 +76,7 @@
 
   Чтобы получить список операций, воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для облачной сети воспользуйтесь методом REST API [listOperations](../api-ref/Network/listOperations.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/ListOperations](../api-ref/grpc/network_service.md#ListOperations).
+  Например, для облачной сети воспользуйтесь методом REST API [listOperations](../api-ref/Network/listOperations.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/ListOperations](../api-ref/grpc/Network/listOperations.md).
 
 {% endlist %}
 
@@ -102,7 +102,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: enp75021agjg********
       description: Create network
       created_at: "2024-02-01T10:16:51.955Z"
@@ -123,7 +123,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

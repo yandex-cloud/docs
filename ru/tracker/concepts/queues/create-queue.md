@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/create-queue.md
 
 Чтобы создать очередь, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 POST /{{ ver }}/queues/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

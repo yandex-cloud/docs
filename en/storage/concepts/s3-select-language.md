@@ -1,6 +1,6 @@
 ---
-title: "S3 Select query language syntax"
-description: "This article describes the syntax of the S3 Select query language."
+title: S3 Select query language syntax
+description: This article describes the syntax of the S3 Select query language.
 ---
 
 # S3 Select query language syntax
@@ -79,21 +79,21 @@ CSV file attributes:
 
 * Column numbers.
 
-   In a query, you can refer to a specific column using the `_N` name, where `N` is the column sequence number in a file.
+  In a query, you can refer to a specific column using the `_N` name, where `N` is the column sequence number in a file.
 
-   Column numbering starts with 1. For example, if the first column's name is `_1`, the second one's name is `_2`.
+  Column numbering starts with 1. For example, if the first column's name is `_1`, the second one's name is `_2`.
 
-   A column name can be specified both as `_N` and as `alias._N`. For example, the `_2` and `myAlias._2` names are both valid references to a column in `SELECT` and `WHERE` clauses.
+  A column name can be specified in both `_N` and `alias._N` formats. For example, the `_2` and `myAlias._2` names are both valid references to a column in `SELECT` and `WHERE` clauses.
 
 * Column headers.
 
-   As in conventional SQL, expressions in `SELECT` and `WHERE` clauses may reference columns by column header, as in `alias.column_name` or `column_name`.
+  As in conventional SQL, expressions in `SELECT` and `WHERE` clauses may reference columns by column header, as in `alias.column_name` or `column_name`.
 
 JSON file attributes:
 
 * Document.
 
-   You can access fields in a JSON file by field name, such as `alias.name`.
+  You can access a JSON file's fields by field name, e.g., `alias.name`.
 
 
 **Examples**
@@ -140,36 +140,36 @@ To indicate that CSV file column headers or JSON file attributes are case-sensit
 
 1. A queried object has a **NAME** header or attribute.
 
-   If there is no indication of case sensitivity, the query successfully returns the object data:
+    If there is no indication of case sensitivity, the query successfully returns the object data:
 
-   ```sql
-   SELECT s.name FROM S3Object s
-   ```
+    ```sql
+    SELECT s.name FROM S3Object s
+    ```
 
-   If you enclose the header or attribute in double quotes, the query will output Error Code 400 (`MissingHeaderName`):
+    If you enclose the header or attribute in double quotes, the query will result in a 400 error (`MissingHeaderName`):
 
-   ```sql
-   SELECT s."name" FROM S3Object s
-   ```
+    ```sql
+    SELECT s."name" FROM S3Object s
+    ```
 
 1. A queried object has one header or attribute called **NAME** and another header or attribute called **name**.
 
-   If there is no indication of case sensitivity, there is ambiguity as to which header or attribute to select. The query returns error code 400 (`AmbiguousFieldName`):
+    If there is no indication of case sensitivity, there is ambiguity as to which header or attribute to select. The query returns a 400 error (`AmbiguousFieldName`):
 
-   ```sql
-   SELECT s.name FROM S3Object s
-   ```
+    ```sql
+    SELECT s.name FROM S3Object s
+    ```
 
-   If you enclose the header or attribute in double quotes, the request will successfully return the object data:
+    If you enclose the header or attribute in double quotes, the request will successfully return the object data:
 
-   ```sql
-   SELECT s."name" FROM S3Object s
-   ```
+    ```sql
+    SELECT s."NAME" FROM S3Object s
+    ```
 
 
 ## Reserved keywords {#reserved-keywords}
 
-S3 Select has a set of reserved keywords, which are required to run SQL expressions when querying object contents. Among other things, reserved keywords include function names, data type names, and operators.
+S3 Select has a set of reserved keywords. These are required to run SQL expressions when querying object contents. Reserved keywords include function names, data type names, operators, etc.
 
 In some cases, user terms may duplicate a reserved keyword. To avoid conflicts, use double quotes to indicate that you use a certain term intentionally. Otherwise, a 400 syntax error will occur.
 
@@ -183,7 +183,7 @@ If you enclose a user-defined header or attribute in double quotes, the request 
 SELECT s."CAST" FROM S3Object s
 ```
 
-If you do not enclose a user-defined header or attribute in double quotes, there will be a conflict with the reserved keyword and the query will return a 400 syntax error:
+If you do not enclose a user-defined header or attribute in double quotes, there will be a conflict with the reserved keyword. In which case the query will return a 400 syntax error:
 
 ```sql
 SELECT s.CAST FROM S3Object s
@@ -191,53 +191,53 @@ SELECT s.CAST FROM S3Object s
 
 ## Scalar expressions {#scalar-expressions}
 
-`WHERE` and `SELECT` clauses may contain SQL scalar expressions that return scalar values. These may appear as follows:
+`WHERE` and `SELECT` clauses may contain SQL scalar expressions returning scalar values. These may appear as follows:
 
-* `literal`: SQL literal, which is an explicit numeric, character, string, or boolean value (constant) without ID.
+* `literal`: SQL literal. A literal is an explicit numeric, character, string, or boolean value (constant) not represented by an ID.
 
-* `column_reference`: Reference to a column, such as `column_name` or `alias.column_name`, used to access a column by means of the column header.
+* `column_reference`: A reference to a column in `column_name` or `alias.column_name` format used to access a column using column header.
 
-   For example:
+  Example:
 
-   ```sql
-   SELECT city.name FROM S3Object city
-   ```
+  ```sql
+  SELECT city.name FROM S3Object city
+  ```
 
 * `unary_op expression`: In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
 
-   For example:
+  Example:
 
-   ```sql
-   SELECT -5 FROM S3Object
-   ```
+  ```sql
+  SELECT -5 FROM S3Object
+  ```
 
 * `expression binary_op expression`: In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
 
-   Examples:
+  Examples:
 
-   ```sql
-   SELECT x FROM S3Object WHERE x=3
-   ```
+  ```sql
+  SELECT x FROM S3Object WHERE x=3
+  ```
 
-   ```sql
-   SELECT result FROM S3Object WHERE result>=1 AND result<=5
-   ```
+  ```sql
+  SELECT result FROM S3Object WHERE result>=1 AND result<=5
+  ```
 
 * `func_name`: In this expression, `func_name` is the name of a callable scalar function.
 
-   For example:
+  Example:
 
-   ```sql
-   SELECT CAST(status AS INT) FROM S3Object
-   ```
+  ```sql
+  SELECT CAST(status AS INT) FROM S3Object
+  ```
 
-* `expression [ NOT ] BETWEEN expression AND expression`: Checking whether a value belongs to a range.
+* `expression [ NOT ] BETWEEN expression AND expression`: Checks if a value belongs to a range.
 
-   For example:
+  Example:
 
-   ```sql
-   SELECT x FROM S3Object WHERE x BETWEEN -1 AND 1
-   ```
+  ```sql
+  SELECT x FROM S3Object WHERE x BETWEEN -1 AND 1
+  ```
 
 ## Aggregate functions {#aggregate-functions}
 
@@ -251,7 +251,7 @@ The following functions are supported:
 | `MIN` | Minimum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `MAX` | Maximum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `SUM` | Sum of values | `INT`, `FLOAT`, or `DECIMAL` | Same as input |
-| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL`, if the input type is `INT`.<br/>Otherwise, same as input. |
+| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL` if the input type is `INT`.<br/>Otherwise, same as input. |
 
 Examples:
 
@@ -259,64 +259,64 @@ Examples:
 
 - JSON {#json}
 
-   Sample data:
+  Sample data:
 
-   ```json
-   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
-   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
-   {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
-   ```
+  ```json
+  {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
+  {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
+  {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
+  ```
 
-   Query using all aggregate functions:
+  Query using all aggregate functions:
 
-   ```sql
-   SELECT
-     COUNT(*) AS "count",
-     MIN(request_time) AS "min",
-     MAX(request_time) AS "max",
-     SUM(request_time) AS "sum",
-     AVG(request_time) AS "avg"
-   FROM S3Object
-   WHERE status = 200
-   ```
+  ```sql
+  SELECT
+    COUNT(*) AS "count",
+    MIN(request_time) AS "min",
+    MAX(request_time) AS "max",
+    SUM(request_time) AS "sum",
+    AVG(request_time) AS "avg"
+  FROM S3Object
+  WHERE status = 200
+  ```
 
-   Result:
+  Result:
 
-   ```json
-   {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
-   ```
+  ```json
+  {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
+  ```
 
 - CSV {#csv}
 
-   Sample data:
+  Sample data:
 
-   ```
-   timestamp,object_key,status,request_time
-   2021-02-26T01:27:19Z,name1,404,16
-   2021-02-26T01:27:19Z,name2,200,12
-   2021-02-26T01:27:20Z,name3,200,6
-   ```
+  ```csv
+  timestamp,object_key,status,request_time
+  2021-02-26T01:27:19Z,name1,404,16
+  2021-02-26T01:27:19Z,name2,200,12
+  2021-02-26T01:27:20Z,name3,200,6
+  ```
 
-   Query using all aggregate functions:
+  Query using all aggregate functions:
 
-   ```sql
-   SELECT
-     COUNT(*) AS "count",
-     MIN(CAST(request_time AS FLOAT)) AS "min",
-     MAX(CAST(request_time AS FLOAT)) AS "max",
-     SUM(CAST(request_time AS FLOAT)) AS "sum",
-     AVG(CAST(request_time AS FLOAT)) AS "avg"
-   FROM S3Object
-   WHERE status = '200'
-   ```
+  ```sql
+  SELECT
+    COUNT(*) AS "count",
+    MIN(CAST(request_time AS FLOAT)) AS "min",
+    MAX(CAST(request_time AS FLOAT)) AS "max",
+    SUM(CAST(request_time AS FLOAT)) AS "sum",
+    AVG(CAST(request_time AS FLOAT)) AS "avg"
+  FROM S3Object
+  WHERE status = '200'
+  ```
 
-   Since all values in the input CSV files count as strings, you need to convert them to the appropriate types using the `CAST` function.
+  Since all values in the input CSV files are treated as strings, you need to convert them to the appropriate types using the `CAST` function.
 
-   Result:
+  Result:
 
-   ```
-   count,min,max,sum,avg
-   2,6,12,18,9.0
-   ```
+  ```text
+  count,min,max,sum,avg
+  2,6,12,18,9.0
+  ```
 
 {% endlist %}

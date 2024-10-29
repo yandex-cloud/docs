@@ -1,6 +1,6 @@
 # Метод listObjects
 
-Возвращает список объектов в бакете. 
+Возвращает список объектов в бакете.
 
 Не возвращает содержимое объектов. Чтобы получить его, воспользуйтесь методом [get](../object/get.md).
 
@@ -8,7 +8,7 @@
 
 {% note info %}
 
-У этого метода есть две версии. 
+У этого метода есть две версии:
 - `listObjectsV2` — актуальная версия, более удобная в использовании.
 - `listObjectsV1` — предыдущая версия.
 
@@ -16,11 +16,13 @@
 
 {% endnote %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## listObjectsV2 {#listObjectsV2}
 
 ### Запрос {#requestV2}
 
-```
+```http
 GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimiter&encoding-type=EncodingType&max-keys=MaxKeys&prefix=Prefix&start-after=StartAfter HTTP/2
 ```
 
@@ -113,7 +115,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 
 ### Запрос {#requestV1}
 
-```
+```http
 GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-keys=MaxKeys&prefix=Prefix HTTP/2
 ```
 

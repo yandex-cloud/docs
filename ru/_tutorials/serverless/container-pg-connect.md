@@ -150,7 +150,7 @@
 1. Вызовите контейнер командой:
 
     ```bash
-    curl -H "Authorization: Bearer $(yc iam create-token)" <ссылка_для_вызова>
+    curl --header "Authorization: Bearer $(yc iam create-token)" <ссылка_для_вызова>
     ```
 
 1. Перейдите в раздел **{{ ui-key.yacloud.common.logs}}** и убедитесь, что в логи контейнера попадает информация о версии {{ PG }}.

@@ -1,1 +1,1 @@
-У IAM-токена короткое [время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) — не больше  {{ iam-token-lifetime }}. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
+У IAM-токена короткое [время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.

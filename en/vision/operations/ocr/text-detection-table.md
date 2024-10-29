@@ -1,6 +1,6 @@
 ---
-title: "How to recognize a table in {{ vision-full-name }}. Step-by-step guide"
-description: "In this guide, you will learn how to recognize text in Russian and English tables with {{ vision-full-name }}."
+title: How to recognize a table in {{ vision-full-name }}. Step-by-step guide
+description: In this guide, you will learn how to recognize text in Russian and English tables with {{ vision-full-name }}.
 ---
 
 # Table recognition

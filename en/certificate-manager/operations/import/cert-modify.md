@@ -1,6 +1,6 @@
 ---
-title: "How to edit custom certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to edit a custom certificate."
+title: How to edit custom certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to edit a custom certificate.
 ---
 
 # Editing a custom certificate
@@ -116,6 +116,6 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
 - API {#api}
 
-   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
+   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/Certificate/update.md) gRPC API call.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for an asymmetric encryption key pair"
-description: "Follow this guide to assign roles for an asymmetric encryption key pair."
+title: Configuring access permissions for an asymmetric encryption key pair
+description: Follow this guide to assign roles for an asymmetric encryption key pair.
 ---
 
 # Configuring access permissions for an asymmetric encryption key pair
@@ -30,7 +30,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    To assign a role for an asymmetric encryption key pair:
 
-   1. See the description of the CLI command for assigning a role:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms asymmetric-encryption-key add-access-binding --help
@@ -83,7 +83,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - API {#api}
 
-   Use the [AsymmetricEncryptionKeyService/UpdateAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [AsymmetricEncryptionKeyService/UpdateAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
@@ -109,7 +109,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -124,7 +124,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
          --id <key_pair_ID>
       ```
 
-   1. See the description of the CLI command for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings --help
@@ -183,9 +183,9 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [AsymmetricEncryptionKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.

@@ -1,6 +1,6 @@
 ---
-title: "How to create a new billing account in {{ billing-name }}"
-description: "Follow this guide to create a new billing account."
+title: How to create a new billing account in {{ billing-name }}
+description: Follow this guide to create a new billing account.
 ---
 
 # Creating a new billing account

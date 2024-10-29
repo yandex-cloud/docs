@@ -1,6 +1,10 @@
 ---
-
-__system: {"dislikeVariants": ["There is no answer to my question","These recommendations did not help me","The content does not match the title","Other"]}
+__system:
+  dislikeVariants:
+    - There is no answer to my question
+    - The recommendations did not help
+    - The content is out of line with the title
+    - Other
 ---
 # Uploading a file via an HTML form
 
@@ -9,7 +13,7 @@ This section describes how to upload files from the browser to {{ objstorage-nam
 
 {% note info %}
 
-Objects larger than 5 GB cannot be uploaded using a form (see [{#T}](limits.md)).
+Objects larger than 5 GB cannot be uploaded using the form (see [{#T}](limits.md)).
 All form fields after the `file` field are ignored.
 
 {% endnote %}
@@ -53,19 +57,19 @@ Generic layout of an HTML page with an upload form:
 </html>
 ```
 
-The HTML form is defined by the `<form>` tag and consists of a declaration and fields.
+The HTML form is described by the `<form>` tag and comprises a declaration and fields.
 
 The form declaration contains the following attributes:
 
-* `action`: URL of the bucket where the object is to be uploaded.
-* `method`: HTTP method with the `POST` value.
-* `enctype`: Request content type. The value is `multipart/form-data`.
+* `action`: URL of the bucket to upload the object to.
+* `method`: HTTP method. Value: `POST`.
+* `enctype`: Request content type. Value: `multipart/form-data`.
 
 The [form fields](#form-fields) contain a detailed description of the request to {{ objstorage-name }} and the [restrictions](#policy) that apply to it.
 
-The form and its fields must be UTF-8 encoded. To achieve this, set the `charset` attribute for the `<meta>` tag of your page to `UTF-8`:
+The form and its fields must be UTF-8 encoded. Set the `charset` attribute of the page’s `<meta>` tag to `UTF-8`:
 
-```
+```html
 <html>
     <head>
         ...
@@ -98,7 +102,7 @@ Generic form layout:
         <!-- Other required fields -->
         File to upload:
         <input type="file" name="file" /> <br />
-        <!-- Fields after file are ignored -->
+        <!-- Fields after "file" are ignored -->
         <input type="submit" name="submit" value="Upload" />
     </form>
     ```
@@ -121,7 +125,7 @@ Generic form layout:
         <input type="file" name="file" /> <br />
         <!-- Fields after "file" are ignored -->
         <br />
-        <input type="submit" value="Upload the file" />
+        <input type="submit" value="Upload file" />
   </form>
   ```
 
@@ -135,26 +139,26 @@ The following applies to AWS Signature V4 only.
 
 Description of form fields:
 
-| Field | Description | Required |
+Field | Description | Required
 -----|----------|--------------
-| `acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
-| `Cache-Control` | Directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No |
-| `Content-​Disposition` | Name {{ objstorage-name }} suggests saving an object as a file under when it is downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
-| `Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No |
-| `Content-Type` | MIME type of the uploaded file. If you do not specify `Content-Type`, {{ objstorage-name }} will save the object as `application/octet-stream`. This can affect end user applications since they will not understand the file format (for example, a browser will be unable to render an image). | No |
-| `Expires` | Response expiration date. Compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No |
-| `key` | [Object key](object.md#key).<br/><br/>You can enter your key completely or as a template in `prefix/${filename}` format, so that, if you upload `some_file.jpg`, the final object key is `prefix/some_file.jpg`. | Yes |
-| `policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional |
-| `X-Amz-Signature` | Signature of the policy that has to be generated using the secret key.<br/><br/>It is required if the form has a security policy. | Conditional |
-| `success_action_redirect` | URL the user is redirected to when the file is successfully uploaded. If the value is not set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No |
-| `success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>The acceptable values are 200 and 204 (default). | No |
-| `X-Amz-Algorithm` | Security policy signature algorithm. The value is `AWS4-HMAC-SHA256`.<br/><br/>This field is required if the form has a security policy. | Conditional |
-| `X-Amz-Credential` | Signature ID.<br/><br/>This is a string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional |
-| `X-Amz-Date` | Date in ISO8601 format, for example, `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by value rather than by format) and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional |
-| `X-Amz-Storage-Class` | [Storage class](storage-class.md) for the object. With an HTML form, you can only put an object in a standard storage. | No |
-| `X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined and does not process them. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
-| `X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the web. The redirect is stored in the object metadata. | No |
-| `file` | Input field that allows the user to select a file to upload. This field must be the last field in the form. All fields provided after `file` are ignored. You cannot upload more than one file in a single request. | Yes |
+`acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No
+`Cache-Control` | Directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No
+`Content-​Disposition` | Name under which {{ objstorage-name }} will suggest to save the object as a file when downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No
+`Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No
+`Content-Type` | MIME type of the uploaded file. If you do not specify `Content-Type`, {{ objstorage-name }} will save the object as `application/octet-stream`. This can affect end user applications since they will not understand the file format (for example, a browser will be unable to render an image). | No
+`Expires` | Response expiration date. Compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No
+`key` | [Object key](object.md#key).<br/><br/>You can enter the whole key or a template in `prefix/${filename}` format, i.e., if you upload a file entitled `some_file.jpg`, the final object key will be `prefix/some_file.jpg`. | Yes
+`policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional
+`X-Amz-Signature` | Signature of the policy that has to be generated using the secret key.<br/><br/>Required if the form has a security policy. | Conditional
+`success_action_redirect` | URL the user is redirected to when the file is successfully uploaded. If the value is not set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No
+`success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. Response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No
+`X-Amz-Algorithm` | Security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional
+`X-Amz-Credential` | Signature ID.<br/><br/>String in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional
+`X-Amz-Date` | Date in ISO8601 format, e.g., `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by value, not format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional
+`X-Amz-Storage-Class` | [Storage class](storage-class.md) for the object. With an HTML form, you can only put an object in a standard storage. | No
+`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined and does not process them. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No
+`X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the web. The redirect is stored in the object metadata. | No
+`file` | Input field that allows the user to select a file to upload. This field must be the last field in the form. All fields after `file` are ignored. You cannot upload more than one file in a single request. | Yes
 
 
 ## Security policy {#policy}
@@ -177,33 +181,33 @@ The security policy is a JSON document that may look as follows:
 }
 ```
 
-The `expiration` field contains the policy expiration date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, e.g., `2019-07-22T15:39:36Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded from the form.
+The `expiration` field contains the policy expiration date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, e.g., `2019-07-22T15:39:36Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded using the form.
 
 The `conditions` field contains a set of rules for the form fields. At least one rule must be specified for each form field.
 
 Security policy rules can be of the following types:
 
-| Rule type | Description |
+Rule type | Description
 ------------|-----------
-| Exact match | The form field value must be exactly the same as in the policy, e.g., `{"acl": "public-read"}`.<br/><br/> You can also use the alternative format: `["eq", "$acl", "public-read" ]`. |
-| Partial match | The form field value must start with the string specified in the policy, e.g., `["starts-with", "$key", "key_prefix"]`.<br/><br/> If an empty string is specified as a value, the field can take any value, e.g., `["starts-with", "$Content-Type", ""]`.<br/><br/> |
-| `content-length-range` | Size limit of the object to upload, e.g., `["content-length-range", 0, 1048576]`.<br/><br/> |
+Exact match | The form field value must be exactly the same as in the policy.<br/><br/>E.g., `{"acl": "public-read"}`. You can also use the alternative format: `[ "eq", "$acl", "public-read" ]`.
+Partial match | The form field value must start with the string specified in the policy.<br/><br/>E.g., `["starts-with", "$key", "key_prefix"]`. If an empty string is specified as a value, the field can take any value.<br/><br/>E.g., `["starts-with", "$Content-Type", ""]`.
+`content-length-range` | Size limit for the upload object.<br/><br/>E.g., `["content-length-range", 0, 1048576]`.
 
 Possible restrictions:
 
-| Element | Restriction type | Restriction scope |
+Element | Restriction type | Restriction scope
 --------|-----------------|---------------------
-| `acl` | Exact and partial match. | `acl` field in the form. |
-| `bucket` | Exact and partial match. | Bucket name. |
-| `content-length-range` | `content-length-range` | `content-length-range` |
-| `key` | Exact and partial match. | `key` field in the form. It allows you to set the object key or prefix. |
-| `success_action_redirect` | Exact and partial match. | `success_action_redirect` field in the form. |
-| `success_action_status` | Exact and partial match. | `success_action_status` field in the form. |
-| `X-Amz-*` | Exact match. | `X-Amz-*` fields in the form, except `X-Amz-Meta-*`. |
-| `X-Amz-Meta-*` | Exact and partial match. | `X-Amz-Meta-*` fields in the form. |
-| `Cache-Control`<br/>`Content-Disposition`<br/>`Content-Encoding`<br/>`Content-Type`<br/>`Expires` | Exact and partial match. | Form fields with the same names. |
+`acl` | Exact and partial match. | `acl` form field.
+`bucket` | Exact and partial match. | Bucket name.
+`content-length-range` | `content-length-range` | `content-length-range`
+`key` |  Exact and partial match. | `key` form field. It allows you to set the object key or prefix.
+`success_action_redirect` |  Exact and partial match. | `success_action_redirect` form field.
+`success_action_status` | Exact and partial match. | `success_action_status` form field.
+`X-Amz-*` | Exact match. | `X-Amz-*` form fields, except `X-Amz-Meta-*`.
+`X-Amz-Meta-*` |  Exact and partial match. | `X-Amz-Meta-*` form fields.
+`Cache-Control`<br/>`Content-Disposition`<br/>`Content-Encoding`<br/>`Content-Type`<br/>`Expires` | Exact and partial match. | Form fields with the same names.
 
-If `key` is a template field, the policy is applied after the user-specified file name is put into the template.
+If the `key` field has a template format, the policy is applied after the user-defined file name is substituted into the template.
 
 ### Security policy signature {#signing-policy}
 
@@ -218,7 +222,7 @@ The common policy [signature algorithm](../s3/signing-requests.md) is the follow
 
 The input conditions are as follows:
 
-- Files must be saved in the `user-data` bucket with the `/users/upload/` prefix.
+- Files must be saved into the `user-data` bucket with the `/users/upload/` prefix.
 - Uploaded objects are publicly accessible for reading.
 - If the upload is successful, the user is redirected to `https://example.com`.
 

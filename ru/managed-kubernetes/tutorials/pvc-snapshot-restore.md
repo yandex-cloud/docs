@@ -63,7 +63,7 @@
 Для проверки работы со снапшотами будет создан [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) и [под](../concepts/index.md#pod), имитирующий рабочую нагрузку.
 1. Создайте файл `01-pvc.yaml` с манифестом `PersistentVolumeClaim`:
 
-   
+
    ```yaml
    ---
    apiVersion: v1
@@ -104,8 +104,8 @@
    spec:
      containers:
        - name: app
-        image: ubuntu
-        command: ["/bin/sh"]
+         image: ubuntu
+         command: ["/bin/sh"]
          args:
            ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
          volumeMounts:
@@ -188,7 +188,7 @@
 Чтобы восстановить снапшот:
 1. Создайте файл `04-restore-snapshot.yaml` с манифестом нового `PersistentVolumeClaim`:
 
-   
+
    ```yaml
    ---
    apiVersion: v1

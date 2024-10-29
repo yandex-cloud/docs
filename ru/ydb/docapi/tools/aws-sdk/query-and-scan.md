@@ -120,7 +120,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesQuery01.java`, например с помощью редактора nano:
-  
+
       ```bash
       nano src/main/java/com/mycompany/app/SeriesQuery01.java
       ```
@@ -194,7 +194,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note info %}
 
-      `valueMap` используется для подстановки значений. Это необходимо потому, что нельзя использовать литералы непосредственно в выражениях, в том числе и в  `KeyConditionExpression`. В приведенном коде используется `:sd`.
+      `valueMap` используется для подстановки значений. Это необходимо потому, что нельзя использовать литералы непосредственно в выражениях, в том числе и в `KeyConditionExpression`. В приведенном коде используется `:sd`.
 
       {% endnote %}
 
@@ -226,7 +226,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - Python {#python}
 
   1. Создайте файл `SeriesQuery01.py`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesQuery01.py
       ```
@@ -282,7 +282,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - PHP {#php}
 
   1. Создайте файл `SeriesQuery01.php`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesQuery01.php
       ```
@@ -352,7 +352,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note info %}
 
-      `ExpressionAttributeValues` используется для подстановки значений. Это необходимо потому, что нельзя использовать литералы непосредственно в выражениях, в том числе и в  `KeyConditionExpression`. В приведенном коде используется `:sd`.
+      `ExpressionAttributeValues` используется для подстановки значений. Это необходимо потому, что нельзя использовать литералы непосредственно в выражениях, в том числе и в `KeyConditionExpression`. В приведенном коде используется `:sd`.
 
       {% endnote %}
 
@@ -536,7 +536,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ```
 
       В результате выполнения команды в текущем рабочем каталоге будет создан каталог проекта с именем `SeriesQuery02`, структурой подкаталогов и файлом описания проекта `pom.xml`.
-  
+
   1. Перейдите в каталог проекта:
 
       ```bash
@@ -624,7 +624,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesQuery02.java`, например с помощью редактора nano:
-  
+
       ```bash
       nano src/main/java/com/mycompany/app/SeriesQuery02.java
       ```
@@ -722,7 +722,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - Python {#python}
 
   1. Создайте файл `SeriesQuery02.py`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesQuery02.py
       ```
@@ -779,7 +779,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - PHP {#php}
 
   1. Создайте файл `SeriesQuery02.php`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesQuery02.php
       ```
@@ -958,7 +958,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
         else
           puts "Найдено #{result.items.count} записей:"
           result.items.each do |movie|
-            puts "#{movie['title']} (#{movie['series_id'].to_i}) "      
+            puts "#{movie['title']} (#{movie['series_id'].to_i}) "
           end
         end
       rescue StandardError => e
@@ -985,14 +985,14 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           }
         }
 
-        puts "Поиск в таблице '#{table_name}' сериалов с id = '#{series_id}' и названием на букву Т"              
+        puts "Поиск в таблице '#{table_name}' сериалов с id = '#{series_id}' и названием на букву Т"
 
         query_for_items_from_table(dynamodb_client, query_condition)
       end
 
       run_me if $PROGRAM_NAME == __FILE__
       ```
-  
+
   1. Запустите программу:
 
       ```bash
@@ -1116,7 +1116,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesScan.java`, например с помощью редактора nano:
-  
+
       ```bash
       nano src/main/java/com/mycompany/app/SeriesScan.java
       ```
@@ -1209,7 +1209,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - Python {#python}
 
   1. Создайте файл `SeriesScan.py`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesScan.py
       ```
@@ -1293,7 +1293,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 - PHP {#php}
 
   1. Создайте файл `SeriesScan.php`, например с помощью редактора nano:
-  
+
       ```bash
       nano SeriesScan.php
       ```
@@ -1539,7 +1539,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
         puts "Поиск сериалов в таблице '#{table_name}' с id в диапазон от #{start_id} до #{end_id}..."
 
-        scan_for_items_from_table(dynamodb_client, scan_condition)  
+        scan_for_items_from_table(dynamodb_client, scan_condition)
       end
 
       run_me if $PROGRAM_NAME == __FILE__

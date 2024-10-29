@@ -22,8 +22,7 @@ _Авторизованные ключи_ — это ключи с алгори�
 Авторизованные ключи в качестве способа аутентификации поддерживают несколько сервисов:
 
 
-* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#sa-json)
-* [{{ datalens-full-name }}](../../../datalens/operations/connection/create-big-query.md)
+
 * [{{ kms-full-name }}](../../../kms/tutorials/index.md)
 * [{{ maf-full-name }}](../../../managed-airflow/tutorials/data-proc-automation.md)
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/tutorials/index.md)

@@ -38,7 +38,7 @@
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
        * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
        * Укажите размер диска.
-       * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+       * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
        * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
        * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../concepts/performance-levels.md) и объем RAM.
@@ -55,6 +55,8 @@
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** укажите, на какое количество ВМ можно превышать размер группы.
+
+         {% include [max-expansion-notice](../../../_includes/instance-groups/max-expansion-notice.md) %}
      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** укажите, на какое количество ВМ можно уменьшать размер группы.
      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** укажите, сколько ВМ можно одновременно создавать.
      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** укажите срок, после которого ВМ начнет получать нагрузку.
@@ -242,7 +244,7 @@
        load_balancer_spec:
          target_group_spec:
            name: first-target-group
-       ``` 
+     ```
 
   1. Создайте группу ВМ в каталоге по умолчанию:
 
@@ -412,6 +414,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../instancegroup/api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md).
 
 {% endlist %}

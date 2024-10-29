@@ -1,37 +1,37 @@
 # How access management works in {{ yandex-cloud }}
 
-Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks access rights for the resources.
+Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks permissions to access them.
 
-## How are access rights verified? {#access-verifying}
+## How are access permissions verified? {#access-verifying}
 
 All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-short-name }}. For example:
 
-1. A user requests {{ compute-name }} to create a new disk in the <q>default</q> folder.
+1. A user requests {{ compute-name }} to create a new disk in the folder named <q>default</q>.
 1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
-1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
+1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the required permissions to create a disk in that folder.
 1. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error.
-   If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
+    If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
 
 ## How do I perform access management? {#how-do-i-perform-access-management}
 
-Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
+Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you need to specify their [roles](roles.md) for that resource.
 
-To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned the role. This allows you to [bind access rights](#access-bindings) to the resource.
+To assign a role, you need to [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) getting the role. As a result, the subject gets [permissions to access](#access-bindings) the resource.
 
-You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
+You can also assign a role to a parent resource to [inherit access permissions](#inheritance) from, e.g., a folder or cloud.
 
 {% note warning %}
 
-It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but you do not have access yet, repeat the operation.
+It usually takes 5 seconds or less to update access permissions. If the role was assigned to you, but you do not have access yet, repeat the operation.
 
 For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 
 {% endnote %}
 
-### Resources that roles can be assigned for {#resource}
+### Resources you can assign roles for {#resource}
 
 You can assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md). If you need to grant access to a resource that is not on the list, assign the role for the parent resource it [inherits](#inheritance) permissions from. For example, [{{ mpg-full-name }} clusters](../../../managed-postgresql/concepts/index.md) inherit access permissions from their folder.
 
@@ -43,33 +43,73 @@ Thus, roles for a resource can be assigned by users with the [administrator](../
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only the user with the [cloud owner](../../../resource-manager/security/index.md#resource-manager-clouds-owner) role can assign this same role. The administrator role is not enough for this.
 
-To find out what roles exist and what permissions they include, see [{#T}](roles.md).
+For information about available roles and permissions they offer, see [{#T}](roles.md).
 
 ### Subjects that roles are assigned to {#subject}
 
-Roles are assigned to subjects. The following subject types are available:
+Roles are assigned to subjects. There are the following subject types:
 
-* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}.
-* `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
+* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}:
 
-   {% include [include](../../../_includes/sa-assign-role-note.md) %}
+    Subject ID: `userAccount:<user_ID>`.
+
+    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../operations/users/get.md) to a user, e.g., `userAccount:ajecpdmpr4pr********`.
+
+* `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}:
+
+    Subject ID: `serviceAccount:<service_account_ID>`.
+
+    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account. e.g., `serviceAccount:ajevnu4u2q3m********`.
+
+    {% include [include](../../../_includes/sa-assign-role-note.md) %}
+
 * `federatedUser`: User account in an [identity federation](../../../organization/concepts/add-federation.md), e.g., Active Directory.
 
-* `group`: User group created in [{{ org-full-name }}](../../../organization/).
+    Subject ID: `federatedUser:<user_ID>`.
 
-* `system`: [System group](system-group.md).
+    Where `<user_ID>` is the unique ID [assigned](../../operations/users/get.md) to a federated user, e.g., `federatedUser:aje7b4u65nb6********`.
 
-### Access binding {#access-bindings}
+* `group`: [{{ org-full-name }}](../../../organization/) user group:
 
-Roles to a resource are assigned as a list of _role-subject_ bindings. They are called _access bindings_. You can add or remove these bindings to control access rights to a resource.
+    * [User group](../../../organization/concepts/groups.md) created by the organization administrator:
+
+        Subject ID: `group:<user_group_ID>`.
+
+        Where `<user_group_ID>` is the unique ID assigned to a user group created by the organization administrator, e.g., `group:ajeser8mnc4c********`.
+
+    * `All users in organization X` [system group](./system-group.md#allOrganizationUsers):
+
+        Subject ID: `group:organization:<organization_ID>:users`.
+
+        Where `<organization_ID>` is the unique ID assigned to the `X` [organization](../../../organization/quickstart.md), e.g., `group:organization:bpfaidqca8vd********:users`.
+
+    * `All users in federation N` [system group](./system-group.md#allFederationUsers):
+
+        Subject ID: `group:federation:<federation_ID>:users`.
+
+        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/quickstart.md). e.g., `group:federation:bpf8tpgggfoi********:users`.
+
+* `system`: [Public group](./public-group.md) of users:
+
+    * `All authenticated users` [public group](./public-group.md#allAuthenticatedUsers) of users:
+
+        Subject ID: `system:allAuthenticatedUsers`.
+
+    * `All users` [public group](./public-group.md#allUsers):
+
+        Subject ID: `system:allUsers`.
+
+### Creating access bindings {#access-bindings}
+
+Roles for a resource are assigned as a list of _role-subject_ bindings. They are called _access bindings_. You can add or remove these bindings to control permissions to access a resource.
 
 ![accessBindings.png](../../../_assets/accessBindings.png)
 
-Each binding is a single assignment of a role to a subject. To assign a user multiple roles to a resource, set a separate binding for each role.
+Each binding is a single assignment of a role to a subject. To assign a user multiple roles for a resource, set a separate binding for each role.
 
-### Inheritance of access rights {#inheritance}
+### Inheriting access permissions {#inheritance}
 
-If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
+If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign the user a role for a folder containing a VM, all the role's permissions will also apply to the VM.
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You cannot limit the list of permissions inherited from the parent resource.
 
@@ -77,7 +117,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 
 _Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
 
-For example, the user needs temporary permissions for viewing a folder they do not have view access for. The administrator can [assign](../../operations/sa/set-access-bindings.md#impersonation) a role for viewing the folder to the service account, and assign the special `iam.serviceAccounts.tokenCreator` role to the user. As a result, the user can view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user cannot edit permissions or delete the service account.
+For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` role to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account.
 
 The administrator can revoke the role whenever needed.
 
@@ -89,7 +129,7 @@ Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in
 
 #### See also {#see-also}
 
-For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
+For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the relevant service documentation.
 
 Step-by-step guides and examples:
 

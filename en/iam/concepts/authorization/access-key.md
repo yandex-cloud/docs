@@ -24,13 +24,11 @@ Make sure no third party has access to the secret key. Keep your key in a secure
 
 In addition to static access keys, you can use [{{ sts-name }}](sts.md) temporary keys, also compatible with the AWS API, to work with {{ objstorage-full-name }}.
 
-{% include [sts-preview](../../../_includes/iam/sts-preview.md) %}
-
 ## Static key format {#access-key-format}
 
 ### Key ID {#key-id}
 
-A key ID consists of 25 characters and always starts with `YC`. Other characters may be:
+A key ID consists of 25 characters and always starts with `YC`. Other characters may include:
 
 * Latin letters
 * Numbers
@@ -40,7 +38,7 @@ Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
 ### Secret key {#private-key}
 
-A secret consists of 40 characters and always starts with `YC`. Other characters may be:
+A secret consists of 40 characters and always starts with `YC`. Other characters may include:
 
 * Latin letters
 * Numbers

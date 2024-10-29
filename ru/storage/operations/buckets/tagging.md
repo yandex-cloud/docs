@@ -1,3 +1,8 @@
+---
+title: Управление метками бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете управлять метками бакета в {{ objstorage-name }}.
+---
+
 # Управление метками бакета
 
 [Метки бакетов](../../concepts/tags.md) — это пары ключ-значение для логической маркировки бакетов.
@@ -10,10 +15,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в котором нужно добавить или изменить меткаи.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
   1. Введите метку в формате `ключ: значение`. Чтобы изменить существующую метку, введите ее ключ и новое значение.
   1. Нажмите **Enter**.
@@ -136,7 +140,7 @@
 
   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
-  Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
+  Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
   **Пример вызова gRPC API**
 
@@ -180,10 +184,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -267,7 +270,7 @@
 
 - API {#api}
 
-  Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
+  Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/Bucket/get.md) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
 
   **Пример вызова gRPC API**
 
@@ -325,10 +328,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
@@ -430,7 +432,7 @@
 
 - API {#api}
 
-  Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
+  Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
 
   **Пример вызова gRPC API**
 

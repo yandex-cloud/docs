@@ -6,14 +6,14 @@ Yes, you can. For more information, see the [How to create a VM instance](../../
 
 #### Where can I find SLAs? {#sla}
 
-In {{ yandex-cloud }}, each service has its own SLA. You can read the SLA in the [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en) section.
+In {{ yandex-cloud }}, each service has its own SLA. You can read the SLA in the [Legal documents]({{ link-sla }}) section.
 
 #### Where can I find the bank details of {{ yandex-cloud }}? {#requisites}
 
 
 
 
-You can find the bank details in the section [Legal documents](https://yandex.com/legal/cloud_customer_agreement/) (paragraph **19. Yandex Details**).
+Depending on which company you signed the contract with, you can find the bank details in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/) (paragraph **19. Yandex Details**).
 
 
 #### How do I contact technical support? {#support}

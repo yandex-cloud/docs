@@ -199,6 +199,8 @@ On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-reso
 
 ## Sharing a dataset {#share}
 
+{% include [zones](../../../_includes/datasphere/zones.md) %}
+
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Select the appropriate dataset from the list.
@@ -225,3 +227,5 @@ To delete a dataset:
 
 1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. In the line with the appropriate dataset, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

@@ -1,54 +1,54 @@
 # SendMessageBatch
 
-Method for simultaneously delivering up to 10 messages to the specified queue. When sending messages to a FIFO queue, they will be delivered in the order that they are sent.
+Method for simultaneously delivering up to 10 messages to the specified queue. When sending messages to a FIFO queue, they will be delivered in the sending order.
 
-The result of the send action on each message is reported individually in the response. Check all the results, because the send message batch action might fail even if code 200 is returned in response to the `SendMessageBatch` method call. A message can include XML, JSON, and unformatted text. The following Unicode characters are supported:
+The sending action results are reported individually for each message. Check all the results, because the send message batch action may fail even if code 200 is returned in response to the `SendMessageBatch` method call. A message can include XML, JSON, and unformatted text. The following Unicode characters are supported:
 
 * `#x9`
 * `#xA`
 * `#xD`
-* from `#x20` to `#xD7FF`
-* from `#xE000` to `#xFFFD`
-* from `#x10000` to `#x10FFFFF`
+* From `#x20` to `#xD7FF`
+* From `#xE000` to `#xFFFD`
+* From `#x10000` to `#x10FFFFF`
 
 The maximum batch size is 256 KB.
 
-If the `DelaySeconds` parameter is not specified for a batch entry, the value for the default queue will be used.
+If the `DelaySeconds` parameter is not specified for a batch message, the default queue value will be used.
 
 ## Request {#request}
 
 ### Request parameters {#request-parameters}
 
-| Parameter | Type | Required parameter | Description |
+Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-| `SendMessageBatchRequestEntry.N` | **array** | Yes | The [SendMessageBatchRequestEntry](../data-types/SendMessageBatchRequestEntry.md) array. |
-| `QueueUrl` | **string** | Yes | URL of the queue that messages are sent to. |
+`SendMessageBatchRequestEntry.N` | **array** | Yes | The [SendMessageBatchRequestEntry](../data-types/SendMessageBatchRequestEntry.md) array.
+`QueueUrl` | **string** | Yes | URL of the queue that messages are sent to.
 
 ## Response {#response}
 
 ### Successful response fields {#response-parameters}
 
-| Field | Type | Description |
+Field | Type | Description
 ----- | ----- | -----
-| `BatchResultErrorEntry.N` | **array** | The [BatchResultErrorEntry](../data-types/BatchResultErrorEntry.md) array with information about the messages that failed to be enqueued. |
-| `SendMessageBatchResultEntry.N` | **array** | The [SendMessageBatchResultEntry](../data-types/SendMessageBatchResultEntry.md) array with information about the messages that have been successfully enqueued. |
+`BatchResultErrorEntry.N` | **array** | The [BatchResultErrorEntry](../data-types/BatchResultErrorEntry.md) array with information about the messages that failed to be enqueued.
+`SendMessageBatchResultEntry.N` | **array** | The [SendMessageBatchResultEntry](../data-types/SendMessageBatchResultEntry.md) array with information about the messages that have been successfully enqueued.
 
 ### SendMessageBatch errors {#errors}
 
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
-| HTTP code | Error ID | Description |
+HTTP code | Error ID | Description
 ----- | ----- | -----
-| 400 | `BatchEntryIdsNotDistinct` | Two or more batch entries in the request have the same ID. |
-| 400 | `BatchRequestTooLong` | The length of all the messages put together is more than the limit. |
-| 400 | `EmptyBatchRequest` | The batch request doesn't contain any entries. |
-| 400 | `InvalidBatchEntryId` | The ID of a batch entry is invalid. |
-| 400 | `TooManyEntriesInBatchRequest` | Too many entries in a batch. |
-| 400 | `UnsupportedOperation` | The operation is not supported. |
+400 | `BatchEntryIdsNotDistinct` | Two or more batch entries in the request have the same ID.
+400 | `BatchRequestTooLong` | The length of all the messages put together is more than the limit.
+400 | `EmptyBatchRequest` | The batch request does not contain any entries.
+400 | `InvalidBatchEntryId` | The ID of a batch entry is invalid.
+400 | `TooManyEntriesInBatchRequest` | Too many entries in a batch.
+400 | `UnsupportedOperation` | The operation is not supported.
 
 ## Sample request {#request-example}
 
-```
+```text
 Action=SendMessageBatch
 &Version=2012-11-05
 &QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue

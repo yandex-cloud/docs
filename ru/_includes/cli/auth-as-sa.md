@@ -7,7 +7,7 @@
     ```
 
     Результат:
-    ```bash
+    ```text
     +----------------------+------------+
     |          ID          |    NAME    |
     +----------------------+------------+
@@ -21,7 +21,7 @@
     ```
     
     Результат:
-    ```bash
+    ```text
     id: aje83v701b1un777sh40
     service_account_id: aje3932acd0c5ur7dagp
     created_at: "2019-08-26T12:31:25Z"
@@ -40,18 +40,18 @@
         ```bash
         yc config set service-account-key key.json
         ```
-       
+
 
 1. Проверьте, что параметры для сервисного аккаунта добавлены верно:
 
-      
+   
     ```bash
     yc config list
     ```
     
     Результат:
 
-    ```bash
+    ```text
     service-account-key:
       id: aje83v701b1un777sh40
       service_account_id: aje3932acd0c5ur7dagp
@@ -67,8 +67,8 @@
         -----END PRIVATE KEY-----
     ```
    
-   
-   
+
+
 1. Настройте профиль для запуска команд.
 
     {% include [add-folder](../cli-add-folder.md) %}

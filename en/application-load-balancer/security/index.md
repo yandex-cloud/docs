@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ alb-full-name }}"
-description: "Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ alb-full-name }}
+description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ alb-name }}
@@ -56,9 +56,11 @@ In this section, you will learn:
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----

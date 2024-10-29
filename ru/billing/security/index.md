@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в сервисе Billing"
-description: "Доступ к платежному аккаунту предоставляется через сервис {{ billing-name }}. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью."
+title: Управление доступом в сервисе Billing
+description: Доступ к платежному аккаунту предоставляется через сервис {{ billing-name }}. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью.
 ---
 
 # Управление доступом в сервисе {{ billing-name }}
@@ -12,11 +12,11 @@ description: "Доступ к платежному аккаунту предос
 * Если у вас или вашего сотрудника еще нет аккаунта, создайте его на [Яндексе](https://passport.yandex.ru/registration) или в [Яндекс 360](https://yandex.ru/support/business/add-users.html).
 * Если для авторизации на Яндексе вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md).
+Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
 {% note info %}
 
-Доступ может быть предоставлен только пользователю, к платежному аккаунту которого привязано любое облако в сервисе [{{ iam-name }}](../../iam/). 
+Доступ может быть предоставлен только пользователю, к платежному аккаунту которого привязано любое облако в сервисе [{{ iam-name }}](../../iam/).
 
 {% endnote %}
 
@@ -44,6 +44,10 @@ description: "Доступ к платежному аккаунту предос
 
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
 
+#### billing.accounts.member {#billing-accounts-member}
+
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
+
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
@@ -54,21 +58,21 @@ description: "Доступ к платежному аккаунту предос
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли — роли агрегаторы, определяющие разрешения пользователя для доступа к сервисам. В {{ billing-name }} эти роли соответствуют ролям `billing.accounts.*`: 
+Примитивные роли — роли агрегаторы, определяющие разрешения пользователя для доступа к сервисам. В {{ billing-name }} эти роли соответствуют ролям `billing.accounts.*`:
 
 * `auditor` — аналогична роли `billing.accounts.viewer` с ограничениями.
 * `viewer` — аналогична роли `billing.accounts.viewer`.
 * `editor` — аналогична роли `billing.accounts.editor`.
 * `admin` — аналогична роли `billing.accounts.admin`.
 
-Примитивные роли могут назначаться только пользователям, добавленным в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. 
+Примитивные роли могут назначаться только пользователям, добавленным в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**.
 
 ### Доступные операции {#available-operations}
 
 Список доступных операций для ролей каждого типа представлен в таблице ниже.
 
-| Операции                                                | `owner`   | `viewer` | `accountant`                           | `editor` | `admin`   |
-|---------------------------------------------------------|---------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
+| Операции                                                | `owner`                                | `viewer`                               | `accountant`                           | `editor`                               | `admin`                                |
+|---------------------------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
 | Показ платежного аккаунта в списке всех аккаунтов       | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Просмотр данных платежного аккаунта                     | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Просмотр и получение уведомлений о потреблении          | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -83,9 +87,9 @@ description: "Доступ к платежному аккаунту предос
 | Создание экспорта детализации                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Создание бюджета                                        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Резервирование ресурсов                                 | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Переименование платежного аккаунта                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Выдача ролей на платежный аккаунт                       | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | 
 | Просмотр и редактирование ролей                         | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | 
-| Переименование платежного аккаунта                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение контактов плательщика                         | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение платежных реквизитов                          | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение банковской карты                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
@@ -96,7 +100,7 @@ description: "Доступ к платежному аккаунту предос
 
 ## Добавление пользователя {#set-member-role}
 
-Процесс добавления новых пользователей платежного аккаунта зависит от того, привязан ли платежный аккаунт к организации. 
+Процесс добавления новых пользователей платежного аккаунта зависит от того, привязан ли платежный аккаунт к организации.
 
 {% list tabs %}
 
@@ -136,11 +140,10 @@ description: "Доступ к платежному аккаунту предос
   1. [Убедитесь](../../organization/operations/users-get.md), что в вашей организации есть нужный пользователь. Если нет, [добавьте](../../organization/operations/add-account.md) его.
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. В открывшемся окне:
 
-     1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-     1. Выберите пользователя или сервисный аккаунт из списка или воспользуйтесь строкой поиска.
+     1. Выберите пользователя, сервисный аккаунт или группу пользователей. При необходимости воспользуйтесь строкой поиска.
      1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите нужную роль.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -156,11 +159,13 @@ description: "Доступ к платежному аккаунту предос
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Найдите пользователя или сервисный аккаунт в списке.
-  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_tune-role }}**.
-  1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_billing.billing.account.users.popup-tune-role_add-button }}**.
-  1. Выберите необходимую роль из списка.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром. 
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+  
+      1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
+      1. Выберите необходимую роль из списка.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 {% endlist %}
 
@@ -178,11 +183,12 @@ description: "Доступ к платежному аккаунту предос
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Найдите пользователя или сервисный аккаунт в списке, либо воспользуйтесь фильтром по пользователю. 
-  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-  1. Напротив роли, которую необходимо отозвать, нажмите ![image](../../_assets/cross.svg).
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром.
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+
+      1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
 
 - Без организации
 
@@ -190,14 +196,16 @@ description: "Доступ к платежному аккаунту предос
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Найдите пользователя или сервисный аккаунт в списке.
-  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_tune-role }}**.
-  1. Напротив роли, которую необходимо отозвать, нажмите ![image](../../_assets/console-icons/xmark.svg). Роль будет отозвана. 
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром. 
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+
+      1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
 
   {% note info %}
 
-  Доступ к платежному аккаунту станет невозможным, если у пользователя отозвать роль `billing.accounts.member`. 
+  Доступ к платежному аккаунту станет невозможным, если у пользователя отозвать роль `billing.accounts.member`.
 
   {% endnote %}
 
@@ -213,4 +221,4 @@ description: "Доступ к платежному аккаунту предос
 1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
 1. Пользователь будет удален из списка пользователей этого платежного аккаунта.
 
-Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Вы можете [исключить пользователя из организации](../../organization/edit-account), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.
+Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Вы можете [исключить пользователя из организации](../../organization/operations/edit-account.md#remove-user), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.

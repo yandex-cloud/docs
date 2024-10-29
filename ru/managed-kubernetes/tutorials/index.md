@@ -10,6 +10,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](terraform-modules.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 
@@ -26,10 +27,16 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
+Об установке Ingress-контроллера NGINX с помощью {{ marketplace-full-name }} читайте в [инструкции](../operations/applications/ingress-nginx.md).
+
 ## Использование {{ container-registry-full-name }} {#container-registry}
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
+
+## Использование {{ mkf-name }} {#kafka}
+
+[{#T}](deploy-kafka-ui.md)
 
 ## Непрерывная интеграция с {{ GL }} {#gitlab}
 
@@ -45,10 +52,11 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+* [{#T}](cert-manager-webhook.md)
 
 ## Резервное копирование {#backup}
 
-* [{#T}](backup.md)
+* [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
 ## Мониторинг {#monitoring}
@@ -72,3 +80,4 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
+* [{#T}](marketplace/hashicorp-vault.md)

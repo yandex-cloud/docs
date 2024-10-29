@@ -1,6 +1,6 @@
 ---
-title: "Speech synthesis using the Python SDK in {{ speechkit-full-name }}"
-description: "Follow this guide to test speech synthesis using the Python SDK in {{ sf-full-name }}."
+title: Speech synthesis using the Python SDK in {{ speechkit-full-name }}
+description: Follow this guide to test speech synthesis using the Python SDK in {{ sf-full-name }}.
 ---
 
 # Speech synthesis using the Python SDK
@@ -67,7 +67,7 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
       * `voice`: Voice for speech synthesis.
       * `role`: Role for the specified voice.
       * `text`: Text for synthesis in TTS markup.
-      * `export_path`: Path to the file you want to save the audio to.
+      * `export_path`: Path to the file to save the audio to.
 
    1. Enter text to be converted into speech:
 

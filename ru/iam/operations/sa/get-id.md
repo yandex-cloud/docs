@@ -1,15 +1,22 @@
-# Получение идентификатора сервисного аккаунта
+# Получение информации о сервисном аккаунте
 
-Если у вас еще нет сервисного аккаунта, [создайте его](create.md).
+Вы можете получить информацию о сервисном аккаунте: его имя и идентификатор, даты создания и последней аутентификации, а также роли сервисного аккаунта в каталоге.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт и нажмите на строку с его именем.
-  1. На странице **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** отобразится **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта — строка вида `aje9sb6ffd2u********`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В открывшемся списке выберите нужный сервисный аккаунт.
+  1. На странице **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** отобразятся параметры сервисного аккаунта:
+
+     * **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта — строка вида `aje9sb6ffd2u********`.
+     * **{{ ui-key.yacloud.iam.folder.service-accounts.column_name }}**.
+     * **{{ ui-key.yacloud.iam.folder.service-accounts.column_date }}**.
+     * **{{ ui-key.yacloud.iam.folder.service-accounts.column_last-auth }}**.
+     * **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
 
 - CLI {#cli}
 
@@ -17,20 +24,7 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Если вы знаете имя сервисного аккаунта, получите его идентификатор с помощью команды `get`:
-
-  ```bash
-  yc iam service-account get my-robot
-  ```
-  
-  Результат:
-
-  ```
-  id: aje6o61dvog2********
-  ...
-  ```
-
-  Если вы не знаете имя сервисного аккаунта, получите список сервисных аккаунтов в каталоге по умолчанию:
+  Получите список сервисных аккаунтов в каталоге по умолчанию:
 
   ```bash
   yc iam service-account list
@@ -47,6 +41,30 @@
   +----------------------+------------------+-------------------------------+
   ```
 
+  Получите информацию о нужном сервисном аккаунте с помощью команды `get`:
+
+  ```bash
+  yc iam service-account get <идентификатор_сервисного_аккаунта>
+  ```
+  
+  Результат:
+
+  ```
+  id: aje6o61dvog2********
+  folder_id: jbmsjns93hj8********
+  created_at: "2024-09-09T20:15:19Z"
+  name: service-account
+  last_authenticated_at: "2024-09-19T18:05:06Z"
+  ```
+
+  Где:
+
+  * `id` — идентификатор сервисного аккаунта.
+  * `folder_id` — идентификатор каталога.
+  * `created_at` — дата и время создания сервисного аккаунта.
+  * `name: service-account` — имя сервисного аккаунта.
+  * `last_authenticated_at` — дата и время последней аутентификации.
+
 - API {#api}
 
   1. [Узнайте идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором был создан сервисный аккаунт.
@@ -55,9 +73,14 @@
       ```bash
       export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+      ```
 
+      Результат:
+
+      ```text
       {
        "serviceAccounts": [
         {
@@ -71,6 +94,6 @@
       }
       ```
 
-     Информацию о сервисных аккаунтах в каталоге можно также получить с помощью вызова gRPC API [ServiceAccountService/List](../../api-ref/grpc/service_account_service.md#List).
+     Информацию о сервисных аккаунтах в каталоге можно также получить с помощью вызова gRPC API [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md).
 
 {% endlist %}

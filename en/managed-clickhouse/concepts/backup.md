@@ -1,13 +1,13 @@
 ---
-title: "{{ CH }} backups"
-description: "{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created every day."
+title: '{{ CH }} backups'
+description: '{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created every day.'
 keywords:
   - backup
   - database backup
   - backups
-  - {{ CH }} backups
+  - '{{ CH }} backups'
   - backup {{ CH }}
-  - {{ CH}}
+  - '{{ CH}}'
 ---
 
 # Backups in {{ mch-name }}

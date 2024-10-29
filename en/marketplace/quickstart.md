@@ -1,6 +1,6 @@
 ---
-title: "Placing products on {{ marketplace-full-name }}"
-description: "Follow this guide to place your product on {{ marketplace-full-name }}."
+title: Placing your product on {{ marketplace-full-name }}
+description: Follow this guide to place your product on {{ marketplace-full-name }}.
 ---
 
 # Placing your product on {{ marketplace-full-name }}
@@ -12,9 +12,11 @@ description: "Follow this guide to place your product on {{ marketplace-full-nam
 
 ## Submit an application {#send-application}
 
-To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace#marketplace-form) and describe your product. Provide some details on your product features and how it works, so that we could review your application faster. By submitting your application, you accept the [Offer](https://yandex.ru/legal/marketplace_offer/?lang=en) for Software Product Access on {{ marketplace-short-name }}. If your business already has a billing account, list it in your application. During application review, we may contact you for more information.
+To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace) and describe your product. A detailed description of useful product functions and features will help us review your application faster. By submitting the request, you accept the Offer for Software Product Access on {{ marketplace-short-name }}:
+* [Offer for partners making payments to {{ yandex-cloud }} in RUB](https://yandex.ru/legal/marketplace_offer/?lang=en)
+* [Offer for partners making payments to {{ yandex-cloud }} in KZT](https://yandex.com/legal/marketplace_offer_kz/?lang=en)
 
-Once the moderation is complete, you will receive a confirmation email to the address you specified in your application.
+If your business already has a billing account, list it in your application. Once the moderation is complete, you will receive a confirmation email to the address you specified in your application.
 
 ## Register an account {#registration}
 
@@ -22,7 +24,7 @@ To access the {{ marketplace-short-name }} partner dashboard, you need the billi
 
 {% include [billing-note](../_includes/marketplace/billing-note.md) %}
 
-Billing account details will be used to provide access to the [partner dashboard]({{ link-cloud-partners }}).
+The billing account details will be used for access to the [partner dashboard]({{ link-cloud-partners }}).
 
 ## Create a product in the partner dashboard {#create-product}
 
@@ -36,15 +38,16 @@ The service plan determines the cost of running your product.
 
 Create a [service plan](operations/create-tariff.md) to assign it to your product version.
 
-## Create and upload a VM image or packages for {{ managed-k8s-name }} {#create-image}
+## Create and upload a product {#create-image}
 
 In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }} public images and packages for {{ managed-k8s-name }}. Make sure you read through the image and app requirements and recommendations:
+
 * [{#T}](operations/create-image.md)
 * [{#T}](operations/create-container.md)
 
 ## Create the first version of the product {#create-version}
 
-For more information on creating the first version of a product in a {{ marketplace-name }} partner dashboard, see [{#T}](operations/create-new-version.md).
+For more information on creating the first version of the product in the {{ marketplace-name }} partner dashboard, see [{#T}](operations/create-new-version.md).
 
 ## Submit you version for moderation {#moderate-version}
 

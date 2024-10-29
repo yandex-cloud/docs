@@ -3,9 +3,9 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 1. Get your federation ID from your administrator.
 1. Launch the profile creation wizard:
 
-   
 
-   
+
+
    ```bash
    yc init \
       --federation-endpoint auth.cloud.yandex.com \
@@ -54,9 +54,9 @@ To authenticate using a [SAML-compatible identity federation](../../organization
    Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
    ```
 
-   If you chose `Y`, select the availability zone:
+   If you typed `Y`, select the availability zone:
 
-   
+
    {% include [include](choose-zone.md) %}
 
 
@@ -69,7 +69,7 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 
    Result:
 
-   
+
    ```bash
    federation-id: aje1f0hs6oja********
    cloud-id: b1g159pa15cd********

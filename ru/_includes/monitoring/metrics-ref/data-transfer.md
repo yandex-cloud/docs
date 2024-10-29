@@ -5,7 +5,7 @@
 Метка | Значение
 --- | ---
 service | Идентификатор сервиса: `data-transfer`.
-job_index | Индекс воркера для отличия воркеров, используемых при [параллельном копировании](../../../data-transfer/concepts/sharded.md) данных.
+job_index | Индекс [воркера](../../../data-transfer/concepts/index.md#worker) для отличия воркеров, используемых при [параллельном копировании](../../../data-transfer/concepts/sharded.md) данных.
 src_id | Идентификатор [источника](../../../data-transfer/transfer-matrix.md).
 target_type | Тип [приемника](../../../data-transfer/transfer-matrix.md), например `mongo`.
 resource_id | Идентификатор [трансфера](../../../data-transfer/concepts/index.md#transfer) {{ data-transfer-name }}.
@@ -95,6 +95,7 @@ component | Компонент системы, например `psutil`.
 `sinker.pusher.time.row_max_lag_sec`</br>`DGAUGE`, секунды | Максимальное отставание данных.
 `sinker.pusher.time.row_max_read_lag_sec`</br>`DGAUGE`, секунды | Максимальное отставание данных от момента их появления на источнике до момента их чтения.
 `sinker.table.deleted_rows`</br>`COUNTER`, штуки | Количество удаленных строк в таблице.</br>Метка `table` — таблица БД или коллекция.
+`sinker.table.error`</br>`COUNTER`, штуки | Количество ошибок, возникших при обработке таблицы.</br>Метка `table` — таблица БД или коллекция.
 `sinker.table.rows`</br>`COUNTER`, штуки | 50 таблиц с максимальным количеством записанных в приемник строк.</br>Метка `table` — таблица БД или коллекция.
 `sinker.table.updated_rows`</br>`COUNTER`, штуки | Количество обновленных строк в таблице.</br>Метка `table` — таблица БД или коллекция.
 `sinker.table.upserted_rows`</br>`COUNTER`, штуки | Количество строк, вставленных или обновленных (`upsert`) в таблице.</br>Метка `table` — таблица БД или коллекция.

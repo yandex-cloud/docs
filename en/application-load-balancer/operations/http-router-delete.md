@@ -1,6 +1,6 @@
 ---
-title: "How to delete an HTTP router"
-description: "Follow this guide to delete an HTTP router."
+title: How to delete an HTTP router
+description: Follow this guide to delete an HTTP router.
 ---
 
 # Deleting an HTTP router
@@ -122,6 +122,6 @@ To delete an HTTP router:
 
 - API {#api}
 
-   Use the [delete](../api-ref/HttpRouter/delete.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouter/Delete](../api-ref/grpc/http_router_service.md#Delete) gRPC API call.
+   Use the [delete](../api-ref/HttpRouter/delete.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouter/Delete](../api-ref/grpc/HttpRouter/delete.md) gRPC API call.
 
 {% endlist %}

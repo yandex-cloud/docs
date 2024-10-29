@@ -1,6 +1,6 @@
 ---
-title: "Что такое квоты и лимиты в {{ yandex-cloud }}"
-description: "В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно."
+title: Что такое квоты и лимиты в {{ yandex-cloud }}
+description: В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно.
 ---
 
 # Квоты и лимиты для сервисов {{ yandex-cloud }}
@@ -102,6 +102,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
+### {{ cns-full-name }} {#cns}
+
+{% include [cns-limits.md](../../_includes/cns-limits.md) %}
+
+
 ### {{ org-full-name }} {#organization}
 
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}
@@ -112,6 +117,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% include [postbox-limits](../../_includes/postbox/postbox-limits.md) %}
 
+
+
+### {{ video-full-name }} {#video}
+
+{% include [video-limits](../../_includes/video-limits.md) %}
 
 
 ### {{ compute-full-name }} {#compute}

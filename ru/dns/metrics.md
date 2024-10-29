@@ -1,5 +1,10 @@
-# Справочник метрик {{ dns-full-name }}
+---
+title: Справочник метрик сервиса {{ dns-full-name }} в {{ monitoring-full-name }}
+description: На этой странице приведен справочник метрик сервиса {{ dns-name }}, поставляемых в {{ monitoring-full-name }}.
+---
 
-В этом разделе описаны метрики зоны, поставляемые в [{{ monitoring-name }}](../monitoring/).
+# Справочник метрик {{ monitoring-full-name }}
+
+В этом разделе описаны метрики сервиса {{ dns-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
 
 {% include [dns](../_includes/monitoring/metrics-ref/dns.md) %}

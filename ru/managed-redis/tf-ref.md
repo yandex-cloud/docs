@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ mrd-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mrd-name }}.
+---
+
 # Справочник {{ TF }} для {{ mrd-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_redis_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | Информация о [кластере](./concepts/index.md) |

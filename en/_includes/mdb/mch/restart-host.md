@@ -33,11 +33,64 @@ To restart a host:
 
    You can request the host name with a list of cluster hosts, and the cluster name, with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-   To restart a host, use the [restartHosts](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md) REST API method for the [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) resource or the [ClusterService/RestartHosts](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#RestartHosts) gRPC API call and provide the following in your request:
+   1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and place it in the environment variable:
 
-   * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
-   * In the `hostNames` parameter, the name of the host you want to restart. To find out the host name, get a list of hosts in the cluster.
+      {% include [api-auth-token](../../mdb/api-auth-token.md) %}
+
+   1. Use the [Cluster.restartHosts](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:restartHosts' \
+          --data '{
+                    "hostNames": [
+                      <list_of_host_names>
+                    ]
+                  }'
+      ```
+
+      Where `hostNames` is an array of strings. Each string is the name of a host to restart. You can request host names with a [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+
+      You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+
+   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+   1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and place it in the environment variable:
+
+      {% include [api-auth-token](../../mdb/api-auth-token.md) %}
+
+   1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
+
+   1. Use the [ClusterService/RestartHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/restartHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "host_names": [
+                    <list_of_host_names>
+                  ]
+              }' \
+          {{ api-host-mdb }}:443 \
+          yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
+      ```
+
+      Where `host_names` is an array of strings. Each string is the name of a host to restart. You can request host names with a [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+
+      You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+
+   1. View the [server response](../../../managed-clickhouse/api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

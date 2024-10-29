@@ -1,6 +1,6 @@
 ---
-title: "Disks and file storage in {{ compute-full-name }}"
-description: "In this tutorial, you will learn what disks and file storage are."
+title: Disks and file storage in {{ compute-full-name }}
+description: In this tutorial, you will learn what disks and file storage are.
 ---
 
 # Disks and file storage

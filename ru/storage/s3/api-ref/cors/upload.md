@@ -4,10 +4,11 @@
 
 Конфигурация CORS — это XML-файл размером не более 64КБ. Конфигурация не может содержать более 100 правил.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?cors HTTP/2
 ```
 

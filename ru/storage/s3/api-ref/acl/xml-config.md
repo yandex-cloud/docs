@@ -1,13 +1,13 @@
 ---
-title: "XML-структура конфигурации ACL. {{ objstorage-name }} API (S3)"
-description: "Описан общий вид XML-структуры конфигурации ACL, а также каждый ил элементов. AccessControlPolicy, Owner, AccessControlList, Grant, Grantee, ID, DisplayName, URI, Permission."
+title: XML-структура конфигурации ACL. {{ objstorage-name }} API (S3)
+description: Описан общий вид XML-структуры конфигурации ACL, а также каждый ил элементов. AccessControlPolicy, Owner, AccessControlList, Grant, Grantee, ID, DisplayName, URI, Permission.
 ---
 
 # XML-структура конфигурации ACL
 
 Общий вид ACL:
 
-```
+```xml
 <AccessControlPolicy>
   <Owner>
     <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cde********</ID>
@@ -35,10 +35,10 @@ description: "Описан общий вид XML-структуры конфиг
 `Owner` | Информация о пользователе.<br/><br/>Пользователь может указать этот элемент для запросов методами `objectPutAcl` и `bucketPutAcl`. Если элемент указан, то при загрузке ACL {{ objstorage-name }} проверяет соответствие переданного идентификатора фактическому и если они не совпадают, то отвечает с кодом 403.<br/><br/>Путь: `/AccessControlPolicy/Owner`.
 `AccessControlList` | Список управления доступом. Не может содержать более 100 доступов.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList`.
 `Grant` | Описание доступа.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant`.
-`Grantee` | Тип получателя разрешений. Возможные значения для `type`:<ul><li>`CanonicalUser` — для пользователя, [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md) или [группы пользователей](../../../../organization/concepts/groups.md).</li><li>`Group` — для [системной группы](../../../concepts/acl.md#system-groups).</li></ul>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee`.
+`Grantee` | Тип получателя разрешений. Возможные значения для `type`:<ul><li>`CanonicalUser` — для пользователя, [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md) или [группы пользователей](../../../../organization/concepts/groups.md).</li><li>`Group` — для [публичной группы](../../../concepts/acl.md#public-groups).</li></ul>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee`.
 `ID` | Идентификатор пользователя, [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md) или [группы пользователей](../../../../organization/concepts/groups.md). Используется с типом получателя разрешений `CanonicalUser`.<br/><br/>Ответ на запрос `bucketGetAcl` содержит идентификатор каталога, в котором находится бакет.<br/><br/>Пути: `/AccessControlPolicy/Owner/ID`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/ID`.
 `DisplayName` | Имя пользователя. Игнорируется для запросов `objectPutAcl` и `bucketPutAcl`<br/><br/>Пути: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
-`URI` | Идентификатор [системной группы](../../../concepts/acl.md#system-groups). Используется с типом получателя разрешений `Group`. Возможные значения:<ul><li>`http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.</li><li>`http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.</li></ul>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
+`URI` | Идентификатор [публичной группы](../../../concepts/acl.md#public-groups). Используется с типом получателя разрешений `Group`. Возможные значения:<ul><li>`http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.</li><li>`http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.</li></ul>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
 `Permission` | Разрешения пользователя.<br/><br/>Можно указать: `READ`, `WRITE` и `FULL_CONTROL`, при выдаче разрешений для объекта можно также указать `READ_ACP`, `WRITE_ACP`. Подробнее читайте в разделе [Список управления доступом (ACL)](../../../concepts/acl.md).<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

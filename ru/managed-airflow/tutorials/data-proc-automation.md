@@ -1,6 +1,6 @@
 ---
 noIndex: true
-
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-proc-and-airflow'
 ---
 
 # Автоматизация работы с {{ dataproc-full-name }}

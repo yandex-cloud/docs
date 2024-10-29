@@ -1,6 +1,6 @@
 ---
-title: "{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}"
-description: "This page contains a reference of {{ alb-name }} tools for {{ managed-k8s-name }}."
+title: '{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}'
+description: This page contains a reference of {{ alb-name }} tools for {{ managed-k8s-name }}.
 noIndex: true
 ---
 
@@ -18,6 +18,7 @@ noIndex: true
 
 ## Gateway API resources {#gateway-api}
 
-* [Gateway](gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
-* [HTTPRoute](http-route.md): Rules for routing traffic across backends or redirecting it.
+* [Gateway](gateway.md): Rules for accepting and routing (`HTTPRoute` and `TLSRoute`) incoming traffic.
+* [HTTPRoute](http-route.md): Rules for redirecting or routing HTTP, HTTPS, and gRPC traffic between backends.
+* [TLSRoute](./tls-route.md): Rules for routing TLS traffic between backends.
 * [Service](service-for-gateway.md): Description of {{ k8s }} services used as backends.

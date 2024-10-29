@@ -18,32 +18,33 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
 
 - Bash {#bash}
 
-   Run this command:
+    Run this command:
 
-   ```
-   curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
-   Usage: install [options...]
-   Options:
-    -i [INSTALL_DIR]    Installs to specified dir.
-    -r [RC_FILE]        Automatically modify RC_FILE with PATH modification and shell completion.
-    -n                  Don't modify rc file and don't ask about it.
-    -a                  Automatically modify default rc file with PATH modification and shell completion.
-    -h                  Prints help.
-   ```
+    ```bash
+    curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -h
+    Usage: install [options...]
+    Options:
+     -i [INSTALL_DIR]    Installs to specified dir.
+     -r [RC_FILE]        Automatically modify RC_FILE with PATH modification and shell completion.
+     -n                  Don't modify rc file and don't ask about it.
+     -a                  Automatically modify default rc file with PATH modification and shell completion.
+     -h                  Prints help.
+    ```
 
-   Example of use:
-   - Installing the CLI in `/opt/yc` without changing `.bashrc`:
+    Example of use:
+    - Installing the CLI to `/opt/yc` without changing the `.bashrc` file:
 
-      ```
-      curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
-          bash -s -- -i /opt/yc -n
-      ```
-   - Installing the CLI to the default directory with `completion` and `PATH` added to `.bashrc`:
+        ```bash
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
+            bash -s -- -i /opt/yc -n
+        ```
 
-      ```
-      curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
-          bash -s -- -a
-      ```
+    - Installing the CLI to the default directory with `completion` and `PATH` added to `.bashrc`:
+
+        ```bash
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
+            bash -s -- -a
+        ```
 
 {% endlist %}
 

@@ -27,9 +27,10 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. Вернитесь в [консоль управления]({{ link-console-main }}) в каталог, в котором вы создали сервисный аккаунт.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
       1. Выберите реестр и нажмите на строку с его именем.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -82,9 +83,9 @@
 
     - API {#api}
 
-      1. Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+      1. Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
-      1. Чтобы назначить роль сервисному аккаунту на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../container-registry/api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../container-registry/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../container-registry/api-ref/grpc/registry_service.md#UpdateAccessBindings).
+      1. Чтобы назначить роль сервисному аккаунту на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../container-registry/api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../container-registry/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../container-registry/api-ref/grpc/Registry/updateAccessBindings.md).
 
     {% endlist %}
 
@@ -210,7 +211,7 @@
           ```bash
           export IAM_TOKEN=CggaATEVAgA...
           export FAMILY=ubuntu-1804
-          curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+          curl --header "Authorization: Bearer ${IAM_TOKEN}" \
             "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
           ```
 
@@ -221,7 +222,7 @@
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
       export FOLDER_ID=b1gvmob95yys********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
         "subnets": [
@@ -254,7 +255,7 @@
           "cores": "2"
         },
         "metadata": {
-          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
         },
         "bootDiskSpec": {
           "diskSpec": {
@@ -304,10 +305,10 @@
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
         https://compute.{{ api-host }}/compute/v1/instances
       ```
 

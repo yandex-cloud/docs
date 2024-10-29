@@ -1,19 +1,21 @@
 ---
-title: "Правила тарификации для {{ dns-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ dns-name }}."
+title: Правила тарификации для {{ dns-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ dns-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ dns-name }}
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 ## Цены для региона Россия {#prices}
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### Публичные DNS-запросы {#public-dns-requests}

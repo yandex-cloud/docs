@@ -1,6 +1,6 @@
 ---
-title: "How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone"
-description: "Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone."
+title: How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone
+description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone.
 ---
 
 # Integrating into a corporate DNS zone
@@ -151,6 +151,12 @@ Address:  10.96.128.2#53
 Name:     ns.example.com
 Address:  10.129.0.3
 ```
+
+{% note info %}
+
+If the corporate DNS zone is unavailable, [make sure](../operations/connect/security-groups.md) that the security groups for the {{ managed-k8s-name }} cluster and its node groups are configured correctly. If any rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
+
+{% endnote %}
 
 ## Delete the resources you created {#clear-out}
 

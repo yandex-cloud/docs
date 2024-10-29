@@ -1,6 +1,11 @@
+---
+title: Demo Telegram Bot
+description: Следуя данной инструкции, вы сможете создать Telegram Bot.
+---
+
 # Demo Telegram Bot
 
-Telegram-бот на serverless-стеке {{ yandex-cloud }}, который возвращает пользователю отправленное сообщение. Реализован с помощью библиотеки [Telegraf](https://telegraf.js.org/) на Node.js.
+Telegram-бот на serverless-стеке {{ yandex-cloud }}, который возвращает пользователю отправленное сообщение. Реализован с помощью библиотеки [Telegraf.js](https://telegraf.js.org/) на Node.js.
 
 Навыки Telegram-бота можно менять по своему усмотрению.
 
@@ -47,7 +52,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl \
           --request POST \
-          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo
+          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
         ```
 
     - Windows (cmd) {#windows-cmd}
@@ -55,7 +60,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl ^
           --request POST ^
-          --url "https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo"
+          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
         ```
 
     - Windows (PowerShell) {#windows-powershell}
@@ -63,7 +68,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```powershell
         curl.exe `
           --request POST `
-          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo
+          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
         ```
 
     {% endlist %}

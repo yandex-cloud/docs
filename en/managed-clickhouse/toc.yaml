@@ -1,10 +1,5 @@
 title: Yandex Managed Service for ClickHouse®
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -18,11 +13,15 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
-          - name: Changing {{ CH }} settings at the user level
-            href: operations/change-query-level-settings.md
-          - name: Updating the {{ CH }} version
+          - name: Editing {{ CH }} settings
+            items:
+              - name: Server level
+                href: operations/change-server-level-settings.md
+              - name: Query level
+                href: operations/change-query-level-settings.md
+          - name: Upgrading the {{ CH }} version
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -66,7 +65,7 @@ items:
             href: operations/format-schemas.md
           - name: Managing machine learning models
             href: operations/ml-models.md
-          - name: Configuring access to {{ objstorage-name }}
+          - name: Setting up access to {{ objstorage-name }}
             href: operations/s3-access.md
       - name: Sharding
         items:
@@ -84,7 +83,7 @@ items:
             href: operations/datalens-connect.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Adding data to the database
         href: tutorials/insert.md
@@ -92,17 +91,19 @@ items:
         href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
+      - name: Data resharding in a cluster
+        href: tutorials/mch-mch-resharding.md
       - name: Using hybrid storage
         href: tutorials/hybrid-storage.md
-      - name: Fetching data from {{ mkf-name }}
+      - name: Getting data from {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
       - name: Fetching data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Exchanging data with {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
       - name: >-
-          "Configuring {{ dns-full-name }} for accessing clusters from other
-          cloud networks"
+          "Configuring {{ dns-full-name }} for cluster access from other cloud
+          networks"
         href: tutorials/dns-peering.md
       - name: Analyzing {{ objstorage-full-name }} logs in {{ datalens-full-name }}
         href: tutorials/storage-logs-analysis.md
@@ -110,7 +111,7 @@ items:
         href: tutorials/clickhouse-for-graphite.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
-      - name: Migrating databases from Google BigQuery
+      - name: Migrating a database from Google BigQuery
         href: tutorials/bigquery-to-clickhouse.md
       - name: >-
           Delivering data from {{ mkf-name }} using {{ data-transfer-full-name
@@ -124,6 +125,22 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: Migrating a database from {{ GP }} to {{ CH }}
+        href: tutorials/greenplum-to-clickhouse.md
+      - name: >-
+          Migrating a database from {{ MY }} to {{ CH }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mysql-to-clickhouse.md
+      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+        href: tutorials/rdbms-to-clickhouse.md
+      - name: >-
+          Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-clickhouse.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -132,7 +149,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archives
+          - name: Archive
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -140,7 +157,8 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in {{ mch-name }}
+        href: concepts/instance-types.md
+      - name: Networking in {{ mch-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -172,7 +190,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
@@ -192,24 +210,174 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: BackupService
-            href: api-ref/grpc/backup_service.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: DatabaseService
-            href: api-ref/grpc/database_service.md
-          - name: FormatSchemaService
-            href: api-ref/grpc/format_schema_service.md
-          - name: MlModelService
-            href: api-ref/grpc/ml_model_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: UserService
-            href: api-ref/grpc/user_service.md
-          - name: VersionsService
-            href: api-ref/grpc/versions_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/grpc/Backup/index.md
+              - name: Get
+                href: api-ref/grpc/Backup/get.md
+              - name: List
+                href: api-ref/grpc/Backup/list.md
+              - name: Delete
+                href: api-ref/grpc/Backup/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: Move
+                href: api-ref/grpc/Cluster/move.md
+              - name: AddZookeeper
+                href: api-ref/grpc/Cluster/addZookeeper.md
+              - name: Backup
+                href: api-ref/grpc/Cluster/backup.md
+              - name: Restore
+                href: api-ref/grpc/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
+              - name: ListLogs
+                href: api-ref/grpc/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/grpc/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListBackups
+                href: api-ref/grpc/Cluster/listBackups.md
+              - name: ListHosts
+                href: api-ref/grpc/Cluster/listHosts.md
+              - name: AddHosts
+                href: api-ref/grpc/Cluster/addHosts.md
+              - name: UpdateHosts
+                href: api-ref/grpc/Cluster/updateHosts.md
+              - name: DeleteHosts
+                href: api-ref/grpc/Cluster/deleteHosts.md
+              - name: RestartHosts
+                href: api-ref/grpc/Cluster/restartHosts.md
+              - name: GetShard
+                href: api-ref/grpc/Cluster/getShard.md
+              - name: ListShards
+                href: api-ref/grpc/Cluster/listShards.md
+              - name: AddShard
+                href: api-ref/grpc/Cluster/addShard.md
+              - name: AddShards
+                href: api-ref/grpc/Cluster/addShards.md
+              - name: UpdateShard
+                href: api-ref/grpc/Cluster/updateShard.md
+              - name: DeleteShard
+                href: api-ref/grpc/Cluster/deleteShard.md
+              - name: DeleteShards
+                href: api-ref/grpc/Cluster/deleteShards.md
+              - name: GetShardGroup
+                href: api-ref/grpc/Cluster/getShardGroup.md
+              - name: ListShardGroups
+                href: api-ref/grpc/Cluster/listShardGroups.md
+              - name: CreateShardGroup
+                href: api-ref/grpc/Cluster/createShardGroup.md
+              - name: UpdateShardGroup
+                href: api-ref/grpc/Cluster/updateShardGroup.md
+              - name: DeleteShardGroup
+                href: api-ref/grpc/Cluster/deleteShardGroup.md
+              - name: ListExternalDictionaries
+                href: api-ref/grpc/Cluster/listExternalDictionaries.md
+              - name: CreateExternalDictionary
+                href: api-ref/grpc/Cluster/createExternalDictionary.md
+              - name: UpdateExternalDictionary
+                href: api-ref/grpc/Cluster/updateExternalDictionary.md
+              - name: DeleteExternalDictionary
+                href: api-ref/grpc/Cluster/deleteExternalDictionary.md
+          - name: Database
+            items:
+              - name: Overview
+                href: api-ref/grpc/Database/index.md
+              - name: Get
+                href: api-ref/grpc/Database/get.md
+              - name: List
+                href: api-ref/grpc/Database/list.md
+              - name: Create
+                href: api-ref/grpc/Database/create.md
+              - name: Delete
+                href: api-ref/grpc/Database/delete.md
+          - name: FormatSchema
+            items:
+              - name: Overview
+                href: api-ref/grpc/FormatSchema/index.md
+              - name: Get
+                href: api-ref/grpc/FormatSchema/get.md
+              - name: List
+                href: api-ref/grpc/FormatSchema/list.md
+              - name: Create
+                href: api-ref/grpc/FormatSchema/create.md
+              - name: Update
+                href: api-ref/grpc/FormatSchema/update.md
+              - name: Delete
+                href: api-ref/grpc/FormatSchema/delete.md
+          - name: MlModel
+            items:
+              - name: Overview
+                href: api-ref/grpc/MlModel/index.md
+              - name: Get
+                href: api-ref/grpc/MlModel/get.md
+              - name: List
+                href: api-ref/grpc/MlModel/list.md
+              - name: Create
+                href: api-ref/grpc/MlModel/create.md
+              - name: Update
+                href: api-ref/grpc/MlModel/update.md
+              - name: Delete
+                href: api-ref/grpc/MlModel/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: Get
+                href: api-ref/grpc/User/get.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
+              - name: GrantPermission
+                href: api-ref/grpc/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/grpc/User/revokePermission.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/grpc/Versions/index.md
+              - name: List
+                href: api-ref/grpc/Versions/list.md
       - name: REST
         items:
           - name: Overview
@@ -218,164 +386,170 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
-              - name: delete
-                href: api-ref/Backup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Backup/get.md
-              - name: list
+              - name: List
                 href: api-ref/Backup/list.md
+              - name: Delete
+                href: api-ref/Backup/delete.md
           - name: Cluster
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: addHosts
-                href: api-ref/Cluster/addHosts.md
-              - name: addShard
-                href: api-ref/Cluster/addShard.md
-              - name: addZookeeper
-                href: api-ref/Cluster/addZookeeper.md
-              - name: backup
-                href: api-ref/Cluster/backup.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: createExternalDictionary
-                href: api-ref/Cluster/createExternalDictionary.md
-              - name: createShardGroup
-                href: api-ref/Cluster/createShardGroup.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: deleteExternalDictionary
-                href: api-ref/Cluster/deleteExternalDictionary.md
-              - name: deleteHosts
-                href: api-ref/Cluster/deleteHosts.md
-              - name: deleteShard
-                href: api-ref/Cluster/deleteShard.md
-              - name: deleteShardGroup
-                href: api-ref/Cluster/deleteShardGroup.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: getShard
-                href: api-ref/Cluster/getShard.md
-              - name: getShardGroup
-                href: api-ref/Cluster/getShardGroup.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listBackups
-                href: api-ref/Cluster/listBackups.md
-              - name: listExternalDictionaries
-                href: api-ref/Cluster/listExternalDictionaries.md
-              - name: listHosts
-                href: api-ref/Cluster/listHosts.md
-              - name: listLogs
-                href: api-ref/Cluster/listLogs.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: listShardGroups
-                href: api-ref/Cluster/listShardGroups.md
-              - name: listShards
-                href: api-ref/Cluster/listShards.md
-              - name: move
-                href: api-ref/Cluster/move.md
-              - name: rescheduleMaintenance
-                href: api-ref/Cluster/rescheduleMaintenance.md
-              - name: restartHosts
-                href: api-ref/Cluster/restartHosts.md
-              - name: restore
-                href: api-ref/Cluster/restore.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: streamLogs
-                href: api-ref/Cluster/streamLogs.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
-              - name: updateExternalDictionary
-                href: api-ref/Cluster/updateExternalDictionary.md
-              - name: updateHosts
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: Move
+                href: api-ref/Cluster/move.md
+              - name: AddZookeeper
+                href: api-ref/Cluster/addZookeeper.md
+              - name: Backup
+                href: api-ref/Cluster/backup.md
+              - name: Restore
+                href: api-ref/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: ListLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: ListHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: AddHosts
+                href: api-ref/Cluster/addHosts.md
+              - name: UpdateHosts
                 href: api-ref/Cluster/updateHosts.md
-              - name: updateShard
+              - name: DeleteHosts
+                href: api-ref/Cluster/deleteHosts.md
+              - name: RestartHosts
+                href: api-ref/Cluster/restartHosts.md
+              - name: GetShard
+                href: api-ref/Cluster/getShard.md
+              - name: ListShards
+                href: api-ref/Cluster/listShards.md
+              - name: AddShard
+                href: api-ref/Cluster/addShard.md
+              - name: AddShards
+                href: api-ref/Cluster/addShards.md
+              - name: UpdateShard
                 href: api-ref/Cluster/updateShard.md
-              - name: updateShardGroup
+              - name: DeleteShard
+                href: api-ref/Cluster/deleteShard.md
+              - name: DeleteShards
+                href: api-ref/Cluster/deleteShards.md
+              - name: GetShardGroup
+                href: api-ref/Cluster/getShardGroup.md
+              - name: ListShardGroups
+                href: api-ref/Cluster/listShardGroups.md
+              - name: CreateShardGroup
+                href: api-ref/Cluster/createShardGroup.md
+              - name: UpdateShardGroup
                 href: api-ref/Cluster/updateShardGroup.md
+              - name: DeleteShardGroup
+                href: api-ref/Cluster/deleteShardGroup.md
+              - name: ListExternalDictionaries
+                href: api-ref/Cluster/listExternalDictionaries.md
+              - name: CreateExternalDictionary
+                href: api-ref/Cluster/createExternalDictionary.md
+              - name: UpdateExternalDictionary
+                href: api-ref/Cluster/updateExternalDictionary.md
+              - name: DeleteExternalDictionary
+                href: api-ref/Cluster/deleteExternalDictionary.md
           - name: Database
             items:
               - name: Overview
                 href: api-ref/Database/index.md
-              - name: create
-                href: api-ref/Database/create.md
-              - name: delete
-                href: api-ref/Database/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Database/get.md
-              - name: list
+              - name: List
                 href: api-ref/Database/list.md
+              - name: Create
+                href: api-ref/Database/create.md
+              - name: Delete
+                href: api-ref/Database/delete.md
           - name: FormatSchema
             items:
               - name: Overview
                 href: api-ref/FormatSchema/index.md
-              - name: create
-                href: api-ref/FormatSchema/create.md
-              - name: delete
-                href: api-ref/FormatSchema/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/FormatSchema/get.md
-              - name: list
+              - name: List
                 href: api-ref/FormatSchema/list.md
-              - name: update
+              - name: Create
+                href: api-ref/FormatSchema/create.md
+              - name: Update
                 href: api-ref/FormatSchema/update.md
+              - name: Delete
+                href: api-ref/FormatSchema/delete.md
           - name: MlModel
             items:
               - name: Overview
                 href: api-ref/MlModel/index.md
-              - name: create
-                href: api-ref/MlModel/create.md
-              - name: delete
-                href: api-ref/MlModel/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/MlModel/get.md
-              - name: list
+              - name: List
                 href: api-ref/MlModel/list.md
-              - name: update
+              - name: Create
+                href: api-ref/MlModel/create.md
+              - name: Update
                 href: api-ref/MlModel/update.md
+              - name: Delete
+                href: api-ref/MlModel/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: ResourcePreset
             items:
               - name: Overview
                 href: api-ref/ResourcePreset/index.md
-              - name: get
+              - name: Get
                 href: api-ref/ResourcePreset/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourcePreset/list.md
           - name: User
             items:
               - name: Overview
                 href: api-ref/User/index.md
-              - name: create
-                href: api-ref/User/create.md
-              - name: delete
-                href: api-ref/User/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/User/get.md
-              - name: grantPermission
-                href: api-ref/User/grantPermission.md
-              - name: list
+              - name: List
                 href: api-ref/User/list.md
-              - name: revokePermission
-                href: api-ref/User/revokePermission.md
-              - name: update
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
                 href: api-ref/User/update.md
+              - name: Delete
+                href: api-ref/User/delete.md
+              - name: GrantPermission
+                href: api-ref/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/User/revokePermission.md
           - name: Versions
             items:
               - name: Overview
                 href: api-ref/Versions/index.md
-              - name: list
+              - name: List
                 href: api-ref/Versions/list.md
-          - name: Operation
-            items:
-              - name: Overview
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
   - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -403,3 +577,4 @@ items:
       - name: All questions on one page
         href: qa/all.md
 base: en/managed-clickhouse
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "How to view service usage details in {{ billing-name }}"
-description: "Follow this guide to view service usage details."
+title: How to view service usage details in {{ billing-name }}
+description: Follow this guide to view service usage details.
 ---
 
 # View service usage details
@@ -62,7 +62,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 {% endlist %}
 
-By default, you get data for the last 30 days. To change this period, click ![image](../../_assets/console-icons/calendar.svg) and set the **{{ ui-key.yacloud_billing.billing.account.detail.label_from }}** and **{{ ui-key.yacloud_billing.billing.account.detail.label_to }}** dates or select a time interval, e.g., three days. A date is defined as an interval from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
+By default, you get data for the current month. To change this period, click ![image](../../_assets/console-icons/calendar.svg) and set the **{{ ui-key.yacloud_billing.billing.account.detail.label_from }}** and **{{ ui-key.yacloud_billing.billing.account.detail.label_to }}** dates or select a time interval, e.g., three days. A date is defined as an interval from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
 
 You can configure the charts to display the following:
 
@@ -79,7 +79,7 @@ The number of details and their values depend on the selected detail depth, char
 - **{{ ui-key.yacloud_billing.billing.account.detail.label_top-cost }}**: Shows the cost of services consumed before discount.
 - **{{ ui-key.yacloud_billing.billing.account.detail.label_top-total }}**: Shows the cost of services consumed after discount.
 
-Point the cursor to a line on the chart to see a popup. Each cloud, service, and product has its own color. See a description of measures below.
+Hover over a chart lines to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
 
 | Chart | Measures |
 :-----: | -----
@@ -100,7 +100,7 @@ The number of columns in the table depends on the selected detail depth. See a d
 ----- | -----
 | {{ ui-key.yacloud_billing.billing.account.detail.column_cloud-name }} | Name of cloud within which the resources were consumed. <br/>Only shown when by cloud usage details are selected. |
 | {{ ui-key.yacloud_billing.billing.account.detail.column_service }} | Name of service within which the resources were consumed. <br/>Only shown when by service/product usage details are selected. |
-| {{ ui-key.yacloud_billing.billing.account.detail.column_product }} | Product name <br/>Only shown when by product usage details are selected. |
+| {{ ui-key.yacloud_billing.billing.account.detail.column_product }} | Product name <br/>Only shown when usage details for products are selected. |
 | {{ ui-key.yacloud_billing.billing.account.detail.column_unit }} | Units and amount of resources consumed. <br/>Only shown when usage details for products are selected. |
 | {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Cost of consumed resources before discount. |
 | {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). |

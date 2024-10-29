@@ -1,11 +1,21 @@
 ---
-title: "Adding a function label"
-description: "Follow this guide to add a function label."
+title: Adding a function label
+description: Follow this guide to add a function label.
 ---
 
 # Adding a function label
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Select a function.
+   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+   1. Specify the key and value and press **Enter**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -105,6 +115,6 @@ description: "Follow this guide to add a function label."
 
 - API {#api}
 
-   To add a label to a function, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
+   To add a label to a function, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 {% endlist %}

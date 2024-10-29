@@ -1,12 +1,16 @@
 ---
-title: "Правила тарификации для {{ api-gw-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ api-gw-name }}."
+title: Правила тарификации для {{ api-gw-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ api-gw-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ api-gw-full-name }}
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## Из чего складывается стоимость использования {{ api-gw-name }} {#rules}
 
@@ -25,11 +29,11 @@ editable: false
 
 - Стоимость в рублях {#prices-rub}
 
-  Стоимость в месяц = 120,00 ₽ × Количество миллионов запросов
+  Стоимость в месяц = {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|string }} × Количество миллионов запросов
 
 - Стоимость в тенге {#prices-kzt}
 
-  Стоимость в месяц = 600,00 ₸ × Количество миллионов запросов
+  Стоимость в месяц = {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|string }} × Количество миллионов запросов
 
 {% endlist %}
 
@@ -45,9 +49,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Запросы к API-шлюзам {#request}
 
@@ -60,7 +62,7 @@ editable: false
   
   Оплачивается фактическое количество вызовов.
 
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоит 1,20 ₽, если 1 миллион запросов стоит 120,00 ₽.
+  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=RUB] {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|string }}.
 
 - Цены в тенге {#prices-kzt}
 
@@ -68,7 +70,7 @@ editable: false
   
   Оплачивается фактическое количество вызовов.
 
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоит 6,00 ₸, если 1 миллион запросов стоит 600,00 ₸.
+  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=KZT] {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|string }}.
 
 {% endlist %}
 

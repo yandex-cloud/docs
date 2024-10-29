@@ -1,15 +1,20 @@
 # Cleaning up full instance disk space
 
-A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In this case, clean up the instance disk space and prevent future disk overflows.
+A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In which case you will not be able to access the {{ GL }} instance. To clean up the disk and recover access to the {{ GL }} instance, contact [technical support]({{ link-console-support }}).
 
-## Clean up the instance disk space {#clean}
+To reduce the probability of running out of disk space in future:
+
+* Clean up the [instance disk space](#manual-cleanup) manually at regular intervals.
+* [Configure disk space cleanup policies](#set-cleanup-policy).
+
+## Clean up the instance disk space {#manual-cleanup}
 
 1. [Manually review]({{ gl.docs }}/ee/user/packages/container_registry/#view-the-container-registry) all Docker images and their tags in {{ GL }} Container Registry.
 1. [Delete]({{ gl.docs }}/ee/user/packages/container_registry/delete_container_registry_images.html) outdated images and tags.
 
-## Prevent disk space overflow {#prevent}
+## Configure disk space cleanup policies {#set-cleanup-policy}
 
-To prevent your instance disk space from overflowing, use any of the following options:
+You can use any of the following options:
 
 * [Set the expiration time for build artifacts]({{ gl.docs }}/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. Its default value is 30 days.
 * [Create and configure a tag cleanup policy]({{ gl.docs }}/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) at the level of individual projects utilizing {{ GL }} Container Registry.

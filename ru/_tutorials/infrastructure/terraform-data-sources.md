@@ -33,7 +33,7 @@
 
 1. В файле конфигурации после настроек провайдера добавьте:
 
-    ```
+    ```hcl
     data "yandex_compute_image" "my_image" {
       family = "ubuntu-2204-lts"
     }
@@ -50,7 +50,7 @@
     * `output "resource_active"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
         * `value` — возвращаемое значение.
 
-    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_image).
+    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_image).
 
 1. Создайте ресурсы:
 
@@ -68,13 +68,13 @@ terraform output
 
 Результат:
 
-```
+```text
 my_image_id = "fd8li2lvvfc6bdj4c787"
 ```
 
 Далее вы можете использовать полученный идентификатор для [создания ВМ](../../compute/operations/images-with-pre-installed-software/create.md), например:
 
-```
+```hcl
 resource "yandex_compute_disk" "boot-disk" {
   name     = "<имя_диска>"
   type     = "<тип_диска>"

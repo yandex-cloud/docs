@@ -1,6 +1,6 @@
 ---
-title: "Managing access in {{ vpc-full-name }} ({{ vpc-short-name }})"
-description: "Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Managing access in {{ vpc-full-name }} ({{ vpc-short-name }})
+description: Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ vpc-name }}
@@ -85,9 +85,11 @@ In this section, you will learn:
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `vpc.admin` instead of `vpc.publicAdmin`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, assign `editor` instead of `viewer` or `vpc.admin` instead of `vpc.publicAdmin`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----

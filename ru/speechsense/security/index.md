@@ -1,13 +1,13 @@
 ---
-title: "Управление доступом в {{ speechsense-full-name }}"
-description: "Управление доступом в сервисе речевой аналитики — {{ speechsense-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ speechsense-name }}, назначьте пользователю нужные роли из приведенного списка."
+title: Управление доступом в {{ speechsense-full-name }}
+description: Управление доступом в сервисе речевой аналитики — {{ speechsense-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ speechsense-name }}, назначьте пользователю нужные роли из приведенного списка.
 ---
 
 # Управление доступом в {{ speechsense-name }}
 
 Доступ к сервису {{ speechsense-full-name }} регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [{{ org-full-name }}](../../organization/).
 
-Список операций, доступных пользователю {{ speechsense-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
+Список операций, доступных пользователю {{ speechsense-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут те, у кого есть роль `admin`, `resource-manager.clouds.owner` или `organization-manager.organizations.owner` на этот ресурс.
 
@@ -53,11 +53,13 @@ description: "Управление доступом в сервисе речев
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли мне необходимы {#choosing-roles}
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить на пространство роль `speech-sense.editor` вместо `speech-sense.viewer`.
 
-#| 
+#|
 || **Действие** | **Необходимые роли** ||
 || **Просмотр информации** ||
 || Просмотр пространства и всех его проектов | `speech-sense.auditor` ||

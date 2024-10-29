@@ -28,6 +28,6 @@ Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-t
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [GROUP BY](https://ydb.tech/en/docs/yql/reference/syntax/group_by).
-* [Aggregate functions](https://ydb.tech/en/docs/yql/reference/builtins/aggregation).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select).
+* [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by).
+* [Aggregate functions]({{ ydb.docs }}/yql/reference/builtins/aggregation).

@@ -3,46 +3,73 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/get.md
 ---
 
-# DataSphere API v2, REST: Community.get
-Returns community.
- 
+# DataSphere API v2, REST: Community.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns community.
+
+## HTTP request
+
 ```
 GET https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-communityId | <p>Required. ID of the community.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| communityId | **string**
+
+Required field. ID of the community. ||
+|#
+
+## Response {#yandex.cloud.datasphere.v2.Community}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "createdById": "string",
   "organizationId": "string",
   "zoneId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the community.</p> 
-createdAt | **string** (date-time)<br><p>Time when community was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the community.</p> 
-description | **string**<br><p>Description of the comminuty.</p> 
-labels | **object**<br><p>Labels of the community.</p> 
-createdById | **string**<br><p>ID of the user who created the community.</p> 
-organizationId | **string**<br><p>ID of the organization to which community belongs.</p> 
-zoneId | **string**<br><p>ID of the zone where this community was created</p> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the community. ||
+|| createdAt | **string** (date-time)
+
+Time when community was created.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the community. ||
+|| description | **string**
+
+Description of the comminuty. ||
+|| labels | **string**
+
+Labels of the community. ||
+|| createdById | **string**
+
+ID of the user who created the community. ||
+|| organizationId | **string**
+
+ID of the organization to which community belongs. ||
+|| zoneId | **string**
+
+ID of the zone where this community was created ||
+|#

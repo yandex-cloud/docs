@@ -1,6 +1,6 @@
 ---
-title: "Assigning roles to a container"
-description: "Follow this guide to assign roles to a container."
+title: Assigning roles to a container
+description: Follow this guide to assign roles to a container.
 ---
 
 # Assigning roles to a container
@@ -33,7 +33,7 @@ description: "Follow this guide to assign roles to a container."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
       ```
       yc serverless container add-access-binding \
         --name <container_name> \
@@ -47,6 +47,6 @@ description: "Follow this guide to assign roles to a container."
 
 - API {#api}
 
-   To assign roles for a container, use the [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings) gRPC API call.
+   To assign roles for a container, use the [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/SetAccessBindings](../containers/api-ref/grpc/Container/setAccessBindings.md) gRPC API call.
 
 {% endlist %}

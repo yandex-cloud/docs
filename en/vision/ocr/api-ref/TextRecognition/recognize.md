@@ -3,41 +3,59 @@ editable: false
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognition/recognize.md
 ---
 
-# Vision OCR API, REST: TextRecognition.recognize
-To send the image for text recognition.
- 
+# Vision OCR API, REST: TextRecognition.Recognize {#Recognize}
 
- 
-## HTTP request {#https-request}
+To send the image for text recognition.
+
+## HTTP request
+
 ```
 POST https://ocr.{{ api-host }}/ocr/v1/recognizeText
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.ocr.v1.RecognizeTextRequest}
+
+```json
 {
+  // Includes only one of the fields `content`
+  "content": "string",
+  // end of the list of possible fields
   "mimeType": "string",
   "languageCodes": [
     "string"
   ],
-  "model": "string",
-  "content": "string"
+  "model": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-mimeType | **string**<br><p>Specifications of the (<a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a>). Each specification contains the file to analyze and features to use for analysis. Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``, ``PDF``.</li> <li>Maximum file size: 20 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> <li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li> </ul> 
-languageCodes[] | **string**<br><p>List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> 
-model | **string**<br><p>Model to use for text detection.</p> <p>The maximum string length in characters is 50.</p> 
-content | **string** (byte)<br><p>Bytes with data</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| content | **string** (bytes)
+
+Bytes with data
+
+Includes only one of the fields `content`. ||
+|| mimeType | **string**
+
+Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions:
+* Supported file formats: `JPEG`, `PNG`, `PDF`.
+* Maximum file size: see [documentation](/docs/vision/concepts/limits).
+* Image size should not exceed 20M pixels (length x width).
+* The number of pages in a PDF file should not exceed 1. ||
+|| languageCodes[] | **string**
+
+[List of the languages](/docs/vision/concepts/ocr/supported-languages) to recognize text.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). ||
+|| model | **string**
+
+[Model](/docs/vision/concepts/ocr/template-recognition#models) to use for text detection. ||
+|#
+
+## Response {#yandex.cloud.ai.ocr.v1.RecognizeTextResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "textAnnotation": {
     "width": "string",
@@ -155,65 +173,205 @@ content | **string** (byte)<br><p>Bytes with data</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-textAnnotation | **object**<br><p>Recognized text blocks in this page or text from entities.</p> 
-textAnnotation.<br>width | **string** (int64)<br><p>Page width in pixels.</p> 
-textAnnotation.<br>height | **string** (int64)<br><p>Page height in pixels.</p> 
-textAnnotation.<br>blocks[] | **object**<br><p>Recognized text blocks in this page.</p> 
-textAnnotation.<br>blocks[].<br>boundingBox | **object**<br><p>Area on the page where the text block is located.</p> 
-textAnnotation.<br>blocks[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-textAnnotation.<br>blocks[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>lines[] | **object**<br><p>Recognized lines in this block.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>boundingBox | **object**<br><p>Area on the page where the line is located.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>text | **string**<br><p>Recognized text.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[] | **object**<br><p>Recognized words.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>boundingBox | **object**<br><p>Area on the page where the word is located.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>text | **string**<br><p>Recognized word value.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>entityIndex | **string** (int64)<br><p>ID of the recognized word in entities array.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>textSegments[] | **object**<br><p>Word position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[] | **object**<br><p>Line position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>orientation | **string**<br><p>Angle of rotate line</p> 
-textAnnotation.<br>blocks[].<br>languages[] | **object**<br><p>A list of detected languages</p> 
-textAnnotation.<br>blocks[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
-textAnnotation.<br>blocks[].<br>textSegments[] | **object**<br><p>Block position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>blocks[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
-textAnnotation.<br>entities[] | **object**<br><p>Recognized entities.</p> 
-textAnnotation.<br>entities[].<br>name | **string**<br><p>Entity name.</p> 
-textAnnotation.<br>entities[].<br>text | **string**<br><p>Recognized entity text.</p> 
-textAnnotation.<br>tables[] | **object**
-textAnnotation.<br>tables[].<br>boundingBox | **object**<br><p>Area on the page where the table is located.</p> 
-textAnnotation.<br>tables[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-textAnnotation.<br>tables[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-textAnnotation.<br>tables[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-textAnnotation.<br>tables[].<br>rowCount | **string** (int64)<br><p>Number of rows in table.</p> 
-textAnnotation.<br>tables[].<br>columnCount | **string** (int64)<br><p>Number of columns in table.</p> 
-textAnnotation.<br>tables[].<br>cells[] | **object**<br><p>Table cells.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>boundingBox | **object**<br><p>Area on the page where the table cell is located.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>rowIndex | **string** (int64)<br><p>Row index.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>columnIndex | **string** (int64)<br><p>Column index.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>columnSpan | **string** (int64)<br><p>Column span.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>rowSpan | **string** (int64)<br><p>Row span.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>text | **string**<br><p>Text in cell.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments[] | **object**<br><p>Table cell position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
-textAnnotation.<br>fullText | **string**<br><p>Full text recognized from image.</p> 
-textAnnotation.<br>rotate | **string**<br><p>Angle of rotate image</p> 
-page | **string** (int64)<br><p>Page number in PDF file.</p> 
+#|
+||Field | Description ||
+|| textAnnotation | **[TextAnnotation](#yandex.cloud.ai.ocr.v1.TextAnnotation)**
+
+Recognized text blocks in page or text from entities. ||
+|| page | **string** (int64)
+
+Page number in PDF file. ||
+|#
+
+## TextAnnotation {#yandex.cloud.ai.ocr.v1.TextAnnotation}
+
+#|
+||Field | Description ||
+|| width | **string** (int64)
+
+Page width in pixels. ||
+|| height | **string** (int64)
+
+Page height in pixels. ||
+|| blocks[] | **[Block](#yandex.cloud.ai.ocr.v1.Block)**
+
+Recognized text blocks in this page. ||
+|| entities[] | **[Entity](#yandex.cloud.ai.ocr.v1.Entity)**
+
+Recognized entities. ||
+|| tables[] | **[Table](#yandex.cloud.ai.ocr.v1.Table)** ||
+|| fullText | **string**
+
+Full text recognized from image. ||
+|| rotate | **enum** (Angle)
+
+Angle of image rotation.
+
+- `ANGLE_UNSPECIFIED`
+- `ANGLE_0`
+- `ANGLE_90`
+- `ANGLE_180`
+- `ANGLE_270` ||
+|#
+
+## Block {#yandex.cloud.ai.ocr.v1.Block}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the text block is located. ||
+|| lines[] | **[Line](#yandex.cloud.ai.ocr.v1.Line)**
+
+Recognized lines in this block. ||
+|| languages[] | **[DetectedLanguage](#yandex.cloud.ai.ocr.v1.Block.DetectedLanguage)**
+
+A list of detected languages ||
+|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+
+Block position from full_text string. ||
+|#
+
+## Polygon {#yandex.cloud.ai.ocr.v1.Polygon}
+
+#|
+||Field | Description ||
+|| vertices[] | **[Vertex](#yandex.cloud.ai.ocr.v1.Vertex)**
+
+The bounding polygon vertices. ||
+|#
+
+## Vertex {#yandex.cloud.ai.ocr.v1.Vertex}
+
+#|
+||Field | Description ||
+|| x | **string** (int64)
+
+X coordinate in pixels. ||
+|| y | **string** (int64)
+
+Y coordinate in pixels. ||
+|#
+
+## Line {#yandex.cloud.ai.ocr.v1.Line}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the line is located. ||
+|| text | **string**
+
+Recognized text. ||
+|| words[] | **[Word](#yandex.cloud.ai.ocr.v1.Word)**
+
+Recognized words. ||
+|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+
+Line position from full_text string. ||
+|| orientation | **enum** (Angle)
+
+Angle of line rotation.
+
+- `ANGLE_UNSPECIFIED`
+- `ANGLE_0`
+- `ANGLE_90`
+- `ANGLE_180`
+- `ANGLE_270` ||
+|#
+
+## Word {#yandex.cloud.ai.ocr.v1.Word}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the word is located. ||
+|| text | **string**
+
+Recognized word value. ||
+|| entityIndex | **string** (int64)
+
+ID of the recognized word in entities array. ||
+|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+
+Word position from full_text string. ||
+|#
+
+## TextSegments {#yandex.cloud.ai.ocr.v1.TextSegments}
+
+#|
+||Field | Description ||
+|| startIndex | **string** (int64)
+
+Start character position from full_text string. ||
+|| length | **string** (int64)
+
+Text segment length. ||
+|#
+
+## DetectedLanguage {#yandex.cloud.ai.ocr.v1.Block.DetectedLanguage}
+
+#|
+||Field | Description ||
+|| languageCode | **string**
+
+Detected language code. ||
+|#
+
+## Entity {#yandex.cloud.ai.ocr.v1.Entity}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Entity name. ||
+|| text | **string**
+
+Recognized entity text. ||
+|#
+
+## Table {#yandex.cloud.ai.ocr.v1.Table}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the table is located. ||
+|| rowCount | **string** (int64)
+
+Number of rows in table. ||
+|| columnCount | **string** (int64)
+
+Number of columns in table. ||
+|| cells[] | **[TableCell](#yandex.cloud.ai.ocr.v1.TableCell)**
+
+Table cells. ||
+|#
+
+## TableCell {#yandex.cloud.ai.ocr.v1.TableCell}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the table cell is located. ||
+|| rowIndex | **string** (int64)
+
+Row index. ||
+|| columnIndex | **string** (int64)
+
+Column index. ||
+|| columnSpan | **string** (int64)
+
+Column span. ||
+|| rowSpan | **string** (int64)
+
+Row span. ||
+|| text | **string**
+
+Text in cell. ||
+|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+
+Table cell position from full_text string. ||
+|#

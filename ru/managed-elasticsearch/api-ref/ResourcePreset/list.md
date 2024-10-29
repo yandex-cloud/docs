@@ -3,27 +3,37 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Managed Service for Elasticsearch API, REST: ResourcePreset.list
-Retrieves the list of available resource presets.
- 
+# Managed Service for Elasticsearch API, REST: ResourcePreset.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of available resource presets.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/resourcePresets
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token.</p> <p>To get the next page of results, set ``page_token`` to the <a href="/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return.
+
+If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token.
+
+To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+|#
+
+## Response {#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "resourcePresets": [
     {
@@ -39,12 +49,35 @@ pageToken | <p>Page token.</p> <p>To get the next page of results, set ``page_to
 }
 ```
 
- 
-Field | Description
---- | ---
-resourcePresets[] | **object**<br><p>List of resource presets.</p> 
-resourcePresets[].<br>id | **string**<br><p>ID of the resource preset.</p> 
-resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for an Elasticsearch node created with the preset.</p> 
-resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for an Elasticsearch node created with the preset, in bytes.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 
+#|
+||Field | Description ||
+|| resourcePresets[] | **[ResourcePreset](#yandex.cloud.mdb.elasticsearch.v1.ResourcePreset)**
+
+List of resource presets. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests.
+
+If the number of results is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.elasticsearch.v1.ListResourcePresetsRequest) parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## ResourcePreset {#yandex.cloud.mdb.elasticsearch.v1.ResourcePreset}
+
+A ResourcePreset resource for describing hardware configuration presets.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the resource preset. ||
+|| zoneIds[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| cores | **string** (int64)
+
+Number of CPU cores for an Elasticsearch node created with the preset. ||
+|| memory | **string** (int64)
+
+RAM volume for an Elasticsearch node created with the preset, in bytes. ||
+|#

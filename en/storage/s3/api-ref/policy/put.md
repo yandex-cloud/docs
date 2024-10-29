@@ -2,6 +2,8 @@
 
 Applies the access policy to the specified bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```bash
@@ -10,19 +12,19 @@ PUT /{bucket}?policy HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `policy` | Required parameter that indicates the type of operation. |
+`policy` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 ### Data schema {#request-scheme}
 
@@ -37,3 +39,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -20,7 +20,7 @@ To create a trigger, you need:
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* A message queue that the trigger receives messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will collect messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -46,12 +46,12 @@ To create a trigger, you need:
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**.​ The values may range from 0 to 20 seconds. The default value is 10 seconds.
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**.​ The values may range from 1 to 1,000. The default value is 1.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**​. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**​. The values may range from 1 to 1,000. The default value is 1.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified batch size.
+      {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -74,8 +74,8 @@ To create a trigger, you need:
      --queue-service-account-id <service_account_ID> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --batch-size 1 \
-     --batch-cutoff 10s
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time>
    ```
 
    Where:
@@ -91,8 +91,8 @@ To create a trigger, you need:
       1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
    * `--invoke-function-id`: Function ID.
-   * `--queue-service-account-name`: Service account with permissions to read messages from the queue.
-   * `--invoke-function-service-account-id`: Service account with permissions to invoke the function.
+   * `--queue-service-account-name`: ID of the service account with permissions to read messages from the queue.
+   * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
@@ -137,8 +137,8 @@ To create a trigger, you need:
         message_queue {
           queue_id           = "<queue_ID>"
           service_account_id = "<service_account_ID>"
-          batch_size         = "<timeout>"
-          batch_cutoff       = "<event_batch_size>"
+          batch_size         = "<message_batch_size>"
+          batch_cutoff       = "<maximum_wait_time>"
       }
       ```
 
@@ -167,7 +167,7 @@ To create a trigger, you need:
             1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
          * `service_account_id`: ID of the service account with permissions to read messages from the queue.
-         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
          * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
@@ -176,15 +176,15 @@ To create a trigger, you need:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}
 
-   To create a trigger for {{ message-queue-full-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ message-queue-full-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -208,4 +208,5 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-short-name }} that sends messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/ymq-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/ymq-trigger-create.md)

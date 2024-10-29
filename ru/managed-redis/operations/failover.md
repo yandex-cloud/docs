@@ -4,7 +4,7 @@
 
 Переключение в среднем занимает несколько минут, кластер в это время доступен.
 
-[Шардированный кластер](../concepts/sharding.md) содержит три и более хоста-мастера — по одному на каждый [шард](../concepts/sharding.md#redis-cluster-structure). Переключение мастера для шардированного кластера осуществляется поочередно для каждого шарда.
+[Шардированный кластер](../concepts/sharding.md) содержит один или несколько хостов-мастеров — по одному на каждый [шард](../concepts/sharding.md#redis-cluster-structure). Переключение мастера для шардированного кластера осуществляется поочередно для каждого шарда.
 
 {% list tabs group=instructions %}
 
@@ -51,7 +51,7 @@
 
 - API {#api}
 
-    Чтобы переключить мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) и передайте в запросе:
+    Чтобы переключить мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно переключить мастер, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md).
     * Только для шардированного кластера: имя текущего мастера нужного вам шарда в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list).

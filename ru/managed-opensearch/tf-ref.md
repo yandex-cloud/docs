@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ mos-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mos-name }}.
+---
+
 # Справочник {{ TF }} для {{ mos-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_opensearch_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_opensearch_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_opensearch_cluster]({{ tf-provider-datasources-link }}/mdb_opensearch_cluster) | Информация о [кластере](./concepts/index.md) |

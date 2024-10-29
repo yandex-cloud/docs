@@ -6,7 +6,7 @@ You need to enable automated punctuation (i.e., the punctuator) in the recognize
 ## Solution {#case-resolution}
 The punctuator is available in the following recognition modes:
 
-1. In gRPC API, the punctuator is enabled by the `TEXT_NORMALIZATION_ENABLED` option. This option enables the text normalization mode that mostly adds punctuation marks. Acceptable option values are given in [this](../../../speechkit/stt-v3/api-ref/grpc/stt_service.md#TextNormalizationOptions) SpeechKit API specification section.
+1. In gRPC API, the punctuator is enabled by the `TEXT_NORMALIZATION_ENABLED` option. This option enables the text normalization mode that mostly adds punctuation marks. Acceptable option values are given in [this](../../../speechkit/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md#speechkit.stt.v3.TextNormalizationOptions) SpeechKit API specification section.
 
 2. In the asynchronous recognition REST API, the punctuator functionality is enabled by the `config.specification.literature_text` option. It enables the text normalization mode that mostly adds punctuation marks. Acceptable option values are given in [this](../../../speechkit/stt/api/transcribation-api.md#sendfile-params) SpeechKit API specification section.
 

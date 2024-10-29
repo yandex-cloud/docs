@@ -7,7 +7,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
 
 {% note warning %}
 
-Тег нельзя удалить, если он используется хотя бы в одной задаче очереди.
+Удалить тег может только владелец очереди или [администратор](../../role-model.md#admin). Перед удалением убедитесь, что тег не используется ни в одной из задач очереди.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
 
 Чтобы удалить тег, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 POST /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/tags/_remove
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

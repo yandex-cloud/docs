@@ -1,6 +1,6 @@
 ---
-title: "Introduction to {{ ydb-short-name }} via {{ TF }}"
-description: "This tutorial describes basic {{ TF }} CLI commands and gives the list of guides on how to use {{ ydb-short-name }} via {{ TF }}."
+title: Introduction to {{ ydb-short-name }} via {{ TF }}
+description: This tutorial describes basic {{ TF }} CLI commands and gives the list of guides on how to use {{ ydb-short-name }} via {{ TF }}.
 ---
 
 # Introduction to {{ ydb-short-name }} via {{ TF }}
@@ -33,10 +33,10 @@ The following {{ TF }} provider resources are supported for {{ ydb-name }}:
 | [yandex_ydb_database_dedicated]({{ tf-provider-resources-link }}/ydb_database_dedicated) | Database [on dedicated resources](../concepts/resources.md#resource-presets) |
 | [yandex_ydb_database_iam_binding]({{ tf-provider-resources-link }}/ydb_database_iam_binding) | [Binding](../../iam/concepts/access-control/index.md#access-bindings) access privileges to a database |
 | [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless) | [Serverless](../concepts/resources.md#serverless) database |
-| [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Topic](https://ydb.tech/docs/en/concepts/topic) |
-| [yandex_ydb_table]({{ tf-provider-resources-link }}/ydb_table) | [Table](https://ydb.tech/docs/en/concepts/datamodel/table) |
-| [yandex_ydb_table_changefeed]({{ tf-provider-resources-link }}/ydb_table_changefeed) | [Change Data Capture](https://ydb.tech/docs/en/concepts/cdc) |
-| `yandex_ydb_table_index` | [Table secondary index](https://ydb.tech/docs/en/concepts/secondary_indexes) |
+| [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Topic]({{ ydb.docs }}/concepts/topic) |
+| [yandex_ydb_table]({{ tf-provider-resources-link }}/ydb_table) | [Table]({{ ydb.docs }}/concepts/datamodel/table) |
+| [yandex_ydb_table_changefeed]({{ tf-provider-resources-link }}/ydb_table_changefeed) | [Change Data Capture]({{ ydb.docs }}/concepts/cdc) |
+| `yandex_ydb_table_index` | [Table secondary index]({{ ydb.docs }}/concepts/secondary_indexes) |
 
 ## Data sources {#data-sources}
 

@@ -1,6 +1,6 @@
 ---
-title: "How to connect a Linux VM to {{ backup-full-name }}"
-description: "Follow this guide to connect a Linux VM to {{ backup-name }}."
+title: How to connect a Linux VM to {{ backup-full-name }}
+description: Follow this guide to connect a Linux VM to {{ backup-name }}.
 ---
 
 # Connecting a Linux VM to {{ backup-name }}
@@ -10,6 +10,10 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
+
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it, follow the steps below.
+
+To connect a Linux VM to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 1. [Connect](../../compute/operations/vm-control/vm-update.md) the previously created service account to the VM.

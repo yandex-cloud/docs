@@ -43,8 +43,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{link-console-main}}) перейдите в каталог, в котором будет размещаться инфраструктура контейнерного приложения.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта — `mongo-express`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../load-testing/security/index.md#roles-list) `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}` и `serverless-containers.containerInvoker`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -76,9 +76,9 @@
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту роли на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings).
+  Чтобы назначить сервисному аккаунту роли на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
 
 
 {% endlist %}
@@ -153,12 +153,12 @@
 
 - API {#api}
 
-  1. Чтобы создать [облачную сеть](../../vpc/concepts/network.md), воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) и передайте в запросе:
+  1. Чтобы создать [облачную сеть](../../vpc/concepts/network.md), воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) и передайте в запросе:
 
       * Идентификатор каталога, в котором будет размещаться сеть.
       * Имя новой сети `mongo-express-network` в параметре `name`.
 
-  1. Чтобы добавить правило в группу безопасности, воспользуйтесь методом REST API [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/security_group_service.md#UpdateRules) и передайте в запросе:
+  1. Чтобы добавить правило в группу безопасности, воспользуйтесь методом REST API [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/SecurityGroup/updateRules.md) и передайте в запросе:
 
       * Идентификатор группы безопасности, в которую будут добавлены правила, в параметре `securityGroupId`.
 
@@ -189,7 +189,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-      1. В открывшемся окне перейдите на вкладку  **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию ВМ:
+      1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию ВМ:
 
          ```yaml
          version: '3.1'
@@ -285,10 +285,10 @@
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета — `mongodb-creds`.
   1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}**  введите `login`.
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `login`.
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите логин пользователя БД — `mongo_db_user`.
   1. Нажмите **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и укажите второй секрет:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}**  введите `password`.
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `password`.
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите пароль для доступа к БД — значение `MONGO_INITDB_ROOT_PASSWORD` из [спецификации ВМ](#create-vm).
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
@@ -328,7 +328,7 @@
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
 
 {% endlist %}
 
@@ -367,7 +367,7 @@
 
 - API {#api}
 
-  Чтобы создать реестр, воспользуйтесь методом REST API [create](../../container-registry/api-ref/Registry/create.md) для ресурса [Registry](../../container-registry/api-ref/Registry/) или вызовом gRPC API [RegistryService/CreateRegistryRequest](../../container-registry/api-ref/grpc/registry_service.md#Create).
+  Чтобы создать реестр, воспользуйтесь методом REST API [create](../../container-registry/api-ref/Registry/create.md) для ресурса [Registry](../../container-registry/api-ref/Registry/) или вызовом gRPC API [RegistryService/CreateRegistryRequest](../../container-registry/api-ref/grpc/Registry/create.md).
 
 {% endlist %}
 
@@ -440,17 +440,17 @@
 
     - CLI {#cli}
 
-      1. Присвойте загруженному образу `mongo-express` URL вида `{{ registry }}/<ID_реестра>/<имя_Docker-образа>:<тег>`:
+      1. Присвойте загруженному образу `mongo-express` URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
          ```
          docker tag mongo-express \
-         {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
          ```
 
       1. Загрузите образ `mongo-express` в реестр:
 
          ```
-         docker push {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         docker push {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
          ```
 
     {% endlist %}
@@ -552,9 +552,9 @@
 
 - API {#api}
 
-  Чтобы создать контейнер, воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create).
+  Чтобы создать контейнер, воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/Container/create.md).
 
-  Чтобы создать ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision).
+  Чтобы создать ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}
 
@@ -652,7 +652,7 @@
 
 - API {#api}
 
-  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create).
+  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md).
 
 {% endlist %}
 

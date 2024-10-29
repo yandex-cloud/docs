@@ -1,6 +1,6 @@
 ---
-title: "Sending your application data to the {{ tracker-full-name }} team"
-description: "Learn which data to send to the {{ tracker-name }} team's duty staff to register your app in {{ tracker-name }}."
+title: Sending your application data to the {{ tracker-full-name }} team
+description: Learn which data to send to the {{ tracker-name }} team's duty staff to register your app in {{ tracker-name }}.
 ---
 
 # Sending your application data to the {{ tracker-name }} team

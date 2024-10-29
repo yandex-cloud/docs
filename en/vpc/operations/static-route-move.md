@@ -6,7 +6,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 - Management console {#console}
 
-   To move a [route table](../concepts/static-routes.md) to another folder:
+   To move a [route table](../concepts/routing.md) to another folder:
 
    1. In the [management console]({{ link-console-main }}), go to the folder where the route table is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -21,9 +21,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To move a [route table](../concepts/static-routes.md) to another folder:
+   To move a [route table](../concepts/routing.md) to another folder:
 
-   1. View a description of the CLI move route table command:
+   1. View the description of the CLI move route table command:
 
       ```bash
       yc vpc route-table move --help
@@ -83,11 +83,11 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 - API {#api}
 
-   To move a [route table](../concepts/static-routes.md) to a different folder, use the [move](../api-ref/RouteTable/move.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) gRPC API call, and provide the following in the request:
+   To move a [route table](../concepts/routing.md) to a different folder, use the [move](../api-ref/RouteTable/move.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Move](../api-ref/grpc/RouteTable/move.md) gRPC API call, and provide the following in the request:
 
    * ID of the route table to be moved, in the `routeTableId` parameter.
 
-      To get the route table ID, use the [list](../api-ref/RouteTable/list) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/route_table_service.md#List) gRPC API call and provide the current folder ID in the `folderId` request parameter.
+      To get the route table ID, use the [list](../api-ref/RouteTable/list) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) gRPC API call and provide the current folder ID in the `folderId` request parameter.
 
    * ID of the folder the route table will be moved to, in the `destinationFolderId` parameter.
 

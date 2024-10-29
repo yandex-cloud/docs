@@ -1,6 +1,6 @@
 ---
-title: "Как изменить группу виртуальных машин в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить группу виртуальных машин." 
+title: Как изменить группу виртуальных машин в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете изменить группу виртуальных машин.
 ---
 
 # Изменить группу виртуальных машин
@@ -35,7 +35,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Посмотрите описание команды CLI для изменения группы:
 
-     ```
+     ```bash
      {{ yc-compute-ig }} update --help
      ```
 
@@ -47,7 +47,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Укажите нужное имя и описание в YAML-файле, по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} update --id <идентификатор_группы_ВМ> --file specification.yaml
       ```
 
@@ -55,9 +55,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Изменить имя и описание группы можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
+  Изменить имя и описание группы можно с помощью метода REST API [update](../../instancegroup/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../instancegroup/api-ref/grpc/InstanceGroup/update.md).
 
-  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}
 
@@ -95,7 +95,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Посмотрите описание команды CLI для изменения группы:
 
-     ```
+     ```bash
      {{ yc-compute-ig }} update --help
      ```
 
@@ -107,7 +107,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Укажите нужные параметры виртуальной машины в YAML-файле (ключ `resources_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} update --id <идентификатор_группы_ВМ> --file specification.yaml
       ```
 
@@ -115,9 +115,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Изменить вычислительные ресурсы можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
+  Изменить вычислительные ресурсы можно с помощью метода REST API [update](../../instancegroup/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../instancegroup/api-ref/grpc/InstanceGroup/update.md).
 
-  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}
 
@@ -149,7 +149,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Посмотрите описание команды CLI для изменения группы:
 
-     ```
+     ```bash
      {{ yc-compute-ig }} update --help
      ```
 
@@ -161,7 +161,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Укажите нужный размер хранилища в YAML-файле (ключ `boot_disk_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} update --id <идентификатор_группы_ВМ> --file specification.yaml
       ```
 
@@ -169,9 +169,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Изменить размер диска можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
+  Изменить размер диска можно с помощью метода REST API [update](../../instancegroup/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../instancegroup/api-ref/grpc/InstanceGroup/update.md).
 
-  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}
 

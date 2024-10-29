@@ -1,8 +1,25 @@
 # Решение проблем CLI
 
+## Ошибки при установке CLI {#installation-errors}
+
+#### Failure writing output to destination {#failure-writing-output-to-destination}
+
+Если утилита `curl` в ОС Linux Ubuntu была установлена с помощью [snap-пакета](https://ru.wikipedia.org/wiki/Snappy_(система_управления_пакетами)), в процессе [установки](operations/install-cli.md) CLI может возникнуть ошибка `curl: (23) Failure writing output to destination`. 
+
+Чтобы исправить эту ошибку, удалите утилиту `curl` и повторно установите ее с помощью [менеджера пакетов](https://ru.wikipedia.org/wiki/Advanced_Packaging_Tool) `apt`:
+
+```bash
+sudo snap remove curl
+sudo apt install curl
+```
+
+Затем повторите [установку CLI](./operations/install-cli.md).
+
+## Ошибки при работе с CLI {#operation-errors}
+
 Если во время выполнения операции возникла ошибка, [CLI](../glossary/cli.md) отобразит соответствующее сообщение.
 
-### Пример сообщения об ошибке {#sample}
+#### Пример сообщения об ошибке {#sample}
 
 ```
 yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
@@ -18,7 +35,7 @@ Use server-request-id, client-request-id, client-trace-id for investigation of i
 If you are going to ask for help of cloud support, please send the following trace file: C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
 ```
 
-### Что делать? {#what-to-do}
+#### Что делать? {#what-to-do}
 
 Чтобы помочь нашим специалистам быстрее решить вашу проблему, из сообщения об ошибке:
 
@@ -29,4 +46,3 @@ If you are going to ask for help of cloud support, please send the following tra
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
 1. Обратитесь с этой информацией в [службу технической поддержки]({{ link-console-support }}).
-

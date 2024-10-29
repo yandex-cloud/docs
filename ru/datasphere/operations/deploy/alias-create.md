@@ -1,6 +1,6 @@
 # Создать алиас
 
-Вы можете распределять нагрузку между [нодами](../../concepts/deploy/index.md#node) и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).  
+Вы можете распределять нагрузку между [нодами](../../concepts/deploy/index.md#node) и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).
 
 Чтобы создать алиас:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
@@ -18,7 +18,7 @@
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 
-#### Что дальше {#what-is-next}
+#### См. также {#see-also}
 
 * [{#T}](alias-update.md)
 * [{#T}](alias-delete.md)

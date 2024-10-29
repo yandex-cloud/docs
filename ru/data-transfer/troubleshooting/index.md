@@ -11,6 +11,7 @@
 * [{#T}](#elasticsearch)
 * [{#T}](#mongodb)
 * [{#T}](#mysql)
+* [{#T}](#object-storage)
 * [{#T}](#opensearch)
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
@@ -18,7 +19,7 @@
 * [{#T}](#support)
 
 ## Проблемы, возникающие при работе с сервисом {{ data-transfer-name }} {#overview}
-Чтобы вовремя обнаружить проблему: 
+Чтобы вовремя обнаружить проблему:
 
 1. Следите за состоянием трансфера на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 1. [Настройте алерты](../operations/monitoring.md#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера.
@@ -27,12 +28,12 @@
 
 Если при переносе данных работа сервиса {{ data-transfer-name }} была нарушена, попробуйте локализовать и проанализировать проблему. Часть решений приводится в этой статье или других разделах документации.
 
-| Источник проблемы     | Проблема                                                    | Решение                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Источник проблемы | Проблема | Решение |
 |-----------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Эндпоинт              | Отсутствие сетевой доступности или прав доступа к эндпоинту | Проверьте чтение из источника с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Проверьте запись в приемник с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Если данные читаются и записываются, проверьте [ограничения на работу с СУБД](../operations/transfer.md).</br>Уточните требования для [подготовки](../operations/prepare.md) и [настройки](../operations/index.md) эндпоинта.</br>Поищите уже готовое [решение проблемы](#common). |
-| Эндпоинт или трансфер | Недостаток физических ресурсов трансфера или эндпоинтов     | Если данные читаются и записываются, проверьте, достаточно ли физических ресурсов на графиках: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) и [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Ознакомьтесь с рекомендациями по диагностике СУБД. Например, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md) или [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md).                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Данные                | Неактуальные данные из-за изменений в схеме данных          | Ознакомьтесь с различными сценариями передачи данных в разделе [Практические руководства {{ data-transfer-name }}](../tutorials/index.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Данные                | Неактуальные данные из-за большого объема данных            | Увеличьте количество воркеров для [параллельного копирования](../concepts/sharded.md) или [репликации](../operations/transfer.md#create).</br>Разделите таблицы на несколько трансферов.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Эндпоинт | Отсутствие сетевой доступности или прав доступа к эндпоинту | Проверьте чтение из источника с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Проверьте запись в приемник с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Если данные читаются и записываются, проверьте [ограничения на работу с СУБД](../operations/transfer.md).</br>Уточните требования для [подготовки](../operations/prepare.md) и [настройки](../operations/index.md) эндпоинта.</br>Поищите уже готовое [решение проблемы](#common). |
+| Эндпоинт или трансфер | Недостаток физических ресурсов трансфера или эндпоинтов | Если данные читаются и записываются, проверьте, достаточно ли физических ресурсов на графиках: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) и [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Ознакомьтесь с рекомендациями по диагностике СУБД. Например, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md) или [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
+| Данные | Неактуальные данные из-за изменений в схеме данных | Ознакомьтесь с различными сценариями передачи данных в разделе [Практические руководства {{ data-transfer-name }}](../tutorials/index.md). |
+| Данные | Неактуальные данные из-за большого объема данных | Увеличьте количество воркеров для [параллельного копирования](../concepts/sharded.md) или [репликации](../operations/transfer.md#create).</br>Разделите таблицы на несколько трансферов. |
 
 После устранения проблемы, в зависимости от статуса трансфера, активируйте его или измените ограничения передачи данных работающего трансфера.
 
@@ -48,7 +49,15 @@
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
-{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
+### Снижение скорости трансфера {#speed-degrade}
+
+**Проблема**:
+
+{% include [speed-degrade](../../_includes/data-transfer/speed-degrade.md) %}
+
+**Решение**:
+
+Используйте политику очистки `Drop` или `Truncate`.
 
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
@@ -66,7 +75,7 @@
 {"code": 13, "message": "internal"}
 ```
 
-**Решение:** обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру с `request_id` запроса. Если вы используете `curl` для вызовов [API](../../glossary/rest-api.md), добавьте флаг `-v` для упрощения диагностики ошибки.
+**Решение**: обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру с `request_id` запроса. Если вы используете `curl` для вызовов [API](../../glossary/rest-api.md), добавьте флаг `-v` для упрощения диагностики ошибки.
 
 ## Сеть {#network}
 
@@ -83,9 +92,15 @@
 
 ## {{ CH }} {#clickhouse}
 
-{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [table-names](../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
+
+{% include [date-range](../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
+
+{% include [pod-restarted](../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
+
+{% include [max-partitions](../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
 
 ## {{ ES }} {#elasticsearch}
 
@@ -111,6 +126,8 @@
 
 {% include [history lost](../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
+{% include [cannot-get-delimiters](../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
@@ -127,6 +144,10 @@
 
 {% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
 
+## {{ objstorage-name }} {#object-storage}
+
+{% include [update-not-supported](../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}
+
 ## {{ OS }} {#opensearch}
 
 {% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
@@ -134,6 +155,10 @@
 {% include [exceeding-fields-limit](../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
+{% include [indexation](../../_includes/data-transfer/troubles/elastic-opensearch/indexation.md) %}
+
+{% include [mapper-parsing-exception](../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
 
 ## {{ PG }} {#postgresql}
 
@@ -148,6 +173,8 @@
 {% include [constraint](../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

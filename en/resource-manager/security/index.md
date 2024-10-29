@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ resmgr-full-name }}"
-description: "Access management in {{ resmgr-full-name }}, a service for structuring {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ resmgr-full-name }}
+description: Access management in {{ resmgr-full-name }}, a service for structuring {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ resmgr-name }}
@@ -55,9 +55,11 @@ In this section, you will learn:
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
@@ -70,10 +72,10 @@ The table below lists the roles needed to perform a particular action. You can a
 | [Update a cloud](../operations/cloud/update.md) | `update` | `editor` or `resource-manager.editor` for the cloud |
 | [Deleting a cloud](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` for a cloud |
 | [Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` or `resource-manager.editor` for the cloud |
-| [Updating a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder |
-| [Deleting a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder |
-| **Managing resource access** | |
-| Inviting a new user to an organization | | `{{ roles-organization-admin }}` |
+| [Update a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder |
+| [Delete a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder |
+| **Manage resource access** | |
+| Invite a new user to an organization | | `{{ roles-organization-admin }}` |
 | [Make a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
 | View roles granted for a resource | `listAccessBindings` | `viewer` for this resource |
 | View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud |

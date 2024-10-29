@@ -1,7 +1,6 @@
 # Constant restarts of the kube-dns-autoscaler pod
 
 
-
 ## Issue description {#issue-description}
 
 After updating Kubernetes and node groups from version 1.21 to version 1.22, `kube-dns-autoscaler` began restarting constantly.

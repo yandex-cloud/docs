@@ -4,7 +4,7 @@
 To expand a [volume](../../concepts/volume.md):
 1. [{#T}](#enabling-expansion).
 1. [{#T}](#create-pvc).
-1. [{#T}](#create-pod)
+1. [{#T}](#create-pod).
 1. [{#T}](#restart-pod).
 1. [{#T}](#volume-expansion).
 1. [{#T}](#restart-pod1).
@@ -13,7 +13,7 @@ To expand a [volume](../../concepts/volume.md):
 
 ## Enable volume expansion {#enabling-expansion}
 
-To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains `allowVolumeExpansion: true`. In {{ managed-k8s-name }} storage, this feature is enabled by default:
+To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains the `allowVolumeExpansion: true` parameter. In {{ managed-k8s-name }} storage, this feature is enabled by default:
 
 
 ```yaml
@@ -38,7 +38,7 @@ reclaimPolicy: Delete
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
+
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -55,7 +55,7 @@ reclaimPolicy: Delete
 
 
 
-1. Create a `PersistentVolumeClaim`:
+1. Create the `PersistentVolumeClaim` object:
 
    ```bash
    kubectl create -f pvc-expansion.yaml
@@ -122,7 +122,7 @@ To request volume expansion, you need to delete the pod.
 
 ## Request volume expansion {#volume-expansion}
 
-Make changes to the `spec.resources.requests.storage` field of the `PersistentVolumeClaim`.
+Edit the `spec.resources.requests.storage` field of the `PersistentVolumeClaim` object.
 1. Open the YAML file named `pvc-expansion.yaml`:
 
    ```bash
@@ -131,7 +131,7 @@ Make changes to the `spec.resources.requests.storage` field of the `PersistentVo
 
    In the text editor, change the disk size value and save it:
 
-   ```
+   ```text
    # Please edit the object below. Lines beginning with a '#' will be ignored,
    # and an empty file will abort the edit. If an error occurs while saving this file will be
    # reopened with the relevant failures.
@@ -145,7 +145,7 @@ Make changes to the `spec.resources.requests.storage` field of the `PersistentVo
      - ReadWriteOnce
      resources:
        requests:
-        storage: 1Gi # Change the value to 2Gi.
+        storage: 1Gi # Change to 2Gi.
    ...
    status:
      accessModes:
@@ -203,7 +203,7 @@ Make changes to the `spec.resources.requests.storage` field of the `PersistentVo
    kubectl get pvc pvc-expansion -o yaml
    ```
 
-   The volume size increased. The `status.capacity.storage` field shows the expanded size:
+   The volume size increased. The `status.capacity.storage` field now shows the expanded size:
 
    ```yaml
    apiVersion: v1

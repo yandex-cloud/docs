@@ -1,6 +1,6 @@
 ---
-title: "How to invoke a container in {{ serverless-containers-full-name }}"
-description: "Follow this guide to invoke a container."
+title: How to invoke a container in {{ serverless-containers-full-name }}
+description: Follow this guide to invoke a container.
 ---
 
 # Invoking a container
@@ -12,7 +12,7 @@ You can invoke a container:
 
 {% note info %}
 
-If you want any user to be able to invoke a container without providing the authorization header, [make it public](./container-public.md).
+If you want any user to be able to invoke a container without providing the authorization header, [make the container public](./container-public.md).
 
 {% endnote %}
 
@@ -20,6 +20,6 @@ If you want any user to be able to invoke a container without providing the auth
 
 After creating the container, you will get the invocation link. Make an HTTPS request by sending an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
-```
+```bash
 curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```

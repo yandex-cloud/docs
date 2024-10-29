@@ -1,6 +1,6 @@
 ---
-title: "Остановка и запуск кластера {{ CH }}"
-description: "При необходимости вы можете остановить кластер БД {{ CH }} и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий."
+title: Остановка и запуск кластера {{ CH }}
+description: 'При необходимости вы можете остановить кластер БД {{ CH }} и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий.'
 ---
 
 # Остановка и запуск кластера {{ CH }}
@@ -38,7 +38,7 @@ description: "При необходимости вы можете останов
 
 - API {#api}
 
-  Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
+  Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
   
   Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -73,7 +73,7 @@ description: "При необходимости вы можете останов
 
 - API {#api}
 
-    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
+    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
     
     Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 

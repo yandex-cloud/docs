@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a non-sharded {{ RD }} cluster in {{ mrd-full-name }}"
-description: "Follow this guide to connect to a non-sharded {{ RD }} cluster."
+title: How to connect to a non-sharded {{ RD }} cluster in {{ mrd-full-name }}
+description: Follow this guide to connect to a non-sharded {{ RD }} cluster.
 ---
 
 # Connecting to a non-sharded {{ RD }} cluster

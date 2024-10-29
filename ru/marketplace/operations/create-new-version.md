@@ -1,11 +1,11 @@
 ---
-title: "Создание новой версии продукта в {{ marketplace-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать новую версию продукта." 
+title: Создание новой версии продукта в {{ marketplace-full-name }}
+description: Следуя данной инструкции, вы сможете создать новую версию продукта.
 ---
 
 # Создание новой версии продукта
 
-На вкладке **{{ ui-key.yacloud_portal.marketplace_v2.product.tab_versions }}** нажмите **{{ ui-key.yacloud_portal.marketplace_v2.version.version-table_action_create }}**. Заполните форму необходимыми сведениями:
+На вкладке **{{ ui-key.yacloud_portal.marketplace_v2.product.tab_versions }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_portal.marketplace_v2.version.version-table_action_create }}**. Заполните форму необходимыми сведениями:
 
 {% note info %}
 
@@ -18,6 +18,10 @@ description: "Следуя данной инструкции, вы сможет�
 - {{ compute-name }} {#compute}
 
   {% include [product-version-compute](../../_includes/marketplace/product-version-compute.md) %}
+
+- {{ cos-name }} {#cos}
+
+  {% include [product-version-cos](../../_includes/marketplace/product-version-cos.md) %}
 
 - {{ managed-k8s-name }} {#managed-k8s}
 

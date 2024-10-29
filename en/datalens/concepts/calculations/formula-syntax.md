@@ -23,7 +23,7 @@ DATETRUNC([datetime], 'month')
 
 ## Dataset fields in calculations {#dataset-fields}
 
-The syntax used for accessing dataset fields is similar to Transact-SQL; in {{ datalens-full-name }}, however, the field name must be enclosed in square brackets (`[]`):
+The syntax used to access dataset fields is similar to Transact-SQL; in {{ datalens-full-name }}, however, the field name must be enclosed in square brackets (`[]`):
 
 ```
 [Field name]
@@ -45,43 +45,43 @@ In addition to fields, operators, and functions, expressions can include constan
 
 You can use the following operators in expressions:
 
-- Arithmetic: `+`,` -`,` *`, `/`.
+- Arithmetic: `+`, `-`, `*`, `/`.
 
-   ```
-   ([Sales per Order] * [OrderCount]) - [Profit]
-   ```
+  ```
+  ([Sales per Order] * [OrderCount]) - [Profit]
+  ```
 
-   ```
-   ([Profit] / [Cost Price]) * 100
-   ```
+  ```
+  ([Profit] / [Cost Price]) * 100
+  ```
 
-   ```
-   [City] + " " + "city"
-   ```
+  ```
+  [City] + " " + "city"
+  ```
 
 [Addition (+)](../../function-ref/OP_PLUS.md#description), [subtraction (-)](../../function-ref/OP_MINUS.md#description), and [multiplication (*)](../../function-ref/OP_MULT.md#description) operators behave differently depending on the argument type.
 
 - Exponentiation: `^`.
 
-   ```
-   [Mass] * [Speed] ^ 2
-   ```
+  ```
+  [Mass] * [Speed] ^ 2
+  ```
 
-- Remainder of a division: `%`.
+- Remainder of division: `%`.
 
-   ```
-   [Sales] % 10 + [Cost Price] % 10
-   ```
+  ```
+  [Sales] % 10 + [Cost Price] % 10
+  ```
 
 - Boolean: `AND`, `OR`, `NOT`, `IN`, `LIKE`, `IS TRUE`, `IS FALSE`, `BETWEEN`.
 
 - Comparisons: `=`, `!=`, `<`, `<=`, `>`, `>=`.
 
-   Comparison operators allow you to create logical chains, such as:
+  Comparison operators allow you to create logical chains, such as:
 
-   ```
-   1 > x > -4 > y != 8
-   ```
+  ```
+  1 > x > -4 > y != 8
+  ```
 
 You can see the full list of operators [here](../../function-ref/operator-functions.md).
 
@@ -102,89 +102,89 @@ You can use comments to add explanations or ignore parts of formulas:
 
 - Single-line comment.
 
-   ```
-   -- This is a single-line comment
-   ```
+  ```
+  -- This is a single-line comment
+  ```
 
 - Block comment.
 
-   ```
-   /* This is a block
-   comment */
-   ```
+  ```
+  /* This is a block
+  comment */
+  ```
 
 ## Logical operations {#logical-operations}
 
 You can use these logical functions for branching calculations in expressions:
 
-- `CASE`:
+- `CASE`.
 
-   ```
-   CASE [ProductID]
-       WHEN 1 THEN "Bananas"
-       WHEN 2 THEN "Apples"
-       WHEN 3 THEN "Pears"
-       ELSE "Other"
-   END
-   ```
+  ```
+  CASE [ProductID]
+      WHEN 1 THEN "Bananas"
+      WHEN 2 THEN "Apples"
+      WHEN 3 THEN "Pears"
+      ELSE "Other"
+  END
+  ```
 
-   ```
-   CASE( 
-       [Color],
-       "R", "Red",
-       "G", "Green",
-       "B", "Blue",
-       "Not RGB" 
-   )
-   ```
+  ```
+  CASE(
+      [Color],
+      "R", "Red",
+      "G", "Green",
+      "B", "Blue",
+      "Not RGB"
+  )
+  ```
 
-   You can see the full description of the `CASE` function [here](../../function-ref/CASE.md).
+  You can see the full description of the `CASE` function [here](../../function-ref/CASE.md).
 
-- `IF`:
+- `IF`.
 
-   ```
-   IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
-   ```
+  ```
+  IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
+  ```
 
-   ```
-   IF
-       [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
-           THEN "Leap year"
-       ELSE "Ordinary year"
-   END
-   ```
-```
-IF
-    [City] = "Moscow"
-        THEN "This is the Capital"
-    ELSEIF [City] = "St. Petersburg"
-        THEN "This is the northern Capital"
-    ELSE "Other city"
-END
-```
+  ```
+  IF
+      [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
+          THEN "Leap year"
+      ELSE "Ordinary year"
+  END
+  ```
+  ```
+  IF
+      [City] = "Moscow"
+          THEN "This is the Capital"
+      ELSEIF [City] = "St. Petersburg"
+          THEN "This is the northern Capital"
+      ELSE "Other city"
+  END
+  ```
 
 
 You can see the full description of the `IF` function [here](../../function-ref/IF.md).
 
-- `IFNULL`, `ISNULL`, `ZN`:
+- `IFNULL`, `ISNULL`, `ZN`.
 
-   ```
-   IFNULL([Cost Price], 10) * [OrderCount]
-   ```
+  ```
+  IFNULL([Cost Price], 10) * [OrderCount]
+  ```
 
-   You can see the full description of the `IFNULL` function [here](../../function-ref/IFNULL.md).
+  You can see the full description of the `IFNULL` function [here](../../function-ref/IFNULL.md).
 
-   ```
-   IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
-   ```
+  ```
+  IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
+  ```
 
-   You can see the full description of the `ISNULL` function [here](../../function-ref/ISNULL.md).
+  You can see the full description of the `ISNULL` function [here](../../function-ref/ISNULL.md).
 
-   ```
-   ZN([Total Sales]) - ZN([Total Cost])
-   ```
+  ```
+  ZN([Total Sales]) - ZN([Total Cost])
+  ```
 
-   You can see the full description of the `ZN` function [here](../../function-ref/ZN.md).
+  You can see the full description of the `ZN` function [here](../../function-ref/ZN.md).
 
 ## Strings {#strings}
 
@@ -216,7 +216,7 @@ FIND([Product Name], 'plus')
 CONCAT('"', [Product Name], '"')
 ```
 
-You can make different conversions of string data using [special characters](../data-types.md#string) in formulas:
+You can make different conversions of string data using [special characters](../../dataset/data-types.md#string) in formulas:
 
 ```
 REPLACE([ShopAddress], "\n", " ")
@@ -228,7 +228,7 @@ REPLACE([ShopAddress], "\n", " ")
 
 {% note info %}
 
-Such special characters as `\n`, `\t`, or `\r `do not affect the way the source data is displayed.
+Such special characters as `\n`, `\t`, or `\r` do not affect the way the source data is displayed.
 
 {% endnote %}
 

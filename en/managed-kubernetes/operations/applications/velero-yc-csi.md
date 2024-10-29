@@ -4,9 +4,9 @@
 [Velero](https://velero.io/) is a backup, recovery, and migration tool for [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
 * Protect your data from loss using a flexible backup system.
 * Recover a {{ managed-k8s-name }} cluster faster if it goes down.
-* Transfer data across {{ managed-k8s-name }} clusters.
+* Move your data from one {{ managed-k8s-name }} cluster to another.
 
-Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
+Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
    yc iam service-account create --name <service_account_name>
    ```
 
-1. [Assign the service account](../../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role:
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to the service account:
 
    ```bash
    yc resource-manager folder add-access-binding <folder_ID> \
@@ -40,23 +40,23 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) called `velero`. The application uses it by default.
+   * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) named `velero`. The application uses it by default.
 
-      {% note info %}
+     {% note info %}
 
-      If you select a different namespace, you will have to specify its name in each command.
+     If you select a different namespace, you will have to specify its name in each command.
 
-      {% endnote %}
+     {% endnote %}
 
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -69,7 +69,6 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Velero, run this command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \
         --version {{ mkt-k8s-key.yc_velero-yc-csi.helmChart.tag }} \
         --untar && \
@@ -77,9 +76,11 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
         --namespace velero \
         --create-namespace \
         --set configuration.backupStorageLocation.bucket=<bucket_name> \
-        --set-file serviceaccountawskeyvalue=<path_to_sa-key.json_file> \
+        --set-file serviceaccountawskeyvalue=<path_to_sa-key.json> \
         velero ./velero/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## See also {#see-also}
 

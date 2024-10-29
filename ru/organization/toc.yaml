@@ -1,10 +1,5 @@
 title: Yandex Cloud Organization
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -18,6 +13,8 @@ items:
             href: operations/organizations-overview.md
           - name: Создать организацию
             href: operations/enable-org.md
+          - name: Получить идентификатор организации
+            href: operations/organization-get-id.md
           - name: Изменить данные организации
             href: operations/org-profile.md
           - name: Управление несколькими организациями
@@ -36,8 +33,26 @@ items:
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
-          - name: Управление группами пользователей
+          - name: Подписать пользователя на уведомления
+            href: operations/subscribe-user-for-notifications.md
+      - name: Управление группами пользователей
+        items:
+          - name: Обзор
             href: operations/manage-groups.md
+          - name: Создать группу
+            href: operations/create-group.md
+          - name: Добавить участников
+            href: operations/add-member-group.md
+          - name: Редактировать группу
+            href: operations/edit-group.md
+          - name: Настроить доступ к управлению группой
+            href: operations/access-manage-group.md
+          - name: Назначить права доступа группе
+            href: operations/access-group.md
+          - name: Удалить участников
+            href: operations/delete-member-group.md
+          - name: Удалить группу
+            href: operations/delete-group.md
       - name: Управление федерациями удостоверений
         items:
           - name: Обзор
@@ -54,8 +69,6 @@ items:
             href: operations/os-login-profile-create.md
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
-      - name: Управление группами пользователей
-        href: operations/manage-groups.md
       - name: Управление доступом
         items:
           - name: Обзор
@@ -70,6 +83,8 @@ items:
             href: operations/revoke-role.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Управление федерациями удостоверений
         items:
           - name: Обзор
@@ -86,10 +101,18 @@ items:
             items:
               - name: >-
                   Сопоставление групп пользователей в {{
+                  microsoft-idp.adfs-short }}
+                href: tutorials/federations/group-mapping/adfs.md
+              - name: >-
+                  Сопоставление групп пользователей в {{
                   microsoft-idp.entra-id-full }}
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: Сопоставление групп пользователей в Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
+      - name: >-
+          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Ansible
+        href: tutorials/sa-oslogin-ansible.md
   - name: Концепции
     items:
       - name: Облака и сервисы
@@ -110,6 +133,8 @@ items:
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md
+      - name: Ошибки аутентификации с аккаунтом на Яндексе
+        href: yandex-id-diagnostics.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -126,26 +151,172 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: GroupMappingService
-            href: api-ref/grpc/group_mapping_service.md
-          - name: GroupService
-            href: api-ref/grpc/group_service.md
-          - name: OrganizationService
-            href: api-ref/grpc/organization_service.md
-          - name: OsLoginService
-            href: api-ref/grpc/os_login_service.md
-          - name: SshCertificateService
-            href: api-ref/grpc/ssh_certificate_service.md
-          - name: UserService
-            href: api-ref/grpc/user_service.md
-          - name: UserSshKeyService
-            href: api-ref/grpc/user_ssh_key_service.md
-          - name: CertificateService
-            href: api-ref/grpc/certificate_service.md
-          - name: FederationService
-            href: api-ref/grpc/federation_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: GroupMapping
+            items:
+              - name: Overview
+                href: api-ref/grpc/GroupMapping/index.md
+              - name: Get
+                href: api-ref/grpc/GroupMapping/get.md
+              - name: Create
+                href: api-ref/grpc/GroupMapping/create.md
+              - name: Update
+                href: api-ref/grpc/GroupMapping/update.md
+              - name: Delete
+                href: api-ref/grpc/GroupMapping/delete.md
+              - name: ListItems
+                href: api-ref/grpc/GroupMapping/listItems.md
+              - name: UpdateItems
+                href: api-ref/grpc/GroupMapping/updateItems.md
+          - name: Group
+            items:
+              - name: Overview
+                href: api-ref/grpc/Group/index.md
+              - name: Get
+                href: api-ref/grpc/Group/get.md
+              - name: List
+                href: api-ref/grpc/Group/list.md
+              - name: Create
+                href: api-ref/grpc/Group/create.md
+              - name: Update
+                href: api-ref/grpc/Group/update.md
+              - name: Delete
+                href: api-ref/grpc/Group/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Group/listOperations.md
+              - name: ListMembers
+                href: api-ref/grpc/Group/listMembers.md
+              - name: UpdateMembers
+                href: api-ref/grpc/Group/updateMembers.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Group/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Group/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Group/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Organization
+            items:
+              - name: Overview
+                href: api-ref/grpc/Organization/index.md
+              - name: Get
+                href: api-ref/grpc/Organization/get.md
+              - name: List
+                href: api-ref/grpc/Organization/list.md
+              - name: Update
+                href: api-ref/grpc/Organization/update.md
+              - name: ListOperations
+                href: api-ref/grpc/Organization/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Organization/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Organization/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Organization/updateAccessBindings.md
+          - name: OsLogin
+            items:
+              - name: Overview
+                href: api-ref/grpc/OsLogin/index.md
+              - name: GetSettings
+                href: api-ref/grpc/OsLogin/getSettings.md
+              - name: UpdateSettings
+                href: api-ref/grpc/OsLogin/updateSettings.md
+              - name: GetProfile
+                href: api-ref/grpc/OsLogin/getProfile.md
+              - name: ListProfiles
+                href: api-ref/grpc/OsLogin/listProfiles.md
+              - name: CreateProfile
+                href: api-ref/grpc/OsLogin/createProfile.md
+              - name: UpdateProfile
+                href: api-ref/grpc/OsLogin/updateProfile.md
+              - name: SetDefaultProfile
+                href: api-ref/grpc/OsLogin/setDefaultProfile.md
+              - name: DeleteProfile
+                href: api-ref/grpc/OsLogin/deleteProfile.md
+          - name: SshCertificate
+            items:
+              - name: Overview
+                href: api-ref/grpc/SshCertificate/index.md
+              - name: Generate
+                href: api-ref/grpc/SshCertificate/generate.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: ListMembers
+                href: api-ref/grpc/User/listMembers.md
+              - name: DeleteMembership
+                href: api-ref/grpc/User/deleteMembership.md
+          - name: UserSshKey
+            items:
+              - name: Overview
+                href: api-ref/grpc/UserSshKey/index.md
+              - name: Get
+                href: api-ref/grpc/UserSshKey/get.md
+              - name: List
+                href: api-ref/grpc/UserSshKey/list.md
+              - name: Create
+                href: api-ref/grpc/UserSshKey/create.md
+              - name: Update
+                href: api-ref/grpc/UserSshKey/update.md
+              - name: Delete
+                href: api-ref/grpc/UserSshKey/delete.md
+          - name: Cloud Organization SAML API
+            items:
+              - name: Overview
+                href: saml/api-ref/grpc/index.md
+              - name: Certificate
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Certificate/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Certificate/get.md
+                  - name: List
+                    href: saml/api-ref/grpc/Certificate/list.md
+                  - name: Create
+                    href: saml/api-ref/grpc/Certificate/create.md
+                  - name: Update
+                    href: saml/api-ref/grpc/Certificate/update.md
+                  - name: Delete
+                    href: saml/api-ref/grpc/Certificate/delete.md
+                  - name: ListOperations
+                    href: saml/api-ref/grpc/Certificate/listOperations.md
+              - name: Federation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Federation/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Federation/get.md
+                  - name: List
+                    href: saml/api-ref/grpc/Federation/list.md
+                  - name: Create
+                    href: saml/api-ref/grpc/Federation/create.md
+                  - name: Update
+                    href: saml/api-ref/grpc/Federation/update.md
+                  - name: Delete
+                    href: saml/api-ref/grpc/Federation/delete.md
+                  - name: AddUserAccounts
+                    href: saml/api-ref/grpc/Federation/addUserAccounts.md
+                  - name: DeleteUserAccounts
+                    href: saml/api-ref/grpc/Federation/deleteUserAccounts.md
+                  - name: ListUserAccounts
+                    href: saml/api-ref/grpc/Federation/listUserAccounts.md
+                  - name: ListOperations
+                    href: saml/api-ref/grpc/Federation/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: saml/api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -154,132 +325,152 @@ items:
             items:
               - name: Overview
                 href: api-ref/Group/index.md
-              - name: create
-                href: api-ref/Group/create.md
-              - name: delete
-                href: api-ref/Group/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Group/get.md
-              - name: list
+              - name: List
                 href: api-ref/Group/list.md
-              - name: listAccessBindings
-                href: api-ref/Group/listAccessBindings.md
-              - name: listMembers
-                href: api-ref/Group/listMembers.md
-              - name: listOperations
-                href: api-ref/Group/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Group/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Group/create.md
+              - name: Update
                 href: api-ref/Group/update.md
-              - name: updateAccessBindings
-                href: api-ref/Group/updateAccessBindings.md
-              - name: updateMembers
+              - name: Delete
+                href: api-ref/Group/delete.md
+              - name: ListOperations
+                href: api-ref/Group/listOperations.md
+              - name: ListMembers
+                href: api-ref/Group/listMembers.md
+              - name: UpdateMembers
                 href: api-ref/Group/updateMembers.md
+              - name: ListAccessBindings
+                href: api-ref/Group/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Group/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Group/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Organization
             items:
               - name: Overview
                 href: api-ref/Organization/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Organization/get.md
-              - name: list
+              - name: List
                 href: api-ref/Organization/list.md
-              - name: listAccessBindings
-                href: api-ref/Organization/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Organization/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Organization/setAccessBindings.md
-              - name: update
+              - name: Update
                 href: api-ref/Organization/update.md
-              - name: updateAccessBindings
+              - name: ListOperations
+                href: api-ref/Organization/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Organization/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Organization/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
           - name: OsLogin
             items:
               - name: Overview
                 href: api-ref/OsLogin/index.md
-              - name: createProfile
-                href: api-ref/OsLogin/createProfile.md
-              - name: deleteProfile
-                href: api-ref/OsLogin/deleteProfile.md
-              - name: getProfile
-                href: api-ref/OsLogin/getProfile.md
-              - name: getSettings
+              - name: GetSettings
                 href: api-ref/OsLogin/getSettings.md
-              - name: listProfiles
-                href: api-ref/OsLogin/listProfiles.md
-              - name: setDefaultProfile
-                href: api-ref/OsLogin/setDefaultProfile.md
-              - name: updateProfile
-                href: api-ref/OsLogin/updateProfile.md
-              - name: updateSettings
+              - name: UpdateSettings
                 href: api-ref/OsLogin/updateSettings.md
+              - name: GetProfile
+                href: api-ref/OsLogin/getProfile.md
+              - name: ListProfiles
+                href: api-ref/OsLogin/listProfiles.md
+              - name: CreateProfile
+                href: api-ref/OsLogin/createProfile.md
+              - name: UpdateProfile
+                href: api-ref/OsLogin/updateProfile.md
+              - name: SetDefaultProfile
+                href: api-ref/OsLogin/setDefaultProfile.md
+              - name: DeleteProfile
+                href: api-ref/OsLogin/deleteProfile.md
           - name: SshCertificate
             items:
               - name: Overview
                 href: api-ref/SshCertificate/index.md
-              - name: generate
+              - name: Generate
                 href: api-ref/SshCertificate/generate.md
           - name: User
             items:
               - name: Overview
                 href: api-ref/User/index.md
-              - name: deleteMembership
-                href: api-ref/User/deleteMembership.md
-              - name: listMembers
+              - name: ListMembers
                 href: api-ref/User/listMembers.md
+              - name: DeleteMembership
+                href: api-ref/User/deleteMembership.md
           - name: UserSshKey
             items:
               - name: Overview
                 href: api-ref/UserSshKey/index.md
-              - name: create
-                href: api-ref/UserSshKey/create.md
-              - name: delete
-                href: api-ref/UserSshKey/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/UserSshKey/get.md
-              - name: list
+              - name: List
                 href: api-ref/UserSshKey/list.md
-              - name: update
+              - name: Create
+                href: api-ref/UserSshKey/create.md
+              - name: Update
                 href: api-ref/UserSshKey/update.md
-          - name: Certificate
+              - name: Delete
+                href: api-ref/UserSshKey/delete.md
+          - name: Cloud Organization SAML API
             items:
               - name: Overview
-                href: api-ref/Certificate/index.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: get
-                href: api-ref/Certificate/get.md
-              - name: list
-                href: api-ref/Certificate/list.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
-              - name: update
-                href: api-ref/Certificate/update.md
-          - name: Federation
-            items:
-              - name: Overview
-                href: api-ref/Federation/index.md
-              - name: addUserAccounts
-                href: api-ref/Federation/addUserAccounts.md
-              - name: create
-                href: api-ref/Federation/create.md
-              - name: delete
-                href: api-ref/Federation/delete.md
-              - name: deleteUserAccounts
-                href: api-ref/Federation/deleteUserAccounts.md
-              - name: get
-                href: api-ref/Federation/get.md
-              - name: list
-                href: api-ref/Federation/list.md
-              - name: listOperations
-                href: api-ref/Federation/listOperations.md
-              - name: listUserAccounts
-                href: api-ref/Federation/listUserAccounts.md
-              - name: update
-                href: api-ref/Federation/update.md
+                href: saml/api-ref/index.md
+              - name: Certificate
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Certificate/index.md
+                  - name: Get
+                    href: saml/api-ref/Certificate/get.md
+                  - name: List
+                    href: saml/api-ref/Certificate/list.md
+                  - name: Create
+                    href: saml/api-ref/Certificate/create.md
+                  - name: Update
+                    href: saml/api-ref/Certificate/update.md
+                  - name: Delete
+                    href: saml/api-ref/Certificate/delete.md
+                  - name: ListOperations
+                    href: saml/api-ref/Certificate/listOperations.md
+              - name: Federation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Federation/index.md
+                  - name: Get
+                    href: saml/api-ref/Federation/get.md
+                  - name: List
+                    href: saml/api-ref/Federation/list.md
+                  - name: Create
+                    href: saml/api-ref/Federation/create.md
+                  - name: Update
+                    href: saml/api-ref/Federation/update.md
+                  - name: Delete
+                    href: saml/api-ref/Federation/delete.md
+                  - name: AddUserAccounts
+                    href: saml/api-ref/Federation/addUserAccounts.md
+                  - name: DeleteUserAccounts
+                    href: saml/api-ref/Federation/deleteUserAccounts.md
+                  - name: ListUserAccounts
+                    href: saml/api-ref/Federation/listUserAccounts.md
+                  - name: ListOperations
+                    href: saml/api-ref/Federation/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Operation/index.md
+                  - name: Get
+                    href: saml/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: saml/api-ref/Operation/cancel.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
@@ -287,3 +478,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/organization
+deepBase: 2

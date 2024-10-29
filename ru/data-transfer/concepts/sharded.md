@@ -4,8 +4,9 @@
 
 Возможности масштабирования зависят от типа базы-источника:
 
-* Источники [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md) и [{{ GP }}](../operations/endpoint/source/greenplum.md) поддерживают разделение таблиц на части и параллельное копирование данных из одной таблицы.
+* Источники [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md) и [{{ GP }}](../operations/endpoint/source/greenplum.md) поддерживают разделение таблиц на части и параллельное копирование данных из одной таблицы. Для {{ PG }} первичный ключ должен быть типа `serial`.
 * Источники [{{ OS }}](../operations/endpoint/source/opensearch.md) и [{{ ES }}](../operations/endpoint/source/elasticsearch.md) поддерживают параллельное копирование данных из одного индекса.
+* Источники [{{ CH }}](../operations/endpoint/source/clickhouse.md) поддерживают параллельное копирование по партициям. Для этого таблица должна иметь несколько партиций. Таблица из одной партиции будет скопирована в один поток. Параллельное копирование доступно только для трансферов из {{ CH }} в {{ CH }}.
 * Источник [{{ objstorage-full-name }}](../operations/endpoint/source/object-storage.md) поддерживает параллельное копирование данных из одного каталога.
 
 Чтобы включить параллельное копирование, укажите его [настройки](#settings). Настройки параллельного копирования рекомендуется подбирать для каждого трансфера отдельно.
@@ -23,7 +24,7 @@
 
   **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**:
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}** — количество воркеров, которые будут параллельно запущены для копирования данных. Каждый воркер запускается на независимой виртуальной машине с собственными ресурсами CPU и RAM и собственным сетевым подключением.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}** — количество [воркеров](index.md#worker), которые будут параллельно запущены для копирования данных. Каждый воркер запускается на независимой виртуальной машине с собственными ресурсами CPU и RAM и собственным сетевым подключением.
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}** — количество потоков, которое будет запущено в каждом воркере. Каждый поток запускается в отдельном контейнере на виртуальной машине воркера и копирует одну таблицу или ее часть (в зависимости от типа источника).
 

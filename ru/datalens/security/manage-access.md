@@ -6,7 +6,7 @@
 Вы можете предоставить пользователю доступ к папке или к любому объекту сервиса:
 
 * [Подключение](../concepts/connection.md)
-* [Датасет](../concepts/dataset/index.md)
+* [Датасет](../dataset/index.md)
 * [Чарт](../concepts/chart/index.md)
 * [Дашборд](../concepts/dashboard.md)
 
@@ -78,6 +78,7 @@
 **Папка** |
 Просмотр папки | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Редактирование папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Переименование папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Удаление папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Подключение** |

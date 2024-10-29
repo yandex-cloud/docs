@@ -62,16 +62,16 @@
     yc serverless trigger create logging \
       --name <имя_триггера> \
       --log-group-name <имя_лог-группы> \
-      --batch-size 1 \
-      --batch-cutoff 1s \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --resource-ids <идентификатор_ресурса> \
       --resource-types <тип_ресурса> \
       --stream-names <поток_логирования> \
       --log-levels <уровень_логирования> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -143,13 +143,13 @@
           group_id       = "<идентификатор_лог-группы>"
           resource_types = [ "<тип_ресурса>" ]
           resource_ids   = [ "<идентификатор_ресурса>" ]
-          levels         = [ "INFO", "ERROR" ]
           stream_names   = [ "<поток_логирования>" ]
-          batch_cutoff   = "<время_ожидания>"
-          batch_size     = "<размер_группы_событий>"
+          levels         = [ "уровень_логирования", "уровень_логирования" ]
+          batch_cutoff   = "<максимальное_время_ожидания>"
+          batch_size     = "<размер_группы_сообщений>"
         }
         dlq {
-         queue_id           = "<идентификатор_очереди_DLQ>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
       }
@@ -169,11 +169,11 @@
 
       * `logging` — параметры триггера:
 
-        * `group_id` — идентификатор лог-группы.
+        * `group_id` — идентификатор лог-группы, при добавлении записей в которую будет вызываться контейнер.
         * `resource_types` — типы ресурсов, например функции {{ sf-name }}. Необязательный параметр.
         * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций {{ sf-name }}. Необязательный параметр.
-        * `levels` — уровни логирования. Необязательный параметр.
         * `stream_names` — потоки логирования. Необязательный параметр.
+        * `levels` — уровни логирования. Необязательный параметр.
 
           Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource_ids`, `resource_types`, `stream_names` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
 
@@ -187,7 +187,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
@@ -195,7 +195,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для {{ cloud-logging-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ cloud-logging-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -205,4 +205,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/cloud-logging-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/cloud-logging-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cloud-logging-trigger-create.md)

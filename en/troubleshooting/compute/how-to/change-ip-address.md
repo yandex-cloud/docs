@@ -1,7 +1,6 @@
 # How to change an internal IP address
 
 
-
 ## Scenario description {#case-description}
 
 You need to change the internal IP address of the VM instance.
@@ -30,7 +29,7 @@ The internal address of the VM instance can be changed using CLI, Terraform, and
 - API
 
    - [REST](https://cloud.yandex.ru/docs/compute/api-ref/Instance/updateNetworkInterface);
-   - [gRPC](https://cloud.yandex.ru/docs/compute/api-ref/grpc/instance_service#UpdateNetworkInterface).
+   - [gRPC](https://cloud.yandex.ru/docs/compute/api-ref/grpc/Instance/updateNetworkInterface.md).
 
    Execute the ```yc compute instance update-network-interface <VM_ID> --network-interface-index=0 --ipv4-address=<new_IP_address>``` command
 

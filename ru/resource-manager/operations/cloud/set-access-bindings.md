@@ -27,7 +27,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+----------+
       |          ID          |   NAME   |
       +----------------------+----------+
@@ -43,7 +43,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -54,7 +54,7 @@
       +--------------------------------+-------------+
       ```
 
-  1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+  1. Узнайте идентификатор пользователя по логину или адресу электронной почты.
 
       ```bash
       yc iam user-account get test-user
@@ -62,7 +62,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: gfei8n54hmfh********
       yandex_passport_user_account:
           login: test-user
@@ -77,6 +77,7 @@
         --subject userAccount:<идентификатор_пользователя>
       ```
 
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
@@ -85,10 +86,12 @@
   1. Опишите в конфигурационном файле параметры прав доступа к облаку:
       * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
       * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль.
-      * `member` — пользователь, которому нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
+      * `member` — пользователь или группа, которым нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
         * `userAccount:<идентификатор_пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
         * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<идентификатор_федеративного_аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/operations/users-get.md).
+        * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+        * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
 
       Пример структуры конфигурационного файла:
 
@@ -139,20 +142,21 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/Cloud/updateAccessBindings.md).
 
   Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
 
   1. Узнайте идентификатор облака с помощью метода REST API [list](../../api-ref/Cloud/list.md):
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
-          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
       ```
 
       Результат:
 
-      ```bash
+      ```text
       {
        "clouds": [
         {
@@ -167,13 +171,14 @@
   1. Узнайте идентификатор пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Результат:
 
-      ```bash
+      ```text
       {
        "id": "gfei8n54hmfh********",
        "yandexPassportUserAccount": {
@@ -186,19 +191,20 @@
   1. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
       ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-токен>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "<идентификатор_пользователя>",
-                      "type": "userAccount"
-          }}}]}' \
-          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "<идентификатор_пользователя>",
+                    "type": "userAccount"
+        }}}]}' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
       ```
 
 
@@ -237,13 +243,7 @@
         --access-binding role=viewer,subject=userAccount:<идентификатор_второго_пользователя>
       ```
 
-
-      ```bash
-      yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=federatedUser:<идентификатор_первого_пользователя>
-        --access-binding role=viewer,subject=federatedUser:<идентификатор_второго_пользователя>
-      ```
-
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 
@@ -302,31 +302,32 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "editor",
-              "subject": {
-                  "id": "<идентификатор_первого_пользователя>",
-                  "type": "userAccount"
-              }
-          }
-      },{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "<идентификатор_второго_пользователя>",
-                  "type": "userAccount"
-      }}}]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+    "accessBindingDeltas": [{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "editor",
+            "subject": {
+                "id": "<идентификатор_первого_пользователя>",
+                "type": "userAccount"
+            }
+        }
+    },{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "viewer",
+            "subject": {
+                "id": "<идентификатор_второго_пользователя>",
+                "type": "userAccount"
+    }}}]}' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
   ```
 
-  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызова gRPC API [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings).
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызова gRPC API [CloudService/SetAccessBindings](../../api-ref/grpc/Cloud/setAccessBindings.md).
 
   {% note alert %}
 
@@ -336,18 +337,19 @@
 
 
   ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-      "accessBindings": [{
-          "roleId": "editor",
-          "subject": { "id": "<идентификатор_первого_пользователя>", "type": "userAccount" }
-      },{
-          "roleId": "viewer",
-          "subject": { "id": "<идентификатор_второго_пользователя>", "type": "userAccount" }
-      }]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:setAccessBindings
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+    "accessBindings": [{
+        "roleId": "editor",
+        "subject": { "id": "<идентификатор_первого_пользователя>", "type": "userAccount" }
+    },{
+        "roleId": "viewer",
+        "subject": { "id": "<идентификатор_второго_пользователя>", "type": "userAccount" }
+    }]}' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:setAccessBindings
   ```
 
 
@@ -380,7 +382,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
@@ -447,13 +449,14 @@
   1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
       Результат:
 
-      ```bash
+      ```text
       {
        "serviceAccounts": [
         {
@@ -470,19 +473,20 @@
   1. Назначьте сервисному аккаунту `test-sa` роль `editor` на облако `my-cloud`. В свойстве `subject` укажите тип `serviceAccount` и идентификатор `test-sa`. В URL запроса в качестве ресурса укажите идентификатор `my-cloud`:
 
       ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-токен>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "<идентификатор_сервисного_аккаунта>",
-                      "type": "serviceAccount"
-          }}}]}' \
-          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "<идентификатор_сервисного_аккаунта>",
+                    "type": "serviceAccount"
+        }}}]}' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
       ```
 
 {% endlist %}

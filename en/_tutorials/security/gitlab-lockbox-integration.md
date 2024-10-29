@@ -101,7 +101,7 @@ This will run a build that will write the {{ lockbox-name }} secret value to the
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-* [ {{ GL }} instance](../../managed-gitlab/operations/instance/instance-delete.md)
+* [{{ GL }} instance](../../managed-gitlab/operations/instance/instance-delete.md)
 * [{{ lockbox-name }} secret](../../lockbox/operations/secret-delete.md)
 * [VM with {{ GLR }}](../../compute/operations/vm-control/vm-delete.md)
 * [Service account](../../iam/operations/sa/delete.md)

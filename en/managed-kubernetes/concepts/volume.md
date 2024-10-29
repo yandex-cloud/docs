@@ -1,6 +1,6 @@
 ---
-title: "Volumes in {{ managed-k8s-full-name }}"
-description: "Volumes are stores that enable shared access to objects from different containers deployed in one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to."
+title: Volumes in {{ managed-k8s-full-name }}
+description: A volume is a storage for shared use of objects in different containers deployed within one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
 ---
 
 # Volumes
@@ -13,7 +13,7 @@ We can solve these problems using {{ k8s }} _volumes_.
 
 A _volume_ is a storage for shared use of objects in different containers deployed within one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
 
-To handle volumes {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
+To handle volumes, {{ k8s }} uses the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
 
 Volumes are classified by their life cycle:
 * Temporary (`Volume`) volumes have the same lifetime as the pods that contain them. These volumes are created along with the pod and saved when the container is restarted. When the pod is stopped or deleted, its volumes are destroyed.
@@ -66,7 +66,7 @@ The following [disk types](../../compute/concepts/disk.md##disks-types) are avai
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
 * Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
 * Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
-* High-performance SSD (`network-ssd-io-m3`): Network drive with the same performance characteristics as `network-ssd-nonreplicated`, plus redundancy.
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`): High-performance SSD offering the same speed as `network-ssd-nonreplicated`, plus redundancy.
 
 {% note alert %}
 
@@ -102,8 +102,8 @@ To learn how to expand a volume, see [{#T}](../operations/volumes/volume-expansi
 ## Deleting volumes {#deleting-volumes}
 
 Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volumes and disks can be deleted automatically or manually.
-* For dynamically provisioned volumes, after removing a `PersistentVolumeClaim` based on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and Compute Cloud disk {{ compute-name }} **are deleted**.
-* For statically provisioned volumes, the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) specification always uses the `persistentVolumeReclaimPolicy: Retain` parameter value and the {{ compute-name }} disk is **not deleted** when deleting the `PersistentVolumeClaim`. If the `Delete` parameter value is set manually, the disk will not be deleted.
+* For dynamically provisioned volumes, after removing a `PersistentVolumeClaim` based on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and {{ compute-name }} disk **are deleted**.
+* For statically provisioned volumes, the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) specification always uses the `persistentVolumeReclaimPolicy: Retain` parameter value and the {{ compute-name }} disk is **not deleted** when deleting `PersistentVolumeClaim`. If the `Delete` parameter value is set manually, the disk will not be deleted.
 
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 

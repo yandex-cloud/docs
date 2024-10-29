@@ -2,7 +2,7 @@
 
 #### Как уменьшить число ложных срабатываний алерта? {#reduce-false-alerts}
 
-Вы можете увеличить [окно вычисления](../../monitoring/concepts/alerting.md#evaluation-window) или поменять [функцию агрегации](../../monitoring/concepts/alerting.md#aggregation) в параметрах [алерта](../../monitoring/concepts/alerting.md#alert).
+Вы можете увеличить [окно вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-window) или поменять [функцию агрегации](../../monitoring/concepts/alerting/alert.md#aggregation) в параметрах [алерта](../../monitoring/concepts/alerting/alert.md#alert-parameters).
 
 #### Какое значение указывать в пороге? {#threshold-values}
 
@@ -20,6 +20,6 @@
 
 #### Почему пользователю не приходят алерты? {#alert-receive-failed}
 
-Проверьте настройки почтового ящика и номера телефона в аккаунте пользователя в [канале уведомлений](../../monitoring/concepts/alerting.md#channel-parameters).
+Проверьте настройки почтового ящика и номера телефона в аккаунте пользователя в [канале уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
 
 {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}

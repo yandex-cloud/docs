@@ -77,7 +77,7 @@ The infrastructure support cost for this tutorial includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -89,7 +89,7 @@ The infrastructure support cost for this tutorial includes:
          sudo installer -pkg AWSCLIV2.pkg -target /
          ```
 
-      * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
+      * [YDB CLI]({{ ydb.docs }}/reference/ydb-cli/install):
 
          ```bash
          curl -sSL https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
@@ -142,7 +142,7 @@ The infrastructure support cost for this tutorial includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -154,7 +154,7 @@ The infrastructure support cost for this tutorial includes:
          sudo installer -pkg AWSCLIV2.pkg -target /
          ```
 
-      * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
+      * [YDB CLI]({{ ydb.docs }}/reference/ydb-cli/install):
 
          ```bash
          curl -sSL https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash

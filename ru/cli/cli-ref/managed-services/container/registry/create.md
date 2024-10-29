@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of the registry.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>List of label KEY=VALUE pairs to add.|
+|`--secure`|Setup secure registry|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -38,4 +39,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

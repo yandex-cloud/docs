@@ -63,7 +63,7 @@
       ```
       Где:
       * `--name` — имя загружаемого ключа, например, `ssh-my-ansible-sa`.
-      * `--organization-id` — идентификатор [организации](../../organization/quickstart.md), к которой относится сервисный аккаунт `my-ansible-sa`. Чтобы получить список доступных организаций и их идентификаторов, выполните команду `yc organization-manager organizations list`.
+      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой относится сервисный аккаунт `my-ansible-sa`.
       * `--subject-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, в профиль которого добавляется SSH-ключ.
       * `--data` — содержимое файла с публичной частью SSH-ключа (`id_yc-sa-my-ansible-sa.pub`).
       * `--expires-at` — срок действия загружаемого ключа. Необязательный параметр. Если параметр не задан, у ключа будет неограниченный срок действия.
@@ -74,7 +74,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: bpfejaidgt9u********
       subject_id: ajeqdl8mdv12********
       data: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOra4Rg9OpwS5cozMHDGpdp6ug/jYUnWtTFD********
@@ -131,7 +131,7 @@
     ```
 
     Результат:
-    ```bash
+    ```text
     158.160.**.*** | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python3"

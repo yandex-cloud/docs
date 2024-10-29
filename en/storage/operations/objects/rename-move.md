@@ -1,9 +1,13 @@
 ---
-title: "Tutorial on how to rename and move objects in {{ objstorage-full-name }}"
-description: "In this tutorial, you will learn how to rename and move an object in {{ objstorage-full-name }}."
+title: Tutorial on how to rename and move objects in {{ objstorage-full-name }}
+description: In this tutorial, you will learn how to rename and move an object in {{ objstorage-full-name }}.
 ---
 
 # Renaming and moving objects
+
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
 
 ## Renaming {#rename}
 

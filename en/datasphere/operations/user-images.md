@@ -8,12 +8,12 @@ You can configure the environment to run your code using [Docker images](../conc
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Fill out the fields below:
-   * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
-   * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
-   * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, e.g., `1.0.0`.
-   * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script to install Python.
-   * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
+1. Fill in the fields as follows:
+    * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored; `.` indicates the root directory.
+    * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
+    * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, e.g., `1.0.0`.
+    * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script to install Python.
+    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
 
       Edit the contents of the field. For example, the following code will create a Docker image with `python_3_8` based on the original TensorFlow image:
 
@@ -31,37 +31,37 @@ You can configure the environment to run your code using [Docker images](../conc
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
-   This will create a Docker image with TensorFlow packages for the use of the GPU in computations.
+    This will create a Docker image with TensorFlow packages for the use of the GPU in computations.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select: ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 
 {% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Applying a Docker image to a project {#set}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Click ![Options](../../_assets/console-icons/ellipsis.svg) next to the desired image and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select: ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Next to the image you need, click ![Options](../../_assets/console-icons/ellipsis.svg) and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 1. Open the project in {{ jlab }}Lab and wait for it to load.
 1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the TensorFlow image, create and run a cell with the following code:
 
-   ```bash
-   #!g1.1
-   import tensorflow as tf
-   tf.config.list_physical_devices('GPU')
-   ```
+    ```bash
+    #!g1.1
+    import tensorflow as tf
+    tf.config.list_physical_devices('GPU')
+    ```
 
-   Result:
+    Result:
 
-   ```bash
-   ...
-   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
-   ```
+    ```bash
+    ...
+    [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+    ```
 To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Click ![Options](../../_assets/console-icons/ellipsis.svg) next to the default image and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select: ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Next to the default image, click ![Options](../../_assets/console-icons/ellipsis.svg) and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 ## Sharing a Docker image {#share}
 
@@ -86,3 +86,5 @@ To make a Docker image available for use in another project, the project adminis
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the resource has been deleted.
+
+{% include [deletion-time](../../_includes/datasphere/deletion-time.md) %}

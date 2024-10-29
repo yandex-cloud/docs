@@ -64,8 +64,11 @@ def handler(event, context):
 
 Пример вызова функции:
 
-```
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/<идентификатор_функции>?param=one
+```bash
+curl \
+  --data '{"hello": "world"}' \
+  --header 'Content-Type: application/json' \
+  https://{{ sf-url }}/<идентификатор_функции>?param=one
 ```
 
 Результат:

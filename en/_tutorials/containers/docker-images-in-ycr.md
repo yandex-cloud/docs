@@ -161,7 +161,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
    | **Variable** | **Its value** |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY` | `cr.yandex/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
+   | `CI_REGISTRY` | `{{ registry }}/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
    | `CI_REGISTRY_KEY` | Contents of the `key.json` file. |
 
    To add a variable:
@@ -293,7 +293,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
 
 To make sure that the image scan was successful:
 
-1. Select `Build` on the left-hand panel in the **gitlab-test** project, and then select **Pipelines** from the drop-down menu.
+1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
 1. Make sure that the `build` and `test` steps have the `passed` status. This means that the CI script has been executed successfully.
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.

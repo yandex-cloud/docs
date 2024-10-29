@@ -80,7 +80,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move).
+  Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/Instance/move.md).
 
   **Пример**
 
@@ -117,15 +117,19 @@
       
       # Перемещение ВМ
 
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move"
       
       # Перемещение загрузочного диска
 
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move"
       ```
 
       Где:
@@ -294,6 +298,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface).
+  Воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/Instance/updateNetworkInterface.md).
 
 {% endlist %}

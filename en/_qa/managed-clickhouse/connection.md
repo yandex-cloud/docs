@@ -1,18 +1,18 @@
-#### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
+#### Can I connect to individual {{ CH }} hosts? {#connect-node}
 
-Yes, it is. You can connect to {{ CH }} cluster hosts:
+Yes. You can connect to {{ CH }} cluster hosts:
 
 * Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
-   * Via an encrypted SSL connection on port 8443.
-   * Without encryption through port 8123.
+    * Via an encrypted SSL connection on port 8443.
+    * Without encryption through port 8123.
 
 * Using the [command-line client]({{ ch.docs }}/interfaces/cli/):
-   * Via an encrypted SSL connection on port 9440.
-   * Without encryption through port 9000.
+    * Via an encrypted SSL connection on port 9440.
+    * Without encryption through port 9000.
 
 SSH connections are not supported.
 
-#### Why can't I connect to a host from the internet? {#fail-connection}
+#### Why cannot I connect to a host from the internet? {#fail-connection}
 
 Most likely, no public access is enabled for the cluster, so you can only connect to it from a VM in {{ yandex-cloud }}. You can only request public access when [creating a new host](../../managed-clickhouse/concepts/network.md#public-access-to-a-host) in your cluster.
 
@@ -23,3 +23,7 @@ Most likely, no public access is enabled for the cluster, so you can only connec
 #### Can I connect to a public cluster without SSL? {#without-ssl}
 
 No. You can only connect to public hosts using an SSL connection. For more information, see the [documentation](../../managed-clickhouse/operations/connect/index.md).
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

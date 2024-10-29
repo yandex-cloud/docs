@@ -1,6 +1,6 @@
 ---
-title: "Настройка прав доступа к симметричному ключу шифрования"
-description: "Следуя данной инструкции, вы сможете назначить роли на симметричный ключ шифрования."
+title: Настройка прав доступа к симметричному ключу шифрования
+description: Следуя данной инструкции, вы сможете назначить роли на симметричный ключ шифрования.
 ---
 
 # Настройка прав доступа к симметричному ключу шифрования
@@ -83,7 +83,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 * API {#api}
 
-   Воспользуйтесь методом [updateAccessBindings](../api-ref/SymmetricKey/updateAccessBindings.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/UpdateAccessBindings](../api-ref/grpc/symmetric_key_service.md#UpdateAccessBindings) и передайте в запросе:
+   Воспользуйтесь методом [updateAccessBindings](../api-ref/SymmetricKey/updateAccessBindings.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/UpdateAccessBindings](../api-ref/grpc/SymmetricKey/updateAccessBindings.md) и передайте в запросе:
 
    * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
    * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
@@ -109,7 +109,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 * CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,9 +183,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 * API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Воспользуйтесь методом [setAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/symmetric_key_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+   Воспользуйтесь методом [setAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `accessBindings[].roleId`.
    * Идентификатор субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.id`.

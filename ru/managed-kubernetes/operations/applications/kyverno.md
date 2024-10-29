@@ -1,6 +1,5 @@
 # Установка Kyverno & Kyverno Policies
 
-
 [Kyverno](https://kyverno.io) — приложение для управления политиками безопасности {{ k8s }}. Политики безопасности представлены в Kyverno как ресурсы {{ k8s }}. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера [CI/CD](/blog/posts/2022/10/ci-cd).
 
 [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security).
@@ -46,18 +45,21 @@
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_kyverno.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
      --create-namespace \
-     kyverno ./kyverno/
+     multi-kyverno ./multi-kyverno/
    ```
 
+
    Выберите пространство имен, в котором нет каких-либо приложений или объектов, иначе Kyverno будет работать некорректно.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Версии приложения {#versions}
 
@@ -90,7 +92,7 @@
    1. Удалите приложение:
 
       ```bash
-      helm uninstall --namespace <пространство_имен> kyverno ./kyverno/
+      helm uninstall --namespace <пространство_имен> multi-kyverno ./multi-kyverno/
       ```
 
    1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.

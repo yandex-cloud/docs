@@ -1,6 +1,11 @@
-# Формат ответа при текстовом поиске
+---
+title: XML-формат ответа при текстовом запросе к {{ search-api-full-name }}
+description: В данной статье описан XML-формат ответа, получаемого от сервиса {{ search-api-name }} при текстовом поисковом запросе.
+---
 
-В ответ на текстовый поисковый запрос {{ search-api }} возвращает XML-файл в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8), содержащий результаты поиска.
+# XML-формат ответа при текстовом поиске
+
+В ответ на текстовый поисковый запрос {{ search-api-name }} может возвращать XML-файл в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8), содержащий результаты поиска. Ответ в XML-формате возвращается для текстовых запросов с использованием как интерфейса [API v1](./index.md#api-v1), так и интерфейса [API v2](./index.md#api-v2).
 
 {% note alert %}
 
@@ -372,3 +377,4 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 * [{#T}](./get-request.md)
 * [{#T}](./post-request.md)
 * [{#T}](../operations/searching.md)
+* [{#T}](./web-search.md)

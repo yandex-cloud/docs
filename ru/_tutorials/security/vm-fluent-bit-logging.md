@@ -165,7 +165,7 @@
 
 1. Создайте файл `logtest.service`:
 
-    ```
+    ```ini
     [Unit]
     Description=Sample to show logging from a Python application to systemd
     After=network.target
@@ -314,7 +314,7 @@
    ```bash
     sudo chown -R $USER:$USER /fluent-bit-plugin-yandex
     ```
-   
+
 1. Скомпилируйте библиотеку `yc-logging.so`:
 
     ```bash
@@ -332,7 +332,7 @@
 
 1. Добавьте в файл с настройками плагинов `/etc/fluent-bit/plugins.conf` путь до библиотеки `yc-logging.so`:
 
-    ```
+    ```bash
     [PLUGINS]
         Path /usr/lib/fluent-bit/plugins/yc-logging.so
     ```
@@ -340,7 +340,7 @@
 1. Добавьте в файл `/etc/fluent-bit/fluent-bit.conf` настройки сервиса `fluent-bit`:
 
 
-    ```
+    ```bash
     [INPUT]
         Name  systemd
         Tag   host.*
@@ -386,7 +386,7 @@
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Чтобы посмотреть записи в лог-группе, выполните команду:
-    ```
+    ```bash
     yc logging read --folder-id=<идентификатор_каталога>
     ```
 
@@ -394,7 +394,7 @@
 
 - API {#api}
 
-    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
+    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md).
 
 {% endlist %}
 

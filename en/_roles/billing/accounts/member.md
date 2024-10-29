@@ -1,1 +1,1 @@
-The `billing.accounts.member` role is granted automatically when a user is added to the service. It is required to display the selected billing account in the list of all user accounts.
+The `billing.accounts.member` role is granted automatically when a user is added to the service. It is required to display the selected [billing account](../../../billing/concepts/billing-account.md) in the list of all user accounts.

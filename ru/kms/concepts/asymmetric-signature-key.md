@@ -1,6 +1,6 @@
 ---
-title: "Асимметричная ключевая пара подписи в {{ kms-short-name }}"
-description: "В данной статье описаны особенности использования асимметричной ключевой пары подписи в {{ kms-short-name }}."
+title: Асимметричная ключевая пара подписи в {{ kms-short-name }}
+description: В данной статье описаны особенности использования асимметричной ключевой пары подписи в {{ kms-short-name }}.
 ---
 
 # Асимметричная ключевая пара подписи в {{ kms-short-name }}
@@ -35,7 +35,7 @@ description: "В данной статье описаны особенности
     * `Active` — ключевая пара может использоваться для подписи и проверки подписи.
     * `Inactive` — ключевая пара не может использоваться.
     
-    Изменить статус ключевой пары с `Active` на `Inactive` и обратно можно вызовом gRPC API [AsymmetricSignatureKeyService/Update](../api-ref/grpc/asymmetric_signature_key_service.md#Update).
+    Изменить статус ключевой пары с `Active` на `Inactive` и обратно можно вызовом gRPC API [AsymmetricSignatureKeyService/Update](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/update.md).
 
 ## Использование ключевой пары электронной подписи {#use}
 

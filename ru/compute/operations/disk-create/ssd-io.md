@@ -1,7 +1,7 @@
-# Создать высокопроизводительный SSD-диск
+# Создать сверхбыстрое сетевое хранилище с тремя репликами (SSD)
 
 
-Вы можете создать отдельный [высокопроизводительный](../../concepts/disk.md#nr-disks) SSD-диск, который сочетает скорость нереплицируемого диска с избыточностью.
+Вы можете создать отдельное [сверхбыстрое сетевое хранилище](../../concepts/disk.md#nr-disks) с тремя репликами (SSD) — высокопроизводительный SSD-диск, который обладает теми же скоростными характеристиками, что и нереплицируемый SSD-диск, но одновременно обеспечивает избыточность.
 
 Размер диска должен быть кратен 93 ГБ.
 
@@ -23,7 +23,7 @@
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
 
-  
+
   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 
@@ -66,6 +66,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md).
 
 {% endlist %}

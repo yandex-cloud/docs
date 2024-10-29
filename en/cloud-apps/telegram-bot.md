@@ -1,6 +1,11 @@
-# Demo Telegram Bot
+---
+title: Demo Telegram bot
+description: Follow this guide to create a Telegram bot.
+---
 
-A Telegram bot on a {{ yandex-cloud }} serverless stack that returns the same message sent by the user. Implemented on Node.js with the [Telegraf](https://telegraf.js.org/) library.
+# Demo Telegram bot
+
+A Telegram bot on a {{ yandex-cloud }} serverless stack that returns the same message sent by the user. It is implemented with Node.js and the [Telegraf.js](https://telegraf.js.org/) library.
 
 You can modify the Telegram bot's skills as you see fit.
 
@@ -8,7 +13,7 @@ You can modify the Telegram bot's skills as you see fit.
 
 The cost of resources for the application includes:
 
-* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
 * Fee for standard queue requests (see [{{ message-queue-full-name }} pricing](../message-queue/pricing.md)).
 * Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../lockbox/pricing.md)).
@@ -33,7 +38,7 @@ Your Telegram bot's token will be displayed.
 1. Select **Demo Telegram Bot** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (Optional) Application description.
+   * Application description (not required).
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
    * ID of the previously created {{ lockbox-full-name }} secret.
 1. Click **Install** and wait for the installation to complete.
@@ -47,7 +52,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl \
         --request POST \
-        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo
+        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=<API_gateway_domain>/echo
       ```
 
    - Windows (cmd) {#windows-cmd}
@@ -55,7 +60,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl ^
         --request POST ^
-        --url "https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo"
+        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=<API_gateway_domain>/echo
       ```
 
    - Windows (PowerShell) {#windows-powershell}
@@ -63,7 +68,7 @@ Your Telegram bot's token will be displayed.
       ```powershell
       curl.exe `
         --request POST `
-        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo
+        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=<API_gateway_domain>/echo
       ```
 
    {% endlist %}

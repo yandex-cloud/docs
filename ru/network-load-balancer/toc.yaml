@@ -1,10 +1,5 @@
 title: Yandex Network Load Balancer
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -48,6 +43,42 @@ items:
             href: operations/target-group-delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: tutorials/web-service.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки через {{
+          network-load-balancer-name }}
+        items:
+          - name: Обзор
+            href: tutorials/load-balancer-website/index.md
+          - name: Консоль управления
+            href: tutorials/load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/load-balancer-website/terraform.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        items:
+          - name: Обзор
+            href: tutorials/vm-autoscale/index.md
+          - name: Консоль управления
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
+      - name: Обновление группы ВМ под нагрузкой
+        href: tutorials/updating-under-load.md
+      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
+        href: tutorials/dns-integration.md
+      - name: Развертывание Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: >-
+          Развертывание группы доступности Always On с внутренним сетевым
+          балансировщиком
+        href: tutorials/mssql-alwayson-lb.md
   - name: Концепции
     items:
       - name: Обзор
@@ -66,8 +97,6 @@ items:
         href: concepts/scenarios.md
       - name: Рекомендации по применению
         href: concepts/best-practices.md
-      - name: Мониторинг
-        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -86,12 +115,64 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: NetworkLoadBalancerService
-            href: api-ref/grpc/network_load_balancer_service.md
-          - name: TargetGroupService
-            href: api-ref/grpc/target_group_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: NetworkLoadBalancer
+            items:
+              - name: Overview
+                href: api-ref/grpc/NetworkLoadBalancer/index.md
+              - name: Get
+                href: api-ref/grpc/NetworkLoadBalancer/get.md
+              - name: List
+                href: api-ref/grpc/NetworkLoadBalancer/list.md
+              - name: Create
+                href: api-ref/grpc/NetworkLoadBalancer/create.md
+              - name: Update
+                href: api-ref/grpc/NetworkLoadBalancer/update.md
+              - name: Delete
+                href: api-ref/grpc/NetworkLoadBalancer/delete.md
+              - name: Start
+                href: api-ref/grpc/NetworkLoadBalancer/start.md
+              - name: Stop
+                href: api-ref/grpc/NetworkLoadBalancer/stop.md
+              - name: AttachTargetGroup
+                href: api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md
+              - name: DetachTargetGroup
+                href: api-ref/grpc/NetworkLoadBalancer/detachTargetGroup.md
+              - name: GetTargetStates
+                href: api-ref/grpc/NetworkLoadBalancer/getTargetStates.md
+              - name: AddListener
+                href: api-ref/grpc/NetworkLoadBalancer/addListener.md
+              - name: RemoveListener
+                href: api-ref/grpc/NetworkLoadBalancer/removeListener.md
+              - name: ListOperations
+                href: api-ref/grpc/NetworkLoadBalancer/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: TargetGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/TargetGroup/index.md
+              - name: Get
+                href: api-ref/grpc/TargetGroup/get.md
+              - name: List
+                href: api-ref/grpc/TargetGroup/list.md
+              - name: Create
+                href: api-ref/grpc/TargetGroup/create.md
+              - name: Update
+                href: api-ref/grpc/TargetGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/TargetGroup/delete.md
+              - name: AddTargets
+                href: api-ref/grpc/TargetGroup/addTargets.md
+              - name: RemoveTargets
+                href: api-ref/grpc/TargetGroup/removeTargets.md
+              - name: ListOperations
+                href: api-ref/grpc/TargetGroup/listOperations.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -100,58 +181,60 @@ items:
             items:
               - name: Overview
                 href: api-ref/NetworkLoadBalancer/index.md
-              - name: addListener
-                href: api-ref/NetworkLoadBalancer/addListener.md
-              - name: attachTargetGroup
-                href: api-ref/NetworkLoadBalancer/attachTargetGroup.md
-              - name: create
-                href: api-ref/NetworkLoadBalancer/create.md
-              - name: delete
-                href: api-ref/NetworkLoadBalancer/delete.md
-              - name: detachTargetGroup
-                href: api-ref/NetworkLoadBalancer/detachTargetGroup.md
-              - name: get
+              - name: Get
                 href: api-ref/NetworkLoadBalancer/get.md
-              - name: getTargetStates
-                href: api-ref/NetworkLoadBalancer/getTargetStates.md
-              - name: list
+              - name: List
                 href: api-ref/NetworkLoadBalancer/list.md
-              - name: listOperations
-                href: api-ref/NetworkLoadBalancer/listOperations.md
-              - name: removeListener
-                href: api-ref/NetworkLoadBalancer/removeListener.md
-              - name: start
-                href: api-ref/NetworkLoadBalancer/start.md
-              - name: stop
-                href: api-ref/NetworkLoadBalancer/stop.md
-              - name: update
+              - name: Create
+                href: api-ref/NetworkLoadBalancer/create.md
+              - name: Update
                 href: api-ref/NetworkLoadBalancer/update.md
-          - name: TargetGroup
-            items:
-              - name: Overview
-                href: api-ref/TargetGroup/index.md
-              - name: addTargets
-                href: api-ref/TargetGroup/addTargets.md
-              - name: create
-                href: api-ref/TargetGroup/create.md
-              - name: delete
-                href: api-ref/TargetGroup/delete.md
-              - name: get
-                href: api-ref/TargetGroup/get.md
-              - name: list
-                href: api-ref/TargetGroup/list.md
-              - name: listOperations
-                href: api-ref/TargetGroup/listOperations.md
-              - name: removeTargets
-                href: api-ref/TargetGroup/removeTargets.md
-              - name: update
-                href: api-ref/TargetGroup/update.md
+              - name: Delete
+                href: api-ref/NetworkLoadBalancer/delete.md
+              - name: Start
+                href: api-ref/NetworkLoadBalancer/start.md
+              - name: Stop
+                href: api-ref/NetworkLoadBalancer/stop.md
+              - name: AttachTargetGroup
+                href: api-ref/NetworkLoadBalancer/attachTargetGroup.md
+              - name: DetachTargetGroup
+                href: api-ref/NetworkLoadBalancer/detachTargetGroup.md
+              - name: GetTargetStates
+                href: api-ref/NetworkLoadBalancer/getTargetStates.md
+              - name: AddListener
+                href: api-ref/NetworkLoadBalancer/addListener.md
+              - name: RemoveListener
+                href: api-ref/NetworkLoadBalancer/removeListener.md
+              - name: ListOperations
+                href: api-ref/NetworkLoadBalancer/listOperations.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: TargetGroup
+            items:
+              - name: Overview
+                href: api-ref/TargetGroup/index.md
+              - name: Get
+                href: api-ref/TargetGroup/get.md
+              - name: List
+                href: api-ref/TargetGroup/list.md
+              - name: Create
+                href: api-ref/TargetGroup/create.md
+              - name: Update
+                href: api-ref/TargetGroup/update.md
+              - name: Delete
+                href: api-ref/TargetGroup/delete.md
+              - name: AddTargets
+                href: api-ref/TargetGroup/addTargets.md
+              - name: RemoveTargets
+                href: api-ref/TargetGroup/removeTargets.md
+              - name: ListOperations
+                href: api-ref/TargetGroup/listOperations.md
   - name: Справочник инструментов для {{ managed-k8s-name }}
     items:
       - name: Обзор
@@ -160,6 +243,8 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы
@@ -167,3 +252,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/network-load-balancer
+deepBase: 2

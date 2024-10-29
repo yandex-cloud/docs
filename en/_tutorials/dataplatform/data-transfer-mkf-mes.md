@@ -26,18 +26,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the topic created.
+      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
 
       1. [Create a {{ mes-name }} target cluster](../../managed-elasticsearch/operations/cluster-create.md) in any suitable configuration with the following settings:
 
          * In the same availability zone as the source cluster.
          * To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts.
 
-      
+
       1. To connect to the cluster from the user's local machine, configure security groups:
 
-         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-         * [{{ mes-name }}](../../managed-elasticsearch/operations/cluster-connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)​.
+         * [{{ mes-name }}](../../managed-elasticsearch/operations/cluster-connect.md#configuring-security-groups)​.
 
 
    - {{ TF }} {#tf}
@@ -161,7 +161,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **Endpoint parameters**:
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -231,7 +231,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ ES }}` target](../../data-transfer/operations/endpoint/target/elasticsearch.md):
 
-   **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnectionType.mdb_cluster_id.title }}`.
 

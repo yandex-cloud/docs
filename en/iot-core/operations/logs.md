@@ -10,38 +10,38 @@ The registry connection log contains information about operations performed with
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry with the required device from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
-
+    1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Select the registry with the required device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
+   
 - CLI {#cli}
 
-   {% include [timeslot](../../_includes/functions/timeslot.md) %}
+  {% include [timeslot](../../_includes/functions/timeslot.md) %}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  1. [Get](registry/registry-list.md##registry-list) a list of registries in a folder.
 
-   1. [Get](registry/registry-list.md##registry-list) a list of registries in a folder.
+  1. View the registry connection log:
+  
+        ```bash
+        yc iot registry logs my-registry
+        ```
 
-   1. View the registry connection log:
-
-      ```
-      yc iot registry logs my-registry
-      ```
-
-      Result:
-      ```
-      2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
-      2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
-      2019-09-19 18:52:30     disconnected: client disconnected
-      2019-09-19 18:52:36     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53198", clientID: "YCCmdLine"
-      2019-09-19 18:52:36     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
-      2019-09-19 18:52:54     disconnected: client disconnected
-      2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53209", clientID: "YCCmdLine"
-      2019-09-19 18:53:32     disconnected: client disconnected
-      ```
+        Result:
+        ```text
+        2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
+        2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
+        2019-09-19 18:52:30     disconnected: client disconnected
+        2019-09-19 18:52:36     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53198", clientID: "YCCmdLine"
+        2019-09-19 18:52:36     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
+        2019-09-19 18:52:54     disconnected: client disconnected
+        2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53209", clientID: "YCCmdLine"
+        2019-09-19 18:53:32     disconnected: client disconnected
+        ```
 
 {% endlist %}
 
@@ -53,43 +53,43 @@ The device connection log contains information about operations performed with t
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry with the required device from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. Select the device from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
+    1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Select the registry with the required device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+    1. Select the device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
 
 - CLI {#cli}
 
-   {% include [timeslot](../../_includes/functions/timeslot.md) %}
+    {% include [timeslot](../../_includes/functions/timeslot.md) %}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
+  
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    1. [Get](device/device-list.md##device-list) a list of devices in a registry.
 
-   1. [Get](device/device-list.md##device-list) a list of devices in a registry.
+    1. View the device connection log:
 
-   1. View the device connection log:
+        ```bash
+        yc iot devices logs my-device
+        ```
 
-      ```
-      yc iot devices logs my-device
-      ```
-
-      Result:
-      ```
-      2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
-      2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
-      2019-09-19 18:52:38     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53201", clientID: "YCCmdLine"
-      2019-09-19 18:52:38     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
-      2019-09-19 18:52:51     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53206", clientID: "YCCmdLine"
-      2019-09-19 18:52:51     disconnected: client disconnected
-      2019-09-19 18:53:01     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53213", clientID: "YCCmdLine"
-      2019-09-19 18:53:01     disconnected: client disconnected
-      2019-09-19 18:53:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53217", clientID: "YCCmdLine"
-      2019-09-19 18:53:03     disconnected: client disconnected
-      2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53220", clientID: "YCCmdLine"
-      2019-09-19 18:53:04     disconnected: client disconnected
-      ```
+        Result:
+        ```text
+        2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
+        2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
+        2019-09-19 18:52:38     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53201", clientID: "YCCmdLine"
+        2019-09-19 18:52:38     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
+        2019-09-19 18:52:51     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53206", clientID: "YCCmdLine"
+        2019-09-19 18:52:51     disconnected: client disconnected
+        2019-09-19 18:53:01     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53213", clientID: "YCCmdLine"
+        2019-09-19 18:53:01     disconnected: client disconnected
+        2019-09-19 18:53:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53217", clientID: "YCCmdLine"
+        2019-09-19 18:53:03     disconnected: client disconnected
+        2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53220", clientID: "YCCmdLine"
+        2019-09-19 18:53:04     disconnected: client disconnected
+        ```
 
 {% endlist %}

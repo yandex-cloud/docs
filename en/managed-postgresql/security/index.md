@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ mpg-full-name }}"
-description: "Access management in the PostgreSQL database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ mpg-full-name }}
+description: Access management in the PostgreSQL database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ mpg-name }}
@@ -22,7 +22,7 @@ Roles for a resource can be assigned by users who have the `mdb.admin`, `managed
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mpg-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
+{% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -69,9 +69,13 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mpg.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mpg.viewer }}` role enables you only to view the list of clusters.
+To use the service, you need the [{{ roles.mpg.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mpg.viewer }}` role enables you only to view the list of clusters.
+
+To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mpg.editor }}` role or higher.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mpg.admin }}` instead of `{{ roles.mpg.editor }}`.
 

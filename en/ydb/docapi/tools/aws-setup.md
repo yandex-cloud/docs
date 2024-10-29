@@ -1,6 +1,6 @@
 ---
-title: "Setting up AWS tools in {{ ydb-full-name }}"
-description: "This page describes the AWS tools you can use to access the database via the Document API in the AWS DynamoDB compatibility mode."
+title: Setting up AWS tools in {{ ydb-full-name }}
+description: This page describes the AWS tools you can use to access the database via the Document API in the AWS DynamoDB compatibility mode.
 sourcePath: overlay/quickstart/document-api/aws-setup.md
 ---
 # Setting up AWS tools
@@ -112,7 +112,7 @@ To use the AWS tools, follow these steps:
 
    - API {#api}
 
-      To create an access key, use the [create](../../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../../iam/api-ref/AccessKey/index.md) resource.
+      To create an access key, use the [create](../../../iam/awscompatibility/api-ref/AccessKey/create.md) method for the [AccessKey](../../../iam/awscompatibility/api-ref/AccessKey/index.md) resource.
 
    {% endlist %}
 

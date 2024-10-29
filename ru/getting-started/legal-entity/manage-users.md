@@ -8,15 +8,31 @@
 
 Чтобы добавить аккаунты сотрудников в организацию:
 
-1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. На панели слева выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
+{% list tabs group=instructions %}
 
-    {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Пользователи будут подключены к организации, как только примут отправленное им приглашение и выберут аккаунт для входа в организацию.
+  {% include [add-yandex-user](../../_includes/organization/add-yandex-user.md) %}
+
+- Консоль управления {#console}
+
+    1. Войдите в [консоль управления]({{ link-console-main }}) с учетной записью администратора облака.
+
+    1. В списке слева выберите нужное облако. Пример:
+
+        ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
+
+    1. В правом верхнем углу нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+
+    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
+
+        Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
+
+    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+
+{% endlist %}
+
+Пользователи будут подключены к организации, как только примут отправленное им приглашение и выберут аккаунт для входа в организацию.
 
 Чтобы получить доступ к сервисам, которые подключены к организации, приглашенным пользователям будет достаточно войти в свой аккаунт на Яндексе.
 
@@ -43,7 +59,7 @@
   1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
-    ```
+    ```bash
     yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
       --role <ROLE-ID> \
       --subject userAccount:<USER-ACCOUNT-ID>
@@ -60,7 +76,7 @@
 
     Например, назначьте роль `viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
-    ```
+    ```bash
     $ yc resource-manager cloud add-access-binding mycloud \
       --role viewer \
       --subject userAccount:aje6o61dvog2h6g9a33s
@@ -90,7 +106,7 @@
       ]
     }
     ```
-    
+
   1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %} 
   
 {% endlist %}

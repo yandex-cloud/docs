@@ -11,8 +11,10 @@
 | Источник данных | Чтение  | Запись | Описание |
 | --- | :---: | :---: | --- |
 | [{{ objstorage-name }}](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](./sources-and-sinks/object-storage-binding.md) |
-| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/postgresql.md) |
 | [{{ mch-full-name }}](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/clickhouse.md) |
+| [{{ mgp-full-name }}](../managed-greenplum/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/greenplum.md) |
+| [{{ mmy-full-name }}](../managed-mysql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/mysql.md) |
+| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/postgresql.md) |
 | [{{ ydb-full-name }}](../ydb/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/ydb.md) |
 
 
@@ -78,8 +80,8 @@
 
 | Среда | Уровень поддержки  | Инструкция |
 | --- | :---: | --- |
-| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow.md) |
-| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow.md) |
+| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow-auto-tasks.md) |
+| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow-auto-tasks.md) |
 
 ## Примечание {#note}
 

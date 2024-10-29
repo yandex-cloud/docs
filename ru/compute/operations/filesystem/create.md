@@ -1,6 +1,6 @@
 ---
-title: "Как создать файловое хранилище в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать файловое хранилище."
+title: Как создать файловое хранилище в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете создать файловое хранилище.
 ---
 
 # Создать файловое хранилище
@@ -132,6 +132,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Filesystem/create.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Filesystem/create.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Create](../../api-ref/grpc/Filesystem/create.md).
 
 {% endlist %}

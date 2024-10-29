@@ -71,7 +71,7 @@ There are several restrictions when working with {{ PG }} clusters.
 
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
-1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system](https://ydb.tech/docs/en/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
 Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
@@ -80,7 +80,7 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} a
 
 ## Supported data types {#supported_types}
 
-In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented as the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional](https://ydb.tech/docs/en/yql/reference/types/optional) types.
+In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented as the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
 
 The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
@@ -106,7 +106,7 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `timestamp` | `Optional<Utf8>` | |
 | `bytea` | `Optional<String>` | |
 | `character` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length. |
-| `character varying` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
-| `text` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
-| `json` | `Json` | |
+| `character varying` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `text` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `json` | `Optional<Json>` | |
 

@@ -1,6 +1,6 @@
 ---
-title: "Как отключить домен от шлюза {{ api-gw-full-name }}"
-description: "Из статьи вы узнаете, как отключить домен от шлюза {{ api-gw-full-name }}."
+title: Как отключить домен от шлюза {{ api-gw-full-name }}
+description: Из статьи вы узнаете, как отключить домен от шлюза {{ api-gw-full-name }}.
 ---
 
 # Отключить домен
@@ -67,11 +67,11 @@ description: "Из статьи вы узнаете, как отключить �
 
 - API {#api}
 
-  Чтобы отключить домен от API-шлюза, воспользуйтесь методом REST API [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/apigateway_service.md#RemoveDomain).
+  Чтобы отключить домен от API-шлюза, воспользуйтесь методом REST API [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md).
 
   Удалите ресурсную запись, созданную при подключении домена к API-шлюзу:
       
-  * Если ваш домен делегирован {{ dns-name }}, воспользуйтесь методом REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+  * Если ваш домен делегирован {{ dns-name }}, воспользуйтесь методом REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md).
 
   * Если вашим доменом управляет сторонний DNS-провайдер, удалите запись на странице управления доменом вашего провайдера.
 

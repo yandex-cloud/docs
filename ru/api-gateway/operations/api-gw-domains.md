@@ -4,9 +4,9 @@
 
 {% note warning %}
 
-Если вашим доменом управляет сторонний DNS-провайдер, домен должен быть ниже второго уровня. Например, можно подключить домен www.example.com, а example.com — нельзя. Это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее в [RFC 1912, пункт 2.4](https://www.ietf.org/rfc/rfc1912.txt).
+Если вашим доменом управляет сторонний DNS-провайдер, домен должен быть ниже второго уровня. Например, можно подключить домен `www.example.com`, а `example.com` — нельзя. Это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее в [RFC 1912, пункт 2.4](https://www.ietf.org/rfc/rfc1912.txt).
 
-Чтобы использовать домен выше второго уровня, делегируйте его [{{ dns-full-name }}](../../dns/) и создайте [ANAME-запись](../../dns/concepts/resource-record.md#aname) в зоне DNS.
+Чтобы использовать домен второго уровня (`example.com`), делегируйте его [{{ dns-full-name }}](../../dns/) и создайте [ANAME-запись](../../dns/concepts/resource-record.md#aname) в зоне DNS.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@
 
     1. Разместите у своего DNS-провайдера или на собственном DNS-сервере CNAME-запись:
     
-        ```
+        ```text
         <домен> IN CNAME <служебный_домен_API-шлюза>
         ```
 
@@ -64,6 +64,6 @@
         
 - API {#api}
 
-  Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain).
+  Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/ApiGateway/addDomain.md).
 
 {% endlist %}

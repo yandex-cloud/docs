@@ -47,6 +47,7 @@
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
         * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
+        * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner);
         * [storage.uploader](../../storage/security/index.md#storage-uploader);
         * [storage.viewer](../../storage/security/index.md#storage-viewer).
 

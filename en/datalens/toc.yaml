@@ -1,10 +1,5 @@
 title: Yandex DataLens
 href: index.yaml
-label:
-  title: To be announced soon
-  description: The service will soon be available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -27,58 +22,70 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Migrating objects to workbooks
         href: workbooks-collections/migrations.md
-      - name: Access settings
+      - name: Configuring access
         href: workbooks-collections/security.md
   - name: Tutorials
     items:
       - name: Overview
         href: tutorials/index.md
-      - name: Visualizing data from a CSV file
-        href: tutorials/data-from-csv-visualization.md
-      - name: Creating and publishing a chart with a map of Moscow from a CSV file
-        href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Analyzing public data on road accidents in Russia
-        href: tutorials/data-from-csv-geo-visualization.md
-      - name: Analyzing a retail chain's sales from a {{ CH }} database
-        href: tutorials/data-from-ch-visualization.md
-      - name: Visualizing data from CHYT
-        href: tutorials/data-from-ch-over-yt.md
-      - name: >-
-          Analyzing sales and locations of pizzerias based on data from {{ CH }}
-          DB and Marketplace
-        href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcasters)
-        href: tutorials/data-from-podcasts.md
-      - name: Visualizing {{ monitoring-full-name }} data
-        href: tutorials/data-from-monitoring-visualization.md
-      - name: Visualizing Bitrix24 data
-        href: tutorials/data-from-bitrix24-visualization.md
-      - name: Visualizing data from {{ tracker-full-name }}
-        href: tutorials/data-from-tracker.md
-      - name: Visualizing {{ yq-full-name }} data
-        href: tutorials/data-from-yandex-query-visualization.md
-      - name: Web analytics with a connection to Yandex Metrica
-        href: tutorials/data-from-metrica-visualization.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
-        href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Mobile app analytics based on AppMetrica data
-        href: tutorials/data-from-appmetrica-visualization.md
-      - name: Building customer journey charts based on AppMetrica data
-        href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Visualizing data with a QL chart
-        href: tutorials/data-from-ch-to-sql-chart.md
-      - name: Visualizing data using parameters
-        href: tutorials/data-from-ch-with-parameters.md
-      - name: Visualizing data using Heat Maps
-        hidden: true
-        href: tutorials/data-on-heat-map-dashboard.md
-      - name: >-
-          Geocoding with the Yandex Maps API for data visualization in {{
-          datalens-short-name }}
-        href: tutorials/data-from-ch-geocoder.md
-  - name: Connection
+      - name: Getting started with {{ datalens-short-name }}
+        items:
+          - name: Simple dashboard from a CSV file
+            href: tutorials/data-from-csv-visualization.md
+          - name: Public chart with a map of Moscow from a CSV file
+            href: tutorials/data-from-csv-to-public-visualization.md
+          - name: Retail chain's dashboard based on a {{ CH }} DB
+            href: tutorials/data-from-ch-visualization.md
+      - name: Working with geodata
+        items:
+          - name: Analyzing public data on road accidents in Russia
+            href: tutorials/data-from-csv-geo-visualization.md
+          - name: >-
+              Analyzing sales and locations of pizzerias based on data from the
+              {{ CH }} database and Marketplace
+            href: tutorials/data-from-ch-to-geolayers-visualization.md
+          - name: >-
+              Geocoding with the Yandex Maps API for data visualization in {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
+          - name: Visualizing data using Heat Maps
+            hidden: true
+            href: tutorials/data-on-heat-map-dashboard.md
+          - name: Status monitoring of geographically distributed devices
+            href: tutorials/datalens.md
+      - name: Service analytics
+        items:
+          - name: 'Yandex Metrica: direct connection'
+            href: tutorials/data-from-metrica-visualization.md
+          - name: 'Yandex Metrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: direct connection'
+            href: tutorials/data-from-appmetrica-visualization.md
+          - name: 'AppMetrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
+          - name: 'Bitrix24: direct connection'
+            href: tutorials/data-from-bitrix24-visualization.md
+          - name: '{{ tracker-full-name }}: data export and visualization'
+            href: tutorials/data-from-tracker.md
+          - name: 'Yandex Music podcasts: Statistics'
+            href: tutorials/data-from-podcasts.md
+          - name: Visualizing {{ yq-full-name }} data
+            href: tutorials/data-from-yandex-query-visualization.md
+          - name: Visualizing {{ monitoring-full-name }} data
+            href: tutorials/data-from-monitoring-visualization.md
+          - name: Visualizing {{ ytsaurus-name }} CHYT data
+            href: tutorials/data-from-ch-over-yt.md
+          - name: >-
+              Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
+              and analyzing them with {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
+      - name: Functional
+        items:
+          - name: Using parameters
+            href: tutorials/data-from-ch-with-parameters.md
+          - name: Examples of creating QL charts
+            href: tutorials/data-from-ch-to-sql-chart.md
+  - name: Connections
     items:
       - name: Overview
         href: concepts/connection.md
@@ -86,22 +93,16 @@ items:
         href: concepts/caching.md
       - name: Combining data
         href: concepts/data-join.md
-      - name: Step-by-step guides
+      - name: Databases
         items:
           - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
-          - name: Creating a {{ MY }} connection
-            href: operations/connection/create-mysql.md
           - name: Creating a {{ PG }} connection
             href: operations/connection/create-postgresql.md
-          - name: Creating a {{ MS }} connection
-            href: operations/connection/create-mssql-server.md
-          - name: Creating an Oracle Database connection
-            href: operations/connection/create-oracle.md
+          - name: Creating a {{ MY }} connection
+            href: operations/connection/create-mysql.md
           - name: Creating a {{ ydb-short-name }} connection
             href: operations/connection/create-ydb.md
-          - name: Creating a {{ GP }} connection
-            href: operations/connection/create-greenplum.md
           - name: Creating a {{ ytsaurus-name }} CHYT connection
             items:
               - name: Connection
@@ -110,66 +111,58 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
-          - name: Creating a {{ datalens-short-name }} Usage Analytics connection
-            href: operations/connection/create-usage-tracking.md
-          - name: Creating a connection to a file
+          - name: Creating a {{ GP }} connection
+            href: operations/connection/create-greenplum.md
+          - name: Creating a {{ MS }} connection
+            href: operations/connection/create-mssql-server.md
+          - name: Creating an Oracle Database connection
+            href: operations/connection/create-oracle.md
+          - name: Creating a {{ prometheus-name }} connection
+            href: operations/connection/create-prometheus.md
+          - name: Creating a BigQuery connection
+            href: operations/connection/create-big-query.md
+          - name: Creating a Snowflake connection
+            href: operations/connection/create-snowflake.md
+      - name: Files and services
+        items:
+          - name: Creating a connection to files
             href: operations/connection/create-file.md
           - name: Creating a connection to Yandex Documents
             href: operations/connection/create-yadocs.md
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
-          - name: Creating a BigQuery connection
-            href: operations/connection/create-big-query.md
-          - name: Creating a {{ prometheus-name }} connection
-            href: operations/connection/create-prometheus.md
           - name: Creating a {{ yq-full-name }} connection
             href: operations/connection/create-yandex-query.md
-          - name: Creating a {{ monitoring-full-name }} connection
-            href: operations/connection/create-monitoring.md
-          - name: Creating a Bitrix24 connection
-            href: operations/connection/create-bitrix24.md
-          - name: Creating a Yandex Music podcast connection
-            href: operations/connection/create-podcasts.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
           - name: Creating a {{ billing-name }} connection
             href: operations/connection/create-cloud-billing.md
-          - name: Creating a Snowflake connection
-            href: operations/connection/create-snowflake.md
+          - name: Creating a {{ monitoring-full-name }} connection
+            href: operations/connection/create-monitoring.md
+          - name: Creating a connection to {{ datalens-short-name }} Usage Analytics
+            href: operations/connection/create-usage-tracking.md
+      - name: Partner connections
+        items:
+          - name: Creating a Bitrix24 connection
+            href: operations/connection/create-bitrix24.md
+          - name: Creating a Yandex Music podcast connection
+            href: operations/connection/create-podcasts.md
   - name: Datasets
     items:
       - name: Overview
-        href: concepts/dataset/index.md
+        href: dataset/index.md
+      - name: Working with datasets
+        href: dataset/create-dataset.md
       - name: Data model
-        href: concepts/dataset/data-model.md
+        href: dataset/data-model.md
+      - name: Dataset settings
+        href: dataset/settings.md
       - name: Data types
-        href: concepts/data-types.md
+        href: dataset/data-types.md
       - name: Data type mapping
         href: dataset/types-lookup-table.md
-      - name: Dataset settings
-        href: concepts/dataset/settings.md
-      - name: Step-by-step guides
-        items:
-          - name: Creating a dataset
-            href: operations/dataset/create.md
-          - name: Combining data from multiple tables
-            href: operations/dataset/join-data.md
-          - name: Creating a data field
-            href: operations/dataset/create-field.md
-          - name: Creating a calculated data field
-            href: operations/dataset/create-calculated-field.md
-          - name: Creating a default filter for new charts
-            href: operations/dataset/create-filter.md
-          - name: Replacing a connection in a dataset
-            href: operations/dataset/replace-connection.md
-          - name: Updating fields in datasets
-            href: operations/dataset/update-field.md
-          - name: Describing a dataset via a source SQL query
-            href: operations/dataset/add-data.md
-          - name: Adding parameters to a dataset
-            href: operations/dataset/add-parameter-dataset.md
   - name: Calculated fields
     items:
       - name: Overview
@@ -716,7 +709,7 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
-      - name: Filtering charts by charts
+      - name: Filtering charts by other charts
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
@@ -728,7 +721,7 @@ items:
         href: dashboard/markdown.md
       - name: Step-by-step guides
         items:
-          - name: Creating dashboards
+          - name: Creating a dashboard
             href: operations/dashboard/create.md
           - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
@@ -760,6 +753,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
+  - name: Reports
+    items:
+      - name: Overview
+        href: reports/index.md
+      - name: Working with reports
+        href: reports/report-operations.md
   - name: Access management
     items:
       - name: Overview
@@ -776,7 +775,7 @@ items:
             href: operations/organizations/change-organization.md
       - name: Object access
         items:
-          - name: Permissions
+          - name: Access permissions
             href: security/manage-access.md
           - name: Granting and updating permissions
             href: operations/permission/grant.md
@@ -798,6 +797,8 @@ items:
     items:
       - name: UI customization
         href: settings/ui-customization.md
+      - name: Disabling folder navigation
+        href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
       - name: Overview
@@ -814,24 +815,31 @@ items:
         href: settings/service-plan.md
       - name: Archive
         items:
+          - name: Before June 1, 2024
+            href: pricing-archive/pricing01062024.md
           - name: Before April 23, 2024
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: June 2024
+      - name: August 2024
         href: release-notes/index.md
-      - name: May 2024
-        href: release-notes/2405.md
-      - name: April 2024
-        href: release-notes/2404.md
-      - name: March 2024
-        href: release-notes/2403.md
-      - name: February 2024
-        href: release-notes/2402.md
-      - name: January 2024
-        href: release-notes/2401.md
+      - name: Archive
+        items:
+          - name: July 2024
+            href: release-notes/2407.md
+          - name: June 2024
+            href: release-notes/2406.md
+          - name: May 2024
+            href: release-notes/2405.md
+          - name: April 2024
+            href: release-notes/2404.md
+          - name: March 2024
+            href: release-notes/2403.md
+          - name: February 2024
+            href: release-notes/2402.md
+          - name: January 2024
+            href: release-notes/2401.md
   - name: Troubleshooting
-    expanded: true
     items:
       - name: Optimization best practices
         href: concepts/optimization_recommendations.md
@@ -841,7 +849,7 @@ items:
         items:
           - name: All questions
             href: qa/index.md
-          - name: Permissions
+          - name: Access permissions
             href: qa/permissions.md
           - name: Billing and payment
             href: qa/pricing.md
@@ -859,7 +867,7 @@ items:
             href: qa/workbooks-collections.md
           - name: Other
             href: qa/other.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Access denied
         hidden: true
@@ -1019,6 +1027,9 @@ items:
       - name: Failed to create <object_type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Cannot update data
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
       - name: Object request error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
@@ -1028,6 +1039,9 @@ items:
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Formula syntax error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
       - name: Data type conversion error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
@@ -1035,3 +1049,4 @@ items:
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
 base: en/datalens
+deepBase: 2

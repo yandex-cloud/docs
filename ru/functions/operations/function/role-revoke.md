@@ -1,6 +1,6 @@
 ---
-title: "Отозвать роли, назначенные на функцию"
-description: "Следуя данной инструкции, вы сможете отозвать роли, назначенные на функцию."
+title: Отозвать роли, назначенные на функцию
+description: Следуя данной инструкции, вы сможете отозвать роли, назначенные на функцию.
 ---
 
 # Отозвать роли, назначенные на функцию
@@ -37,7 +37,7 @@ description: "Следуя данной инструкции, вы сможет�
         ```
         done (1s)
         ```
-    * у всех авторизованных пользователей (системная группа `{{ subjects-allAuthenticatedUsers }}`):
+    * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
         ```
         yc serverless function remove-access-binding \
           --id <идентификатор_функции> \
@@ -51,6 +51,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings).
+  Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md).
 
 {% endlist %}

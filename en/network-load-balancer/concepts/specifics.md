@@ -1,6 +1,6 @@
 ---
-title: "Implementation specifics"
-description: "In this tutorial, you will learn about the implementation of a network load balancer in {{ yandex-cloud }}: the operation algorithm of the external load balancer, handling of UDP traffic, traffic routing through the internal load balancer, etc."
+title: Implementation specifics
+description: 'In this tutorial, you will learn about the implementation of a network load balancer in {{ yandex-cloud }}: the operation algorithm of the external load balancer, handling of UDP traffic, traffic routing through the internal load balancer, etc.'
 ---
 
 # Implementation specifics
@@ -70,7 +70,7 @@ You cannot use On-Prem resources as part of load balancer groups because the net
 
 ## Routing traffic via the internal balancer {#nlb-int-routing}
 
-An internal network load balancer uses routes of all subnets in the selected {{ vpc-name }} network. These include dynamic routes from [{{ interconnect-name }}](../../interconnect/) and [static routes](../../vpc/concepts/static-routes.md) from VPC routing tables.
+An internal network load balancer uses routes of all subnets in the selected {{ vpc-name }} network. These include dynamic routes from [{{ interconnect-name }}](../../interconnect/) and [static routes](../../vpc/concepts/routing.md) from VPC routing tables.
 
 If multiple routes have the same destination prefix but different [next hop](https://en.wikipedia.org/wiki/Hop_(networking)#Next_hop) addresses in the routing table, outgoing traffic from the balancer's target resources will be distributed among these next hop addresses. Keep this in mind when traffic reaches the balancer through network instances (e.g., firewalls) that can track incoming and outgoing traffic streams and do not allow traffic asymmetry.
 

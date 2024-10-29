@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ vpc-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ vpc-name }}."
+title: Пошаговые инструкции для {{ vpc-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ vpc-name }}.
 ---
 
 # Пошаговые инструкции для {{ vpc-name }}
@@ -43,6 +43,13 @@ description: "На странице представлен список поша
 - [{#T}](static-gateway-move.md)
 - [{#T}](delete-route-table.md)
 - [{#T}](delete-nat-gateway.md)
+
+## Сервисные подключения {#private-endpoint}
+
+- [{#T}](private-endpoint-create.md)
+- [{#T}](private-endpoint-get-info.md)
+- [{#T}](private-endpoint-storage-policy.md)
+- [{#T}](private-endpoint-delete.md)
 
 ## Группы безопасности {#security-groups}
 

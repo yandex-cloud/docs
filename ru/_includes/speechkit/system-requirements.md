@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Процессор должен поддерживать набор инструкций [AVX2](https://ru.wikipedia.org/wiki/AVX) (Advanced Vector Support). 
+Процессор должен поддерживать набор инструкций [AVX2](https://ru.wikipedia.org/wiki/AVX) (Advanced Vector Support).
 
 {% endnote %}
 

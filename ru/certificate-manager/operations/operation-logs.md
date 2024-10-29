@@ -47,7 +47,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: fpq207m67dkq********
     description: Update certificate
     created_at: "2024-03-26T16:32:07.034Z"
@@ -89,7 +89,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Certificate/listOperations.md) для ресурса [Certificate](../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/ListOperations](../api-ref/grpc/certificate_service.md#ListOperations).
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Certificate/listOperations.md) для ресурса [Certificate](../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/ListOperations](../api-ref/grpc/Certificate/listOperations.md).
 
 {% endlist %}
 
@@ -115,7 +115,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: fpq207m67dkq********
       description: Update certificate
       created_at: "2024-03-26T16:32:07.034Z"
@@ -149,7 +149,7 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

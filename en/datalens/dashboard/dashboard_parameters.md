@@ -1,11 +1,11 @@
 # Dashboard parameters
 
-The dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and adapt the use of the same charts and widgets for different purposes. It may be helpful to use parameters in cases such as:
+A dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and customize the same charts and widgets for different purposes. You may find parameters useful in situations like these:
 
-* You want to post a link to a dashboard with a filter applied: in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
+* You want to post a link to a dashboard with a filter applied: in a table on another dashboard, on a {{ wiki-full-name }} page, or somewhere else.
 * You want to post the same chart with different filters on the same dashboard tab.
 
-You can add parameters both for the whole [dashboard](#params-dash) and for a [separate chart](#params-chart) on the dashboard. Dashboard parameters apply to all its charts, while chart parameters apply to an individual widget.
+You can add parameters either for the whole [dashboard](#params-dash) or an [individual chart](#params-chart) on the dashboard. Dashboard parameters apply to all its charts, whereas chart parameters apply to an individual widget.
 
 You can see the examples of how to use the parameters in this {{ yandex-cloud }} YouTube channel [video](https://www.youtube.com/watch?v=fx0BR_RnLNs).
 
@@ -24,15 +24,15 @@ If the field ID changes, you should also update the parameter name. For more inf
 
 {% endnote %}
 
-You can also specify parameter values in dashboard links. In this case, clicking a link will open the dashboard with a filter applied.
+You can also specify parameter values in a dashboard link. In which case clicking a link will open the dashboard with a filter applied.
 
 {% note info %}
 
-To have the parameter value inserted into the dataset-based selector when you click the link, specify the field ID both as the parameter name and in the dashboard link.
+To have the parameter value substituted into the dataset-based selector when you click the link, specify the field ID both as the parameter name and in the dashboard link.
 
 {% endnote %}
 
-The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `{{ link-datalens-main }}/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
+The first parameter of the link is separated from the dashboard path with `?`, and the remaining parameters with `&`. For example, the link `{{ link-datalens-main }}/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
 
 The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
 
@@ -41,7 +41,7 @@ The parameter values specified in the link will take priority. For example, if t
 
 Chart parameters apply only to the chart itself. Thus, you can view the same chart with different filters on the same dashboard tab. You can [add parameters for the chart](../operations/chart/add-parameters.md) in its settings on the dashboard.
 
-You can pass a transmit value to a wizard chart using field ID ([see the instructions](../operations/chart/add-guid.md)).
+You can transmit a parameter value to a wizard chart using field ID ([see the guide](../operations/chart/add-guid.md)).
 
 {% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
 
@@ -71,7 +71,7 @@ Where:
    * `s`: To the start
    * `e`: To the end
 
-For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
+E.g., if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 * `__relative_-7d`: Seven days back, `2020-03-17T00:00:00.000Z`
 * `__relative_+30m`: In 30 minutes, `2020-03-25T00:00:39.874Z`
@@ -137,4 +137,4 @@ The following limitations apply when using parameters:
    1. Delete the selector you added from the dashboard.
 
    The dashboard's `parameter` value will now be applied to all the widgets the remote selector was connected to.
-
+   

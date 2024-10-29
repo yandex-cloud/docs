@@ -18,13 +18,13 @@
 
     Чтобы получить список версий функции, выполните команду:
 
-    ```
+    ```bash
     yc serverless function version list --function-name <имя_функции>
     ```
 
     Результат:
 
-    ```
+    ```text
     +----------------------+----------------------+-----------+--------------+---------+---------------------+
     |          ID          |     FUNCTION ID      |  RUNTIME  |  ENTRYPOINT  |  TAGS   |     CREATED AT      |
     +----------------------+----------------------+-----------+--------------+---------+---------------------+
@@ -35,7 +35,7 @@
 
 - API {#api}
 
-    Чтобы получить список версий функции, воспользуйтесь методом REST API [listVersions](../../functions/functions/api-ref/Function/listVersions.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/function_service.md#ListVersions).
+    Чтобы получить список версий функции, воспользуйтесь методом REST API [listVersions](../../functions/functions/api-ref/Function/listVersions.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/Function/listVersions.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

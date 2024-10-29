@@ -1,11 +1,11 @@
-# Устранение ошибки DEADLINE_EXCEEDED
+# Устранение ошибки `DEADLINE_EXCEEDED`
 
 
 ## Описание проблемы {#issue-description}
 
 При попытке выполнить curl-запрос следующего вида:
 ```
-curl "https://monitoring.api.cloud.yandex.net/monitoring/v2/prometheusMetrics/?folderId=folder_id&service=managed-kubernetes" -H "Authorization: Bearer ${IAM_TOKEN}" -H "Content-Type: application/json" -i
+curl "https://{{ api-host-monitoring-1 }}/monitoring/v2/prometheusMetrics/?folderId=folder_id&service=managed-kubernetes" -H "Authorization: Bearer ${IAM_TOKEN}" -H "Content-Type: application/json" -i
 ```
 возникает сообщение об ошибке:
 ```
@@ -14,7 +14,8 @@ curl "https://monitoring.api.cloud.yandex.net/monitoring/v2/prometheusMetrics/?f
 
 ## Решение {#issue-resolution}
 
-Причина  такой ошибки в большом количестве метрик, из-за чего запрос не успевает отработать. Рекомендуем выгружать метрики, используя селекторы, чтобы снизить объем данных:
+Причина такой ошибки заключается в большом количестве метрик, из-за чего запрос не успевает отработать. Рекомендуем выгружать метрики, используя селекторы, чтобы снизить объем данных:
+
 ```
 scrape_configs:
   - job_name: 'yc-monitoring-export'
@@ -31,6 +32,6 @@ scrape_configs:
 
 {% note info %}
 
-Сам параметр `selectors` для метрик подов можно фильтровать по пространству имен или маске имени пода, например, `pod=part-of-name*`. Подробнее пишем в [документации языка запросов](../../../monitoring/concepts/querying.md).
+Сам параметр `selectors` для метрик подов можно фильтровать по пространству имен или маске имени пода, например `pod=part-of-name*`. Подробнее пишем в [документации языка запросов](../../../monitoring/concepts/querying.md).
 
 {% endnote %}

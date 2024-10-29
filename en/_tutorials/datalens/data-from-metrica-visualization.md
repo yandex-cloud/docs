@@ -1,4 +1,4 @@
-# Web analytics with a connection to Yandex Metrica
+# Yandex Metrica: direct connection
 
 
 

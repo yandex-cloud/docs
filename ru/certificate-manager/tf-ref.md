@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ certificate-manager-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ certificate-manager-name }}.
+---
+
 # Справочник {{ TF }} для {{ certificate-manager-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,5 +21,5 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_cm_certificate]({{ tf-provider-datasources-link }}/datasource_cm_certificate) | Информация о [TLS-сертификате](./concepts/index.md#types) |
-| [yandex_cm_certificate_content]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content) | Содержимое TLS-сертификата |
+| [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate) | Информация о [TLS-сертификате](./concepts/index.md#types) |
+| [yandex_cm_certificate_content]({{ tf-provider-datasources-link }}/cm_certificate_content) | Содержимое TLS-сертификата |

@@ -21,14 +21,16 @@
    * **{{ ui-key.yc-ui-datasphere.spark-connector.create-temporary-cluster.title }}** — выберите, чтобы создать временный кластер {{ dataproc-name }}. Временный кластер будет создан при первом запуске вычислений в ноутбуке проекта.
 
 1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** укажите идентификатор [статического ключа доступа](../../../iam/operations/sa/create-access-key.md) и [секрет](../../concepts/secrets.md), в котором хранится секретная часть статического ключа для [коннектора S3](../../concepts/s3-connector.md).
-   
+
    **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** позволяет указать данные для подключения к бакету S3. Это рекомендуется при работе с бакетами {{ objstorage-name }} в любых кластерах, и крайне желательно для кластеров {{ dataproc-name }} без включенной опции HDFS.
 
 1. В блоке **{{ ui-key.yc-ui-datasphere.spark-connector.spark-settings }}** выберите опцию **{{ ui-key.yc-ui-datasphere.spark-connector.use-default-settings.title }}**, чтобы использовать стандартные настройки кластера {{ dataproc-name }} или укажите параметры *{{ ui-key.yc-ui-datasphere.common.placeholder.key }}* и *{{ ui-key.yc-ui-datasphere.common.placeholder.value }}*, чтобы вручную дополнить или изменить параметры кластера {{ dataproc-name }}.
 
    {% note tip %}
 
-   Для кластеров {{ dataproc-name }} без включенной опции HDFS задайте дополнительный параметр `spark.hadoop.fs.s3a.fast.upload.buffer=bytebuffer`.
+   Для кластеров {{ dataproc-name }} без включенной опции HDFS задайте дополнительный параметр `spark.hadoop.fs.s3a.fast.upload.buffer` = `bytebuffer`.
+
+   Для собственных кластеров с типом подключения Spark Connect задайте дополнительный параметр `dataproc:spark-connect` = `enabled`.
 
    {% endnote %}
 
@@ -81,3 +83,5 @@
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что коннектор удален.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

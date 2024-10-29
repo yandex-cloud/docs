@@ -7,9 +7,11 @@
 * при загрузке объекта (метод [upload](../object/upload.md));
 * после загрузки объекта (методы [putObjectRetention](../object/putobjectretention.md) и [putObjectLegalHold](../object/putobjectlegalhold.md)).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?object-lock HTTP/2
 ```
 

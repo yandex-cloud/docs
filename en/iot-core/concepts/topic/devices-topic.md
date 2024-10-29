@@ -1,6 +1,6 @@
 ---
-title: "Device topics in {{ iot-full-name }}"
-description: "This page describes all device topics available in {{ iot-full-name }}."
+title: Device topics in {{ iot-full-name }}
+description: This page describes all device topics available in {{ iot-full-name }}.
 ---
 
 # Device topics
@@ -38,7 +38,7 @@ Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_T
 
 ### Example of monitoring data {#example}
 
-```
+```json
 {
 	"last_auth_time": "2021-03-24T09:55:21.7570928Z",
 	"last_auth_ip": "199.21.99.45",

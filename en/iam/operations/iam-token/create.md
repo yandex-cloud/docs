@@ -1,6 +1,6 @@
 ---
-title: "How to get an IAM token for an account"
-description: "Follow this guide to get an IAM token for an account."
+title: How to get an IAM token for an account
+description: Follow this guide to get an IAM token for an account.
 ---
 
 # Getting an IAM token for a Yandex account
@@ -17,7 +17,7 @@ description: "Follow this guide to get an IAM token for an account."
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Get an IAM token:
+  Get an [IAM token](../../concepts/authorization/iam-token.md):
 
   ```bash
   yc iam create-token
@@ -42,3 +42,4 @@ description: "Follow this guide to get an IAM token for an account."
 #### See also {#see-also}
 
 * [Using an IAM token in a Helm chart](../../../container-registry/operations/helm-chart/helm-chart-push.md)
+* [Revoking an IAM token](./revoke-iam-token.md)

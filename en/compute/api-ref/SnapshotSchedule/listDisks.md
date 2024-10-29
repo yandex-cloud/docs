@@ -3,33 +3,49 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listDisks.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.listDisks
-Retrieves the list of disks attached to the specified snapshot schedule.
- 
+# Compute Cloud API, REST: SnapshotSchedule.ListDisks {#ListDisks}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of disks attached to the specified snapshot schedule.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/disks
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-snapshotScheduleId | <p>ID of the snapshot schedule to list attached disks for.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> returned by a previous list request.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| snapshotScheduleId | **string**
+
+Required field. ID of the snapshot schedule to list attached disks for.
+
+To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.compute.v1.ListSnapshotScheduleDisksRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`, the service returns a [ListSnapshotScheduleDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksResponse)
+that can be used to get the next page of results in subsequent list requests.
+
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListSnapshotScheduleDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksResponse) returned by a previous list request. ||
+|#
+
+## Response {#yandex.cloud.compute.v1.ListSnapshotScheduleDisksResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "disks": [
     {
@@ -38,7 +54,7 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
+      "labels": "string",
       "typeId": "string",
       "zoneId": "string",
       "size": "string",
@@ -47,6 +63,10 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
         "string"
       ],
       "status": "string",
+      // Includes only one of the fields `sourceImageId`, `sourceSnapshotId`
+      "sourceImageId": "string",
+      "sourceSnapshotId": "string",
+      // end of the list of possible fields
       "instanceIds": [
         "string"
       ],
@@ -54,38 +74,172 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
         "placementGroupId": "string",
         "placementGroupPartition": "string"
       },
-
-      // `disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`
-      "sourceImageId": "string",
-      "sourceSnapshotId": "string",
-      // end of the list of possible fields`disks[]`
-
+      "hardwareGeneration": {
+        // Includes only one of the fields `legacyFeatures`, `generation2Features`
+        "legacyFeatures": {
+          "pciTopology": "string"
+        },
+        "generation2Features": "object"
+        // end of the list of possible fields
+      },
+      "kmsKey": {
+        "keyId": "string",
+        "versionId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-disks[] | **object**<br><p>List of disks attached to the specified snapshot schedule.</p> 
-disks[].<br>id | **string**<br><p>ID of the disk.</p> 
-disks[].<br>folderId | **string**<br><p>ID of the folder that the disk belongs to.</p> 
-disks[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-disks[].<br>name | **string**<br><p>Name of the disk. 1-63 characters long.</p> 
-disks[].<br>description | **string**<br><p>Description of the disk. 0-256 characters long.</p> 
-disks[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
-disks[].<br>typeId | **string**<br><p>ID of the disk type.</p> 
-disks[].<br>zoneId | **string**<br><p>ID of the availability zone where the disk resides.</p> 
-disks[].<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> 
-disks[].<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes.</p> 
-disks[].<br>productIds[] | **string**<br><p>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine.</p> <p>The correct license ID is generated by the platform. IDs are inherited by new resources created from this resource.</p> <p>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost. You can specify them in the <a href="/docs/compute/api-ref/Image/create">create</a> request.</p> 
-disks[].<br>status | **string**<br>Current status of the disk.<br><ul> <li>CREATING: Disk is being created.</li> <li>READY: Disk is ready to use.</li> <li>ERROR: Disk encountered a problem and cannot operate.</li> <li>DELETING: Disk is being deleted.</li> </ul> 
-disks[].<br>instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
-disks[].<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
-disks[].<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
-disks[].<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
-disks[].<br>sourceImageId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
-disks[].<br>sourceSnapshotId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| disks[] | **[Disk](#yandex.cloud.compute.v1.Disk)**
+
+List of disks attached to the specified snapshot schedule. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListSnapshotScheduleDisksRequest.pageSize](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksRequest), use `next_page_token` as the value
+for the [ListSnapshotScheduleDisksRequest.pageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## Disk {#yandex.cloud.compute.v1.Disk}
+
+A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the disk. ||
+|| folderId | **string**
+
+ID of the folder that the disk belongs to. ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the disk. 1-63 characters long. ||
+|| description | **string**
+
+Description of the disk. 0-256 characters long. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
+|| typeId | **string**
+
+ID of the disk type. ||
+|| zoneId | **string**
+
+ID of the availability zone where the disk resides. ||
+|| size | **string** (int64)
+
+Size of the disk, specified in bytes. ||
+|| blockSize | **string** (int64)
+
+Block size of the disk, specified in bytes. ||
+|| productIds[] | **string**
+
+License IDs that indicate which licenses are attached to this resource.
+License IDs are used to calculate additional charges for the use of the virtual machine.
+
+The correct license ID is generated by the platform. IDs are inherited by new resources created from this resource.
+
+If you know the license IDs, specify them when you create the image.
+For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
+You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/api-ref/Image/create#Create) request. ||
+|| status | **enum** (Status)
+
+Current status of the disk.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Disk is being created.
+- `READY`: Disk is ready to use.
+- `ERROR`: Disk encountered a problem and cannot operate.
+- `DELETING`: Disk is being deleted. ||
+|| sourceImageId | **string**
+
+ID of the image that was used for disk creation.
+
+Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
+|| sourceSnapshotId | **string**
+
+ID of the snapshot that was used for disk creation.
+
+Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
+|| instanceIds[] | **string**
+
+Array of instances to which the disk is attached. ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+
+Placement policy configuration. ||
+|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+
+If specified, forces the same HardwareGeneration features to be applied to the instance
+created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
+
+#|
+||Field | Description ||
+|| placementGroupId | **string**
+
+Placement group ID. ||
+|| placementGroupPartition | **string** (int64) ||
+|#
+
+## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
+
+A set of features, specific to a particular Compute hardware generation.
+They are not necessary supported by every host OS or distro, thus they are fixed to an image
+and are applied to all instances created with it as their boot disk image.
+These features significantly determine how the instance is created, thus cannot be changed after the fact.
+
+#|
+||Field | Description ||
+|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+
+Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+|| generation2Features | **object**
+
+Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+|#
+
+## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
+
+A first hardware generation, by default compatible with all legacy images.
+Allows switching to PCI_TOPOLOGY_V2 and back.
+
+#|
+||Field | Description ||
+|| pciTopology | **enum** (PCITopology)
+
+- `PCI_TOPOLOGY_UNSPECIFIED`
+- `PCI_TOPOLOGY_V1`
+- `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
+|#

@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a digital signature key pair"
-description: "Follow this guide to assign roles for an asymmetric digital signature key pair."
+title: Configuring access permissions for a digital signature key pair
+description: Follow this guide to assign roles for an asymmetric digital signature key pair.
 ---
 
 # Configuring access permissions for a digital signature key pair
@@ -83,7 +83,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - API {#api}
 
-   Use the [AsymmetricSignatureKeyService/UpdateAccessBindings](../api-ref/grpc/asymmetric_signature_key_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [AsymmetricSignatureKeyService/UpdateAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
@@ -92,7 +92,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 {% endlist %}
 
-## Assign multiple roles {#set-access-bindings}
+## Assigning multiple roles {#set-access-bindings}
 
 {% list tabs group=instructions %}
 
@@ -109,7 +109,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -117,7 +117,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    To assign multiple roles for a digital signature key pair:
 
-   1. Make sure the key pair has no roles assigned that you would rather not lose:
+   1. Make sure the key pair has no roles assigned that you would not want to lose:
 
       ```bash
       yc kms asymmetric-signature-key list-access-bindings \
@@ -139,7 +139,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Use one of the commands below to assign roles:
 
-      * To a user with a Yandex account:
+      * To a Yandex account user:
 
          ```bash
          yc kms asymmetric-signature-key set-access-bindings \
@@ -183,9 +183,9 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [AsymmetricSignatureKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_signature_key_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.

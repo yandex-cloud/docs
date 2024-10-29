@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ dataproc-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ dataproc-name }}.
+---
+
 # Справочник {{ TF }} для {{ dataproc-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/datasource_dataproc_cluster) | Информация о [кластере {{ dataproc-name }}](./concepts/index.md#resources) |
+| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/dataproc_cluster) | Информация о [кластере {{ dataproc-name }}](./concepts/index.md#resources) |

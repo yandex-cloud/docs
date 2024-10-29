@@ -1,6 +1,6 @@
 # Модели
 
-Во время работы в {{ ml-platform-full-name }} в памяти ВМ сохраняется состояние интерпретатора и результаты вычислений или обучения. Вы можете сохранить эти вычисления в отдельный ресурс _модель_. 
+Во время работы в {{ ml-platform-full-name }} в памяти ВМ сохраняется состояние интерпретатора и результаты вычислений или обучения. Вы можете сохранить эти вычисления в отдельный ресурс _модель_.
 
 В {{ ml-platform-name }} доступно два типа моделей:
 * модели, обученные в проектах;
@@ -12,7 +12,7 @@
 
 Вы можете создать модель на основе разных типов библиотек, поддерживаемых библиотекой [serialzy](https://github.com/lambdazy/serialzy#list-of-supported-libraries-for-stable-serialization). Список поддерживаемых типов данных и переменных представлен в таблице ниже.
 
-| Библиотека | Типы | Формат данных | 
+| Библиотека | Типы | Формат данных |
 |---|---|---|
 | [CatBoost](https://catboost.ai) | [CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor), [CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier), [CatBoostRanker](https://catboost.ai/en/docs/concepts/python-reference_catboostranker) | [cbm](https://catboost.ai/en/docs/concepts/python-reference_catboost_save_model) |
 | [CatBoost](https://catboost.ai) | [Pool](https://catboost.ai/en/docs/concepts/python-reference_pool) | [quantized pool](https://catboost.ai/en/docs/concepts/python-reference_pool_save) |
@@ -36,7 +36,7 @@
 * имя пользователя, создавшего модель;
 * дата создания датасета в формате в [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время), например `18 июля 2023 г., 14:23`.
 
-Чтобы посмотреть подробную информацию о модели, нажмите на ее название в списке моделей проекта. 
+Чтобы посмотреть подробную информацию о модели, нажмите на ее название в списке моделей проекта.
 
 #### См. также {#see-also}
 

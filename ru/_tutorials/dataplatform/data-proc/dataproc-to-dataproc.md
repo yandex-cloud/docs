@@ -1,4 +1,4 @@
-Вы можете сохранять данные из кластера {{ dataproc-name }} в бакет {{ objstorage-name }}, используя отдельный кластер [{{ metastore-name }}](../../../data-proc/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
+Вы можете сохранять данные из [кластера {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), используя отдельный [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
 
 Чтобы настроить совместное использование таблиц двумя кластерами {{ dataproc-name }} с помощью {{ metastore-name }}:
 
@@ -18,7 +18,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роль `dataproc.agent`.
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой зоне доступности.
@@ -83,9 +83,15 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
+
+{% endnote %}
+
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
-1. [Создайте кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-create.md) в сети `dataproc-network`.
+1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) в сети `dataproc-network`.
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
@@ -191,7 +197,7 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-1. [Удалите кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -200,6 +206,9 @@
 
         1. [Кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
         1. [Бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
+        1. [Подсеть](../../../vpc/operations/subnet-delete.md).
+        1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+        1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
         1. [Облачную сеть](../../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 

@@ -3,33 +3,47 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.listHosts
-Retrieves a list of hosts for the specified cluster.
- 
+# Managed Service for OpenSearch API, REST: Cluster.ListHosts {#ListHosts}
 
- 
-## HTTP request {#https-request}
+Retrieves a list of hosts for the specified cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/hosts
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the OpenSearch cluster. To get the OpenSearch cluster ID use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the OpenSearch cluster.
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return.
+
+If the number of available results is larger than `pageSize`, the service returns
+a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
+returned by the previous list request. ||
+|#
+
+## Response {#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "hosts": [
     {
@@ -44,11 +58,11 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
       "type": "string",
       "health": "string",
       "subnetId": "string",
-      "assignPublicIp": true,
+      "assignPublicIp": "boolean",
       "system": {
         "cpu": {
           "timestamp": "string",
-          "used": "number"
+          "used": "string"
         },
         "memory": {
           "timestamp": "string",
@@ -71,33 +85,157 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
 }
 ```
 
- 
-Field | Description
---- | ---
-hosts[] | **object**<br><p>Requested list of hosts for the cluster.</p> 
-hosts[].<br>name | **string**<br><p>Required. Name of the OpenSearch host.</p> <p>The host name is assigned by the platform at creation time and cannot be changed.</p> <p>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> 
-hosts[].<br>clusterId | **string**<br><p>Required. ID of the OpenSearch cluster. The ID is assigned by the platform at creation time.</p> 
-hosts[].<br>zoneId | **string**<br><p>ID of the availability zone the OpenSearch host belongs to.</p> 
-hosts[].<br>resources | **object**<br><p>Resources allocated to the OpenSearch host.</p> <p>A list of computational resources allocated to a host.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
-hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
-hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
-hosts[].<br>type | **string**<br><p>Type of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>TYPE_UNSPECIFIED: Type of the host is unspecified. Default value. - OPENSEARCH: An OpenSearch type host.</li> <li>DASHBOARDS: A Dashboards type host.</li> </ul> 
-hosts[].<br>health | **string**<br><p>Aggregated health of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>UNKNOWN: Health of the host is unknown. Default value.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is working below capacity or not fully functional.</li> </ul> 
-hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
-hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the host.</p> 
-hosts[].<br>system | **object**<br><p>Resources used by the host.</p> <p>Resources used by the host.</p> 
-hosts[].<br>system.<br>cpu | **object**<br><p>CPU usage of the host.</p> <p>CPU usage of the host.</p> 
-hosts[].<br>system.<br>cpu.<br>timestamp | **string** (int64)<br><p>Time of the record.</p> 
-hosts[].<br>system.<br>cpu.<br>used | **number** (double)<br><p>Percentage of the CPU used.</p> 
-hosts[].<br>system.<br>memory | **object**<br><p>RAM usage of the host.</p> <p>RAM usage of the host.</p> 
-hosts[].<br>system.<br>memory.<br>timestamp | **string** (int64)<br><p>Time of the record.</p> 
-hosts[].<br>system.<br>memory.<br>used | **string** (int64)<br><p>The amount of RAM used, in bytes.</p> 
-hosts[].<br>system.<br>memory.<br>total | **string** (int64)<br><p>Total amount of RAM allocated to the host.</p> 
-hosts[].<br>system.<br>disk | **object**<br><p>Disk usage of the host.</p> <p>Disk usage of the host.</p> 
-hosts[].<br>system.<br>disk.<br>timestamp | **string** (int64)<br><p>Time of the record.</p> 
-hosts[].<br>system.<br>disk.<br>used | **string** (int64)<br><p>The amount of disk space used, in bytes.</p> 
-hosts[].<br>system.<br>disk.<br>total | **string** (int64)<br><p>Total amount of disk space allocated to the host.</p> 
-hosts[].<br>nodeGroup | **string**<br><p>Name of the host group that the host belongs to.</p> 
-hosts[].<br>roles[] | **string**<br><p>Roles of the host.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request.</p> <p>Each subsequent list request has its own <a href="/docs/managed-opensearch/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| hosts[] | **[Host](#yandex.cloud.mdb.opensearch.v1.Host)**
+
+Requested list of hosts for the cluster. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests.
+
+If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest), use the `nextPageToken`
+as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest) query parameter in the next list request.
+
+Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## Host {#yandex.cloud.mdb.opensearch.v1.Host}
+
+An OpenSearch cluster host resource.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Name of the OpenSearch host.
+
+The host name is assigned by the platform at creation time and cannot be changed.
+
+The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
+|| clusterId | **string**
+
+Required. ID of the OpenSearch cluster. The ID is assigned by the platform at creation time. ||
+|| zoneId | **string**
+
+ID of the availability zone the OpenSearch host belongs to. ||
+|| resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
+
+Resources allocated to the OpenSearch host. ||
+|| type | **enum** (Type)
+
+Type of the host. If the field has default value, it is not returned in the response.
+
+- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
+- `OPENSEARCH`: An OpenSearch type host.
+- `DASHBOARDS`: A Dashboards type host. ||
+|| health | **enum** (Health)
+
+Aggregated health of the host. If the field has default value, it is not returned in the response.
+
+- `UNKNOWN`: Health of the host is unknown. Default value.
+- `ALIVE`: The host is performing all its functions normally.
+- `DEAD`: The host is inoperable and cannot perform any of its essential functions.
+- `DEGRADED`: The host is working below capacity or not fully functional. ||
+|| subnetId | **string**
+
+ID of the subnet that the host belongs to. ||
+|| assignPublicIp | **boolean**
+
+Determines whether a public IP is assigned to the host. ||
+|| system | **[SystemMetrics](#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics)**
+
+Resources used by the host. ||
+|| nodeGroup | **string**
+
+Name of the host group that the host belongs to. ||
+|| roles[] | **enum** (GroupRole)
+
+Roles of the host.
+
+- `GROUP_ROLE_UNSPECIFIED`
+- `DATA`
+- `MANAGER` ||
+|#
+
+## Resources {#yandex.cloud.mdb.opensearch.v1.Resources}
+
+A list of computational resources allocated to a host.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources allocated to a host. ||
+|| diskSize | **string** (int64)
+
+Volume of the storage used by the host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+|#
+
+## SystemMetrics {#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics}
+
+Resources used by the host.
+
+#|
+||Field | Description ||
+|| cpu | **[CPUMetric](#yandex.cloud.mdb.opensearch.v1.Host.CPUMetric)**
+
+CPU usage of the host. ||
+|| memory | **[MemoryMetric](#yandex.cloud.mdb.opensearch.v1.Host.MemoryMetric)**
+
+RAM usage of the host. ||
+|| disk | **[DiskMetric](#yandex.cloud.mdb.opensearch.v1.Host.DiskMetric)**
+
+Disk usage of the host. ||
+|#
+
+## CPUMetric {#yandex.cloud.mdb.opensearch.v1.Host.CPUMetric}
+
+CPU usage of the host.
+
+#|
+||Field | Description ||
+|| timestamp | **string** (int64)
+
+Time of the record. ||
+|| used | **string**
+
+Percentage of the CPU used. ||
+|#
+
+## MemoryMetric {#yandex.cloud.mdb.opensearch.v1.Host.MemoryMetric}
+
+RAM usage of the host.
+
+#|
+||Field | Description ||
+|| timestamp | **string** (int64)
+
+Time of the record. ||
+|| used | **string** (int64)
+
+The amount of RAM used, in bytes. ||
+|| total | **string** (int64)
+
+Total amount of RAM allocated to the host. ||
+|#
+
+## DiskMetric {#yandex.cloud.mdb.opensearch.v1.Host.DiskMetric}
+
+Disk usage of the host.
+
+#|
+||Field | Description ||
+|| timestamp | **string** (int64)
+
+Time of the record. ||
+|| used | **string** (int64)
+
+The amount of disk space used, in bytes. ||
+|| total | **string** (int64)
+
+Total amount of disk space allocated to the host. ||
+|#

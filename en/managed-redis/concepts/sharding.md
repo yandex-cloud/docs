@@ -1,6 +1,6 @@
 ---
-title: "Sharding in {{ RD }}"
-description: "Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs."
+title: Sharding in {{ RD }}
+description: Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 ---
 
 # Sharding in {{ mrd-name }}
@@ -26,9 +26,9 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 All hosts in the cluster use service connections to exchange data about slots and regularly request statuses from each other.
 
-If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster may still be working as long as the other shards are available for writing and reading data.
+If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. In a cluster with two or more shards, if a single shard is down, the {{ RD }} Cluster itself will continue to work. The remaining shards will still be available for reading and writing data.
 
-To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure the masters and their replicas reside in different availability zones.
+To make sure your cluster is stable, create at least one master host with a single replica. Masters and their replicas must reside in different availability zones, regardless of their number.
 
 Sharded clusters with the **local-ssd** disk type and only one host per shard are not considered fault-tolerant. You cannot create such a cluster.
 
@@ -40,6 +40,8 @@ New shards are created without hash slots. To redistribute data, you must rebala
 
 You do not need to stop the cluster to move slots between shards. If the client queries the master for data that was moved to another shard, the query is forwarded to the new shard where the data was moved to. Hosts do not proxy queries; instead, they forward the client to the proper shard.
 
-{{ mrd-name }} allows you to create from 3 to 10 shards, each containing a different number of hosts. The minimum number of hosts per shard depends on the [selected disk type](./storage.md#storage-type-selection).
+{{ mrd-name }} can contain between 1 and 10 shards, each comprising a different number of hosts. The minimum number of hosts per shard depends on the [selected disk type](./storage.md#storage-type-selection).
+
+You can [create a cluster](../operations/cluster-create.md) with either a single shard or three or more shards. You cannot create a cluster with two shards, but you can [change the number of shards](../operations/shards.md) in an existing cluster.
 
 For more information about limits on the number of hosts per shard, see [Quotas and limits](./limits.md).

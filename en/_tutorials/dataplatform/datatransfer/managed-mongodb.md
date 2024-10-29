@@ -5,7 +5,7 @@
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
-   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`
 
       Specify the parameters for connecting to the source cluster.
 
@@ -18,13 +18,13 @@
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
-   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`
 
       Specify the ID of the target cluster.
 
 1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
-   To make large collections (over 1 GB) copy more quickly, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings. Specify two or more workers. The collection will split into the specified number of parts that will be copied concurrently.
+   To make large collections (over 1 GB) copy more quickly, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings. Specify two or more [workers](../../../data-transfer/concepts/index.md#worker). The collection will split into the specified number of parts that will be copied concurrently.
 
    For parallel copy to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
 
@@ -36,7 +36,7 @@
 
 1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to "read-only" mode and transfer the load to the target cluster.
+1. Switch the source cluster to read-only and transfer the load to the target cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 

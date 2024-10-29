@@ -1,5 +1,5 @@
 ---
-title: "_Details_ report in {{ speechsense-name }}"
+title: _Details_ report in {{ speechsense-name }}
 ---
 
 # _Details_ report in {{ speechsense-name }}

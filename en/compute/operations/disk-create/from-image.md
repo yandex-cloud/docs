@@ -12,44 +12,44 @@ To create a disk from an [image](../../concepts/image.md):
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-   1. Enter the disk name.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Enter a name for the disk.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-   1. If required, provide an arbitrary description for the disk.
-   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-   1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
-   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the image you need in the list below. Use the filter to find the image.
-
-   
-   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+  1. Provide a description for the disk, if required.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+  1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
+  1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the image you need in the list below. Use the filter to find the image.
 
 
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
-      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      When creating a disk, you can select only one snapshot schedule. Once the disk is created, you can add a few more schedules by following the [instructions](../disk-control/configure-schedule.md#add-schedule).
-   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+
+     {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
+     When creating a disk, you can select only one snapshot schedule. Once the disk is created, you can add a few more schedules by following the [instructions](../disk-control/configure-schedule.md#add-schedule).
+  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../../_includes/cli-install.md) %}
+  {% include [include](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for managing disks and images:
+  1. View the description of the CLI commands for managing disks and images:
 
       ```bash
       yc compute disk create --help
       yc compute image --help
       ```
 
-   1. Get a list of images in the default folder:
+  1. Get a list of images in the default folder:
 
       ```bash
       yc compute image list
@@ -65,20 +65,20 @@ To create a disk from an [image](../../concepts/image.md):
       +----------------------+------------+--------+----------------------+--------+
       ```
 
-   1. Select the identifier (`ID`) or name (`NAME`) of the image you need.
+  1. Select `ID` or `NAME` of the image you need.
 
-   1. Create a disk from the selected image.
+  1. Create a disk from the selected image.
 
       ```bash
       yc compute disk create <disk_name> \
-        --source-image-name <image_name> \
+        --source-image-name <snapshot_name> \
         --description <text_description_of_disk>
       ```
-      You can use the `--source-image-name` or `--source-image-id` parameter to specify the image.
+      You can use either `--source-image-name` or `--source-image-id` to specify the image.
 
       For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/create.md).
 
-   1. Get a list of disks in the default folder:
+  1. Get a list of disks in the default folder:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
@@ -89,7 +89,7 @@ To create a disk from an [image](../../concepts/image.md):
       ```
 
       Result:
-      ```yaml
+      ```text
       - id: fhm4aq4hvq5g********
           folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:43:06Z"
@@ -117,8 +117,8 @@ To create a disk from an [image](../../concepts/image.md):
 
 - API {#api}
 
-   1. Get a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call or the [list](../../api-ref/Image/list.md) REST API method for the `Image` resource.
-   1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call or the [create](../../api-ref/Disk/create.md) REST API method for the `Disk` resource. Specify the image ID in your request.
+  1. Get a list of images using the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call or the [list](../../api-ref/Image/list.md) REST API method for the `Image` resource.
+  1. Create a disk using the [DiskService/Create](../../api-ref/grpc/Disk/create.md) gRPC API call or the [create](../../api-ref/Disk/create.md) REST API method for the `Disk` resource. Specify the image ID in your request.
 
 {% endlist %}
 

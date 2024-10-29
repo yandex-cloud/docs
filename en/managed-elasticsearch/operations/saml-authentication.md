@@ -1,6 +1,6 @@
 ---
-title: "How to set up SAML authentication"
-description: "Follow this guide to set up SAML authentication."
+title: How to set up SAML authentication
+description: Follow this guide to set up SAML authentication.
 ---
 
 # Configuring SAML authentication
@@ -111,7 +111,7 @@ Incorrect settings may cause the cluster to fail.
 - API {#api}
 
    1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
-   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
+   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/Auth/addProviders.md) gRPC API call and provide the following in the request:
 
       * Cluster ID in the `clusterId` parameter.
 

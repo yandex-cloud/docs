@@ -1,12 +1,12 @@
 1. [Получите ссылку на аудиофайл](../../storage/operations/objects/link-for-download.md) в {{ objstorage-name }}.
-1. Создайте файл, например `body.json`, и добавьте в него код:
+1. Создайте файл `body.json` и добавьте в него код:
 
    ```json
    {
       "config": {
          "specification": {
             "languageCode": "ru-RU",
-            "model": "general:rc",
+            "model": "general",
             "audioEncoding": "LINEAR16_PCM",
             "sampleRateHertz": 8000,
             "audioChannelCount": 1
@@ -21,7 +21,7 @@
    Где:
 
    * `languageCode` — [язык](../../speechkit/stt/models.md#languages), для которого будет выполнено распознавание.
-   * `model` — [языковая модель](../../speechkit/stt/models.md#tags).
+   * `model` — [модель распознавания речи](../../speechkit/stt/models.md#tags).
    * `audioEncoding` — [формат](../../speechkit/formats.md) передаваемого аудиофайла.
    * `sampleRateHertz` — частота дискретизации аудиофайла в Гц.
    * `audioChannelCount` — количество аудиоканалов.
@@ -32,14 +32,13 @@
 1. Выполните созданный файл:
 
    ```bash
-   export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
-   curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"\
-        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   export API_KEY=<API-ключ_сервисного_аккаунта> && \
+   curl \
+     --insecure \
+     --header "Authorization: Api-Key ${API_KEY}" \
+     --data "@body.json"\
+     https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
    ```
-
-   Где `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
 
    Пример результата:
 
@@ -59,8 +58,10 @@
 1. Отправьте запрос на [получение информации об операции](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-      https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+   curl \
+     --insecure \
+     --header "Authorization: Api-key ${API_KEY}" \
+     https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
    ```
 
    Пример результата:
@@ -74,7 +75,21 @@
             {
                "alternatives": [
                   {
-                     "text": "привет мир",
+                     "words": [
+                        {
+                           "startTime": "0.160s",
+                           "endTime": "0.500s",
+                           "word": "привет",
+                           "confidence": 1
+                        },
+                        {
+                           "startTime": "0.580s",
+                           "endTime": "0.800s",
+                           "word": "мир",
+                           "confidence": 1
+                        }
+                     ],
+                     "text": "Привет мир",
                      "confidence": 1
                   }
                ],
@@ -82,9 +97,9 @@
             }
          ]
       },
-      "id": "e03sup6d5h1q********",
-      "createdAt": "2019-04-21T22:49:29Z",
-      "createdBy": "ajes08feato8********",
-      "modifiedAt": "2019-04-21T22:49:36Z"
+      "id": "e03jjenu23uc********",
+      "createdAt": "2024-08-22T11:39:22Z",
+      "createdBy": "aje3bg430agh********",
+      "modifiedAt": "2024-08-22T11:39:23Z"
    }
    ```

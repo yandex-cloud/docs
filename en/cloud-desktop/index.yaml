@@ -38,3 +38,9 @@ links:
   - title: Quotas and limits
     description: Technical and organizational restrictions
     href: concepts/limits
+  - title: Access management
+    description: Setting up access permissions for the service
+    href: security/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/

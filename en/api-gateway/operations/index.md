@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ api-gw-full-name }}"
-description: "In this tutorial, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log."
+title: Guides on using {{ api-gw-full-name }}
+description: In this article, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log.
 ---
 
 # Step-by-step guides for {{ api-gw-name }}
@@ -15,10 +15,35 @@ description: "In this tutorial, you will learn how to work with {{ api-gw-full-n
 * [{#T}](api-gw-vars.md)
 * [{#T}](api-gw-canary.md)
 * [Viewing monitoring charts](api-gw-monitoring.md)
-* [Viewing execution logs](api-gw-logs.md)
+* [Viewing the execution log](api-gw-logs.md)
+* [Writing to the execution log](api-gw-logs-write.md)
 * [{#T}](api-gw-domain-detach.md)
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)
+
+## Getting information about a trigger {#trigger-info}
+
+* [Getting a list of triggers](trigger/trigger-list.md)
+* [Getting information about a trigger](trigger/trigger-info.md)
+
+## Creating a trigger {#trigger-create}
+
+* [Creating a timer](trigger/timer-create.md)
+* [Creating a trigger for {{ message-queue-name }}](trigger/ymq-trigger-create.md)
+* [Creating a trigger for {{ objstorage-name }}](trigger/os-trigger-create.md)
+* [Creating a trigger for {{ container-registry-name }}](trigger/cr-trigger-create.md)
+* [Creating a trigger for {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (device)](trigger/iot-core-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (broker)](trigger/iot-core-trigger-broker-create.md)
+* [Creating a trigger for budgets](trigger/budget-trigger-create.md)
+* [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
+* [Creating an email trigger](trigger/mail-trigger-create.md)
+
+## Managing triggers {#trigger-manage}
+
+* [Updating a trigger](trigger/trigger-update.md)
+* [Viewing monitoring charts](trigger/trigger-monitoring.md)
+* [Deleting a trigger](trigger/trigger-delete.md)
 
 ## Specification constructor {#spec-constructor}
 
@@ -31,3 +56,4 @@ description: "In this tutorial, you will learn how to work with {{ api-gw-full-n
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
+* [{{ yagpt-full-name }}](spec-constructor/yagpt.md)

@@ -1,0 +1,24 @@
+title: Yandex BareMetal
+description:
+  - >-
+    <i>Yandex BareMetal будет запущен в стадии Preview в 4 квартале 2024
+    года.</i>
+  - Yandex BareMetal позволяет полностью арендовать физический сервер.
+meta:
+  title: Yandex BareMetal
+links:
+  - title: Начало работы
+    description: Арендуйте свой первый сервер
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Концепции и общее устройство сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

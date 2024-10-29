@@ -1,10 +1,5 @@
 title: Yandex DataLens
 href: index.yaml
-label:
-  title: Скоро
-  description: Сервис в ближайшее время будет доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Знакомство с сервисом
     items:
@@ -56,6 +51,8 @@ items:
           - name: Визуализация данных с использованием инструмента "Тепловые карты"
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
+          - name: Мониторинг состояния географически распределенных устройств
+            href: tutorials/datalens.md
       - name: Аналитика сервисов
         items:
           - name: 'Яндекс Метрика: прямое подключение'
@@ -78,6 +75,10 @@ items:
             href: tutorials/data-from-monitoring-visualization.md
           - name: Визуализация данных из {{ ytsaurus-name }} CHYT
             href: tutorials/data-from-ch-over-yt.md
+          - name: >-
+              Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и
+              их анализ с помощью {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
       - name: Функциональные
         items:
           - name: Использование параметров
@@ -92,22 +93,16 @@ items:
         href: concepts/caching.md
       - name: Объединение данных
         href: concepts/data-join.md
-      - name: Пошаговые инструкции
+      - name: Базы данных
         items:
           - name: Создание подключения к {{ CH }}
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к {{ MY }}
-            href: operations/connection/create-mysql.md
           - name: Создание подключения к {{ PG }}
             href: operations/connection/create-postgresql.md
-          - name: Создание подключения к {{ MS }}
-            href: operations/connection/create-mssql-server.md
-          - name: Создание подключения к Oracle Database
-            href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ MY }}
+            href: operations/connection/create-mysql.md
           - name: Создание подключения к {{ ydb-short-name }}
             href: operations/connection/create-ydb.md
-          - name: Создание подключения к {{ GP }}
-            href: operations/connection/create-greenplum.md
           - name: Создание подключения к {{ ytsaurus-name }} CHYT
             items:
               - name: Подключение
@@ -116,66 +111,62 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Рекомендации
                 href: operations/connection/chyt/chyt-recommendations.md
-          - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
-          - name: Создание подключения к файлу
+          - name: Создание подключения к {{ GP }}
+            href: operations/connection/create-greenplum.md
+          - name: Создание подключения к {{ MS }}
+            href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к Oracle Database
+            href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ prometheus-name }}
+            href: operations/connection/create-prometheus.md
+          - name: Создание подключения к Snowflake
+            href: operations/connection/create-snowflake.md
+      - name: Файлы и сервисы
+        items:
+          - name: Создание подключения к файлам
             href: operations/connection/create-file.md
           - name: Создание подключения к Яндекс Документам
             href: operations/connection/create-yadocs.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
-          - name: Создание подключения к {{ prometheus-name }}
-            href: operations/connection/create-prometheus.md
           - name: Создание подключения к {{ yq-full-name }}
             href: operations/connection/create-yandex-query.md
-          - name: Создание подключения к {{ monitoring-full-name }}
-            href: operations/connection/create-monitoring.md
-          - name: Создание подключения к Битрикс24
-            href: operations/connection/create-bitrix24.md
-          - name: Создание подключения к подкастам Яндекс Музыки
-            href: operations/connection/create-podcasts.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
           - name: Создание подключения к {{ billing-name }}
             href: operations/connection/create-cloud-billing.md
-          - name: Создание подключения к Snowflake
-            href: operations/connection/create-snowflake.md
+          - name: Создание подключения к {{ monitoring-full-name }}
+            href: operations/connection/create-monitoring.md
+          - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
+            items:
+              - name: Обзор
+                href: concepts/datalens-usage-analytics.md
+              - name: Подключение
+                href: operations/connection/create-usage-tracking.md
+      - name: Партнерские подключения
+        items:
+          - name: Создание подключения к Экстрактору 1С
+            href: operations/connection/create-extractor1c.md
+          - name: Создание подключения к Битрикс24
+            href: operations/connection/create-bitrix24.md
+          - name: Создание подключения к подкастам Яндекс Музыки
+            href: operations/connection/create-podcasts.md
   - name: Датасеты
     items:
       - name: Обзор
-        href: concepts/dataset/index.md
+        href: dataset/index.md
+      - name: Работа с датасетом
+        href: dataset/create-dataset.md
       - name: Модель данных
-        href: concepts/dataset/data-model.md
+        href: dataset/data-model.md
+      - name: Настройки датасета
+        href: dataset/settings.md
       - name: Типы данных
-        href: concepts/data-types.md
+        href: dataset/data-types.md
       - name: Соответствие типов данных
         href: dataset/types-lookup-table.md
-      - name: Настройки датасета
-        href: concepts/dataset/settings.md
-      - name: Пошаговые инструкции
-        items:
-          - name: Создание датасета
-            href: operations/dataset/create.md
-          - name: Объединение данных из нескольких таблиц
-            href: operations/dataset/join-data.md
-          - name: Создание поля данных
-            href: operations/dataset/create-field.md
-          - name: Создание вычисляемого поля данных
-            href: operations/dataset/create-calculated-field.md
-          - name: Создание фильтра по умолчанию для новых чартов
-            href: operations/dataset/create-filter.md
-          - name: Замена подключения в датасете
-            href: operations/dataset/replace-connection.md
-          - name: Обновление полей в датасете
-            href: operations/dataset/update-field.md
-          - name: Описание датасета через SQL-запрос к источнику
-            href: operations/dataset/add-data.md
-          - name: Добавление параметра в датасет
-            href: operations/dataset/add-parameter-dataset.md
   - name: Вычисляемые поля
     items:
       - name: Обзор
@@ -766,6 +757,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+  - name: Отчеты
+    items:
+      - name: Обзор
+        href: reports/index.md
+      - name: Работа с отчетами
+        href: reports/report-operations.md
   - name: Управление доступом
     items:
       - name: Обзор
@@ -804,6 +801,8 @@ items:
     items:
       - name: Стилизация интерфейса
         href: settings/ui-customization.md
+      - name: Отключение навигации по папкам
+        href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
       - name: Обзор
@@ -826,20 +825,27 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
-      - name: Июнь 2024
+      - name: Сентябрь 2024
         href: release-notes/index.md
+      - name: Август 2024
+        href: release-notes/2408.md
+      - name: Июль 2024
+        href: release-notes/2407.md
+      - name: Июнь 2024
+        href: release-notes/2406.md
       - name: Май 2024
         href: release-notes/2405.md
       - name: Апрель 2024
         href: release-notes/2404.md
-      - name: Март 2024
-        href: release-notes/2403.md
-      - name: Февраль 2024
-        href: release-notes/2402.md
-      - name: Январь 2024
-        href: release-notes/2401.md
+      - name: Архив
+        items:
+          - name: Март 2024
+            href: release-notes/2403.md
+          - name: Февраль 2024
+            href: release-notes/2402.md
+          - name: Январь 2024
+            href: release-notes/2401.md
   - name: Решение проблем
-    expanded: true
     items:
       - name: Рекомендации по оптимизации
         href: concepts/optimization_recommendations.md
@@ -885,6 +891,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
+      - name: Cannot parse
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -1029,6 +1038,12 @@ items:
       - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Неверный формат файла
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
+      - name: Невозможно обновить данные
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
       - name: Ошибка в запросе к объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
@@ -1038,6 +1053,9 @@ items:
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Ошибка в синтаксисе формулы
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
       - name: Ошибка преобразования типа данных
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
@@ -1045,3 +1063,4 @@ items:
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
 base: ru/datalens
+deepBase: 2

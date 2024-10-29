@@ -1,9 +1,16 @@
 title: Yandex Cloud Postbox
 description:
-  - >-
-    <em>Сервис Yandex Cloud Postbox находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - Yandex Cloud Postbox — сервис отправки транзакционных почтовых сообщений.
+  - >-
+    Cloud Postbox позволяет не тратить бюджет и время на управление сервером,
+    настройку сети и мониторинг репутации IP-адресов. Сервис предоставляет:
+    <ul><li>Готовую инфраструктуру, которой Яндекс пользуется для своих
+    задач.</li> <li>Гибкую систему мониторинга и логирования с помощью
+    интеграции с сервисами <a href="/docs/monitoring/">Yandex Monitoring</a> и
+    <a href="/docs/logging/">Yandex Cloud Logging</a>.</li> <li>Соответствие
+    требованиям международных и национальных стандартов.</li> <li>Упрощенную
+    интеграцию с другими сервисами {{ yandex-cloud }} и вашими
+    приложениями.</li></ul>
 nav:
   title: Yandex Cloud Postbox
 meta:

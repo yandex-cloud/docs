@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ CH }} cluster from {{ datalens-name }}"
-description: "In this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}."
+title: How to connect to a {{ CH }} cluster from {{ datalens-name }}
+description: In this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}.
 ---
 
 # Connecting to a {{ CH }} cluster from {{ datalens-name }}
@@ -8,7 +8,7 @@ description: "In this tutorial, you will learn how to connect to a {{ CH }} clus
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 
 To use an existing cluster as a data source for {{ datalens-name }}:
-1. [Activate{{ datalens-full-name }}](#activate-datalens).
+1. [Activate {{ datalens-full-name }}](#activate-datalens).
 1. [Enable access to the cluster from {{ datalens-name }}](#allow-access).
 1. [Create a cluster connection in {{ datalens-name }}](#create-connector).
 
@@ -30,32 +30,32 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 - Management console {#console}
 
-   1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
+  1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
-      {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
-
-      
-      If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [guide](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
+     {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
 
 
-      {% endcut %}
+     If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [guide](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
-   1. Specify the [connection settings](#connector-settings).
-   1. Check that the settings are correct by clicking **Check connection**.
-   1. After successfully checking the connection, click **Create**.
+
+     {% endcut %}
+
+  1. Specify the [connection settings](#connector-settings).
+  1. Check that the settings are correct by clicking **Check connection**.
+  1. After successfully checking the connection, click **Create**.
 
 {% endlist %}
 
 Once the connection is created, you can:
 * [Update](#update-connector) or [delete](#delete-connector) the connection.
-* [Create datasets](../../datalens/concepts/dataset/index.md) with cluster data using the connection.
+* [Create datasets](../../datalens/dataset/index.md) with cluster data using the connection.
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
-See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+See also an [example of {{ CH }} data visualization](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Viewing a list of cluster connections {#connectors-list}
@@ -64,14 +64,14 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 
-      {% cut "My connection is not in the list" %}
+     {% cut "My connection is not in the list" %}
 
-      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+     If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
-      {% endcut %}
+     {% endcut %}
 
 {% endlist %}
 
@@ -81,19 +81,19 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
-   1. Select a connection from the list.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Select a connection from the list.
 
-      {% cut "My connection is not in the list" %}
+     {% cut "My connection is not in the list" %}
 
-      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+     If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
-      {% endcut %}
+     {% endcut %}
 
-   1. Change the [settings](#connector-settings).
-   1. Check that the settings are correct by clicking **Check connection**.
-   1. After successfully checking the connection, click **Save**.
+  1. Change the [settings](#connector-settings).
+  1. Check that the settings are correct by clicking **Check connection**.
+  1. After successfully checking the connection, click **Save**.
 
 {% endlist %}
 
@@ -103,18 +103,18 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
-   1. Select a connection from the list.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Select a connection from the list.
 
-      {% cut "My connection is not in the list" %}
+     {% cut "My connection is not in the list" %}
 
-      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+     If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
-      {% endcut %}
+     {% endcut %}
 
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.
-   1. In the window that opens, click **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.
+  1. In the window that opens, click **Delete**.
 
 {% endlist %}
 
@@ -124,14 +124,14 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console {#console}
 
-   In the [management console]({{ link-console-main }}), when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
-   1. Specify a name for the connection.
-   1. Go to the **Select in folder** tab.
-   1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
-   1. Select a user from the drop-down list.
-   1. Enter this user's password.
+  In the [management console]({{ link-console-main }}), when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
+  1. Specify a name for the connection.
+  1. Go to the **Select in folder** tab.
+  1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
+  1. Select a user from the drop-down list.
+  1. Enter this user's password.
 
-      Leave the values of the following settings unchanged: **HTTP interface port**, **HTTPS**, **Cache TTL in seconds**, and **Raw SQL level**.
+     Leave the values of the following settings unchanged: **HTTP interface port**, **HTTPS**, **Cache TTL in seconds**, and **Raw SQL level**.
 
 {% endlist %}
 
@@ -141,7 +141,6 @@ If the cluster and {{ datalens-name }} are in different folders, use the setting
 
 {% endcut %}
 
-If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
- Otherwise, the connection will not work.
+If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`. Otherwise, the connection will not work.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

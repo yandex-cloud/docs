@@ -20,7 +20,8 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-   1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта, например `sa-api`.
 
       Требования к формату имени:
@@ -46,7 +47,7 @@
    {% include [name-format](./name-format.md) %}
 
    Результат:
-   ```yaml
+   ```text
    id: ajehr0to1g8b********
    folder_id: b1gv87ssvu49********
    created_at: "2023-03-04T09:03:11.665153755Z"
@@ -58,15 +59,16 @@
    Создайте сервисный аккаунт с помощью метода REST API [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
    ```bash
-   curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-            "folderId": "<идентификатор_каталога>",
-            "name": "<имя_сервисного_аккаунта>",
-            "description": "service account for api"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+   curl \
+     --request POST \
+     --header 'Content-Type: application/json' \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data '{
+       "folderId": "<идентификатор_каталога>",
+       "name": "<имя_сервисного_аккаунта>",
+       "description": "service account for api"
+     }' \
+     https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Где:
    * `<IAM-токен>` — действующий токен авторизации;
@@ -75,7 +77,7 @@
 
       {% include [name-format](./name-format.md) %}
 
-   Также сервисный аккаунт можно создать с помощью вызова gRPC [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create).
+   Также сервисный аккаунт можно создать с помощью вызова gRPC [ServiceAccountService/Create](../iam/api-ref/grpc/ServiceAccount/create.md).
 
 {% endlist %}
 
@@ -108,21 +110,22 @@
    Назначьте сервисному аккаунту роль с помощью метода REST API [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
    ```bash
-   curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer <IAM-токен>" \
-     -d '{
-            "accessBindingDeltas": [{
-               "action": "ADD",
-               "accessBinding": {
-                  "roleId": "<идентификатор_роли>",
-                  "subject": {
-                        "id": "<идентификатор_сервисного_аккаунта>",
-                        "type": "serviceAccount"
-                        }
-                  }
-               }
-            ]
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data '{
+       "accessBindingDeltas": [{
+         "action": "ADD",
+         "accessBinding": {
+           "roleId": "<идентификатор_роли>",
+           "subject": {
+             "id": "<идентификатор_сервисного_аккаунта>",
+             "type": "serviceAccount"
+             }
+           }
+         }
+       ]
       }' \
      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings
    ```
@@ -133,7 +136,7 @@
    * `<идентификатор_роли>` — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
    * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
-   Также назначить сервисному аккаунту роль можно с помощью вызова gRPC [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+   Также назначить сервисному аккаунту роль можно с помощью вызова gRPC [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
 {% endlist %}
 
@@ -194,11 +197,12 @@
    Создайте API-ключ с помощью метода REST API [create](../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../iam/api-ref/ApiKey/index.md):
 
    ```bash
-   curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d "{ \"serviceAccountId\": \"<идентификатор_сервисного_аккаунта>\" }" \
-      https://iam.{{ api-host }}/iam/v1/apiKeys
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data "{ \"serviceAccountId\": \"<идентификатор_сервисного_аккаунта>\" }" \
+     https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
 
    Где:
@@ -206,7 +210,7 @@
    * `<IAM-токен>` — действующий токен авторизации.
    * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
-   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create).
+   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../iam/api-ref/grpc/ApiKey/create.md).
 
 {% endlist %}
 

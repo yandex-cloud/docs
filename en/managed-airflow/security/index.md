@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ maf-full-name }}"
-description: "Access management in the {{ AF }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ maf-full-name }}
+description: Access management in the {{ AF }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ maf-name }}
@@ -21,7 +21,7 @@ Roles for a resource can be assigned by users who have the `managed-airflow.admi
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ maf-name }} service resources, assign the user the appropriate roles for the folder or cloud hosting the resources.
+To allow access to {{ maf-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
 ## Which roles exist in the service {#roles-list}
 
@@ -70,6 +70,14 @@ This role includes the `{{ roles-viewer }}` role.
 Users with the `{{ roles-admin }}` role can manage resource access rights, e.g., allow other users to create {{ maf-name }} clusters and to view information about user rights.
 
 This role includes the `{{ roles-editor }}` role.
+
+## Roles required {#required-roles}
+
+To use the service, you need the [{{ roles.maf.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.maf.viewer }}` role enables you only to view the list of clusters.
+
+To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.maf.editor }}` role or higher.
+
+You can always assign a role with more permissions. For instance, you can assign `{{ roles.maf.admin }}` instead of `{{ roles.maf.editor }}`.
 
 ## What's next {#whats-next}
 

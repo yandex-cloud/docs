@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-to-postgresql"
+canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-to-postgresql'
 ---
 
 # Загрузка данных {{ GP }} в витрину {{ PG }}

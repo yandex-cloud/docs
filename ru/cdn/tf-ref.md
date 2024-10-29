@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ cdn-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cdn-name }}.
+---
+
 # Справочник {{ TF }} для {{ cdn-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -17,5 +22,5 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group) | Информация о [группе источников](./concepts/origins.md#groups) |
-| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/datasource_cdn_resource) | Информация о [CDN-ресурсе](./concepts/resource.md) |
+| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/cdn_origin_group) | Информация о [группе источников](./concepts/origins.md#groups) |
+| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/cdn_resource) | Информация о [CDN-ресурсе](./concepts/resource.md) |

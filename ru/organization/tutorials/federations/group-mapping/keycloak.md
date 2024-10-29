@@ -38,8 +38,8 @@
 
     Пока контейнер запущен, аккаунт администратора {{ keycloak }} будет доступен по адресу [http://localhost:8080/admin](http://localhost:8080/admin) или [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin). Параметры входа по умолчанию:
 
-    * **User name or email** : `admin`.
-    * **Password** : `Pa55w0rd`.
+    * **User name or email**: `admin`.
+    * **Password**: `Pa55w0rd`.
 
     {% note info %}
 
@@ -54,8 +54,8 @@
         Если вы используете локальный сервер из Docker-образа, то параметры входа по умолчанию:
 
         * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin).
-        * **User name or email** : `admin`.
-        * **Password** : `Pa55w0rd`.
+        * **User name or email**: `admin`.
+        * **Password**: `Pa55w0rd`.
 
     1. В разделе **Realm Settings** выберите вкладку **Keys**.
 
@@ -73,53 +73,71 @@
 
 ## Создайте федерацию {{ org-full-name }} {#create-federation}
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
+  1. На панели слева выберите ![icon-federation](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. При необходимости добавьте описание.
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку вида:
+      1. При необходимости добавьте описание.
 
-    ```text
-    http://<IP_или_URL_{{ keycloak }}>:8080/realms/master
-    ```
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку вида:
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку вида:
 
-    ```text
-    http://<IP_или_URL_{{ keycloak }}>:8080/realms/master/protocol/saml
-    ```
+          ```text
+          http://<IP_или_URL_{{ keycloak }}>:8080/realms/master
+          ```
 
-    {% include [ssourl_protocol](../../../../_includes/organization/ssourl_protocol.md) %}
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку вида:
 
-1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
+          ```text
+          http://<IP_или_URL_{{ keycloak }}>:8080/realms/master/protocol/saml
+          ```
 
-    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+          {% include [ssourl_protocol](../../../../_includes/organization/ssourl_protocol.md) %}
 
-1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
 
-1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-1. (Опционально) Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию. Сертификат потребуется в дальнейшем при настройке клиента в {{ keycloak }}.
+      1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+  1. (Опционально) Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию. Сертификат потребуется в дальнейшем при настройке клиента в {{ keycloak }}.
+
+{% endlist %}
 
 ## Добавьте сертификат {{ keycloak }} в федерацию {#add-certificate}
 
 Чтобы при аутентификации сервис {{ org-name }} мог проверить сертификат сервера {{ keycloak }}, добавьте сертификат в федерацию:
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) и выберите федерацию, для которой нужно добавить сертификат — `demo-federation`.
+{% list tabs group=instructions %}
 
-  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+  1. Нажмите на строку с федерацией, для которой нужно добавить сертификат — `demo-federation`.
+
+  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
   1. Введите название сертификата и укажите путь к файлу `keycloak-cert.cer`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+
+{% endlist %}
 
 {% note tip %}
 
@@ -153,7 +171,7 @@
 
         {% endcut %}
 
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -168,7 +186,7 @@
         * **Valid Redirect URIs**;
         * **IDP Initiated SSO Relay State**.
     
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -228,7 +246,7 @@
     1. На панели слева выберите **Clients** и выберите ранее созданное приложение из списка.
     1. Перейдите на вкладку **Client scopes** и выберите из списка ACS URL с постфиксом `-dedicated`: `<ACS_URL>-dedicated`.
 
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -249,13 +267,29 @@
 
 ## Настройте сопоставление групп на стороне федерации {#org-mapping}
 
-1. [Создайте группу пользователей](../../../operations/manage-groups.md#create-group) `yc_demo_group` в [{{ org-full-name }}]({{ link-org-main }}) и [выдайте ей права](../../../operations/manage-groups.md#access) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
-1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
-1. Включите сопоставление групп в поле **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите имя группы в {{ keycloak }} — `kc_demo_group`.
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc_demo_group`.
-1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. [Создайте группу пользователей](../../../operations/create-group.md) `yc_demo_group` в {{ org-name }} и [выдайте ей права](../../../operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+  1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+
+  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите имя группы в {{ keycloak }} — `kc_demo_group`.
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc_demo_group`.
+
+  1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+{% endlist %}
 
 ## Проверьте работу аутентификации {#test-auth}
 

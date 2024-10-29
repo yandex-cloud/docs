@@ -1,6 +1,6 @@
 ---
-title: "Guide for migrating data from a third-party source cluster to a target cluster"
-description: "This guide describes how you can migrate data from a third-party source cluster to a target cluster."
+title: Guide for migrating data from a third-party source cluster to a target cluster
+description: This guide describes how you can migrate data from a third-party source cluster to a target cluster.
 ---
 
 # Migrating data from a third-party {{ MY }} cluster

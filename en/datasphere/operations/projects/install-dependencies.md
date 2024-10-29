@@ -1,6 +1,6 @@
 ---
-title: "How to install dependencies"
-description: "Follow this guide to install additional packages in {{ ds-nb }}."
+title: How to install dependencies
+description: Follow this guide to install additional packages in {{ ds-nb }}.
 ---
 
 # Installing dependencies
@@ -20,3 +20,5 @@ description: "Follow this guide to install additional packages in {{ ds-nb }}."
 To update the list of installed packages, restart the kernel. To do this, click **Kernel** → **Restart Kernel** in the top panel of the project window.
 
 {% endnote %}
+
+If you encounter problems when installing dependencies, use the recommendations provided in [{#T}](../../qa/environment-problems.md).

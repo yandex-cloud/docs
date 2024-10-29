@@ -1,10 +1,5 @@
 title: Search API
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in Russia.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -57,3 +52,4 @@ items:
       - name: Search regions
         href: reference/regions.md
 base: en/search-api
+deepBase: 2

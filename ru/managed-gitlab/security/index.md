@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ mgl-full-name }}"
-description: "Управление доступом в веб-инструменте жизненного цикла DevOps с открытым исходным кодом — {{ mgl-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+title: Управление доступом в {{ mgl-full-name }}
+description: Управление доступом в веб-инструменте жизненного цикла DevOps с открытым исходным кодом — {{ mgl-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
 # Управление доступом в {{ mgl-name }}
@@ -30,26 +30,33 @@ description: "Управление доступом в веб-инструмен
 
 #### gitlab.auditor {#gitlab-auditor}
 
-{% include [gitlab-auditor](../../_roles/gitlab/auditor.md) %}
+{% include [gitlab.auditor](../../_roles/gitlab/auditor.md) %}
 
-{% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
+#### gitlab.viewer {#gitlab-viewer}
 
-{% include [gitlab-editor](../../_includes/iam/roles/gitlab-editor.md) %}
+{% include [gitlab.viewer](../../_roles/gitlab/viewer.md) %}
 
-{% include [gitlab-admin](../../_includes/iam/roles/gitlab-admin.md) %}
+#### gitlab.editor {#gitlab-editor}
 
+{% include [gitlab.editor](../../_roles/gitlab/editor.md) %}
+
+#### gitlab.admin {#gitlab-admin}
+
+{% include [gitlab.admin](../../_roles/gitlab/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
-Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `{{ roles.gitlab.editor }}` или выше на каталог, в котором создаются проекты. Роль `{{ roles.gitlab.viewer }}` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
+Чтобы пользоваться сервисом, необходима роль [{{ roles.gitlab.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создаются проекты. Роль `{{ roles.gitlab.viewer }}` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
+
+Чтобы создать инстанс {{ mgl-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.gitlab.editor }}` или выше.
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.gitlab.admin }}` вместо `{{ roles.gitlab.editor }}`.
-
-Для создания инстанса {{ GL }} дополнительно необходима роль [`{{ roles-vpc-user }}`](../../vpc/security/index.md#vpc-user).
 
 
 ## Что дальше {#whats-next}

@@ -1,6 +1,6 @@
 ---
-title: "Guides on working with jobs in {{ dataproc-full-name }}"
-description: "This page provides a list of guides on how to work with jobs in {{ dataproc-name }}."
+title: Guides on working with jobs in {{ dataproc-full-name }}
+description: This page provides a list of guides on how to work with jobs in {{ dataproc-name }}.
 ---
 
 # Working with jobs

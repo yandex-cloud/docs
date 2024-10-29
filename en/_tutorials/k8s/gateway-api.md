@@ -1,17 +1,16 @@
 
-# Setting up the Gateway API
+# Setting up Gateway API
 
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../application-load-balancer/) with Gateway API. For this you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
 
-In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../application-load-balancer/) with the Gateway API. For this, you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
-
-To integrate the Gateway API and {{ alb-name }}:
+To integrate Gateway API and {{ alb-name }}:
 1. [Create {{ managed-k8s-name }} resources](#k8s-create).
-1. [Install the Gateway API and set up the domain zones](#install-gateway-api).
+1. [Install Gateway API and set up the domain zones](#install-gateway-api).
 1. [Prepare test applications](#prepare-apps).
 1. [Create test applications](#install-apps).
-1. [Test the Gateway API](#check-apps).
+1. [Test Gateway API](#check-apps).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -32,13 +31,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
       1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-      1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+      1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
 
       1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating it, specify the security groups prepared in advance.
+      1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
@@ -77,8 +76,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) required for the Gateway API:
-1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
+1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API:
+1. [Assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in the [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) [target groups](../../application-load-balancer/concepts/target-group.md).
@@ -93,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Install the Gateway API and set up the domain zones {#install-gateway-api}
 
-1. Install the [Gateway API application](/marketplace/products/yc/gateway-api) [by following this guide](../../managed-kubernetes/operations/applications/gateway-api.md). During the installation, use the service account key [issued previously](#k8s-create).
+1. Install the [Gateway API application](/marketplace/products/yc/gateway-api) [according to the instructions](../../managed-kubernetes/operations/applications/gateway-api.md). During the installation, use the service account key [issued previously](#k8s-create).
 1. Reserve the [public IP addresses](../../vpc/concepts/address.md#public-addresses) for the `prod` and `dev` test environments:
 
    ```bash
@@ -498,9 +497,9 @@ Two applications will be created to test the Gateway API: `tutum/hello-world` an
 
    {% endnote %}
 
-## Test the Gateway API {#check-apps}
+## Test Gateway API {#check-apps}
 
-To test your Gateway API operation, follow these links in your browser:
+To test Gateway API, open these links in your browser:
 * `app.prod.<domain_zone>`
 * `app.dev.<domain_zone>`
 

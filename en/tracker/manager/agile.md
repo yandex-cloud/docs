@@ -1,6 +1,6 @@
 ---
-title: "How to manage old boards"
-description: "This section guides you through the old {{ tracker-name }} boards."
+title: How to manage old boards
+description: This section guides you through the old {{ tracker-name }} boards.
 ---
 
 # Old boards

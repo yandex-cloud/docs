@@ -2,7 +2,7 @@ The `iam.viewer` role allows you to view info on service accounts and their keys
 
 Users with this role can:
 * View the list of [service accounts](../../iam/concepts/users/accounts.md#sa) and information on them.
-* View info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) for service accounts.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for service accounts.
 * View the list of service account [API keys](../../iam/concepts/authorization/api-key.md) and information on them.
 * View the list of service account [static access keys](../../iam/concepts/authorization/access-key.md) and information on them.
 * View info on service account [authorized keys](../../iam/concepts/authorization/key.md).

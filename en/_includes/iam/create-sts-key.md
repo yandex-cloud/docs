@@ -1,13 +1,11 @@
 # Creating a temporary access key using {{ sts-name }}
 
-{% include [sts-preview](sts-preview.md) %}
-
 With [{{ sts-name }}](../../iam/concepts/authorization/sts.md), you can get temporary keys for limited access to {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md).
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-name }}](../../storage/).
 
 You must have _at least_ the following roles:
-* To create a service account and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role to that service account will be sufficient.
+* To create a service account and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role for that service account will be enough.
 * To assign the required role to the service account: [storage.admin](../../storage/security/index.md#storage-admin) for a bucket or folder. Alternatively, you can use the `FULL_CONTROL` permission in the bucket's [ACL](../../storage/security/acl.md).
 
 If you have a primitive [admin](../../iam/roles-reference.md#admin) role for a folder, you do not need to assign any additional roles.

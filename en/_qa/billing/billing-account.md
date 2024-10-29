@@ -18,9 +18,9 @@ To get a billing account's ID:
 
 {% include [pin-cloud-note](../../billing/_includes/pin-cloud-note.md) %}
 
-#### How do I transfer a cloud to a different billing account? {#cloud-transfer}
+#### How do I change the billing account linked to a cloud? {#cloud-transfer}
 
-To transfer your cloud to a different billing account, just [link](../../billing/operations/pin-cloud.md) it to this account. This automatically unlinks the cloud from its current account. To avoid entering into arrears, top up the personal account in the billing account that the cloud was transferred from.
+To change the billing account of a cloud, you simply need to [link](../../billing/operations/pin-cloud.md) it to a different account. This automatically unlinks the cloud from its current account. To make sure there is no outstanding balance, top up your personal account in the billing account the cloud was linked to.
 
 #### Why cannot I link a cloud to my billing account? {#cannot-pin-cloud}
 
@@ -29,28 +29,36 @@ Roles can be issued either directly to the billing account and cloud, or to the 
 
 #### I created a new business billing account, but it is blocked. Why? {#blocked-account}
 
-Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can be issued to one billing account only, you cannot use the trial period after re-registration. As a result, your new billing account gets the `SUSPENDED` status.
-To unblock your new billing account, [activate the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) by the minimum amount (the minimum amount is shown in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window).
+Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can only be issued to one billing account, you cannot use the trial period after you register a new account. As a result, your new billing account gets `SUSPENDED`.
+To unblock your new billing account, [upgrade to the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount. You can check the minimum amount in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window.
 
 #### How do I change my billing account type? {#account-type}
 
 You cannot change a billing account type once it is created, but you can [create a new one](../../billing/operations/create-new-account.md).
 
+#### How do I enable a billing threshold? {#credit}
+
+The [billing threshold](../../billing/concepts/billing-threshold.md) gets enabled automatically after you [upgrade to the paid version](../../billing/operations/activate-commercial.md) and the first reporting period ends.
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
-#### How can I change my payment details or the delivery address? {#change-email} 
+#### How can I change my payment details or the delivery address? {#change-email}
 
 {% include [change-address](../../billing/_includes/change-address.md) %}
 
-#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification} 
+#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
 
 It may take up to three business days to activate your billing account.
-If you did not receive an email within that period, send a request to: [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
+If you did not receive an email within that period, send a request to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
 
 
+#### I can't link a bank card when creating a billing account. What should I do? {#cant-create}
+
+Most likely, our service does not support your bank card's payment system.
+
+To resolve the issue, try linking a different bank card or, if you are a legal entity, create a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type with the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method.
 
 #### Why do I get an error saying _The country is not available to the payer_ when creating a billing account? {#account-error}
 
@@ -94,4 +102,11 @@ Yes, you can.
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-For more information, refer to [Managing a billing account in an organization](../../billing/concepts/organization.md).
+See [Managing a billing account in an organization](../../billing/concepts/organization.md) for details.
+
+#### How do I stop using the platform and delete my billing account? {#delete-account}
+
+
+Delete all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and resources within them, pay the outstanding balance, and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** on the billing account page in [**{{ billing-name }}**]({{ link-console-billing }}). For more information, see [{#T}](../../billing/operations/delete-account.md).
+
+

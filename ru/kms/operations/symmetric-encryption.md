@@ -11,7 +11,7 @@
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-     
+
   Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
   * `--id` —  идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
@@ -21,7 +21,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
   * `--ciphertext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto encrypt \
     --id abj76v82fics******** \
     --plaintext-file plaintext-file \
@@ -35,10 +35,10 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
-    
+
 - API {#api}
 
-  Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/symmetric_crypto_service.md#Encrypt).
+  Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/SymmetricCrypto/encrypt.md).
 
 - SDK {{ yandex-cloud }} {#sdk-yc}
 
@@ -47,7 +47,7 @@
 - AWS Encryption SDK {#sdk-aws}
 
   {% include [aws-sdk](../../_includes/kms/aws-encypt.md) %}
-    
+
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
@@ -69,7 +69,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
   * `--plaintext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto decrypt \
     --id abj76v82fics******** \
     --ciphertext-file ciphertext-file \
@@ -78,7 +78,7 @@
 
 - API {#api}
 
-  Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../kms/api-ref/grpc/symmetric_crypto_service.md#Decrypt).
+  Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../kms/api-ref/grpc/SymmetricCrypto/decrypt.md).
 
 - SDK {{ yandex-cloud }} {#sdk-yc}
 
@@ -87,12 +87,12 @@
 - AWS Encryption SDK {#sdk-aws}
 
   {% include [aws-sdk](../../_includes/kms/aws-encypt.md) %}
-    
+
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
-    
+
 {% endlist %}
 
 

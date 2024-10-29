@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ ml-platform-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ ml-platform-name }}.
+---
+
 # {{ TF }} reference for {{ ml-platform-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -15,9 +20,9 @@ The following {{ TF }} provider resources are supported for {{ ml-platform-name 
 
 ## Data sources {#data-sources}
 
-{{ ml-platform-name }} supports the following {{ TF }} data sources:
+{{ ml-platform-name }} supports the following {{ TF }} provider data sources:
 
-| **Data source {{ TF }}** | **Description** |
+| **{{ TF }} data source** | **Description** |
 | --- | --- |
 | [yandex_datasphere_community]({{ tf-provider-datasources-link }}/datasource_datasphere_community) | [Community](concepts/community.md) information |
 | [yandex_datasphere_project]({{ tf-provider-datasources-link }}/datasource_datasphere_project) | [Project](concepts/project.md) information |

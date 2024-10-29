@@ -9,7 +9,8 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-     1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта.
 
         Требования к формату имени:
@@ -34,7 +35,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: ajehr0to1g8b********
      folder_id: b1gv87ssvu49********
      created_at: "2022-09-14T09:03:11.665153755Z"
@@ -43,7 +44,7 @@
 
    - API {#api}
 
-     Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+     Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
     {% endlist %}
 
@@ -133,7 +134,7 @@
 
         Результат:
 
-        ```yaml
+        ```text
         id: aje8nn871qo4********
         service_account_id: ajehr0to1g8********
         created_at: "2022-09-14T09:11:43.479156798Z"
@@ -154,7 +155,7 @@
 
      1. Задайте конфигурацию профиля:
 
-        
+
         ```bash
         yc config set service-account-key key.json
         yc config set cloud-id <идентификатор_облака>

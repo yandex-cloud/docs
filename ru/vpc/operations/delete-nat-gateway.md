@@ -9,11 +9,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется отвязать NAT-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.  
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. В открывшемся списке найдите таблицу маршрутизации, у которой в колонке **Статические маршруты** указан нужный NAT-шлюз.
   1. В строке с нужной таблицей нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В открывшемся окне нажмите на значок ![image](../../_assets/console-icons/xmark.svg) в строке с названием NAT-шлюза.  
+  1. В открывшемся окне нажмите на значок ![image](../../_assets/console-icons/xmark.svg) в строке с названием NAT-шлюза.
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -54,7 +54,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %} 
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы отвязать NAT-шлюз от таблицы маршрутизации, созданной с помощью {{ TF }}:
 
@@ -79,32 +79,32 @@
      {% endcut %}
 
   1. Удалите объект `static_route`.
-  
+
   1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
 
   1. Проверьте конфигурацию командой:
 
-     ```
+     ```bash
      terraform validate
      ```
 
      Если конфигурация является корректной, появится сообщение:
 
-     ```
+     ```text
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
 
-     ```
+     ```bash
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
-     ```
+     ```bash
      terraform apply
      ```
 
@@ -119,13 +119,13 @@
 
 - API {#api}
 
-  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/route_table_service.md#Update) и передайте в запросе список статических маршрутов без удаляемого маршрута в параметре:
+  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/RouteTable/update.md) и передайте в запросе список статических маршрутов без удаляемого маршрута в параметре:
     * `staticRoutes` для REST API;
     * `static_routes` для gRPC API.
-  
+
   Если в списке содержался только один статический маршрут, передайте пустой список.
 
-  Чтобы получить список статических маршрутов, воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) и передайте в запросе идентификатор таблицы маршрутизации в параметре:
+  Чтобы получить список статических маршрутов, воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md) и передайте в запросе идентификатор таблицы маршрутизации в параметре:
     * `routeTableId` для REST API;
     * `route_table_id` для gRPC API.
 
@@ -135,18 +135,22 @@
 
 ## Удалить NAT-шлюз {#delete-nat-gateway}
 
+{% note warning %}
+
 Перед удалением NAT-шлюза [отвяжите его](#unlink-route-table) от всех таблиц маршрутизации, к которым он привязан.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы удалить NAT-шлюз: 
+  Чтобы удалить NAT-шлюз:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить NAT-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке с именем нужного NAT-шлюза и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.  
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
@@ -185,7 +189,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы удалить NAT-шлюз, созданный с помощью {{ TF }}:
 
@@ -204,7 +208,7 @@
      ```
 
      {% endcut %}
-  
+
   1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
 
   1. Проверьте конфигурацию командой:
@@ -215,7 +219,7 @@
 
      Если конфигурация является корректной, появится сообщение:
 
-     ```
+     ```text
      Success! The configuration is valid.
      ```
 
@@ -224,7 +228,7 @@
      ```bash
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
@@ -243,11 +247,11 @@
 
 - API {#api}
 
-  Чтобы удалить NAT-шлюз, воспользуйтесь методом REST API [delete](../api-ref/Gateway/delete.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Delete](../api-ref/grpc/gateway_service.md#Delete) и передайте в запросе идентификатор удаляемого NAT-шлюза в параметре:
+  Чтобы удалить NAT-шлюз, воспользуйтесь методом REST API [delete](../api-ref/Gateway/delete.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Delete](../api-ref/grpc/Gateway/delete.md) и передайте в запросе идентификатор удаляемого NAT-шлюза в параметре:
     * `gatewayId` для REST API;
     * `gateway_id` для gRPC API.
 
-  Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../api-ref/Gateway/list.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../api-ref/grpc/gateway_service.md#List) и передайте в запросе идентификатор каталога в параметре:
+  Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../api-ref/Gateway/list.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../api-ref/grpc/Gateway/list.md) и передайте в запросе идентификатор каталога в параметре:
     * `folderId` для REST API;
     * `folder_id` для gRPC API.
 

@@ -1,3 +1,8 @@
+---
+title: История изменений в {{ monitoring-full-name }}
+description: В разделе представлена история изменений сервиса {{ monitoring-name }}.
+---
+
 # История изменений в {{ monitoring-full-name }}
 
 ## Январь — март 2024 {#jan-mar-2024}

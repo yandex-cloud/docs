@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе со {{ speechsense-name }}"
-description: "Страница содержит все инструкции для работы со {{ speechsense-name }} в {{ yandex-cloud }}. Рассказываем о том, как создать пространство, как создать проект для определенного подключения и загрузить данные, как работать с диалогами и формировать отчеты."
+title: Инструкции по работе со {{ speechsense-name }}
+description: Страница содержит все инструкции для работы со {{ speechsense-name }} в {{ yandex-cloud }}. Рассказываем о том, как создать пространство, как создать проект для определенного подключения и загрузить данные, как работать с диалогами и формировать отчеты.
 ---
 
 # Пошаговые инструкции для {{ speechsense-name }}
@@ -9,6 +9,12 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
+
+* Поиск данных:
+
+  * [{#T}](data/search-data-grpc.md)
+  * [{#T}](data/search-data-rest.md)
+
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 
@@ -19,12 +25,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
-
-### Теги пространства {#space-tag}
-
-* [{#T}](space/tag/create.md)
-* [{#T}](space/tag/change.md)
-* [{#T}](space/tag/delete.md)
 
 ## Подключения {#connection}
 
@@ -37,8 +37,15 @@ description: "Страница содержит все инструкции дл
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
 
-### Теги проекта {#project-tag}
+## Теги {#tag}
 
 * [{#T}](project/tag/create.md)
 * [{#T}](project/tag/change.md)
 * [{#T}](project/tag/delete.md)
+
+## Словари {#dictionary}
+
+* [{#T}](dictionary/create.md)
+* [{#T}](dictionary/change.md)
+* [{#T}](dictionary/add.md)
+* [{#T}](dictionary/delete.md)

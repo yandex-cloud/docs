@@ -1,12 +1,16 @@
 ---
-title: "Правила тарификации для {{ vision-name }}"
-description: "В этой статье описаны правила тарификации {{ vision-short-name }}."
+title: Правила тарификации для {{ vision-name }}
+description: В этой статье описаны правила тарификации {{ vision-short-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ vision-name }}
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## Из чего складывается стоимость использования {{ vision-short-name }} {#rules}
 
@@ -20,8 +24,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 {% list tabs group=pricing %}
 

@@ -1,0 +1,18 @@
+title: Yandex Cloud Registry
+stage: preview
+href: index.yaml
+items:
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Артефакты
+        href: concepts/artifacts.md
+      - name: Реестр
+        href: concepts/registry.md
+      - name: Java-артефакт
+        href: concepts/art-java.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/cloud-registry
+deepBase: 2

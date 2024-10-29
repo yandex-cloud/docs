@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: d5d6ja2j20tj********
     description: operation_update
     created_at: "2024-06-21T09:59:41.804Z"
@@ -74,7 +74,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для API-шлюза воспользуйтесь методом REST API [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/apigateway_service.md#ListOperations).
+  Например, для API-шлюза воспользуйтесь методом REST API [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/ApiGateway/listOperations.md).
 
 {% endlist %}
 
@@ -100,7 +100,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
         id: d5dphtf4p0tp********
         description: operation_create
         created_at: "2024-06-21T09:51:17.430Z"
@@ -126,7 +126,7 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../apigateway/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../apigateway/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

@@ -1,8 +1,8 @@
-> 1,20 ₸ + 1,55 ₸ = 2,75 ₸
+> {{ sku|KZT|network.public_fips|string }} + {{ sku|KZT|network.public_fips.deallocated|string }} = {% calc [currency=KZT] {{ sku|KZT|network.public_fips|number }} + {{ sku|KZT|network.public_fips.deallocated|number }} %}
 > 
-> Итого: 2,75 ₸ за час.
+> Итого: {% calc [currency=KZT] {{ sku|KZT|network.public_fips|number }} + {{ sku|KZT|network.public_fips.deallocated|number }} %} за час.
 
 Где:
 
-* 1,20 ₸ — стоимость часа использования публичного IP-адреса.
-* 1,55 ₸ — стоимость часа резервирования неактивного публичного статического IP-адреса.
+* {{ sku|KZT|network.public_fips|string }} — стоимость часа использования публичного IP-адреса.
+* {{ sku|KZT|network.public_fips.deallocated|string }} — стоимость часа резервирования неактивного публичного статического IP-адреса.

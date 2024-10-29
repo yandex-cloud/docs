@@ -12,7 +12,7 @@ The user is responsible for correctly choosing security settings in {{ managed-k
 
 ## Sensitive data {#critical-data}
 
-When using {{ managed-k8s-name }} to comply with PCI DSS or other security standards, it is forbidden to: 
+To comply with PCI DSS or other security standards when using {{ managed-k8s-name }}, do not:
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
 * Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../resource-manager/concepts/labels.md).
@@ -38,7 +38,7 @@ Less strong isolation models are also possible, for example:
 * Services have separate {{ k8s }} clusters.
 * Microservices have independent namespaces.
 
-## Network security {{ managed-k8s-name }} {#network-security}
+## {{ managed-k8s-name }} network security {#network-security}
 
 We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet.
 Use firewall protection when needed (for example, [security groups](../../vpc/concepts/security-groups.md)). In the section below, you can find links to instructions on how to set up firewall protection in security groups.
@@ -54,9 +54,9 @@ When using an ALB as an [Ingress Gateway](../../application-load-balancer/tools/
 1. Apply the security group to the ALB.
 2. Additionally, apply the security group to the node group:
 
-   * Source type: `<security group applied to the ALB>`.
-   * Destination type: `node group`.
-   * Port range: 30000-32767.
+    * Source type: `<security group applied to the ALB>`.
+    * Destination type: `node group`.
+    * Port range: 30000-32767.
 
 #### {{ k8s }} level {#kubernetes-level}
 
@@ -67,7 +67,7 @@ You can use two network plugins in {{ yandex-cloud }}:
 * [Calico](../../managed-kubernetes/concepts/network-policy.md#calico): a basic plugin.
 * [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium): an advanced plugin that uses advanced network policies applied [at the L7 layer (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
 
-We recommend that you use the `default deny` rule for the default incoming and outgoing traffic, allowing only relevant traffic.
+We recommend using the `default deny` rules for incoming and outgoing traffic by default with only the relevant traffic allowed.
 
 To generate policies, you can use the Cilium CNI built-in Hubble platform to analyze the traffic manually. Various solutions for automatic generation of network policies are also available on the market.
 
@@ -77,7 +77,7 @@ A helpful tool to create both basic and advanced network policies is available [
 
 #### Setting up incoming network access {#ingress}
 
-For online endpoints, we recommend that you allocate an independent {{ k8s }} cluster or independent node groups (using [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) mechanisms). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
+For online endpoints, we recommend allocating an independent {{ k8s }} cluster or independent node groups (using such mechanisms as: [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
 
 To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource.
 
@@ -93,35 +93,35 @@ Benefits of {{ alb-name }} Ingress controller:
 
 For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
 
-## Authentication and access control {{ managed-k8s-name }} {#authentication-and-access-control}
+## {{ managed-k8s-name }} authentication and access management {#authentication-and-access-control}
 
 The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* [{{ managed-k8s-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
-* Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
+* [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster, you can use {{ k8s }} tools to create both regular roles and cluster roles. This way, you can control {{ iam-short-name }} accounts access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace, specifying the {{ iam-short-name }} ID of the cloud user in the "subjects name" field. For example:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Examples:
 
-   ```
-   apiVersion: rbac.authorization.k8s.io/v1
-   kind: RoleBinding
-   metadata:
-   name: iam-user-aje0jndkhkvu04ek #name of the RoleBinding object
-   namespace: micro1-ns
-   roleRef:
-   apiGroup: rbac.authorization.k8s.io
-   kind: ClusterRole
-   name: admin
-   subjects:
-   - kind: User
-   name: aje0jndkq855llvu04ek #cloud user ID
-   ```
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+    name: iam-user-aje0jndkhkvu04ek #object name RoleBinding
+    namespace: micro1-ns
+    roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: admin
+    subjects:
+    - kind: User
+    name: aje0jndkq855llvu04ek #cloud user ID
+    ```
 
 For the {{ managed-k8s-name }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../managed-kubernetes/security/index.md#sa-annotation).
 
 ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies).
 
-## Secure {{ managed-k8s-name }} configuration {#secure-config-1}
+## {{ managed-k8s-name }} secure configuration {#secure-config-1}
 
 ### Secure configuration {#secure-config-2}
 
@@ -145,14 +145,14 @@ Starboard Operator is a free tool that helps you automate scanning of images for
 
 You must control two levels of file integrity in node groups:
 
-* OS files of the node - for example, configuration files.
-* Container files - for example, critical files that the user application writes to the [volume](../../managed-kubernetes/concepts/volume.md).
+* Node OS files, e.g., configuration files.
+* Container files, e.g., critical files the user application writes to the [volume](../../managed-kubernetes/concepts/volume.md).
 
-#### OS files of the node {#fim-OS-files}
+#### Node OS files {#fim-OS-files}
 
 You can use, for example, [Osquery](https://osquery.io/) as an agent installed on the nodes using [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and uses specific node folders mounted as a volume into the DaemonSet container (redirected file system).
 
- ![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
+![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 #### Container files {#fim-container-files}
 
@@ -161,11 +161,11 @@ One of the methods to solve this task:
 1. Use [readOnlyRootFilesystem](https://www.thorsten-hans.com/read-only-filesystems-in-docker-and-kubernetes/) in pods.
 2. Make sure to mount folders to write the data to as separate volumes: as emptydir or individual disks.
 
-If you mount folders as emptydir, files are stored on the node in the folder `/var/lib/kubelet/pods/PODUID/volumes/kubernetes.ioempty-dir/VOLUMENAME`. To ensure data integrity, you can monitor this folder by Osquery as [OS node files](#fim-OS-files).
+If you mount folders as emptydir, files are stored on the node in the `/var/lib/kubelet/pods/PODUID/volumes/kubernetes.ioempty-dir/VOLUMENAME` folder. To ensure data integrity, you can monitor this folder by Osquery as [node OS files](#fim-OS-files).
 
 In the case of separate disks (not emptydir), you can mount volumes in read mode to the above-mentioned DaemonSet running Osquery.
 
-To control file integrity on the {{ k8s }} nodes, you can also use the tools listed in [Integrity control](secure-config.md#integrity-control).
+To control file integrity on the {{ k8s }} nodes, you can also use the tools listed in [Integrity control](../standard/virtualenv-safe-config.md#integrity-control).
 
 There exist dedicated free solutions for {{ k8s }} nodes from Google or Argus, including [file-integrity-operator](https://github.com/openshift/file-integrity-operator).
 
@@ -175,7 +175,7 @@ At the {{ k8s }} etcd level, encrypt secrets using an in-built [mechanism from {
 
 We recommend that you use SecretManager solutions to work with {{ k8s }} secrets. [{{ lockbox-name }}](../../lockbox/) is such a solution in {{ yandex-cloud }}.
 
- {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in {{ marketplace-name }} in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
+ {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
 Useful instructions on working with External Secrets:
 
@@ -184,11 +184,11 @@ Useful instructions on working with External Secrets:
 
 Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 
-The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api/secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of individual namespaces create their own [`SecretStore`](https://external-secrets.io/latest/api/secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, the authorized key of only one namespace will be compromised (not all of them, as in the case of Shared ClusterSecretStore).
 
 ### Encryption in transit {#encryption-in-transist}
 
-For in-transit encryption, use TLS interaction between pods. If you can't use TLS interaction, use service mesh solutions:
+For in-transit encryption, use TLS interaction between pods. If TLS cannot be used, use the service mesh solutions:
 
 * [Istio](https://istio.io/)
 * [Linkerd](https://linkerd.io/)
@@ -219,7 +219,7 @@ Be sure to also use the {{ k8s }} built-in support for [AppArmor](https://kubern
 
 ![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 
-## Vulnerability management {{ managed-k8s-name }} {#vulnerability-management}
+## Managing {{ managed-k8s-name }} vulnerabilities {#vulnerability-management}
 
 {{ yandex-cloud }} within {{ managed-k8s-name }} is in charge of vulnerability management and security updates on the [master](../../managed-kubernetes/concepts/index.md#master). The user must independently control vulnerabilities on the {{ k8s }} worker nodes.
 
@@ -228,13 +228,13 @@ Be sure to also use the {{ k8s }} built-in support for [AppArmor](https://kubern
 You can break vulnerability scanning into the following levels:
 
 * Image-level vulnerability scanning.
-* Vulnerability scanning of the OS nodes in {{ k8s }}.
+* Vulnerability scanning of {{ k8s }} node OSes.
 
 Vulnerability scanning at the image level is detailed in [Protection against malicious code in {{ managed-k8s-name }}](#malware-protection).
 
-Examples of free universal solutions for vulnerability scanning of the OS nodes in {{ k8s }} are given in [Scanning for vulnerabilities](vulnerability-management.md#vulnerability-scanning).
+Examples of free universal solutions for node OS vulnerability scanning in {{ k8s }} are given in [{#T}](../standard/kubernetes-security.md).
 
-There also exist both paid and free solutions for scanning the OS nodes in {{ k8s }} and {{ k8s }} hosts for vulnerabilities: for example, free tools such as kube-hunter and trivi (scan filesystem).
+There are also paid and free specialized solutions for scanning {{ k8s }} node OSes and {{ k8s }} hosts for vulnerabilities, e.g., the free kube-hunter and trivi (scan filesystem).
 
 ## Security updates {#security-updates}
 
@@ -246,13 +246,13 @@ There also exist both paid and free solutions for scanning the OS nodes in {{ k8
 
 ## Backup and recovery {#backup-and-restore}
 
-Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](secure-config.md#object-storage).
+Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/kubernetes-backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](../standard/virtualenv-safe-config.md#objstorage).
 
 ## Security policies in {{ k8s }} {#kubernetes-security-policies}
 
 Requirements listed in [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) from {{ k8s }} let you prevent threats related to {{ k8s }} objects.
 
-To implement the requirements, you can either use the {{ k8s }} built-in [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software (for example, other Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno)).
+To implement the requirements, you can either use the {{ k8s }} built-in [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software, e.g., other Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
 
 Examples using Kyverno:
 
@@ -285,7 +285,7 @@ When using minimal images or distroless images without a shell, use [ephemeral c
 
 Data loads with different security contexts (such as different severities of data processed) must be processed on different {{ k8s }} nodes. To enable load sharing within a cluster, use different node groups with different settings for [`node labels`](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/) and [`node taints`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). Be sure to combine both settings.
 
-## Collecting, monitoring, and analyzing audit logs {{ managed-k8s-name }} {#collection-monitoring-analysis-audit-logs}
+## Collecting, monitoring, and analyzing {{ managed-k8s-name }} audit logs {#collection-monitoring-analysis-audit-logs}
 
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 
@@ -295,7 +295,7 @@ Events available to the user in the {{ managed-k8s-name }} service can be classi
 * {{ k8s }} metrics
 * {{ k8s }} flow logs
 
-### {{ k8s }} API level ({{ k8s }} Audit logging) {#kubernetes-api-level}
+### {{ k8s }} API level ({{ k8s }} audit logging) {#kubernetes-api-level}
 
 Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name }}.
 
@@ -320,7 +320,7 @@ The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs t
 
 {{ monitoring-name }} includes a set of metrics to analyze availability of {{ k8s }} objects and their behavioral anomalies.
 
-Instructions on how to export {{ monitoring-name }} metrics is given in the section [Exporting events to SIEM](audit-logs.md#metriki-yandex-monitoring).
+For a guide on exporting {{ monitoring-name }} metrics, see the [Exporting events to SIEM](../standard/audit-logs.md#events) section.
 
 ### {{ k8s }} flow logs {#flow-logs-kubernetes}
 

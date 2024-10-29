@@ -1,6 +1,6 @@
-В качестве источника будет использована демонстрационная база данных {{ CH }} с информацией о продажах товаров в сети московских магазинов. Пример создания подключения смотрите в [руководстве](../../tutorials/datalens/data-from-ch-visualization.md#step1).
+В качестве источника будет использована демонстрационная база данных {{ CH }} с информацией о продажах товаров в сети московских магазинов. Пример создания подключения смотрите в [руководстве](../../tutorials/datalens/data-from-ch-visualization.md#create-connection).
 
-1. Подготовьте два датасета, используя [SQL-запрос к источнику данных](../../datalens/operations/dataset/add-data.md):
+1. Подготовьте два датасета, используя [SQL-запрос к источнику данных](../../datalens/dataset/create-dataset.md#add-data):
 
    * Текст SQL-запроса для датасета `count_client_sql`:
 
@@ -9,7 +9,7 @@
      FROM samples.MS_Shops,
      (SELECT DISTINCT samples.MS_Shops.ShopID, samples.MS_Shops.ShopName, samples.MS_SalesFacts.ClientID
      FROM samples.MS_SalesFacts
-     INNER JOIN samples.MS_Shops 
+     INNER JOIN samples.MS_Shops
      ON samples.MS_Shops.ShopID=samples.MS_SalesFacts.ShopID) AS t2
      WHERE t2.ShopName=samples.MS_Shops.ShopName
      GROUP BY ShopName
@@ -20,7 +20,7 @@
      ```sql
      SELECT DISTINCT samples.MS_Shops.ShopName, COUNT(*) AS count_sales
      FROM samples.MS_SalesFacts
-     INNER JOIN samples.MS_Shops 
+     INNER JOIN samples.MS_Shops
      ON samples.MS_Shops.ShopID=samples.MS_SalesFacts.ShopID
      GROUP BY ShopName
      ```
@@ -40,7 +40,7 @@
 1. В открывшемся окне автоматически установится связь по полю `ShopName`. Нажмите **Сохранить**.
 
    ![image](../../_assets/datalens/concepts/multidataset-chart-3.png)
-   
+
 1. Перетащите показатель `count_sales` из датасета в секцию **Y**. Значения отобразятся по оси Y в виде второго графика.
 
    ![image](../../_assets/datalens/concepts/multidataset-chart-4.png)

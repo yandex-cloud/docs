@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ lockbox-full-name }}"
-description: "Access management in {{ lockbox-full-name }}, a secret storage system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ lockbox-full-name }}
+description: Access management in {{ lockbox-full-name }}, a secret storage system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ lockbox-name }}
@@ -56,9 +56,11 @@ You can manage access to secrets using both service and primitive roles.
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter` |
 ----- | ----- | ----- | ----- | ----- | -----
@@ -72,7 +74,7 @@ The table below lists the roles needed to perform a particular action. You can a
 
 #### What's next {#what-is-next}
 
-* [How to use {{ yandex-cloud }} securely](../../iam/best-practices/using-iam-securely.md)
+* [Secure use of {{ yandex-cloud }}](../../iam/best-practices/using-iam-securely.md)
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).

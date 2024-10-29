@@ -1,6 +1,6 @@
 ---
-title: "How to delete a trigger in {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}."
+title: How to delete a trigger in {{ serverless-containers-full-name }}
+description: In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}.
 ---
 
 # Deleting a trigger in {{ serverless-containers-name }}
@@ -92,6 +92,6 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
 - API {#api}
 
-   To delete a trigger, use the [delete](../triggers/api-ref/Trigger/delete.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Delete](../triggers/api-ref/grpc/trigger_service.md#Delete) gRPC API call.
+   To delete a trigger, use the [delete](../triggers/api-ref/Trigger/delete.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Delete](../triggers/api-ref/grpc/Trigger/delete.md) gRPC API call.
 
 {% endlist %}

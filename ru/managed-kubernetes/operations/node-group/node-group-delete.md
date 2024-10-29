@@ -29,7 +29,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done
      ```
 
@@ -41,7 +41,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +----+------------+------+-------------------+------------+--------+------+
      | ID | CLUSTER ID | NAME | INSTANCE GROUP ID | CREATED AT | STATUS | SIZE |
      +----+------------+------+-------------------+------------+--------+------+
@@ -67,6 +67,6 @@
 
 - API {#api}
 
-  Чтобы удалить группу узлов, воспользуйтесь методом [delete](../../api-ref/NodeGroup/delete.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+  Чтобы удалить группу узлов, воспользуйтесь методом [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
 
 {% endlist %}

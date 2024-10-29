@@ -11,9 +11,9 @@
 {% list tabs group=programming_language %}
 
 - Java {#java}
-    
+
     Добавьте зависимости с помощью [Apache Maven](https://maven.apache.org/):
-    
+
     ```java
     <dependency>
         <groupId>com.yandex.cloud</groupId>
@@ -25,7 +25,7 @@
 - Go {#go}
 
     Выполните команду: 
-    
+
     ```go
     go get github.com/yandex-cloud/kms-clients-go/yckmstink
     ```
@@ -46,47 +46,47 @@
 {% list tabs group=programming_language %}
 
 - Java {#java}
-    
+
     Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
-    
-    ```
-    AeadConfig.register(); 
+
+    ```text
+    AeadConfig.register();
     KmsClients.add(new YcKmsClient(credentialProvider).withEndpoint(endpoint));
-    
+
     String keyUri = "yc-kms://" + keyId;
     Aead kmsAead = KmsClients.get(keyUri).getAead(keyUri);
     Aead aead = new KmsEnvelopeAead(AeadKeyTemplates.AES256_GCM, kmsAead);
-    
+
     ...
-    
+
     byte[] ciphertext = aead.encrypt(plaintext, aad);
-    
+
     ...
-    
+
     byte[] plaintext = aead.decrypt(ciphertext, aad);
     ```
 
 - Go {#go}
 
     Создайте [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
-    
-    ```
+   
+    ```go
     sdk, err := ycsdk.Build(context, ycsdk.Config{
       Endpoint:    endpoint,
       Credentials: credentials,
     })
     if err != nil {...}
-    
+
     kmsAead := yckmstink.NewYCAEAD(keyId, sdk)
     aead := aead.NewKMSEnvelopeAEAD(*aead.AES256GCMKeyTemplate(), kmsAead)
-    
+
     ...
-    
+
     ciphertext, err := aead.Encrypt(plaintext, aad)
     if err != nil {...}
-    
+
     ...
-    
+
     plaintext, err := aead.Decrypt(ciphertext, aad)
     if err != nil {...}
     ```

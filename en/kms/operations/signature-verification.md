@@ -1,6 +1,6 @@
 ---
-title: "How to create a digital signature"
-description: "Follow this guide to create a digital signature."
+title: How to create a digital signature
+description: Follow this guide to create a digital signature.
 ---
 
 # Digital signature and its verification based on data hash
@@ -37,7 +37,7 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
     - CLI {#cli}
@@ -60,9 +60,9 @@ A signature based on a private key is used for messages of up to 32 KB.
 
     {% endlist %}
 
-1. Create a file with a message in `base64` encoding:
+1. Create a file with a `base64`-encoded message:
 
-    1. Create a text file like `message.txt`:
+    1. Create a text file, e.g., `message.txt`:
 
         ```bash
         cat > message.txt
@@ -72,10 +72,10 @@ A signature based on a private key is used for messages of up to 32 KB.
 
         The message size must not exceed 32 KB.
 
-    1. Switch the message to `base64` encoding by specifying the path to the created message file in `base64`:
+    1. Change the message encoding to `base64` by specifying the path to the created message file in `base64`:
 
         ```bash
-        base64 message.txt > <message_file_in_base64_encoding>
+        base64 message.txt > <base64_message_file>
         ```
 
 1. Create a message signature:
@@ -110,12 +110,12 @@ A signature based on a private key is used for messages of up to 32 KB.
 
           Result:
 
-          ```bash
+          ```text
           key_id: abjcg4mhmdfe********
           signature: MAa7C...imw==
           ```
 
-      1. Change the format of the resulting digital signature to [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding). This format is required for `OpenSSL`:
+      1. Change the format of the resulting digital signature to [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding) (this format is required for `OpenSSL`):
 
           ```bash
           echo -n "$(< <signature_file_path>)" | base64 -d > <signature_file>
@@ -125,7 +125,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           * `<signature_file_path>`: Path to the signature file created at the previous step.
           * `<signature_file>`: Path to the new signature file in `DER` format.
 
-      The resulting signature file in `DER` format can be used for signature [verification](#verify-digital-signature) by the `OpenSSL` utility.
+      The `DER` signature file you get can be used to [verify](#verify-digital-signature) the signature using `OpenSSL`.
 
     {% endlist %}
 
@@ -149,7 +149,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
     - CLI {#cli}
@@ -182,36 +182,36 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
       ```bash
       echo -n \
-        $(<hashing_algorithm> <path_to_source_file> | cut -d " " -f 1) > \
-        <path_to_hash_file>
+        $(<hashing_algorithm> <source_file_path> | cut -d " " -f 1) > \
+        <hash_file_path>
       ```
 
       Where:
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values include:
-          * `sha256sum` for SHA-256 algorithms
-          * `sha384sum` for SHA-384 algorithms
-          * `sha512sum` for SHA-512 algorithms
-      * `<path_to_source_file>`: Path to the file whose hash you want to get.
-      * `<path_to_hash_file>`: Path to the file to save the hash to.
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+          * `sha256sum`: For SHA-256 algorithms.
+          * `sha384sum`: For SHA-384 algorithms.
+          * `sha512sum`: For SHA-512 algorithms.
+      * `<source_file_path>`: Path to the file whose hash you want to get.
+      * `<hash_file_path>`: Path to the file to save the hash to.
 
     - PowerShell {#powershell}
 
       Run this command:
 
       ```powershell
-      (Get-FileHash -Path <path_to_source_file> -Algorithm <hashing_algorithm>).Hash.ToLower() | `
-        Out-File -FilePath <path_to_hash_file> `
+      (Get-FileHash -Path <source_file_path> -Algorithm <hashing_algorithm>).Hash.ToLower() | `
+        Out-File -FilePath <hash_file_path> `
         -encoding ASCII `
         -NoNewline
       ```
 
       Where:
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values include:
-          * `SHA256` for SHA-256 algorithms
-          * `SHA384` for SHA-384 algorithms
-          * `SHA512` for SHA-512 algorithms
-      * `<path_to_source_file>`: Path to the file whose hash you want to get.
-      * `<path_to_hash_file>`: Path to the file to save the hash to.
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+          * `SHA256`: For SHA-256 algorithms.
+          * `SHA384`: For SHA-384 algorithms.
+          * `SHA512`: For SHA-512 algorithms.
+      * `<source_file_path>`: Path to the file whose hash you want to get.
+      * `<hash_file_path>`: Path to the file to save the hash to.
 
     This will create a text file containing the hash of the source file.
 
@@ -247,11 +247,11 @@ A hash-based signature is used for messages or files over 32 KB in size.
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-hash-file`: Path to the previously created hash file.
-          * `--inform`: Hash file format. For the sake of universality, the example uses the `hex` value: this format is supported by all platforms. Possible values: `raw` (default), `base64`, and `hex`.
+          * `--inform`: Hash file format. The example uses the common `hex` format that is supported by all platforms. Possible values: `raw` (default), `base64`, and `hex`.
 
           Result:
 
-          ```bash
+          ```text
           signature: W7V8A...22g==
           ```
 

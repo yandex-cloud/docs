@@ -1,6 +1,6 @@
 ---
-title: "Метод uploadPart. {{ objstorage-name }} API (S3)"
-description: "Метод uploadPart в {{ objstorage-name }} API (S3) сохраняет часть объекта. Пользователь самостоятельно нумерует части объекта и передает номера {{ objstorage-name }}. Номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно."
+title: Метод uploadPart. {{ objstorage-name }} API (S3)
+description: Метод uploadPart в {{ objstorage-name }} API (S3) сохраняет часть объекта. Пользователь самостоятельно нумерует части объекта и передает номера {{ objstorage-name }}. Номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно.
 ---
 
 # Метод uploadPart
@@ -15,10 +15,11 @@ description: "Метод uploadPart в {{ objstorage-name }} API (S3) сохра
 
 Более подробную информацию читайте в разделе [{#T}](../multipart.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 

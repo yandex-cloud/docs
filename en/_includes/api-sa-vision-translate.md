@@ -19,7 +19,7 @@ To set up authorization on behalf of a service account:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. In the **Service accounts** tab, click **Create service account**.
    1. Enter a name for the service account, e.g., `sa-api`.
 
@@ -46,7 +46,7 @@ To set up authorization on behalf of a service account:
    {% include [name-format](./name-format.md) %}
 
    Result:
-   ```yaml
+   ```text
    id: ajehr0to1g8b********
    folder_id: b1gv87ssvu49********
    created_at: "2023-03-04T09:03:11.665153755Z"
@@ -69,13 +69,13 @@ To set up authorization on behalf of a service account:
       https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Where:
-   * `<IAM token>`: Valid authorization token.
-   * `folder_Id`: ID of the folder hosting the services.
-   * `<service_account_name>`: Name of the service account, e.g., `sa-api`. The name format requirements are as follows:
+   * `<IAM_token>`: Valid authorization token.
+   * `<folder_ID>`: ID of the folder hosting the services.
+   * `<service_account_name>`: Service account name, e.g., `sa-api`. The name format requirements are as follows:
 
       {% include [name-format](./name-format.md) %}
 
-   You can also create a service account using the [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create) gRPC call.
+   You can also create a service account using the [ServiceAccountService/Create](../iam/api-ref/grpc/ServiceAccount/create.md) gRPC call.
 
 {% endlist %}
 
@@ -85,11 +85,11 @@ To set up authorization on behalf of a service account:
 
 - Management console {#console}
 
-   1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-   1. Go to **Access rights**.
+   1. On the management console [home page]({{ link-console-main }}), select a folder.
+   1. Click the **Access bindings** tab.
    1. Find the `sa-api` service account in the list and click ![image](../_assets/console-icons/ellipsis.svg).
    1. Click **Edit roles**.
-   1. Click **Add role** in the dialog box that opens and select the `ai.translate.user` role for {{ translate-full-name }} or the `ai.vision.user` role for {{ vision-full-name }}.
+   1. Click **Add role** in the dialog box that opens and select the `ai.translate.user` role for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
    1. Click **Save**.
 
 - CLI {#cli}
@@ -110,7 +110,7 @@ To set up authorization on behalf of a service account:
    ```bash
    curl -X POST \
      -H "Content-Type: application/json" \
-     -H "Authorization: Bearer <IAM token>" \
+     -H "Authorization: Bearer <IAM_token>" \
      -d '{
             "accessBindingDeltas": [{
                "action": "ADD",
@@ -131,9 +131,9 @@ To set up authorization on behalf of a service account:
 
    * `<IAM_token>`: Valid authorization token.
    * `<role_ID>`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
-   * `<service_account_ID>`: ID of the `sa-api` service account.
+   * `<service_account_ID>`: `sa-api` service account ID.
 
-   You can also assign service account roles using the [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC call.
+   You can also assign service account roles using the [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC call.
 
 {% endlist %}
 
@@ -147,15 +147,15 @@ To set up authorization on behalf of a service account:
 
 - CLI {#cli}
 
-   {% include [default-catalogue](./default-catalogue.md) %}
+  {% include [default-catalogue](./default-catalogue.md) %}
 
-   1. See the description of the create API key command:
+  1. See the description of the create API key command:
 
       ```bash
       yc iam api-key create --help
       ```
 
-   1. Select a service account, e.g., `sa-api`.
+  1. Select a service account, e.g., `sa-api`:
 
       ```bash
       yc iam service-account list
@@ -171,13 +171,13 @@ To set up authorization on behalf of a service account:
       +----------------------+------------------+-------------------------------+
       ```
 
-   1. Create an API key for the `sa-api` service account and write the response to a file:
+  1. Create an API key for the `sa-api` service account and save the response to the file:
 
       ```bash
       yc iam api-key create --service-account-name sa-api > api-key.yaml
       ```
 
-      The response's `secret` property will contain the API key:
+      The `secret` property in the response will contain the API key:
 
       ```
       api_key:
@@ -187,7 +187,7 @@ To set up authorization on behalf of a service account:
       secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
-      To learn how to provide the key to a request, read the guides for the [services](../iam/concepts/authorization/api-key.md#supported-services) that support this authorization method.
+      To learn how to transmit a key in a request, read the guides for the [services](../iam/concepts/authorization/api-key.md#supported-services) supporting this authorization method.
 
 - API {#api}
 
@@ -196,7 +196,7 @@ To set up authorization on behalf of a service account:
    ```bash
    curl -X POST \
       -H "Content-Type: application/json" \
-      -H "Authorization: Bearer <IAM token>" \
+      -H "Authorization: Bearer <IAM_token>" \
       -d "{ \"serviceAccountId\": \"<service_account_ID>\" }" \
       https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
@@ -204,9 +204,9 @@ To set up authorization on behalf of a service account:
    Where:
 
    * `<IAM_token>`: Valid authorization token.
-   * `<service_account_ID>`: ID of the `sa-api` service account.
+   * `<service_account_ID>`: `sa-api` service account ID.
 
-   You can also create an API key using the [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create) gRPC API call.
+   You can also create an API key using the [ApiKeyService/Create](../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
 
 {% endlist %}
 

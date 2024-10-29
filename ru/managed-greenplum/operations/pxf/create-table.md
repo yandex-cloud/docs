@@ -50,7 +50,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
     1. [Создайте кластер {{ mch-full-name }}](../../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
 
-    
+
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -136,7 +136,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `mysqluser`.
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-    
+
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -205,7 +205,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `pguser`;
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-    
+
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -269,7 +269,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 - {{ objstorage-name }} {#storage}
 
-    
+
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -292,6 +292,9 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         ```
 
     1. [Загрузите тестовый файл в бакет](../../../storage/operations/objects/upload.md).
+
+        Файлы, которые вы загружаете в бакет, не должны начинаться с символов `.` и `_`. Такие файлы считаются скрытыми, и PXF не считывает из них данные.
+
     1. [Подключитесь к БД {{ GP }}](../connect.md).
     1. Чтобы считать данные из бакета {{ objstorage-name }}:
 

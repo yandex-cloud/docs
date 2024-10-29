@@ -1,6 +1,6 @@
 ---
-title: "Как изменить возможные значения поля задачи с помощью {{ tracker-full-name }} API"
-description: "Из статьи вы узнаете, как изменить возможные значения поля задачи в {{ tracker-name }}."
+title: Как изменить возможные значения поля задачи с помощью {{ tracker-full-name }} API
+description: Из статьи вы узнаете, как изменить возможные значения поля задачи в {{ tracker-name }}.
 sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-value.md
 ---
 

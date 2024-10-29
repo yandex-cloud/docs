@@ -547,11 +547,11 @@
 
     {% endcut %}
 
-1. Убедитесь, что приложения `tiefighter` и `xwing` имеют доступ к API сервиса `deathstar` и возвращают строку `Ship landed`, т. к. сетевые политики не активированы:
+1. Убедитесь, что приложения `tiefighter` и `xwing` имеют доступ к [API](../../glossary/rest-api.md) сервиса `deathstar` и возвращают строку `Ship landed`, т. к. сетевые политики не активированы:
 
    ```bash
-   kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \
-   kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
+   kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing && \
+   kubectl exec xwing -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
    Результаты выполнения обеих команд должны совпадать:
@@ -648,7 +648,7 @@
 1. Проверьте доступность сервиса `deathstar` для пода `tiefighter`:
 
    ```bash
-   kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
+   kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
    Результат выполнения команды:
@@ -660,7 +660,7 @@
 1. Проверьте отсутствие доступа пода `xwing` к сервису `deathstar`:
 
    ```bash
-   kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
+   kubectl exec xwing -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
    Нажмите **Ctrl** + **C**, чтобы прервать выполнение команды. Сетевая политика заблокировала доступ этого пода к сервису.
@@ -690,7 +690,7 @@
 1. Проверьте, что при использовании существующей политики `rule1` под `tiefighter` имеет доступ к методу `deathstar.default.svc.cluster.local/v1/exhaust-port`:
 
    ```bash
-   kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
+   kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
    Результат выполнения команды:
@@ -754,7 +754,7 @@
 1. Убедитесь, что под `tiefighter` имеет доступ к методу `deathstar.default.svc.cluster.local/v1/request-landing`:
 
    ```bash
-   kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
+   kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
    Результат выполнения команды:
@@ -766,7 +766,7 @@
 1. Убедитесь, что доступ к методу `deathstar.default.svc.cluster.local/v1/exhaust-port` для пода `tiefighter` запрещен:
 
    ```bash
-   kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
+   kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
    Результат выполнения команды:
@@ -778,7 +778,7 @@
 1. Проверьте, что под `xwing` не имеет доступа к сервису `deathstar`:
 
    ```bash
-   kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
+   kubectl exec xwing -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
    Нажмите **Ctrl** + **C**, чтобы прервать выполнение команды.

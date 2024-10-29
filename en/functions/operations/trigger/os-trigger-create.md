@@ -16,7 +16,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -37,6 +37,12 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-events](../../../_includes/functions/batch-events.md) %}
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
@@ -45,7 +51,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -57,7 +63,6 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    To create a trigger that invokes a function, run this command:
 
-   
    ```bash
    yc serverless trigger create object-storage \
      --name <trigger_name> \
@@ -65,16 +70,15 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
      --prefix '<object_key_prefix>' \
      --suffix '<object_key_suffix>' \
      --events 'create-object','delete-object','update-object' \
-     --batch-size <batch_size> \
+     --batch-size <event_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
-     --dlq-queue-id <dead-letter_queue_ID> \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-
 
    Where:
 
@@ -141,12 +145,17 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
           retry_interval     = "<interval_between_retry_attempts>"
         }
         object_storage {
-          bucket_id = "<bucket_ID>"
-          create    = true
-          update    = true
+          bucket_id    = "<bucket_ID>"
+          prefix       = "<object_key_prefix>"
+          suffix       = "<object_key_suffix>"
+          create       = true
+          update       = true
+          delete       = true
+          batch_cutoff = "<maximum_wait_time>"
+          batch_size   = "<event_batch_size>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -159,11 +168,15 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
       * `object_storage`: Trigger parameters:
 
          * `bucket_id`: Bucket ID.
-         * Select one or more [event](../../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
+         * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * [Events](../../concepts/trigger/os-trigger.md#event) activating the trigger:
 
-            * `create`: The trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
+            * `create`: Trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
             * `update`: The trigger will invoke the function when a new object is updated in the storage. It may take either the `true` or `false` value.
             * `delete`: The trigger will invoke the function when a new object is deleted from the storage. It may take either the `true` or `false` value.
+
+         {% include [tf-batch-params-events](../../../_includes/functions/tf-batch-params-events.md) %}
 
       {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -173,15 +186,15 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}
 
-   To create a trigger for {{ objstorage-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ objstorage-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -191,4 +204,5 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 ## See also {#see-also}
 
-* [Trigger for {{ objstorage-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/os-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/os-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/os-trigger-create.md)

@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ data-transfer-full-name }}"
-description: "Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service."
+title: Access management in {{ data-transfer-full-name }}
+description: Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service.
 ---
 
 # Access management in {{ data-transfer-name }}
@@ -20,7 +20,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -50,15 +50,15 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 #### {{ roles-viewer }} {#viewer}
 
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+{% include [roles-viewer](../../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-{% include [roles-editor](../../_includes/roles-editor.md) %}
+{% include [roles-editor](../../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-{% include [roles-admin](../../_includes/roles-admin.md) %}
+{% include [roles-admin](../../_roles/primitive-roles/admin.md) %}
 
 ## Roles required {#required-roles}
 
@@ -66,7 +66,7 @@ To use the service, you need the `editor` [role](../../iam/concepts/access-contr
 
 To create or edit an endpoint of a managed database, you need the service or primitive [`viewer` role](../../iam/roles-reference.md#viewer) assigned for the folder hosting a cluster of this managed database.
 
-You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
+You can always assign a role offering more permissions than the one specified. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

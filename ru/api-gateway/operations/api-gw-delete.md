@@ -1,6 +1,6 @@
 ---
-title: "Удалить API-шлюз"
-description: "Следуя данной инструкции, вы сможете удалить API-шлюз."
+title: Удалить API-шлюз
+description: Следуя данной инструкции, вы сможете удалить API-шлюз.
 ---
 
 # Удалить API-шлюз
@@ -10,7 +10,7 @@ description: "Следуя данной инструкции, вы сможет�
 - Консоль управления {#console}
 
   Чтобы удалить [API-шлюз](../concepts/index.md):
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо удалить API-шлюз.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо удалить API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
@@ -122,7 +122,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы удалить [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete).
+  Чтобы удалить [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/ApiGateway/delete.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

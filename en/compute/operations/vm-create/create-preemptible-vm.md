@@ -29,7 +29,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
       * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
 
         If you want to create a preemptible VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md).
-        * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+        * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
         * Enter the disk name.
         * Select the disk type.
         * Specify the required block size.
@@ -222,7 +222,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
 - API {#api}
 
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -349,7 +349,7 @@ To change the type of a VM, for example, make it preemptible:
 
 - API {#api}
 
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. In the request body, set `"preemptible": false` in `schedulingPolicy`.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call. In the request body, set `"preemptible": false` in `schedulingPolicy`.
 
 {% endlist %}
 

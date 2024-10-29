@@ -24,7 +24,7 @@
   Чтобы получить список операций для зоны DNS, воспользуйтесь командой:
 
   ```bash
-  yc dns zone list-operations <имя_или_идентификатор_зоны> 
+  yc dns zone list-operations <имя_или_идентификатор_зоны>
   ```
 
   По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
@@ -35,7 +35,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: dnsi5gv00kas********
     description: Update DNS RecordSets
     created_at: "2024-02-01T08:46:21.554860158Z"
@@ -57,7 +57,7 @@
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/dns_zone_service.md#ListOperations).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 
@@ -83,7 +83,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: dnsi5gv00kas********
       description: Create DNS Zone
       created_at: "2024-02-01T08:45:40.481Z"
@@ -104,7 +104,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

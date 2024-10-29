@@ -1,6 +1,6 @@
 ---
-title: "How to delete authorized keys in {{ iam-full-name }}"
-description: "In this tutorial, you will learn how to delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API."
+title: How to delete authorized keys in {{ iam-full-name }}
+description: In this tutorial, you will learn how to delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API.
 ---
 
 # Deleting authorized keys
@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
 
 - Management console {#console}
 
-   1. Go to the folder that the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the row with its name.
    1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the key to be deleted and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete }}**.
@@ -44,6 +44,6 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
 
 - API {#api}
 
-   To delete an authorized key, use the [delete](../../api-ref/Key/delete.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Delete](../../api-ref/grpc/key_service.md#Delete) gRPC API call.
+   To delete an authorized key, use the [delete](../../api-ref/Key/delete.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Delete](../../api-ref/grpc/Key/delete.md) gRPC API call.
 
 {% endlist %}

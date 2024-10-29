@@ -1,3 +1,3 @@
-## Примеры конфигураций и сценариев Application Load Balancer
+## Примеры конфигураций и сценариев {{ alb-name }} {#configuration-examples}
 
-* [Получение реального IP-адреса источника в заголовках запросов](getting-external-src-ip-in-x-forwarded-for-headers.md)
+* [Как получить реальный IP-адрес источника в заголовках запросов](getting-external-src-ip-in-x-forwarded-for-headers.md)

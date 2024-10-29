@@ -1,6 +1,6 @@
 ---
-title: "How to manage connections. Step-by-step guides"
-description: "Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to view connections."
+title: How to manage connections. Step-by-step guides
+description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to view connections.
 ---
 
 # Viewing connection information
@@ -16,11 +16,13 @@ To view created connections:
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
-  1. Click a connection string to view connection details.
+  1. Click the line with the connection to view its details.
 
 {% endlist %}
 
 For the selected connection, you can view information about its dependencies on other services and the history of operations.
+
+You can open the selected connection in [{{ websql-full-name }}](../../websql/concepts/index.md) to make database requests. Click the **Open in {{ websql-name }}** link in the top-right corner.
 
 ## Viewing connection dependencies {#dependencies}
 
@@ -29,7 +31,7 @@ For the selected connection, you can view information about its dependencies on 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-name }}**.
+  1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **Dependencies**.
 
@@ -44,15 +46,15 @@ For the selected connection, you can view information about its dependencies on 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-name }}**.
+  1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. On the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
 
-     In the list of operations, you can view all the operations of the selected connection since its creation:
+     In the list of operations, you can view all the operations for the selected connection since its creation:
 
      * `Create`: Connection created.
      * `Update`: Connection updated.
-     * `Detele`: Connection deleted.
+     * `Delete`: Connection deleted.
      * `Set access bindings`: Connection user roles assigned.
      * `Update access bindings`: Connection user roles updated.
 

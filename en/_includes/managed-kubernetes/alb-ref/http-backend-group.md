@@ -31,6 +31,14 @@ spec:
       tls:
         sni: <string>
         trustedCa: <string>
+      healthChecks:
+        - http:
+            path: <string>
+          port: <int32>
+          healthyThreshold: <int32>
+          unhealthyThreshold: <int32>
+          timeout: <string>
+          interval: <string>
     - ...
 ```
 
@@ -100,7 +108,7 @@ Where:
 
       * `tls` (`BackendTLS`)
 
-         TLC connection settings for the load balancer nodes and backend endpoints.
+         TLS connection settings for the load balancer nodes and backend endpoints.
 
          If the field is specified, the load balancer established TLS connections with the backend and compares the certificates received to the certificate specified in the `trustedCa` field. If the field is not specified, the load balancer will make unencrypted connections to the backend.
 
@@ -111,3 +119,43 @@ Where:
          * `trustedCa` (`string`)
 
             Contents of the X.509 certificate issued by a certificate authority in PEM format.
+
+      * `healthChecks` (`[]HealthChecks`)
+
+         Settings for custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) of applications in a {{ managed-k8s-name }} cluster.
+
+         By default, the {{ alb-name }} Ingress controller accepts health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+
+         The `healthChecks` parameters allow you to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
+
+         * `http` (`HttpBackend`)
+
+            Sets HTTP as the protocol to use for the health check.
+
+            * `path` (`string`)
+
+               Path to the application's health check endpoint in the request URI, e.g. `/health`.
+
+         * `port` (`int32`)
+
+            Port on the cluster nodes used to check the application's availability. The same port is specified in the `NodePort` type [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource, in the `spec.ports.nodePort` parameter.
+
+            The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
+
+         * `healthyThreshold` (`int32`)
+
+            Number of consecutive successful checks to consider the application endpoint healthy.
+
+         * `unhealthyThreshold` (`int32`)
+
+            Number of consecutive failed checks to consider the application endpoint unhealthy.
+
+         * `timeout` (`string`)
+
+            Response timeout in seconds. The possible values range from `1s` to `60s`.
+
+         * `interval` (`string`)
+
+            Interval between health check requests in seconds.
+
+            The possible values range from `1s` to `60s`. The `interval` value must be larger than `timeout` by at least one second.

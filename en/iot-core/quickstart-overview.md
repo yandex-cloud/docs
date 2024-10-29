@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ iot-name }}"
-description: "Get started with device registries or {{ iot-name }} message brokers."
+title: Getting started with {{ iot-name }}
+description: Get started with device registries or {{ iot-name }} message brokers.
 ---
 
 # Getting started with {{ iot-name }}

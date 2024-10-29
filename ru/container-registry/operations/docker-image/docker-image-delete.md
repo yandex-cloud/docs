@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по удалению Docker-образ из реестра {{ container-registry-full-name }}"
-description: "Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}."
+title: Инструкция по удалению Docker-образ из реестра {{ container-registry-full-name }}
+description: Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}.
 ---
 
 # Удалить Docker-образ из реестра
@@ -10,6 +10,8 @@ description: "Из статьи вы узнаете, как удалить Docke
 Удаление [Docker-образа](../../concepts/docker-image.md) — это операция с отложенным действием: при удалении Docker-образа его слои физически удаляются **через 1 час**. Информация о суммарном размере реестра обновляется также через 1 час.
 
 {% endnote %}
+
+Чтобы удалить Docker-образ из реестра, необходима [роль](../../security/index.md#container-registry-images-pusher) `container-registry.images.pusher` или выше.
 
 {% list tabs group=instructions %}
 

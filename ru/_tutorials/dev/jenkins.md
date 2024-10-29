@@ -65,28 +65,54 @@
 Jenkins будет получать изменения в конфигурациях образов ВМ из GitHub, а затем с помощью Packer создавать образы в облаке.
 
 Чтобы создать ВМ с Jenkins:
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `jenkins-tutorial`.
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. В открывшемся окне выберите образ [Jenkins](/marketplace/products/yc/jenkins).
 
-   {% note info %}
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [Jenkins](/marketplace/products/yc/jenkins).
 
-   В случае самостоятельной настройки ВМ с Jenkins воспользуйтесь [инструкцией](https://www.jenkins.io/doc/book/installing/linux/).
+    {% note info %}
 
-   {% endnote %}
+    В случае самостоятельной настройки ВМ с Jenkins воспользуйтесь [инструкцией](https://www.jenkins.io/doc/book/installing/linux/).
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md) `15 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Выберите [платформу](../../compute/concepts/vm-platforms.md): `Intel Ice Lake`.
-   * Укажите необходимое количество vCPU и объем RAM:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и выберите, к какой [подсети](../../vpc/concepts/network.md#subnet) подключить ВМ. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** назначьте ВМ публичный IP-адрес автоматически или выберите один из зарезервированных IP-адресов.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+    {% endnote %}
+
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `15 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+
+        * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+        * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+
+            * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+            * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+            * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+
+        {% note alert %}
+
+        Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+        {% endnote %}
+
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `jenkins-tutorial`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ## Установите Packer {#install-packer}
@@ -129,7 +155,7 @@ Packer позволяет создавать образы дисков ВМ с �
           }
         }
         ```
-        
+
     1. Установите плагин:
 
         ```bash

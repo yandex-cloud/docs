@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ mmg-full-name }}"
-description: "Различные сценарии использования {{ mmg-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ mmg-full-name }}
+description: Различные сценарии использования {{ mmg-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ mmg-name }}

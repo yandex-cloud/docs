@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
 1. {% include [Создать бакеты и выдать SA права на них](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,14 +16,14 @@
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание Spark {#create-job}
 
 1. {% include [Скачать и загрузить файл с текстовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Скачайте и загрузите в бакет для исходных данных [jar-файл](https://{{ s3-storage-host }}/examples/scala-spark/jar/spark-app_2.11-0.1.0-SNAPSHOT.jar), собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
+1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
 
     {% cut "word_count.scala" %}
 

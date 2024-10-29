@@ -1,12 +1,16 @@
 ---
-title: "Правила тарификации для {{ message-queue-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ message-queue-name }}."
+title: Правила тарификации для {{ message-queue-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ message-queue-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ message-queue-name }}
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## Из чего складывается стоимость использования Message Queue {#rules}
 
@@ -18,9 +22,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Запросы к очередям {#requests-to-queues}
 
@@ -39,7 +41,7 @@ editable: false
 
 
 
-Оплачивается фактическое количество запросов.  Например, стоимость тысячи запросов составит 0,04876 ₽ при цене 48,7600 ₽ за 1 млн запросов. 
+Оплачивается фактическое количество запросов. Например, стоимость тысячи запросов составит 0,04876 ₽ при цене 48,7600 ₽ за 1 млн запросов.
 
 При тарификации каждые 64 КБ данных запроса считаются отдельным запросом. Например, запрос размером 63 КБ будет тарифицирован как один запрос, а 65 КБ (64 + 1) — уже как два запроса.
 

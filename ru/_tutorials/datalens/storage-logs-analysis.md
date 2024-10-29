@@ -53,10 +53,10 @@
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<имя_бакета>
      ```
-     
+
      Результат:
      
-     ```
+     ```text
      make_bucket: <имя_бакета>
      ```
 
@@ -74,14 +74,14 @@
 
   1. Добавьте в конфигурационный файл параметры бакета:
   
-     ```
+     ```hcl
      resource "yandex_storage_bucket" "bucket-logs" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
        bucket     = "<имя_бакета>"
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
      
   1. Проверьте корректность настроек.
@@ -105,7 +105,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
   1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
   1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
   1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс `s3-logs/`.
@@ -126,7 +127,7 @@
 
   1. Выполните команду:
      
-     ```
+     ```bash
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
        --bucket <имя_бакета> \
@@ -137,7 +138,6 @@
 
 - {{ TF }} {#tf}
   
-
   Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
      1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
@@ -183,6 +183,8 @@
 ## Подготовьте источник данных {#prepare-origin}
 
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
+
+Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 

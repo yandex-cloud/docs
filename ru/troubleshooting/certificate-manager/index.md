@@ -1,4 +1,4 @@
-# Решения для Certificate Manager
+# Решения для {{ certificate-manager-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

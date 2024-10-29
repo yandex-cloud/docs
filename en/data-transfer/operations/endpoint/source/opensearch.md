@@ -1,6 +1,6 @@
 ---
-title: "How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}."
+title: How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data from an {{ OS }} source endpoint
 
@@ -18,7 +18,11 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} source 
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating the {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+* [Migrating a {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+* [Loading data from {{ OS }} to {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
+* [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
+
+* [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -28,7 +32,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ OS }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mos-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -84,13 +88,13 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 Configure the target endpoint:
 
-* [{{ OS }}](../target/opensearch.md).
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ GP }}](../target/greenplum.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ KF }}](../target/kafka.md).
-* [{{ DS }}](../target/data-streams.md).
+* [{{ OS }}](../target/opensearch.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

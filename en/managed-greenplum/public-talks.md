@@ -1,6 +1,6 @@
 ---
-title: "Public materials about {{ mgp-full-name }}"
-description: "Videos of conferences and webinars on {{ mgp-full-name }}."
+title: Public materials about {{ mgp-full-name }}
+description: Videos of conferences and webinars on {{ mgp-full-name }}.
 ---
 
 # Public materials about {{ mgp-full-name }}

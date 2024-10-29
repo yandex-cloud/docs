@@ -1,18 +1,17 @@
 title: Yandex MetaData Hub
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in Russia.
-  theme: unknown
-  when: region == "kz"
 stage: preview
 items:
   - name: Getting started
     items:
-      - name: All guides
+      - name: Overview
         href: quickstart/index.md
       - name: Connection Manager
         href: quickstart/connection-manager.md
+      - name: '{{ metastore-full-name }}'
+        href: quickstart/metastore.md
+      - name: Schema Registry
+        href: quickstart/schema-registry.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -29,6 +28,50 @@ items:
             href: operations/delete-connection.md
           - name: Configuring connection access permissions
             href: operations/connection-access.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: Creating a {{ metastore-name }} cluster
+            href: operations/metastore/cluster-create.md
+          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
+            href: operations/metastore/dataproc-connect.md
+          - name: Exporting and importing a {{ metastore-name }} cluster
+            href: operations/metastore/export-and-import.md
+          - name: Deleting a {{ metastore-name }} cluster
+            href: operations/metastore/cluster-delete.md
+      - name: Schema Registry
+        items:
+          - name: Namespace
+            items:
+              - name: Creating a namespace
+                href: operations/create-name-space.md
+              - name: Editing a namespace
+                href: operations/update-name-space.md
+              - name: Deleting a namespace
+                href: operations/delete-name-space.md
+          - name: Schemas
+            items:
+              - name: Uploading a schema to a new subject
+                href: operations/create-subject.md
+              - name: Adding a schema to an existing subject
+                href: operations/add-schema.md
+              - name: Deleting a schema
+                href: operations/delete-schema.md
+              - name: Comparing schemas
+                href: operations/compare-schemas.md
+          - name: Subjects
+            items:
+              - name: Changing a subject
+                href: operations/update-subject.md
+              - name: Deleting a subject
+                href: operations/delete-subject.md
+  - name: Tutorials
+    items:
+      - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
+        href: tutorials/sharing-tables.md
+      - name: >-
+          Transferring data between {{ dataproc-name }} clusters using {{
+          metastore-name }}
+        href: tutorials/metastore-import.md
   - name: Concepts
     items:
       - name: About {{ metadata-hub-full-name }}
@@ -39,12 +82,39 @@ items:
             href: concepts/connection-manager.md
           - name: Secret
             href: concepts/secret.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: '{{ metastore-name }} clusters'
+            href: concepts/metastore.md
+          - name: Impersonation in {{ metastore-name }}
+            href: concepts/metastore-impersonation.md
+      - name: Schema Registry
+        items:
+          - name: Schema registry
+            href: concepts/schema-registry.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
-    href: security/index.md
+    items:
+      - name: Overview
+        href: security/index.md
+      - name: '{{ connection-manager-name }} roles'
+        href: security/connection-manager-roles.md
+      - name: '{{ metastore-name }} roles'
+        href: security/metastore-roles.md
+      - name: '{{ schema-registry-name }} roles'
+        href: security/schema-registry-roles.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: Schema Registry
+        href: api-ref/schema-registry/index.md
   - name: Release notes
     href: release-notes/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: FAQ
+    href: qa/index.md
 base: en/metadata-hub
+deepBase: 2

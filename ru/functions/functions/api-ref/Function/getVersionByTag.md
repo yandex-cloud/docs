@@ -3,27 +3,39 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersionByTag.md
 ---
 
-# Cloud Functions Service, REST: Function.getVersionByTag
+# Cloud Functions Service, REST: Function.GetVersionByTag {#GetVersionByTag}
+
 Returns all versions with the specified tag.
- 
-To get the list of all available versions, make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
- 
-## HTTP request {#https-request}
+
+To get the list of all available versions, make a [ListVersions](/docs/functions/functions/api-ref/Function/listVersions#ListVersions) request.
+
+## HTTP request
+
 ```
 GET https://serverless-functions.{{ api-host }}/functions/v1/versions:byTag
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-functionId | <p>Required. ID of the function whose versions should be listed.</p> <p>To get a function ID use a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
-tag | <p>Version tag.</p> <p>To get the history of version tags make a <a href="/docs/functions/functions/api-ref/Function/listTagHistory">listTagHistory</a> request.</p> <p>Value must match the regular expression ``[a-z][-_0-9a-z]*\|[$]latest``.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.serverless.functions.v1.GetFunctionVersionByTagRequest}
+
+#|
+||Field | Description ||
+|| functionId | **string**
+
+Required field. ID of the function whose versions should be listed.
+
+To get a function ID use a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request. ||
+|| tag | **string**
+
+Version tag.
+
+To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request. ||
+|#
+
+## Response {#yandex.cloud.serverless.functions.v1.Version}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "functionId": "string",
@@ -41,121 +53,395 @@ tag | <p>Version tag.</p> <p>To get the history of version tags make a <a href="
   "tags": [
     "string"
   ],
-  "logGroupId": "string",
-  "environment": "object",
+  "environment": "string",
   "connectivity": {
     "networkId": "string",
     "subnetId": [
       "string"
     ]
   },
-  "namedServiceAccounts": "object",
+  "namedServiceAccounts": "string",
   "secrets": [
     {
       "id": "string",
       "versionId": "string",
       "key": "string",
+      // Includes only one of the fields `environmentVariable`
       "environmentVariable": "string"
+      // end of the list of possible fields
     }
   ],
   "logOptions": {
-    "disabled": true,
-    "minLevel": "string",
-
-    // `logOptions` includes only one of the fields `logGroupId`, `folderId`
+    "disabled": "boolean",
+    // Includes only one of the fields `logGroupId`, `folderId`
     "logGroupId": "string",
     "folderId": "string",
-    // end of the list of possible fields`logOptions`
-
+    // end of the list of possible fields
+    "minLevel": "string"
   },
   "storageMounts": [
     {
       "bucketId": "string",
       "prefix": "string",
       "mountPointName": "string",
-      "readOnly": true
+      "readOnly": "boolean"
     }
   ],
   "asyncInvocationConfig": {
     "retriesCount": "string",
     "successTarget": {
-
-      // `asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
-      "emptyTarget": {},
+      // Includes only one of the fields `emptyTarget`, `ymqTarget`
+      "emptyTarget": "object",
       "ymqTarget": {
         "queueArn": "string",
         "serviceAccountId": "string"
-      },
-      // end of the list of possible fields`asyncInvocationConfig.successTarget`
-
+      }
+      // end of the list of possible fields
     },
     "failureTarget": {
-
-      // `asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
-      "emptyTarget": {},
+      // Includes only one of the fields `emptyTarget`, `ymqTarget`
+      "emptyTarget": "object",
       "ymqTarget": {
         "queueArn": "string",
         "serviceAccountId": "string"
-      },
-      // end of the list of possible fields`asyncInvocationConfig.failureTarget`
-
+      }
+      // end of the list of possible fields
     },
     "serviceAccountId": "string"
   },
   "tmpfsSize": "string",
-  "concurrency": "string"
+  "concurrency": "string",
+  "mounts": [
+    {
+      "name": "string",
+      "mode": "string",
+      // Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
+      "objectStorage": {
+        "bucketId": "string",
+        "prefix": "string"
+      },
+      "ephemeralDiskSpec": {
+        "size": "string",
+        "blockSize": "string"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
+
 Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the version.</p> 
-functionId | **string**<br><p>ID of the function that the version belongs to.</p> 
-description | **string**<br><p>Description of the version.</p> <p>The string length in characters must be 0-256.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
-entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format ``<function file name>.<handler name>``, for example, ``index.myFunction``.</p> 
-resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
-executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
-serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
-imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
-status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> </ul> 
-tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
-logGroupId | **string**<br><p>ID of the log group for the version.</p> 
-environment | **object**<br><p>Environment settings for the version.</p> 
-connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
-connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
-connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> <p>The string length in characters for each value must be greater than 0.</p> 
-namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
-secrets[] | **object**<br><p>Yandex Lockbox secrets to be used by the version.</p> 
-secrets[].<br>id | **string**<br><p>ID of Yandex Lockbox secret.</p> 
-secrets[].<br>versionId | **string**<br><p>ID of Yandex Lockbox version.</p> 
-secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment.</p> 
-secrets[].<br>environmentVariable | **string**<br><p>environment variable in which secret's value to be delivered.</p> 
-logOptions | **object**<br><p>Options for logging from the function</p> 
-logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from function disabled.</p> 
-logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
-logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
-storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
-storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
-storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
-storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
-asyncInvocationConfig | **object**<br><p>Config for asynchronous invocations of the version</p> 
-asyncInvocationConfig.<br>retriesCount | **string** (int64)<br><p>Number of retries of version invocation</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-asyncInvocationConfig.<br>successTarget | **object**<br><p>Required. Target for successful result of the version's invocation</p> <p>Target to which a result of an invocation will be sent</p> 
-asyncInvocationConfig.<br>successTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
-asyncInvocationConfig.<br>successTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
-asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
-asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-asyncInvocationConfig.<br>failureTarget | **object**<br><p>Required. Target for unsuccessful result, if all retries failed</p> <p>Target to which a result of an invocation will be sent</p> 
-asyncInvocationConfig.<br>failureTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
-asyncInvocationConfig.<br>failureTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
-asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
-asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
-tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes.</p> 
-concurrency | **string** (int64)<br><p>The maximum number of requests processed by a function instance at the same time</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the version. ||
+|| functionId | **string**
+
+ID of the function that the version belongs to. ||
+|| description | **string**
+
+Description of the version. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp for the version.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| runtime | **string**
+
+ID of the runtime environment for the function.
+
+Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). ||
+|| entrypoint | **string**
+
+Entrypoint for the function: the name of the function to be called as the handler.
+
+Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. ||
+|| resources | **[Resources](#yandex.cloud.serverless.functions.v1.Resources)**
+
+Resources allocated to the version. ||
+|| executionTimeout | **string** (duration)
+
+Timeout for the execution of the version.
+
+If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. ||
+|| serviceAccountId | **string**
+
+ID of the service account associated with the version. ||
+|| imageSize | **string** (int64)
+
+Final size of the deployment package after unpacking. ||
+|| status | **enum** (Status)
+
+Status of the version.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Version is being created.
+- `ACTIVE`: Version is ready to use.
+- `OBSOLETE`: Version will be deleted soon.
+- `DELETING`: Version is being deleted. ||
+|| tags[] | **string**
+
+Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
+|| environment | **string**
+
+Environment settings for the version. ||
+|| connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
+
+Network access. If specified the version will be attached to specified network/subnet(s). ||
+|| namedServiceAccounts | **string**
+
+Additional service accounts to be used by the version. ||
+|| secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
+
+Yandex Lockbox secrets to be used by the version. ||
+|| logOptions | **[LogOptions](#yandex.cloud.serverless.functions.v1.LogOptions)**
+
+Options for logging from the function ||
+|| storageMounts[] | **[StorageMount](#yandex.cloud.serverless.functions.v1.StorageMount)**
+
+S3 mounts to be used by the version. ||
+|| asyncInvocationConfig | **[AsyncInvocationConfig](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
+
+Config for asynchronous invocations of the version ||
+|| tmpfsSize | **string** (int64)
+
+Optional size of in-memory mounted /tmp directory in bytes. ||
+|| concurrency | **string** (int64)
+
+The maximum number of requests processed by a function instance at the same time ||
+|| mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
+
+Mounts to be used by the version. ||
+|#
+
+## Resources {#yandex.cloud.serverless.functions.v1.Resources}
+
+Resources allocated to a version.
+
+#|
+||Field | Description ||
+|| memory | **string** (int64)
+
+Amount of memory available to the version, specified in bytes, multiple of 128MB. ||
+|#
+
+## Connectivity {#yandex.cloud.serverless.functions.v1.Connectivity}
+
+Version connectivity specification.
+
+#|
+||Field | Description ||
+|| networkId | **string**
+
+Network the version will have access to.
+It's essential to specify network with subnets in all availability zones. ||
+|| subnetId[] | **string**
+
+Complete list of subnets (from the same network) the version can be attached to.
+It's essential to specify at least one subnet for each availability zones. ||
+|#
+
+## Secret {#yandex.cloud.serverless.functions.v1.Secret}
+
+Secret for serverless function.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of Yandex Lockbox secret. ||
+|| versionId | **string**
+
+ID of Yandex Lockbox version. ||
+|| key | **string**
+
+Key in secret's payload, which value to be delivered into function environment. ||
+|| environmentVariable | **string**
+
+environment variable in which secret's value to be delivered.
+
+Includes only one of the fields `environmentVariable`. ||
+|#
+
+## LogOptions {#yandex.cloud.serverless.functions.v1.LogOptions}
+
+#|
+||Field | Description ||
+|| disabled | **boolean**
+
+Is logging from function disabled. ||
+|| logGroupId | **string**
+
+Entry should be written to log group resolved by ID.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| folderId | **string**
+
+Entry should be written to default log group for specified folder.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| minLevel | **enum** (Level)
+
+Minimum log entry level.
+
+See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+
+- `LEVEL_UNSPECIFIED`: Default log level.
+
+  Equivalent to not specifying log level at all.
+- `TRACE`: Trace log level.
+
+  Possible use case: verbose logging of some business logic.
+- `DEBUG`: Debug log level.
+
+  Possible use case: debugging special cases in application logic.
+- `INFO`: Info log level.
+
+  Mostly used for information messages.
+- `WARN`: Warn log level.
+
+  May be used to alert about significant events.
+- `ERROR`: Error log level.
+
+  May be used to alert about errors in infrastructure, logic, etc.
+- `FATAL`: Fatal log level.
+
+  May be used to alert about unrecoverable failures and events. ||
+|#
+
+## StorageMount {#yandex.cloud.serverless.functions.v1.StorageMount}
+
+#|
+||Field | Description ||
+|| bucketId | **string**
+
+Required field. S3 bucket name for mounting. ||
+|| prefix | **string**
+
+S3 bucket prefix for mounting. ||
+|| mountPointName | **string**
+
+Required field. Mount point directory name (not path) for mounting. ||
+|| readOnly | **boolean**
+
+Is mount read only. ||
+|#
+
+## AsyncInvocationConfig {#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig}
+
+#|
+||Field | Description ||
+|| retriesCount | **string** (int64)
+
+Number of retries of version invocation ||
+|| successTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+
+Required field. Target for successful result of the version's invocation ||
+|| failureTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+
+Required field. Target for unsuccessful result, if all retries failed ||
+|| serviceAccountId | **string**
+
+Service account which can invoke version ||
+|#
+
+## ResponseTarget {#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget}
+
+Target to which a result of an invocation will be sent
+
+#|
+||Field | Description ||
+|| emptyTarget | **object**
+
+Target to ignore a result
+
+Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
+|| ymqTarget | **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
+
+Target to send a result to ymq
+
+Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
+|#
+
+## YMQTarget {#yandex.cloud.serverless.functions.v1.YMQTarget}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+Required field. Queue ARN ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has write permission on the queue. ||
+|#
+
+## Mount {#yandex.cloud.serverless.functions.v1.Mount}
+
+Mount contains an information about version's external storage mount
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+|| mode | **enum** (Mode)
+
+Mount's mode
+
+- `MODE_UNSPECIFIED`
+- `READ_ONLY`
+- `READ_WRITE` ||
+|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
+
+Object storage mounts
+
+Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+
+Target mount option ||
+|| ephemeralDiskSpec | **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
+
+Working disk (worker-local non-shared read-write NBS disk templates)
+
+Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+
+Target mount option ||
+|#
+
+## ObjectStorage {#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage}
+
+ObjectStorage as a mount
+
+#|
+||Field | Description ||
+|| bucketId | **string**
+
+Required field. ObjectStorage bucket name for mounting. ||
+|| prefix | **string**
+
+ObjectStorage bucket prefix for mounting. ||
+|#
+
+## DiskSpec {#yandex.cloud.serverless.functions.v1.Mount.DiskSpec}
+
+Disk as a mount
+
+#|
+||Field | Description ||
+|| size | **string** (int64)
+
+The size of disk for mount in bytes ||
+|| blockSize | **string** (int64)
+
+Optional block size of disk for mount in bytes ||
+|#

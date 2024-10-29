@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark и PySpark. Запуск и управление приложениями"
+title: Apache Spark и PySpark. Запуск и управление приложениями
 keywords:
   - apache spark
   - spark
@@ -65,6 +65,7 @@ keywords:
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
         * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
+        * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner);
         * [storage.admin](../../storage/security/index.md#storage-admin).
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.

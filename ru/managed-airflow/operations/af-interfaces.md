@@ -1,9 +1,9 @@
 ---
-title: "Работа с интерфейсами {{ AF }}"
-description: "Для работы с {{ AF }} можно использовать веб-интерфейс или {{ AF }} REST API"
+title: Работа с интерфейсами {{ AF }}
+description: Для работы с {{ AF }} можно использовать веб-интерфейс или {{ AF }} REST API
 keywords:
   - работа с интерфейсами {{ AF }}
-  - {{ AF }}
+  - '{{ AF }}'
   - Airflow
 ---
 
@@ -36,7 +36,8 @@ keywords:
     Пример запроса:
 
     ```bash
-    curl -X GET \
+    curl \
+        --request GET \
         'https://c-<идентификатор_кластера>.airflow.yandexcloud.net/api/v1/dags' \
         --user 'admin:<пароль_пользователя_admin>' \
         --header 'Content-Type: application/json' \

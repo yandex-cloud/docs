@@ -2,30 +2,31 @@
 
 Returns the configuration of static website hosting for a bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 GET /{bucket}?website HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `website` | Required parameter that indicates the type of operation. |
+`website` | Required parameter that indicates the type of operation.
 
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 
 ## Response {#response}
@@ -41,3 +42,5 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 ### Data schema {#response-scheme}
 
 The structure of returned data is the same as the structure of the data passed by the [upload](upload.md) method.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

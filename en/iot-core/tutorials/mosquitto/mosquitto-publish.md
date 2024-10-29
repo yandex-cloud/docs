@@ -1,6 +1,6 @@
 ---
-title: "How to send a message using Mosquitto in {{ iot-full-name }}"
-description: "Follow this guide to send a message to the MQTT server using Mosquitto."
+title: How to send a message using Mosquitto in {{ iot-full-name }}
+description: Follow this guide to send a message to the MQTT server using Mosquitto.
 ---
 
 # Sending a message using Mosquitto

@@ -1,6 +1,6 @@
 ---
-title: "Updating a function label"
-description: "Follow this guide to update a function label."
+title: Updating a function label
+description: Follow this guide to update a function label.
 ---
 
 # Updating a function label
@@ -109,6 +109,6 @@ description: "Follow this guide to update a function label."
 
 - API {#api}
 
-   To update a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
+   To update a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 {% endlist %}

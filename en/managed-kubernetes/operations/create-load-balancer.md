@@ -1,5 +1,5 @@
 ---
-title: "Granting access to an app running in a {{ k8s }} cluster"
+title: Granting access to an app running in a {{ k8s }} cluster
 ---
 
 # Granting access to an app running in a {{ k8s }} cluster
@@ -13,16 +13,17 @@ To publish an app, use a`LoadBalancer` service. The following options are suppor
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
-    * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+  * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
+When using an external load balancer, [you can specify](#advanced) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md).
 
-To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#lb-ip) it using the `loadBalancerIP` option.
 
+If you do not specify a static IP address, the network load balancer will get a dynamic IP address.
 
 {% note info %}
 
-Unlike the IP address of a pod or node, which may change if the resources in a node group are updated, the IP address of `LoadBalancer` type services don't change.
+Unlike the IP address of a pod or node, which may change if the resources in a node group are updated, the static IP address of a `LoadBalancer`-type service does not change.
 
 {% endnote %}
 
@@ -37,7 +38,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
 {% cut "How to ensure access to an app via HTTPS?" %}
 
-For more information, refer to the documentation:
+See the documentation:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
@@ -376,7 +377,7 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
 In {{ managed-k8s-name }}, you can specify the following advanced settings for your `LoadBalancer` type service:
 
-* `loadBalancerIP`: [Static public IP address you reserved in advance](../../vpc/operations/get-static-ip.md).
+* `loadBalancerIP`: [Public](../../vpc/concepts/address.md#public-addresses) (static) IP address you reserved in advance.
 * `externalTrafficPolicy`: [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core).
 
 {% cut "Example" %}
@@ -466,7 +467,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+   1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
 
 - {{ TF }} {#tf}
 
@@ -486,6 +487,6 @@ Delete the resources you no longer need to avoid paying for them:
 
       All the resources described in the `k8s-load-balancer.tf` configuration file will be deleted.
 
-   1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+   1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
 
 {% endlist %}

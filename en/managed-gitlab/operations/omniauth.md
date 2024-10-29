@@ -19,9 +19,9 @@ For more information about working with OmniAuth in {{ GL }}, see the [{{ GL }} 
 
 Some parameters are common to all providers:
 
-* **Allow single sign on**: Allow using SSO. If set to `true`, when a user who has not singed up with {{ GL }} authenticates through OmniAuth, an account in {{ GL }} will be automatically created for that user.
+* **Allow single sign on**: Allow using SSO. If set to `true`, when a user who has not singed up with {{ GL }} authenticates through OmniAuth, an account in {{ GL }} will be automatically created for them.
 * **Auto link users by email**: Map the username in OmniAuth to that in {{ GL }} if they have the same email address linked.
-* **Block auto-created users**: Switch automatically created accounts to the [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) status until they are approved by an administrator.
+* **Block auto-created users**: Automatically switch the created accounts to [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until they get approved by an administrator.
 * **External provider**: Set the _external_ attribute for the provider. Users authorized through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups).
 * **Auto link LDAP user**: Create an LDAP entity for automatically created accounts. This parameter only applies to instances with an LDAP provider connected.
 
@@ -31,27 +31,27 @@ Other parameters depend on the selected provider type.
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-Learn how to obtain an app ID and secret key in the [guide on setting up a provider]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
+You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider) on setting up a provider.
 
 ### Github Enterprise {#gitlab-ee}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **URL**: Link to the GitHub repository.
 
-Learn how to obtain an app ID and secret key in the [guide on setting up a provider]({{ gl.docs }}/ee/integration/github.html).
+You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/github.html) on setting up a provider.
 
 ### {{ GL }} self-managed {#gitlab-self}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **Site**: Link to the {{ GL }} repository.
 
-Learn how to obtain an app ID and secret key in the [guide on setting up a provider]({{ gl.docs }}/ee/integration/gitlab.html).
+You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/gitlab.html) on setting up a provider.
 
 ### Google OAuth 2.0 {#google}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-Learn how to obtain an app ID and secret key in the [guide on setting up a provider]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager).
+You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager) on setting up a provider.
 
 ### Keycloak {#keycloak}
 
@@ -88,7 +88,7 @@ Before setting up LDAP integration, make sure the users on the LDAP server canno
 * **Bind DN**: (Optional) Unique username (DN) in LDAP.
 * **User Filter**: (Optional) User filter in LDAP in [RFC-4515](https://www.rfc-editor.org/rfc/rfc4515.html) format.
 
-Learn how to configure the LDAP server to work with {{ GL }} in the [{{ GL }} documentation]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
+Refer to the [{{ GL }}]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap) documentation to learn how to configure the LDAP server to work with {{ GL }}.
 
 ### {{ microsoft-idp.entra-id-full }} {#azure-ad}
 
@@ -97,7 +97,7 @@ Learn how to configure the LDAP server to work with {{ GL }} in the [{{ GL }} do
 * **Client Secret**: Client secret key received when registering an application.
 * **Tenant ID**: Tenant ID received when registering an application.
 
-Learn how to register an application on the Azure side in the [{{ GL }} documentation]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application) documentation to learn how to register an application on the Azure side.
 
 ### Microsoft Azure OAuth 2 {#azure-oauth}
 
@@ -106,7 +106,7 @@ Learn how to register an application on the Azure side in the [{{ GL }} document
 * **Client Secret**: Client secret key received when registering an application.
 * **Tenant ID**: Tenant ID received when registering an application.
 
-Learn how to register an application on the Azure side in the [{{ GL }} documentation]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application) documentation to learn how to register an application on the Azure side.
 
 ### SAML {#saml}
 
@@ -117,7 +117,7 @@ Learn how to register an application on the Azure side in the [{{ GL }} document
 * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
 * **Name identifier format**: Format of the name identifier. Issued when configuring the IdP.
 
-Learn how to configure SAML on the IdP side in the [{{ GL }} documentation]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
+Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp) documentation to learn how to configure SAML on the IdP side.
 
 ### Yandex ID {#yandex-id}
 
@@ -126,21 +126,21 @@ Learn how to configure SAML on the IdP side in the [{{ GL }} documentation]({{ g
 * **Client Secret**: Client secret key received when registering an application.
 * **Site**: Link to the {{ GL }} repository.
 
-For information on how to register an app on the identification provider side, see the [{{ yandex-oauth }} documentation](https://yandex.ru/dev/id/doc/en/register-client). When registering an app, permit access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
+Refer to the [{{ yandex-oauth }} documentation](https://yandex.ru/dev/id/doc/en/register-client) to learn how to register an application on the IdP side. When registering an app, permit access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
 
-```
+```text
 https://<{{ GL }}_instance_address>/users/auth/Yandex/callback
 ```
 
 URL example:
 
-```
+```text
 https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
 ```
 
 {% note warning %}
 
-When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }}, but block them the first time they log in.
+When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
 
 {% endnote %}
 

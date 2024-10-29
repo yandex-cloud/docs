@@ -44,7 +44,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
 - API {#api}
 
-  To get a list of available versions, use the [list](../../managed-kubernetes/api-ref/Version/list.md).
+  To get a list of available versions, use the [list](../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md).
 
 {% endlist %}
 
@@ -186,9 +186,9 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
 
 - API {#api}
 
-  Set up automatic updates in the `masterSpec.maintenancePolicy` section when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/api-ref/Cluster/create.md) or [updating its settings](../../managed-kubernetes/api-ref/Cluster/update.md).
+  Set up automatic updates in the `masterSpec.maintenancePolicy` section when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) or [updating its settings](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md).
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
+  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Automatic update settings in the `masterSpec.maintenancePolicy` parameter.
   * List of settings to be changed in the `updateMask` parameter.
@@ -301,7 +301,7 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
+  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
@@ -489,9 +489,9 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
 - API {#api}
 
-   You can set up automatic updates under `maintenancePolicy` when [creating](../../managed-kubernetes/api-ref/NodeGroup/create.md) or [updating](../../managed-kubernetes/api-ref/NodeGroup/update.md) a {{ managed-k8s-name }} node group.
+   You can set up automatic updates under `maintenancePolicy` when [creating](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md) or [updating](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) a {{ managed-k8s-name }} node group.
 
-   Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
+   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
    * ID of the {{ managed-k8s-name }} node group in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
    * Automatic update settings in the `maintenancePolicy` parameter.
    * List of settings to be changed in the `updateMask` parameter.
@@ -627,7 +627,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
 - API {#api}
 
-   Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
+   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
    * ID of the {{ managed-k8s-name }} node group in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
    * Required version of {{ k8s }} in the `version.version` parameter.
    * List of settings to be changed in the `updateMask` parameter.
@@ -672,7 +672,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
+  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Value `true` in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
@@ -708,7 +708,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-   Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
+   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
    * ID of the {{ managed-k8s-name }} node group in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
    * `true` value in the `version.latestRevision` parameter.
    * List of settings to be changed in the `updateMask` parameter.

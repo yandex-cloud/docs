@@ -1,4 +1,4 @@
-#### Is the cluster accessible from inside {{ yandex-cloud }}? {#conn-from-yc}
+#### Can I access the cluster from within {{ yandex-cloud }}? {#conn-from-yc}
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
@@ -7,7 +7,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### Can I connect to the cluster from a Docker container? {#conn-from-docker}
+#### Can I connect to a cluster from a Docker container? {#conn-from-docker}
 
 Yes, you can. To do this, [configure the Dockerfile](../../managed-postgresql/operations/connect.md#connection-docker).
 
@@ -18,17 +18,16 @@ You can find an example of connection from a container in {{ serverless-containe
 You can obtain an SSL certificate using PowerShell:
 
 ```powershell
-mkdir $HOME\AppData\Roaming\postgresql; `
-curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
+mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
 ```
 
-The certificate will be available at `$HOME\AppData\Roaming\postgresql\root.crt`.
+The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
 For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
+#### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} using psql? {#power-bi}
 
-1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the following command in the terminal window:
+1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the following command in the terminal:
 
    ```bash
    mkdir /mnt/c/temp && \
@@ -40,12 +39,16 @@ For more information about obtaining a certificate and connecting to a database,
 
 1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
-#### What do I do if I get the _SSL is required_ error? {#ssl-req}
+#### What do I do if I get the _SSL is required_ error when connecting? {#ssl-req}
 
 The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
 
 * [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you are using to connect to the cluster.
 * [Disable public access to hosts](../../managed-postgresql/operations/hosts.md#update) and connect to the cluster from a VM located in the same cloud network.
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
 #### What is the maximum allowed number of concurrent connections to a single host in {{ mpg-name }}? {#host-conn}
 

@@ -1,7 +1,11 @@
 # Using the bucket actions logging mechanism
 
 
-To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md). Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. However, {{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) that the logs are saved in a complete and timely manner.
+To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md).
+
+Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. The source and target buckets must be different.
+
+{{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) complete and timely logging.
 
 By default, logging is disabled. After you enable it, {{ objstorage-name }} will save information about actions with the bucket once an hour.
 
@@ -37,7 +41,7 @@ To log requests to the bucket:
 
       To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
-      1. Create a file with logging settings in JSON format. Here is an example:
+      1. Create a file with logging settings in JSON format. For example:
 
          ```json
          {
@@ -69,7 +73,15 @@ To log requests to the bucket:
 
    - {{ TF }} {#tf}
 
-      To enable logging for a bucket you want to track:
+      {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+      {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+
+      To enable logging for a bucket that you wish to monitor:
 
       1. Open the {{ TF }} configuration file and add the `logging` section to the fragment describing the bucket.
 

@@ -41,7 +41,7 @@ To try the examples in this section:
          ```bash
          cd cloudapi
          mkdir output
-         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
            --grpc_python_out=output \
              google/api/http.proto \
@@ -54,7 +54,7 @@ To try the examples in this section:
 
          As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-      1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
+      1. In the root of the `output` folder, create a file, e.g., `test.py`, and add to it the following code:
 
          ```python
          #coding=utf8
@@ -90,7 +90,7 @@ To try the examples in this section:
                      data = f.read(CHUNK_SIZE)
 
          def run(folder_id, iam_token, audio_file_name):
-             # Establish a server connection.
+             # Connect to the server.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
              stub = stt_service_pb2_grpc.SttServiceStub(channel)
@@ -142,13 +142,13 @@ To try the examples in this section:
       1. Set the [IAM token](../../../iam/concepts/authorization/iam-token.md):
 
          ```bash
-         export IAM_TOKEN=<IAM token>
+         export IAM_TOKEN=<IAM_token>
          ```
 
       1. Run the created file:
 
          ```bash
-         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+         python3 test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
          ```
 
          Where `path` is the path to the audio file to recognize:
@@ -282,7 +282,7 @@ To try the examples in this section:
       1. Set the [IAM token](../../../iam/concepts/authorization/iam-token.md):
 
          ```bash
-         export IAM_TOKEN=<IAM token>
+         export IAM_TOKEN=<IAM_token>
          ```
 
       1. Run the created file:

@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера {{ OS }}"
-description: "Кластер управляемого сервиса {{ OS }} — это группа из нескольких связанных друг с другом хостов {{ OS }}."
+title: Создание кластера {{ OS }}
+description: Кластер управляемого сервиса {{ OS }} — это группа из нескольких связанных друг с другом хостов {{ OS }}.
 keywords:
   - создание кластера OpenSearch
   - кластер OpenSearch
@@ -20,11 +20,13 @@ keywords:
 
 При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
 
+Для создания кластера {{ mos-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mos-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
@@ -41,7 +43,7 @@ keywords:
       1. Выберите версию {{ OS }}.
       1. Выберите [плагины](plugins.md#supported-plugins), которые нужно установить в кластер.
 
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
@@ -61,11 +63,15 @@ keywords:
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+      1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+
+          {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
+
       1. Укажите расположение хостов по [зонам доступности](../../overview/concepts/geo-scope.md) и подсетям.
 
       1. Выберите количество создаваемых хостов.
 
-      
+
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% note tip %}
@@ -88,7 +94,7 @@ keywords:
       1. Укажите расположение хостов по зонам доступности и подсетям.
       1. Выберите количество создаваемых хостов.
         
-      
+
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
@@ -102,7 +108,7 @@ keywords:
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
-      1. При необходимости задайте дополнительные настройки кластера:
+      1. При необходимости измените дополнительные настройки кластера:
 
           {% include [Дополнительные настройки кластера](../../_includes/mdb/mos/extra-settings.md) %}
 
@@ -114,7 +120,7 @@ keywords:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mos-name }}:
 
   1. Посмотрите описание команды CLI для создания кластера:
 
@@ -133,7 +139,7 @@ keywords:
          --network-name <имя_сети> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --service-account-name <имя_сервисного_аккаунта> \
-         --delete-protection <защита_от_удаления:_true_или_false> \
+         --delete-protection \
          --maintenance schedule=<тип_технического_обслуживания>,`
                       `weekday=<день_недели>,`
                       `hour=<час_дня> \
@@ -146,7 +152,7 @@ keywords:
          --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
                                 `resource-preset-id=<класс_хостов>,`
                                 `disk-size=<размер_диска_в_байтах>,`
-                                `disk-type-id=<тип_диска>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
@@ -155,7 +161,7 @@ keywords:
          --dashboards-node-group name=<имя_группы_хостов_Dashboards>,`
                                 `resource-preset-id=<класс_хостов>,`
                                 `disk-size=<размер_диска_в_байтах>,`
-                                `disk-type-id=<тип_диска>,`
+                                `disk-type-id=<network-ssd>,`
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
@@ -172,7 +178,7 @@ keywords:
 
       * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
+      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
 
       * `--maintenance` — настройки времени технического обслуживания:
 
@@ -182,7 +188,8 @@ keywords:
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
-      * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+
+
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
       * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
@@ -258,6 +265,11 @@ keywords:
             }
           }
         }
+        maintenance_window {
+          type = <тип_технического_обслуживания>
+          day  = <день_недели>
+          hour = <час_дня>
+        }
       }
 
       resource "yandex_vpc_network" "<имя_сети>" { 
@@ -278,10 +290,14 @@ keywords:
       * `deletion_protection` — защита от удаления: `true` или `false`.
       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
       * `roles` — роли хостов: `DATA` и `MANAGER`.
+      * `maintenance_window` — время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+          * `type` — тип технического обслуживания. Принимает значения:
+              * `ANYTIME` — в любое время.
+              * `WEEKLY` — по расписанию.
+          * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
+          * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
-      {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
 
       Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
@@ -297,7 +313,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+  Чтобы создать кластер {{ mos-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   * Имя кластера в параметре `name`.
@@ -309,7 +325,7 @@ keywords:
   * Настройки доступа из других сервисов в параметре `configSpec.access`.
   * Идентификатор сети в параметре `networkId`.
 
-  
+
   * Идентификаторы групп безопасности в параметре `securityGroupIds`. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
   * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
 
@@ -454,7 +470,7 @@ keywords:
        --network-name {{ network-name }} \
        --security-group-ids {{ security-group }} \
        --service-account-name os-account \
-       --delete-protection=false \
+       --delete-protection \
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \
@@ -498,6 +514,7 @@ keywords:
     * Количество хостов — `1`.
     * Публичный адрес — выделен.
     * Роли группы хостов — `DATA` и `MANAGER`.
+    * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
     * Имя сети — `mynet`.
     * Имя подсети — `mysubnet`.
     * Зона доступности — `{{ region-id }}-a`.
@@ -533,6 +550,11 @@ keywords:
             }
           }
         }
+      }
+      maintenance_window {
+        type = "WEEKLY"
+        day  = "MON"
+        hour = 14
       }
     }
 

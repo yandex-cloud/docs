@@ -20,13 +20,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-      1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
+      1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
 
       1. [Create a target {{ mgp-full-name }} cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) with any appropriate configuration, using the admin username (`user`) and with hosts located in the public domain.
 
       1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
-         * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-         * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups)​
+         * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups)​
 
    - {{ TF }} {#tf}
 
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receive data from car sensors in JSON format.
+Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
 Create a file named `sample.json` with test data on your running instance:
 
@@ -190,7 +190,7 @@ Create a file named `sample.json` with test data on your running instance:
 
 ## Test the transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ ydb-name }} database:
+Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mgp-name }} database:
 
 1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 

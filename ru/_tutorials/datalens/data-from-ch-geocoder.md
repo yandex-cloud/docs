@@ -79,6 +79,21 @@
 
 1. Перезагрузите ядро: на верхней панели в окне проекта нажмите **Kernel** → **Restart Kernel**.
 
+### Установите сертификаты {#certificates}
+
+Установите сертификаты в локальное хранилище проекта:
+
+```bash
+#!:bash
+mkdir --parents /home/jupyter/datasphere/project/Yandex/
+
+wget "{{ crt-web-path-root }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/RootCA.crt
+
+wget "{{ crt-web-path-int }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/IntermediateCA.crt
+```
+
 ### Загрузите и преобразуйте данные {#load-and-transform}
 
 1. Создайте класс для работы с Геокодером:
@@ -109,7 +124,7 @@
 
            lat, lon = result[0]['GeoObject']['Point']['pos'].split(' ')
            return self._to_datalens_format(lon, lat)
-       
+
        def _to_datalens_format(self, lon, lat):
            return f'[{lon},{lat}]'
     ```
@@ -117,17 +132,27 @@
 1. Подключитесь к демонстрационной БД {{ CH }}:
 
    ```py
-   from clickhouse_driver import Client as CHClient
-   ​
-   ch_client = CHClient(
-       'rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
+   from clickhouse_driver import Client
+
+   ch_client = Client(
+       host='rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
        user='samples_ro',
        password='MsgfcjEhJk',
        database='samples',
        port=9440,
        secure=True,
+       verify=True,
+       ca_certs='/home/jupyter/datasphere/project/Yandex/RootCA.crt'
    )
    ```
+
+1. Выполните проверку с помощью команды:
+
+   ```py
+   print(ch_client.execute('SELECT version()'))
+   ```
+
+   Если подключение установлено успешно, в терминале отобразится номер версии {{ CH }}.
 
 1. Выгрузите данные из таблицы с адресами магазинов в переменную `ch_data`:
 
@@ -171,7 +196,7 @@
            delimiter=',',
            quotechar='"',
        )
-       csv_writer.writerows(encoded_data)  
+       csv_writer.writerows(encoded_data)
    ```
 
    На панели слева появится файл `encoded_data.csv`.
@@ -183,7 +208,7 @@
 ## Создайте подключение к файлу в {{ datalens-short-name }} {#create-connection}
 
 1. Перейдите на [главную страницу ]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. В разделе **Файлы и сервисы** выберите подключение **Файлы**.
 1. Нажмите кнопку **Загрузить файлы** и укажите файл `encoded_data.csv`.
 

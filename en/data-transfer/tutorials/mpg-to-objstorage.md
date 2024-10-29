@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mpg-to-objstorage"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-to-objstorage'
 ---
 
 # Loading data from {{ PG }} to {{ objstorage-full-name }}

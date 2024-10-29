@@ -1,6 +1,6 @@
 ---
-title: "How to view the history of queue changes "
-description: "Follow this guide to view history of queue changes."
+title: 'How to view the history of queue changes '
+description: Follow this guide to view history of queue changes.
 ---
 
 # Viewing the history of queue changes

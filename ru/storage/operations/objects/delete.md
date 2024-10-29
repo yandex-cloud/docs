@@ -1,5 +1,9 @@
-# Удаление объекта
+---
+title: Удаление объекта в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете удалить объект в бакете в {{ objstorage-name }}.
+---
 
+# Удаление объекта
 
 ## Удалить объект или версию объекта без блокировки {#wo-object-lock}
 
@@ -19,10 +23,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя необходимого бакета.
-  1. Чтобы удалить один объект, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени объекта и в появившемся меню нажмите **{{ ui-key.yacloud.storage.file.button_delete }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, где хранится удаляемый объект.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. Чтобы удалить один объект, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
      Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
 
@@ -35,7 +39,7 @@
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
-  
+
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
 - AWS CLI {#cli}
@@ -57,7 +61,7 @@
 
   Чтобы одновременно удалить список объектов, укажите ключи этих объектов в параметре `--delete`:
 
-  * **Bash:**
+  * **Bash**:
 
       ```bash
       aws s3api delete-objects \
@@ -66,7 +70,7 @@
         --delete '{"Objects":[{"Key":"<ключ_объекта_1>"},{"Key":"<ключ_объекта_2>"},...,{"Key":"<ключ_объекта_n>"}]}'
       ```
 
-  * **PowerShell:**
+  * **PowerShell**:
 
       ```powershell
       aws s3api delete-objects `
@@ -81,7 +85,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   {
     "Deleted": [
         {
@@ -96,14 +100,14 @@
         {
             "Key": "<ключ_объекта_n>",
             "VersionId": "null"
-        } 
+        }
     ]
   }
   ```
 
   Указать объекты для удаления можно с помощью шаблона запроса в формате JMESPath. Для удаления объектов по шаблону выполните команду:
 
-  * **Bash:**
+  * **Bash**:
 
       ```bash
       aws s3api list-objects \
@@ -127,7 +131,7 @@
         --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {}
       ```
 
-  * **PowerShell:**
+  * **PowerShell**:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -159,7 +163,7 @@
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -228,6 +232,15 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. Если это возможно, [снимите блокировку](edit-object-lock.md) с объекта который вы хотите удалить.
+  1. [Удалите](#object-lock-w-object-lock) объект.
+  
+  В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
+  
+  {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
+
 - AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -263,15 +276,15 @@
      * `ObjectLockMode` — [тип](../../concepts/object-lock.md#types) временной блокировки:
        * `GOVERNANCE` — временная управляемая блокировка. Удалить версию объекта может пользователь с ролью `storage.admin`.
        * `COMPLIANCE` — временная строгая блокировка. Удалить версию объекта нельзя.
-    
+
      * `ObjectLockRetainUntilDate` — дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `Mon, 12 Dec 2022 09:00:00 GMT`.
-    
+
      * `ObjectLockLegalHoldStatus` — статус [бессрочной блокировки](../../concepts/object-lock.md#types):
        * `ON` — включена. Удалить версию объекта нельзя. [Снять блокировку](edit-object-lock.md#remove-legal-hold) может пользователь с ролью `storage.uploader`.
        * `OFF` — выключена.
- 
+
      Если на версии объекта нет блокировки, эти поля не отобразятся, и версию объекта можно удалить по [инструкции по удалению версии без блокировки](#wo-object-lock).
- 
+
   1. Если установлена временная управляемая блокировка (`"ObjectLockMode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
 
      ```bash

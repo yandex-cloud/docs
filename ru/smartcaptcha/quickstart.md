@@ -1,6 +1,6 @@
 ---
-title: "Как начать работать с {{ captcha-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать и настроить капчу."
+title: Как начать работать с {{ captcha-full-name }}
+description: Следуя данной инструкции, вы сможете создать и настроить капчу.
 ---
 
 # Как начать работать с {{ captcha-full-name }}
@@ -29,24 +29,27 @@ description: "Следуя данной инструкции, вы сможет�
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-       ![screen01](../_assets/smartcaptcha/screen01.svg)
+       ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
 
     1. Введите имя капчи. Требования к имени:
 
         {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
 
-    1. Выберите тип [основного задания](./concepts/tasks.md#main-task), которое предлагается решить пользователю.
-    1. Выберите тип [дополнительного задания](./concepts/tasks.md#additional-task), которое предлагается решить пользователю.
-    1. Выберите [сложность](./concepts/tasks.md#task-difficulty) `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
-
-       ![screen02](../_assets/smartcaptcha/screen02.svg)
-
     1. (Опционально) Отключите [проверку имени домена](./concepts/domain-validation.md).
     1. Укажите список сайтов, на которых будет размещаться капча.
     1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте стандартным.
+
+       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
+
+    1. Настройте капчу по умолчанию:
+       1. Выберите тип [основного задания](./concepts/tasks.md#main-task), которое предлагается решить пользователю.
+       1. Выберите тип [дополнительного задания](./concepts/tasks.md#additional-task), которое предлагается решить пользователю.
+       1. Выберите [сложность](./concepts/tasks.md#task-difficulty) `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
+
+    1. Вы можете добавить [варианты заданий](concepts/captcha-variants.md) и настроить правила для входящего трафика, чтобы показывать разную капчу разным пользователям. В этом примере будет добавлена только одна капча по умолчанию для всех пользователей.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-       ![screen03](../_assets/smartcaptcha/screen03.svg)
+       ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
 
 {% endlist %}
 
@@ -62,7 +65,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. Нажмите на имя капчи или [создайте](#creat-captcha) новую капчу.
     1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
 
-    ![screen04](../_assets/smartcaptcha/screen04.svg)
+    ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
 
 {% endlist %}
 
@@ -107,9 +110,18 @@ description: "Следуя данной инструкции, вы сможет�
 </div>
 ```
 
-Для проверки токена нужно отправить GET-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate` со следующими параметрами:
+Для проверки токена нужно отправить POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
+
+```
+secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
+```
+
+Где:
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
+
+В ответ сервис отправит JSON-объект с полями `status` и `message`. Когда поле `status` принимает значение `ok`, в JSON-объект добавляется поле `host`. Оно показывает, на каком сайте была пройдена проверка. Примеры ответов см. в разделе [Валидация пользователя](concepts/validation.md#service-response).
+
 
 Пример функции проверки токена:
 
@@ -125,30 +137,54 @@ description: "Следуя данной инструкции, вы сможет�
 
 
     function check_captcha(token, callback) {
+        const postData = querystring.stringify({
+            secret: SMARTCAPTCHA_SERVER_KEY,
+            token: token,
+            ip: '<IP-адрес_пользователя>', // Способ получения IP-адреса пользователя зависит от вашего фреймворка и прокси.
+        });
+    
         const options = {
             hostname: 'smartcaptcha.yandexcloud.net',
             port: 443,
-            path: '/validate?' + querystring.stringify({
-                secret: SMARTCAPTCHA_SERVER_KEY,
-                token: token,
-                ip: '<IP-адрес_пользователя>', // Способ получения IP-адреса пользователя зависит от вашего фреймворка и прокси.
-            }),
-            method: 'GET',
+            path: '/validate',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Length': Buffer.byteLength(postData),
+            },
         };
+    
         const req = https.request(options, (res) => {
-            res.on('data', (content) => {
+            let content = '';
+    
+            res.on('data', (chunk) => {
+                content += chunk;
+            });
+    
+            res.on('end', () => {
                 if (res.statusCode !== 200) {
                     console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
                     callback(true);
                     return;
                 }
-                callback(JSON.parse(content).status === 'ok');
+    
+                try {
+                    const parsedContent = JSON.parse(content);
+                    callback(parsedContent.status === 'ok');
+                } catch (err) {
+                    console.error('Error parsing response: ', err);
+                    callback(true);
+                }
             });
         });
+    
         req.on('error', (error) => {
             console.error(error);
             callback(true);
         });
+    
+        // Write the POST data to the request body
+        req.write(postData);
         req.end();
     }
 
@@ -169,30 +205,32 @@ description: "Следуя данной инструкции, вы сможет�
     define('SMARTCAPTCHA_SERVER_KEY', '<ключ_сервера>');
 
     function check_captcha($token) {
-        $ch = curl_init();
-        $args = http_build_query([
+        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
-            "ip" => $_SERVER['REMOTE_ADDR'], // Нужно передать IP-адрес пользователя.
-                                             // Способ получения IP-адреса пользователя зависит от вашего прокси.
-        ]);
-        curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            "ip" => "<IP-адрес_пользователя>", // Нужно передать IP-адрес пользователя.
+                        // Способ получения IP-адреса пользователя зависит от вашего прокси.
+        ];
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
-
-        $server_output = curl_exec($ch);
+        curl_setopt($ch, CURLOPT_POST, true);    
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($args));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        $server_output = curl_exec($ch); 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-
+    
         if ($httpcode !== 200) {
             echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
             return true;
         }
+     
         $resp = json_decode($server_output);
         return $resp->status === "ok";
     }
 
-    $token = $_POST['smart-token'];
+    $token = "<токен>"; //Например, $_POST['smart-token'];
     if (check_captcha($token)) {
         echo "Passed\n";
     } else {
@@ -207,26 +245,25 @@ description: "Следуя данной инструкции, вы сможет�
     import sys
     import json
 
-
     SMARTCAPTCHA_SERVER_KEY = "<ключ_сервера>"
 
-
     def check_captcha(token):
-        resp = requests.get(
-            "https://smartcaptcha.yandexcloud.net/validate",
-            {
-                "secret": SMARTCAPTCHA_SERVER_KEY,
-                "token": token,
-                "ip": "<IP-адрес_пользователя>"  # Способ получения IP-адреса зависит от вашего фреймворка и прокси.                                   
-                                                 # Например, в Flask это может быть request.remote_addr
-            },
-            timeout=1
+        resp = requests.post(
+           "https://smartcaptcha.yandexcloud.net/validate",
+           data={
+              "secret": SMARTCAPTCHA_SERVER_KEY,
+              "token": token,
+              "ip": "<IP-адрес_пользователя>"   # Способ получения IP-адреса зависит от вашего фреймворка и прокси.
+                                                # Например, во Flask это может быть request.remote_addr
+           },
+           timeout=1
         )
         server_output = resp.content.decode()
         if resp.status_code != 200:
-            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
-            return True
+           print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
+           return True
         return json.loads(server_output)["status"] == "ok"
+
     token = "<токен>"  # Например, request.form["smart-token"]
     if check_captcha(token):
         print("Passed")

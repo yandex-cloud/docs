@@ -21,10 +21,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ![](../../_assets/tutorials/bastion-yc.svg)
-
-
 
 ## Перед началом работы {#before-you-begin}
 
@@ -55,19 +52,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `external-bastion-network`.
+  1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Создайте подсеть:
 
      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
 
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-external-segment`.
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.17.0/28`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-external-segment`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.17.0/28`.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -79,18 +77,20 @@
 
 - Консоль управления {#console}
 
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `internal-bastion-network`.
+  1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Создайте подсеть:
 
      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
 
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-internal-segment`.
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
-        1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.16.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-internal-segment`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.16.0/24`.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -106,15 +106,16 @@
 
 - Консоль управления {#console}
 
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и сеть `external-bastion-network`.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.network.switch_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `secure-bastion-sg`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
   1. Укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
@@ -130,15 +131,16 @@
 
 - Консоль управления {#console}
 
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и сеть `internal-bastion-network`.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.network.switch_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `internal-bastion-sg`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
   1. Укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `172.16.16.254/32`.
 
@@ -147,7 +149,7 @@
   1. Укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
@@ -161,10 +163,10 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-  
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
+- Консоль управления {#console}  
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
@@ -180,25 +182,34 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Введите имя виртуальной машины: `bastion-host`.
   1. Выберите зону доступности `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите продукт **NAT-инстанс на основе Ubuntu 22.04 LTS**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+     * На вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите продукт **NAT-инстанс на основе Ubuntu 22.04 LTS**.
+     * Нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте первый сетевой интерфейс:
 
      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-external-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите из списка [зарезервированный ранее IP-адрес](#get-static-ip).
-     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — нажмите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** и выберите [зарезервированный ранее IP-адрес](#get-static-ip).     
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `secure-bastion-sg`.
 
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и настройте второй сетевой интерфейс:
 
      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `172.16.16.254`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
+     * Разверните блок **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}**:
+
+       * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**.
+       * Нажмите **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**. В открывшемся окне:
+
+         * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** введите адрес `172.16.16.254`.
+         * Нажмите **{{ ui-key.yacloud.common.create }}**.
 
      {% note info %}
 
@@ -221,20 +232,20 @@
 После запуска бастионного хоста попробуйте подключиться к нему через SSH-клиент:
 
 ```bash
-ssh -i ~/.ssh/<приватный_ключ> bastion@<публичный_IP_адрес_бастионного_хоста>
+ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<публичный_IP_адрес_бастионного_хоста>
 ```
 
 ## Добавьте виртуальный сервер во внутренний сегмент бастионного хоста {#add-virtual-server}
 
 Для администрирования ваших серверов добавьте сетевой интерфейс во внутренний сетевой сегмент бастионного хоста — `bastion-internal-segment`.
 
-Если у вас уже создана виртуальная машина, добавьте к ней новый сетевой интерфейс. Если нет — создайте новую машину для тестирования конфигурации бастионного хоста:
+Если у вас уже создана виртуальная машина, [добавьте](../../compute/operations/vm-control/attach-network-interface.md) к ней дополнительный сетевой интерфейс. Если нет — создайте новую машину для тестирования конфигурации бастионного хоста:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Введите имя виртуальной машины: `test-vm`.
@@ -247,20 +258,24 @@ ssh -i ~/.ssh/<приватный_ключ> bastion@<публичный_IP_ад�
      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** в поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+
+     1. Отключите опцию **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
+     1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
+     1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
 ## Подключитесь к созданной ВМ {#connect-to-instance}
 
-Подключаясь к ВМ по протоколу SSH через приватный IP-адрес, вы будете использовать бастионный хост в роли джамп-хоста.
+Подключаясь к ВМ по протоколу SSH через внутренний IP-адрес, вы будете использовать бастионный хост в роли джамп-хоста.
 
 Для упрощения SSH-доступа и его настройки добавьте параметр `-J` (ProxyJump) в команду SSH:
 
 ```bash
-ssh -i ~/.ssh/id_rsa -J bastion@<публичный_IP_адрес_бастионного_хоста> test@<приватный_IP_адрес_виртуального сервера>
+ssh -i ~/.ssh/<имя_файла_приватного_ключа> -J bastion@<публичный_IP_адрес_бастионного_хоста> test@<внутренний_IP_адрес_виртуального_сервера>
 ```
 
 SSH-клиент автоматически подключится к внутреннему серверу.
@@ -268,7 +283,7 @@ SSH-клиент автоматически подключится к внутр
 Флаг `-J` поддерживается в OpenSSH начиная с версии 7.3. В более ранних версиях `-J` недоступен. В таком случае самый безопасный и простой способ — это использовать перенаправление стандартного ввода-вывода (флаг `-W`) для «проброса» соединения через бастионный хост. Например:
 
 ```bash
-ssh -i ~/.ssh/id_rsa -o ProxyCommand="ssh -W %h:%p bastion@<публичный_IP_адрес_бастионного_хоста>" test@<приватный_IP_адрес_виртуального сервера>
+ssh -i ~/.ssh/<имя_файла_приватного_ключа> -o ProxyCommand="ssh -W %h:%p bastion@<публичный_IP_адрес_бастионного_хоста>" test@<внутренний_IP_адрес_виртуального_сервера>
 ```
 
 ## Дополнительные опции подключения {#more-options}
@@ -333,7 +348,7 @@ ssh bastion@<публичный_IP_адрес_бастионного_хоста>
 Для клиентов и серверов Linux можно настроить протокол [SCP](https://ru.wikipedia.org/wiki/SCP) для безопасной передачи файлов через бастионный хост на внутренние хосты и обратно. Для этого используются те же опции ProxyCommand и ProxyJump, указываемые в командной строке SSH. Например:
 
 ```bash
-scp -o "ProxyJump bastion@<публичный_IP_адрес_бастионного_хоста>" <имя_файла> bastion@<приватный_IP_адрес_виртуального сервера>:<путь_к_файлу>
+scp -o "ProxyJump bastion@<публичный_IP_адрес_бастионного_хоста>" <имя_файла> bastion@<внутренний_IP_адрес_виртуального_сервера>:<путь_к_файлу>
 ```
 
 Если вы используете Windows-клиент, то одно из наиболее популярных SCP-приложений на Windows — это [WinSCP](https://winscp.net). Чтобы передать файлы через бастионный хост на удаленную машину Linux, выполните следующие действия:

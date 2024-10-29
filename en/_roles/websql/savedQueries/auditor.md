@@ -1,0 +1,1 @@
+The `websql.savedQueries.auditor` role enables viewing the metadata of a published saved query as well as information on [access permissions](../../../iam/concepts/access-control/index.md) assigned to it.

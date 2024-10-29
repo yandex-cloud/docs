@@ -1,6 +1,6 @@
 ---
-title: "How to set up automatic pod resource management using {{ k8s-vpa }} in {{ managed-k8s-full-name }}"
-description: "Follow this guide to configure the automatic management of pod resources with {{ k8s-vpa }}:"
+title: How to set up automatic pod resource management using {{ k8s-vpa }} in {{ managed-k8s-full-name }}
+description: Follow this guide to configure automatic management of pod resources using {{ k8s-vpa }}.
 ---
 
 # Vertical application scaling in a cluster
@@ -17,12 +17,12 @@ description: "Follow this guide to configure the automatic management of pod res
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
+1. [Create](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) a {{ managed-k8s-name }} cluster. Use these settings:
 
    * Use the previously created security groups.
-   * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
+   * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP address to the cluster.
 
 1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
@@ -35,16 +35,16 @@ description: "Follow this guide to configure the automatic management of pod res
 
 1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 
-   ```bash
-   cd /tmp && \
-     git clone https://github.com/kubernetes/autoscaler.git && \
-     cd autoscaler/vertical-pod-autoscaler/hack && \
-     ./vpa-up.sh
-   ```
+     ```bash
+     cd /tmp && \
+       git clone https://github.com/kubernetes/autoscaler.git && \
+       cd autoscaler/vertical-pod-autoscaler/hack && \
+       ./vpa-up.sh
+     ```
 
 ## Create {{ k8s-vpa }} and a test application {#create-vpa-workload}
 
-1. Create a file called `app.yaml` with the `nginx` test application and load balancer settings:
+1. Create a file named `app.yaml` with the `nginx` test application and load balancer settings:
 
    {% cut "app.yaml" %}
 
@@ -96,7 +96,7 @@ description: "Follow this guide to configure the automatic management of pod res
 
    {% endcut %}
 
-1. Create a file called `vpa.yaml` with the {{ k8s-vpa }} configuration:
+1. Create a file named `vpa.yaml` with {{ k8s-vpa }} configuration:
 
    {% cut "vpa.yaml" %}
 
@@ -125,7 +125,7 @@ description: "Follow this guide to configure the automatic management of pod res
    kubectl apply -f vpa.yaml
    ```
 
-1. Make sure that the {{ k8s-vpa }} and `nginx` pods have changed their status to `Running`:
+1. Make sure the {{ k8s-vpa }} and `nginx` pods have changed their status to `Running`:
 
    ```bash
    kubectl get pods -n kube-system | grep vpa && \
@@ -182,7 +182,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
            Memory:  262144k
    ```
 
-1. Make sure that {{ k8s-vpa }} is managing the `nginx` application pod resources:
+1. Make sure {{ k8s-vpa }} is managing the `nginx` application pod resources:
 
    ```bash
    kubectl get pod <nginx_pod_name> --output yaml
@@ -190,7 +190,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
 
    Result:
 
-   ```yaml
+   ```bash
    apiVersion: v1
    kind: Pod
    metadata:
@@ -226,7 +226,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
 
    {% endnote %}
 
-   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. After several minutes, review the recommendation provided by {{ k8s-vpa }} after the workload is created:
 
@@ -266,11 +266,11 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
            Memory:  1431232100
    ```
 
-1. Stop simulating the workload. Within a few minutes, the `Status.Recommendation.Container Recommendations` metric values will return to their original values.
+1. Stop simulating the workload. Within a few minutes, the `Status.Recommendation.Container Recommendations` metrics will return to their original values.
 
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) cluster.
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

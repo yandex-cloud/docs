@@ -15,3 +15,5 @@
 * [Can I change the disk type?](#disk-type)
 
 * [Can I change a network and subnets?](#network)
+
+* [How to change the distribution of data across shards in a cluster?](#resharding)

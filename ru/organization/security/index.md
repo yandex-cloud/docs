@@ -12,7 +12,7 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
+С помощью [интерфейса {{ cloud-center }}]({{ cloud-center-link }}), [YC CLI](../../cli/quickstart.md) или [API {{ yandex-cloud }}](../../api-design-guide/index.yaml) роль можно назначить на отдельные ресурсы сервиса:
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
@@ -36,6 +36,10 @@
 
 {% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
 
+#### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
+
+{% include [organization-manager.federations.userAdmin](../../_roles/organization-manager/federations/userAdmin.md) %}
+
 #### organization-manager.federations.admin {#organization-manager-federations-admin}
 
 {% include [organization-manager.federations.admin](../../_roles/organization-manager/federations/admin.md) %}
@@ -56,6 +60,8 @@
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ### Назначить пользователя администратором организации {#admin}
 
 Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему одну из ролей:
@@ -71,23 +77,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/console-icons/shield.svg).
-
-  1. Если у нужного пользователя уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска вверху страницы. В строке пользователя нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-     Если нужного пользователя нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и выберите пользователя из списка или воспользуйтесь строкой поиска.
-  
-  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и введите название роли или выберите роль в списке.
-  
-     Описание доступных ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
-  
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
 - CLI {#cli}
 
@@ -122,7 +114,7 @@
 
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
-     * `organization_id` — идентификатор организации.
+     * `organization_id` — [идентификатор](../operations/organization-get-id.md) организации.
      * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
      * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
        * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе.
@@ -195,10 +187,12 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
      Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
@@ -218,25 +212,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
-
-  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-  1. Нажмите значок ![cross](../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
-  Чтобы отозвать роль у субъекта, удалите соответствующую привязку прав доступа для соответствующего ресурса:
+  Чтобы отозвать роль у субъекта, удалите права доступа для соответствующего ресурса:
 
   1. Посмотрите, кому и какие роли назначены на ресурс:
 
@@ -266,7 +248,7 @@
       ```
 
 
-  1. Чтобы удалить привязку прав доступа, выполните команду:
+  1. Чтобы удалить права доступа, выполните команду:
 
       ```bash
       yc <имя_сервиса> <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
@@ -288,14 +270,16 @@
 
 - API {#api}
 
-  Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
+  Чтобы отозвать роль у субъекта, удалите права доступа для соответствующего ресурса:
 
   1. Посмотрите, кому и какие роли назначены на ресурс с помощью метода `listAccessBindings`. Например, чтобы посмотреть роли в организации с идентификатором `bpf3crucp1v2********`:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
@@ -314,7 +298,7 @@
       }
       ```
 
-  1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
+  1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какие права доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
 
       Пример файла `body.json`:
 
@@ -333,15 +317,17 @@
       }
       ```
 
-  1. Отзовите роль, удалив указанную привязку прав доступа:
+  1. Отзовите роль, удалив указанные права доступа:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

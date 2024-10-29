@@ -11,8 +11,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт и нажмите на строку с его именем.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. Выберите сервисный аккаунт, для которого вы хотите создать статический ключ доступа.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -41,7 +42,7 @@
       ```bash
       yc iam service-account list
       ```
-      
+
       Результат:
 
       ```text
@@ -125,7 +126,7 @@
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../awscompatibility/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../awscompatibility/api-ref/grpc/AccessKey/create.md).
 
 {% endlist %}
 
@@ -157,10 +158,11 @@
 - API {#api}
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "description": "this key is for my bucket"
     }' \
@@ -171,6 +173,6 @@
 
 #### См. также {#see-also}
 
-* [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/tools/).
-* [{#T}](assign-role-for-sa.md).
+* [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/tools/)
+* [{#T}](assign-role-for-sa.md)
 * [{#T}](../../tutorials/static-key-in-lockbox.md)

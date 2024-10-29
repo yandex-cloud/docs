@@ -2,14 +2,14 @@
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, such as version 6.2 to 7.0. Upgrades to higher versions are performed in steps. For instance, to upgrade {{ RD }} from version 6.0 to version 7.0, you will first need to upgrade to 6.2, and then, to 7.0.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 7.0 to 7.2. Upgrades to higher versions are performed in steps. For example, upgrading {{ RD }} from version 6.2 to 7.2 is performed in the following sequence: 6.2 → 7.0 → 7.2.
 
 ## Supported versions {#version-supported}
 
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions. The version of existing clusters was automatically upgraded to 6.2.
+As of September 9, 2024, {{ RD }} versions 6.2 and 7.0 are discontinued. You cannot create a cluster with these versions. All existing clusters will be automatically upgraded to version 7.2.
 
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
@@ -18,26 +18,26 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot c
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
 
-## Before updating the version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure this does not affect your applications:
 
 1. See the {{ RD }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
 
 {% note alert %}
 
 * After updating the DBMS, the cluster cannot be rolled back to the previous version.
-* The success of a {{ RD }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ RD }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 
 {% endnote %}
 
@@ -45,50 +45,50 @@ Make sure this does not affect your applications:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Select the desired cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
+  As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get a list of your {{ RD }} clusters using this command:
+  1. Get a list of your {{ RD }} clusters using this command:
 
-      ```bash
-      {{ yc-mdb-rd }} cluster list
-      ```
+     ```bash
+     {{ yc-mdb-rd }} cluster list
+     ```
 
-   1. Get information about a cluster and check the {{ RD }} version in the `config.version` parameter:
+  1. Get information about the cluster you need and check the {{ RD }} version in the `config.version` parameter:
 
-      ```bash
-      {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
-      ```
+     ```bash
+     {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
+     ```
 
-   1. Start the {{ RD }} upgrade:
+  1. Run the {{ RD }} upgrade:
 
-      ```bash
-      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
-        --redis-version <new_version_number>
-      ```
+     ```bash
+     {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+       --redis-version <new_version_number>
+     ```
 
-      Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
+     As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
 - API {#api}
 
-   To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+  To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * {{ RD }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be updated in the `updateMask` parameter.
+  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+  * {{ RD }} version number in the `configSpec.version` parameter.
+  * List of cluster configuration fields to update in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -106,8 +106,8 @@ Let's assume you need to upgrade your cluster from version {{ versions.cli.previ
       {{ yc-mdb-rd }} cluster list
       ```
 
-      Result:
-
+	  Result:
+	  
       ```text
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |

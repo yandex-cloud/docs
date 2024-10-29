@@ -42,7 +42,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -54,14 +54,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить измененное имя облака можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -72,6 +72,6 @@
 
 - API {#api}
 
-  Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
+  Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/Cloud/update.md).
 
 {% endlist %}

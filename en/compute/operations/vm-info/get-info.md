@@ -93,7 +93,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
 - API {#api}
 
-   To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get) gRPC API call.
+   To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/Instance/get.md) gRPC API call.
 
    The basic information does not include the user-defined metadata provided when creating or [updating](../../operations/vm-control/vm-update.md) the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
 
@@ -310,7 +310,7 @@ To set up metadata service parameters for a VM instance:
 
 - API {#api}
 
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

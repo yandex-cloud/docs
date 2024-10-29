@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM from a set of disks"
-description: "Use this guide to create a VM from a set of existing disks."
+title: How to create a VM from a set of disks
+description: Use this guide to create a VM from a set of existing disks.
 ---
 
 # Creating a VM from a set of disks
@@ -29,7 +29,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
    1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
-      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required block size.
@@ -223,6 +223,6 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
 - API {#api}
 
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}

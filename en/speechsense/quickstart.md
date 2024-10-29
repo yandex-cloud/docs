@@ -1,14 +1,16 @@
 # Getting started with {{ speechsense-full-name }}
 
-{{ speechsense-full-name }} enables you to analyze your business communication channels based on conversation audio recordings or text chat messages and supports integration with your PBX and CRM systems. {{ speechsense-name }} utilizes {{ speechkit-full-name }} voice technologies to transcribe speech and perform statistical and qualitative analysis of recorded audio dialogs.
+{{ speechsense-full-name }} allows you to analyze your business communication channels based on dialog audio recordings or text chat messages and supports integration with your PBX and CRM systems. {{ speechsense-name }} utilizes {{ speechkit-full-name }} voice technologies to transcribe speech and perform statistical and qualitative analysis of recorded audio dialogs.
+
+{{ speechsense-name }} can analyze audio and text dialogs in Russian.
 
 You can upload your data to {{ speechsense-name }} or use a [demo recording](https://storage.yandexcloud.net/doc-files/speechsense-demo-dialog.wav) synthesized using {{ speechkit-name }}.
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
-1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. [Make sure](../iam/operations/roles/get-assigned-roles.md) that your account has the `speech-sense.spaces.creator` role assigned.
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Select the organization to work with {{ speechsense-name }} in or [create](../organization/operations/enable-org.md) a new one.
@@ -20,7 +22,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% note tip %}
 
-   You can only manage a billing account if you have a [Yandex account](../iam/concepts/users/accounts.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+   You can only manage a billing account if you have a [Yandex account](../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
    {% endnote %}
 
@@ -42,7 +44,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
       "date_to": "2023-09-29T09:15:07.897Z",
       "language": "RU",
       "operator_id": "123",
-      "operator_name": "Jane Smith"
+      "operator_name": "Jane Doe"
    }
    ```
 
@@ -57,10 +59,10 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 To upload data:
 
 1. [Create a service account](../iam/operations/sa/create.md).
-1. [Add the service account to the space](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
+1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your audio data](operations/data/upload-data.md) or [chat history data](operations/data/upload-chat-text.md) using a Python data transfer script.
 
-   Use one message for the whole audio.
+    Use one message for the whole audio.
 
-   {% include [supported-formats](../_includes/speechsense/formats.md) %}
+    {% include [supported-formats](../_includes/speechsense/formats.md) %}

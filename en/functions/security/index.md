@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ sf-name }}"
-description: "Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ sf-name }}
+description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ sf-name }}
@@ -24,7 +24,7 @@ You can assign a role for a [function](../concepts/function.md) via the YC CLI o
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ sf-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ sf-name }}.
 
 ### Service roles {#service-roles}
 
@@ -57,3 +57,5 @@ The list below shows all roles that are considered when verifying access rights 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

@@ -59,7 +59,7 @@
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.network_interfaces[].security_group_ids | not)' | jq -r '.id' 
+     do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.network_interfaces[].security_group_ids | not)' | jq -r '.id'
      done;
      done;
      done
@@ -73,7 +73,7 @@
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="f2ecl4ak62mjbl13qj5f" or .product_ids[0]=="f2eqc5sac8o5oic7m99k")' | jq -r '.id'
      done;
      done;
@@ -91,7 +91,7 @@
 * [Инструкция](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) по использованию UserGate NGFW в облаке.
 * NGFW в режиме [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md).
 
-#### 2.2 Как минимум одна Группа безопасности существует в {{ vpc-name }} {#vpc-sg}
+#### 2.2 В {{ vpc-name }} существует как минимум одна группа безопасности {#vpc-sg}
 
 Чтобы назначить группы безопасности на облачные объекты в {{ vpc-name }}, должна существовать как минимум одна группа безопасности. Дополнительно существует возможность создания [группы безопасности по умолчанию](../../../vpc/concepts/security-groups.md#default-security-group) — такая группа назначается облачным объектам при подключении к [подсетям](../../../vpc/concepts/network.md#subnet), если у них нет ни одной группы. Убедитесь в том, что хотя бы одна группа безопасности существует в каждой сети.
 
@@ -131,7 +131,7 @@
 
 Создайте группу безопасности в каждой {{ vpc-name }} с ограниченными правилами доступа, чтобы ее можно было назначать на облачные объекты.
 
-#### 2.3 В Группах безопасности отсутствует слишком широкое правило доступа {#access-rule}
+#### 2.3 В группах безопасности отсутствует слишком широкое правило доступа {#access-rule}
 
 В группе безопасности существует возможность открыть сетевой доступ для абсолютно всех IP-адресов интернета и также по всем диапазонам портов. Опасное правило выглядит следующим образом:
 * Диапазон портов: 0-65535 или пусто.
@@ -267,7 +267,7 @@
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
      --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----" 
+     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
      done;
      done
      ```
@@ -324,7 +324,7 @@
 Возможные варианты организации исходящего доступа в интернет:
 * [Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT.
 * [Egress NAT (NAT-шлюз)](../../../vpc/operations/create-nat-gateway.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры.
-* [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
+* [NAT-инстанс](../../../tutorials/routing/nat-instance/index.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
 
 **Сравнение способов доступа в интернет**:
 
@@ -375,9 +375,9 @@
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do echo "VM_ID: " && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----" 
+     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
      done;
      done
      ```
@@ -400,7 +400,7 @@
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="fd8v7ru46kt3s4o5f0uo")' | jq -r '.id'
      done;
      done;

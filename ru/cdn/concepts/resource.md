@@ -13,9 +13,11 @@ _Ресурс_ — это основная логическая сущность
 * [кеширование](caching.md);
 * HTTP-заголовки и методы (см. [инструкцию](../operations/resources/configure-http.md));
 * обработку [кросс-доменных запросов (CORS)](cors.md);
-* [сжатие](compression.md) и [сегментирование](slicing.md) контента. 
+* [сжатие](compression.md) и [сегментирование](slicing.md) контента.
 
 Доступ к ресурсу можно ограничить с помощью [защищенных токенов](./secure-tokens.md) и [политики доступа по IP-адресам](./ip-address-acl.md).
+
+Можно настроить [перенаправление запросов](./http-rewrite.md) от CDN-ресурса к источнику, изменив [URI](https://ru.wikipedia.org/wiki/URI) запроса с помощью [правила](./http-rewrite.md#rewrite-rule) `Rewrite`.
 
 {% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}
 
@@ -89,6 +91,8 @@ CDN-ресурс начинает корректно работать через
 {{ cdn-name }} автоматически отправляет метрики работы ресурсов в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе {{ monitoring-name }}](../operations/resources/get-stats.md#monitoring).
+
+{% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
 Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
 

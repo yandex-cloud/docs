@@ -1,6 +1,6 @@
 ---
-title: "Creating an API gateway"
-description: "Follow this guide to create an API gateway."
+title: Creating an API gateway
+description: Follow this guide to create an API gateway.
 ---
 
 # Creating an API gateway
@@ -22,14 +22,14 @@ paths:
       parameters:
         - name: user
           in: query
-          description: User name to appear in greetings
+          description: User name to appear in greetings.
           required: false
           schema:
             type: string
             default: 'world'
       responses:
         '200':
-          description: Greeting
+          description: Greeting.
           content:
             'text/plain':
                 schema:
@@ -49,7 +49,7 @@ paths:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [API gateway](../concepts/index.md).
+   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [API gateway](../concepts/index.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
    1. Enter a name for the API gateway in the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field.
@@ -68,7 +68,6 @@ paths:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To create an [API gateway](../concepts/index.md):
-
    1. View a description of the CLI command for creating an API gateway:
 
       ```bash
@@ -93,7 +92,7 @@ paths:
 
 - API {#api}
 
-   To create an [API gateway](../concepts/index.md), use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+   To create an [API gateway](../concepts/index.md), use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

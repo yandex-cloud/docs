@@ -1,6 +1,6 @@
 ---
-title: "Network and DB clusters in {{ mos-full-name }}"
-description: "In this tutorial, you will learn about the basic network interface settings for an {{ OS }} cluster."
+title: Network and DB clusters in {{ mos-full-name }}
+description: In this tutorial, you will learn about the basic network interface settings for an {{ OS }} cluster.
 ---
 
 # Networking in {{ mos-name }}
@@ -36,7 +36,7 @@ When deleting a host group with public FQDNs, the assigned IP addresses are revo
 
 Security groups follow the _All traffic that is not allowed is prohibited_ principle. To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or other security groups.
 
-For example, let's assume public access is enabled for a host group of the `Dashboards` type. If there is no security group rule that allows connecting to it from the internet on port `{{ port-https }}`, you will not be able to connect to the web interface. You will not be able to access an `{{ OS }}` host group either, unless it has a security group rule that explicitly allows incoming traffic on port `{{ port-mos }}`.
+For example, let's assume public access is enabled for a `Dashboards` host group. If there is no security group rule that allows connecting to it from the internet on port `{{ port-https }}`, you will not be able to connect to the web interface. You will not be able to access an `{{ OS }}` host group either, unless it has a security group rule that explicitly allows incoming traffic on port `{{ port-mos }}`.
 
 {% note tip %}
 

@@ -31,10 +31,10 @@
      * **{{ ui-key.yacloud.ydb.table.form.column_name }}** колонки. Должно быть уникальным в рамках таблицы.
      * **{{ ui-key.yacloud.ydb.table.form.column_type }}** данных колонки. Независимо от типа данных, каждая колонка может содержать значение `NULL`.
      * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Укажите, входит ли колонка в состав первичного ключа. По первичному ключу автоматически строятся первичные индексы.
-  1. При необходимости настройте [вторичные индексы](https://ydb.tech/ru/docs/concepts/secondary_indexes):
+  1. При необходимости настройте [вторичные индексы]({{ ydb.docs }}/concepts/secondary_indexes):
      * **{{ ui-key.yacloud.ydb.table.form.column_name }}** вторичного индекса. Должно быть уникальным в рамках таблицы.
      * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}** — одна или несколько колонок, которые образуют ключ для построения вторичного индекса.
-  1. Настройте политику [партиционирования](https://ydb.tech/ru/docs/concepts/datamodel):
+  1. Настройте политику [партиционирования]({{ ydb.docs }}/concepts/datamodel):
      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-none }}` — таблица не партиционируется.
      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-uniform }}` — весь диапазон значений ключевой колонки типа Uint32 или Uint64 (от 0 до максимального значения) разбивается на интервалы одинаковой длины. При использовании такой политики задайте число интервалов в поле **{{ ui-key.yacloud.ydb.table.form.field_uniform-partitions }}**.
      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}` — позволяет явно указать значения ключей, которые будут выступать границами для первоначального разбиения таблицы на партиции. Чтобы добавить очередное граничное значение, нажмите кнопку **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
@@ -48,7 +48,7 @@
      * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}** — если включено, использует [Блум-фильтр](https://ru.wikipedia.org/wiki/Фильтр_Блума) для поиска по ключу. В некоторых случаях позволяет ускорить чтение по ключу.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
-  Для создания строковых таблиц также можно воспользоваться командой [`CREATE TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/create_table) языка запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
+  Для создания строковых таблиц также можно воспользоваться командой [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table).
 
 
 - {{ TF }} {#tf}
@@ -146,7 +146,7 @@
 
 {% endlist %}
 
-Для изменения строковых таблиц также предназначена команда [`ALTER TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/alter_table) языка запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
+Для изменения строковых таблиц также предназначена команда [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table).
 
 ## Удалить таблицу {#drop-table}
 
@@ -185,7 +185,7 @@
 {% endlist %}
 
 
-Для удаления строковых таблиц также предназначена команда [`DROP TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/drop_table) языка запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
+Для удаления строковых таблиц также предназначена команда [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table).
 
 ## Создать и удалить директории {#directories}
 

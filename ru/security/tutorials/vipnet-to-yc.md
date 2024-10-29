@@ -115,7 +115,7 @@ VPN-туннель работает между двумя решениями ViP
 
     Чтобы создать облачную сеть выполните команду:
 
-    ```
+    ```bash
     yc vpc network create --name vipnet-network --folder-id <идентификатор_каталога_vipnet-folder>
     ```
 
@@ -158,7 +158,7 @@ VPN-туннель работает между двумя решениями ViP
 
     1. Создайте подсеть `public-subnet`:
 
-        ```
+        ```bash
         yc vpc subnet create \
         --name public-subnet \
         --folder-id <идентификатор_каталога_vipnet-folder> \
@@ -261,7 +261,7 @@ VPN-туннель работает между двумя решениями ViP
           ```bash
           mkdir vipnet
           cd vipnet
-          curl -O <ссылка_на_загрузку_ViPNet_Coordinator_VA>
+          curl --remote-name <ссылка_на_загрузку_ViPNet_Coordinator_VA>
           ```
 
       1. Узнайте имя архива:
@@ -281,7 +281,7 @@ VPN-туннель работает между двумя решениями ViP
           ```bash
           md5 <имя_архива>
           ```
-    
+
           Результат:
 
           ```bash   
@@ -310,7 +310,7 @@ VPN-туннель работает между двумя решениями ViP
           ```powershell
           mkdir vipnet
           cd vipnet
-          curl.exe -O <ссылка_на_загрузку_ViPNet_Coordinator_VA>
+          curl.exe --remote-name <ссылка_на_загрузку_ViPNet_Coordinator_VA>
           ```
 
       1. Узнайте имя архива:
@@ -364,7 +364,7 @@ VPN-туннель работает между двумя решениями ViP
   1. Загрузите на USB-диск файл с ключами:
 
       ```bash
-      curl -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       unzip vipnet_demokeys.zip
       cp Coordinator\ 4\ MOBILE/Coordinator\ 4\ MOBILE/abn_0004.dst <путь_к_корневой_директории_USB-диска>
       ```
@@ -389,7 +389,7 @@ VPN-туннель работает между двумя решениями ViP
   1. Загрузите на USB-диск файл с ключами:
    
       ```powershell
-      curl.exe -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl.exe --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       Expand-Archive vipnet_demokeys.zip
       Copy-Item -Path "<путь_к_директории_vipnet>\vipnet_demokeys\Coordinator 4 MOBILE\Coordinator 4 MOBILE\abn_0004.dst" -Destination <путь_к_корневой_директории_USB-диска>
       ```
@@ -468,7 +468,7 @@ VPN-туннель работает между двумя решениями ViP
       -rw-------  1    272M Aug 21 15:22 va_vipnet_base_x86_64-disk1.vdi
       -rw-------  1    311M Aug 21 15:22 va_vipnet_base_x86_64-disk2.vdi
       ```
-  
+
   1. Преобразуйте диски в формат `qcow2` с помощью утилиты `qemu-img`:
 
       ```bash
@@ -506,7 +506,7 @@ VPN-туннель работает между двумя решениями ViP
       ------    8/24/2022  10:42 PM    324009984 va_vipnet_base_x86_64-disk2.vdi
       ------    8/24/2022  10:42 PM    286261248 va_vipnet_base_x86_64-disk1.vdi
       ```
-  
+
   1. Преобразуйте диски в формат `qcow2` с помощью утилиты `qemu-img`:
 
       ```powershell

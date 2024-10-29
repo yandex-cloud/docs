@@ -8,6 +8,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -77,7 +79,6 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -93,31 +94,14 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;1,7200&nbsp;₽ + 8&nbsp;×&nbsp;0,4700&nbsp;₽) = 21,6000&nbsp;₽
-  >
-  > Итого: 21,6000&nbsp;₽ — стоимость часа работы хостов {{ CH }}.
-  
-  Где:
-  * 3 — количество хостов {{ CH }}.
-  * 2 — количество vCPU.
-  * 1,7200&nbsp;₽ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ CH }} (в гигабайтах).
-  * 0,4700&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  {% include [rub-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-ch.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;8,6000&nbsp;₸ + 8&nbsp;×&nbsp;2,3500&nbsp;₸) = 108,0000&nbsp;₸
-  >
-  > Итого: 108,0000&nbsp;₸ — стоимость часа работы хостов {{ CH }}.
-  
-  Где:
-  * 3 — количество хостов {{ CH }}.
-  * 2 — количество vCPU.
-  * 8,6000&nbsp;₸ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ CH }} (в гигабайтах).
-  * 2,3500&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  {% include [kzt-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-ch.md) %}
 
 {% endlist %}
+
 
 
 
@@ -128,31 +112,14 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;0,7000&nbsp;₽ + 4&nbsp;×&nbsp;0,2800&nbsp;₽) = 7,5600&nbsp;₽
-  >
-  > Итого: 7,5600&nbsp;₽ — стоимость часа работы хостов {{ ZK }}.
-  
-  Где:
-  * 3 — количество хостов {{ ZK }}.
-  * 2 — количество vCPU.
-  * 0,7000&nbsp;₽ — стоимость часа использования 50% vCPU.
-  * 4 — объем RAM одного хоста {{ ZK }} (в гигабайтах).
-  * 0,2800&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+  {% include [rub-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-zk.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;3,5000&nbsp;₸ + 4&nbsp;×&nbsp;1,4000&nbsp;₸) = 37,8000&nbsp;₸
-  >
-  > Итого: 37,8000&nbsp;₸ — стоимость часа работы хостов {{ ZK }}.
-  
-  Где:
-  * 3 — количество хостов {{ ZK }}.
-  * 2 — количество vCPU.
-  * 3,5000&nbsp;₸ — стоимость часа использования 50% vCPU.
-  * 4 — объем RAM одного хоста {{ ZK }} (в гигабайтах).
-  * 1,4000&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+  {% include [kzt-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-zk.md) %}
 
 {% endlist %}
+
 
 
 
@@ -163,29 +130,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × (21,6000&nbsp;₽ + 7,5600&nbsp;₽) + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 21&nbsp;315,2000&nbsp;₽
-  >
-  > Итого: 21&nbsp;315,2000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
-  
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 21,6000&nbsp;₽ — стоимость часа работы хостов {{ CH }}.
-  * 7,5600&nbsp;₽ — стоимость часа работы хостов {{ ZK }}.
-  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  {% include [rub-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-storage.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × (108,0000&nbsp;₸ + 37,8000&nbsp;₸) + 100&nbsp;×&nbsp;16,0000&nbsp;₸ = 106&nbsp;576,0000&nbsp;₸
-  >
-  > Итого: 106&nbsp;576,0000&nbsp;₸ — стоимость использования кластера в течение 30 дней.
-  
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 108,0000&nbsp;₸ — стоимость часа работы хостов {{ CH }}.
-  * 37,8000&nbsp;₸ — стоимость часа работы хостов {{ ZK }}.
-  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 16,0000&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  {% include [kzt-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-storage.md) %}
 
 {% endlist %}
 
@@ -211,8 +160,8 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 Все цены указаны с включением НДС.

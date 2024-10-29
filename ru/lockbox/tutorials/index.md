@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ lockbox-full-name }}"
-description: "Различные сценарии использования {{ lockbox-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ lockbox-full-name }}
+description: Различные сценарии использования {{ lockbox-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ lockbox-name }}
@@ -10,3 +10,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](lockbox-and-airflow.md)
+* [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](secure-password-script.md)
+* [{#T}](data-transfer-direct-to-mch.md)

@@ -28,12 +28,12 @@
 
 - Вручную {#manual}
 
-   
+
    1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
 
 
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
-   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) {{ KF }}.
+   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }}.
    1. В той же сети, что и кластер {{ mkf-name }}, [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 22.04, публичным IP-адресом и настроенной группой безопасности.
 
 - {{ TF }} {#tf}
@@ -50,7 +50,7 @@
       * подсеть;
       * ВМ с Ubuntu 22.04;
 
-      
+
       * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
 
 
@@ -181,7 +181,7 @@
       * [Для кластера и группы узлов](../../managed-kubernetes/operations/connect/security-groups.md) {{ managed-k8s-name }}.
 
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
-   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) {{ KF }}.
+   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }}.
    1. В той же сети, что и кластер {{ mkf-name }}, [создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите настроенную группу безопасности и предоставьте кластеру публичный адрес.
    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в кластере {{ managed-k8s-name }}. При создании укажите настроенную группу безопасности.
 
@@ -379,7 +379,7 @@
 
    Удалите:
 
-   
+
    1. [Кластер](../../managed-kafka/operations/cluster-delete.md) {{ mkf-name }}.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
    1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.

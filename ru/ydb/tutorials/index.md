@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ ydb-full-name }}"
-description: "Различные сценарии использования {{ ydb-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ ydb-full-name }}
+description: Различные сценарии использования {{ ydb-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ ydb-name }}
@@ -14,5 +14,13 @@ description: "Различные сценарии использования {{ 
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](ydb-mkf-replication.md)
 * [{#T}](ydb-to-yds.md)
+* [{#T}](ydb-to-object-storage.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)
+* [{#T}](mpg-ydb-replication.md)
+* [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
+* [{#T}](mkf-yds-stream.md)
+* [{#T}](mkf-ydb-stream.md)
+* [{#T}](terraform-state-lock.md)

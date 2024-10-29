@@ -1,6 +1,6 @@
 # Установка Gateway API
 
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов API, моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
 
 В сервисе {{ managed-k8s-name }} Gateway API запускает [{{ alb-full-name }}](../../application-load-balancer/) и необходимые вспомогательные ресурсы, когда пользователь {{ k8s }} объявляет ресурс `Gateway` в кластере {{ managed-k8s-name }}.
 
@@ -51,24 +51,27 @@
 1. {% include [Install and configure kubectl](kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gateway API выполните команду:
 
+
    ```bash
-    export HELM_EXPERIMENTAL_OCI=1 && \
-    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
-      --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
-      --untar && \
-    helm install \
-      --namespace <пространство_имен> \
-      --create-namespace \
-      --set folderId='<идентификатор_каталога>' \
-      --set networkId='<идентификатор_облачной_сети>' \
-      --set subnet1Id='<идентификатор_подсети_1>' \
-      --set subnet2Id='<идентификатор_подсети_2>' \
-      --set subnet3Id='<идентификатор_подсети_3>' \
-      --set-file saKeySecretKey='<путь_к_файлу_sa-key.json>' \
-      gateway-api ./gateway-api/
+   helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
+     --untar && \
+   helm install \
+     --namespace <пространство_имен> \
+     --create-namespace \
+     --set folderId='<идентификатор_каталога>' \
+     --set networkId='<идентификатор_облачной_сети>' \
+     --set subnet1Id='<идентификатор_подсети_1>' \
+     --set subnet2Id='<идентификатор_подсети_2>' \
+     --set subnet3Id='<идентификатор_подсети_3>' \
+     --set-file saKeySecretKey='<путь_к_файлу_sa-key.json>' \
+     gateway-api ./gateway-api/
    ```
 
+
    В команде укажите сеть и ее подсети, в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
+
+   {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ mpg-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ mpg-name }}."
+title: Пошаговые инструкции для {{ mpg-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ mpg-name }}.
 ---
 
 # Пошаговые инструкции для {{ mpg-name }}
@@ -35,6 +35,7 @@ description: "На странице представлен список поша
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
 * [Использование pg_cron](./extensions/pg_cron.md)
+* [Использование pg_repack](./extensions/pg_repack.md)
 * [Использование pgaudit](./extensions/pgaudit.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
 * [Использование словаря Hunspell для полнотекстового поиска](./extensions/hunspell.md)

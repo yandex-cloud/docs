@@ -1,6 +1,6 @@
 ---
-title: "Code examples for connecting to a {{ CH }} cluster in {{ mch-full-name }}"
-description: "Use these examples to connect to a database in a {{ CH }} cluster from your application's code."
+title: Code examples for connecting to a {{ CH }} cluster in {{ mch-full-name }}
+description: Use these examples to connect to a database in a {{ CH }} cluster from your application's code.
 ---
 
 # Code examples for connecting to a {{ CH }} cluster

@@ -125,6 +125,6 @@ To restart group instances one by one:
 
 - API {#api}
 
-   Use the [rollingRestart](../../api-ref/InstanceGroup/rollingRestart.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/rollingRestart](../../api-ref/grpc/instance_group_service.md#RollingRestart) gRPC API call.
+   Use the [rollingRestart](../../instancegroup/api-ref/InstanceGroup/rollingRestart.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/rollingRestart](../../instancegroup/api-ref/grpc/InstanceGroup/rollingRestart.md) gRPC API call.
 
 {% endlist %}

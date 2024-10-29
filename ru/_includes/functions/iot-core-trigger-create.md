@@ -68,13 +68,13 @@
     --name <имя_триггера> \
     --registry-id <идентификатор_реестра> \
     --device-id <идентификатор_устройства> \
-    --mqtt-topic '$devices/<идентификатор_устройства>/events' \
+    --mqtt-topic '<MQTT-топик>' \
     --batch-size <размер_группы_сообщений> \
     --batch-cutoff <максимальное_время_ожидания> \
     --invoke-function-id <идентификатор_функции> \
     --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-    --retry-attempts 1 \
-    --retry-interval 10s \
+    --retry-attempts <количество_повторных_вызовов> \
+    --retry-interval <интервал_между_повторными_вызовами> \
     --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
     --dlq-service-account-id <идентификатор_сервисного_аккаунта>
   ```
@@ -137,12 +137,12 @@
        iot {
          registry_id  = "<идентификатор_реестра>"
          device_id    = "<идентификатор_устройства>"
-         topic        = "<идентификатор_топика>"
-         batch_cutoff = "<время_ожидания>"
-         batch_size   = "<размер_группы_событий>"
+         topic        = "<MQTT-топик>"
+         batch_cutoff = "<максимальное_время_ожидания>"
+         batch_size   = "<размер_группы_сообщений>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -156,9 +156,9 @@
 
         * `registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
         * `device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
-        * `topic` — идентификатор [топика](../../iot-core/concepts/topic/), для которого вы хотите создать триггер. Если топик не указан, триггер срабатывает для всех топиков реестра или устройства.
-        * `batch_cutoff` — максимальное время ожидания. Допустимые значения от 1 до 60 секунд. Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в функцию. Число сообщений при этом не превышает указанный размер группы `batch-size`.
-        * `batch_size` — размер группы сообщений. Допустимые значения от 1 до 10.
+        * `topic` — MQTT-топик, для которого вы хотите создать триггер. Необязательный параметр. Если параметр не указан, триггер срабатывает для всех топиков реестра или устройства.
+        * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
+        * `batch_size` — размер группы сообщений из MQTT-топиков. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
 
      {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
@@ -168,15 +168,15 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
      ```bash
-     yc serverless trigger get <идентификатор_триггера>
+     yc serverless trigger list
      ```
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -186,4 +186,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в контейнер {{ serverless-containers-full-name }}](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

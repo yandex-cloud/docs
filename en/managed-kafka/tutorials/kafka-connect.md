@@ -1,6 +1,7 @@
 ---
-title: "Setting up {{ KFC }} to work with {{ mkf-name }} clusters"
-description: "{{ KFC }} is a tool for streaming data between {{ KF }} and other data stores. Use this tutorial to set up {{ KFC }} to interact with a {{ mkf-name }} cluster."
+title: Configuring {{ KFC }} for {{ mkf-name }} clusters
+description: '{{ KFC }} is a tool for streaming data between {{ KF }} and other data storages. Use this tutorial to set up {{ KFC }} for working with a {{ mkf-name }} cluster.'
+canonical: '{{ link-docs }}/tutorials/dataplatform/kafka-connect'
 ---
 
 # Configuring {{ KFC }} for {{ mkf-name }} clusters

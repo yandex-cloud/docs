@@ -73,7 +73,7 @@ You can provide the following annotations for the `ObjectMeta` object:
 
 * **yandex.cloud/load-balancer-type**
 
-   Load balancer type (by default, with an external IP address).
+   [Load balancer type](../../../network-load-balancer/concepts/nlb-types.md) (by default, with an external IP address).
 
    For a load balancer with an internal IP address, the value is `internal`.
 
@@ -83,7 +83,7 @@ You can provide the following annotations for the `ObjectMeta` object:
 
 * **yandex.cloud/load-balancer-healthcheck-healthy-threshold**
 
-   Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) for a node to be considered available.
+   Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node available.
 
    The minimum value is `2`, the maximum is `10`.
 
@@ -101,7 +101,7 @@ You can provide the following annotations for the `ObjectMeta` object:
 
 * **yandex.cloud/load-balancer-healthcheck-unhealthy-threshold**
 
-   Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) for a node to be considered unavailable.
+   Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unavailable.
 
    The minimum value is `2`, the maximum is `10`.
 
@@ -132,18 +132,17 @@ The {{ k8s }} services used as network load balancers must be of the `LoadBalanc
 [List of ports the service is available on](#ports).
 ||
 
-|| `loadBalancerIP` | `string` | [Static public IP address reserved in advance](../../../vpc/operations/get-static-ip.md). If not specified, the network load balancer gets a dynamic IP address.
+|| `loadBalancerIP` | `string` | When using an [external load balancer](../../../network-load-balancer/concepts/nlb-types.md), you can specify a static [public IP address](../../../vpc/concepts/address.md#public-addresses) in this field. You need to [reserve such an address in advance](../../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md).
 
-When reserving a static IP address, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md).
-||
 
+If you do not specify a static IP address, the network load balancer will get a dynamic IP address ||
 || `externalTrafficPolicy` | `string` | [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core):
 
-* `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. This is a default value.
+* `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If the required pods are not on the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. Default value.
 * `Local`: Traffic goes directly to the nodes where the application containers are running. In which case:
 
-   * The originating IP address of the user request is saved.
-   * Horizontal traffic exchanged by VMs is lower.
+   * User request IP is saved.
+   * Less horizontal traffic is exchanged between VMs.
 ||
 |#
 

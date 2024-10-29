@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: abji19ucm6b1********
     description: update key
     created_at: "2024-03-26T10:33:12.360289758Z"
@@ -88,8 +88,8 @@
 - API {#api}
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
-  
-  Например, для симметричного ключа воспользуйтесь методом REST API [listOperations](../api-ref/SymmetricKey/listOperations.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ListOperations](../api-ref/grpc/symmetric_key_service.md#ListOperations).
+
+  Например, для симметричного ключа воспользуйтесь методом REST API [listOperations](../api-ref/SymmetricKey/listOperations.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ListOperations](../api-ref/grpc/SymmetricKey/listOperations.md).
 
 {% endlist %}
 
@@ -115,7 +115,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: abji19ucm6b1********
       description: update key
       created_at: "2024-03-26T10:33:12.360Z"
@@ -144,7 +144,7 @@
 
    - API {#api}
 
-     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

@@ -1,9 +1,11 @@
 ---
-title: "Как деактивировать и активировать секрет в {{ lockbox-full-name }}"
-description: "Из статьи вы узнаете, как деактивировать и активировать секрет в {{ lockbox-full-name }}."
+title: Как деактивировать и активировать секрет в {{ lockbox-full-name }}
+description: Из статьи вы узнаете, как деактивировать и активировать секрет в {{ lockbox-full-name }}.
 ---
 
-# Деактивировать и активировать секрет 
+# Деактивировать и активировать секрет
+
+Секрет может находиться в активном и деактивированном состояниях. В активном состоянии возможен доступ как к метаданным, так и к содержимому секрета (парам ключ-значение). В деактивированном состоянии возможен доступ только к метаданным, содержимое секрета недоступно.
 
 ## Деактивировать секрет {#secret-deactivate}
 
@@ -28,13 +30,13 @@ description: "Из статьи вы узнаете, как деактивиро
       yc lockbox secret deactivate --help
       ```
   1. Деактивируйте секрет, указав его идентификатор или имя:
-      
+
       ```bash
       yc lockbox secret deactivate <имя_секрета>
       ```
       Результат:
 
-      ```bash
+      ```text
       id: e6qkkp3k29jf********
       folder_id: b1go3el0d8fs********
       created_at: "2023-11-08T13:14:34.676Z"
@@ -51,7 +53,7 @@ description: "Из статьи вы узнаете, как деактивиро
 
 - API {#api}
 
-  Чтобы деактивировать секрет, воспользуйтесь методом REST API [deactivate](../api-ref/Secret/deactivate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Deactivate](../api-ref/grpc/secret_service.md#Deactivate).
+  Чтобы деактивировать секрет, воспользуйтесь методом REST API [deactivate](../api-ref/Secret/deactivate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Deactivate](../api-ref/grpc/Secret/deactivate.md).
 
 {% endlist %}
 
@@ -77,13 +79,13 @@ description: "Из статьи вы узнаете, как деактивиро
       yc lockbox secret activate --help
       ```
   1. Активируйте секрет, указав его идентификатор или имя:
-      
+
       ```bash
       yc lockbox secret activate <имя_секрета>
       ```
       Результат:
 
-      ```bash
+      ```text
       id: e6qkkp3k29jf********
       folder_id: b1go3el0d8fs********
       created_at: "2023-11-08T13:14:34.676Z"
@@ -100,7 +102,7 @@ description: "Из статьи вы узнаете, как деактивиро
 
 - API {#api}
 
-  Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate).
+  Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/Secret/activate.md).
 
 {% endlist %}
 

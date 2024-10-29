@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ backup-full-name }} (S3)"
-description: "Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ backup-full-name }} (S3)
+description: Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ backup-name }}
@@ -39,3 +39,5 @@ Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

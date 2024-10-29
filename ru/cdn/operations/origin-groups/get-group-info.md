@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию об источнике в {{ cdn-full-name }}"
+title: Как получить информацию об источнике в {{ cdn-full-name }}
 ---
 
 # Получение информации об источниках
@@ -33,7 +33,7 @@ title: "Как получить информацию об источнике в 
       ```
 
   1. Получите информацию об источнике, указав его идентификатор или имя:
-      
+
       ```bash
       yc cdn origin get <идентификатор_источника>
       ```
@@ -52,7 +52,7 @@ title: "Как получить информацию об источнике в 
 
 - API {#api}
 
-  Чтобы получить подробную информацию об источнике, воспользуйтесь методом REST API [get](../../api-ref/Origin/get.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Get](../../api-ref/grpc/origin_service.md#Get).
+  Чтобы получить подробную информацию об источнике, воспользуйтесь методом REST API [get](../../api-ref/Origin/get.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Get](../../api-ref/grpc/Origin/get.md).
 
 {% endlist %}
 
@@ -83,14 +83,14 @@ title: "Как получить информацию об источнике в 
       ```
 
   1. Получите информацию о группе источников, указав ее идентификатор или имя:
-      
+
       ```bash
       yc cdn origin-group get <идентификатор_группы_источников>
       ```
 
       Результат:
 
-      ```bash
+      ```text
       id: "2149********"
       folder_id: b1ggmp8es27t********
       name: test-cdn-group
@@ -136,9 +136,9 @@ title: "Как получить информацию об источнике в 
       * `data "yandex_cdn_origin_group"` — описание группы источников в качестве источника данных:
         * `origin_group_id` — идентификатор группы источников.
       * `output "my_group_origin"` — выходная переменная, которая содержит информацию о группе источников:
-        * `value` — возвращаемое значение. 
+        * `value` — возвращаемое значение.
 
-      Вместо `origin` вы можете выбрать любой другой параметр для получения информации. Более подробную информацию о параметрах источника данных `yandex_cdn_origin_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group).
+      Вместо `origin` вы можете выбрать любой другой параметр для получения информации. Более подробную информацию о параметрах источника данных `yandex_cdn_origin_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_origin_group).
 
   1. Создайте ресурсы:
 
@@ -171,6 +171,6 @@ title: "Как получить информацию об источнике в 
 
 - API {#api}
 
-  Чтобы получить подробную информацию о группе источников, воспользуйтесь методом REST API [get](../../api-ref/OriginGroup/get.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Get](../../api-ref/grpc/origin_group_service.md#Get).
+  Чтобы получить подробную информацию о группе источников, воспользуйтесь методом REST API [get](../../api-ref/OriginGroup/get.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Get](../../api-ref/grpc/OriginGroup/get.md).
 
 {% endlist %}

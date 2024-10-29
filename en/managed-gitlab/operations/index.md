@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mgl-full-name }}"
-description: "This page gives a list of step-by-step guides for {{ mgl-name }}."
+title: Step-by-step guides for {{ mgl-full-name }}
+description: This page gives a list of step-by-step guides for {{ mgl-name }}.
 ---
 
 # Step-by-step guides for {{ mgl-name }}

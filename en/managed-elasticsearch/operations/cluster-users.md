@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ ES }} users"
-description: "This guide describes how you can manage {{ ES }} users."
+title: How to manage {{ ES }} users
+description: This guide describes how you can manage {{ ES }} users.
 ---
 
 # Managing {{ ES }} users

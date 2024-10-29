@@ -1,10 +1,5 @@
 title: Yandex Managed Service for PostgreSQL
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -18,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -58,6 +53,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pg_repack
+            href: operations/extensions/pg_repack.md
           - name: pgaudit
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
@@ -76,12 +73,18 @@ items:
             href: operations/datalens-connect.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Creating a {{ PG }} cluster for 1C
         href: tutorials/1c-postgresql.md
-      - name: Exporting databases to {{ dataproc-full-name }}
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
+          }} cluster
+        href: tutorials/1c-postgresql-linux.md
+      - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
+      - name: Searching for cluster performance issues
+        href: tutorials/performance-problems.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
@@ -108,20 +111,34 @@ items:
           Transferring data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Creating a Joomla website with a PostgreSQL database
+        items:
+          - name: Overview
+            href: tutorials/joomla-postgresql/index.md
+          - name: Management console
+            href: tutorials/joomla-postgresql/console.md
+          - name: '{{ TF }}'
+            href: tutorials/joomla-postgresql/terraform.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: tutorials/logging.md
       - name: Replication and migration
         items:
-          - name: Logical {{ PG }} replication
+          - name: Logical replication {{ PG }}
             href: tutorials/replication-overview.md
-          - name: Migrating databases to {{ mpg-name }}
+          - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
-          - name: Migrating databases from {{ mpg-name }}
+          - name: Migrating a database from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
-              }}
+              Creating a logical replica of Amazon RDS for {{ PG }} in {{
+              mpg-name }}
             href: operations/logical-replica-from-rds.md
           - name: >-
-              Migrating databases from {{ mpg-full-name }} to {{
+              Migrating a database from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
           - name: >-
@@ -136,6 +153,14 @@ items:
               Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: Migrating a database from {{ GP }} to {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
+          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -144,7 +169,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archives
+          - name: Archive
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -180,7 +205,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
@@ -200,20 +225,116 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: BackupService
-            href: api-ref/grpc/backup_service.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: DatabaseService
-            href: api-ref/grpc/database_service.md
-          - name: PerformanceDiagnosticsService
-            href: api-ref/grpc/perf_diag_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: UserService
-            href: api-ref/grpc/user_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/grpc/Backup/index.md
+              - name: Get
+                href: api-ref/grpc/Backup/get.md
+              - name: List
+                href: api-ref/grpc/Backup/list.md
+              - name: Delete
+                href: api-ref/grpc/Backup/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: Move
+                href: api-ref/grpc/Cluster/move.md
+              - name: Backup
+                href: api-ref/grpc/Cluster/backup.md
+              - name: Restore
+                href: api-ref/grpc/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
+              - name: StartFailover
+                href: api-ref/grpc/Cluster/startFailover.md
+              - name: ListLogs
+                href: api-ref/grpc/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/grpc/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListBackups
+                href: api-ref/grpc/Cluster/listBackups.md
+              - name: ListHosts
+                href: api-ref/grpc/Cluster/listHosts.md
+              - name: AddHosts
+                href: api-ref/grpc/Cluster/addHosts.md
+              - name: DeleteHosts
+                href: api-ref/grpc/Cluster/deleteHosts.md
+              - name: UpdateHosts
+                href: api-ref/grpc/Cluster/updateHosts.md
+          - name: Database
+            items:
+              - name: Overview
+                href: api-ref/grpc/Database/index.md
+              - name: Get
+                href: api-ref/grpc/Database/get.md
+              - name: List
+                href: api-ref/grpc/Database/list.md
+              - name: Create
+                href: api-ref/grpc/Database/create.md
+              - name: Update
+                href: api-ref/grpc/Database/update.md
+              - name: Delete
+                href: api-ref/grpc/Database/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: PerformanceDiagnostics
+            items:
+              - name: Overview
+                href: api-ref/grpc/PerformanceDiagnostics/index.md
+              - name: ListRawSessionStates
+                href: api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md
+              - name: ListRawStatements
+                href: api-ref/grpc/PerformanceDiagnostics/listRawStatements.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: Get
+                href: api-ref/grpc/User/get.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
+              - name: GrantPermission
+                href: api-ref/grpc/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/grpc/User/revokePermission.md
       - name: REST
         items:
           - name: Overview
@@ -222,102 +343,104 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
-              - name: delete
-                href: api-ref/Backup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Backup/get.md
-              - name: list
+              - name: List
                 href: api-ref/Backup/list.md
+              - name: Delete
+                href: api-ref/Backup/delete.md
           - name: Cluster
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: addHosts
-                href: api-ref/Cluster/addHosts.md
-              - name: backup
-                href: api-ref/Cluster/backup.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: deleteHosts
-                href: api-ref/Cluster/deleteHosts.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listBackups
-                href: api-ref/Cluster/listBackups.md
-              - name: listHosts
-                href: api-ref/Cluster/listHosts.md
-              - name: listLogs
-                href: api-ref/Cluster/listLogs.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: move
-                href: api-ref/Cluster/move.md
-              - name: rescheduleMaintenance
-                href: api-ref/Cluster/rescheduleMaintenance.md
-              - name: restore
-                href: api-ref/Cluster/restore.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: startFailover
-                href: api-ref/Cluster/startFailover.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: streamLogs
-                href: api-ref/Cluster/streamLogs.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
-              - name: updateHosts
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: Move
+                href: api-ref/Cluster/move.md
+              - name: Backup
+                href: api-ref/Cluster/backup.md
+              - name: Restore
+                href: api-ref/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: StartFailover
+                href: api-ref/Cluster/startFailover.md
+              - name: ListLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: ListHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: AddHosts
+                href: api-ref/Cluster/addHosts.md
+              - name: DeleteHosts
+                href: api-ref/Cluster/deleteHosts.md
+              - name: UpdateHosts
                 href: api-ref/Cluster/updateHosts.md
           - name: Database
             items:
               - name: Overview
                 href: api-ref/Database/index.md
-              - name: create
-                href: api-ref/Database/create.md
-              - name: delete
-                href: api-ref/Database/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Database/get.md
-              - name: list
+              - name: List
                 href: api-ref/Database/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Database/create.md
+              - name: Update
                 href: api-ref/Database/update.md
+              - name: Delete
+                href: api-ref/Database/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: ResourcePreset
             items:
               - name: Overview
                 href: api-ref/ResourcePreset/index.md
-              - name: get
+              - name: Get
                 href: api-ref/ResourcePreset/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourcePreset/list.md
           - name: User
             items:
               - name: Overview
                 href: api-ref/User/index.md
-              - name: create
-                href: api-ref/User/create.md
-              - name: delete
-                href: api-ref/User/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/User/get.md
-              - name: grantPermission
-                href: api-ref/User/grantPermission.md
-              - name: list
+              - name: List
                 href: api-ref/User/list.md
-              - name: revokePermission
-                href: api-ref/User/revokePermission.md
-              - name: update
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
                 href: api-ref/User/update.md
-          - name: Operation
-            items:
-              - name: Overview
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
+              - name: Delete
+                href: api-ref/User/delete.md
+              - name: GrantPermission
+                href: api-ref/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/User/revokePermission.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -343,3 +466,4 @@ items:
       - name: All questions on one page
         href: qa/all.md
 base: en/managed-postgresql
+deepBase: 2

@@ -25,16 +25,16 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installing the External Secrets Operator through {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Service account key**: Paste the contents of `sa-key.json`.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -46,7 +46,6 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the External Secrets Operator, run the following command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_external-secrets.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_external-secrets.helmChart.tag }} \
      --untar && \
@@ -59,11 +58,13 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
    This command creates a new namespace required for using the External Secrets Operator.
 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 ## Use cases {#examples}
 
 * [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)
 
 ## See also {#see-also}
 
-* [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
-* [{{ lockbox-name }} documentation](../../../lockbox/).
+* [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/)
+* [{{ lockbox-name }} documentation](../../../lockbox/)

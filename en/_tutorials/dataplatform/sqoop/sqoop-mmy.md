@@ -23,7 +23,14 @@ You can create other resources manually or using {{ TF }}.
 1. To import the data to the {{ objstorage-name }} bucket:
 
    1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access.
-   1. [Create a service account](../../../iam/operations/sa/create.md).
+   1. [Create a service account](../../../iam/operations/sa/create.md) with the following roles:
+
+      * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent)
+      * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner)
+      * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer)​
+      * [storage.viewer](../../../storage/security/index.md#storage-viewer)
+      * [storage.uploader](../../../storage/security/index.md#storage-uploader)
+
    1. [Grant this service account](../../../storage/operations/buckets/edit-acl.md) read and write permissions for this bucket.
 
 1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) in any suitable [configuration](../../../data-proc/concepts/instance-types.md).
@@ -215,9 +222,12 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
       * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
 
-   1. If you created an {{ objstorage-full-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
-   1. Delete the [subnet](../../../vpc/operations/subnet-delete.md).
-   1. Delete the [cloud network](../../../vpc/operations/network-delete.md).
+   1. If you created a {{ objstorage-full-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
+   1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
+   1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+   1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
+   1. [Delete the service account](../../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -242,6 +252,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    Delete the resources you created manually:
 
    1. [Subnet](../../../vpc/operations/subnet-delete.md)
+   1. [Route table](../../../vpc/operations/delete-route-table.md)
+   1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
    1. [Cloud network](../../../vpc/operations/network-delete.md)
 
 {% endlist %}

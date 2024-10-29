@@ -1,6 +1,6 @@
 ---
-title: "Как создать образ из диска в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать образ из диска." 
+title: Как создать образ из диска в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете создать образ из диска.
 ---
 
 # Создать образ из диска
@@ -10,6 +10,12 @@ description: "Следуя данной инструкции, вы сможет�
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+  {% note info %}
+  
+  {% include [create-unreplicated-instance-via-cli-tf-api](../../_includes_service/create-unreplicated-instance-via-cli-tf-api.md) %}
+  
+  {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать образ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -103,8 +109,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
-  1. Создайте образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор диска.
+  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
+  1. Создайте образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md). В запросе укажите идентификатор диска.
 
 {% endlist %}
 

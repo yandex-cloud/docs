@@ -1,5 +1,5 @@
 
-To install {{ sk-hybrid-name }}, you need a Linux server with Docker Engine support. For a list of supported operating systems, see [Docker's official documentation](https://docs.docker.com/engine/install/#server).
+To install {{ sk-hybrid-name }}, you need a Linux server with Docker Engine support. For a list of supported operating systems, see the [Docker official documentation](https://docs.docker.com/engine/install/#server).
 
 {% note warning %}
 

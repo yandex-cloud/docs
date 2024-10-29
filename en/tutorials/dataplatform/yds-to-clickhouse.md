@@ -1,6 +1,6 @@
 ---
-title: "Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}"
-description: "With {{ data-transfer-name }}, you can deliver data from a {{ yds-name }} stream to {{ mch-name }}."
+title: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+description: With {{ data-transfer-name }}, you can deliver data from a {{ yds-name }} stream to {{ mch-name }}.
 ---
 
 # Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}

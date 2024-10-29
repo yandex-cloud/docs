@@ -1,10 +1,5 @@
 title: Yandex Object Storage
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -42,6 +37,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: >-
+              Доступ в бакет с помощью сервисного подключения из {{
+              vpc-short-name }}
+            href: operations/buckets/access-via-vpc.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
           - name: Включение механизма логирования
@@ -82,6 +81,8 @@ items:
             href: operations/objects/edit-acl.md
           - name: Управление метками объекта
             href: operations/objects/tagging.md
+          - name: Управление пользовательскими метаданными объекта
+            href: operations/objects/object-meta.md
       - name: Хостинг статических сайтов
         items:
           - name: Настройка хостинга
@@ -105,6 +106,10 @@ items:
       - name: Получение статистики посещения сайта с использованием S3 Select
         href: tutorials/user-agent-statistics.md
       - name: >-
+          Получение статистики запросов к объектам с использованием {{
+          yq-full-name }}
+        href: tutorials/server-logs-yq.md
+      - name: >-
           Формирование отчета по ресурсной детализации расходов с использованием
           S3 Select
         href: tutorials/billing-resource-detailing.md
@@ -117,8 +122,8 @@ items:
       - name: Анализ логов с использованием DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-full-name }}
+          Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
+          }}
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
@@ -126,6 +131,12 @@ items:
           Миграция данных из {{ yds-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
+        href: tutorials/clickhouse-hybrid-storage.md
+      - name: >-
+          Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/opensearch-to-object-storage.md
       - name: Автоматическое копирование объектов из бакета в бакет
         href: tutorials/bucket-to-bucket.md
       - name: Регулярное распознавание аудиофайлов в бакете
@@ -152,12 +163,81 @@ items:
           Загрузка данных в {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-ydb.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
+          Загрузка данных из {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-object-storage.md
       - name: >-
           Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
           }}
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
+        href: tutorials/mpg-to-objstorage.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
+          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
+          помощью Sqoop
+        href: tutorials/sqoop-mpg.md
+      - name: >-
+          Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
+          помощью Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: >-
+          Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/objs-mmy-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }}
+        href: tutorials/mmy-objs-migration.md
+      - name: >-
+          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
+          }}
+        href: tutorials/greenplum-yezzey.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
+      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
+        href: tutorials/elasticsearch-to-opensearch.md
+      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+        href: tutorials/terraform-state-storage.md
+      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
+      - name: Статический веб-сайт в {{ objstorage-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/static/index.md
+          - name: Консоль управления
+            href: tutorials/static/console.md
+          - name: Terraform
+            href: tutorials/static/terraform.md
+      - name: Публикация обновлений для игр
+        href: tutorials/prefetch.md
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: tutorials/hystax-backup.md
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
+          Desktop Backup
+        href: tutorials/object-storage-cloudberry.md
+      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
+        href: tutorials/object-storage-duplicati.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
+          Exec
+        href: tutorials/object-storage-veritas.md
+      - name: >-
+          Резервное копирование кластера {{ managed-k8s-name }} в {{
+          objstorage-name }}
+        href: tutorials/kubernetes-backup.md
   - name: Концепции
     items:
       - name: Обзор
@@ -468,10 +548,36 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: BucketService
-                href: api-ref/grpc/bucket_service.md
-              - name: OperationService
-                href: api-ref/grpc/operation_service.md
+              - name: Bucket
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Bucket/index.md
+                  - name: List
+                    href: api-ref/grpc/Bucket/list.md
+                  - name: Get
+                    href: api-ref/grpc/Bucket/get.md
+                  - name: Create
+                    href: api-ref/grpc/Bucket/create.md
+                  - name: Update
+                    href: api-ref/grpc/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/grpc/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/grpc/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/grpc/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
           - name: REST (англ.)
             items:
               - name: Overview
@@ -480,24 +586,32 @@ items:
                 items:
                   - name: Overview
                     href: api-ref/Bucket/index.md
-                  - name: create
-                    href: api-ref/Bucket/create.md
-                  - name: delete
-                    href: api-ref/Bucket/delete.md
-                  - name: deleteHTTPSConfig
-                    href: api-ref/Bucket/deleteHTTPSConfig.md
-                  - name: get
-                    href: api-ref/Bucket/get.md
-                  - name: getHTTPSConfig
-                    href: api-ref/Bucket/getHTTPSConfig.md
-                  - name: getStats
-                    href: api-ref/Bucket/getStats.md
-                  - name: list
+                  - name: List
                     href: api-ref/Bucket/list.md
-                  - name: setHTTPSConfig
-                    href: api-ref/Bucket/setHTTPSConfig.md
-                  - name: update
+                  - name: Get
+                    href: api-ref/Bucket/get.md
+                  - name: Create
+                    href: api-ref/Bucket/create.md
+                  - name: Update
                     href: api-ref/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
@@ -511,3 +625,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/storage
+deepBase: 2

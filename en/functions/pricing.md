@@ -2,9 +2,13 @@
 editable: false
 ---
 
-# {{ sf-name }} pricing
+# {{ sf-name }} pricing policy
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
@@ -49,6 +53,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Invoking a function {#invoke}
 
@@ -56,7 +61,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of invocations. For example, given that 1,000,000 calls cost $0.128000, 1,000 calls in excess of the free amount will cost $0.000128.
+You pay for the actual number of calls. For instance, 1,000 calls over the included number cost $0.000128 if 1,000,000 calls are $0.128000.
 
 
 ### Function execution time {#execution}

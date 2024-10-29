@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, you pay for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
@@ -43,7 +43,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
@@ -162,7 +162,7 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
 1. Under **Attached files**, click **Select files** and select the `users.csv` and `payload.hcl` files you previously saved.
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select the **{{ ui-key.yacloud.load-testing.label_settings-type-config }}** configuration method.
 
-1. In the configuration input field, specify the test thread settings in `yaml` format:
+1. In the configuration input field, specify the testing thread settings in `yaml` format:
 
    ```yaml
       uploader:
@@ -194,15 +194,24 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
                      times: 5
             log:
                level: debug
+      autostop:
+         enabled: true
+         package: yandextank.plugins.Autostop
+         autostop:
+            - limit (5m)
       core: {}
    ```
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
+Once you do that, the configuration will pass checks, and the agent will start loading the service you are testing.
 
-To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
+To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, just [delete the agent](../../compute/operations/vm-control/vm-delete.md).
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+
+1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

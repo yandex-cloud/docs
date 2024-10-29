@@ -1,15 +1,23 @@
 ---
-title: "Как использовать Prometheus recording rules"
-description: "Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules)."
+title: Как использовать Prometheus recording rules
+description: Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules).
 ---
 
 # Правила записи
 
-Вы можете использовать ваши существующие файлы с правилами записи ([recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules)) в {{ managed-prometheus-name }}. Поддерживаются все поля, описанные в [спецификации](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) YAML-файла.
+В {{ managed-prometheus-name }} вы можете использовать ваши существующие файлы с правилами записи ([recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules)). Поддерживаются все поля, описанные в [спецификации](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) YAML-файла.
 
 {% note warning %}
 
-Имя файла может содержать только буквы латинского алфавита, цифры, точки, тире и нижние подчеркивания. Максимальная длина файла — 256 символов. Длина имени группы не может превышать 256 символов.
+Имя файла может содержать только буквы латинского алфавита, цифры, точки, тире и подчеркивания. Максимальная длина файла — 256 символов. Длина имени группы не может превышать 256 символов.
+
+{% endnote %}
+
+{% note info "Особенности вычисления правил" %}
+
+  * Для согласования правил записи с результатами запросов на чтение в сервисе установлена глобальная задержка вычислений в 2 минуты. Это означает, что правила применяются к данным не сразу, а через 2 минуты после их поступления. Это позволяет всем агентам сбора метрик передать данные, прежде чем они будут прочитаны сервисом и записаны как результат выполнения правил записи.
+
+  * Лимит количества серий в результате вычисления правила по умолчанию равен 1000. Максимальное возможное значение лимита — 10000.
 
 {% endnote %}
 
@@ -52,11 +60,12 @@ API представлен набором REST-ресурсов, которые 
     ```bash
     export IAM_TOKEN=<IAM-токен>
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+    curl \
+      --request PUT \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "@body.json"  \
+      "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
     ```
 
 В случае успешного запроса будет возвращен HTTP-код `204`, иначе — текст ошибки.
@@ -70,9 +79,10 @@ API представлен набором REST-ресурсов, которые 
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
 ```
 
 Пример ответа:
@@ -92,9 +102,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
 ```
 
 Пример ответа:
@@ -115,9 +126,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules/snapshots"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules/snapshots"
 ```
 
 Пример ответа:
@@ -153,9 +165,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X DELETE \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
+curl \
+  --request DELETE \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
 ```
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

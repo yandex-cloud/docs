@@ -1,11 +1,10 @@
-# Setting up the {{ alb-name }} Ingress controller
-
+# Setting up the {{ alb-full-name }} Ingress controller
 
 The [{{ alb-full-name }}](../../application-load-balancer/) service is designed for load balancing and traffic distribution across applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 To set up access to the applications running in your {{ managed-k8s-name }} cluster via {{ alb-name }}:
 1. [Set up the Ingress controller and test applications](#create-ingress-and-apps).
-1. [(Optional) Set up the Ingress group](#configure-group).
+1. [(Optional) Configure the Ingress resource group](#configure-group).
 1. [Make sure the {{ managed-k8s-name }} cluster applications are accessible via {{ alb-name }}](#verify-setup).
 
 For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
@@ -19,6 +18,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Alternatively, you can [add a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
+
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
@@ -27,6 +27,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+
 1. [Install the {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -308,12 +309,12 @@ Command result:
       Where:
 
       * `ingress.alb.yc.io/subnets`: One or more subnets that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the {{ managed-k8s-name }} node group subnet or its security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to obtain a new IP address automatically.
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
 
-      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, with each group served by a separate {{ alb-name }} instance.
+      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, each group served by a separate {{ alb-name }} instance.
 
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
@@ -323,7 +324,7 @@ Command result:
 
       {% cut "Additional settings" %}
 
-      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Configure the Ingress resource group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -334,7 +335,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1, default
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
@@ -363,6 +364,14 @@ Command result:
          * `m`: Minutes
          * `h`: Hours
 
+      * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, as well as activate [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) to the resource being protected.
+
+         To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+
+         ```yaml
+         ingress.alb.yc.io/security-profile-id: <security_profile_ID>
+         ```
+
       * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
       {% endcut %}
@@ -388,11 +397,11 @@ Command result:
       To track the progress of controller creation and check that it is error-free, open the logs of the pod where the controller is being created:
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
       1. Select one of the `alb-demo-***` pods the Ingress controller is being created on.
       1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-         You will see the Ingress controller creation logged, with the logs displayed in real time. If an error occurs while creating the controller, it will appear in the logs.
+         You will see the Ingress controller creation logged, with the logs displayed in real time. Any errors that occur will also be logged.
 
    1. Make sure the Ingress controller has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
 
@@ -530,7 +539,7 @@ Command result:
       spec:
         backends: # List of backends.
           - name: alb-demo-1
-            weight: 70 # Relative weight of the backend when distributing traffic. The load will be distributed proportionally to the weight of other backends in the group. Specify the weight even if you have only one backend in the group.
+            weight: 70 # Relative weight of the backend when distributing traffic. The load will be distributed in proportion to the weights of the group's other backends. Specify the weight even if you have only one backend in the group.
             service:
                name: alb-demo-1
                port:
@@ -578,17 +587,17 @@ Command result:
 
       Where:
       * `ingress.alb.yc.io/subnets`: One or more subnets that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the {{ managed-k8s-name }} node group subnet or its security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to obtain a new IP address automatically.
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
 
-      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, with each group served by a separate {{ alb-name }} instance.
+      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, each group served by a separate {{ alb-name }} instance.
 
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
       (Optional) Enter the advanced settings for the controller:
-      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Configure the Ingress resource group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -599,7 +608,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1, default
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
@@ -614,6 +623,14 @@ Command result:
          * `s`: Seconds
          * `m`: Minutes
          * `h`: Hours
+
+      * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, as well as activate [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) to the resource being protected.
+
+         To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+
+         ```yaml
+         ingress.alb.yc.io/security-profile-id: <security_profile_ID>
+         ```
 
       * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
@@ -630,16 +647,16 @@ Command result:
       kubectl apply -f .
       ```
 
-   1. Wait until the Ingress controller is created and assigned a public IP address. This may take several minutes:
+   1. Wait until the Ingress controller is created and assigned a public IP address. This may take several minutes.
 
       To track the progress of controller creation and check that it is error-free, open the logs of the pod where the controller is being created:
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
       1. Select one of the `alb-demo-***` pods the Ingress controller is being created on.
       1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-         You will see the Ingress controller creation logged, with the logs displayed in real time. If an error occurs while creating the controller, it will appear in the logs.
+         You will see the Ingress controller creation logged, with the logs displayed in real time. Any errors that occur will also be logged.
 
    1. Make sure the Ingress controller has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
 
@@ -658,16 +675,20 @@ Command result:
 
 {% endlist %}
 
-## (Optional) Set up the Ingress group {#configure-group}
+By default the {{ alb-name }} Ingress controller receives application [health check](../../application-load-balancer/concepts/backend-group.md#health-checks) requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
 
-Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/group-settings-name` annotation during the installation of the Ingress controller enables you to set logging settings for the L7 balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress group settings in the optional `IngressGroupSettings` resource.
+You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) resource parameters to customize health checks. For more information, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+
+## (Optional) Configure the Ingress resource group {#configure-group}
+
+If you specified a name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation when you installed the Ingress controller, you can specify logging settings for the L7 load balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress resource group settings in the optional `IngressGroupSettings` resource.
 1. Create a `settings.yaml` file with your logging settings and the custom log group ID. For example:
 
    ```yaml
    apiVersion: alb.yc.io/v1alpha1
    kind: IngressGroupSettings
    metadata:
-     name: <name_for_Ingress_group_settings>
+     name: <name_for_Ingress_resource_group_settings>
    logOptions:
      logGroupID: <custom_log_group_ID>
      discardRules:
@@ -685,9 +706,9 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
            - 404
    ```
 
-   Where `name` is the name for Ingress group settings in the `ingress.alb.yc.io/group-settings-name` annotation.
+   Where `name` is the name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation.
 
-1. Apply the settings for the Ingress group:
+1. Apply the settings for the Ingress resource group:
 
    ```bash
    kubectl apply -f settings.yaml

@@ -1,3 +1,3 @@
-(Optional) Select the **Exact match** option.
+(Optional) Select the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.
 
-When scanning a conversation, {{ speechsense-name }} normally also locates related words (stemming). For example, if you put _refuse_ in the **Keywords** field, {{ speechsense-name }} will also be looking for _refused_, _refuser_, etc. If you want to tag only records with exact matches, enable the **Exact match** option.
+When searching through a dialog, {{ speechsense-name }} finds both the key phrase and related words. For example, if you put _refuse_ in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, {{ speechsense-name }} will also be looking for _refused_, _refuser_, etc. If you want to tag only records with exact matches, enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.

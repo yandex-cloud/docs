@@ -65,7 +65,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: epd2ohv6ur6a********
     description: Update instance
     created_at: "2023-10-20T08:34:01Z"
@@ -106,8 +106,8 @@
 - API {#api}
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
-  
-  Например, для виртуальной машины воспользуйтесь методом REST API [listOperations](../api-ref/Instance/listOperations.md) для ресурса [Instance](../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/ListOperations](../api-ref/grpc/instance_service.md#ListOperations).
+
+  Например, для виртуальной машины воспользуйтесь методом REST API [listOperations](../api-ref/Instance/listOperations.md) для ресурса [Instance](../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/ListOperations](../api-ref/grpc/Instance/listOperations.md).
 
 {% endlist %}
 
@@ -133,7 +133,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: ef3ovrdqhhf9********
      description: Delete instance
      created_at: "2023-10-17T16:08:10Z"
@@ -150,7 +150,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+     Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

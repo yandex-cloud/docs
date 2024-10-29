@@ -36,14 +36,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. (Optional) [Create an intermediate Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
          * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select the same security group as for the {{ mrd-name }} cluster.
 
-   
+
    1. If you use {{ vpc-name }} security groups, [configure them](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
 

@@ -4,7 +4,9 @@ Adds [labels](../../../concepts/tags.md) to a bucket object. This overwrites any
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
+## Request {#request}
 
 ```http
 PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
@@ -12,17 +14,17 @@ PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. |
+`bucket` | Bucket name.
+`key` | Object key.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `tagging` | Type of operation. This parameter is required. |
-| `versionId` | [Object version](../../../concepts/versioning.md) ID. This parameter is required. |
+`tagging` | Type of operation. This is a required parameter.
+`versionId` | [Object version](../../../concepts/versioning.md) ID. This is a required parameter.
 
 ### Data schema {#request-scheme}
 
@@ -38,13 +40,13 @@ PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 </Tagging>
 ```
 
-| Element | Description |
+Element | Description
 --- | ---
-| `Tagging` | Root element. |
-| `TagSet` | Array of labels. |
-| `Tag` | Container for labels. |
-| `Key` | Label key.<br>Type: String. |
-| `Value` | Label value.<br>Type: String. |
+`Tagging` | Root element.
+`TagSet` | Array of labels.
+`Tag` | Container for labels.
+`Key` | Label key.<br>Type: String.
+`Value` | Label value.<br>Type: String.
 
 ### Headers {#request-headers}
 Use only [common request headers](../common-request-headers.md) in your requests.
@@ -55,12 +57,14 @@ Use only [common request headers](../common-request-headers.md) in your requests
 
 In addition to [common response headers](../common-response-headers.md), responses may contain:
 
-| Header | Description |
+Header | Description
 --------- | --------
-| `x-amz-version-id` | Object version ID. |
+`x-amz-version-id` | Object version ID.
 
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

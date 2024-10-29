@@ -1,10 +1,17 @@
+---
+title: История изменений в {{ mch-full-name }}
+description: В разделе представлена история изменений сервиса {{ mch-name }}.
+---
+
 # История изменений в {{ mch-full-name }}
 
-В разделе представлена история изменений сервиса {{ mch-name }}.
+## Июль 2024 {#jul-2024}
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+* Доступна новая версия {{ CH }} [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* Добавлена возможность автоматического преобразования нереплицируемых таблиц в [реплицируемые](./concepts/replication.md#replicated-tables) при [добавлении хостов {{ ZK }}](./operations/zk-hosts.md). Функциональность значительно упрощает процесс перехода к отказоустойчивой конфигурации для однохостовых кластеров.
+* Добавлена возможность ручного удаления [резервных копий](./concepts/backup.md).
 
-## Июнь 2024 {#june-2024}
+## Июнь 2024 {#jun-2024}
 
 Доступна новая версия {{ CH }} [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
 
@@ -40,7 +47,7 @@
 * Доступны новые версии {{ CH }} [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) и [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
 * Добавлена возможность создавать хосты {{ ZK }} с хранилищем на [нереплицируемых SSD-дисках](concepts/storage.md).
 * Добавлена возможность настроить хосты {{ ZK }} при восстановлении кластера из резервной копии.
-* Добавлена возможность настроить гибридное хранилище при восстановлении кластера из резервной копии. {{ tag-con }} {{ tag-api }}
+* Добавлена возможность настроить гибридное хранилище при восстановлении кластера из резервной копии.
 * Добавлена возможность выполнения SQL-запросов из браузера с помощью [встроенного SQL-редактора](./operations/connect/clients.md#inline-editor).
 * На странице [мониторинга кластера](operations/monitoring.md#monitoring-cluster) добавлены графики **Data parts**, **Databases**, **Inode usage**, **Rows of MergeTree tables** и **Tables**.
 * Графики **Failed insert queries per host**, **Failed queries per host** и **Failed select queries per host** теперь показывают процент неуспешных запросов, а не их количество.
@@ -76,7 +83,7 @@
 ## I квартал 2022 {#q1-2022}
 
 * Доступна новая версия {{ CH }} 22.3 LTS ([список изменений](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
-* Добавлена возможность восстановления шардированного кластера из резервной копии целиком. {{ tag-cli }} {{ tag-api }}
-* Добавлена возможность изменения настройки публичного доступа для хоста. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Добавлена возможность восстановления шардированного кластера из резервной копии целиком.
+* Добавлена возможность изменения настройки публичного доступа для хоста.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

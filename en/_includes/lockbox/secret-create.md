@@ -8,6 +8,20 @@ To create a [secret](../../lockbox/concepts/secret.md):
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
+   1. (Optional) To separate metrics within {{ monitoring-full-name }}, add a [label](../../monitoring/concepts/data-model.md#metric).
+   1. (Optional) Enable **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the contents of the secret against modification.
+   1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**:
+      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}**: To generate the value automatically:
+
+         * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
+         * (Optional) Expand the **{{ ui-key.yacloud.lockbox.forms.title_auto-generation_params_section }}** section and set the confidential value parameters (e.g., password).
+
+      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**: To set the value manually:
+
+         * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
+         * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
+
+            To add more data, click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and repeat the steps.
    1. (Optional) Under **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
 
       The specified [{{ kms-full-name }}](../../kms/) key is used to encrypt your secret. If you do not specify a key, the secret will be encrypted with a special system key.
@@ -18,13 +32,6 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
       {% endnote %}
 
-   1. (Optional) Enable **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the secret's contents.
-   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
-
-      To add more data, click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and repeat the steps.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -52,12 +59,11 @@ To create a [secret](../../lockbox/concepts/secret.md):
       ```
 
       Where:
-
       * `--name`: Secret name. This is a required parameter.
       * `--description`: Secret description. This is an optional parameter.
       * `--payload`: Contents of the secret as a YAML or JSON array.
 
-         You can provide one or more `key` [keys](../../kms/concepts/key.md) at a time. If your secret is going to contain several values, list them separated by commas. If the keys contain binary values, provide them in the `base64` encoding.
+         You can provide one or more `keys` [keys](../../kms/concepts/key.md) at a time. If your secret will contain several values, list them separated by commas. If the keys will contain binary values, provide these in `base64` encoding.
 
          > For instance, to save the `username` key with the `myusername` text value and the `avatar` key with a binary value loaded from the `avatar.jpg` file, you can specify:
          >
@@ -129,13 +135,12 @@ To create a [secret](../../lockbox/concepts/secret.md):
       Where:
       * `name`: Secret name. This is a required parameter.
       * `description`: Secret description. This is an optional parameter.
-      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret. This is an optional parameter.
+      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional parameter.
       * `kms_key_id`: ID of the [{{ kms-name }} encryption key](../../kms/concepts/key.md). The specified {{ kms-name }} key is used to encrypt your secret. If you do not specify a {{ kms-name }} key, a special system key will be used to encrypt the secret. This is an optional parameter.
       * `deletion_protection`: Deletion protection flag. To enable protection, set `true`. To disable protection, set `false`. The default value is `false`. This is an optional parameter.
       * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional parameter.
 
       For more information about the parameters of the `yandex_lockbox_secret` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}Resources/lockbox_secret).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -148,6 +153,6 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
 - API {#api}
 
-   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create) gRPC API call.
+   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
 {% endlist %}

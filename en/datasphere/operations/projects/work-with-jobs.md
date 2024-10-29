@@ -1,6 +1,6 @@
 ---
-title: "How to run jobs in {{ ml-platform-name }} Jobs"
-description: "Follow this guide to remotely run Python and bash scripts and executable binary files to run on a {{ ml-platform-name }} VM."
+title: How to run jobs in {{ ml-platform-name }} Jobs
+description: Follow this guide to remotely run Python and bash scripts and executable binary files on a {{ ml-platform-name }} VM.
 ---
 
 # Running jobs in {{ ml-platform-name }} Jobs
@@ -21,9 +21,9 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 1. Install the `datasphere` library:
 
-   ```bash
-   pip install datasphere
-   ```
+    ```bash
+    pip install datasphere
+    ```
 
 1. Prepare a script or an executable binary file.
 
@@ -31,40 +31,40 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 1. Configure the job settings. In the `config.yaml` file, specify the resources for running your job and its runtime configuration:
 
-   ```yaml
-   name: <job_name>
-   desc: <job_description>
-   cmd: >
-       python <executable_file> --data ${DATA} --result ${OUTPUT}
-   env:
-     python: auto
-   inputs:
-     - <input_data>: DATA
-   outputs:
-     - <results>: OUTPUT
-   cloud-instance-types:
-     - <computing_resource_configuration>
-     - <computing_resource_configuration>
-     - <computing_resource_configuration>
-   ```
+    ```yaml
+    name: <job_name>
+    desc: <job_description>
+    cmd: >
+        python3 <executable_file> --data ${DATA} --result ${OUTPUT}
+    env:
+      python: auto
+    inputs:
+      - <input_data>: DATA
+    outputs:
+      - <results>: OUTPUT
+    cloud-instance-types:
+      - <computing_resource_configuration>
+      - <computing_resource_configuration>
+      - <computing_resource_configuration>
+    ```
 
-   Where:
+    Where:
 
-   * `name`: Job name.
-   * `desc`: Job description.
-   * `cmd`: Script file and variables for inputs and outputs.
-   * `env`: Environment parameters. The `python: auto` value indicates that the code and `PIP` dependencies should be provided to {{ ml-platform-name }}.
-   * `inputs`: File with input data. You can change the `DATA` variable name.
-   * `outputs`: File with results. You can change the `OUTPUT` variable name.
-   * `cloud-instance-types`: List of valid [computing resource configurations](../../concepts/configurations.md) to run the job, sorted by priority.
+    * `name`: Job name.
+    * `desc`: Job description.
+    * `cmd`: Script file and variables for inputs and outputs.
+    * `env`: Environment parameters. The `python: auto` value indicates that the code and `pip` dependencies should be provided to {{ ml-platform-name }}.
+    * `inputs`: File with input data. You can change the `DATA` variable name.
+    * `outputs`: File with results. You can change the `OUTPUT` variable name.
+    * `cloud-instance-types`: List of valid [computing resource configurations](../../concepts/configurations.md) to run the job, sorted by priority.
 
-   For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is better to use the new one.
+    For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is better to use the new one.
 
 1. Open the command-line shell in the directory with the files you prepared and run your job:
 
-   ```bash
-   datasphere project job execute -p <project_ID> -c config.yaml
-   ```
+    ```bash
+    datasphere project job execute -p <project_ID> -c config.yaml
+    ```
 
 You can track the job execution progress on the project page in the {{ ml-platform-name }} interface.
 
@@ -80,113 +80,113 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
 
 1. Install the `tensorflow` library:
 
-   ```bash
-   pip install tensorflow==2.12.0
-   ```
+    ```bash
+    pip install tensorflow==2.12.0
+    ```
 
 1. Prepare a script in a file named `example.py`:
 
-   ```python
-   import argparse
-   import json
-   import os
-   import shutil
-   import tensorflow as tf
+    ```python
+    import argparse
+    import json
+    import os
+    import shutil
+    import tensorflow as tf
 
-   parser = argparse.ArgumentParser(prog='example')
-   parser.add_argument('-i', '--input', required=True, help='Input file')
-   parser.add_argument('-m', '--model', required=True, help='Output file')
+    parser = argparse.ArgumentParser(prog='example')
+    parser.add_argument('-i', '--input', required=True, help='Input file')
+    parser.add_argument('-m', '--model', required=True, help='Output file')
 
-   def make_archive(source, destination):
-       base = os.path.basename(destination)
-       name = base.split(".")[0]
-       fmt = base.split(".")[1]
-       shutil.make_archive(name, fmt, source)
+    def make_archive(source, destination):
+        base = os.path.basename(destination)
+        name = base.split(".")[0]
+        fmt = base.split(".")[1]
+        shutil.make_archive(name, fmt, source)
 
-   def main(epoch_count, model_file):
-       print("TensorFlow version: ", tf.__version__)
-       print("")
-       print(os.system("nvidia-smi"))
-       print("")
+    def main(epoch_count, model_file):
+        print("TensorFlow version: ", tf.__version__)
+        print("")
+        print(os.system("nvidia-smi"))
+        print("")
 
-       print("Load MNIST dataset...")
-       mnist = tf.keras.datasets.mnist
-       (x_train, y_train), (x_test, y_test) = mnist.load_data()
-       x_train, x_test = x_train / 255.0, x_test / 255.0
+        print("Load MNIST dataset...")
+        mnist = tf.keras.datasets.mnist
+        (x_train, y_train), (x_test, y_test) = mnist.load_data()
+        x_train, x_test = x_train / 255.0, x_test / 255.0
 
-       print("Build Sequential model...")
-       model = tf.keras.models.Sequential([
-         tf.keras.layers.Flatten(input_shape=(28, 28)),
-         tf.keras.layers.Dense(128, activation="relu"),
-         tf.keras.layers.Dropout(0.2),
-         tf.keras.layers.Dense(10)
-       ])
+        print("Build Sequential model...")
+        model = tf.keras.models.Sequential([
+          tf.keras.layers.Flatten(input_shape=(28, 28)),
+          tf.keras.layers.Dense(128, activation="relu"),
+          tf.keras.layers.Dropout(0.2),
+          tf.keras.layers.Dense(10)
+        ])
 
-       #predictions = model(x_train[:1]).numpy()
-       #tf.nn.softmax(predictions).numpy()
+        #predictions = model(x_train[:1]).numpy()
+        #tf.nn.softmax(predictions).numpy()
 
-       loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-       #loss_fn(y_train[:1], predictions).numpy()
+        loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+        #loss_fn(y_train[:1], predictions).numpy()
 
-       print("Compile model...")
-       model.compile(optimizer="adam", loss=loss_fn, metrics=["accuracy"])
+        print("Compile model...")
+        model.compile(optimizer="adam", loss=loss_fn, metrics=["accuracy"])
 
-       print("Fit...")
-       model.fit(x_train, y_train, epochs=epoch_count)
+        print("Fit...")
+        model.fit(x_train, y_train, epochs=epoch_count)
 
-       print("Evaluate...")
-       model.evaluate(x_test,  y_test, verbose=2)
+        print("Evaluate...")
+        model.evaluate(x_test,  y_test, verbose=2)
 
-       print(f"Save model to '{model_file}'")
-       tf.keras.models.save_model(model, "model", save_format="tf")
-       make_archive("model", model_file)
+        print(f"Save model to '{model_file}'")
+        tf.keras.models.save_model(model, "model", save_format="tf")
+        make_archive("model", model_file)
 
-       print("Done")
+        print("Done")
 
 
-   if __name__ == "__main__":
-       args = parser.parse_args()
+    if __name__ == "__main__":
+        args = parser.parse_args()
 
-       epoch_count = 5
+        epoch_count = 5
 
-       with open(args.input) as f:
-           data = json.load(f)
-           epoch_count = int(data["epoch_count"])
+        with open(args.input) as f:
+            data = json.load(f)
+            epoch_count = int(data["epoch_count"])
 
-       main(epoch_count, args.model)
-   ```
+        main(epoch_count, args.model)
+    ```
 
-1. Prepare a file named `input.json` with input data:
+1. Prepare the `input.json` file with input data:
 
-   ```python
-   {
-       "epoch_count" : 3
-   }
-   ```
+    ```python
+    {
+        "epoch_count" : 3
+    }
+    ```
 
-1. Create a file named `config.yaml` with a job configuration:
+1. Create the `config.yaml` file with job parameters:
 
-   ```yaml
-   name: simple-tf-script
-   desc: Simple TF script
-   cmd: python example.py --input ${INPUT} --model ${MODEL}
-   env:
-     python: auto
-   inputs:
-     - input.json: INPUT
-   outputs:
-     - model.zip: MODEL
-   cloud-instance-types:
-     - g1.1
-   ```
+    ```yaml
+    name: simple-tf-script
+    desc: Simple TF script
+    cmd: python3 example.py --input ${INPUT} --model ${MODEL}
+    env:
+      python: auto
+    inputs:
+      - input.json: INPUT
+    outputs:
+      - model.zip: MODEL
+    cloud-instance-types:
+      - g1.1
+    ```
 
 1. Run the job:
 
-   ```bash
-   datasphere project job execute -p <project_ID> -c config.yaml
-   ```
+    ```bash
+    datasphere project job execute -p <project_ID> -c config.yaml
+    ```
 
-The model is saved to the `model.zip` archive in the job directory.
+The model will be saved to the `model.zip` archive in the job folder.
 
 #### See also {#see-also}
 

@@ -142,7 +142,7 @@ Runner - это программа, которая осуществляет пр
 1. Загрузите runner:
 
    ```bash
-   curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+   curl --location --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
    ```
 
 1. Сделайте runner исполняемым:

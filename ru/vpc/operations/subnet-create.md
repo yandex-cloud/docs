@@ -196,7 +196,7 @@
 
 - API {#api}
 
-  Чтобы создать подсеть, воспользуйтесь методом REST API [create](../api-ref/Subnet/create.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) и передайте в запросе:
+  Чтобы создать подсеть, воспользуйтесь методом REST API [create](../api-ref/Subnet/create.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../api-ref/grpc/Subnet/create.md) и передайте в запросе:
 
     * Идентификатор каталога, в котором будет размещена подсеть, в параметре `folderId`.
     * Идентификатор сети, в которой будет размещена подсеть, в параметре `networkId`.

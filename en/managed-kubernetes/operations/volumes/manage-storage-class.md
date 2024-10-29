@@ -42,7 +42,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
    Learn more about the [storage class creation specification format](#sc-spec).
 
-   
+
    ```yaml
    kind: StorageClass
    apiVersion: storage.k8s.io/v1
@@ -61,7 +61,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 1. Run this command:
 
-   
+
    ```bash
    kubectl create -f my-sc-hdd.yaml
    ```
@@ -70,7 +70,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
    Result:
 
-   
+
    ```text
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
@@ -85,7 +85,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
    Result:
 
-   
+
    ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s

@@ -41,6 +41,9 @@
 
             * `os_admin_password` — пароль пользователя-администратора {{ mos-name }}.
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+            * `profile_name` — имя вашего профиля в YC CLI.
+
+              {% include [cli-install](../../../_includes/cli-install.md) %}
 
         1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -93,7 +96,8 @@
          --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people' && \
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -108,7 +112,8 @@
     ```bash
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name": "Alice",
                "age": "30"
@@ -116,7 +121,8 @@
          ' && \
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name": "Robert",
                "age": "32"
@@ -157,7 +163,7 @@
     - Вручную {#manual}
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+        1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate).
 
     - {{ TF }} {#tf}
 
@@ -179,36 +185,37 @@
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+            Трансфер активируется автоматически после создания.
 
     {% endlist %}
 
 ## Проверьте работу трансфера {#verify-transfer}
 
-Проверьте, что индекс `people` кластера {{ mos-name }} содержит отправленные данные:
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+2. Проверьте, что индекс `people` кластера {{ mos-name }} содержит отправленные данные:
 
-{% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-- Bash {#bash}
+    - Bash {#bash}
 
-    Выполните команду:
+      Выполните команду:
 
-    ```bash
-    curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
-         --cacert ~/.opensearch/root.crt \
-         --header 'Content-Type: application/json' \
-         --request GET 'https://<FQDN_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_search?pretty'
-    ```
+      ```bash
+      curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
+           --cacert ~/.opensearch/root.crt \
+           --header 'Content-Type: application/json' \
+           --request GET 'https://<FQDN_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_search?pretty'
+      ```
 
-- {{ OS }} Dashboards {#opensearch}
+    - {{ OS }} Dashboards {#opensearch}
 
-    1. [Подключитесь](../../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
-    1. Выберите общий тенант `Global`.
-    1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
-    1. В разделе **OpenSearch Dashboards** выберите **Discover**.
-    1. В поле **CHANGE INDEX PATTERN** выберите индекс `people`.
+      1. [Подключитесь](../../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+      1. Выберите общий тенант `Global`.
+      1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
+      1. В разделе **OpenSearch Dashboards** выберите **Discover**.
+      1. В поле **CHANGE INDEX PATTERN** выберите индекс `people`.
 
-{% endlist %}
+    {% endlist %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

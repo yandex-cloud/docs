@@ -1,7 +1,9 @@
 # Метод getBucketLogging
 
 
-Возвращает настройки [логирования действий с бакетом](../../../concepts/server-logs.md). 
+Возвращает настройки [логирования действий с бакетом](../../../concepts/server-logs.md).
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

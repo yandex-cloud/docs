@@ -1,6 +1,6 @@
 # Creating an external table from a {{ objstorage-full-name }} bucket table using a configuration file
 
-To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol](https://greenplum.docs.pivotal.io/6-20/admin_guide/external/g-s3-protocol.html) and a configuration file stored on the HTTP server.
+To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
 
 To create an external table using a configuration file:
 
@@ -19,11 +19,11 @@ Prepare the infrastructure:
 
    1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
 
-   
+
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-   
+
    1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ mgp-name }} cluster.
 
 
@@ -33,7 +33,7 @@ Prepare the infrastructure:
       10.2010
       ```
 
-   
+
    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
 
 
@@ -95,7 +95,7 @@ Prepare the infrastructure:
 
       The command saves the static key ID and the static key you will need later to a file called `static-key.txt`.
 
-   
+
    1. Go to the [management console]({{ link-console-main }}) and [set up an NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet hosting your cluster.
 
 
@@ -207,12 +207,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   
+
    1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, [delete it](../../../vpc/operations/address-delete.md).
    1. [Delete the bucket in {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
    1. [Delete the {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
    1. [Delete the service account](../../../iam/operations/sa/delete.md).
+   1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
+   1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
    1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
 
 

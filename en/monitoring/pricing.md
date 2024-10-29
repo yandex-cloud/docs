@@ -1,10 +1,14 @@
 ---
-title: "{{ monitoring-full-name }} pricing policy"
-description: "This article describes the {{ monitoring-name }} pricing policy."
+title: '{{ monitoring-full-name }} pricing policy'
+description: This article describes the {{ monitoring-name }} pricing policy.
 editable: false
 ---
 
-# {{ monitoring-full-name }} pricing
+# {{ monitoring-full-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
@@ -18,21 +22,22 @@ Pricing features:
 * There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
 * There is no charge for incoming and outgoing traffic in {{ monitoring-short-name }}.
 
-
 ### Cost calculation example {#example}
 
-The cost of using {{ monitoring-short-name }} for 30 days if writing 20 metrics at **1 value per minute** via the {{ monitoring-short-name }} API:
 
 
 
-{% include [usd-example](../_pricing/monitoring/usd-example.md) %}
 
+
+{% include [usd-example](../_pricing_examples/monitoring/usd-example.md) %}
 
 
 
 ## Prices for the Russia region {#prices}
 
 
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### {{ monitoring-short-name }} API {#monitoring-api}

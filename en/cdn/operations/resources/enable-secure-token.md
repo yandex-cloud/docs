@@ -1,6 +1,6 @@
 ---
-title: "Setting up access via a secure token"
-description: "Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using secure tokens."
+title: Setting up access via a secure token
+description: Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using secure tokens.
 ---
 
 # Setting up access via a secure token
@@ -138,7 +138,7 @@ To enable access via a secure token:
 
    - API {#api}
 
-      Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+      Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
 
    {% endlist %}
 
@@ -203,7 +203,7 @@ To disable access to a CDN resource via a secure token:
 
 - API {#api}
 
-   Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -30,7 +30,7 @@
 
         Где:
         * `--role` — назначаемая роль.
-        * `--id` — идентификатор организации, со всех ресурсов которой будут собираться аудитные логи.
+        * `--id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, со всех ресурсов которой будут собираться аудитные логи.
         * `--service-account-id` — идентификатор сервисного аккаунта.
 
       * `logging.writer` на каталог, в котором будет находиться трейл:
@@ -167,7 +167,7 @@
 
       {% endcut %}
 
-  1. Чтобы создать трейл для сбора аудитных логов уровня уровня конфигурации и [уровня сервисов](../concepts/format-data-plane.md), используйте файл с YAML-спецификацией трейла.
+  1. Чтобы создать трейл для сбора аудитных логов уровня конфигурации и [уровня сервисов](../concepts/format-data-plane.md), используйте файл с YAML-спецификацией трейла.
 
       1. Создайте файл конфигурации трейла, например `specification.yaml`:
 
@@ -353,12 +353,13 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/trail_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
 Трейл создастся и начнет загружать аудитные логи в лог-группу. 
 
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
 
 ## Что дальше {#whats-next} 
 

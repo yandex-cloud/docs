@@ -1,6 +1,6 @@
 ---
-title: "Как удалить HTTP-роутер"
-description: "Следуя данной инструкции, вы сможете удалить HTTP-роутер."
+title: Как удалить HTTP-роутер
+description: Следуя данной инструкции, вы сможете удалить HTTP-роутер.
 ---
 
 # Удалить HTTP-роутер
@@ -122,6 +122,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/http_router_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/HttpRouter/delete.md).
 
 {% endlist %}

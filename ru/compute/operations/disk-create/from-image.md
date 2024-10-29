@@ -25,7 +25,7 @@
   1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), а также [размер блока](../../concepts/disk.md#maximum-disk-size) и [размер диска](../../concepts/disk.md#maximum-disk-size).
   1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже отметьте нужный образ. Для поиска образа воспользуйтесь фильтром.
 
-  
+
   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 
@@ -89,7 +89,7 @@
       ```
 
       Результат:
-      ```yaml
+      ```text
       - id: fhm4aq4hvq5g********
           folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:43:06Z"
@@ -117,8 +117,8 @@
 
 - API {#api}
 
-  1. Получите список образов с помощью вызова gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List) или метода [list](../../api-ref/Image/list.md) ресурса `Image` REST API.
-  1. Создайте диск с помощью вызова gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор образа.
+  1. Получите список образов с помощью вызова gRPC API [ImageService/List](../../api-ref/grpc/Image/list.md) или метода [list](../../api-ref/Image/list.md) ресурса `Image` REST API.
+  1. Создайте диск с помощью вызова gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md) или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор образа.
 
 {% endlist %}
 

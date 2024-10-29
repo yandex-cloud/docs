@@ -1,10 +1,12 @@
-The `auditor` role grants permission to read service configurations and metadata with no access to data.
+The `auditor` role grants a permission to read configuration and metadata of any Yandex Cloud resources without any access to data.
 
-For example, the `auditor` role allows you to perform the following operations:
-* View information about a resource.
-* View resource metadata.
-* View a list of operations with a resource.
+For instance, users with this role can:
+* View info on a [resource](../../resource-manager/concepts/resources-hierarchy.md).
+* View the resource metadata.
+* View the list of operations with a resource.
 
-The `auditor` role is currently not supported in the following services:
-* Yandex Data Streams.
-* Yandex Query.
+`auditor` is the most secure role that does not grant any access to the [service](../../overview/concepts/services.md) data. This role suits the users who need minimum access to the Yandex Cloud resources.
+
+Currently, the `auditor` role is available for all Yandex Cloud services, except for:
+* Yandex Data Streams
+* Yandex Query

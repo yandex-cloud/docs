@@ -1,10 +1,5 @@
 title: Yandex Monitoring
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -42,7 +37,7 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting dashboards
+          - name: Deleting a dashboard
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
@@ -50,7 +45,7 @@ items:
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating notification channels
+          - name: Creating a notification channel
             href: operations/alert/create-channel.md
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
@@ -82,7 +77,7 @@ items:
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -94,7 +89,7 @@ items:
             href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
-          - name: Dashboards
+          - name: Dashboard
             href: concepts/visualization/dashboard.md
       - name: Query language
         href: concepts/querying.md
@@ -114,6 +109,14 @@ items:
         href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Automatically scaling an instance group to process messages from a
+          queue
+        href: tutorials/autoscale-monitoring.md
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -188,26 +191,42 @@ items:
     items:
       - name: All metric references
         href: metrics-ref/index.md
+      - name: '{{ api-gw-name }}'
+        href: metrics-ref/api-gateway-ref.md
       - name: '{{ alb-name }}'
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'
         href: metrics-ref/at-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
+      - name: '{{ backup-name }}'
+        href: metrics-ref/backup-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
+      - name: '{{ sf-name }}'
+        href: metrics-ref/functions-ref.md
+      - name: '{{ cloud-logging-name }}'
+        href: metrics-ref/logging-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
+      - name: '{{ container-registry-name }}'
+        href: metrics-ref/container-registry-ref.md
       - name: '{{ dataproc-name }}'
         href: metrics-ref/data-proc-ref.md
       - name: '{{ data-transfer-name }}'
         href: metrics-ref/data-transfer-ref.md
+      - name: '{{ dns-name }}'
+        href: metrics-ref/dns-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
+      - name: '{{ iot-name }}'
+        href: metrics-ref/iot-core-ref.md
       - name: '{{ kms-name }}'
         href: metrics-ref/kms-ref.md
       - name: '{{ lockbox-name }}'
         href: metrics-ref/lockbox-ref.md
+      - name: '{{ maf-name }}'
+        href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
       - name: '{{ mch-name }}'
@@ -232,6 +251,8 @@ items:
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name }}'
         href: metrics-ref/monitoring-ref.md
+      - name: '{{ network-load-balancer-name }}'
+        href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
       - name: '{{ captcha-name }}'
@@ -257,3 +278,4 @@ items:
       - name: All questions on one page
         href: qa/all.md
 base: en/monitoring
+deepBase: 2

@@ -2,9 +2,11 @@
 
 Проверяет возможность [CORS-запроса](../../../concepts/cors.md) к объекту.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 OPTIONS /{bucket}/{key} HTTP/2
 ```
 

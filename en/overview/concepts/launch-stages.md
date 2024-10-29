@@ -1,6 +1,6 @@
 ---
-title: "Release stages"
-description: "{{ yandex-cloud }} services feature a few release stages. Preview: Services at this stage may be handy for developers who are willing to use them while developing their applications or in a test environment. Such services can be used free of charge. No SLA applies. General Availability: Public versions of services are available to all users and can be fully used in production environments. Service usage is charged and covered by the SLA."
+title: Release stages
+description: '{{ yandex-cloud }} services feature a few release stages. Preview: Services at this stage may be handy for developers who are willing to use them while developing their applications or in a test environment. Such services can be used free of charge. No SLA applies. General Availability: Public versions of services are available to all users and can be fully used in production environments. Service usage is charged and covered by the SLA.'
 ---
 
 # Release stages

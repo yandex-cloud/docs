@@ -29,7 +29,7 @@ Follow the guide below to check if the drivers are installed; if they are not, a
 
    {% cut "How do I find out?" %}
 
-   Run the following command:
+   Run this command:
 
    ```sh
    grep -E -i "VIRTIO_(BLK|NET|PCI|FS)" /boot/config-$(uname -r)
@@ -43,7 +43,7 @@ Follow the guide below to check if the drivers are installed; if they are not, a
 
    {% cut "How to check if drivers are included in a kernel" %}
 
-   Run the following command:
+   Run this command:
 
    ```sh
    grep -E "virtio(_blk|_net|_pci|fs)" /lib/modules/"$(uname -r)"/modules.builtin
@@ -187,7 +187,7 @@ If working with a VM requires a [GPU](../../concepts/gpus.md), [install NVIDIA d
 
 ## Create an image file {#create-image-file}
 
-The supported formats include `Qcow2`, `VMDK`, `RAW`, and `VHD`.
+{% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
 We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 

@@ -1,7 +1,6 @@
 # How to connect your own domain to a bucket
 
 
-
 ## Scenario description {#case-description}
 
 You need to connect a custom domain to the bucket.

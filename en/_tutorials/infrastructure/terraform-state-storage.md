@@ -26,16 +26,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-{% note alert %}
+The cost of infrastructure support for uploading {{ TF }} states to {{ objstorage-full-name }} includes data storage fees (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 
-All resources created using {{ TF }} are chargeable. Make sure to check the configuration prior to creating any resources.
-
-{% endnote %}
-
-In this use case, you will create three VMs with [public IP addresses](../../vpc/concepts/address.md#public-addresses), a virtual [network](../../vpc/concepts/network.md#network), and two subnets.
-
-The cost of supporting this infrastructure includes:
-* Data storage fees (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+Follow this guide to create three [VMs](../../compute/concepts/vm.md) with [public IP addresses](../../vpc/concepts/address.md#public-addresses), a virtual [network](../../vpc/concepts/network.md#network), and two [subnets](../../vpc/concepts/network.md#subnet) representing an example of an infrastructure deployed through {{ TF }}. The cost of supporting this infrastructure includes:
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 

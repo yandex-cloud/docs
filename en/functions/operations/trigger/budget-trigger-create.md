@@ -16,7 +16,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -40,7 +40,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -99,7 +99,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 - API {#api}
 
-   To create a trigger for budgets, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for budgets, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -109,5 +109,6 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 ## See also {#see-also}
 
-* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/budget-trigger-create.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

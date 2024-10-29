@@ -1,11 +1,11 @@
 ---
-title: "Creating secondary indexes in {{ ydb-short-name }} row-based tables"
-description: "This tutorial describes properties of the `yandex_ydb_table_index` resource for creating secondary indexes in {{ ydb-short-name }} row-based tables."
+title: Creating secondary indexes in {{ ydb-short-name }} row-based tables
+description: This tutorial describes properties of the `yandex_ydb_table_index` resource for creating secondary indexes in {{ ydb-short-name }} row-based tables.
 ---
 
 # Creating secondary indexes in row-based tables
 
-To work with a [table index](https://ydb.tech/docs/ru/concepts/secondary_indexes), use the `yandex_ydb_table_index` resource.
+To work with a [table index]({{ ydb.docs }}/concepts/secondary_indexes), use the `yandex_ydb_table_index` resource.
 
 {% note info %}
 
@@ -36,6 +36,6 @@ The following fields are supported:
 |`connection_string`|`string`|Database connection string. It is specified if `table_id` is not set.|
 |`table_id`|`string`|{{ TF }} ID of the table. It is specified if `table_path` or `connection_string` is not set.|
 |`name`|`string`<br>`required`|Index name|
-|`type`|`string`<br>`required`|Index type [global_sync / global_async](https://ydb.tech/docs/ru/yql/reference/syntax/create_table#secondary_index)|
+|`type`|`string`<br>`required`|Index type [global_sync / global_async]({{ ydb.docs }}/yql/reference/syntax/create_table#secondary_index)|
 |`columns`|`list(string)`<br>`required`|Ordered list of index column names|
 |`cover`|`list(string)`<br>`required`|List of additional columns for the covering index|

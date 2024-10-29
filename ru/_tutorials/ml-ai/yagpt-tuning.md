@@ -52,7 +52,8 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `ai-user`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -112,7 +113,7 @@
     ```python
     import requests
     req = {
-            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -125,8 +126,7 @@
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
-            "x-folder-id": "<идентификатор_каталога>", }
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -134,18 +134,17 @@
 
     Где:
 
-    * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
+    * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), у которого есть доступ к сервису {{ yagpt-name }}.
     * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
     * `maxTokens` — максимальное число токенов в ответе модели.
     * `<IAM-токен>` — значение [IAM-токена сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
-    * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
 
     Если вы использовали инструкцию для дообучения, укажите ее текст в сообщении с ролью `system`:
 
     ```python
     import requests
     req = {
-            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -162,8 +161,7 @@
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
-                       "x-folder-id": "<идентификатор_каталога>", }
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -179,7 +177,7 @@
     
        ```json
         {
-        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,
@@ -196,7 +194,7 @@
 
        Где:
 
-       * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
+       * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), у которого есть доступ к сервису {{ yagpt-name }}.
        * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
        * `maxTokens` — максимальное число токенов в ответе модели.
        * `text` — текст запроса.
@@ -205,7 +203,7 @@
 
        ```json
         {
-        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "modelUri": "ds://<идентификатор_каталога>/<идентификатор_дообученной_модели>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,
@@ -228,10 +226,10 @@
    
        ```bash
        curl --request POST
-           -H "Content-Type: application/json"
-           -H "Authorization: Bearer <IAM-токен>"
-           -H "x-folder-id: <идентификатор_каталога>"
-           -d prompt.json
+           --header "Content-Type: application/json"
+           --header "Authorization: Bearer <IAM-токен>"
+           --header "x-folder-id: <идентификатор_каталога>"
+           --data prompt.json
            https://llm.{{ api-host }}/foundationModels/v1/completion
        ```
         

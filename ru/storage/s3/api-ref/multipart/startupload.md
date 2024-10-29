@@ -4,10 +4,11 @@
 
 Если вместе с объектом необходимо хранить пользовательские метаданные, то передавать их следует в этом запросе.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 POST /{bucket}/{key}?uploads HTTP/2
 ```
 
@@ -59,7 +60,7 @@ POST /{bucket}/{key}?uploads HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <InitiateMultipartUploadResult>
   <Bucket>bucket-name</Bucket>
   <Key>object-key</Key>

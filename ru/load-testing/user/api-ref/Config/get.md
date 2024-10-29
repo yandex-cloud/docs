@@ -3,26 +3,32 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/get.md
 ---
 
-# Load Testing API, REST: Config.get
+# Load Testing API, REST: Config.Get {#Get}
+
 Returns the specified config.
- 
-To get the list of all available configs, make a [list](/docs/load-testing/user/api-ref/Config/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of all available configs, make a [List](/docs/load-testing/user/api-ref/Config/list#List) request.
+
+## HTTP request
+
 ```
 GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs/{configId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-configId | <p>ID of the config to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| configId | **string**
+
+Required field. ID of the config to return. ||
+|#
+
+## Response {#yandex.cloud.loadtesting.api.v1.config.Config}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "folderId": "string",
@@ -32,13 +38,34 @@ configId | <p>ID of the config to return.</p>
   "createdBy": "string"
 }
 ```
+
 Test config.
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the test config. Generated at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the config belongs to.</p> 
-yamlString | **string**<br><p>Config content in YAML format.</p> 
-name | **string**<br><p>Name of the config.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>UA or SA that created the config.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the test config. Generated at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the config belongs to. ||
+|| yamlString | **string**
+
+Config content in YAML format. ||
+|| name | **string**
+
+Name of the config. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+UA or SA that created the config. ||
+|#

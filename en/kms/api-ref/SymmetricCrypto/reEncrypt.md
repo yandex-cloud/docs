@@ -3,25 +3,28 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 
-# Key Management Service API, REST: SymmetricCrypto.reEncrypt
-Re-encrypts a ciphertext with the specified KMS key.
- 
+# Key Management Service API, REST: SymmetricCrypto.ReEncrypt {#ReEncrypt}
 
- 
-## HTTP request {#https-request}
+Re-encrypts a ciphertext with the specified KMS key.
+
+## HTTP request
+
 ```
 POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-keyId | <p>Required. ID of the new key to be used for encryption.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+Required field. ID of the new key to be used for encryption. ||
+|#
+
+## Body parameters {#yandex.cloud.kms.v1.SymmetricReEncryptRequest}
+
+```json
 {
   "versionId": "string",
   "aadContext": "string",
@@ -31,19 +34,34 @@ keyId | <p>Required. ID of the new key to be used for encryption.</p> <p>The max
 }
 ```
 
- 
-Field | Description
---- | ---
-versionId | **string**<br><p>ID of the version of the new key to be used for encryption. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
-aadContext | **string** (byte)<br><p>Additional authenticated data to be required for decryption. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
-sourceKeyId | **string**<br><p>Required. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.</p> <p>The maximum string length in characters is 50.</p> 
-sourceAadContext | **string** (byte)<br><p>Additional authenticated data provided with the initial encryption request. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
-ciphertext | **string** (byte)<br><p>Required. Ciphertext to re-encrypt. Should be encoded with base64.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| versionId | **string**
+
+ID of the version of the new key to be used for encryption.
+Defaults to the primary version if not specified. ||
+|| aadContext | **string** (bytes)
+
+Additional authenticated data to be required for decryption.
+Should be encoded with base64. ||
+|| sourceKeyId | **string**
+
+Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key. ||
+|| sourceAadContext | **string** (bytes)
+
+Additional authenticated data provided with the initial encryption request.
+Should be encoded with base64. ||
+|| ciphertext | **string** (bytes)
+
+Required field. Ciphertext to re-encrypt.
+Should be encoded with base64. ||
+|#
+
+## Response {#yandex.cloud.kms.v1.SymmetricReEncryptResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "keyId": "string",
   "versionId": "string",
@@ -53,11 +71,21 @@ ciphertext | **string** (byte)<br><p>Required. Ciphertext to re-encrypt. Should 
 }
 ```
 
- 
-Field | Description
---- | ---
-keyId | **string**<br><p>ID of the key that the ciphertext is encrypted with now.</p> 
-versionId | **string**<br><p>ID of key version that was used for encryption.</p> 
-sourceKeyId | **string**<br><p>ID of the key that the ciphertext was encrypted with previously.</p> 
-sourceVersionId | **string**<br><p>ID of the key version that was used to decrypt the re-encrypted ciphertext.</p> 
-ciphertext | **string** (byte)<br><p>Resulting re-encrypted ciphertext.</p> 
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of the key that the ciphertext is encrypted with now. ||
+|| versionId | **string**
+
+ID of key version that was used for encryption. ||
+|| sourceKeyId | **string**
+
+ID of the key that the ciphertext was encrypted with previously. ||
+|| sourceVersionId | **string**
+
+ID of the key version that was used to decrypt the re-encrypted ciphertext. ||
+|| ciphertext | **string** (bytes)
+
+Resulting re-encrypted ciphertext. ||
+|#

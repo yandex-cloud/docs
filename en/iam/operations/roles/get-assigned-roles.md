@@ -1,6 +1,6 @@
 ---
-title: "How to view roles assigned to an account in {{ iam-full-name }}"
-description: "Use this guide to view roles assigned to an account."
+title: How to view roles assigned to an account in {{ iam-full-name }}
+description: Use this guide to view roles assigned to an account.
 ---
 
 # Viewing assigned roles
@@ -21,17 +21,15 @@ To view assigned roles:
 
 - Management console {#console}
 
-   In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
-
-   To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
+   To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md) for a cloud:
 
    {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
-   For the [service account](../../concepts/users/service-accounts.md), in the management console you can only view the roles for the folder where the service account was created (to view roles for other resources, use the CLI or API):
+   To view the roles of a [service account](../../concepts/users/service-accounts.md) for a folder and its child resources:
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. The service account's roles for the current folder are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
+   1. The service account's roles are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
 
 - CLI {#cli}
 
@@ -43,7 +41,7 @@ To view assigned roles:
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
-      In the server response, find all the rows where the subject contains the account ID and the `allUsers` and `allAuthenticatedUsers` [system groups](../../concepts/access-control/system-group.md) as subjects.
+      In the server response, find all the rows where the subject contains the account ID, as well as those where the subject is the `All users` or `All authenticated users` [public groups](../../concepts/access-control/public-group.md).
    1. Repeat the previous two steps for all the parent resources.
 
 - API {#api}
@@ -54,7 +52,7 @@ To view assigned roles:
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 
-      In the server response, find all the rows where the subject contains the account ID and the `allUsers` and `allAuthenticatedUsers` [system groups](../../concepts/access-control/system-group.md) as subjects.
+      In the server response, find all the rows where the subject contains the account ID, as well as those where the subject is the `All users` or `All authenticated users` [public groups](../../concepts/access-control/public-group.md).
    1. Repeat the previous two steps for all the parent resources.
 
 {% endlist %}

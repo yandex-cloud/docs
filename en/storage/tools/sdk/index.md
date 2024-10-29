@@ -1,6 +1,6 @@
 ---
-title: "Development tools"
-description: "In this tutorial, you will learn which SDKs you can use to access the S3 API in {{ objstorage-name }}."
+title: Development tools
+description: In this tutorial, you will learn which SDKs you can use to access the S3 API in {{ objstorage-name }}.
 ---
 
 # Development tools
@@ -15,4 +15,4 @@ description: "In this tutorial, you will learn which SDKs you can use to access 
 * [AWS SDK for PHP](../aws-sdk-php.md)
 * [AWS SDK for Go](../aws-sdk-go.md)
 
-For a full list of SDKs for accessing the S3 API, refer to the [AWS website](https://aws.amazon.com/developer/tools/).
+{% include [all-aws-sdks](../../../_includes/storage/all-aws-sdks.md) %}

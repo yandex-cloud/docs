@@ -1,7 +1,7 @@
-# Analyzing a retail chain's sales performance based on a {{ CH }} database
+# Retail chain's dashboard based on a {{ CH }} DB
 
 
-We will use a demo {{ CH }} database with sales data from a Moscow store chain as our data source.
+We will use a Moscow retail chain's demo {{ CH }} sales database as our data source.
 
 
 In this example, {{ datalens-short-name }} is used to visualize:
@@ -138,7 +138,7 @@ To visualize sales dynamics by month, create a line [chart](../../datalens/conce
    ![image](../../_assets/datalens/solution-02/19-choose-line-chart.png)
 
 1. Add the sales date to the chart. Drag the **OrderDate** field from the **Dimensions** section to the **X** section.
-1. Add a sales measure to the chart. To do this, drag the **Sales** field from the **Measures** section to the **Y** section.
+1. Add a sales measure to the chart. To do this, drag the **Sales** field from **Measures** to the **Y** section.
 1. Add the delivery type to the chart. To do this, drag the **PaymentType** field from the **Dimensions** to the **Colors** section.
 
    ![image](../../_assets/datalens/solution-02/20-line-diagram1.png)
@@ -168,7 +168,7 @@ To visualize sales by brand and product category, create a column [chart](../../
 
    1. In the window that opens, enter the **Sales by brand and category** name for the new chart and click **Save**.
 
-1. For the visualization type, choose **Bar chart**.
+1. Select the **Bar chart** visualization type.
 
    ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 

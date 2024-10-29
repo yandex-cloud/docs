@@ -1,10 +1,14 @@
 ---
-title: "{{ alb-full-name }} pricing policy"
-description: "This article describes the {{ alb-name }} pricing policy."
+title: '{{ alb-full-name }} pricing policy'
+description: This article describes the {{ alb-name }} pricing policy.
 editable: false
 ---
 
-# {{ alb-full-name }} pricing
+# {{ alb-full-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
@@ -16,8 +20,7 @@ The amount of resources used is defined as the number of [resource units](concep
 
 You can set a limit on the number of load balancer resource units in its [autoscaling settings](concepts/application-load-balancer.md#lcu-scaling-settings). The default minimum number of units per availability zone is 2, while the total number of units across all zones is not limited. You cannot set a minimum value below 2.
 
-The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, the estimated cost is displayed in the [management console]({{ link-console-main }}) on the right.
-
+The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, the cost calculation is displayed in the [management console]({{ link-console-main }}) on the right.
 
 ### Cost calculation example {#example}
 
@@ -25,45 +28,36 @@ A load balancer is hosted in one availability zone. The default autoscaling sett
 
 The load balancer was running for an hour. The external load on it reached the following maximum figures (different maximum values are possible at different points in time):
 
-> {% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
+{% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
 This is equal to **eight resource units**:
 
-> {% include [lcu-example-amounts](../_includes/application-load-balancer/lcu-example-amounts.md) %}
+{% include [lcu-example-amounts](../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
 Calculating cost per hour:
 
 
 
-> 8 × $0.017760 = $0.142080
->
-> Total: $0.142080, cost of using a load balancer per hour.
 
-Where:
-* 8: Number of resource units.
-* $0.017760: Price per resource unit.
+{% include [usd-alb-hour](../_pricing_examples/application-load-balancer/usd-hour.md) %}
 
 
 Calculating the cost per month (30 days) with the same hourly load:
 
 
 
-> $0.142080 × 720 = $102.297600
->
-> Total: $102.297600, cost of using a load balancer per month.
 
-Where:
-* $0.142080: Cost of using a load balancer per hour.
-* 720: Number of hours per month.
+{% include [usd-alb-month](../_pricing_examples/application-load-balancer/usd-month.md) %}
 
- 
 
 
 ## Prices for the Russia region {#prices}
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
- 
+
 

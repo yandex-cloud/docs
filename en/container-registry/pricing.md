@@ -2,7 +2,11 @@
 editable: false
 ---
 
-# {{ container-registry-name }} pricing
+# {{ container-registry-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -31,6 +35,7 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Data storage {#prices-storage}
@@ -45,7 +50,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
-```
+```text
 Storage_price = Price_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 

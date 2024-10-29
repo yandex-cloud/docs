@@ -1,3 +1,8 @@
+---
+title: '{{ cdn-full-name }} release notes'
+description: This section contains {{ cdn-name }} release notes.
+---
+
 # {{ cdn-full-name }} release notes
 
 ## Q2 2024 {#q2-2024}

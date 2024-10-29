@@ -1,6 +1,6 @@
 ---
-title: "Как изменить диск в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить диск."
+title: Как изменить диск в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете изменить диск.
 ---
 
 # Изменить диск
@@ -56,9 +56,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы изменить имя и описание диска, воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
+  Чтобы изменить имя и описание диска, воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/Disk/update.md).
 
-  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
 
 {% endlist %}
 
@@ -162,7 +162,7 @@ description: "Следуя данной инструкции, вы сможет�
        }
 
        metadata = {
-         user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=        (ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <содержимое_SSH-ключа>"
+         user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=        (ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - <содержимое_SSH-ключа>"
        }
      }
      ```
@@ -193,9 +193,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Увеличить размер диска можно с помощью метода REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/) или вызова gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
+  Увеличить размер диска можно с помощью метода REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/) или вызова gRPC API [DiskService/Update](../../api-ref/grpc/Disk/update.md).
 
-  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
 
 {% endlist %}
 

@@ -1,10 +1,5 @@
 title: Yandex Managed Service for Apache Airflow™
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -12,10 +7,14 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Изменение кластера
         href: operations/cluster-update.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
       - name: Загрузка DAG-файлов в кластер
@@ -29,7 +28,7 @@ items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
       - name: Автоматизация задач {{ yq-full-name }}
-        href: tutorials/yandex-query-automation.md
+        href: tutorials/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
@@ -48,6 +47,83 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/managed-airflow/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: Get
+                href: api-ref/Cluster/get.md
+              - name: List
+                href: api-ref/Cluster/list.md
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
+                href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: Метрики {{ monitoring-full-name }}
+    href: metrics.md
   - name: История изменений
     href: release-notes.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/managed-airflow
+deepBase: 2

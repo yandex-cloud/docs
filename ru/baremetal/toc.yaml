@@ -1,0 +1,44 @@
+title: Yandex BareMetal
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Серверы
+        items:
+          - name: Арендовать сервер
+            href: operations/servers/server-lease.md
+          - name: Изменить сервер
+            href: operations/servers/server-update.md
+          - name: Остановить и запустить сервер
+            href: operations/servers/server-stop-and-start.md
+          - name: Отказаться от аренды серверы
+            href: operations/servers/server-lease-cancel.md
+          - name: Подключиться к KVM-консоли
+            href: operations/servers/server-kvm.md
+      - name: Создать VRF
+        href: operations/network-create.md
+      - name: Создать подсеть
+        href: operations/subnet-create.md
+      - name: Загрузить образ
+        href: operations/image-upload.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Серверы
+        href: concepts/servers.md
+      - name: Конфигурации серверов
+        href: concepts/server-configurations.md
+      - name: Сеть
+        href: concepts/network.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/baremetal
+deepBase: 2

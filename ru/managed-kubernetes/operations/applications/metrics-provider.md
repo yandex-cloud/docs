@@ -1,6 +1,5 @@
 # Установка {{ MP }}
 
-
 {{ MP }} транслирует метрики объектов [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики сервиса [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
 
 Провайдер преобразует запрос на получение внешних метрик от объекта кластера {{ managed-k8s-name }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
@@ -56,18 +55,19 @@
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-
 1. Добавьте репозиторий `metric-provider`:
 
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_metric-provider.helmChart.name }} \
-     --version={{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
+     --version {{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
      --untar
    ```
+
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 1. Настройте и установите {{ MP }}:
 
@@ -77,20 +77,20 @@
      --create-namespace \
      --set yandexMetrics.folderId=<идентификатор_каталога> \
      --set window=<ширина_временного_окна> \
-     --set-file yandexMetrics.token.serviceAccountJson=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
+     --set-file yandexMetrics.token.serviceAccountJson=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
      --set yandexMetrics.downsampling.gridAggregation=<функция_агрегации> \
      --set yandexMetrics.downsampling.gapFilling=<заполнение_данных> \
      --set yandexMetrics.downsampling.maxPoints=<максимальное_количество_точек> \
      --set yandexMetrics.downsampling.gridInterval=<ширина_временного_окна_прореживания> \
      --set yandexMetrics.downsampling.disabled=<режим_прореживания_данных> \
-     metric-provider ./chart/
+     metric-provider ./metric-provider/
    ```
 
    Обязательные параметры:
    * `--namespace` — [пространство имен](../../concepts/index.md#namespace), где будет развернут провайдер.
    * `yandexMetrics.folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
    * `window` — ширина временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например `5d10h30m20s`).
-   * `yandexMetrics.token.serviceAccountJson` — путь к файлу со статическим ключом сервисного аккаунта с ролью `monitoring.viewer`.
+   * `yandexMetrics.token.serviceAccountJson` — путь к файлу с авторизованным ключом сервисного аккаунта с ролью `monitoring.viewer`.
 
    Параметры прореживания (`downsampling`). Для работы провайдера нужно выбрать хотя бы один из параметров:
    * `yandexMetrics.downsampling.gridAggregation` — [функция агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.

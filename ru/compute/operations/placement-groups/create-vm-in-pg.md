@@ -39,7 +39,7 @@
        --placement-group-partition <номер_раздела>
      ```
 
-     Где: 
+     Где:
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена ВМ.
      * `--name` — имя ВМ.
      * `--placement-group-name` — имя группы размещения.
@@ -53,7 +53,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: epdep2kq6dt5********
      ...
      placement_policy:
@@ -140,7 +140,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md).
 
 {% endlist %}
 

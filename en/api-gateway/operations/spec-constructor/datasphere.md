@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ ml-platform-full-name }} extension"
-description: "Follow this guide to add the {{ ml-platform-full-name }} extension using the specification constructor."
+title: Adding the {{ ml-platform-full-name }} extension
+description: Follow this guide to add the {{ ml-platform-full-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:cloud_datasphere extension

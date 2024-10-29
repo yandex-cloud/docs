@@ -1,6 +1,6 @@
 ---
-title: "How to delete a registry"
-description: "Follow this guide to delete a registry."
+title: How to delete a registry
+description: Follow this guide to delete a registry.
 ---
 
 # Deleting a registry

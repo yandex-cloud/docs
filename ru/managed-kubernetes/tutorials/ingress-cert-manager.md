@@ -1,15 +1,17 @@
 ---
-title: "Как создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt® в {{ managed-k8s-full-name }}"
-description: "Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt®." 
+title: Как создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }} в {{ managed-k8s-full-name }}
+description: Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }}.
 ---
 
-# Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
+# Установка Ingress-контроллера NGINX с менеджером для сертификатов {{ lets-encrypt }}
 
 Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
+
 1. [{#T}](#install-controller).
-1. [{#T}](#install-certs-manager).
-1. [{#T}](#install-objects).
 1. [{#T}](#connecting-certs-manager).
+1. [{#T}](#install-certs-manager).
+1. [{#T}](#create-issuer).
+1. [{#T}](#install-objects).
 1. [{#T}](#test-controller).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -24,37 +26,80 @@ description: "Следуя данному руководству, вы смож�
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
-1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
-## Установите Ingress-контроллер NGINX с помощью Helm-чарта {#install-controller}
-
-1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
-
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
-   helm repo update && \
-   helm install ingress-nginx ingress-nginx/ingress-nginx
-   ```
-
-Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
-
-Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
-
-Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
-
-## Установите менеджер сертификатов {#install-certs-manager}
+## Установите Ingress-контроллер NGINX {#install-controller}
 
 {% list tabs group=instructions %}
 
 - {{ marketplace-full-name }} {#marketplace}
 
-  Установите приложение cert-manager c плагином {{ dns-full-name }} ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
+  Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../operations/applications/ingress-nginx.md).
 
 - Вручную {#manual}
 
-  1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) менеджера сертификатов, настроенного для выпуска сертификатов от Let's Encrypt®. Например, для версии 1.21.1 выполните команду:
+  1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
+  1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
+
+     ```bash
+     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
+     helm repo update && \
+     helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
+
+  Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+
+  Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+
+{% endlist %}
+
+Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+
+## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
+
+Если вы используете [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
+1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
+
+   ```bash
+   kubectl get svc
+   ```
+
+   Результат:
+
+   ```text
+   NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
+   ...
+   ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
+   ...
+   ```
+
+1. Разместите у своего DNS-провайдера или на собственном DNS-сервере [A-запись](../../dns/concepts/resource-record.md#a), указывающую на публичный IP-адрес Ingress-контроллера:
+
+   ```text
+   <ваш_домен> IN A <IP-адрес_Ingress-контроллера>
+   ```
+
+## Установите менеджер сертификатов {#install-certs-manager}
+
+Вы можете установить менеджер сертификатов одним из способов:
+* С помощью [{{ marketplace-full-name }}](../../marketplace/): будет установлен cert-manager, [интегрированный с сервисом {{ dns-name }}](../operations/applications/cert-manager-cloud-dns.md).
+
+  В кластере будет создан объект `ClusterIssuer`, настроенный на прохождение [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) с помощью {{ dns-name }}.
+
+  При необходимости можно вручную создать и настроить другие объекты: `Issuer` или `ClusterIssuer`. Подробнее об этих объектах см. в [документации cert-manager](https://cert-manager.io/docs/configuration/).
+* Вручную: будет установлен cert-manager без дополнительных интеграций.
+
+  Любые объекты `Issuer` и `ClusterIssuer` потребуется создать и настроить вручную.
+
+{% list tabs group=instructions %}
+
+- {{ marketplace-full-name }} {#marketplace}
+
+  Установите приложение cert-manager c плагином {{ dns-name }} ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
+
+- Вручную {#manual}
+
+  1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) cert-manager. Например, для версии 1.21.1 выполните команду:
 
      ```bash
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
@@ -75,37 +120,45 @@ description: "Следуя данному руководству, вы смож�
      cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
      ```
 
-  1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
-
-     ```yaml
-     apiVersion: cert-manager.io/v1
-     kind: ClusterIssuer
-     metadata:
-       name: yc-clusterissuer
-       namespace: cert-manager
-     spec:
-       acme:
-         server: https://acme-v02.api.letsencrypt.org/directory
-         email: <ваш_email>
-         privateKeySecretRef:
-           name: domain-name-secret
-         solvers:
-         - http01:
-             ingress:
-               class: nginx
-     ```
-
-  1. Создайте объект в кластере {{ managed-k8s-name }}:
-
-     ```bash
-     kubectl apply -f acme-issuer.yaml
-     ```
-
 {% endlist %}
 
-## Создайте объекты {#install-objects}
+## Создайте ClusterIssuer {#create-issuer}
 
-Чтобы протестировать работу менеджера сертификатов, создайте объекты `Ingress`, `Service` и `Deployment`.
+Создайте объект [ClusterIssuer](https://cert-manager.io/docs/configuration/), с помощью которого можно выпускать сертификаты {{ lets-encrypt }}.
+
+Сертификаты будут выпускаться после прохождения [проверки HTTP-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-http-01) с помощью [установленного ранее](#install-controller) Ingress-контроллера.
+
+Создайте объект с нужными параметрами:
+
+1. Создайте YAML-файл `http01-clusterissuer.yaml` с манифестом объекта:
+
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: ClusterIssuer
+    metadata:
+      name: http01-clusterissuer
+    spec:
+      acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+        email: <ваш_email>
+        privateKeySecretRef:
+          name: http01-clusterissuer-secret
+        solvers:
+        - http01:
+            ingress:
+              class: nginx
+    ```
+
+1. Создайте объект в кластере {{ managed-k8s-name }}:
+
+    ```bash
+    kubectl apply -f http01-clusterissuer.yaml
+    ```
+
+## Создайте объекты для проверки работы cert-manager {#install-objects}
+
+Чтобы протестировать работу менеджера сертификатов, создайте объекты `Ingress`, `Service` и `Deployment`:
+
 1. Создайте YAML-файл `app.yaml` с манифестами объектов `Ingress`, `Service` и `Deployment`:
 
    ```yaml
@@ -114,9 +167,9 @@ description: "Следуя данному руководству, вы смож�
    metadata:
      name: minimal-ingress
      annotations:
-       kubernetes.io/ingress.class: "nginx"
-       cert-manager.io/cluster-issuer: "yc-clusterissuer"
+       cert-manager.io/cluster-issuer: "http01-clusterissuer"
    spec:
+     ingressClassName: nginx
      tls:
        - hosts:
          - <URL_адрес_вашего_домена>
@@ -174,33 +227,9 @@ description: "Следуя данному руководству, вы смож�
    kubectl apply -f app.yaml
    ```
 
-## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
-
-Если вы используете [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
-1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
-
-   ```bash
-   kubectl get svc
-   ```
-
-   Результат:
-
-   ```text
-   NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
-   ...
-   ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
-   ...
-   ```
-
-1. Разместите у своего DNS-провайдера или на собственном DNS-сервере [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный IP-адрес Ingress-контроллера:
-
-   ```text
-   <ваш_домен> IN A <IP-адрес_Ingress-контроллера>
-   ```
-
 ## Проверьте работоспособность TLS {#test-controller}
 
-1. Если вы использовали сертификат от Let's Encrypt®, убедитесь, что [проверка прав на домен](../../certificate-manager/operations/managed/cert-validate.md) завершилась успешно и сертификат перешел в статус `Issued`:
+1. Убедитесь, что [проверка прав на домен](../../certificate-manager/operations/managed/cert-validate.md) завершилась успешно и сертификат перешел в статус `Issued`:
 
    ```bash
    kubectl describe certificate domain-name-secret
@@ -210,7 +239,7 @@ description: "Следуя данному руководству, вы смож�
 
    {% note info %}
 
-   Проверка прав на домен сертификата Let's Encrypt® может занять несколько часов.
+   Проверка прав на домен сертификата {{ lets-encrypt }} может занять несколько часов.
 
    {% endnote %}
 
@@ -255,4 +284,3 @@ description: "Следуя данному руководству, вы смож�
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
-1. [Удалите сертификат](../../certificate-manager/operations/managed/cert-delete.md).

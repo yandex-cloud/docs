@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ load-testing-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ load-testing-name }}.
+---
+
 # Справочник {{ TF }} для {{ load-testing-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/datasource_loadtesting_agent) | Информация об [агенте](./concepts/agent.md) |
+| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | Информация об [агенте](./concepts/agent.md) |

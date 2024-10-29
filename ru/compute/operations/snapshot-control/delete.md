@@ -1,6 +1,6 @@
 ---
-title: "Как удалить снимок диска"
-description: "Следуя данной инструкции, вы сможете удалить снимок диска."
+title: Как удалить снимок диска
+description: Следуя данной инструкции, вы сможете удалить снимок диска.
 ---
 
 # Удалить снимок диска
@@ -67,6 +67,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/Snapshot/delete.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызовом gRPC API [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/Snapshot/delete.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызовом gRPC API [SnapshotService/Delete](../../api-ref/grpc/Snapshot/delete.md).
 
 {% endlist %}

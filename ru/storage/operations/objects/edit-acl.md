@@ -1,6 +1,6 @@
 ---
-title: "Редактирование ACL объекта в {{ objstorage-full-name }}"
-description: "Для управления доступом к объекту в бакете {{ objstorage-name }} можно использовать список управления доступом (ACL)."
+title: Редактирование ACL объекта в бакете в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете редактировать ACL объекта в бакете в {{ objstorage-name }}.
 ---
 
 # Редактирование ACL объекта
@@ -18,12 +18,11 @@ description: "Для управления доступом к объекту в 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Нажмите на имя бакета.
+
+    1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
     1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени объекта и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-      
+
         Также можно нажать на имя объекта, на открывшейся странице нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
     1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
@@ -44,6 +43,8 @@ description: "Для управления доступом к объекту в 
 
   {% endnote %}
 
+
+
   Посмотрите текущий ACL объекта:
 
   ```bash
@@ -58,7 +59,7 @@ description: "Для управления доступом к объекту в 
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
 
-  Вы можете применить к объекта [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [системных групп](../../concepts/acl.md#system-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  Вы можете применить к объекта [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   **Предопределенный ACL**
 
@@ -78,16 +79,16 @@ description: "Для управления доступом к объекту в 
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
   * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
-  
+
   **Настройка отдельных разрешений**
 
   1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
-  
-      
+
+
       * [Пользователь](../../../iam/operations/users/get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
   1. Выполните команду:
 
@@ -108,20 +109,21 @@ description: "Для управления доступом к объекту в 
           * `--grant-full-control` — полный доступ к объекту.
           * `--grant-read-acp` — доступ к чтению ACL объекта.
           * `--grant-write-acp` — доступ к редактированию ACL объекта.
-          
+
           Вы можете задать несколько разрешений в одной команде.
         * Возможные получатели разрешений:
           * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [системная группа](../../concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
-          * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — системная группа всех пользователей интернета.
+          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+          * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
+
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -154,9 +156,9 @@ description: "Для управления доступом к объекту в 
      ```bash
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```bash
      Success! The configuration is valid.
      ```
@@ -166,7 +168,7 @@ description: "Для управления доступом к объекту в 
      ```bash
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
@@ -174,7 +176,7 @@ description: "Для управления доступом к объекту в 
      ```bash
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}).

@@ -1,7 +1,6 @@
 # Интеграция с Crossplane
 
-
-[Crossplane](https://crossplane.io/) — надстройка для {{ k8s }} с открытым исходным кодом, которая позволяет собрать решения от разных поставщиков в единую инфраструктуру и предоставить разработчикам приложений доступ к ней через высокоуровневые API. С помощью Crossplane пользователи могут управлять сторонними сервисами так же, как ресурсами {{ k8s }}.
+[Crossplane](https://crossplane.io/) — надстройка для {{ k8s }} с открытым исходным кодом, которая позволяет собрать решения от разных поставщиков в единую инфраструктуру и предоставить разработчикам приложений доступ к ней через высокоуровневые [API](../../../glossary/rest-api.md). С помощью Crossplane пользователи могут управлять сторонними сервисами так же, как ресурсами {{ k8s }}.
 
 Чтобы создать [виртуальную машину](../../../compute/concepts/vm.md) {{ compute-full-name }} с помощью [приложения Crossplane](/marketplace/products/yc/crossplane), установленного в [кластере {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
 1. [{#T}](#k8s-create).
@@ -210,7 +209,10 @@
    - Вручную {#manual}
 
      1. [Удалите кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md) и [сети](../../../vpc/operations/network-delete.md).
+     1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md).
+     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+     1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+     1. [Удалите сети](../../../vpc/operations/network-delete.md).
      1. [Удалите созданные сервисные аккаунты](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}

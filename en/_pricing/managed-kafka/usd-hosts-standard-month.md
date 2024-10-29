@@ -1,4 +1,4 @@
-| Resource | Cost for 1 month | Cost with CVoS for 6 months | Cost with CVoS for 1 year |
+| Resource | Price for 1 month | Price with CVoS for 6 months | Price with CVoS for 1 year |
 |----------------|---------------------------------------------------------:|--------------------------------------------------------------------------------------:|--------------------------------------------------------------------------------------:|
 | **Intel Cascade Lake** |
 | 50% vCPU | {{ sku|USD|mdb.cluster.kafka.v2.cpu.c50|month|string }} | − | − |

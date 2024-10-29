@@ -1,6 +1,6 @@
 ---
-title: "Как импортировать файлы"
-description: "В данной статье описаны особенности импорта файлов."
+title: Как импортировать файлы
+description: В данной статье описаны особенности импорта файлов.
 sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 ---
 
@@ -139,7 +139,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 	  }
 	}
     ```
-    
+
     {% cut "Параметры ответа" %}
     
     Параметр | Описание | Тип данных

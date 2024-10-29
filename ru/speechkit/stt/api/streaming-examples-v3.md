@@ -1,6 +1,6 @@
 ---
-title: "Потоковое распознавание аудиофайла с помощью API v3 в {{ speechkit-full-name }}"
-description: "Следуя данной инструкции, вы сможете использовать потоковое распознавание аудиофайла с помощью API v3." 
+title: Потоковое распознавание аудиофайла с помощью API v3 в {{ speechkit-full-name }}
+description: Следуя данной инструкции, вы сможете использовать потоковое распознавание аудиофайла с помощью API v3.
 ---
 
 # Потоковое распознавание аудиофайла с помощью API v3
@@ -9,8 +9,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 * [язык](../models.md#languages) — русский;
 * формат аудиопотока — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
-* [количество аудиоканалов](../../stt-v3/api-ref/grpc/stt_service#RawAudio) — 1 (значение по умолчанию);
-* включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions);
+* [количество аудиоканалов](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio) — 1 (значение по умолчанию);
+* включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions);
 * остальные параметры оставлены по умолчанию.
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [API-ключа](../../../iam/concepts/authorization/api-key.md) или [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{ speechkit-name }}](../../concepts/auth.md).
@@ -26,7 +26,7 @@ description: "Следуя данной инструкции, вы сможет�
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
-      
+
       1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
 
          ```bash
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
          ```bash
          cd <путь_к_папке_cloudapi>
          mkdir output
-         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
            --grpc_python_out=output \
              google/api/http.proto \
@@ -106,10 +106,10 @@ description: "Следуя данной инструкции, вы сможет�
                      yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                      data = f.read(CHUNK_SIZE)
 
-         # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+         # Вместо iam_token передавайте api_key при авторизации с API-ключом
          # от имени сервисного аккаунта.
-         # def run(api_key, audio_file_name): 
-         def run(iam_token, audio_file_name): 
+         # def run(api_key, audio_file_name):
+         def run(iam_token, audio_file_name):
              # Установите соединение с сервером.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
@@ -151,8 +151,8 @@ description: "Следуя данной инструкции, вы сможет�
          * `audio_encoding` — [формат](../../formats.md) аудиопотока.
          * `sample_rate_hertz` — частота дискретизации аудиопотока.
          * `audio_channel_count` — количество аудиоканалов.
-         * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-         * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
+         * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
 
       1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:
@@ -164,7 +164,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. Выполните созданный файл:
 
          ```bash
-         python output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
+         python3 output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
          ```
 
          Где `--path` — путь к аудиофайлу, который необходимо распознать.
@@ -235,7 +235,7 @@ description: "Следуя данной инструкции, вы сможет�
           sending  initial request
           Done sending
           Stt stream completed
-          Recognized text is я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете 
+          Recognized text is я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете
           ```
 
     {% endlist %}

@@ -1,10 +1,5 @@
 title: Yandex Smart Web Security
 href: index.yaml
-label:
-  title: RU
-  description: The service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     expanded: true
@@ -21,7 +16,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing profiles
+      - name: Managing security profiles
         items:
           - name: Creating a profile
             href: operations/profile-create.md
@@ -29,28 +24,60 @@ items:
             href: operations/profile-update.md
           - name: Deleting a profile
             href: operations/profile-delete.md
-          - name: Viewing operations with a security profile
-            href: operations/operation-logs.md
-      - name: Managing rules
-        items:
           - name: Adding a rule
             href: operations/rule-add.md
           - name: Editing a rule
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-      - name: Managing host connections
-        items:
           - name: Connecting a profile to a host
             href: operations/host-connect.md
           - name: Disconnecting a profile from a host
             href: operations/host-delete.md
+      - name: Managing WAF profiles
+        items:
+          - name: Creating a profile
+            href: operations/waf-profile-create.md
+          - name: Editing basic profile settings
+            href: operations/waf-profile-update.md
+          - name: Deleting a profile
+            href: operations/waf-profile-delete.md
+          - name: Configuring a basic rule set
+            href: operations/configure-set-rules.md
+          - name: Adding an exclusion rule
+            href: operations/exclusion-rule-add.md
+          - name: Updating an exclusion rule
+            href: operations/exclusion-rule-update.md
+          - name: Deleting an exclusion rule
+            href: operations/exclusion-rule-delete.md
+      - name: Managing ARL profiles
+        items:
+          - name: Creating a profile
+            href: operations/arl-profile-create.md
+          - name: Editing basic profile settings
+            href: operations/arl-profile-update.md
+          - name: Deleting a profile
+            href: operations/arl-profile-delete.md
+          - name: Adding a rule
+            href: operations/arl-rule-add.md
+          - name: Editing a rule
+            href: operations/arl-rule-update.md
+          - name: Deleting a rule
+            href: operations/arl-rule-delete.md
+      - name: Viewing operations with profiles
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
-      - name: Creating an L7 load balancer with DDoS protection at OSI L3
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
+        items:
+          - name: Overview
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Concepts
     expanded: true
     items:
@@ -72,6 +99,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/smartwebsecurity/index.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -80,28 +109,182 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: SecurityProfileService
-            href: api-ref/grpc/security_profile_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: SecurityProfile
+            items:
+              - name: Overview
+                href: api-ref/grpc/SecurityProfile/index.md
+              - name: Get
+                href: api-ref/grpc/SecurityProfile/get.md
+              - name: List
+                href: api-ref/grpc/SecurityProfile/list.md
+              - name: Create
+                href: api-ref/grpc/SecurityProfile/create.md
+              - name: Update
+                href: api-ref/grpc/SecurityProfile/update.md
+              - name: Delete
+                href: api-ref/grpc/SecurityProfile/delete.md
+          - name: SmartWebSecurity ARL API
+            items:
+              - name: Overview
+                href: advanced_rate_limiter/api-ref/grpc/index.md
+              - name: AdvancedRateLimiterProfile
+                items:
+                  - name: Overview
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/index.md
+                  - name: Get
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/get.md
+                  - name: List
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/list.md
+                  - name: Create
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/create.md
+                  - name: Update
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/update.md
+                  - name: Delete
+                    href: >-
+                      advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: advanced_rate_limiter/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: advanced_rate_limiter/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: advanced_rate_limiter/api-ref/grpc/Operation/cancel.md
+          - name: SmartWebSecurity WAF API
+            items:
+              - name: Overview
+                href: waf/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: waf/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: waf/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: waf/api-ref/grpc/Operation/cancel.md
+              - name: RuleSetDescriptor
+                items:
+                  - name: Overview
+                    href: waf/api-ref/grpc/RuleSetDescriptor/index.md
+                  - name: Get
+                    href: waf/api-ref/grpc/RuleSetDescriptor/get.md
+              - name: WafProfile
+                items:
+                  - name: Overview
+                    href: waf/api-ref/grpc/WafProfile/index.md
+                  - name: Get
+                    href: waf/api-ref/grpc/WafProfile/get.md
+                  - name: List
+                    href: waf/api-ref/grpc/WafProfile/list.md
+                  - name: Create
+                    href: waf/api-ref/grpc/WafProfile/create.md
+                  - name: Update
+                    href: waf/api-ref/grpc/WafProfile/update.md
+                  - name: Delete
+                    href: waf/api-ref/grpc/WafProfile/delete.md
       - name: REST
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: SecurityProfile
             items:
               - name: Overview
                 href: api-ref/SecurityProfile/index.md
-              - name: create
-                href: api-ref/SecurityProfile/create.md
-              - name: delete
-                href: api-ref/SecurityProfile/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/SecurityProfile/get.md
-              - name: list
+              - name: List
                 href: api-ref/SecurityProfile/list.md
-              - name: update
+              - name: Create
+                href: api-ref/SecurityProfile/create.md
+              - name: Update
                 href: api-ref/SecurityProfile/update.md
+              - name: Delete
+                href: api-ref/SecurityProfile/delete.md
+          - name: SmartWebSecurity ARL API
+            items:
+              - name: Overview
+                href: advanced_rate_limiter/api-ref/index.md
+              - name: AdvancedRateLimiterProfile
+                items:
+                  - name: Overview
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md
+                  - name: Get
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/get.md
+                  - name: List
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/list.md
+                  - name: Create
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md
+                  - name: Update
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md
+                  - name: Delete
+                    href: >-
+                      advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: advanced_rate_limiter/api-ref/Operation/index.md
+                  - name: Get
+                    href: advanced_rate_limiter/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: advanced_rate_limiter/api-ref/Operation/cancel.md
+          - name: SmartWebSecurity WAF API
+            items:
+              - name: Overview
+                href: waf/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: waf/api-ref/Operation/index.md
+                  - name: Get
+                    href: waf/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: waf/api-ref/Operation/cancel.md
+              - name: RuleSetDescriptor
+                items:
+                  - name: Overview
+                    href: waf/api-ref/RuleSetDescriptor/index.md
+                  - name: Get
+                    href: waf/api-ref/RuleSetDescriptor/get.md
+              - name: WafProfile
+                items:
+                  - name: Overview
+                    href: waf/api-ref/WafProfile/index.md
+                  - name: Get
+                    href: waf/api-ref/WafProfile/get.md
+                  - name: List
+                    href: waf/api-ref/WafProfile/list.md
+                  - name: Create
+                    href: waf/api-ref/WafProfile/create.md
+                  - name: Update
+                    href: waf/api-ref/WafProfile/update.md
+                  - name: Delete
+                    href: waf/api-ref/WafProfile/delete.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -109,3 +292,4 @@ items:
   - name: Release notes
     href: release-notes.md
 base: en/smartwebsecurity
+deepBase: 2

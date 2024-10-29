@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ compute-full-name }}"
-description: "This tutorial describes relationships between {{ compute-short-name }} resources, resource types, and relationships with other {{ yandex-cloud }} services."
+title: Resource relationships in {{ compute-full-name }}
+description: This tutorial describes relationships between {{ compute-short-name }} resources, resource types, and relationships with other {{ yandex-cloud }} services.
 ---
 
 # Resource relationships in {{ compute-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to remove a user from a project"
-description: "In this tutorial, you will learn how to remove a user from a project in {{ ml-platform-name }}."
+title: How to remove a user from a project
+description: In this tutorial, you will learn how to remove a user from a project in {{ ml-platform-name }}.
 ---
 
 # Removing a user from a project

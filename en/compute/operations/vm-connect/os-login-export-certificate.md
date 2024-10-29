@@ -1,6 +1,6 @@
 ---
-title: "How to export an OS Login certificate"
-description: "Follow this guide to locally export an OS Login certificate so it can be used to connect over SSH to VMs with OS Login access configured."
+title: How to export an OS Login certificate
+description: Follow this guide to locally export an OS Login certificate so it can be used to connect over SSH to VMs with OS Login access configured.
 ---
 
 # Exporting an OS Login certificate

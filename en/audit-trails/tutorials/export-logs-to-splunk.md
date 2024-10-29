@@ -2,7 +2,7 @@
 
 Create a trail to upload management event audit logs of resources in an individual folder to an {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
 
-The solution described in the tutorial follows the procedure below:
+The solution described in the tutorial follows the steps below:
 1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
 1. The bucket is mounted as part of an intermediate VM's [filesystem](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 1. The intermediate VM runs a script that pulls logs from the bucket on a schedule and pushes them to Splunk.
@@ -82,7 +82,7 @@ The infrastructure support cost includes:
       * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
       * Click **{{ ui-key.yacloud.common.create }}**.
 
-   The key is created along with its first version: click the key in the list to open the page with its attributes.
+   The key is created together with its first version: click the key in the list to open a page with its attributes.
 
 {% endlist %}
 
@@ -179,7 +179,7 @@ To create the trail, make sure you have the following roles:
 * `iam.serviceAccounts.user` for the service account.
 * `audit-trails.editor` for the folder to host the trail.
 * `audit-trails.viewer` for the folder from which audit logs will be collected.
-* `storage.viewer` for the bucket or the folder.
+* `storage.viewer` for the bucket or folder.
 
 {% list tabs group=instructions %}
 
@@ -192,7 +192,7 @@ To create the trail, make sure you have the following roles:
       * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
       * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
@@ -204,7 +204,7 @@ To create the trail, make sure you have the following roles:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
@@ -353,6 +353,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    1. To confirm deletion, type `yes` and press **Enter**.
 
-1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
+1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
-1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
+1. [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).
+
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

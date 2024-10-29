@@ -20,7 +20,7 @@ If it is a multi-host cluster, there is no downtime while updating it, since the
 
 #### How do I change the time zone? {#timezone}
 
-Change the [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting for {{ CH }} by following [this guide](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
+Change the [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting for {{ CH }} by following [this guide](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
 
 #### Is a cluster unavailable when adding replicas? {#add-replica-availability}
 
@@ -49,3 +49,7 @@ No, you can only select the disk type when creating a cluster or [restoring it](
 #### Can I change a network and subnets? {#network}
 
 No, you can only select a network and subnets for hosts when creating a cluster or [restoring it](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.
+
+#### How to change the distribution of data across shards in a cluster? {#resharding}
+
+In an existing cluster, you cannot change the location of data in shards. To make the change, [transfer data to a new cluster with shard redistribution](../../managed-clickhouse/tutorials/mch-mch-resharding.md) using {{ data-transfer-full-name }}.

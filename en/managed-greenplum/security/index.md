@@ -1,12 +1,12 @@
 ---
-title: "Access to {{ mgp-name }}"
-description: "To allow access to {{ mgp-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources."
+title: Access to {{ mgp-name }}
+description: To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 keywords:
   - access
   - configuring access
-  - access to {{ GP }}
+  - '{{ GP }} access'
   - green plum
-  - "{{ GP }}"
+  - '{{ GP }}'
 ---
 
 # Access management in {{ mgp-name }}
@@ -20,7 +20,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-greenplum.admin`, or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -28,7 +28,7 @@ Roles for a resource can be assigned by users who have the `mdb.admin`, `managed
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mgp-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
+{% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -66,6 +66,8 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not similar to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -75,9 +77,13 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mgp.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mgp.viewer }}` role enables you only to view the list of clusters.
+To use the service, you need the [{{ roles.mgp.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role enables you only to view the list of clusters.
+
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
 

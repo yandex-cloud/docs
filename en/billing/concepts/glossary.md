@@ -1,6 +1,6 @@
 ---
-title: "Glossary. Billing"
-description: "All terms used in {{ yandex-cloud }} are provided in the Glossary for information purposes. The following terms are described: report, grant, usage details, agreement, billing threshold, account, reporting period, offer, penalties, billing account, payer, trial period, and more. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail."
+title: Glossary. Billing
+description: 'All terms used in {{ yandex-cloud }} are provided in the Glossary for information purposes. The following terms are described: report, grant, usage details, agreement, billing threshold, account, reporting period, offer, penalties, billing account, payer, trial period, and more. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.'
 ---
 
 # Glossary
@@ -59,7 +59,7 @@ Billing account
 <br/>For more information, refer to the [Billing account](billing-account.md) section for details.
 
 Payer
-:   Individual, individual entrepreneur, or business that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements and issue invoices.
+:   Individual, individual entrepreneur, or business that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements, issue invoices, and debit the payer's bank card.
 
 Trial period
 :   Opportunity to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. Only available for legal entities.

@@ -1,10 +1,10 @@
-| Service | Cost of 1 GB per month |
+| Service | Price of 1 GB per month |
 |-------------------------------------------------------|------------------------------------------------------------:|
-| Storage based on network HDDs | {{ sku|USD|mdb.cluster.network-hdd.mongodb|month|string }} |
-| Storage based on non-replicated SSDs<sup>*</sup> | $0.070512 |
-| Storage based on network SSDs | {{ sku|USD|mdb.cluster.network-nvme.mongodb|month|string }} |
-| Network SSD storage with 3 replicas | $0.174240 |
-| Storage based on local SSDs<sup>*</sup> | {{ sku|USD|mdb.cluster.local-nvme.mongodb|month|string }} |
-| Backup over storage size | $0.015360 |
+| Network HDD storage | {{ sku|USD|mdb.cluster.network-hdd.mongodb|month|string }} |
+| Non-replicated SSD storage^*^ | $0.070512 |
+| Network SSD storage | {{ sku|USD|mdb.cluster.network-nvme.mongodb|month|string }} |
+| High-performance SSD storage | $0.174240 |
+| Local SSD storage^*^ | {{ sku|USD|mdb.cluster.local-nvme.mongodb|month|string }} |
+| Backups beyond the storage size | $0.015360 |
 
 {% include [storage-limitations-mmg](../../_includes/mdb/mmg/storage-limitations-note.md) %}

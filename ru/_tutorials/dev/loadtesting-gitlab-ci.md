@@ -166,7 +166,7 @@
       before_script:
          # Установка инструментов.
          - sudo apt-get install -y jq
-         - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+         - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
          - sudo bash install.sh -i /usr/local/yandex-cloud -n
          - sudo ln -f -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
          # Аутентификация с помощью ключа сервисного аккаунта
@@ -206,7 +206,7 @@
            fi
       after_script:
          # Удаление агента тестирования
-         - agent_id=$(cat agent_id.txt)    
+         - agent_id=$(cat agent_id.txt)
          - yc loadtesting agent delete $agent_id
          - rm agent_id.txt
    ```
@@ -234,3 +234,5 @@
 1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
 1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 1. Убедитесь, что удален агент тестирования, созданный скриптом. Вы можете [удалить агент](../../compute/operations/vm-control/vm-delete.md) вручную.
+1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

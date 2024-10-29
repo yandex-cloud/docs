@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ api-gw-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ api-gw-name }}.
+---
+
 # Справочник {{ TF }} для {{ api-gw-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_api_gateway]({{ tf-provider-datasources-link }}/datasource_api_gateway) | Информация об [API-шлюзе](./concepts/index.md) |
+| [yandex_api_gateway]({{ tf-provider-datasources-link }}/api_gateway) | Информация об [API-шлюзе](./concepts/index.md) |

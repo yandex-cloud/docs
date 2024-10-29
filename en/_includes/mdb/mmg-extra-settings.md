@@ -1,7 +1,7 @@
 - {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
-   
+
    Retention period for automatic backups. If an automatic backup expires, it is deleted. The default is {{ mmg-backup-retention }} days. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [Backups](../../managed-mongodb/concepts/backup.md).
 
 
@@ -13,7 +13,6 @@
 
   {% include [Maintenance window](console/maintenance-window-description.md) %}
 
-- {% include [datatransfer access](console/datatransfer-access.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 

@@ -2,10 +2,11 @@
 
 Возвращает список управления доступом для бакета.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?acl HTTP/2
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of PostgreSQL clusters and hosts"
-description: "Using monitoring tools in the management console, you can track the state of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically."
+title: Monitoring the state of PostgreSQL clusters and hosts
+description: Using monitoring tools in the management console, you can track the state of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically.
 ---
 
 # Monitoring the state of {{ PG }} clusters and hosts
@@ -13,6 +13,7 @@ description: "Using monitoring tools in the management console, you can track th
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
+To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze and monitor the cluster state.
 
 ## Monitoring cluster state {#monitoring-cluster}
 
@@ -92,7 +93,7 @@ For hosts with the **Replica** role, **Received** is normally greater than **Sen
       * **{{ mpg-name }} — Host Overview** to configure host alerts.
    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger an alert.
+   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
    1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}

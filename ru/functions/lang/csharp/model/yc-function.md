@@ -20,7 +20,7 @@ public class Handler : YcFunction<int, String> {
 Примеры некорректных обработчиков:
 ```C#
 // у YcFunction указан лишь один тип параметра
-// у Handler не должно быть типов-параметров (см. [требования к обработчику](index.md))
+// у Handler не должно быть типов-параметров
 public class Handler<T> : YcFunction<T, int> {
   public int FunctionHandler(T i, Context c) {
     return 2;
@@ -36,6 +36,8 @@ public class Handler : YcFunction {
   }
 }
 ```
+
+Подробнее о требованиях к обработчику см. в разделе [{#T}](index.md).
 
 Вы можете использовать любые классы в качестве входного и возвращаемого типов.
 
@@ -78,13 +80,13 @@ public class Handler : YcFunction<int, bool> {
 
 Пример входных данных:
 
-```
+```text
 41
 ```
 
 В журнале будет напечатано:
 
-```
+```text
 Function name: <название_функции>
 Function version: <идентификатор_версии_функции>
 Service account token: <токен_сервисного_аккаунта>
@@ -92,6 +94,6 @@ Service account token: <токен_сервисного_аккаунта>
 
 Возвращаемая строка:
 
-```
+```text
 false
 ```

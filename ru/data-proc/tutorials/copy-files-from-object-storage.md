@@ -27,6 +27,10 @@
 
 1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** в консоли управления.
 
+    Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+
+    {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 
     Подробнее про эти роли см. в [документации {{ objstorage-name }}](../../storage/security/index.md).
@@ -222,15 +226,15 @@ hadoop distcp \
 * `spark.sql.orc.filterPushdown : true`
 * `spark.sql.orc.splits.include.file.footer : true`
 
-Задания, создающие или обновляющие большое количество (сотни и тысячи) партиций в таблицах, могут тратить много времени на актуализацию записей о партициях в {{ metastore-full-name }}. Для ускорения этого процесса увеличьте значения следующих настроек:
+Задания, создающие или обновляющие большое количество (сотни и тысячи) партиций в таблицах, могут тратить много времени на актуализацию записей о партициях в [кластере {{ metastore-full-name }}](../../metadata-hub/concepts/metastore.md). Для ускорения этого процесса увеличьте значения следующих настроек:
 
-* `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД {{ metastore-full-name }}.
-* `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой в рамках сервиса {{ metastore-full-name }}.
-* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-full-name }}. Оптимальное значение — `10 × <значение_настройки_hive:hive.metastore.fshandler.threads>` или выше.
+* `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД {{ metastore-name }}.
+* `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой {{ metastore-name }}.
+* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-name }}. Оптимальное значение — `10 × <значение_настройки_hive:hive.metastore.fshandler.threads>` или выше.
 
 {% note info %}
 
-Чрезмерно большие значения перечисленных параметров могут привести к исчерпанию системных ресурсов {{ metastore-full-name }}. Большой размер пула соединений к БД {{ metastore-full-name }} может потребовать изменения настроек и увеличения объема вычислительных ресурсов кластера.
+Чрезмерно большие значения перечисленных параметров могут привести к исчерпанию системных ресурсов {{ metastore-name }}. Большой размер пула соединений к БД {{ metastore-name }} может потребовать изменения настроек и увеличения объема вычислительных ресурсов кластера.
 
 {% endnote %}
 

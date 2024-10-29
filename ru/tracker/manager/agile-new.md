@@ -1,5 +1,5 @@
 ---
-title: "Доски задач в {{ tracker-full-name }}"
+title: Доски задач в {{ tracker-full-name }}
 ---
 
 # Доски задач

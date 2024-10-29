@@ -28,15 +28,18 @@
 
 - API {#api}
 
-  Чтобы удалить SSH-ключи из метаданных ВМ, воспользуйтесь методом REST API [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/instance_service.md#UpdateMetadata).
+  Чтобы удалить SSH-ключи из метаданных ВМ, воспользуйтесь методом REST API [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/Instance/updateMetadata.md).
 
   В запросе передайте параметр `delete` с SSH-ключом.
 
   **Пример запроса для REST API**
 
   ```bash
-  curl -X POST -H "Authorization: Bearer <IAM-токен>" \
-    -d '{"delete":["<имя_SSH-ключа>"]}' https://compute.{{ api-host }}/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
+  curl \
+    --request POST \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{"delete":["<имя_SSH-ключа>"]}' \
+    https://compute.{{ api-host }}/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
   ```
 
 {% endlist %}

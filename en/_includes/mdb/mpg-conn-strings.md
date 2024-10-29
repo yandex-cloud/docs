@@ -1,14 +1,14 @@
 ### 1C:Enterprise {#1c}
 
-If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify in the settings:
+If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify the following in the settings:
 
-* **Secure connection**: Disabled
-* **DBMS type**: `PostgreSQL`
-* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`
-* **Database name**: `<DB_name>`
-* **Database user**: `<username>`
-* **User password**: `<password>`
-* **Create database if none present**: Disabled
+* **Secure connection**: Disabled.
+* **DBMS type**: `PostgreSQL`.
+* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Database name**: `<DB_name>`.
+* **Database user**: `<username>`.
+* **User password**: `<password>`.
+* **Create database if none present**: Disabled.
 
 ### Bash {#bash}
 
@@ -22,20 +22,20 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Connecting without SSL {#without-ssl}
 
-   1. Connect to a database:
+  1. Connect to a database:
 
       ```bash
       psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
             port=6432 \
             sslmode=disable \
-            dbname=<DB_name> \
+            dbname=<db_name> \
             user=<username> \
             target_session_attrs=read-write"
       ```
 
       After running the command, enter the user password to complete the connection process.
 
-   1. To check the connection, run this query:
+  1. To check the connection, run this query:
 
       ```bash
       SELECT version();
@@ -43,19 +43,82 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Connecting via SSL {#with-ssl}
 
-   1. Connect to a database:
+  1. Connect to a database:
 
       {% include [default-connstring](./mpg/default-connstring.md) %}
 
       After running the command, enter the user password to complete the connection process.
 
-   1. To check the connection, run this query:
+  1. To check the connection, run this query:
 
       ```bash
       SELECT version();
       ```
 
 {% endlist %}
+
+### C++ (userver framework) {#cpp-userver}
+
+The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. Among other things, the framework provides opportunities to work with {{ PG }}.
+
+Before connecting, access the framework in one of the following ways:
+
+* [Create a {{ compute-full-name }} virtual machine](../../compute/operations/images-with-pre-installed-software/create.md) from the [userver image](https://yandex.cloud/ru/marketplace/products/yc/userver). This image already contains the framework and all required dependencies.
+* [Manually install the framework and all required dependencies](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
+
+{% list tabs group=connection %}
+
+- Connecting without SSL {#without-ssl}
+
+    1. Create a project based on the [service template](https://github.com/userver-framework/pg_service_template).
+
+    1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string for the `dbconnection` variable:
+
+        ```url
+        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<db_name>
+        ```
+
+    1. Build a project and run the service:
+
+        ```bash
+        make build-debug && \
+        ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+        ```
+
+- Connecting via SSL {#with-ssl}
+
+    1. Create a project based on the [service template](https://github.com/userver-framework/pg_service_template).
+
+    1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string for the `dbconnection` variable:
+
+        ```url
+        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<db_name>?ssl=true&sslmode=verify-full
+        ```
+
+    1. Build a project and run the service:
+
+        ```bash
+        make build-debug && \
+        ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+        ```
+
+{% endlist %}
+
+Once started, the service will wait for a POST request from the user. While waiting for a request, the service will periodically check the {{ PG }} cluster's availability by running the `SELECT 1 as ping` request. You can find this information in the service logs.
+
+{% cut "Example of log contents on successful connection to the cluster" %}
+
+```text
+tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/postgres/detail/connection_impl.cpp:647 )
+...
+db_statement=SELECT 1 AS ping
+db_type=postgres
+db_instance=********
+peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+...
+```
+
+{% endcut %}
 
 ### C# EF Core {#csharpefcore}
 
@@ -65,37 +128,37 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 
 - Connecting via SSL {#with-ssl}
 
-   ```csharp
-   using Npgsql;
+  ```csharp
+  using Npgsql;
 
-   namespace ConsoleApp
-   {
-       class Program
-       {
-           static async Task Main(string[] args)
-           {
-               var host       = "c-<cluster_ID>.rw.{{ dns-zone }}";
-               var port       = "{{ port-mpg }}";
-               var db         = "<DB_name>";
-               var username   = "<username>";
-               var password   = "<user_password>";
-               var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
+  namespace ConsoleApp
+  {
+      class Program
+      {
+          static async Task Main(string[] args)
+          {
+              var host       = "c-<cluster_ID>.rw.{{ dns-zone }}";
+              var port       = "{{ port-mpg }}";
+              var db         = "<db_name>";
+              var username   = "<username>";
+              var password   = "<user_password>";
+              var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
 
-               await using var conn = new NpgsqlConnection(connString);
-               await conn.OpenAsync();
+              await using var conn = new NpgsqlConnection(connString);
+              await conn.OpenAsync();
 
-               await using (var cmd = new NpgsqlCommand("SELECT VERSION();", conn))
-               await using (var reader = await cmd.ExecuteReaderAsync())
-               {
-                   while (await reader.ReadAsync())
-                   {
-                       Console.WriteLine(reader.GetInt32(0));
-                   }
-               }
-           }
-       }
-   }
-   ```
+              await using (var cmd = new NpgsqlCommand("SELECT VERSION();", conn))
+              await using (var reader = await cmd.ExecuteReaderAsync())
+              {
+                  while (await reader.ReadAsync())
+                  {
+                      Console.WriteLine(reader.GetInt32(0));
+                  }
+              }
+          }
+      }
+  }
+  ```
 
 {% endlist %}
 
@@ -112,7 +175,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.go`
 
@@ -132,7 +195,7 @@ go mod init example && go get github.com/jackc/pgx/v4
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
-        dbname   = "<DB_name>"
+        dbname   = "<db_name>"
       )
 
       func main() {
@@ -167,7 +230,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       go run connect.go
@@ -175,7 +238,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.go`
 
@@ -198,7 +261,7 @@ go mod init example && go get github.com/jackc/pgx/v4
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
-        dbname   = "<DB_name>"
+        dbname   = "<db_name>"
         ca       = "/home/<home_directory>/.postgresql/root.crt"
       )
 
@@ -226,7 +289,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              InsecureSkipVerify: true,
+              ServerName: "c-<cluster_ID>.rw.{{ dns-zone }}",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -251,7 +314,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       go run connect.go
@@ -265,100 +328,100 @@ Before connecting:
 
 1. Install the dependencies:
 
-   ```bash
-   sudo apt update && sudo apt install --yes default-jdk maven
-   ```
+    ```bash
+    sudo apt update && sudo apt install --yes default-jdk maven
+    ```
 
 1. Create a folder for the Maven project:
 
-   ```bash
-   cd ~/ && mkdir -p project/src/java/com/example && cd project/
-   ```
+    ```bash
+    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    ```
 
 1. Create a configuration file for Maven:
 
-   {% cut "pom.xml" %}
+    {% cut "pom.xml" %}
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <project xmlns="http://maven.apache.org/POM/4.0.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-     <modelVersion>4.0.0</modelVersion>
-     <groupId>com.example</groupId>
-     <artifactId>app</artifactId>
-     <packaging>jar</packaging>
-     <version>0.1.0</version>
-     <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-     </properties>
-     <dependencies>
-       <dependency>
-         <groupId>org.postgresql</groupId>
-         <artifactId>postgresql</artifactId>
-         <version>42.2.16</version>
-       </dependency>
-     </dependencies>
-     <build>
-       <finalName>${project.artifactId}-${project.version}</finalName>
-       <sourceDirectory>src</sourceDirectory>
-       <resources>
-         <resource>
-           <directory>src</directory>
-         </resource>
-       </resources>
-       <plugins>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-assembly-plugin</artifactId>
-           <executions>
-             <execution>
-               <goals>
-                 <goal>attached</goal>
-               </goals>
-               <phase>package</phase>
-               <configuration>
-                 <descriptorRefs>
-                   <descriptorRef>
-                   jar-with-dependencies</descriptorRef>
-                 </descriptorRefs>
-                 <archive>
-                   <manifest>
-                     <mainClass>com.example.App</mainClass>
-                   </manifest>
-                 </archive>
-               </configuration>
-             </execution>
-           </executions>
-         </plugin>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-jar-plugin</artifactId>
-           <version>3.1.0</version>
-           <configuration>
-             <archive>
-               <manifest>
-                 <mainClass>com.example.App</mainClass>
-               </manifest>
-             </archive>
-           </configuration>
-         </plugin>
-       </plugins>
-     </build>
-   </project>
-   ```
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <packaging>jar</packaging>
+      <version>0.1.0</version>
+      <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>42.2.16</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+          <resource>
+            <directory>src</directory>
+          </resource>
+        </resources>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>attached</goal>
+                </goals>
+                <phase>package</phase>
+                <configuration>
+                  <descriptorRefs>
+                    <descriptorRef>
+                    jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                  <archive>
+                    <manifest>
+                      <mainClass>com.example.App</mainClass>
+                    </manifest>
+                  </archive>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.example.App</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </project>
+    ```
 
-   {% endcut %}
+    {% endcut %}
 
-   Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
+    Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `src/java/com/example/App.java`
 
@@ -369,7 +432,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -387,7 +450,7 @@ Before connecting:
       }
       ```
 
-   1. Building and connecting:
+  1. Building and connecting:
 
       ```bash
       mvn clean package && \
@@ -396,7 +459,7 @@ Before connecting:
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `src/java/com/example/App.java`
 
@@ -407,7 +470,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -425,7 +488,7 @@ Before connecting:
       }
       ```
 
-   1. Building and connecting:
+  1. Building and connecting:
 
       ```bash
       mvn clean package && \
@@ -447,62 +510,62 @@ npm install pg
 
 - Connecting without SSL {#without-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```javascript
-   "use strict";
-   const pg = require("pg");
+    ```javascript
+    "use strict";
+    const pg = require("pg");
 
-   const config = {
-       connectionString:
-           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>"
-   };
+    const config = {
+        connectionString:
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>"
+    };
 
-   const conn = new pg.Client(config);
+    const conn = new pg.Client(config);
 
-   conn.connect((err) => {
-       if (err) throw err;
-   });
-   conn.query("SELECT version()", (err, q) => {
-       if (err) throw err;
-       console.log(q.rows[0]);
-       conn.end();
-   });
-   ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
 - Connecting via SSL {#with-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```javascript
-   "use strict";
-   const fs = require("fs");
-   const pg = require("pg");
+    ```javascript
+    "use strict";
+    const fs = require("fs");
+    const pg = require("pg");
 
-   const config = {
-       connectionString:
-           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>",
-       ssl: {
-           rejectUnauthorized: true,
-           ca: fs
-               .readFileSync("/home/<home_directory>/.postgresql/root.crt")
-               .toString(),
-       },
-   };
+    const config = {
+        connectionString:
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>",
+        ssl: {
+            rejectUnauthorized: true,
+            ca: fs
+                .readFileSync("/home/<home_directory>/.postgresql/root.crt")
+                .toString(),
+        },
+    };
 
-   const conn = new pg.Client(config);
+    const conn = new pg.Client(config);
 
-   conn.connect((err) => {
-       if (err) throw err;
-   });
-   conn.query("SELECT version()", (err, q) => {
-       if (err) throw err;
-       console.log(q.rows[0]);
-       conn.end();
-   });
-   ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
-   For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
+    For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
 {% endlist %}
 
@@ -528,7 +591,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `/etc/odbc.ini`
 
@@ -538,22 +601,22 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user_password>
-      Database=<DB_name>
+      Database=<db_name>
       Port=6432
       Pqopt=target_session_attrs=read-write
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       isql -v postgresql
       ```
 
-      Once connected to the DBMS, run `SELECT @@version;`.
+      After connecting to the DBMS, run the `SELECT version();` command.
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `/etc/odbc.ini`
 
@@ -563,19 +626,19 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user_password>
-      Database=<DB_name>
+      Database=<db_name>
       Port=6432
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       isql -v postgresql
       ```
 
-      Once connected to the DBMS, run `SELECT @@version;`.
+      After connecting to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
@@ -591,7 +654,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.php`
 
@@ -601,7 +664,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
             host=c-<cluster_ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=disable
-            dbname=<DB_name>
+            dbname=<db_name>
             user=<username>
             password=<user_password>
             target_session_attrs=read-write
@@ -615,7 +678,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ?>
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       php connect.php
@@ -623,7 +686,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.php`
 
@@ -633,7 +696,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
             host=c-<cluster_ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=verify-full
-            dbname=<DB_name>
+            dbname=<db_name>
             user=<username>
             password=<user_password>
             target_session_attrs=read-write
@@ -647,7 +710,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ?>
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       php connect.php
@@ -657,61 +720,61 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 ### PowerShell {#powershell}
 
-Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* install only.
+Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* installation only.
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Set the environment variables for the connection:
+  1. Set the environment variables for the connection:
 
-      ```powershell
-      $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
-      ```
+     ```powershell
+     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
+     ```
 
-   1. Connect to a database:
+  1. Connect to a database:
 
-      ```powershell
-      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-            --host=c-<cluster_ID>.rw.{{ dns-zone }} `
-            --port={{ port-mpg }} `
-            --username=<username> `
-            <DB_name>
-      ```
+     ```powershell
+     & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
+           --host=c-<cluster_ID>.rw.{{ dns-zone }} `
+           --port={{ port-mpg }} `
+           --username=<username> `
+           <db_name>
+     ```
 
-      After running the command, enter the user password to complete the connection process.
+     After running the command, enter the user password to complete the connection process.
 
-   1. To check the connection, run this query:
+  1. To check the connection, run this query:
 
-      ```sql
-      SELECT version();
-      ```
+     ```sql
+     SELECT version();
+     ```
 
 - Connecting via SSL {#with-ssl}
 
-   1. Set the environment variables for the connection:
+  1. Set the environment variables for the connection:
 
       ```powershell
       $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
       ```
 
-   1. Connect to a database:
+  1. Connect to a database:
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
         --host=c-<cluster_ID>.rw.{{ dns-zone }} `
         --port={{ port-mpg }} `
         --username<username> `
-        <DB_name>
+        <db_name>
       ```
 
       After running the command, enter the user password to complete the connection process.
 
-   1. To check the connection, run this query:
+  1. To check the connection, run this query:
 
-      ```sql
-      SELECT version();
-      ```
+     ```sql
+     SELECT version();
+     ```
 
 {% endlist %}
 
@@ -728,7 +791,7 @@ pip3 install psycopg2-binary
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.py`
 
@@ -739,7 +802,7 @@ pip3 install psycopg2-binary
           host=c-<cluster_ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=disable
-          dbname=<DB_name>
+          dbname=<db_name>
           user=<username>
           password=<user_password>
           target_session_attrs=read-write
@@ -753,7 +816,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       python3 connect.py
@@ -761,7 +824,7 @@ pip3 install psycopg2-binary
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.py`
 
@@ -772,7 +835,7 @@ pip3 install psycopg2-binary
           host=c-<cluster_ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=verify-full
-          dbname=<DB_name>
+          dbname=<db_name>
           user=<username>
           password=<user_password>
           target_session_attrs=read-write
@@ -786,7 +849,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       python3 connect.py
@@ -800,80 +863,80 @@ Before connecting:
 
 1. Install the dependencies:
 
-   ```bash
-   sudo apt update && sudo apt install libpq-dev r-base --yes
-   ```
+    ```bash
+    sudo apt update && sudo apt install libpq-dev r-base --yes
+    ```
 
 1. Install the [RPostgres](https://rpostgres.r-dbi.org/) library:
 
-   ```bash
-   sudo R --interactive
-   install.packages("RPostgres")
-   quit()
-   ```
+    ```bash
+    sudo R --interactive
+    install.packages("RPostgres")
+    quit()
+    ```
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+    1. Code example:
 
-      `connect.r`
+        `connect.r`
 
-      ```R
-      library(DBI)
+        ```R
+        library(DBI)
 
-      conn <- dbConnect(RPostgres::Postgres(),
-          dbname="<DB_name>",
-          host="c-<cluster_ID>.rw.{{ dns-zone }}",
-          port={{ port-mpg }},
-          user="<username>",
-          password="<user_password>"
-      )
+        conn <- dbConnect(RPostgres::Postgres(),
+            dbname="<db_name>",
+            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            port={{ port-mpg }},
+            user="<username>",
+            password="<user_password>"
+        )
 
-      res <- dbSendQuery(conn, "SELECT VERSION();")
-      dbFetch(res)
-      dbClearResult(res)
+        res <- dbSendQuery(conn, "SELECT VERSION();")
+        dbFetch(res)
+        dbClearResult(res)
 
-      dbDisconnect(conn)
-      ```
+        dbDisconnect(conn)
+        ```
 
-   1. Connecting:
+    1. Connecting:
 
-      ```bash
-      R connect.r
-      ```
+        ```bash
+        R connect.r
+        ```
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+    1. Code example:
 
-      `connect.r`
+        `connect.r`
 
-      ```R
-      library(DBI)
+        ```R
+        library(DBI)
 
-      conn <- dbConnect(RPostgres::Postgres(),
-          dbname="<DB_name>",
-          host="c-<cluster_ID>.rw.{{ dns-zone }}",
-          port={{ port-mpg }},
-          sslmode="verify-full",
-          user="<username>",
-          password="<user_password>"
-      )
+        conn <- dbConnect(RPostgres::Postgres(),
+            dbname="<db_name>",
+            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            port={{ port-mpg }},
+            sslmode="verify-full",
+            user="<username>",
+            password="<user_password>"
+        )
 
-      res <- dbSendQuery(conn, "SELECT VERSION();")
-      dbFetch(res)
-      dbClearResult(res)
+        res <- dbSendQuery(conn, "SELECT VERSION();")
+        dbFetch(res)
+        dbClearResult(res)
 
-      dbDisconnect(conn)
-      ```
+        dbDisconnect(conn)
+        ```
 
-   1. Connecting:
+    1. Connecting:
 
-      ```bash
-      R connect.r
-      ```
+        ```bash
+        R connect.r
+        ```
 
 {% endlist %}
 
@@ -889,7 +952,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.rb`
 
@@ -899,7 +962,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn = PG.connect("
               host=c-<cluster_ID>.rw.{{ dns-zone }}
               port=6432
-              dbname=<DB_name>
+              dbname=<db_name>
               user=<username>
               password=<user_password>
               target_session_attrs=read-write
@@ -912,7 +975,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       ruby connect.rb
@@ -920,7 +983,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example:
+  1. Code example:
 
       `connect.rb`
 
@@ -930,7 +993,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn = PG.connect("
               host=c-<cluster_ID>.rw.{{ dns-zone }}
               port=6432
-              dbname=<DB_name>
+              dbname=<db_name>
               user=<username>
               password=<user_password>
               target_session_attrs=read-write
@@ -943,7 +1006,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn.close()
       ```
 
-   1. Connecting:
+  1. Connecting:
 
       ```bash
       ruby connect.rb

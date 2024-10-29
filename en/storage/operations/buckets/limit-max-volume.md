@@ -8,28 +8,28 @@ For example, if you provide the users of your service with the ability to upload
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the name of the bucket you need.
-   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
-   1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
+  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. Select **{{ objstorage-name }}**.
+  1. Click the name of the bucket you need.
+  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
-   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to update a bucket:
+  1. View a description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
       ```
 
-   1. Get a list of buckets in the default folder:
+  1. Get a list of buckets in the default folder:
 
       ```bash
       yc storage bucket list
@@ -45,8 +45,8 @@ For example, if you provide the users of your service with the ability to upload
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-   1. Using the `NAME` column, save the name of the bucket to limit the size for.
-   1. Limit the maximum size of the bucket:
+  1. Using the `NAME` column, save the name of the bucket to limit the size for.
+  1. Limit the maximum size of the bucket:
 
       ```bash
       yc storage bucket update \
@@ -56,11 +56,11 @@ For example, if you provide the users of your service with the ability to upload
 
       Where:
       * `--name`: Name of the bucket to limit the size for.
-      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+      * `--max-size`: Maximum bucket size, in bytes (`0` for unlimited).
 
       Result:
 
-      ```yaml
+      ```text
       name: first-bucket
       older_id: b1gmit33ngp6********
       default_storage_class: STANDARD
@@ -72,66 +72,68 @@ For example, if you provide the users of your service with the ability to upload
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To limit the maximum bucket size:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add the `max_size` parameter to the bucket description:
 
-      ```hcl
-      ...
-      resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_ID>"
-        secret_key = "<private_key>"
-        bucket     = "tf-test-bucket"
-        max_size   = 1048576
-      }
-      ...
-      ```
+  To limit the maximum bucket size:
 
-      Where:
-      * `access_key`: ID of the static access key.
-      * `secret_key`: Secret access key value.
-      * `max_size`: Maximum bucket size (bytes).
+  1. Open the {{ TF }} configuration file and add the `max_size` parameter to the bucket description:
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<static_key_ID>"
+       secret_key = "<secret_key>"
+       bucket     = "tf-test-bucket"
+       max_size   = 1048576
+     }
+     ...
+     ```
 
-   1. Check the configuration using this command:
+     Where:
+     * `access_key`: Static access key ID.
+     * `secret_key`: Secret access key value.
+     * `max_size`: Maximum bucket size, in bytes.
 
-      ```
-      terraform validate
-      ```
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
-      If the configuration is correct, you will get this message:
+  1. Check the configuration using this command:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     terraform validate
+     ```
 
-   1. Run this command:
+     If the configuration is correct, you will get this message:
 
-      ```
-      terraform plan
-      ```
+     ```
+     Success! The configuration is valid.
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Run this command:
 
-   1. Apply the configuration changes:
+     ```
+     terraform plan
+     ```
 
-      ```
-      terraform apply
-      ```
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Apply the configuration changes:
 
-      You can verify changes to your bucket in the [management console]({{ link-console-main }}).
+     ```
+     terraform apply
+     ```
+
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+
+     You can verify changes to your bucket in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   To limit the maximum bucket size, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To limit the maximum bucket size, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}

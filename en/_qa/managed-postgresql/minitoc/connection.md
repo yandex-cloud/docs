@@ -8,6 +8,8 @@
 
 * [What do I do if I get the _SSL is required_ error?](#ssl-req)
 
+* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)
+
 * [What is the maximum allowed number of concurrent connections to a single host in {{ mpg-name }}?](#host-conn)
 
 * [What is the allowed number of connections per user?](#user-conn)

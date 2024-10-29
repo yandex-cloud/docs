@@ -18,20 +18,32 @@
 
     Инструкции по настройке сопоставления групп некоторых поставщиков удостоверений:
 
-   * [KeyCloak](../tutorials/federations/group-mapping/keycloak.md)
-   * [Microsoft AD FS](https://learn.microsoft.com/en-us/power-pages/security/authentication/saml2-settings#create-an-ad-fs-relying-party-trust)
+   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
+   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
+   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
    * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Задайте сопоставление групп пользователей в настройках федерации:
 
-    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
-    1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-    1. На панели слева выберите раздел ![icon-federation](../../_assets/console-icons/vector-square.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
-    1. Выберите нужную федерацию и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
-    1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:
+    {% list tabs group=instructions %}
 
-        * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** — укажите имя группы поставщика удостоверений.
-        * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{ org-name }} из списка.
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Повторите предыдущий шаг для всех сопоставляемых групп.
+      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+      1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+      1. Нажмите на строку с нужной федерацией и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+
+      1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:
+
+          * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** — укажите имя группы поставщика удостоверений.
+          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{ org-name }} из списка.
+
+      1. Повторите предыдущий шаг для всех сопоставляемых групп.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+    {% endlist %}

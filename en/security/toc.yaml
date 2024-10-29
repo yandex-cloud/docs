@@ -15,38 +15,19 @@ items:
     items:
       - name: All recommendations
         href: domains/index.md
-      - name: Checklist
-        href: domains/checklist.md
-      - name: Network security
-        hidden: true
-        href: domains/network.md
-      - name: Authentication and access control
-        hidden: true
-        href: domains/access.md
-      - name: Data encryption and key management
-        hidden: true
-        href: domains/encryption.md
-      - name: Secure configuration
-        hidden: true
-        href: domains/secure-config.md
-      - name: Vulnerability management
-        hidden: true
-        href: domains/vulnerability-management.md
-      - name: Audit logs
-        hidden: true
-        href: domains/audit-logs.md
-      - name: Physical security
-        hidden: true
-        href: domains/physical-security.md
+      - name: IaaS security checklist
+        href: domains/iaas-checklist.md
+      - name: Authentication and authorization security checklist
+        href: domains/iam-checklist.md
       - name: Kubernetes security
         href: domains/kubernetes.md
-  - name: Standard for securing Yandex Cloud infrastructure 1.1
+  - name: Standard for securing Yandex Cloud infrastructure 1.2
     items:
       - name: All sections on one page
         href: standard/all.md
       - name: Introduction
         href: standard/index.md
-      - name: Authentication and access control
+      - name: Authentication and access management
         href: standard/authentication.md
       - name: Network security
         href: standard/network-security.md
@@ -56,14 +37,16 @@ items:
         href: standard/encryption.md
       - name: Collecting, monitoring, and analyzing audit logs
         href: standard/audit-logs.md
-      - name: Vulnerability management
-        href: standard/vulnerabilities.md
-      - name: Backups
+      - name: Backup
         href: standard/backup.md
       - name: Physical security
         href: standard/physical-security.md
       - name: Application security
         href: standard/app-security.md
+      - name: Security {{ k8s }}
+        href: standard/kubernetes-security.md
+      - name: Versions
+        href: standard/versions.md
   - name: Tutorials
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
@@ -82,7 +65,7 @@ items:
         href: operations/account-deletion.md
       - name: If you are being attacked from {{ yandex-cloud }} addresses
         href: operations/outgoing-ddos.md
-      - name: Detecting {{ yandex-cloud }} secrets in public sources
+      - name: Scanning for {{ yandex-cloud }} secrets in public sources
         href: operations/search-secrets.md
   - name: User support policy during vulnerability scanning
     href: compliance/pentest.md
@@ -91,3 +74,4 @@ items:
   - name: Public IP address ranges
     href: ip-list.md
 base: en/security
+deepBase: 2

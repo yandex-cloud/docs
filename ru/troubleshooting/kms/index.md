@@ -1,4 +1,4 @@
-# Решения для Cloud KMS
+# Решения для {{ kms-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

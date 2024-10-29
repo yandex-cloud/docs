@@ -98,7 +98,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
       ```
 
       Where:
-      * `--cluster-name`: Cluster name. You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list).
+      * `--cluster-name`: Cluster name. You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list).
       * `--role`: Subcluster role (`datanode`, or `computenode`).
       * `--resource-preset`: [Host class](../concepts/instance-types.md).
       * `--disk-type`: [Storage type](../concepts/storage.md) (`network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`).
@@ -164,7 +164,7 @@ You cannot delete data storage subclusters.
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 

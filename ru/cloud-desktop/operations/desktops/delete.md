@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по удалению рабочего стола в {{ cloud-desktop-full-name }}"
-description: "Из статьи вы узнаете, как удалить рабочий стол в {{ cloud-desktop-full-name }}."
+title: Инструкция по удалению рабочего стола в {{ cloud-desktop-full-name }}
+description: Из статьи вы узнаете, как удалить рабочий стол в {{ cloud-desktop-full-name }}.
 ---
 
 # Удалить рабочий стол

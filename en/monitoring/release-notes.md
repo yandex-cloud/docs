@@ -1,6 +1,11 @@
+---
+title: '{{ monitoring-full-name }} release notes'
+description: This section contains {{ monitoring-name }} release notes.
+---
+
 # {{ monitoring-full-name }} release notes
 
-## January–March 2024 {#jan-mar-2024}
+## January – March 2024 {#jan-mar-2024}
 
 ### Updates {#updates}
 

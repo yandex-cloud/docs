@@ -2,7 +2,6 @@
 
 
 
-
 ## Issue description {#case-description}
 
 You need to disable or remove Yandex Tracker.

@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о секрете в {{ lockbox-full-name }}"
+title: Как получить информацию о секрете в {{ lockbox-full-name }}
 ---
 
 # Получить информацию о секрете, его содержимом и правах доступа
@@ -37,7 +37,7 @@ title: "Как получить информацию о секрете в {{ loc
 
      Результат:
 
-      ```bash
+      ```text
       id: e6qi98vtdva1********
       folder_id: b1go79qlt1tp********
       created_at: "2023-11-03T15:28:18.909Z"
@@ -78,7 +78,7 @@ title: "Как получить информацию о секрете в {{ loc
      * `output "current_version"` — выходная переменная, которая содержит информацию о текущей версии секрета:
        * `value` — возвращаемое значение.
 
-     Вместо `current_version` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lockbox_secret` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lockbox_secret).
+     Вместо `current_version` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lockbox_secret` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -109,7 +109,7 @@ title: "Как получить информацию о секрете в {{ loc
 
 - API {#api}
 
-  Чтобы получить информацию о [секрете](../concepts/secret.md), воспользуйтесь методом REST API [get](../api-ref/Secret/get.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Get](../api-ref/grpc/secret_service.md#Get).
+  Чтобы получить информацию о [секрете](../concepts/secret.md), воспользуйтесь методом REST API [get](../api-ref/Secret/get.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Get](../api-ref/grpc/Secret/get.md).
 
 {% endlist %}
 
@@ -145,7 +145,7 @@ title: "Как получить информацию о секрете в {{ loc
 
      Результат:
 
-      ```bash
+      ```text
       version_id: e6q7nvojsgmk********
       entries:
         - key: example-key
@@ -167,7 +167,7 @@ title: "Как получить информацию о секрете в {{ loc
        secret_id  = "<идентификатор_секрета>"
        version_id = "<идентификатор_версии>"
      }
-     
+
      output "my_secret_entries" {
        value = data.yandex_lockbox_secret_version.my_secret_version.entries
      }
@@ -180,7 +180,7 @@ title: "Как получить информацию о секрете в {{ loc
      * `output "my_secret_entries"` — выходная переменная, которая хранит содержимое секрета:
        * `value` — возвращаемое значение.
 
-     Более подробно о параметрах источника данных `yandex_lockbox_secret_version` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+     Более подробно о параметрах источника данных `yandex_lockbox_secret_version` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret_version).
 
   1. Создайте ресурсы:
 
@@ -209,7 +209,7 @@ title: "Как получить информацию о секрете в {{ loc
 
 - API {#api}
 
-  Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/payload_service.md#Get).
+  Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/Payload/get.md).
 
 {% endlist %}
 
@@ -245,7 +245,7 @@ title: "Как получить информацию о секрете в {{ loc
 
      Результат:
 
-      ```bash
+      ```text
       +---------+---------------+----------------------+
       | ROLE ID | SUBJECT TYPE  |      SUBJECT ID      | 
       +---------+---------------+----------------------+
@@ -255,6 +255,6 @@ title: "Как получить информацию о секрете в {{ loc
 
 - API {#api}
 
-  Чтобы посмотреть права доступа к секрету, воспользуйтесь методом REST API [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListAccessBindings](../api-ref/grpc/secret_service.md#ListAccessBindings).
+  Чтобы посмотреть права доступа к секрету, воспользуйтесь методом REST API [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListAccessBindings](../api-ref/grpc/Secret/listAccessBindings.md).
 
 {% endlist %}

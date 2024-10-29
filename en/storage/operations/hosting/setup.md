@@ -1,10 +1,12 @@
 ---
-title: "Setting up hosting in {{ objstorage-full-name }}"
-description: "Follow this guide to set up hosting."
+title: Setting up hosting in {{ objstorage-full-name }}
+description: Follow this guide to set up hosting.
 ---
 
 # Hosting setup
 
+
+You can host your static website in {{ objstorage-name }}. A static website is based on such client-side technologies as HTML, CSS, or JavaScript. It may not contain any scripts that run on the web server side.
 
 {{ objstorage-name }} buckets support:
 
@@ -18,147 +20,164 @@ description: "Follow this guide to set up hosting."
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
-   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
+  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
       * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website homepage.
       * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
-   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to set up static website hosting in a bucket:
+  1. View a description of the CLI command to set up static website hosting in a bucket:
 
-      ```bash
-      yc storage bucket update --help
-      ```
+     ```bash
+     yc storage bucket update --help
+     ```
 
-   1. Create a hosting configuration file in JSON format. For example:
+     ```json
+     {
+       "index": "index.html",
+       "error": "error404.html"
+     }
+     ```
 
-      ```json
-      {
-        "index": "index.html",
-        "error": "error404.html"
-      }
-      ```
+     Where:
 
-      Where:
+     * `index`: Absolute path to the file of the website home page.
+     * `error`: Absolute path to the file the user will see in case of 4xx errors.
 
-      * `index`: Absolute path to the file of the website home page.
-      * `error`: Absolute path to the file displayed to the user upon a 4xx error.
+  1. Run the following command:
 
-   1. Run the following command:
+     ```bash
+     yc storage bucket update --name <bucket_name> \
+       --website-settings-from-file <path_to_file>
+     ```
 
-      ```bash
-      yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <file_path>
-      ```
+     Where:
+     * `--name`: Bucket name.
+     * `--website-settings-from-file`: Path to the hosting configuration file.
 
-      Where:
-      * `--name`: Bucket name.
-      * `--website-settings-from-file`: Path to the hosting configuration file.
+     Result:
 
-      Result:
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bv********
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
 
-      ```text
-      name: my-bucket
-      folder_id: b1gjs8dck8bv********
-      default_storage_class: STANDARD
-      versioning: VERSIONING_SUSPENDED
-      max_size: "10737418240"
-      acl: {}
-      created_at: "2022-12-14T08:42:16.273717Z"
-      ```
+  To make sure the bucket description now contains the hosting settings, run this command:
 
-   To make sure the bucket description now contains the hosting settings, run this command:
+  ```bash
+  yc storage --name <bucket_name> bucket get --full
+  ```
 
-   ```bash
-   yc storage --name <bucket_name> bucket get --full
-   ```
+  Result:
 
-   Result:
-
-   ```text
-   website_settings:
-     index: index.html
-     error: error404.html
-     redirect_all_requests: {}
-   ```
+  ```text
+  website_settings:
+    index: index.html
+    error: error404.html
+    redirect_all_requests: {}
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
-   Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
+  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
-      
-      ```hcl
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "{{ region-id }}-a"
-      }
-
-      resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "<bucket_name>"
-        acl        = "public-read"
-
-        website {
-          index_document = "index.html"
-          error_document = "error.html"
-        }
-
-      }
-      ```
+  1. In the configuration file, describe the parameters of the resources you want to create:
 
 
+     ```hcl
+     provider "yandex" {
+       token     = "<OAuth>"
+       cloud_id  = "<cloud_ID>"
+       folder_id = "<folder_ID>"
+       zone      = "{{ region-id }}-a"
+     }
 
-      Where:
+     resource "yandex_iam_service_account" "sa" {
+       name = "<service_account_name>"
+     }
 
-      * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name.
-      * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
-      * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
+     // Assigning a role to a service account
+     resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+       folder_id = "<folder_ID>"
+       role      = "storage.admin"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+     }
 
-   1. Make sure the configuration files are correct.
+     // Creating a static access key
+     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+       service_account_id = yandex_iam_service_account.sa.id
+       description        = "static access key for object storage"
+     }
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+     resource "yandex_storage_bucket" "test" {
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket     = "<bucket_name>"
+       acl        = "public-read"
 
-         ```
-         terraform plan
-         ```
+       website {
+         index_document = "index.html"
+         error_document = "error.html"
+       }
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     }
+     ```
 
-   1. Deploy cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
 
-      ```
-      terraform apply
-      ```
+     Where:
 
-      1. Confirm that you want to create the resources.
+     * `access_key`: Static access key ID.
+     * `secret_key`: Secret access key value.
+     * `bucket`: Bucket name.
+     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `website`: Website parameters:
+       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+  1. Make sure the configuration files are correct.
+
+     1. In the command line, go to the folder where you created the configuration file.
+     1. Run a check using this command:
+
+        ```
+        terraform plan
+        ```
+
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+
+  1. Deploy cloud resources.
+
+     1. If the configuration does not contain any errors, run this command:
+
+     ```
+     terraform apply
+     ```
+
+     1. Confirm that you want to create the resources.
+
+     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -168,138 +187,138 @@ description: "Follow this guide to set up hosting."
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure redirection for.
-   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
+  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure the redirect for.
+  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
       * Domain name of the host to act as the redirect target for all requests to the bucket.
       * (Optional) Protocol if the specified host accepts requests only over a specific protocol.
-   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to set up a redirect for all requests:
+  1. View a description of the CLI command to set up a redirect for all requests:
 
-      ```bash
-      yc storage bucket update --help
-      ```
+     ```bash
+     yc storage bucket update --help
+     ```
 
-   1. Create a file with redirect settings in JSON format, here is an example:
+  1. Create a file with redirect settings in JSON format, e.g.:
 
-      ```json
-      {
-        "redirectAllRequests": {
-          "protocol": "PROTOCOL_HTTP",
-          "hostname": "example.com"
-        }
-      }
-      ```
+     ```json
+     {
+       "redirectAllRequests": {
+         "protocol": "PROTOCOL_HTTP",
+         "hostname": "example.com"
+       }
+     }
+     ```
 
-      Where:
-      * `protocol`: Data transfer protocol (`PROTOCOL_HTTP` or `PROTOCOL_HTTPS`). By default, the original request's protocol is used.
-      * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
+     Where:
+     * `protocol`: Data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
+     * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
 
-   1. Run the following command:
+  1. Run the following command:
 
-      ```bash
-      yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <file_path>
-      ```
+     ```bash
+     yc storage bucket update --name <bucket_name> \
+       --website-settings-from-file <path_to_file>
+     ```
 
-      Where:
-      * `--name`: Bucket name.
-      * `--website-settings-from-file`: Path to the redirect configuration file.
+     Where:
+     * `--name`: Bucket name.
+     * `--website-settings-from-file`: Path to the redirect configuration file.
 
-      Result:
+     Result:
 
-      ```text
-      name: my-bucket
-      folder_id: b1gjs8dck8bv********
-      default_storage_class: STANDARD
-      versioning: VERSIONING_SUSPENDED
-      max_size: "10737418240"
-      acl: {}
-      created_at: "2022-12-14T08:42:16.273717Z"
-      ```
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bv********
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To set up a redirect for all requests:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` parameter to the `yandex_storage_bucket` resource description.
 
-      ```hcl
-      ...
-      resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "<bucket_name>"
-        acl        = "public-read"
+  To set up a redirect for all requests:
 
-        website {
-          index_document = "<absolute_path_to_website_home_page_file>"
-          error_document = "<absolute_path_to_error_file>"
-          redirect_all_requests_to = "<host_name>"
-        }
-      }
-      ...
-      ```
+  1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` parameter to the `yandex_storage_bucket` resource description:
 
-      Where:
-      * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name.
-      * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
-      * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
-         * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<static_key_ID>"
+       secret_key = "<secret_key>"
+       bucket     = "<bucket_name>"
+       acl        = "public-read"
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
+       website {
+         index_document = "<absolute_path_to_website_homepage_file>"
+         error_document = "<absolute_path_to_error_file>"
+		 redirect_all_requests_to = "<host_name>"
+       }
+     }
+     ...
+     ```
 
-   1. Check the configuration using this command:
+     Where:
+     * `access_key`: Static access key ID.
+     * `secret_key`: Secret access key value.
+     * `bucket`: Bucket name.
+     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `website`: Website parameters:
+       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+       * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
-      ```bash
-      terraform validate
-      ```
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
-      If the configuration is correct, you will get this message:
+  1. Check the configuration using this command:
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+     ```bash
+     terraform validate
+     ```
 
-   1. Run this command:
+     If the configuration is correct, you will get this message:
 
-      ```bash
-      terraform plan
-      ```
+     ```bash
+     Success! The configuration is valid.
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Run this command:
 
-   1. Apply the configuration changes:
+     ```bash
+     terraform plan
+     ```
 
-      ```bash
-      terraform apply
-      ```
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Apply the configuration changes:
 
-      You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
+     ```bash
+     terraform apply
+     ```
+
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+     You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
 
 - API {#api}
 
-   To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -307,186 +326,188 @@ description: "Follow this guide to set up hosting."
 
 ## Conditional request redirection {#redirects-on-conditions}
 
+Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. You can redirect an object request to other web pages (if the object was deleted) or redirect the requests that return errors.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure conditional request redirects for.
-   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-   1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
+  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure conditional request redirects for.
+  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request.
-   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
       * Protocol to use to send redirected requests.
       * Domain name of the host where the requests that satisfy the condition should redirect.
       * Response code to determine the redirect type.
       * Replace the key: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}** specified in the condition.
-   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to set up a conditional redirect of requests:
+  1. View a description of the CLI command to set up a conditional redirect of requests:
 
-      ```bash
-      yc storage bucket update --help
-      ```
+     ```bash
+     yc storage bucket update --help
+     ```
 
-   1. Create a file with conditional redirect settings in JSON format. For example:
+  1. Create a file with conditional redirect settings in JSON format. For example:
 
-      ```json
-      {
-        "routingRules": [
-          {
-            "condition": {
-              "httpErrorCodeReturnedEquals": "404",
-              "keyPrefixEquals": "key"
-            },
-            "redirect": {
-              "hostname": "example.com",
-              "httpRedirectCode": "301",
-              "protocol": "PROTOCOL_HTTP",
-              "replaceKeyPrefixWith": "prefix",
-              "replaceKeyWith": "key"
-            }
-          }
-        ]
-      }
-      ```
+     ```json
+     {
+       "routingRules": [
+         {
+           "condition": {
+             "httpErrorCodeReturnedEquals": "404",
+             "keyPrefixEquals": "key"
+           },
+           "redirect": {
+             "hostname": "example.com",
+             "httpRedirectCode": "301",
+             "protocol": "PROTOCOL_HTTP",
+             "replaceKeyPrefixWith": "prefix",
+             "replaceKeyWith": "key"
+           }
+         }
+       ]
+     }
+     ```
 
-      Where:
-      * `condition`: Condition to trigger a redirect:
+     Where:
+     * `condition`: Condition to trigger a redirect:
 
-         * `httpErrorCodeReturnedEquals`: HTTP response code.
-         * `keyPrefixEquals`: Object key prefix.
+       * `httpErrorCodeReturnedEquals`: HTTP response code.
+       * `keyPrefixEquals`: Object key prefix.
 
-      * `redirect`: Redirect settings:
+     * `redirect`: Redirect settings:
 
-         * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
-         * `httpRedirectCode`: New HTTP response code.
-         * `protocol`: New data transfer protocol (`PROTOCOL_HTTP` or `PROTOCOL_HTTPS`). By default, the original request's protocol is used.
-         * `replaceKeyPrefixWith`: New object key prefix.
-         * `replaceKeyWith`: New object key.
+       * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
+       * `httpRedirectCode`: New HTTP response code.
+       * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
+       * `replaceKeyPrefixWith`: New object key prefix.
+       * `replaceKeyWith`: New object key.
 
-   1. Run the following command:
+  1. Run the following command:
 
-      ```bash
-      yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <file_path>
-      ```
+     ```bash
+     yc storage bucket update --name <bucket_name> \
+       --website-settings-from-file <path_to_file>
+     ```
 
-      Where:
-      * `--name`: Bucket name.
-      * `--website-settings-from-file`: Path to the conditional redirect configuration file.
+     Where:
+     * `--name`: Bucket name.
+     * `--website-settings-from-file`: Path to the conditional redirect configuration file.
 
-      Result:
+     Result:
 
-      ```text
-      name: my-bucket
-      folder_id: b1gjs8dck8bv********
-      default_storage_class: STANDARD
-      versioning: VERSIONING_SUSPENDED
-      max_size: "10737418240"
-      acl: {}
-      created_at: "2022-12-14T08:42:16.273717Z"
-      ```
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bv********
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To set up a conditional redirect of requests:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add the `routing_rules` parameter to the bucket description:
 
-      ```hcl
-      ...
-      resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "<bucket_name>"
-        acl        = "public-read"
+  To set up a conditional redirect of requests:
 
-        website {
-          index_document = "<absolute_path_to_website_home_page_file>"
-          error_document = "<absolute_path_to_error_file>"
-          routing_rules  = <<EOF
-          [
-            {
-              "Condition": {
-                "KeyPrefixEquals": "<object_key_prefix>",
-                "HttpErrorCodeReturnedEquals": "<HTTP_response_code>"
-              },
-              "Redirect": {
-                "Protocol": "<new_schema>",
-                "HostName": "<new_domain_name>",
-                "ReplaceKeyPrefixWith": "<new_object_key_prefix>",
-                "ReplaceKeyWith": "<new_object_key>",
-                "HttpRedirectCode": "<new_HTTP_response_code>"
-              }
-            },
-          ...
-          ]
-          EOF
-        }
-      }
-      ...
-      ```
+  1. Open the {{ TF }} configuration file and add the `routing_rules` parameter to the bucket description:
 
-      Where:
-      * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name.
-      * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
-      * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
-         * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<static_key_ID>"
+       secret_key = "<secret_key>"
+       bucket     = "<bucket_name>"
+       acl        = "public-read"
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
+       website {
+         index_document = "<absolute_path_to_website_homepage_file>"
+         error_document = "<absolute_path_to_error_file>"
+         routing_rules  = <<EOF
+         [
+	       {
+             "Condition": {
+               "KeyPrefixEquals": "<object_key_prefix>",
+               "HttpErrorCodeReturnedEquals": "<HTTP_response_code>"
+             },
+             "Redirect": {
+               "Protocol": "<new_schema>",
+               "HostName": "<new_domain_name>",
+               "ReplaceKeyPrefixWith": "<new_object_key_prefix>",
+               "ReplaceKeyWith": "<new_object_key>",
+               "HttpRedirectCode": "<new_HTTP_response_code>"
+             }
+           },
+         ...
+         ]
+         EOF
+       }
+     }
+     ...
+     ```
 
-   1. Check the configuration using this command:
+     Where:
+     * `access_key`: Static access key ID.
+     * `secret_key`: Secret access key value.
+     * `bucket`: Bucket name.
+     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `website`: Website parameters:
+       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
-      ```bash
-      terraform validate
-      ```
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
-      If the configuration is correct, you will get this message:
+  1. Check the configuration using this command:
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+     ```bash
+     terraform validate
+     ```
 
-   1. Run this command:
+     If the configuration is correct, you will get this message:
 
-      ```bash
-      terraform plan
-      ```
+     ```bash
+     Success! The configuration is valid.
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Run this command:
 
-   1. Apply the configuration changes:
+     ```bash
+     terraform plan
+     ```
 
-      ```bash
-      terraform apply
-      ```
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Apply the configuration changes:
 
-      You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
+     ```bash
+     terraform apply
+     ```
+
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+     You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
 
 - API {#api}
 
-   To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 

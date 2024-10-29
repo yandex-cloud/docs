@@ -60,14 +60,14 @@
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
-   
+
    * Укажите расположение узлов {{ managed-k8s-name }} по [зонам доступности](../../overview/concepts/geo-scope.md) и [сетям](../../vpc/concepts/network.md#network).
    * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и сеть, чтобы создать узлы {{ managed-k8s-name }} в разных зонах доступности.
 
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** настройте один из способов подключения к узлам в группе узлов {{ managed-k8s-name }}:
 
-    * Чтобы подключаться к узлам через {{ oslogin }}, выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+    * Чтобы подключаться к узлам через {{ oslogin }}, выберите опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
         При выборе этой опции будет нельзя указать SSH-ключи, так как эти способы подключения являются взаимоисключающими.
 

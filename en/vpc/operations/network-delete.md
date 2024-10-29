@@ -1,6 +1,6 @@
 ---
-title: "How to delete a cloud network"
-description: "Follow this guide to delete a cloud network."
+title: How to delete a cloud network
+description: Follow this guide to delete a cloud network.
 ---
 
 # Deleting a cloud network
@@ -122,7 +122,7 @@ You cannot restore a network after it is deleted.
 
 - API {#api}
 
-   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) gRPC API call, and provide the ID of the cloud network to be deleted, in the `networkId` request parameter.
+   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/Network/delete.md) gRPC API call, and provide the ID of the cloud network to be deleted, in the `networkId` request parameter.
 
    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 

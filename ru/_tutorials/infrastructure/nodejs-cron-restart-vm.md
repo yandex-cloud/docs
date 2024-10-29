@@ -51,12 +51,17 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `oauth-token`.
+  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `key_token`.
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение OAuth-токена, необходимого для авторизации функции.
+     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы создать секрет, выполните команду:
 
@@ -65,7 +70,7 @@
     --payload "[{'key': 'key_token', 'text_value': '<OAuth-токен>'}]"
   ```
 
-  Где `text_value` — значение OAuth-токена, необходимого для авторизации функции.
+  Где `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
 
   Результат:
 
@@ -98,13 +103,18 @@
      ```
 
      Где:
+
      * `name` — имя секрета.
      * `key` — ключ секрета.
-     * `text_value` — значение OAuth-токена, необходимого для авторизации функции.
+     * `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
+
+     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
+
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -125,7 +135,7 @@
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
 
 {% endlist %}
 
@@ -228,10 +238,6 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Создайте функцию `function-restart-vms`:
 
@@ -385,9 +391,9 @@
 
 - API {#api}
 
-  Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create).
+  Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md).
 
-  Чтобы создать версию функцию, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion).
+  Чтобы создать версию функцию, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md).
 
 {% endlist %}
 
@@ -506,7 +512,7 @@
 
 - API {#api}
 
-  Чтобы создать таймер, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать таймер, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 

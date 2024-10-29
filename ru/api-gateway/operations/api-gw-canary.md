@@ -1,6 +1,6 @@
 ---
-title: "Как настроить канареечный релиз для API-шлюза"
-description: "Следуя данной инструкции, вы сможете настроить канареечный релиз для API-шлюза."
+title: Как настроить канареечный релиз для API-шлюза
+description: Следуя данной инструкции, вы сможете настроить канареечный релиз для API-шлюза.
 ---
 
 # Настроить канареечный релиз
@@ -106,7 +106,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы настроить [канареечный релиз](../concepts/extensions/canary.md), воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
+  Чтобы настроить [канареечный релиз](../concepts/extensions/canary.md), воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md).
 
 {% endlist %}
 

@@ -23,6 +23,10 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 * [Зеркалирование {{ KF }}](mkf-to-mkf.md)
 
+Синхронизация данных из стороннего кластера.
+
+* [Синхронизация данных из {{ MY }}](sync-mysql.md)
+
 Миграция со сменой типа хранения данных.
 
 * [{{ MY }} в {{ ydb-short-name }}](managed-mysql-to-ydb.md)
@@ -31,6 +35,8 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} в {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} в {{ OS }}](mes-to-mos.md)
+* [{{ OS }} в {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ PG }} в {{ OS }}](postgresql-to-opensearch.md)
 
 ## Захват изменений данных {#cdc}
 
@@ -39,13 +45,13 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
-* Захват изменений {{ MY }} и поставка в 
+* Захват изменений {{ MY }} и поставка в:
   * [{{ KF }}](cdc-mmy.md)
   * [{{ DS }}](mmy-to-yds.md)
-* Захват изменений {{ PG }} и поставка в
+* Захват изменений {{ PG }} и поставка в:
   * [{{ KF }}](cdc-mpg.md)
   * [{{ DS }}](mpg-to-yds.md)
-* Захват изменений {{ ydb-short-name }} и поставка в
+* Захват изменений {{ ydb-short-name }} и поставка в:
   * [{{ KF }}](cdc-ydb.md)
   * [{{ DS }}](ydb-to-yds.md)
 
@@ -84,6 +90,8 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ objstorage-name }} в {{ MY }}](objs-mmy-migration.md)
 * [{{ objstorage-name }} в {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} в {{ ydb-short-name }}](object-storage-to-ydb.md)
+* [{{ ydb-short-name }} в {{ CH }}](ydb-to-clickhouse.md)
+* [{{ OS }} в {{ CH }}](opensearch-to-clickhouse.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 
@@ -93,6 +101,8 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 * [{{ MY }} в {{ objstorage-name }}](mmy-objs-migration.md)
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ OS }} в {{ objstorage-name }}](opensearch-to-object-storage.md)
+* [{{ ydb-short-name }} в {{ objstorage-name }}](ydb-to-object-storage.md)
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

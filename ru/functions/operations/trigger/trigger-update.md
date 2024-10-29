@@ -32,7 +32,7 @@
       ```bash
       yc serverless trigger update <тип_триггера> --help
       ```
-  
+
   1. Измените параметры триггера, например переименуйте его:
 
       ```bash
@@ -42,7 +42,7 @@
 
       Результат:
 
-      
+
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********
@@ -106,12 +106,12 @@
 
   Проверить изменение триггера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-    ```
+    ```bash
     yc serverless trigger get <идентификатор_триггера>
     ```
 
 - API {#api}
 
-  Чтобы изменить параметры триггера, воспользуйтесь методом REST API [update](../../triggers/api-ref/Trigger/update.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Update](../../triggers/api-ref/grpc/trigger_service.md#Update).
+  Чтобы изменить параметры триггера, воспользуйтесь методом REST API [update](../../triggers/api-ref/Trigger/update.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md).
 
 {% endlist %}

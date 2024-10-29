@@ -1,6 +1,6 @@
 ---
-title: "Changing the name of a function"
-description: "Follow this guide to update a function name."
+title: Changing the name of a function
+description: Follow this guide to update a function name.
 ---
 
 # Changing the name of a function
@@ -107,7 +107,7 @@ description: "Follow this guide to update a function name."
 
 - API {#api}
 
-   To rename a function, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
+   To rename a function, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

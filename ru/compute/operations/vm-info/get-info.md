@@ -74,7 +74,7 @@
      * `output "instance_external_ip"` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_instance).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -93,7 +93,7 @@
 
 - API {#api}
 
-  Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get).
+  Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/Instance/get.md).
 
   Основная информация не включает пользовательские метаданные, которые были переданы при создании или [изменении](../../operations/vm-control/vm-update.md) ВМ. Чтобы получить информацию вместе с метаданными, укажите в параметрах `view=FULL`.
 
@@ -131,25 +131,34 @@ Metadata-Flavor: Google
 Узнать идентификатор ВМ изнутри ВМ:
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Получить метаданные в формате JSON:
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Получить метаданные в удобном для чтения формате. Воспользуйтесь утилитой [jq](https://stedolan.github.io/jq/):
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/?recursive=true | \
+  jq -r '.'
 ```
 
 Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
 ```
 
 #### Список возвращаемых элементов {#list-of-returned-items}
@@ -308,7 +317,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 

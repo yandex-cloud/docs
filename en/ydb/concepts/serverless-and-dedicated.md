@@ -1,6 +1,6 @@
 ---
-title: "Serverless and Dedicated operation modes in {{ ydb-short-name }}"
-description: "You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the resources explicitly allocated to the compute database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database."
+title: Serverless and Dedicated operation modes in {{ ydb-short-name }}
+description: 'You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the resources explicitly allocated to the compute database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database.'
 keywords:
   - ydb
   - serverless
@@ -62,7 +62,7 @@ Since the storage size in a serverless DB is indefinitely large, the maximum amo
 
 The **Maximum amount of data** limit for a serverless DB enables you to restrict the amount of data in this DB allowed by {{ ydb-short-name }}. By default, a limit of 50 GB is set for new DBs, which limits your monthly charges for the amount of stored data to approximately ₽650 according to the pricing at the time of this writing (₽13.41 per GB, 1 GB for free).
 
-You can change the **Maximum amount of data** limit interactively at any time, both via the UI console and the CLI and raise or reduce it without limitations. This allows you to quickly adjust it as needed.
+You can change the **Maximum amount of data** limit interactively at any time, either via the GUI console or the CLI, to increase or reduce it without any limitations. This allows you to quickly adjust it as needed.
 
 We do not recommend setting the **Maximum amount of data** limit below the current actual amount; otherwise, all data modification operations, including `DELETE`, will become unavailable. You will only be able to reduce the amount of data with the `DROP TABLE` or `DROP INDEX` commands. If the limit is accidentally set below the actual size, we recommend returning it to the operating value exceeding the actual size with some redundancy.
 
@@ -85,5 +85,3 @@ Dedicated mode assumes that the resources for tablet instances and YQL queries a
 In the serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be both very large (any number of cores) and very small (significantly less than one core). If a user created a DB with a single table with a single entry and hardly ever makes DB queries, {{ ydb-short-name }} uses a small amount of RAM on tablet instances that are part of the user DB. This is possible because the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there are not enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly by spawning tablet instances on other VMs.
 
 This technology allows you to package virtual entities (tablet instances) very tightly together into physical resources based on actual consumption. This enables invoicing the user for the performed operations rather than the allocated resources.
-
-

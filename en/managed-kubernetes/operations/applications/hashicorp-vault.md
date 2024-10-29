@@ -13,9 +13,9 @@ To install HashiCorp Vault:
 ## Getting started {#before-you-begin}
 
 To use HashiCorp Vault, you need:
-* [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md)
-* [Authorized key](../../../iam/concepts/authorization/key.md)
-* [Symmetric encryption key](../../../kms/concepts/key.md)
+* [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md).
+* [Authorized key](../../../iam/concepts/authorization/key.md).
+* [Symmetric encryption key](../../../kms/concepts/key.md).
 
 1. [Create a service account](../../../iam/operations/sa/create.md):
 
@@ -23,7 +23,7 @@ To use HashiCorp Vault, you need:
    yc iam service-account create --name vault-kms
    ```
 
-1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for the service account and save it to a file named `authorized-key.json`:
+1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for the service account and save it to the `authorized-key.json` file:
 
    ```bash
    yc iam key create \
@@ -40,8 +40,8 @@ To use HashiCorp Vault, you need:
      --rotation-period 24h
    ```
 
-   Save the key ID (`id`). You will need it when installing the application.
-1. [Assign the role](../../../iam/operations/roles/grant.md) `kms.keys.encrypterDecrypter` to the {{ kms-name }} key:
+   Save the key `id`. You will need it when installing the application.
+1. [Assign](../../../iam/operations/roles/grant.md) the `kms.keys.encrypterDecrypter` role to the service account you created previously:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -54,20 +54,26 @@ To use HashiCorp Vault, you need:
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
+{% note warning %}
+
+When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ kms-name }}, the [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) tool will be used to deliver secrets. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi) tool, install the product using a [Helm chart](#helm-install). For more information about the differences between these mechanisms, see the [Hashicorp documentation](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+
+{% endnote %}
+
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**![Marketplace](../../../_assets/console-icons/shopping-cart.svg) tab.
+1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
-   * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
+   * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#before-you-begin) {{ kms-name }} key ID.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -78,19 +84,33 @@ To use HashiCorp Vault, you need:
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
-   cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.tag }} \
+   cat <path_to_file_with_authorized_key> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
+     --version 0.28.1+yckms \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set-file yandexKmsAuthJson=authorized-key.json \
+     --set-file yandexKmsAuthJson=<path_to_file_with_authorized_key> \
+     --set yandexKmsKeyId=<KMS_key_ID> \
      hashicorp ./vault/
    ```
 
-   This command also creates a new namespace required for HashiCorp Vault.
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+   Command parameters:
+   * `<path_to_file_with_authorized_key>`: Path to the `authorized-key.json` file you [saved before](#before-you-begin).
+   * `<namespace>`: New namespace to create for HashiCorp Vault.
+   * `<KMS_key_ID>`: [Previously obtained](#before-you-begin) {{ kms-name }} key ID.
+
+   This command will install HashiCorp Vault with KMS support and the [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) secret delivery tool to the cluster. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi) mechanism, add the following parameters to the command:
+
+   ```bash
+   --set "injector.enabled=false" \
+   --set "csi.enabled=true"
+   ```
+
+   For more information about the differences between these mechanisms, see the [Hashicorp documentation](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 ## Initializing the vault {#vault-init}
 
@@ -108,7 +128,9 @@ To initialize the vault:
 1. Make sure that the application switched to `Running` and has `0/1` ready [pods](../../concepts/index.md#pod):
 
    ```bash
-   kubectl get pods --selector='app.kubernetes.io/name=vault'
+   kubectl get pods \
+     --namespace=<namespace> \
+     --selector='app.kubernetes.io/name=vault'
    ```
 
    Result:
@@ -122,6 +144,7 @@ To initialize the vault:
 
    ```bash
    kubectl exec \
+     --namespace=<namespace> \
      --stdin=true \
      --tty=true <vault_pod_name> \
      -- vault operator init
@@ -139,10 +162,14 @@ To initialize the vault:
    securely distribute the key shares printed above.
    ```
 
+   Save the resulting data in a secure location.
+
 1. Query the list of application pods again and make sure that one pod is ready:
 
    ```bash
-   kubectl get pods --selector='app.kubernetes.io/name=vault'
+   kubectl get pods \
+     --namespace=<namespace> \
+     --selector='app.kubernetes.io/name=vault'
    ```
 
    Result:
@@ -154,5 +181,8 @@ To initialize the vault:
 
 ## See also {#see-also}
 
-* [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault).
-* [{{ kms-name }} documentation](../../../kms/).
+* [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault)
+* [{{ kms-name }} documentation](../../../kms/)
+* [{#T}](../../tutorials/marketplace/hashicorp-vault.md)
+* [{#T}](./external-secrets-operator.md)
+* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)

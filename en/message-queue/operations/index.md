@@ -1,6 +1,6 @@
 ---
-title: "How to work with message queues. Step-by-step guides"
-description: "Step-by-step guides for working with message queues in {{ yandex-cloud }}. In this tutorial, you will learn how to create and delete a message queue, as well as send, receive, and delete messages."
+title: How to work with message queues. Step-by-step guides
+description: Step-by-step guides for working with message queues in {{ yandex-cloud }}. In this tutorial, you will learn how to create and delete a message queue, as well as send, receive, and delete messages.
 ---
 
 # Step-by-step guides for {{ message-queue-name }}

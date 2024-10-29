@@ -36,14 +36,14 @@
 
 Данными для задания преподаватель может поделиться двумя способами:
 
-1. **С помощью ресурса [датасет](../concepts/dataset.md):** 
+1. **С помощью ресурса [датасет](../concepts/dataset.md):**
     * Загрузить в свой проект необходимые данные и [создать из них Dataset](../operations/data/dataset.md).
     * [Поделиться датасетом с сообществом](../operations/data/dataset.md#share).
-1. **С помощью [бакета](../../storage/concepts/bucket.md):** 
+1. **С помощью [бакета](../../storage/concepts/bucket.md):**
     * [Создать бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) и загрузить в него данные.
-    * [Настроить коннектор S3](../operations/data/s3-connectors.md) в {{ ml-platform-name }}. 
+    * [Настроить коннектор S3](../operations/data/s3-connectors.md) в {{ ml-platform-name }}.
     * [Поделиться коннектором в сообществе](../operations/data/s3-connectors.md#share).
-    
+
 После этого студенты смогут добавить коннектор в свой проект и подключиться к бакету {{ objstorage-name }}.
 
 ## Проверьте выполненные задания {#check-tasks}

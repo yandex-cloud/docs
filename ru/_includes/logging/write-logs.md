@@ -8,9 +8,9 @@
 
     Чтобы добавить записи в лог-группу, выполните команду:
 
-    
+
     * Linux, MacOS:
-        ```
+        ```bash
         yc logging write \
           --group-name=default \
           --message="My message" \
@@ -18,7 +18,7 @@
           --json-payload='{"request_id": "1234"}'
         ```
     * Windows (cmd):
-        ```
+        ```cmd
         yc logging write ^
           --group-name=default ^
           --message="My message" ^
@@ -26,7 +26,7 @@
           --json-payload="{"request_id": "1234"}"
         ```
     * Windows (PowerShell):
-        ```
+        ```powershell
         yc logging write `
           --group-name=default `
           --message="My message" `
@@ -50,6 +50,6 @@
 
 - API {#api}
 
-  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
+  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md).
 
 {% endlist %}

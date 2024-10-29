@@ -1,11 +1,9 @@
 ---
-title: "{{ ml-platform-full-name }}. Questions and answers"
-description: "How do I get {{ ml-platform-full-name }} activity logs? Find the answer to this and other questions in this article."
+title: '{{ ml-platform-full-name }}. FAQ'
+description: How do I get the log files with my activity in {{ ml-platform-full-name }}? Find the answer to this and other questions in this article.
 ---
 
 # General questions about {{ ml-platform-name }}
-
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
 
 {% include [logs](../../_qa/logs.md) %}
 
@@ -38,15 +36,17 @@ Select **Edit** ⟶ **Clear All Outputs** in {{ jlab }}Lab or right-click on any
 
 #### Does {{ ml-platform-name }} support scheduled cell runs? {#regular-launch}
 
-This feature is not supported in {{ ml-platform-name }}. You can use [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md) to automatically run cells through the [{{ ml-platform-name }} API](../api-ref/overview.md). For a detailed description of regular runs, see this [guide](../tutorials/regular-launch.md).
+You can run scheduled calculations by [rerunning](../concepts/jobs/fork.md) the {{ ds-jobs }} jobs and [integrating them with {{ maf-full-name }}](../concepts/jobs/airflow.md).
+
+You can also use [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md) to automatically initiate notebook execution using the [{{ ml-platform-name }} API](../api-ref/overview.md). For a detailed description of regular runs, see this [guide](../tutorials/regular-launch.md).
 
 #### My browser cannot open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
 
 When opening a project in the IDE, {{ ml-platform-name }} redirects your request to its own host with {{ jlab }}Lab. Modern browsers may block such website behavior if you use more advanced privacy tools, including incognito mode. To open a project in the IDE, turn off the blocking settings:
 
 * **Chrome**: Allow using third-party cookies.
-* **Safari**: Uncheck **Website tracking: Prevent cross-site tracking** in **Preferences** ⟶ **Privacy**.
-* **Yandex Browser**: Allow using third-party cookies for {{ ml-platform-name }} in the browser settings under **Sites** ⟶ **Advanced site settings**.
+* **Safari**: Disable **Website tracking: Prevent cross-site tracking** under **Preferences** → **Privacy**.
+* **Yandex Browser**: Allow using third-party cookies for {{ ml-platform-name }} in the browser settings under **Sites** → **Advanced site settings**.
 * **Firefox**: Click the shield icon in the address bar and disable **Enhanced Tracking Protection**.
 
 #### My browser asks me to grant access to a {{ jlab }}Lab host. How do I do that? {#access}

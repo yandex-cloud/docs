@@ -1,28 +1,32 @@
-# Использование ISO-образа для развертывания виртуальных машин
+# Как использовать ISO-образ для развертывания виртуальных машин
 
 
 ## Описание задачи {#case-description}
 
-Возникла необходимость размернуть виртуальную машину в Compute Cloud из ISO-образа
+Необходимо развернуть виртуальную машину в {{ compute-name }} из ISO-образа
 
 ## Решение {#case-resolution}
 
-Из-за особенностей инфраструктуры Yandex Cloud развернуть виртуальную машину с образа ISO не получится.
-Поддерживаются только форматы образов жестких дисков `QCOW2`, `VMDK` и `VHD`.
+Из-за особенностей инфраструктуры {{ yandex-cloud }} развернуть виртуальную машину с образа ISO не получится — поддерживаются только следующие форматы образов жестких дисков: 
 
-Подробнее об этом мы пишем в руководстве о том, [как подготовить свой образ диска](../../../compute/operations/image-create/custom-image.md#create-image-file).
+* `Qcow2`; 
+* `VMDK`;
+* `VHD`.
+
+Подробнее пишем в руководстве о том, [как подготовить свой образ диска](../../../compute/operations/image-create/custom-image.md#create-image-file).
 
 Если вам нужно загрузить собственный образ для виртуальной машины, следует выполнить эти действия:
 
 1. Установить нужную ОС на локальном гипервизоре. Для этого можно использовать [VirtualBox](https://www.virtualbox.org/) или [QEMU](https://www.qemu.org/).
-2. Подготовить свой образ диска, следуя [инструкциям из документации](../../../compute/operations/image-create/custom-image.md).
-3. [Загрузить](../../../compute/operations/image-create/upload.md) свой образ в Object Storage.
-4. [Создать](../../../compute/operations/image-create/upload.md#create-image) новый образ по ссылке, полученной в Object Storage.
-5. [Развернуть](../../../compute/operations/vm-create/create-from-user-image.md) из полученного образа облачную ВМ.
+1. Подготовить свой образ диска, следуя [инструкциям из документации](../../../compute/operations/image-create/custom-image.md).
+1. [Загрузить](../../../compute/operations/image-create/upload.md) свой образ в {{ objstorage-name }}.
+1. [Создать](../../../compute/operations/image-create/upload.md#create-image) новый образ по ссылке, полученной в {{ objstorage-name }}.
+1. [Развернуть](../../../compute/operations/vm-create/create-from-user-image.md) из полученного образа облачную ВМ.
 
 {% note alert %}
 
 Указанные выше рекомендации применимы для образов дисков виртуальных машин, использующих ядро Linux в качестве гостевой операционной системы.
+
 Если вам нужно развернуть образ продукта на базе Microsoft Windows®, это руководство вам не подойдет.
 
 {% endnote %}

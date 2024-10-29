@@ -16,7 +16,7 @@ Before deleting a cloud network, check that it doesn't include:
 
 * [Subnets](../../../vpc/operations/subnet-delete.md)
 * [Security groups](../../../vpc/operations/security-group-delete.md)
-* [Routing tables](../../../vpc/concepts/static-routes.md)
+* [Routing tables](../../../vpc/concepts/routing.md)
 
 To check for the remaining resources that may prevent deletion of your cloud network, you can use the [quota list page](https://console.cloud.yandex.com/cloud?section=quotas) for the cloud.
 

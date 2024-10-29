@@ -6,8 +6,8 @@
 `DeleteCloud` | Удаление облака
 `DeleteFolder` | Удаление каталога
 `UpdateCloud` | Изменение облака
-`UpdateCloudAccessBindings` | Изменение привязок прав доступа на облако
+`UpdateCloudAccessBindings` | Изменение прав доступа на облако
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Изменение привязок прав доступа на каталог
-`SetCloudAccessBindings` | Назначение привязок прав доступа на облако
-`SetFolderAccessBindings` | Назначение привязок прав доступа на каталог
+`UpdateFolderAccessBindings` | Изменение прав доступа на каталог
+`SetCloudAccessBindings` | Назначение прав доступа на облако
+`SetFolderAccessBindings` | Назначение прав доступа на каталог

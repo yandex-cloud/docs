@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ captcha-name }}"
-description: "This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ captcha-name }}
+description: This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ captcha-name }}
@@ -18,11 +18,11 @@ Roles for a resource can be assigned by users who have the `smart-captcha.admin`
 
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAS in them.
+You can assign a role for an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for an organization, cloud, or folder also apply to the CAPTCHAs in them.
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ captcha-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ captcha-name }}.
 
 ### Service roles {#service-roles}
 
@@ -46,9 +46,11 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table shows actions and minimum roles required to perform them. You can always assign a role granting broader access rights than the role from the table. For example, you can assign the `smart-captcha.editor` role instead of the `smart-captcha.viewer` role.
+The table shows actions and minimum roles required to perform them. You can always assign a role offering more permissions than the one specified in the table. For example, you can assign the `smart-captcha.editor` role instead of the `smart-captcha.viewer` role.
 
 | Action | Role |
 ----- | -----

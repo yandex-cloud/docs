@@ -1,6 +1,6 @@
 ---
-title: "How to delete a notebook or project in {{ ml-platform-full-name }}"
-description: "In this tutorial, you will learn how to delete a notebook or project in {{ ml-platform-name }}."
+title: How to delete a notebook or project in {{ ml-platform-full-name }}
+description: In this tutorial, you will learn how to delete a notebook or project in {{ ml-platform-name }}.
 ---
 
 # Deleting a notebook or project
@@ -25,3 +25,5 @@ To delete a project:
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.more }}** and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. In the window that opens, click **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

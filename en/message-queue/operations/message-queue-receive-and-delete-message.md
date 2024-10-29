@@ -1,6 +1,6 @@
 ---
-title: "How to receive and delete messages in {{ message-queue-full-name }}"
-description: "Follow this guide to receive and delete messages."
+title: How to receive and delete messages in {{ message-queue-full-name }}
+description: Follow this guide to receive and delete messages.
 ---
 
 # Receiving and deleting messages
@@ -11,9 +11,9 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
 
 - AWS CLI {#cli}
 
-   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
-   1. [Create](message-queue-new-queue.md) a message queue and [send](message-queue-send-message.md) a test message to it.
-   1. Receive the message you sent earlier:
+  1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
+  1. [Create](message-queue-new-queue.md) a message queue and [send](message-queue-send-message.md) a test message to it.
+  1. Receive the message you sent earlier:
 
       ```bash
       aws sqs receive-message \
@@ -24,7 +24,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
       Where:
 
       * `--queue-url`: URL of the queue to receive the message from.
-      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
+      * `--endpoint`: Endpoint set to `https://message-queue.{{ api-host }}/`.
 
       Result:
 
@@ -47,7 +47,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
       }
       ```
 
-      Save the `ReceiptHandle` parameter value. You will need it at the next steps.
+      Save the `ReceiptHandle` value: you will need it later.
 
       {% note info %}
 
@@ -55,22 +55,22 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
 
       {% endnote %}
 
-   1. To delete a message from the queue, use the [receipt ID](../concepts/message.md): the `ReceiptHandle` parameter value received along with the message.
+  1. To delete a message from a queue, use the [receipt ID](../concepts/message.md): the `ReceiptHandle` parameter value received together with the message.
 
-      Delete the received message from the queue:
+     Delete the received message from the queue:
 
-       ```bash
-       aws sqs delete-message \
-         --queue-url <queue_URL> \
-         --endpoint <endpoint> \
-         --receipt-handle <receipt_ID>
-       ```
+      ```bash
+      aws sqs delete-message \
+        --queue-url <queue_URL> \
+        --endpoint <endpoint> \
+        --receipt-handle <receipt_ID>
+      ```
 
-       Where:
+      Where:
 
-       * `--queue-url`: URL of the queue to delete the message from.
-       * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
-       * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
+      * `--queue-url`: URL of the queue to delete the message from.
+      * `--endpoint`: Endpoint set to `https://message-queue.{{ api-host }}/`.
+      * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
 
 {% endlist %}
 
@@ -80,8 +80,8 @@ If the delete command is executed successfully, no text is output to the termina
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
-   1. In the list of services, select **{{ message-queue-name }}**.
-   1. The current number of enqueued messages is specified in the **Messages in queue** field.
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
+  1. In the list of services, select **{{ message-queue-name }}**.
+  1. The current number of enqueued messages is specified in the **Messages in queue** field.
 
 {% endlist %}

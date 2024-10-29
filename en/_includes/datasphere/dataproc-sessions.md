@@ -12,14 +12,14 @@ For example, the command below creates a session named `ses1` in `my-new-cluster
 
 Dynamic resource allocation is enabled in sessions by default. To limit session resources, set `--conf spark.dynamicAllocation.enabled` to `false`.
 
-## Livy session parameters {#parameters}
+### Livy session parameters {#parameters}
 
 Complete list of parameters for the `%create_livy_session` command:
 
 | Parameter | Type | Description |
 |------------------------------|----------|--------------------------------------------|
 | `--cluster` | `string` | {{ dataproc-name }} cluster ID or name |
-| `--id` | `string` | Session ID, arbitrary string. If omitted, it is generated automatically. |
+| `--id` | `string` | Session ID, arbitrary string. If not specified, it is generated automatically. |
 | `--conf` | `string` | Spark configuration properties |
 | `--proxyUser` | `string` | {{ dataproc-name }} cluster OS username on behalf of which the job will be run. The default value is `spark`. |
 | `--jars` | `string` | Java libraries to be used in the session |

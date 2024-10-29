@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ MG }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}."
+title: How to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to configure a {{ MG }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 # Transferring data from a {{ MG }} source endpoint
 
@@ -9,22 +9,22 @@ description: "In this tutorial, you will learn how to set up a {{ MG }} source e
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ MG }}](#prepare) database for the transfer.
-1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data from {{ MG }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating a {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
-   * [Migrating a {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
+    * [Migrating a {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
+    * [Migrating a {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -34,7 +34,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 {% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -56,52 +56,52 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
+    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `mongo-source`.
+    * Endpoint type: `mongo-source`.
 
-   {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
+    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `mongo_source`.
+    * Endpoint type: `mongo_source`.
 
-   {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
+    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-   Here is an example of the configuration file structure:
+    Here is an example of the configuration file structure:
 
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       mongo_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         subnet_id       = "<subnet_ID>"
-         connection {
-           connection_options {
-             mdb_cluster_id = "<cluster_ID>"
-             auth_source    = "<database_name>"
-             user           = "<username>"
-             password {
-               raw = "<user_password>"
-             }
-           }
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        mongo_source {
+          security_groups = ["<list_of_security_group_IDs>"]
+          subnet_id       = "<subnet_ID>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<cluster_ID>"
+              auth_source    = "<DB_name>"
+              user           = "<username>"
+              password {
+                raw = "<user_password>"
+              }
+            }
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
 
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
+    {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
 {% endlist %}
 
@@ -114,61 +114,61 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 - Management console {#console}
 
-   {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
+    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `mongo-source`.
+    * Endpoint type: `mongo-source`.
 
-   {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
+    {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `mongo_source`.
+    * Endpoint type: `mongo_source`.
 
-   {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
+    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-   Here is an example of the configuration file structure:
-
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       mongo_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         subnet_id       = "<subnet_ID>"
-         connection {
-           connection_options {
-             on_premise {
-               hosts       = [ "list of replica set hosts" ]
-               port        = "<port_for_connection>"
-               replica_set = "<replica_set_name>"
-               tls_mode {
-                 enabled {
-                   ca_certificate = "<PEM_certificate>"
-                 }
-               }
-             }
-             auth_source = "<database_name>"
-             user        = "<username>"
-             password {
-               raw = "<user_password>"
-             }
-           }
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+    Here is an example of the configuration file structure:
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        mongo_source {
+          security_groups = ["<list_of_security_group_IDs>"]
+          subnet_id       = "<subnet_ID>"
+          connection {
+            connection_options {
+              on_premise {
+                hosts       = [ "list of replica set hosts" ]
+                port        = "<port_for_connection>"
+                replica_set = "<replica_set_name>"
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<certificate_in_PEM_format>"
+                  }
+                }
+              }
+              auth_source = "<DB_name>"
+              user        = "<username>"
+              password {
+                raw = "<user_password>"
+              }
+            }
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
+
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
+    {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
 {% endlist %}
 
@@ -178,43 +178,43 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 - Management console {#console}
 
-   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/ui/collections.md) %}
+    * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/ui/collections.md) %}
 
-      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+        {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * {% include [excluded-collections](../../../../_includes/data-transfer/fields/mongodb/ui/excluded-collections.md) %}
+    * {% include [excluded-collections](../../../../_includes/data-transfer/fields/mongodb/ui/excluded-collections.md) %}
 
-   Included and excluded collection names must meet the ID naming rules in {{ MG }}. Escaping double quotes is not required.
+    Included and excluded collection names must meet the ID naming rules in {{ MG }}. Escaping double quotes is not required.
 
 - CLI {#cli}
 
-   * {% include [include-collection](../../../../_includes/data-transfer/fields/mongodb/cli/include-collection.md) %}
+    * {% include [include-collection](../../../../_includes/data-transfer/fields/mongodb/cli/include-collection.md) %}
 
-      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+        {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * {% include [exclude-collection](../../../../_includes/data-transfer/fields/mongodb/cli/exclude-collection.md) %}
+    * {% include [exclude-collection](../../../../_includes/data-transfer/fields/mongodb/cli/exclude-collection.md) %}
 
-   * {% include [prefer-secondary](../../../../_includes/data-transfer/fields/mongodb/cli/prefer-secondary.md) %}
+    * {% include [prefer-secondary](../../../../_includes/data-transfer/fields/mongodb/cli/prefer-secondary.md) %}
 
 - {{ TF }} {#tf}
 
-   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/terraform/collections.md) %}
+    * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/terraform/collections.md) %}
 
-      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+        {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * {% include [excluded_collections](../../../../_includes/data-transfer/fields/mongodb/terraform/excluded-collections.md) %}
+    * {% include [excluded_collections](../../../../_includes/data-transfer/fields/mongodb/terraform/excluded-collections.md) %}
 
-   * {% include [secondary_preferred_mode](../../../../_includes/data-transfer/fields/mongodb/terraform/secondary-preferred-mode.md) %}
+    * {% include [secondary_preferred_mode](../../../../_includes/data-transfer/fields/mongodb/terraform/secondary-preferred-mode.md) %}
 
 - API {#api}
 
-   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/api/collections.md) %}
+    * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/api/collections.md) %}
 
-      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+        {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * {% include [excludedCollections](../../../../_includes/data-transfer/fields/mongodb/api/excluded-collections.md) %}
+    * {% include [excludedCollections](../../../../_includes/data-transfer/fields/mongodb/api/excluded-collections.md) %}
 
-   * {% include [secondaryPreferredMode](../../../../_includes/data-transfer/fields/mongodb/api/secondary-preferred-mode.md) %}
+    * {% include [secondaryPreferredMode](../../../../_includes/data-transfer/fields/mongodb/api/secondary-preferred-mode.md) %}
 
 {% endlist %}
 
@@ -223,7 +223,7 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 {% note info %}
 
 * If you use several endpoints, you need to create a separate transfer for each one.
-* As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude these collections.
+* As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude such collections.
 
 {% endnote %}
 
@@ -232,10 +232,10 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 
 Configure one of the supported data targets:
 
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ MG }}](../target/mongodb.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ MG }}](../target/mongodb.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -255,7 +255,7 @@ Known issues when using a {{ MG }} endpoint:
 * [Unable to recognize an external cluster IP address or FQDN](#cluster-config-issue).
 * [Error at the copying stage](#history-lost)
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
 
@@ -270,3 +270,5 @@ See a full list of recommendations in the [Troubleshooting](../../../troubleshoo
 {% include [cluster configuration](../../../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
 
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
+
+{% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}

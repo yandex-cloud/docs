@@ -1,4 +1,4 @@
-# Upgrading {{ PG }} version
+# Upgrading the {{ PG }} version
 
 You can upgrade a {{ mpg-name }} cluster to any supported version.
 
@@ -8,9 +8,9 @@ You cannot upgrade a regular cluster version to versions optimized for _1С:Ente
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. For example, to upgrade {{ PG }} from 11 to 15, follow the steps: 11 → 12 → 13 → 14 → 15.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, upgrading the {{ PG }} version from 11 to 15 is performed in the following sequence: 11 → 12 → 13 → 14 → 15.
 
-You can upgrade to 16 only using {{ data-transfer-full-name }}. To do so, [create a cluster](cluster-create.md#create-cluster) with version 16 and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+You can upgrade to version 16 only using {{ data-transfer-full-name }}. To do so, [create a version 16 cluster](cluster-create.md#create-cluster) and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
 In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
@@ -19,7 +19,7 @@ In multi-host clusters, upgrades follow the procedure below:
 1. The master is unavailable during upgrades. During this time, the replicas continue running in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After an upgrade, the master is not returned to a running state until all the replicated hosts are upgraded. It is temporarily unavailable even for reading.
 1. The replicas are sequentially made unavailable and upgraded. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
 
-   A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
+    A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
 
 1. The master returns to a running state.
 
@@ -30,7 +30,7 @@ To learn more about updates within a single version and host maintenance, see [M
 Make sure this does not affect your applications:
 
 1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to see how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
-1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster.
+1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
@@ -44,8 +44,8 @@ Make sure this does not affect your applications:
 
 ### Upgrading a cluster to {{ PG }} 16 {#update-to-v16}
 
-1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16.
-1. Using {{ data-transfer-name }}, [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+  1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16.
+  1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
 ### Upgrading a cluster to {{ PG }} 15 or lower {#update-to-v15-or-lower}
 
@@ -53,76 +53,147 @@ Make sure this does not affect your applications:
 
 - Management console {#console}
 
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the cluster from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Select the cluster you need from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To upgrade a cluster to {{ PG }} 15 or lower:
+  To upgrade a cluster to {{ PG }} 15 or lower:
 
-   1. Get a list of your {{ PG }} clusters using this command:
+  1. Get a list of your {{ PG }} clusters using this command:
 
-      ```bash
-      {{ yc-mdb-pg }} cluster list
-      ```
+     ```bash
+     {{ yc-mdb-pg }} cluster list
+     ```
 
-   1. Get information about a cluster and check the {{ PG }} version in the `config.version` parameter:
+  1. Get information about the cluster you need and check the {{ PG }} version in the `config.version` parameter:
 
-      ```bash
-      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
-      ```
+     ```bash
+     {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
+     ```
 
-   1. Run the {{ PG }} upgrade:
+  1. Run the {{ PG }} upgrade:
 
-      ```bash
-      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
-         --postgresql-version <new_version_number>
-      ```
+     ```bash
+     {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+        --postgresql-version <new_version_number>
+     ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-   1. Under `cluster_config` of the required {{ mpg-name }} cluster, add the `version` field or edit it if it already exists:
+    1. In the `cluster_config` section of the required {{ mpg-name }} cluster, add the `version` field or edit the existing one:
 
-      ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
-        ...
-        cluster_config {
-          version = "<{{ PG }}_version>"
-        }
-      }
-      ```
+       ```hcl
+       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
+         ...
+         cluster_config {
+           version = "<{{ PG }}_version>"
+         }
+       }
+       ```
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-   To upgrade a cluster to {{ PG }} 15 or lower, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * {{ PG }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
+       --data '{
+                 "updateMask": "configSpec.version",
+                 "configSpec": {
+                   "version": "<{{ PG }}_version>"
+                 }
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+       In this case, only one parameter is provided.
+
+     * `configSpec.version`: New {{ PG }} version.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.version"
+               ]
+             },
+             "config_spec": {
+               "version": "<{{ PG }}_version>"
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       In this case, only one parameter is provided.
+
+     * `config_spec.version`: New {{ PG }} version.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -152,7 +223,7 @@ Let's assume that you need to upgrade your cluster from version 11 to version 12
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about a cluster named `postgre406`, run the command:
+   1. To get information about a cluster named `postgre406`, run the following command:
 
       ```bash
       {{ yc-mdb-pg }} cluster get postgre406

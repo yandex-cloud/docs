@@ -2,7 +2,7 @@
 
 {{ ydb-short-name }} CLI — инструмент для управления вашими данными в {{ ydb-full-name }} из командной строки. Вы можете использовать {{ ydb-short-name }} CLI для выполнения действий с БД на системах без графического интерфейса или для автоматизации задач с помощью скриптов.
 
-Перед началом работы установите [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install). Для подключения к БД {{ ydb-full-name }} из {{ ydb-short-name }} CLI необходимо указать [эндпоинт и путь](#endpoint-and-path), а также [выбрать и настроить](#auth) режим аутентификации.
+Перед началом работы установите [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/install). Для подключения к БД {{ ydb-full-name }} из {{ ydb-short-name }} CLI необходимо указать [эндпоинт и путь](#endpoint-and-path), а также [выбрать и настроить](#auth) режим аутентификации.
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
@@ -64,7 +64,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/Database/get.md) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   Реквизиты для подключения к БД указаны в параметре `endpoint`.
 
@@ -98,7 +98,7 @@
 
   Получите OAuth-токен с помощью [запроса]({{ link-cloud-oauth }}) и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу с вашим OAuth-токеном.
 
-  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](https://ydb.tech/ru/docs/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
+  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль]({{ ydb.docs }}/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
 
   Проверьте корректность подключения, запросив информацию о пользователе:
 
@@ -142,7 +142,7 @@
   1. Сохраните полученный токен в файл.
   1. При запуске команды {{ ydb-short-name }} CLI в параметре `--iam-token-file` укажите путь к файлу с вашим IAM-токеном.
 
-      Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение IAM-токена в переменную окружения `IAM_TOKEN` или [настройте профиль](https://ydb.tech/ru/docs/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
+      Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение IAM-токена в переменную окружения `IAM_TOKEN` или [настройте профиль]({{ ydb.docs }}/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
   1. Проверьте корректность подключения, запросив информацию о пользователе:
 
       ```bash
@@ -190,7 +190,7 @@
 
   1. При запуске команды {{ ydb-short-name }} CLI в параметре `--sa-key-file` укажите путь к файлу с авторизованным ключом доступа сервисного аккаунта.
 
-      Чтобы не указывать этот параметр при каждом вызове команды, сохраните путь к файлу в переменную окружения `SA_KEY_FILE` или [настройте профиль](https://ydb.tech/ru/docs/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
+      Чтобы не указывать этот параметр при каждом вызове команды, сохраните путь к файлу в переменную окружения `SA_KEY_FILE` или [настройте профиль]({{ ydb.docs }}/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
 
   1. Проверьте корректность подключения, запросив информацию о пользователе:
 
@@ -226,7 +226,7 @@
 
   При запуске команды {{ ydb-short-name }} CLI из виртуальной машины в {{ yandex-cloud }} укажите параметр `--use-metadata-credentials`. {{ ydb-short-name }} CLI получит IAM-токен с помощью сервиса метаданных.
 
-  Чтобы не указывать этот параметр при каждом вызове команды, установите значение переменной окружения `USE_METADATA_CREDENTIALS` в  `1` или [настройте профиль](https://ydb.tech/ru/docs/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
+  Чтобы не указывать этот параметр при каждом вызове команды, установите значение переменной окружения `USE_METADATA_CREDENTIALS` в  `1` или [настройте профиль]({{ ydb.docs }}/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
 
   Проверьте корректность подключения, запросив информацию о пользователе:
 

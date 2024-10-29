@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ api-gw-full-name }}"
-description: "Различные сценарии использования {{ api-gw-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ api-gw-full-name }}
+description: Различные сценарии использования {{ api-gw-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ api-gw-name }}
@@ -17,3 +17,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](serverless-live-debug.md)
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)

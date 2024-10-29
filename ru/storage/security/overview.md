@@ -45,7 +45,8 @@
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
 * [федеративный пользователь](../../iam/concepts/federations.md);
 * [группа пользователей](../../organization/operations/manage-groups.md);
-* [системная группа](../../iam/concepts/access-control/system-group.md).
+* [системная группа](../../iam/concepts/access-control/system-group.md);
+* [публичная группа](../../iam/concepts/access-control/public-group.md).
 
 Доступ выдается на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [бакет](../concepts/bucket.md).
 
@@ -64,7 +65,8 @@
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
 * [федеративный пользователь](../../iam/concepts/federations.md);
 * [группа пользователей](../../organization/operations/manage-groups.md) (задать группу пользователей можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API, подробнее см. на страницах [Редактирование ACL бакета](../operations/buckets/edit-acl.md) и [Редактирование ACL объекта](../operations/objects/edit-acl.md));
-* [системная группа](../../iam/concepts/access-control/system-group.md).
+* [системная группа](../../iam/concepts/access-control/system-group.md);
+* [публичная группа](../../iam/concepts/access-control/public-group.md).
 
 Доступ выдается на [бакет](../concepts/bucket.md) или [объект](../concepts/object.md).
 
@@ -90,8 +92,6 @@
 {% include [public-access-warning](../../_includes/storage/security/public-access-warning.md) %}
 
 ## {{ sts-name }} {#sts}
-
-{% include [sts-preview](../../_includes/iam/sts-preview.md) %}
 
 [{{ sts-name }}](./sts.md) — компонент сервиса {{ iam-name }} для получения временных ключей доступа, совместимых с [AWS S3 API](../s3/index.md).
 

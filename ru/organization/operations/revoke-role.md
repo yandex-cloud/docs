@@ -6,21 +6,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
-  
-  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-  
-  1. Нажмите значок ![cross](../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
@@ -46,7 +34,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +------------------------------------------+--------------+----------------------+
       |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
       +------------------------------------------+--------------+----------------------+
@@ -55,7 +43,7 @@
       +------------------------------------------+--------------+----------------------+
       ```
 
-  1. Чтобы удалить привязку прав доступа, выполните команду:
+  1. Чтобы удалить права доступа, выполните команду:
 
       ```bash
       yc <имя_сервиса> <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
@@ -84,12 +72,14 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
 
-      ```bash
+      ```text
       {
       "accessBindings": [
       {
@@ -103,7 +93,7 @@
       }
       ```
 
-  1. Сформируйте тело запроса, например, в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
+  1. Сформируйте тело запроса, например, в файле `body.json`. В теле запроса укажите, какие права доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
 
       ```json
       {
@@ -120,15 +110,17 @@
       }
       ```
 
-  1. Отзовите роль, удалив указанную привязку прав доступа:
+  1. Отзовите роль, удалив указанные права доступа:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \ 
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

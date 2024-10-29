@@ -1,6 +1,6 @@
 ---
-title: "How to encrypt and decrypt data using asymmetric encryption in {{ kms-short-name }}"
-description: "This guide describes how you can encrypt and decrypt data using asymmetric encryption."
+title: How to encrypt and decrypt data in {{ kms-short-name }} using asymmetric encryption
+description: This guide describes how you can encrypt and decrypt data using asymmetric encryption.
 ---
 
 # Asymmetric data encryption
@@ -27,7 +27,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download a public encryption key.
 
     - CLI {#cli}
@@ -36,7 +36,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the CLI command to get a public encryption key:
+      1. See the description of the CLI command to get a public encryption key:
 
           ```bash
           yc kms asymmetric-encryption-crypto get-public-key --help
@@ -55,7 +55,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
           Result:
 
-          ```bash
+          ```text
           key_id: abj9g2dil5sj********
           public_key: |
           -----BEGIN PUBLIC KEY-----
@@ -64,11 +64,11 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
           -----END PUBLIC KEY-----
           ```
 
-          Save the obtained key to a file, such as `public.key`. Make sure that lines in the file do not start with spaces.
+          Save this key to a file, e.g., `public.key`. Make sure that lines in the file do not start with spaces.
 
     - API {#api}
 
-      To get a public encryption key, use the [AsymmetricEncryptionCryptoService/GetPublicKey](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey) gRPC API call.
+      To get a public encryption key, use the [AsymmetricEncryptionCryptoService/GetPublicKey](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md) gRPC API call.
 
     {% endlist %}
 
@@ -84,22 +84,22 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       ```bash
       openssl pkeyutl \
-        -in <path_to_message_file> \
+        -in <message_file_path> \
         -encrypt \
         -pubin \
-        -inkey <path_to_public_key_file> \
+        -inkey <public_key_file_path> \
         -pkeyopt rsa_padding_mode:oaep \
         -pkeyopt rsa_oaep_md:sha256 \
-        -pkeyopt rsa_mgf1_md:sha256 | base64 > <path_to_file_with_ciphertext>
+        -pkeyopt rsa_mgf1_md:sha256 | base64 > <ciphertext_file_path>
       ```
 
       Where:
 
-      * `-in`: Path to the file with the message to be encrypted.
+      * `-in`: Path to the file with the message to encrypt.
       * `-inkey`: Path to the file with the public encryption key.
-      * `<path_to_file_with_ciphertext>`: Path to the file the encrypted message will be saved to.
+      * `<ciphertext_file_path>`: Path to the file the encrypted message will be saved to.
 
-      As a result of executing the command, the encrypted message will be saved to the specified file in `base64` encoding.
+      As a result, the encrypted message will be saved to the specified file in the `base64` encoding.
 
     - Java {#java}
 
@@ -119,7 +119,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       public class EncryptRsa {
           public static void main(String[] args) throws Exception {
-              String plaintext = "<message_text>";
+              String plaintext = "<message>";
               String publicKeyPem = """
               -----BEGIN PUBLIC KEY-----
               <public_key_contents>
@@ -171,7 +171,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
       )
 
       func runRsaEncryption() {
-          plaintext := "<message_text>"
+          plaintext := "<message>"
           publicKeyPem := `-----BEGIN PUBLIC KEY-----
           <public_key_contents>
           -----END PUBLIC KEY-----`
@@ -247,7 +247,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
           return ciphertext
 
       def test_encrypt_text():
-          plaintext = "<message_text>"
+          plaintext = "<message>"
           public_key_string = """
           -----BEGIN PUBLIC KEY-----
           <public_key_contents>
@@ -271,7 +271,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to decrypt data with a private encryption key:
+  1. See the description of the CLI command to decrypt data with a private encryption key:
 
       ```bash
       yc kms asymmetric-encryption-crypto decrypt --help
@@ -286,14 +286,14 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
       ```bash
       yc kms asymmetric-encryption-crypto decrypt \
         --id <key_pair_ID> \
-        --ciphertext-file <path_to_file_with_ciphertext> \
+        --ciphertext-file <ciphertext_file_path> \
         --plaintext-file <path_to_file_with_decrypted_message> \
         --inform base64
       ```
 
       Where:
 
-      * `--id`: Previously obtained ID of the encryption key pair.
+      * `--id`: Encryption key pair ID you obtained previously.
       * `--ciphertext-file`: Path to the file with the `base64`-encoded ciphertext.
       * `--plaintext-file`: Path to the file to save the decrypted message to.
 
@@ -308,6 +308,6 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
 - API {#api}
 
-  To decrypt data, use the [AsymmetricEncryptionCryptoService/Decrypt](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt) gRPC API call.
+  To decrypt data, use the [AsymmetricEncryptionCryptoService/Decrypt](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md) gRPC API call.
 
 {% endlist %}

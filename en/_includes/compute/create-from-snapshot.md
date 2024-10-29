@@ -18,23 +18,23 @@
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose a snapshot:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.common.select }}**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and click **{{ ui-key.yacloud.common.select }}**.
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}** tab.
       * Select a disk snapshot from the list and click **{{ ui-key.yacloud.common.apply }}**.
 
-   
+
    1. {% include [encryption-section-boot](encryption-section-boot.md) %}
 
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../../compute/operations/vm-create/create-from-disks.md):
 
-      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the required block size.
       * Specify the required disk size.
 
-      
+
       * {% include [encryption-section-secondary](encryption-section-secondary.md) %}
 
 
@@ -42,7 +42,7 @@
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-   
+
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../compute/concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
@@ -62,7 +62,7 @@
 
       {% include [network-settings](network-settings.md) %}
 
-   
+
    1. {% include [backup-info](backup-info.md) %}
 
 
@@ -128,6 +128,6 @@
 
 - API {#api}
 
-   Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+   Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}

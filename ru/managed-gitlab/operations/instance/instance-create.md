@@ -1,11 +1,13 @@
 ---
-title: "Как создать инстанс {{ mgl-full-name }}"
-description: "Из статьи вы узнаете, как создать инстанс {{ mgl-name }}."
+title: Как создать инстанс {{ mgl-full-name }}
+description: Из статьи вы узнаете, как создать инстанс {{ mgl-name }}.
 ---
 
 # Создание и активация инстанса {{ mgl-name }}
 
 ## Создать инстанс {{ GL }} {#create}
+
+Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 

@@ -62,8 +62,23 @@ items:
         href: platform-comparison/gcp.md
       - name: Сопоставление с Microsoft Azure
         href: platform-comparison/azure.md
+      - name: Сопоставление с VMware
+        items:
+          - name: Обзор
+            href: platform-comparison/vmware/index.md
+          - name: Ресурсно-ролевая модель
+            href: platform-comparison/vmware/resource-role-model.md
+          - name: Вычислительная инфраструктура
+            href: platform-comparison/vmware/computing-infrastructure.md
+          - name: Подсистема хранения данных
+            href: platform-comparison/vmware/storage-subsystem.md
+          - name: Сетевая подсистема
+            href: platform-comparison/vmware/network-subsystem.md
+          - name: Инструменты управления, мониторинга и биллинга
+            href: platform-comparison/vmware/management-tools.md
   - name: Облачная терминология
     href: ../glossary/index.md
   - name: Обучающие курсы
     href: training.md
 base: ru/overview
+deepBase: 2

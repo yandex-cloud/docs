@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ compute-full-name }}"
-description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ compute-full-name }}
+description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ compute-name }}
@@ -86,6 +86,8 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 #### What's next {#what-is-next}
 

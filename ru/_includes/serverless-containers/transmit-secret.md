@@ -39,14 +39,14 @@
 
     {% endnote %}
 
-    ```
+    ```bash
     yc serverless container revision deploy \
        --container-name test \
-       --image {{ registry }}/crpp35a1s2d3********/repository:tag \
+       --image {{ registry }}/<идентификатор_реестра>/repository:tag \
        --cores 1 \
        --memory 1GB \
-       --service-account-id bfbtfcp0o9i8******** \
-       --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=secret-key
+       --service-account-id <идентификатор_сервисного_аккаунта> \
+       --secret environment-variable=<имя_переменной_окружения>,id=<идентификатор_секрета>,version-id=<идентификатор_версии_секрета>,key=<ключ_секрета>
     ```
 
     Где:
@@ -110,6 +110,6 @@
 
 - API {#api}
 
-  Чтобы передать секрет {{ lockbox-name }} в контейнер, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#deployRevision).
+  Чтобы передать секрет {{ lockbox-name }} в контейнер, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}

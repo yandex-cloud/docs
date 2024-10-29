@@ -1,10 +1,14 @@
 ---
-title: "Правила тарификации для {{ at-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ at-name }}."
+title: Правила тарификации для {{ at-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ at-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ at-full-name }}
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 Тарифицируются доставленные события [уровня сервисов](./concepts/events-data-plane.md).
 
@@ -13,8 +17,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 {% list tabs group=pricing %}
 
@@ -64,7 +68,7 @@ editable: false
   * При каждом обращении к секрету доставляются два события: событие [доступа к содержимому секрета](./concepts/events-data-plane.md#lockbox) {{ lockbox-short-name }} и событие [расшифрования](./concepts/events-data-plane.md#kms) содержимого секрета с помощью ключа {{ kms-short-name }}.
   * Количество обращений к секрету: 7000.
 
-  
+
   {% list tabs group=pricing %}
 
   - Расчет в рублях {#prices-rub}
@@ -93,7 +97,7 @@ editable: false
   * Количество событий [уровня сервисов](./concepts/events-data-plane.md#objstorage), переданных при работе с бакетами: 24 000.
       В это число вошли события по созданию объектов в бакетах и изменению тегов объектов.
 
-  
+
   {% list tabs group=pricing %}
 
   - Расчет в рублях {#prices-rub}

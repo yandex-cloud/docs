@@ -71,16 +71,26 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 Ограничения:
 1. {% include [!](_includes/supported_requests.md) %}
-1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ PG }} (`date`, `timestamp`). 
+1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ PG }} (`date`, `timestamp`). 
 В связи с этим значения даты и времени, прочитанные из {{ PG }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
 {% include [!](_includes/predicate_pushdown.md) %}
 
+|Тип данных {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Int16`|
+|`Int32`|
+|`Int64`|
+|`Float`|
+|`Double`|
+
 ## Поддерживаемые типы данных {#supported_types}
 
-В базе данных {{ PG }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ PG }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные](https://ydb.tech/docs/ru/yql/reference/types/optional) типы. 
+В базе данных {{ PG }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ PG }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные]({{ ydb.docs }}/yql/reference/types/optional) типы. 
 
 Ниже приведена таблица соответствия типов {{ PG }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
 
@@ -106,7 +116,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `timestamp` | `Optional<Utf8>` | |
 | `bytea` | `Optional<String>` | |
 | `character` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию, строка дополняется пробелами до требуемой длины. |
-| `character varying` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
-| `text` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
-| `json` | `Json` | |
+| `character varying` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
+| `text` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
+| `json` | `Optional<Json>` | |
 

@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ speechkit-full-name }}"
-description: "Управление доступом в сервисе речевых технологии, распознавания и синтеза речи {{ speechkit-full-name }}. Разрешения выдаются при назначении роли. Роль можно назначить на каталог или облако — все разрешения от облака наследуются. Чтобы пользоваться сервисом, необходима одна из ролей — editor, admin, resource-manager.clouds.owner."
+title: Управление доступом в {{ speechkit-full-name }}
+description: Управление доступом в сервисе речевых технологии, распознавания и синтеза речи {{ speechkit-full-name }}. Разрешения выдаются при назначении роли. Роль можно назначить на каталог или облако — все разрешения от облака наследуются. Чтобы пользоваться сервисом, необходима одна из ролей — editor, admin, resource-manager.clouds.owner.
 ---
 
 # Управление доступом в {{ speechkit-name }}
@@ -66,6 +66,8 @@ description: "Управление доступом в сервисе речев
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 #### Что дальше {#what-is-next}
 

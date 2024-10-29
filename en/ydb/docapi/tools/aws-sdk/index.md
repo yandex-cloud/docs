@@ -1,6 +1,6 @@
 ---
-title: "Working with the AWS SDK. Overview"
-description: "This section describes how to use the AWS SDK to write simple programs that perform the following operations in YDB. Examples are given for several programming languages."
+title: Working with the AWS SDK. Overview
+description: This section describes how to use the AWS SDK to write simple programs that perform the following operations in YDB. Examples are given for several programming languages.
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ---
 
@@ -53,7 +53,7 @@ Configure the environment for your programming language:
 
 - Python {#python}
 
-   1. [Install](https://www.python.org/downloads/) Python 3.6 or higher.
+   1. [Install](https://www.python.org/downloads/) Python 3.8 or higher.
    1. Install the Boto3 library:
 
       ```bash

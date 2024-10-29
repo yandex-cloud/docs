@@ -1,6 +1,6 @@
 ---
-title: "How to view detailed information about a {{ mmg-name }} cluster state"
-description: "Follow this guide to view detailed information about a {{ mmg-name }} cluster state."
+title: How to view detailed information about a {{ mmg-name }} cluster state
+description: Follow this guide to view detailed information about a {{ mmg-name }} cluster state.
 ---
 
 # Monitoring the state of {{ MG }} clusters and hosts
@@ -28,7 +28,7 @@ The following charts will open on the page:
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
 * **Average operations time on primary**: Average operation execution time on primary replicas (in microseconds).
 * **Average operations time on secondaries**: Average operation execution time on secondary replicas (in microseconds).
-* **CPU usage per host**: vCPU usage per host (as a ratio of the number of vCPU cores).
+* **CPU usage per host**: vCPU utilization per host (as a ratio of the number of vCPU cores).
 * **CPU usage per host, top 5 hosts**: 5 hosts with the highest vCPU utilization (%).
 * **Configured oplog size per host**: Size of the oplog on each cluster host (in GB).
 * **Connections per host**: Average number of connections to each host.
@@ -55,14 +55,14 @@ The following charts will open on the page:
 * **Queries on primary**: Average number of each type of query on primary replicas.
 * **Read operations count, top 5 collections**: 5 collections with the longest time spent in reads.
 * **Readers/writers active queue per host, top 5**: Total size of the 5 largest queues for each host:
-   * With read requests
-   * With write requests
+    * With read requests
+    * With write requests
 * **Replicated queries**: Average number of replicated queries in the cluster.
-* **Replication lag per host and write_concern wait**: Replication lag on each host and waiting time for [write concern](https://docs.mongodb.com/manual/reference/write-concern/) (in seconds).
+* **Replication lag per host and write_concern wait**: Replication lag on each host and waiting time for [write confirmation](https://docs.mongodb.com/manual/reference/write-concern/) (in seconds).
 * **Scan and order per host**: Number of data sorts without index usage on each host.
 * **Scanned / returned**: Shows the following ratios:
-   * `scanned_docs / returned_docs`: Documents scanned to documents returned.
-   * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
+    * `scanned_docs / returned_docs`: Documents scanned to documents returned.
+    * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
 * **TTL indexes activity**: Total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster**: Total number of operations performed in the cluster.
 * **Total operations time on cluster**: Total operation execution time in the cluster (in milliseconds).
@@ -98,22 +98,22 @@ This page displays charts showing the load on an individual host in the cluster:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
 
-   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
-   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
+    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
-      * **{{ mmg-name }}** to configure cluster alerts.
-      * **{{ mmg-name }} — Host Overview** to configure host alerts.
+        * **{{ mmg-name }}** to configure cluster alerts.
+        * **{{ mmg-name }} — Host Overview** to configure host alerts.
 
-   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
-   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
-   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger an alert.
+    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` threshold values to trigger the alert.
 
-   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -121,11 +121,11 @@ This page displays charts showing the load on an individual host in the cluster:
 
 The recommended thresholds are as follows:
 
-| Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+| Metric                         | Parameter                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
-| DB write availability | `can_write` | `Equals 0` | — |
-| Replication delay | `replset_status-replicationLag` | `180` | `30` |
-| Storage space used | `disk.used_bytes` | 90% of the storage size | 70% of the storage size |
+| DB write availability        | `can_write`                     | `Equals 0`                                            | —                                                   |
+| Replication delay             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
+| Storage space used | `disk.used_bytes`               | 90% of the storage size                             | 70% of the storage size                            |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -135,26 +135,26 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
 
-### Monitoring the switch to read-only mode {#read-only-alert}
+### Monitoring the transition to read-only mode {#read-only-alert}
 
 To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
 
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
 1. Add the `disk.free_bytes` status metric.
 
-   To do this, create a query in the query builder:
+    To do this, create a query in the query builder:
 
-   `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+    `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Set the alert threshold values in the alert settings:
    * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the size of free disk space to trigger an alert.
 
-      The recommended threshold values depending on the storage size are as follows:
+       The recommended threshold values depending on the storage size are as follows:
 
-      | Storage size, GB | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
-      |---------------------|-------------|------------------|
-      | ⩽ 600 | `1G` (1 GB) | `1500M` (1.5 GB) |
-      | > 600 | `6G` (6 GB) | `10G` (10 GB) |
+       | Storage size, GB | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`     | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`        |
+       |---------------------|-------------|------------------|
+       | ⩽ 600               | `1G`: 1 GB | `1500M`: 1.5 GB |
+       | > 600               | `6G`: 6 GB | `10G`: 10 GB    |
 
    * **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}**: Select `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (a minimum metric value for the period).
 

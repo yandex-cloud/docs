@@ -47,10 +47,11 @@ Prepare the infrastructure:
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
       * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent)
+      * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner)
       * [storage.uploader](../../storage/security/index.md#storage-uploader)
       * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
-   1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+   1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) with any suitable configuration with the following settings:
 
@@ -71,7 +72,7 @@ Prepare the infrastructure:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * DNS zone and CNAME record for the cluster master host.
-      * NAT gateway and routing table.
+      * NAT gateway and route table.
       * [Security groups](../../vpc/concepts/security-groups.md).
       * Service account to work with cloud resources.
       * Bucket to store job dependencies and results.
@@ -110,9 +111,9 @@ Create resources:
 
    1. [Create an internal DNS zone](../../dns/operations/zone-create-private.md) with the following settings:
 
-      * **{{ ui-key.yacloud.dns.label_zone }}**: `data-proc-test-user.org.`.
-      * **{{ ui-key.yacloud.dns.label_networks }}**: Select `data-proc-network`.
-      * **{{ ui-key.yacloud.common.name }}**: `dp-private-zone`.
+      * **{{ ui-key.yacloud.dns.label_zone }}**: `data-proc-test-user.org.`
+      * **{{ ui-key.yacloud.dns.label_networks }}**: Select `data-proc-network`
+      * **{{ ui-key.yacloud.common.name }}**: `dp-private-zone`
 
    1. [Create a DNS record](../../dns/operations/resource-record-create.md) of the CNAME type with the following settings:
       * **{{ ui-key.yacloud.common.name }}**: `data-proc-test-user.org.`
@@ -226,7 +227,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
    1. If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
    1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
-   1. Delete the routing table and NAT gateway.
+   1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
    1. [Delete the network](../../vpc/operations/network-delete.md).
    1. [Delete the DNS zone](../../dns/operations/zone-delete.md).
 

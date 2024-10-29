@@ -1,10 +1,5 @@
 title: Yandex Certificate Manager
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -26,7 +21,7 @@ items:
             href: operations/managed/cert-modify.md
           - name: Deleting a certificate
             href: operations/managed/cert-delete.md
-      - name: Custom certificate
+      - name: User certificate
         items:
           - name: Adding a certificate
             href: operations/import/cert-create.md
@@ -48,7 +43,7 @@ items:
             href: operations/domain/domain-modify.md
           - name: Deleting a domain
             href: operations/domain/domain-delete.md
-      - name: Backups
+      - name: Backup
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md
@@ -56,15 +51,29 @@ items:
         href: operations/operation-logs.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Installing an NGINX Ingress controller in {{ managed-k8s-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
+      - name: Setting up virtual hosting
+        href: tutorials/virtual-hosting.md
+      - name: Hosting a static Gatsby website in {{ objstorage-name }}
+        href: tutorials/gatsby-static-website.md
+      - name: Terminating TLS connections
+        items:
+          - name: Overview
+            href: tutorials/tls-termination/index.md
+          - name: Management console
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
       - name: Certificate from Let's Encrypt
         href: concepts/managed-certificate.md
-      - name: Custom certificate
+      - name: User certificate
         href: concepts/imported-certificate.md
       - name: Checking rights for a domain
         href: concepts/challenges.md
@@ -94,12 +103,46 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: CertificateContentService
-            href: api-ref/grpc/certificate_content_service.md
-          - name: CertificateService
-            href: api-ref/grpc/certificate_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: CertificateContent
+            items:
+              - name: Overview
+                href: api-ref/grpc/CertificateContent/index.md
+              - name: Get
+                href: api-ref/grpc/CertificateContent/get.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/grpc/Certificate/index.md
+              - name: Get
+                href: api-ref/grpc/Certificate/get.md
+              - name: List
+                href: api-ref/grpc/Certificate/list.md
+              - name: ListVersions
+                href: api-ref/grpc/Certificate/listVersions.md
+              - name: Create
+                href: api-ref/grpc/Certificate/create.md
+              - name: Update
+                href: api-ref/grpc/Certificate/update.md
+              - name: Delete
+                href: api-ref/grpc/Certificate/delete.md
+              - name: RequestNew
+                href: api-ref/grpc/Certificate/requestNew.md
+              - name: ListOperations
+                href: api-ref/grpc/Certificate/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Certificate/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Certificate/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Certificate/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -108,38 +151,49 @@ items:
             items:
               - name: Overview
                 href: api-ref/CertificateContent/index.md
-              - name: get
+              - name: Get
                 href: api-ref/CertificateContent/get.md
           - name: Certificate
             items:
               - name: Overview
                 href: api-ref/Certificate/index.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Certificate/get.md
-              - name: list
+              - name: List
                 href: api-ref/Certificate/list.md
-              - name: listAccessBindings
-                href: api-ref/Certificate/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
-              - name: listVersions
+              - name: ListVersions
                 href: api-ref/Certificate/listVersions.md
-              - name: requestNew
-                href: api-ref/Certificate/requestNew.md
-              - name: setAccessBindings
-                href: api-ref/Certificate/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Certificate/create.md
+              - name: Update
                 href: api-ref/Certificate/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Certificate/delete.md
+              - name: RequestNew
+                href: api-ref/Certificate/requestNew.md
+              - name: ListOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Certificate/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Certificate/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/certificate-manager
+deepBase: 2

@@ -79,13 +79,13 @@
       --name <имя_триггера> \
       --database <размещение_базы_данных> \
       --stream <имя_потока_данных> \
-      --batch-size 1b \
-      --batch-cutoff 1s \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --stream-service-account-id <идентификатор_сервисного_аккаунта> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -142,7 +142,7 @@
 
   1. Опишите в конфигурационном файле параметры триггера:
 
-     ```
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<имя_триггера>"
        function {
@@ -155,11 +155,11 @@
          stream_name        = "<имя_потока_данных>"
          database           = "<размещение_базы_данных>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
-         batch_cutoff       = "<время_ожидания>"
-         batch_size         = "<размер_группы_событий>"
+         batch_cutoff       = "<максимальное_время_ожидания>"
+         batch_size         = "<размер_группы_сообщений>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -171,15 +171,15 @@
      
      * `data_streams` — параметры триггера:
 
-         * `stream_name` — имя потока данных.
+         * `stream_name` — имя потока данных {{ yds-name }}.
          * `database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
 
              Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
          * `service_account_id` — сервисный аккаунт с правами на чтение из потока {{ yds-name }} и запись в него.
 
-         * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch_cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch_size`.
-         * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+         * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Суммарный объем данных, которые передаются в функцию, может превышать `batch-size`, если данные передаются в одном сообщении. Во всех остальных случаях объем данных не превышает `batch-size`.
+         * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -189,15 +189,15 @@
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-        ```bash
-        yc serverless trigger list
-        ```
+     ```bash
+     yc serverless trigger list
+     ```
 
 - API {#api}
 
-  Чтобы создать триггер для {{ yds-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ yds-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -207,4 +207,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/data-streams-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/data-streams-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/data-streams-trigger-create.md)

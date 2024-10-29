@@ -1,6 +1,6 @@
 ---
-title: "Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}"
-description: "For an Ingress controller or Gateway API to work properly, you need to configure security groups for your {{ managed-k8s-full-name }} cluster and node groups, and the {{ alb-name }} load balancer."
+title: Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}
+description: For an Ingress controller or Gateway API to work properly, you need to configure security groups for your {{ managed-k8s-full-name }} cluster and node groups, and the {{ alb-name }} load balancer.
 ---
 
 # Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}
@@ -17,7 +17,8 @@ Within the security groups, you must configure:
 * Backend state check rules, allowing:
    * The load balancer to send traffic to cluster nodes via TCP to port 10501 (destination: cluster node group subnets or security groups).
    * Node groups to receive this traffic (traffic originates in the load balancer subnets or security group).
-      Cluster and node group security groups are specified in their settings. For more information, see the guides below:
+
+Cluster and node group security groups are specified in their settings. For more information, see the guides below:
 * [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster
 * [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md) a node group
 
@@ -37,6 +38,39 @@ Let us provide an example for the following conditions:
 * You can only [connect](../../../managed-kubernetes/operations/node-connect-ssh.md) to the nodes via SSH and control the cluster using the API, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
 
 Then, you need to create the following rules in the security groups:
+
+* [Load balancer security group](../../concepts/application-load-balancer.md#security-groups):
+
+   {% list tabs group=traffic %}
+
+   - Egress traffic {#outgoing}
+
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
+      --- | --- | --- | --- | ---
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks |
+
+   - Incoming traffic {#incoming}
+
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
+      --- | --- | --- | --- | ---
+      | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTP traffic |
+      | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
+      | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | For load balancer node status checks |
+
+   {% endlist %}
+
+* Node group security group for backend status checks:
+
+   {% list tabs group=traffic %}
+
+   - Incoming traffic {#incoming}
+
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
+      --- | --- | --- | --- | ---
+      | `10501` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.128.0.0/24`[^\[B\]^](#example)<br>`10.129.0.0/24`[^\[B\]^](#example)<br>`10.130.0.0/24`[^\[B\]^](#example) | For backend status checks |
+
+   {% endlist %}
+
 * Cluster security group and housekeeping node groups:
 
    {% list tabs group=traffic %}
@@ -95,34 +129,4 @@ Then, you need to create the following rules in the security groups:
 
    {% endlist %}
 
-* Node group security group for backend status checks:
-
-   {% list tabs group=traffic %}
-
-   - Incoming traffic {#incoming}
-
-      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
-      --- | --- | --- | --- | ---
-      | `10501` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.128.0.0/24`[^\[B\]^](#example)<br>`10.129.0.0/24`[^\[B\]^](#example)<br>`10.130.0.0/24`[^\[B\]^](#example) | For backend status checks |
-
-   {% endlist %}
-
-* Load balancer security group:
-
-   {% list tabs group=traffic %}
-
-   - Egress traffic {#outgoing}
-
-      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
-      --- | --- | --- | --- | ---
-      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks |
-
-   - Incoming traffic {#incoming}
-
-      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
-      --- | --- | --- | --- | ---
-      | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTP traffic |
-      | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
-      | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | For load balancer node status checks |
-
-   {% endlist %}
+For more information about security groups for a cluster and node groups, see the {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).

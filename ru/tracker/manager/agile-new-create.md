@@ -1,6 +1,6 @@
 ---
-title: "Как создать доску в {{ tracker-full-name }}"
-description: "Из статьи вы узнаете, как создать доску в {{ tracker-name }}."
+title: Как создать доску в {{ tracker-full-name }}
+description: Из статьи вы узнаете, как создать доску в {{ tracker-name }}.
 ---
 
 # Как создать доску в {{ tracker-name }}

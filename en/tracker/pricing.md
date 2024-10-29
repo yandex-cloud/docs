@@ -1,6 +1,6 @@
 ---
-title: "{{ tracker-full-name }} pricing policy"
-description: "The cost of using {{ tracker-name }} is based on the number of users with full access to the service. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees."
+title: '{{ tracker-full-name }} pricing policy'
+description: The cost of using {{ tracker-name }} is based on the number of users with full access to the service. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
 ---
 
 # {{ tracker-full-name }} pricing
@@ -22,6 +22,8 @@ The cost of using {{ tracker-name }} is based on the number of users with [full 
 You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Prices for Russia {#prices}
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 

@@ -22,7 +22,7 @@ To collect audit logs of an individual cloud:
 
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
 
-## Create a trail {#the-trail-creation}
+## Creating a trail {#the-trail-creation}
 
 To create your first trail in {{ at-name }} and start the audit log management process:
 
@@ -34,10 +34,10 @@ To create your first trail in {{ at-name }} and start the audit log management p
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
+      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
+      * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
@@ -48,7 +48,7 @@ To create your first trail in {{ at-name }} and start the audit log management p
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
@@ -131,7 +131,7 @@ To create your first trail in {{ at-name }} and start the audit log management p
 
       {% endcut %}
 
-   1. To create a trail for collecting management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail YAML specification file.
+   1. To create a trail to collect management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail's YAML specification file.
 
       1. Create a trail configuration file, e.g., `specification.yaml`:
 
@@ -319,7 +319,7 @@ To create your first trail in {{ at-name }} and start the audit log management p
 
 - API {#api}
 
-   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/trail_service.md#Create) gRPC API call.
+   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
 
 {% endlist %}
 

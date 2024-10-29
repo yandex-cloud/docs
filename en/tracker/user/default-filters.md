@@ -31,10 +31,10 @@ Find your issues using preset system filters.
 1. On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file:
 
    * To search for issues in the list, use the **Search by issue name** bar or [add search criteria](#add-condition).
-
+      
 
    * To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** to the right of the search bar and select the desired parameter.
-
+      
 
    * To save an issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** and select the download file format or simply copy the list to the clipboard.
 

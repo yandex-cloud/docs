@@ -15,8 +15,8 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-    1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-    1. Выберите сервисный аккаунт и нажмите на строку с его именем.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
     1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -149,12 +149,13 @@
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
+    Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
 
     1. Узнайте ID сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
 
         ```bash
-        curl -H "Authorization: Bearer <IAM-токен>" \
+        curl \
+          --header "Authorization: Bearer <IAM-токен>" \
           https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
         ```
 
@@ -177,7 +178,8 @@
     1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
         
         ```bash
-        curl -H "Authorization: Bearer <IAM-токен>" \
+        curl \
+          --header "Authorization: Bearer <IAM-токен>" \
           https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
@@ -197,10 +199,11 @@
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
        ```bash
-       curl -X POST \
-         -H 'Content-Type: application/json' \
-         -H "Authorization: Bearer <IAM-токен>" \
-         -d '{
+       curl \
+         --request POST \
+         --header 'Content-Type: application/json' \
+         --header "Authorization: Bearer <IAM-токен>" \
+         --data '{
          "accessBindingDeltas": [{
              "action": "ADD",
              "accessBinding": {
@@ -272,7 +275,7 @@
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -333,31 +336,32 @@
     Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
     ```bash
-    curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
-                "subject": {
-                    "id": "gfei8n54hmfh********",
-                    "type": "userAccount"
-                }
-            }
-        },{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "viewer",
-                "subject": {
-                    "id": "helj89sfj80a********",
-                    "type": "userAccount"
-        }}}]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+    curl \
+      --request POST \
+      --header 'Content-Type: application/json' \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --data '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "editor",
+              "subject": {
+                  "id": "gfei8n54hmfh********",
+                  "type": "userAccount"
+              }
+          }
+      },{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "helj89sfj80a********",
+                  "type": "userAccount"
+      }}}]}' \
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
     ```
 
-    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
+    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
     {% note alert %}
 
@@ -367,18 +371,19 @@
 
 
     ```bash
-    curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
-        "accessBindings": [{
-            "roleId": "editor",
-            "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
-        },{
-            "roleId": "viewer",
-            "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
-        }]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
+    curl \
+      --request POST \
+      --header 'Content-Type: application/json' \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --data '{
+      "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
+      },{
+          "roleId": "viewer",
+          "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
+      }]}' \
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
 
 
@@ -564,7 +569,8 @@
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
         https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
@@ -593,19 +599,20 @@
   1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
 
       ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-токен>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "ajebqtreob2d********",
-                      "type": "serviceAccount"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "ajebqtreob2d********",
+                    "type": "serviceAccount"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
       ```
 
 {% endlist %}

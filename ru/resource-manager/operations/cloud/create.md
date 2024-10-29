@@ -11,15 +11,19 @@
 
 - Консоль управления {#console}
 
-    1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел ![cloud](../../../_assets/console-icons/cloud.svg) [{{ ui-key.yacloud_org.pages.raw_services }}]({{ link-org-main }}/services).
-  1. В блоке **{{ ui-key.yacloud_org.page.services.service.console.title_ru }}** нажмите кнопку ![cloud](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.page.services.clouds.create }}**.
-  1. В открывшемся окне введите имя облака. Требования к имени:
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
 
-       {% include [name-format.md](../../../_includes/name-format.md) %}
+  1. Перейдите в [консоль управления](link-console-main).
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В левом верхнем углу рядом в полем **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** нажмите значок ![plus](../../../_assets/console-icons/plus.svg). В открывшемся окне:
+  
+      1. Задайте имя облака. Требования к имени:
+
+          {% include [name-format.md](../../../_includes/name-format.md) %}
+
+      1. Если у вас несколько организаций, выберите нужную.
+
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
 
@@ -47,9 +51,9 @@
       
         {% include [name-format.md](../../../_includes/name-format.md) %}
         
-      * `organization_id` — идентификатор организации. {{ TF }} позволяет создать облако только для существующей организации. Перечень идентификаторов организаций можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc organization-manager organization list`.
+      * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. {{ TF }} позволяет создать облако только для существующей организации.
       * `billing_account_id` — идентификатор платежного аккаунта.
-      * `cloud_id` — идентификатор облака, которое будет привязано к платежному аккаунту.
+      * `cloud_id` — [идентификатор](../../../resource-manager/operations/cloud/get-id.md) облака, которое будет привязано к платежному аккаунту.
 
       Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-docs-link }}).
 
@@ -65,7 +69,7 @@
 
 - API {#api}
 
-  Чтобы создать облако, воспользуйтесь методом REST API [create](../../api-ref/Cloud/create.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create).
+  Чтобы создать облако, воспользуйтесь методом REST API [create](../../api-ref/Cloud/create.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Create](../../api-ref/grpc/Cloud/create.md).
 
 {% endlist %}
 

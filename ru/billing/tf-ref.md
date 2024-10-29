@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ billing-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ billing-name }}.
+---
+
 # Справочник {{ TF }} для {{ billing-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/datasource_billing_cloud_binding) | Информация о привязке [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к [платежному аккаунту](./concepts/billing-account.md) |
+| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/billing_cloud_binding) | Информация о привязке [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к [платежному аккаунту](./concepts/billing-account.md) |

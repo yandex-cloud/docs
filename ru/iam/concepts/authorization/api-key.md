@@ -15,7 +15,11 @@ _API-ключ_ — секретный ключ, используемый для 
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
-## Использование токена {#use}
+## API-ключи с ограничениями области и срока действия {#scoped-api-keys}
+
+Вы можете [создавать](../../operations/api-key/create.md) API-ключи с ограниченной областью и сроком действия. Это позволит снизить риск несанкционированного использования ключей.
+
+## Использование API-ключа {#use}
 
 Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передавайте API-ключ в заголовке `Authorization` в следующем формате:
 
@@ -23,11 +27,11 @@ _API-ключ_ — секретный ключ, используемый для 
 Authorization: Api-Key <API-ключ>
 ```
 
-
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
 API-ключи в качестве способа аутентификации поддерживают несколько сервисов:
 
+* [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

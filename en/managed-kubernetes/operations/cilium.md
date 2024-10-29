@@ -107,9 +107,9 @@ To use the Cilium network policy controller in a cluster:
                           hubble-relay       Running: 1
    Cluster Pods:          5/5 managed by Cilium
    Helm chart version:
-   Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                          cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
-                          hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+   Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                          cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+                          hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
    ```
 
    {% endcut %}
@@ -386,9 +386,9 @@ To use the Cilium network policy controller in a cluster:
                           hubble-ui          Running: 1
    Cluster Pods:          6/6 managed by Cilium
    Helm chart version:
-   Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                          hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
-                          cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+   Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                          hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+                          cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
                           hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                           hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
    ```
@@ -547,7 +547,7 @@ To use the Cilium network policy controller in a cluster:
 
    {% endcut %}
 
-1. Make sure the `tiefighter` and `xwing` applications have access to the `deathstar` API and return `Ship landed`, as the network policies are disabled:
+1. Make sure the `tiefighter` and `xwing` applications have access to the `deathstar` API and return the `Ship landed` string, because the network policies not activated:
 
    ```bash
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \

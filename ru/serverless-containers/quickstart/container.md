@@ -41,7 +41,7 @@ Docker-образ — исполняемый пакет, который соде
 
     **Dockerfile**
 
-    ```
+    ```dockerfile
     FROM node:16-slim
 
     WORKDIR /app
@@ -78,7 +78,7 @@ Docker-образ — исполняемый пакет, который соде
 
     **Dockerfile**
 
-    ```
+    ```dockerfile
     FROM python:3.10-slim
 
     WORKDIR /app
@@ -120,7 +120,7 @@ Docker-образ — исполняемый пакет, который соде
 
     **Dockerfile**
 
-    ```
+    ```dockerfile
     FROM golang:latest AS build
 
     WORKDIR /app
@@ -149,13 +149,15 @@ Docker-образ — исполняемый пакет, который соде
 
 После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](../operations/invoke.md#link) Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
 
-```
-curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
+```bash
+curl \
+  --header "Authorization: Bearer $(yc iam create-token)" \
+  https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```
 
 Результат:
 
-```
+```text
 Hello!
 ```
 

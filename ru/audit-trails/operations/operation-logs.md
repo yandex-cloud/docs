@@ -47,7 +47,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: cnpne9jsof71********
     description: operation_update
     created_at: "2024-03-26T16:57:32.085739756Z"
@@ -70,7 +70,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Trail/listOperations.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/ListOperations](../api-ref/grpc/trail_service.md#ListOperations).
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Trail/listOperations.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/ListOperations](../api-ref/grpc/Trail/listOperations.md).
 
 {% endlist %}
 
@@ -96,7 +96,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: cnpne9jsof71********
       description: operation_update
       created_at: "2024-03-26T16:57:32.085Z"
@@ -132,7 +132,7 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

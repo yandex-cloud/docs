@@ -25,6 +25,8 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--connection-pooling-mode`|<b>`string`</b><br/>Connection pooler pooling mode|
 |`--connection-pool-discard`|Indicates whether client parameters should be discarded before using a server from the pool|
 |`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster|
@@ -60,4 +62,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

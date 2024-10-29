@@ -1,6 +1,6 @@
 ---
-title: "Как вызвать контейнер в {{ serverless-containers-full-name }}"
-description: "Следуя данной инструкции, вы сможете вызвать контейнер." 
+title: Как вызвать контейнер в {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете вызвать контейнер.
 ---
 
 # Вызвать контейнер
@@ -20,6 +20,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 После создания контейнера вы получите ссылку для вызова. Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
 
-```
-curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
+```bash
+curl \
+  --header "Authorization: Bearer $(yc iam create-token)" \
+  https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```

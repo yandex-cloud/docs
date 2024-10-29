@@ -1,6 +1,6 @@
 ---
-title: "How to stop and restart an L7 load balancer in {{ alb-full-name }}"
-description: "In this tutorial, you will learn how to stop and restart an L7 load balancer in {{ alb-name }}."
+title: How to stop and restart an L7 load balancer in {{ alb-full-name }}
+description: In this tutorial, you will learn how to stop and restart an L7 load balancer in {{ alb-name }}.
 ---
 
 # Stopping and restarting an L7 load balancer
@@ -43,7 +43,7 @@ To stop an L7 load balancer:
 
       Result:
 
-      
+
       ```bash
       - id: ds79cfnvmti3********
         name: test-load-balancer
@@ -92,7 +92,7 @@ To stop an L7 load balancer:
 
 - API {#api}
 
-   Use the [stop](../api-ref/LoadBalancer/stop.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop) gRPC API call.
+   Use the [stop](../api-ref/LoadBalancer/stop.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Stop](../api-ref/grpc/LoadBalancer/stop.md) gRPC API call.
 
 {% endlist %}
 
@@ -132,7 +132,7 @@ To start a load balancer:
 
       Result:
 
-      
+
       ```bash
       - id: ds79cfnvmti3********
         name: test-load-balancer
@@ -181,6 +181,6 @@ To start a load balancer:
 
 - API {#api}
 
-   Use the [start](../api-ref/LoadBalancer/start.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Start](../api-ref/grpc/load_balancer_service.md#Start) gRPC API call.
+   Use the [start](../api-ref/LoadBalancer/start.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Start](../api-ref/grpc/LoadBalancer/start.md) gRPC API call.
 
 {% endlist %}

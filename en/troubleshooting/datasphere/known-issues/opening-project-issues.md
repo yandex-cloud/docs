@@ -1,7 +1,6 @@
 # Resolving errors with project access or login
 
 
-
 ## Issue description {#issue-description}
 
 During the project execution, you encounter errors associated with changes in its computing configurations.

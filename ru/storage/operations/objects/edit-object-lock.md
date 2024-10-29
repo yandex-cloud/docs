@@ -1,3 +1,8 @@
+---
+title: Настройка блокировок версии объекта в бакете в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить блокировку версии объекта в бакете в {{ objstorage-name }}.
+---
+
 # Настройка блокировок версии объекта (object lock)
 
 Если в бакете включены [версионирование](../buckets/versioning.md) и [блокировки версий объектов](../buckets/configure-object-lock.md), вы можете настроить блокировку версии, уже загруженной в бакет.
@@ -15,6 +20,19 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для объектов которого хотите настроить блокировку.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. В открывшемся окне включите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+  1. Установите **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -31,19 +49,19 @@
      ```
 
      Где:
-   
+
      * `--bucket` — имя вашего бакета.
      * `--key` — [ключ](../../concepts/object.md#key) объекта.
      * `--version-id` — идентификатор версии объекта.
      * `--retention` — настройки временной блокировки (оба параметра обязательны):
-       
+
        * `Mode` — [тип](../../concepts/object-lock.md#types) блокировки:
 
-         * `GOVERNANCE` — временная управляемая блокировка. Этот тип нельзя указать, если на версию объекта уже установлена строгая блокировка. 
+         * `GOVERNANCE` — временная управляемая блокировка. Этот тип нельзя указать, если на версию объекта уже установлена строгая блокировка.
          * `COMPLIANCE` — временная строгая блокировка.
-     
+
        * `RetainUntilDate` — дата и время окончания блокировки в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). Например, `2025-01-01T00:00:00`. Конец блокировки указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00). Чтобы указать другой часовой пояс, добавьте к концу записи `+` или `-` и смещение от UTC±00:00. Подробнее см. [пример](#example-lock). Если на версию объекта уже установлена строгая блокировка, ее можно только продлить, то есть новые дата и время должны быть позже текущих.
-   
+
      * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки. Его нужно установить, если на версию объекта уже установлена управляемая блокировка.
 
 - API {#api}
@@ -60,6 +78,15 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. В открывшемся окне выключите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -74,9 +101,9 @@
        --retention '{}' \
        --bypass-governance-retention
      ```
-   
+
      Где:
-   
+
      * `--bucket` — имя вашего бакета.
      * `--key` — [ключ](../../concepts/object.md#key) объекта.
      * `--version-id` — идентификатор версии объекта.
@@ -98,6 +125,15 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. В открывшемся окне включите или выключите опцию **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -112,14 +148,14 @@
        --version-id <идентификатор_версии> \
        --legal-hold Status=<статус_блокировки>
      ```
-   
+
      Где:
-   
+
      * `--bucket` — имя вашего бакета.
      * `--key` — [ключ](../../concepts/object.md#key) объекта.
      * `--version-id` — идентификатор версии объекта.
      * `--legal-hold` — настройки бессрочной блокировки:
-     
+
        * `Status` — статус блокировки:
 
          * `ON` — блокировка установлена.

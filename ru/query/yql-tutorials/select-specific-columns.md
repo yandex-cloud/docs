@@ -23,9 +23,9 @@ LIMIT 10
 Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Результат выполнения запроса отобразится на вкладке **{{ ui-key.yql.yq-query-results.result.tab-text }}** в виде таблицы или схемы.
 
-## Смотрите также {#see-also}
+#### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* [Типы данных YQL](https://ydb.tech/ru/docs/yql/reference/types/).
-* [Преобразование типов данных в YQL](https://ydb.tech/ru/docs/yql/reference/types/cast).
-* [Функции работы с датами](https://ydb.tech/ru/docs/yql/reference/udf/list/datetime).
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* [Типы данных YQL]({{ ydb.docs }}/yql/reference/types/)
+* [Преобразование типов данных в YQL]({{ ydb.docs }}/yql/reference/types/cast)
+* [Функции работы с датами]({{ ydb.docs }}/yql/reference/udf/list/datetime)

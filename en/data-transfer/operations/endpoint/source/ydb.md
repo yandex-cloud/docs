@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
+title: How to configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from an {{ ydb-name }} source endpoint
@@ -25,7 +25,11 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-full-name 
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
+   * [Loading data from {{ ydb-short-name }} to the {{ CH }} data mart](../../../tutorials/ydb-to-clickhouse.md).
+
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+   * [Loading data from {{ ydb-short-name }} to {{ objstorage-name }}](../../../../_tutorials/dataplatform/datatransfer/ydb-to-object-storage.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -35,7 +39,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ ydb-name }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 * {{ ydb-full-name }} DB connection settings. These are required parameters.
 * Transfer path list (for tables and directories).
 
@@ -61,7 +65,7 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Add paths to the {{ ydb-name }} tables and directories to transfer.
 
-    Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Escaping double quotes is not required. The `/` character is used as a delimiter in the path. For more information, see the [{{ ydb-short-name }} documentation](https://ydb.tech/docs/ru/concepts/connect#database).
+    Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Escaping double quotes is not required. The `/` character is used as a delimiter in the path. For more information, see the [{{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/connect#database).
 
     Adding new paths when editing an endpoint used in {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will not result in uploading the data history of these tables. To add a table with its historical data, use the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** field in the [transfer settings](../../transfer.md#update).
 
@@ -78,11 +82,11 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
 
 Configure one of the supported data targets:
 
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ CH }}](../target/clickhouse.md)​.
+* [{{ objstorage-full-name }}](../target/object-storage.md)​.
 * [{{ KF }}](../target/kafka.md).
 * [{{ DS }}](../target/data-streams.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md)​.
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

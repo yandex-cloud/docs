@@ -131,8 +131,8 @@
 
     В зависимости от количества кластеров {{ mkf-name }}:
 
-    - Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
-    - Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
+    - Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
+    - Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
 
     Данные для аутентификации:
 
@@ -346,7 +346,7 @@
         - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
         - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-    
+
     - Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 

@@ -6,13 +6,20 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on August 9, 2024 {#090924}
+
+Сhanges to `general:rc`:
+
+* Improved recognition quality for Uzbek and Kazakh.
+* You can now restrict recognition languages by specifying multiple values in the `language_restriction` field.
+
+## Previous versions {#previous}
+
 ### Release on June 26, 2024 {#260624}
 
 The `general:rc` updates from [June 3](#030624) are now available in the `general` model.
 
 Improved recognition quality for Uzbek in `general:rc`.
-
-## Previous versions {#previous}
 
 ### Release on June 3, 2024 {#030624}
 
@@ -73,7 +80,7 @@ All changes to the `general:rc` model are now available in the `general` model.
 
 ### Release on November 10, 2023 {#101123}
 
-New changes to `general:rc`:
+Сhanges to `general:rc`:
 
 * Russian speech recognition model has been updated.
 * The quality of recognizing names of cities in the Republic of Kazakhstan has been improved based on user requests.
@@ -82,7 +89,7 @@ New changes to `general:rc`:
 
 ### Release on September 6, 2023 {#060923}
 
-New changes to `general:rc`:
+Сhanges to `general:rc`:
 
 * Fixed the issue with English words appearing in a recognized Russian model.
 * Improved the general quality of recognition for Russian.
@@ -101,10 +108,10 @@ Resampling fixed, new dialog metrics now available in the `general` model.
 
 ### Release on July 7, 2023 {#070723}
 
-New changes to `general:rc`:
+Сhanges to `general:rc`:
 
 * Two-channel audio resampling bug fixed in [API v3](stt-v3/api-ref/grpc/).
-* Dialog metrics can now be calculated for speech analytics. Metric calculation is set up using the `speech_analysis` option in the [`StreamingOptions`](stt-v3/api-ref/grpc/stt_service#StreamingOptions) message.
+* Dialog metrics can now be calculated for speech analytics. Metric calculation is set up using the `speech_analysis` option in the [`StreamingOptions`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingOptions) message.
 
 ### Release on June 13, 2023 {#130623}
 
@@ -112,11 +119,11 @@ Fixed switching to English during Russian speech recognition in `general:rc`.
 
 ### Release on June 7, 2023 {#070623}
 
-New changes to `general:rc`:
+Сhanges to `general:rc`:
 
 * Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, Polish, and Hebrew.
 * Added number [normalization](stt/normalization.md) for Uzbek.
-* Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) in FullData mode.
+* Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse) in FullData mode.
 
 ### Release on May 25, 2023 {#250523}
 
@@ -124,13 +131,12 @@ Upgrades to the [May 17, 2023 release](#170523) are now available in the `genera
 
 ### Release on May 17, 2023 {#170523}
 
-New changes to `general:rc`:
+Сhanges to `general:rc`:
 
 * Improved the general quality of recognition for Russian.
 * Improved recognition quality for the Russian model as per user requests.
 * Improved recognition quality for Uzbek, German, French, Dutch, Italian, and Polish.
 * Added support for a [new recognition language](stt/models.md): Hebrew (`he-HE`).
-
 
 ### Release on April 14, 2023 {#140423}
 
@@ -150,7 +156,7 @@ For the `general:rc` model:
 ### Release on February 8, 2023 {#080223}
 
 1. The first version of Uzbek speech recognition is now available in the `general:rc` model for all API versions. Under some acoustic conditions, Uzbek can be recognized as Kazakh. The issue will be fixed in future model releases.
-1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
+1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.RecognitionModelOptions).
 
 ### Release on December 20, 2022 {#201222}
 

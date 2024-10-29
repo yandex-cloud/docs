@@ -1,20 +1,19 @@
 ---
-title: "Downloading reporting documents"
-description: "Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices."
+title: Downloading reporting documents
+description: Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices.
 ---
 
 # Viewing your expense history and downloading reporting documents in {{ billing-name }}
 
-Individuals, companies, and individual entrepreneurs can view their expense history. Organizations and individual entrepreneurs that are residents of Russia and Kazakhstan can download reporting documents in {{ billing-name }}.
+Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of Russia and Kazakhstan can download reporting documents in {{ billing-name }}.
 
 {% list tabs group=customers %}
 
 - Businesses and individual entrepreneurs {#businesses}
 
-   
    ## For businesses in Russia {#legal-entities-russia}
 
-   Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md) and request reconciliation reports.
+   Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md), as well as request [reconciliation reports](../concepts/act.md#reconciliation-report).
 
    {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
 
@@ -46,7 +45,6 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
    1. Click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
    1. As soon as the request status changes to **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
    1. Click the button with the selected download type. The document will open in a new window and become available for saving.
-   1. To download reports for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods) and click **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_zip }}**.
 
    To exchange original documents, download an unsigned report, print and sign two copies, and send them as follows:
 
@@ -60,8 +58,9 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    As soon as the documents are signed, your copy will be sent to you.
 
-
    ## For businesses in Kazakhstan {#legal-entities-kazakhstan}
+
+   Companies and individual entrepreneurs can download [reports](../concepts/act.md), get [invoices](../concepts/invoice.md), as well as request [reconciliation reports](../concepts/act.md#reconciliation-report).
 
    ### Completion report {#report-of-completion}
 
@@ -83,6 +82,23 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    Electronic invoices (e-invoices) are transmitted to the [Information System for Collection and Processing of E-invoices](https://esf.gov.kz:8443/esf-web/login) within 15 calendar days of the turnover date.
 
+   ### Requesting a reconciliation report {#download-acts-kazakhstan}
+
+   To generate a reconciliation report, submit a request in {{ billing-name }}. After your request is processed, the document will become available for download.
+
+   You can request a reconciliation report for the current month seven business days after the month ends.
+
+   To request a reconciliation report:
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
+   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+   1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}** tab.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
+   1. As soon as the request status changes to **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
+   1. Click the button with the selected download type. The document will open in a new window and become available for saving.
+
+   To exchange original documents, download the unsigned report, print two copies, sign them, and send them to 11/1 Al-Farabi Avenue, Bostandyk district, Almaty, Republic of Kazakhstan, 050059, reception. As soon as the documents are signed, your copy will be sent to you.
 
 - Individuals {#individuals}
 

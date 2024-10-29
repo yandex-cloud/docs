@@ -1,6 +1,6 @@
 ---
-title: "Adding a new rule to a {{ vpc-full-name }} security group"
-description: "You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
+title: Adding a new rule to a {{ vpc-full-name }} security group
+description: You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 ---
 
 # Adding a new rule to a security group
@@ -33,7 +33,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
 
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Select one of the following:
 
@@ -264,7 +264,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - API {#api}
 
-   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
+   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in the request:
 
    * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
 
@@ -274,7 +274,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
    * New security group rules, in the `additionRuleSpecs[]` array.
 
-      * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values include:
+      * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values are:
 
          * `ingress`: Incoming traffic
          * `egress`: Outgoing traffic

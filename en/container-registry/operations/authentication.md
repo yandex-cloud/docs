@@ -1,250 +1,92 @@
 ---
-title: "Authentication in {{ container-registry-full-name }}"
-description: "Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface."
+title: Authentication in {{ container-registry-full-name }}
+description: Before you start using {{ container-registry-name }}, you need to get authenticated for the appropriate interface.
 ---
 
 # Authentication in {{ container-registry-name }}
 
-Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface:
-* In the **Management console**, the minimum required [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) [role](../../iam/concepts/access-control/roles.md) is `viewer`.
-* In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for the [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
+Before you start using {{ container-registry-name }}, you need to [configure Docker](./configure-docker.md) and get authenticated to use the appropriate interface:
+* In the **management console**, the minimum required [role](../../iam/concepts/access-control/roles.md) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) is `viewer`.
+* In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for a [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
-Assign the proper role to a {{ yandex-cloud }} user or [service account](../../iam/concepts/users/service-accounts.md). Read about [authentication methods](#method) and choose the appropriate one.
+Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and choose the appropriate one.
 
 For more information about roles, see [{#T}](../security/index.md).
+
 
 ## Authentication methods {#method}
 
 You can authenticate:
 
+* [As a user](#user):
+  * Using an OAuth token (with a 12-month lifetime).
+  * Using an IAM token (with a {{ iam-token-lifetime }} lifetime or less).
 
-* As a user:
-   * [Using an OAuth token](#user-oauth) (lifetime is **one year**).
-   * [Using an {{ iam-full-name }} token](#user-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
+* [Using a Docker credential helper](#cred-helper).
 
+## Authenticating as a user {#user}
 
+{% list tabs group=registry_auth %}
 
-* As a service account:
-   * [Using authorized keys](#sa-json) (unlimited lifetime).
-   * [Using an {{ iam-name }} token](#sa-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
-   * [Using a secret of the service account](#k8s-secret) of the [external {{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or external [node group](../../managed-kubernetes/concepts/index.md#node-group) managed by {{ managed-k8s-name }}.
-* [Using a Docker credential helper credential store](#cred-helper).
+- Using an OAuth token {#oauth-token}
 
-The authentication command looks like this:
+  {% note info %}
 
-```bash
-docker login \
-  --username <token_type> \
-  --password <token> \
-  {{ registry }}
-```
+  {% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
 
-Where:
-* `--username`: Token type. Acceptable values: `oauth`, `iam`, or `json_key`.
-* `--password`: Token body.
-* `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+  {% endnote %}
 
-## Authenticate as a user {#user}
+  1. If you do not have Docker yet, [install it](./configure-docker.md).
+  1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
+  1. Run this command:
 
+     ```bash
+     echo <OAuth_token> | docker login \
+       --username oauth \
+       --password-stdin \
+      {{ registry }}
+     ```
 
-### Authentication using an OAuth token {#user-oauth}
+      Where:
+      * `<OAuth_token>`: Body of the previously obtained OAuth token.
+      * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
+      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
-{% note info %}
+- Using an IAM token {#iam-token}
 
-{% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
+  {% note info %}
 
-{% endnote %}
+  {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
-1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-1. Run this command:
+  {% endnote %}
 
-   ```bash
-   docker login \
-     --username oauth \
-     --password <OAuth token> \
-     {{ registry }}
-   ```
+  1. If you do not have Docker yet, [install it](./configure-docker.md).
+  1. Get an [IAM token](../../iam/operations/iam-token/create.md).
+  1. Run this command:
 
+      ```bash
+      echo <IAM_token> | docker login \
+        --username iam \
+        --password-stdin \
+        {{ registry }}
+      ```
 
-### Authentication using an {{ iam-name }} token {#user-iam}
+      Where:
+      * `<IAM_token>`: Body of the previously obtained IAM token.
+      * `--username`: Token type. `iam` means that an IAM token is used for authentication.
+      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
-{% note info %}
+{% endlist %}
 
-{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
+When running the command, you may get this error message: `docker login is not supported with yc credential helper`.
 
-{% endnote %}
-
-1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create.md).
-1. Run this command:
-
-   ```bash
-   docker login \
-     --username iam \
-     --password <IAM token> \
-     {{ registry }}
-   ```
-
-## Authenticate as a service account {#sa}
-
-### Authentication using authorized keys {#sa-json}
-
-{% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
-
-Your programs can get access to {{ yandex-cloud }} resources using service accounts. Get a file with [authorized keys](../../iam/concepts/users/service-accounts.md#sa-key) for your service account through the [{{ yandex-cloud }} CLI](../../cli/).
-
-{% include [cli-install](../../_includes/cli-install.md) %}
-
-1. Get authorized keys for your service account and save them to the `key.json` file:
-
-   ```bash
-   yc iam key create --service-account-name default-sa -o key.json
-   ```
-
-   Result:
-
-   ```text
-   id: aje8a87g4eaj********
-   service_account_id: aje3932acde3********
-   created_at: "2019-05-31T16:56:47Z"
-   key_algorithm: RSA_2048
-   ```
-
-1. Run this command:
-
-   ```bash
-   cat key.json | docker login \
-     --username json_key \
-     --password-stdin \
-     {{ registry }}
-   ```
-
-   Where:
-   * The `cat key.json` command writes the contents of the key file to the output stream.
-   * The `--password-stdin` flag allows the password to be read from the input stream.
-
-   Result:
-
-   ```text
-   Login succeeded
-   ```
-
-### Authentication using an {{ iam-name }} token {#sa-iam}
-
-{% note info %}
-
-{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
-
-{% endnote %}
-
-1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create-for-sa.md).
-1. Run this command:
-
-   ```bash
-   docker login \
-     --username iam \
-     --password <IAM token> \
-     {{ registry }}
-   ```
-
-### Authentication using a {{ k8s }} secret {#k8s-secret}
-
-{% note info %}
-
-These instructions only apply to external {{ k8s }} clusters and [external nodes](../../managed-kubernetes/concepts/external-nodes.md) managed by {{ managed-k8s-name }}.
-
-For a node placed in [{{ compute-full-name }}](../../compute/) to pass authentication, [assign the `container-registry.images.puller` role](../../iam/operations/roles/grant.md) to this node's service account.
-
-{% endnote %}
-
-{% include [cli-install](../../_includes/cli-install.md) %}
-
-{{ k8s }} resources can get access to {{ container-registry-name }} objects using [{{ k8s }} secrets](../../managed-kubernetes/concepts/encryption.md) created based on keys of [service accounts](../../iam/concepts/users/service-accounts.md).
-
-To prepare this secret:
-1. Get an [authorized key](../../iam/concepts/users/service-accounts.md#sa-key) for your service account and save it to the `key.json` file:
-
-   ```bash
-   yc iam key create --service-account-name <service_account_name> -o key.json
-   ```
-
-1. Run the authentication command:
-
-   ```bash
-   cat key.json | docker login \
-     --username json_key \
-     --password-stdin \
-     {{ registry }}
-   ```
-
-   Result:
-
-   ```text
-   Login succeeded
-   ```
-
-   If any errors occur, see [{#T}](../error/index.md).
-1. Make sure that the key is in the correct format. To do this, open the Docker configuration file:
-
-   ```bash
-   cat $HOME/.docker/config.json
-   ```
-
-   Result:
-
-   ```json
-   {
-     "auths": {
-       "{{ registry }}": {
-         "auth": "anNvbl9rZXk
-         ...
-         tXG4iCn0="
-       }
-     }
-   }
-   ```
-
-   {% note info %}
-
-   Previously configured access to Docker may prevent a key from being received in the correct format. To get the correct key, [disable a credential helper](#ch-not-use) or delete the existing `$HOME/.docker/config.json` file.
-
-   {% endnote %}
-
-1. Create a secret in your {{ k8s }} cluster:
-
-   ```bash
-   kubectl create secret generic <secret_name> \
-     --namespace=<namespace> \
-     --from-file=.dockerconfigjson=$HOME/.docker/config.json \
-     --type=kubernetes.io/dockerconfigjson
-   ```
-
-   You can specify, for example, `kube-system` as a [namespace](../../managed-kubernetes/concepts/index.md#namespace). {{ managed-k8s-name }} will use this namespace after you create a node group.
-1. Use the secret to create [pods](../../managed-kubernetes/concepts/index.md#pod) or Deployment controllers, for example:
-
-   ```yaml
-   ---
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: <pod_name>
-     namespace: <namespace>
-   spec:
-     containers:
-       - name: <name_of_your_container>
-         image: <container_image_name>
-     imagePullSecrets:
-     - name: <secret_name>
-   ```
-
-   When creating secrets and pods, make sure to specify the same namespace for them in the `namespace` parameter; otherwise, an authentication error will occur.
-
-For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
+In such a case, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
 
 ## Authenticate using a Docker credential helper {#cred-helper}
 
 The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need external [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers) software.
 
-The {{ yandex-cloud }} CLI uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account.
+[{{ yandex-cloud }} CLI](../../cli/quickstart.md) uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 ### Configuring a credential helper {#ch-setting}
 
@@ -268,13 +110,13 @@ The {{ yandex-cloud }} CLI uses `docker-credential-yc` as a Docker credential he
 
    {% note warning %}
 
-   Credential helper only works when using Docker without `sudo`. You can learn how to configure Docker to run under current user without `sudo` in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+   The credential helper only works if you use Docker without `sudo`. To learn how to configure Docker to run under the current user without `sudo`, see the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
    {% endnote %}
 
 1. Make sure that Docker is configured.
 
-   The `${HOME}/.docker/config.json` configuration file must include the following line:
+   The following line must appear in the `${HOME}/.docker/config.json` configuration file:
 
    ```json
    "{{ registry }}": "yc"
@@ -296,4 +138,4 @@ For more information about {{ yandex-cloud }} CLI profile management, see the [s
 
 #### Disabling a credential helper {#ch-not-use}
 
-To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to remove the `{{ registry }}` domain line under `credHelpers`.
+To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to delete the `{{ registry }}` domain line from the `credHelpers` section.

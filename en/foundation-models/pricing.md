@@ -2,25 +2,28 @@
 editable: false
 ---
 
-# {{ foundation-models-full-name }} pricing
+# {{ foundation-models-full-name }} pricing policy
 
 
 
-{{ foundation-models-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 In the [management console]({{ link-console-main }}), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
+
 * {{ yagpt-full-name }}: {{ gpt-freetier }} free requests per hour.
 * {{ yandexart-name }}: {{ art-freetier }} free requests per day.
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-### Pricing unit {#unit}
+### Billing unit {#unit}
 
-{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text generation and vectorization.
+{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
@@ -31,11 +34,11 @@ The total number of billing units is based on the overall number of prompt and r
 
 #### Tokenization {#rules-tokens}
 
-The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/TokenizerService.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
+The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
+The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text classification {#rules-text-classifier}
 
@@ -43,11 +46,19 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classi
 
 ### Text vectorization {#rules-embedding}
 
-The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
 ### Image generation {#rules-image-generation}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
+
+{% note warning %}
+
+The pricing below will apply starting November 1, 2024.
+
+{% endnote %}
+
+You are charged for each generation query in {{ yandexart-name }}. The queries are not idempotent, which means two queries with different settings and generation prompts are two separate queries.
 
 ### Internal server errors {#error-request}
 
@@ -55,6 +66,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
 
@@ -70,71 +82,62 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
 
 
+### Image generation {#pricing-image-generation}
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
+
+
 ## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}
 
 ### Calculating text generation cost {#price-example-generating}
 
-> Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
-> * Number of prompt tokens: 225
-> * Number of response tokens: 525
-> * Model: {{ gpt-lite }}
-> * Model working mode: Synchronous
+#### Example 1 {#example-generating-1}
 
-The cost is calculated as follows:
-Number of prompt and response tokens: 225 + 525 = 750
-Number of units per token for the {{ gpt-lite }} model in synchronous mode: 1
-Total number of units in the usage breakdown: 750
+Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
+
+* Number of prompt tokens: 225
+* Number of response tokens: 525
+* Model: {{ gpt-lite }}
+* Model working mode: Synchronous
 
 
-Total: ($0.0016 / 1,000 units) × 750 units = $0.0015
+{% include [usd-generating-lite](../_pricing_examples/foundation-models/usd-generating-lite.md) %}
 
-> Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
-> * Number of prompt tokens: 115
-> * Number of response tokens: 1,500
-> * Model: {{ gpt-pro }}
-> * Model working mode: Asynchronous
+#### Example 2 {#example-generating-2}
 
+Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
 
-The cost is calculated as follows:
-
-Number of prompt and response tokens: 115 + 1,500 = 1,615
-Cost of 1,000 tokens for the {{ gpt-pro }} model in asynchronous mode: $0.0048
-Number of units per token for the {{ gpt-pro }} model in asynchronous mode: 3
-Total number of units in the usage breakdown: 1,615 × 3 = 4,845
-
-Total: ($0.0048 / 1,000 tokens) × 1,615 tokens = $0.007752
+* Number of prompt tokens: 115
+* Number of response tokens: 1,500
+* Model: {{ gpt-pro }}
+* Model working mode: Asynchronous
 
 
-> Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
-> * Number of prompt tokens: 1,020
-> * Number of response tokens: 30
-> * {{ gpt-pro }} model fine-tuned in {{ ml-platform-name }}
-> * Model working mode: Synchronous
+
+{% include [usd-generating-pro](../_pricing_examples/foundation-models/usd-generating-pro.md) %}
 
 
-The cost is calculated as follows:
-Number of prompt and response tokens: 1,020 + 30 = 1,050
-Cost of 1,000 tokens for the model fine-tuned in {{ ml-platform-name }}, synchronous mode: $0.0096
-Number of units per token for the model fine-tuned in {{ ml-platform-name }}, synchronous mode: 6
-Total number of units in the usage breakdown: 1,050 × 6 = 6,300
+#### Example 3 {#example-generating-3}
 
-Total: ($0.0016 / 1,000 units) × 6,300 units = $0.01008 **or** ($0.0096 / 1,000 tokens) × 1,050 tokens = $0.01008
+Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
+
+* Number of prompt tokens: 1,020
+* Number of response tokens: 30
+* Model: {{ gpt-pro }} fine-tuned in {{ ml-platform-name }}
+* Model working mode: Synchronous
+
+
+
+{% include [usd-generating-pro-ml](../_pricing_examples/foundation-models/usd-generating-pro-ml.md) %}
 
 
 ### Calculating text vectorization cost {#price-example-embedding}
 
-> Cost of using {{ yagpt-name }} for text vectorization with the following parameters:
-> * Number of tokens in the request: 2,000
-> * Multiplier for using text vectorization: 1.0
-> The cost is calculated as follows:
->
-> 2,000 × 1.0 × ($0.00008 / 1,000) = $0.00016
->
-> Total: $0.00016
+Cost of using {{ yagpt-full-name }} for text vectorization with the following parameter:
 
-Where:
-* $0.00008: Cost for processing 1,000 tokens.
-* $0.00008 / 1,000: Cost for processing one token.
+* Number of tokens in the request: 2,000
 
 
 

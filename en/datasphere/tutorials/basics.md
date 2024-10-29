@@ -81,9 +81,9 @@ Learn more about working with {{ dataproc-name }} clusters in {{ ml-platform-nam
 If you want to deploy a model as a separate service in {{ ml-platform-name }}, use [nodes based on a Docker image](../concepts/deploy/index.md#docker-node). In the project settings, [specify](../../datasphere/operations/projects/update.md) the following parameters:
 
 * Default folder to store node logs.
-* Service account with the following rights:
+* Service account with the following permissions:
    * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image for creating a node.
-   * `vpc.user` to use the {{ ml-platform-name }} cluster network.
+   * `vpc.user` to use the {{ ml-platform-name }} network.
    * (Optional) `datasphere.user` to send requests to the node.
 
 Learn more about deploying services in {{ ml-platform-name }}:

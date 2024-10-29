@@ -1,6 +1,6 @@
 ---
-title: "Moving an instance group with a network load balancer to a different availability zone"
-description: "In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer across availability zones."
+title: Moving an instance group with a network load balancer to a different availability zone
+description: In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer across availability zones.
 ---
 
 # Moving an instance group with a network load balancer to a different availability zone
@@ -184,12 +184,12 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
 
          - API {#api}
 
-            1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call, and provide the following in the request:
+            1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/removeListener.md) gRPC API call, and provide the following in the request:
                * Load balancer ID in the `networkLoadBalancerId` parameter.
                * Listener name in the `listenerName` parameter.
 
                You can get the load balancer ID with a [list of network load balancers in the folder](../../../network-load-balancer/operations/load-balancer-list.md#list) and the listener name with [network load balancer details](../../../network-load-balancer/operations/load-balancer-list.md#get).
-            1. To add a network balancer listener, use the [addListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call, and provide the following in your request:
+            1. To add a network balancer listener, use the [addListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/addListener.md) gRPC API call, and provide the following in your request:
 
                ```json
                {

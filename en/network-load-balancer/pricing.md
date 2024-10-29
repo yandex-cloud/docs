@@ -1,7 +1,11 @@
 ---
 editable: false
 ---
-# {{ network-load-balancer-name }} pricing
+# {{ network-load-balancer-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -14,6 +18,7 @@ For a network load balancer with a public IP address, you additionally pay for o
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Incoming and outgoing traffic {#prices-traffic}

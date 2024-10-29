@@ -25,4 +25,5 @@ After the trigger is activated, it sends the following message to the function:
 
 ## See also {#see-also}
 
-* [Trigger for {{ container-registry-name }} that calls a {{ serverless-containers-name }} container](../../serverless-containers/concepts/trigger/cr-trigger.md).
+* [{#T}](../../serverless-containers/concepts/trigger/cr-trigger.md)
+* [{#T}](../../api-gateway/concepts/trigger/cr-trigger.md)

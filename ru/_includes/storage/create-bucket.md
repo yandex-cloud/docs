@@ -8,13 +8,13 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-                   
+
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
- 
+
 
       1. При необходимости ограничьте максимальный размер бакета.
 
@@ -31,7 +31,7 @@
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
 
-          Более <q>холодные</q> классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем <q>холоднее</q> хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
+          Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
 
       1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
           1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -59,10 +59,10 @@
       ```
 
       Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
- 
-      
+
+
       По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
-        
+
 
       Результат:
 
@@ -100,11 +100,11 @@
 
       * Параметры для настройки [ACL](../../storage/concepts/acl.md) бакета:
         * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-        * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [системных групп](../../storage/concepts/acl.md#system-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
+        * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../../storage/concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
           * `grant-type` — тип получателя разрешения. Возможные значения:
             * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
-            * `grant-type-all-authenticated-users` — [системная группа](../../storage/concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
-            * `grant-type-all-users` — системная группа всех пользователей интернета.
+            * `grant-type-all-authenticated-users` — [публичная группа](../../storage/concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+            * `grant-type-all-users` — публичная группа всех пользователей интернета.
           * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
           * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../../storage/concepts/acl.md#permissions-types).
 
@@ -135,7 +135,7 @@
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета.
 
-  
+
   {% note info %}
 
   По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
@@ -158,7 +158,7 @@
 
   {% cut "Опциональные параметры" %}
 
-  Вы можете применить к бакету [предопределенный ACL](../../storage/concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [системных групп](../../storage/concepts/acl.md#system-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  Вы можете применить к бакету [предопределенный ACL](../../storage/concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../../storage/concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   {% note info %}
 
@@ -189,14 +189,14 @@
   Где:
   * Возможные типы разрешений ACL:
     * `--grant-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
-    * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется  только совместно с `--grant-read`.
+    * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `--grant-read`.
     * `--grant-full-control` — полный доступ к бакету и объектам в нем.
-          
+
     Вы можете задать несколько разрешений в одной команде.
   * Возможные получатели разрешений:
     * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-    * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [системная группа](../../storage/concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
-    * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — системная группа всех пользователей интернета.
+    * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../storage/concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+    * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
   По умолчанию для каждого нового бакета создается пустой ACL.
 
@@ -207,10 +207,10 @@
 - {{ TF }} {#tf}
 
   {% include [terraform-role](terraform-role.md) %}
-  
+
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -279,9 +279,9 @@
         * `name` — имя сервисного аккаунта.
         * `bucket` — имя бакета.
 
-                   
+
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
- 
+
 
         * `max_size` — максимальный размер бакета в байтах.
         * `default_storage_class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
@@ -312,6 +312,6 @@
 
 - API {#api}
 
-  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}

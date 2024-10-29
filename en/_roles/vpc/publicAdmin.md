@@ -9,7 +9,7 @@ The `vpc.publicAdmin` role allows you to manage NAT gateways, public IP addresse
 * View information on [NAT gateways](../../vpc/concepts/gateways.md), as well as create, modify, and delete them.
 * Connect NAT gateways to route tables.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and info on them, as well as create, update, and delete public IP addresses.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and info on them, as well as link them to subnets.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as link them to subnets.
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and the info on them.
 * View information on the IP addresses used in subnets.
 * View information on Virtual Private Cloud [quotas](../../vpc/concepts/limits.md#vpc-quotas).
@@ -22,4 +22,10 @@ The `vpc.publicAdmin` role allows you to manage NAT gateways, public IP addresse
 
 This role also includes the `vpc.viewer` permissions.
 
-You can assign a role for a cloud or folder. Important: If a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.
+You can assign a role for a cloud or folder.
+
+{% note warning %}
+
+If a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.
+
+{% endnote %}

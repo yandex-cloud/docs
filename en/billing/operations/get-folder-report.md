@@ -1,8 +1,25 @@
 # Getting expense details by folder
 
-You can get a CSV file with your general or per-resource spending details.
+You can get a CSV file with your general or per-resource spending details. You can download the file once or set up regular export.
 
-## Getting started {#before-you-begin}
+## One-time export {#single-time-download}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select the account you want to get details for.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
+   1. Select the time period to get the details for.
+   1. Click **{{ ui-key.yacloud.billing.account.detail.popup-csv_button_download }}**.
+
+{% endlist %}
+
+## Setting up regular export {#set-up-regular-download}
+
+### Getting started {#before-you-begin}
 
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md). In the folder name, specify the project or client to use the folder.
 
@@ -17,9 +34,9 @@ You can get a CSV file with your general or per-resource spending details.
 
    {% endnote %}
 
-1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
+1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
 
-## Get expense details {#download-detail}
+### Get expense details {#download-detail}
 
 {% list tabs group=instructions %}
 
@@ -70,11 +87,11 @@ The table contains the following columns:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
-   * {{ kms-short-name }}: ID of the key.
-   * {{ network-load-balancer-name }}: ID of the network load balancer.
-   * {{ container-registry-short-name }}: ID of the container.
-   * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
-   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
+   * {{ kms-short-name }}: Key ID.
+   * {{ network-load-balancer-name }}: Load balancer ID.
+   * {{ container-registry-short-name }}: Container ID.
+   * {{ k8s }} and {{ dataproc-name }}: Cluster ID.
+   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: Host ID in the cluster.
    * {{ message-queue-name }}: ID of the request.
    * {{ sf-name }}: ID of the function.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}: An empty value.

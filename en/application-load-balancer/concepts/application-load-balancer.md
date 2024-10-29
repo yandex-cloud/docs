@@ -8,15 +8,17 @@ For convenience and security, you can use the load balancer in combination with 
 
 ## Security groups {#security-groups}
 
-When you create a load balancer, specify [security groups](../../vpc/concepts/security-groups.md) as they contain a set of rules for the load balancer to receive incoming traffic and send it to backend VMs. Security groups are also assigned to each VM.
+When creating a load balancer, you need to specify [security groups](../../vpc/concepts/security-groups.md) as they contain rules the load balancer uses to receive incoming traffic and send it to backend VMs. Each VM also has security groups assigned to it.
 
 For the load balancer to work correctly:
 
 * The load balancer security groups must allow:
-   * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
-   * Receiving incoming traffic for health checks of load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
-   * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, the whole port range, CIDR: `<VM_internal_IP>/32`).
+  * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
+  * Receiving incoming traffic to health check load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
+  * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, full port range, CIDR: `<VM_internal_IP_address>/32`).
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location) or from at least one of its security groups.
+
+For information on how to configure security groups for the Ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
 
 ## Host load balancer {#lb-location}
 
@@ -55,13 +57,13 @@ In the load balancer settings, you can specify the following:
 
 The minimum number of resource units per availability zone
 
-: If you expect higher loads on the load balancer, you can increase the minimum number of resource units per zone in advance without waiting for it to increase following the load.
+: If you expect higher loads on the load balancer, you can increase the minimum number of resource units per zone in advance to avoid waiting for it to increase following the load.
 
   The default minimum is 2. You cannot set a minimum value below 2.
 
 Maximum total number of resource units
 
-: The cost of using the load balancer depends on the number of its resource units (see the [pricing policy](../pricing.md)). By default, this number is unlimited. You can set a limit to control your expenses.
+: The cost of using the load balancer depends on the number of its resource units (see the [relevant pricing policy](../pricing.md)). By default, this number is unlimited. You can set a limit to control your expenses.
 
   If the specified minimum is too low for the actual load on the load balancer, it may run incorrectly.
 
@@ -80,12 +82,14 @@ For {{ alb-name }} to provide load balancer availability as specified in the [se
 
 The listener determines the ports, addresses, and protocols the load balancer will accept traffic on.
 
+Some incoming ports, such as port 22, are reserved for service purposes and you cannot use them.
+
 Request routing to [backend groups](backend-group.md) depends on the _listener type_:
 
 * **{{ ui-key.yacloud.alb.label_listener-type-http }}**: Load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **{{ ui-key.yacloud.alb.label_proto-http }}** or **{{ ui-key.yacloud.alb.label_proto-grpc }}** [type](backend-group.md#group-type).
 * **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: Load balancer accepts incoming traffic via unencrypted or encrypted TCP connections and routes it to **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups.
 
-If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI match, the domain name specified when establishing a TLS connection as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) is mapped to a TLS certificate and HTTP router (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-http }}**) or a backend group (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-stream }}**). The main listener is responsible for TLS connections with domain names that do not match any SNI listener.
+If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) when establishing a TLS connection is mapped to a TLS certificate and HTTP router (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-http }}**) or a backend group (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-stream }}**). The main listener is responsible for TLS connections with domain names that do not match any SNI listener.
 
 {% note tip %}
 
@@ -107,24 +111,24 @@ Load balancer statistics are automatically logged in the [{{ monitoring-full-nam
 
 * **HTTP statistics**:
 
-   * **RPS**: Number of load balancer requests per second.
-   * **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and the [corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list) per second.
-   * **Request size**: Total volume of load balancer requests per second.
-   * **Response size**: Total volume of load balancer responses per second.
-   * **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
+  * **RPS**: Number of load balancer requests per second.
+  * **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and the [corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list) per second.
+  * **Request size**: Total volume of load balancer requests per second.
+  * **Response size**: Total volume of load balancer responses per second.
+  * **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
 
 * **Capacity statistics**:
 
-   * **Active connections**: Number of active connections.
-   * **Connections per second**: Number of connections per second.
-   * **Requests per second**: Number of requests per second.
-   * **Bytes per second**: Amount of data handled per second.
+  * **Active connections**: Number of active connections.
+  * **Connections per second**: Number of connections per second.
+  * **Requests per second**: Number of requests per second.
+  * **Bytes per second**: Amount of data handled per second.
 
 For a full list of metrics delivered to {{ monitoring-full-name }}, see the [reference](../metrics.md).
 
 {{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 
-To learn how to view statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
+For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Logging {#logging}
 
@@ -146,7 +150,7 @@ Possible rules:
 
 #|
 || **Rule** | **Value** ||
-||**HTTP status codes**
+||**HTTP codes**
 |
 * `100`: Continue
 * `101`: Switching Protocol
@@ -203,7 +207,7 @@ Possible rules:
 * `505`: HTTP Version Not Supported
 * `507`: Insufficient Storage
 * `511`: Network Authentication Required||
-||**HTTP status code classes**
+||**HTTP code classes**
 |
 * `1XX`
 * `2XX`

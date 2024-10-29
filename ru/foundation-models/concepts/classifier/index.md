@@ -1,5 +1,8 @@
 # Классификаторы на базе {{ yagpt-name }}
 
+_Функциональность классификаторов на базе {{ yagpt-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
+
+
 {{ foundation-models-full-name }} позволяет классифицировать передаваемые в промтах текстовые запросы. Классификация в [моделях](./models.md) на базе {{ yagpt-name }} реализована в [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
 
 В {{ foundation-models-name }} доступна классификация трех типов:
@@ -25,8 +28,6 @@
 
 Классификатор Zero-shot позволяет выполнять бинарную и многоклассовую классификацию, передавая в теле запроса только [идентификатор модели](./models.md), описание задания, текст запроса и массив с именами классов.
 
-
-
 Формат тела запроса для классификатора Zero-shot:
 
 ```json
@@ -51,6 +52,8 @@
     {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
 
 * `text` — текстовое содержимое сообщения.
+
+Для [запросов](../../operations/classifier/readymade.md) к классификаторам Zero-shot используйте эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
 
 
 ### Классификатор Few-shot {#few-shot}
@@ -98,6 +101,8 @@
 * `text` — текстовое содержимое сообщения.
 * `samples` — массив с примерами запросов для классов, заданных в поле `labels`. Примеры запросов передаются в виде объектов, каждый из которых содержит один образец текстового запроса и класс, к которому такой запрос следует относить.
 
+Для [запросов](../../operations/classifier/readymade.md) к классификаторам Few-shot используйте эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
+
 {% note warning %}
 
 Вы можете передавать несколько примеров классификации в одном запросе. Все примеры в запросе не должны превышать 6000 токенов.
@@ -122,6 +127,8 @@
 Где:
 * `modelUri` — [идентификатор модели](./models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели.
 * `text` — текстовое содержимое сообщения. Суммарное количество токенов на один запрос не должно превышать 8000.
+
+Для [запросов](../../operations/classifier/additionally-trained.md) к дообучаемым классификаторам используйте эндпоинт `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
 
 Имена классов, по которым модель будет распределять запросы, должны быть заданы в процессе дообучения модели и в запросе не передаются.
 

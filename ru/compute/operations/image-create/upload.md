@@ -1,6 +1,6 @@
 ---
-title: "Загрузка образа диска в облако"
-description: "Эта инструкция описывает, как загрузить файл образа диска в хранилище {{ objstorage-name }} с ОС Linux, а также создать из него образ и виртуальную машину в сервисе {{ compute-name }}."
+title: Загрузка образа диска в облако
+description: Эта инструкция описывает, как загрузить файл образа диска в хранилище {{ objstorage-name }} с ОС Linux, а также создать из него образ и виртуальную машину в сервисе {{ compute-name }}.
 keywords:
   - загрузка образа
   - загрузка образа диска
@@ -133,7 +133,7 @@ keywords:
 
 - API {#api}
 
-  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите ссылку на образ.
+  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md). В запросе укажите ссылку на образ.
 
 {% endlist %}
 

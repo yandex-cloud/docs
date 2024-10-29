@@ -59,7 +59,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: ds71vdf0jqut********
     description: update loadbalancer 'ds7857cmjtuv********'
     created_at: "2024-05-14T14:36:06.637766633Z"
@@ -102,7 +102,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для балансировщика воспользуйтесь методом REST API [listOperations](../api-ref/LoadBalancer/listOperations.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/ListOperations](../api-ref/grpc/load_balancer_service.md#ListOperations).
+  Например, для балансировщика воспользуйтесь методом REST API [listOperations](../api-ref/LoadBalancer/listOperations.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/ListOperations](../api-ref/grpc/LoadBalancer/listOperations.md).
 
 {% endlist %}
 
@@ -158,7 +158,7 @@
 
    - API {#api}
 
-     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

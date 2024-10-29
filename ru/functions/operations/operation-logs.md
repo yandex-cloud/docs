@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: d4e952nebqdb********
     description: Create session
     created_at: "2024-06-19T08:33:11.658Z"
@@ -77,7 +77,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для функции воспользуйтесь методом REST API [listOperations](../functions/api-ref/Function/listOperations.md) для ресурса [Function](../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListOperations](../functions/api-ref/grpc/function_service.md#ListOperations).
+  Например, для функции воспользуйтесь методом REST API [listOperations](../functions/api-ref/Function/listOperations.md) для ресурса [Function](../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListOperations](../functions/api-ref/grpc/Function/listOperations.md).
 
 {% endlist %}
 
@@ -103,7 +103,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
         id: d4elh7hqnj7g********
         description: Create function
         created_at: "2024-06-19T08:33:04.513Z"
@@ -125,7 +125,7 @@
 
    - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../functions/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../functions/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

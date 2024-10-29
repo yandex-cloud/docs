@@ -33,6 +33,8 @@ Syntax:
 |`--disk-placement-group-id`|<b>`string`</b><br/>Placement group to create the disk in.|
 |`--disk-placement-group-name`|<b>`string`</b><br/>Placement group to create the disk in.|
 |`--disk-placement-group-partition`|<b>`int`</b><br/>Placement group partition. Used when a placement group is created with the partition strategy.|
+|`--hardware-generation-id`|<b>`string`</b><br/>Specify an instance hardware generation ID to override the inherited or default one.|
+|`--hardware-features`|<b>`key=value[,key=value...]`</b><br/>Specify features of the instance hardware generation to override. Use together with --hardware-generation-id. This is a list of KEY=VALUE pairs, for example '--hardware-features pci_topology=v2,other_feature=some-id'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -52,4 +54,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

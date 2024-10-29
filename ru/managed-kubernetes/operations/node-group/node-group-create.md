@@ -284,7 +284,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
+  Воспользуйтесь методом API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов {{ managed-k8s-name }}](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) в параметре `nodeTemplate.networkSettings.type`.

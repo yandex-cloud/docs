@@ -1,5 +1,5 @@
 ---
-title: "Как получить список зон DNS"
+title: Как получить список зон DNS
 ---
 
 # Получить список зон DNS
@@ -22,8 +22,8 @@ title: "Как получить список зон DNS"
 
      ```bash
       yc dns zone list --help
-      ```  
-  
+      ```
+
   1. Чтобы получить список зон DNS, выполните команду:
 
       ```bash
@@ -32,7 +32,7 @@ title: "Как получить список зон DNS"
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+------------+---------+------------------------------+-------------+
       |          ID          |    NAME    |  ZONE   |          VISIBILITY          | DESCRIPTION |
       +----------------------+------------+---------+------------------------------+-------------+
@@ -42,6 +42,6 @@ title: "Как получить список зон DNS"
 
 - API {#api}
 
-  Чтобы получить список [зон DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [list](../api-ref/DnsZone/list.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/List](../api-ref/grpc/dns_zone_service.md#List).
+  Чтобы получить список [зон DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [list](../api-ref/DnsZone/list.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/List](../api-ref/grpc/DnsZone/list.md).
 
 {% endlist %}

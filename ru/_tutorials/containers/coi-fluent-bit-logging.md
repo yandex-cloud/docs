@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
 1. Создайте файл Dockerfile и добавьте в него следующие строки:
 
-    ```
+    ```dockerfile
     FROM python:3.10
 
     WORKDIR /usr/src/app
@@ -211,7 +211,7 @@ if __name__ == '__main__':
        groups: sudo
        shell: /bin/bash
        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - ssh-ed25519 AAAA
    ```
 
@@ -272,7 +272,7 @@ yc compute instance create \
 
 - API {#api}
 
-  Посмотреть записи в лог-группе можно с помощью вызова gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
+  Посмотреть записи в лог-группе можно с помощью вызова gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md).
 
 {% endlist %}
 

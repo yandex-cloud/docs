@@ -10,6 +10,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -36,7 +38,7 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
-    
+
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя или более хостами, с шагом 93 ГБ.
 
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
@@ -60,7 +62,7 @@ editable: false
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM в редакции `Community Edition`.
+* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
 
 Расчет стоимости для хостов {{ MG }}:
@@ -70,29 +72,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;1,6000&nbsp;₽ + 8&nbsp;×&nbsp;0,9000&nbsp;₽) = 31,2000&nbsp;₽
-  >
-  > Итого: 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
-
-  Где:
-  * 3 — количество хостов {{ MG }}.
-  * 2 — количество vCPU.
-  * 1,6000&nbsp;₽ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ MG }} (в гигабайтах).
-  * 0,9000&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  {% include [rub-mongodb-host](../_pricing_examples/managed-mongodb/rub-host.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;8,0000&nbsp;₸ + 8&nbsp;×&nbsp;4,5000&nbsp;₸) = 156,0000&nbsp;₸
-  >
-  > Итого: 156,0000&nbsp;₸ — стоимость часа работы хостов {{ MG }}.
-
-  Где:
-  * 3 — количество хостов {{ MG }}.
-  * 2 — количество vCPU.
-  * 8,0000&nbsp;₸ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ MG }} (в гигабайтах).
-  * 4,5000&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  {% include [kzt-mongodb-host](../_pricing_examples/managed-mongodb/kzt-host.md) %}
 
 {% endlist %}
 
@@ -105,27 +89,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × 31,2000&nbsp;₽ + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 22&nbsp;784,0000&nbsp;₽
-  >
-  > Итого: 22&nbsp;784,0000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
-  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  {% include [rub-mongodb-storage](../_pricing_examples/managed-mongodb/rub-storage.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × 156,0000&nbsp;₸ + 100&nbsp;×&nbsp;16,0000&nbsp;₸ = 113&nbsp;920,0000&nbsp;₸
-  >
-  > Итого: 113&nbsp;920,0000&nbsp;₸ — стоимость использования кластера в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 156,0000&nbsp;₸ — стоимость часа работы хостов {{ MG }}.
-  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 16,0000&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  {% include [kzt-mongodb-storage](../_pricing_examples/managed-mongodb/kzt-storage.md) %}
 
 {% endlist %}
 
@@ -134,12 +102,10 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
-Все цены указаны с включением НДС.
+Все цены включают НДС.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -170,7 +136,7 @@ editable: false
 
 {% note info %}
 
-Доступ к хранилищу на сетевых SSD-дисках с тремя репликами предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к сверхбыстрому сетевому хранилищу с тремя репликами (SSD) предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 

@@ -1,3 +1,8 @@
+---
+title: Справочник событий уровня сервисов {{ at-full-name }}
+description: В данном разделе приведены описания событий уровня сервисов, собираемых в сервисах {{ yandex-cloud }}.
+---
+
 # Справочник событий уровня сервисов
 
 Значение поля `event_type` (_тип события_) аудитного лога уровня сервисов определяется сервисом-источником события.
@@ -10,18 +15,27 @@
 
 Ниже описаны события для сервисов:
 
+* [{{ certificate-manager-full-name }}](#certificate-manager)
 * [{{ dns-full-name }}](#dns)
 * [{{ compute-full-name }}](#compute)
 * [{{ iam-full-name }}](#iam)
 * [{{ kms-full-name }}](#kms)
 * [{{ lockbox-full-name }}](#lockbox)
+* [{{ mch-full-name }}](#mch)
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ speechsense-full-name }}](#speechsense)
+* [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
 * [{{ websql-full-name }}](#websql)
+
+## {{ certificate-manager-full-name }} {#certificate-manager}
+
+Имя сервиса — `certificatemanager`.
+
+{% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
 
 ## {{ dns-full-name }} {#dns}
 
@@ -53,6 +67,13 @@
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mch-full-name }} {#mch}
+
+Имя сервиса — `mdb.clickhouse`.
+
+{% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
+
+
 ## {{ mmg-full-name }} {#mmg}
 
 Имя сервиса — `mdb.mongodb`.
@@ -82,6 +103,12 @@
 Имя сервиса — `speechsense`.
 
 {% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}
+
+## {{ sws-full-name }} {#sws}
+
+Имя сервиса — `smartwebsecurity`.
+
+{% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

@@ -1,146 +1,146 @@
 ---
-title: "Attaching a file storage to a VM"
-description: "Follow this guide to attach a file storage to a VM."
+title: Attaching a file storage to a VM
+description: Follow this guide to attach a file storage to a VM.
 ---
 
 # Attaching a file storage to a VM
 
 {% note warning %}
 
-You can only attach a [file storage](../../concepts/filesystem.md) to [VMs](../../concepts/vm.md) running Linux [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
+You can only attach a [file storage](../../concepts/filesystem.md) to [VMs](../../concepts/vm.md) running a Linux-based [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
 
 To check the kernel version, run `sudo uname -r`.
 
 {% endnote %}
 
-1. If the VM is running (its [status](../../concepts/vm-statuses.md) is `RUNNING`), you should [stop the VM](../vm-control/vm-stop-and-start.md#stop) first.
+1. If the VM [status](../../concepts/vm-statuses.md) is `RUNNING`, [stop it](../vm-control/vm-stop-and-start.md#stop).
 1. Attach a file storage to the VM in {{ compute-name }}:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file storage.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-      1. Select the required storage.
-      1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
-      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
-      1. In the window that opens:
-         1. Select the VM.
-         1. Specify the device name for accessing the file storage in the VM. Save this name as you will need it when mounting the storage.
-         1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file storage.
+     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+     1. Select the required storage.
+     1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
+     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
+     1. In the window that opens:
+        1. Select the VM.
+        1. Specify the device name for accessing the file storage in the VM. Save this name as you will need it when mounting the storage.
+        1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
    - CLI {#cli}
 
-      {% include [cli-install](../../../_includes/cli-install.md) %}
+     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
+     1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
 
-         ```bash
-         yc compute instance attach-filesystem --help
-         ```
+        ```bash
+        yc compute instance attach-filesystem --help
+        ```
 
-      1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+     1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+        {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
 
-      1. Get a list of VMs in the default folder:
+     1. Get a list of VMs in the default folder:
 
-         ```bash
-         yc compute instance list
-         ```
+        ```bash
+        yc compute instance list
+        ```
 
-         Result:
+        Result:
 
-         ```text
-         +----------------------+-------+---------------+---------+--------------+-------------+
-         |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP | INTERNAL IP |
-         +----------------------+-------+---------------+---------+--------------+-------------+
-         | epdj4upltbiv******** | vm-01 | {{ region-id }}-a | RUNNING | 51.250.**.** | 192.168.*.* |
-         | 1pc3088tkv4m******** | vm-02 | {{ region-id }}-a | RUNNING | 84.201.**.** | 192.168.*.* |
-         +----------------------+-------+---------------+---------+--------------+-------------+
-         ```
+        ```text
+        +----------------------+-------+---------------+---------+--------------+-------------+
+        |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP | INTERNAL IP |
+        +----------------------+-------+---------------+---------+--------------+-------------+
+        | epdj4upltbiv******** | vm-01 | {{ region-id }}-a | RUNNING | 51.250.**.** | 192.168.*.* |
+        | 1pc3088tkv4m******** | vm-02 | {{ region-id }}-a | RUNNING | 84.201.**.** | 192.168.*.* |
+        +----------------------+-------+---------------+---------+--------------+-------------+
+        ```
 
-      1. Attach a file storage to a VM:
+     1. Attach a file storage to a VM:
 
-         ```bash
-         yc compute instance attach-filesystem \
-           --id <VM_ID> \
-           --filesystem-id <file_storage_ID> \
-           --device-name <device_name>
-         ```
+        ```bash
+        yc compute instance attach-filesystem \
+          --id <VM_ID> \
+          --filesystem-id <file_storage_ID> \
+          --device-name <device_name>
+        ```
 
-         Where:
-         * `--id`: VM ID.
+        Where:
+        * `--id`: VM ID.
 
-            Instead of an ID, you can specify the VM name in the `--name` parameter.
+          Instead of an ID, you can specify the VM name in the `--name` parameter.
 
-         * `--filesystem-id`: File storage ID.
+        * `--filesystem-id`: File storage ID.
 
-            Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
+          Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
 
-         * `--device-name`: Device name for accessing the file storage in the VM. This is an optional parameter.
+        * `--device-name`: Device name for accessing the file storage in the VM. This is an optional parameter.
 
-            By default, the file storage ID is used as the device name.
+          By default, the file storage ID is used as the device name.
 
-         Result:
+        Result:
 
-         ```bash
-         id: epdj4upltbiv********
-         folder_id: b1g681qpemb4********
-         created_at: "2024-04-29T15:50:19Z"
-         name: vm-01
-         ...
-         filesystems:
-         - mode: READ_WRITE
-           device_name: attached-filesystem
-           filesystem_id: epdtcr9blled********
-         ...
-         ```
+        ```text
+        id: epdj4upltbiv********
+        folder_id: b1g681qpemb4********
+        created_at: "2024-04-29T15:50:19Z"
+        name: vm-01
+        ...
+        filesystems:
+        - mode: READ_WRITE
+          device_name: attached-filesystem
+          filesystem_id: epdtcr9blled********
+        ...
+        ```
 
    - {{ TF }} {#tf}
 
-      {% include [terraform-install](../../../_includes/terraform-install.md) %}
+     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
+     Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
 
-      To attach a file storage to the VM, add the `filesystem` section with the `filesystem_id` parameter to the VM description (see the example below).
-      1. Open the {{ TF }} configuration file and add a fragment with the storage description to the VM description:
+     To attach a file storage to the VM, add the `filesystem` section with the `filesystem_id` parameter to the VM description (see the example below).
+     1. Open the {{ TF }} configuration file and add a fragment with the storage description to the VM description:
 
-         {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
+        {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
 
-         ```hcl
-         ...
-         resource "yandex_compute_instance" "vm-1" {
-           name        = "test-vm"
-           platform_id = "standard-v3"
-           zone        = "{{ region-id }}-a"
+        ```hcl
+        ...
+        resource "yandex_compute_instance" "vm-1" {
+          name        = "test-vm"
+          platform_id = "standard-v3"
+          zone        = "{{ region-id }}-a"
 
-           filesystem {
-             filesystem_id = "fhmaikp755gr********"
-           }
-         }
-         ...
-         ```
+          filesystem {
+            filesystem_id = "fhmaikp755gr********"
+          }
+        }
+        ...
+        ```
 
-         {% endcut %}
+        {% endcut %}
 
-      1. Apply the changes:
+     1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the storage attachment to the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check whether the storage has been attached to the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
-      ```bash
-      yc compute instance get <VM_name>
-      ```
+     ```bash
+     yc compute instance get <VM_name>
+     ```
 
    - API {#api}
 
-     Use the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API call.
+     Use the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AttachFilesystem](../../api-ref/grpc/Instance/attachFilesystem.md) gRPC API call.
 
    {% endlist %}
 
@@ -162,7 +162,7 @@ To check the kernel version, run `sudo uname -r`.
       ...
       ```
 
-      Save the `device_name` field value from the `filesystems` section. This is the name of the device to mount the file storage on that you will need later.
+      Save the value of the `device_name` field under the `filesystems` section. This is the name of the device to mount the file storage on that you will need later.
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. Run this command:
 
@@ -171,8 +171,8 @@ To check the kernel version, run `sudo uname -r`.
       ```
 
       Where:
-      * `<device_name>`: Previously saved `device_name` field value. In the example above, it is `storagename`. Your device name may differ.
-      * `<mount_path>`: Folder or disk on which to mount the file storage, e.g., `/mnt/vfs0`.
+      * `<device_name>`: Value of the `device_name` field you saved before. In the example above, it is `storagename`. Your device name may differ.
+      * `<mount_path>`: Folder or disk to mount the file storage to. For example: `/mnt/vfs0`.
    1. Check that the file storage has been mounted:
 
       ```bash
@@ -193,7 +193,7 @@ To check the kernel version, run `sudo uname -r`.
       storagename       virtiofs      66774660       0  66774660   0% /mnt/vfs0
       ```
 
-   1. For the file storage to be mounted every time the VM is started, add the following string to the `/etc/fstab` file:
+   1. To mount the file storage every time the VM is started, add the following string to the `/etc/fstab` file:
 
       ```text
       <device_name> <mount_path> virtiofs    rw    0   0

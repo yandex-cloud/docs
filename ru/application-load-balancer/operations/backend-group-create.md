@@ -1,6 +1,6 @@
 ---
-title: "Как создать группу бэкендов в {{ alb-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать группу бэкендов." 
+title: Как создать группу бэкендов в {{ alb-full-name }}
+description: Следуя данной инструкции, вы сможете создать группу бэкендов.
 ---
 
 # Создать группу бэкендов
@@ -78,28 +78,9 @@ description: "Следуя данной инструкции, вы сможет�
 
      Выполните команду:
 
-     ```bash
-     yc alb backend-group add-http-backend \
-       --backend-group-name <имя_бэкенд_группы> \
-       --name <имя_добавляемого_бэкенда> \
-       --weight <вес_бэкенда> \
-       --port <порт_бэкенда> \
-       --target-group-id=<идентификатор_целевой_группы> \
-       --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,host=<адрес_хоста>,path=<путь>
-     ```
+     {% include [cli-code-http-backend-create](../../_includes/application-load-balancer/cli-code-http-backend-create.md) %}
 
-     Где:
-     * `--panic-threshold` — порог для режима паники.
-     * `--http-healthcheck` — параметры проверки состояния ресурсов:
-       * `port` — порт.
-       * `healthy-threshold` — порог работоспособности.
-       * `unhealthy-threshold` — порог неработоспособности.
-       * `timeout` — таймаут.
-       * `interval` — интервал.
-       * `host` — адрес хоста.
-       * `path` — путь.
+     {% include [cli-http-where-legend](../../_includes/application-load-balancer/cli-http-where-legend.md) %}
 
      Результат:
 
@@ -133,27 +114,11 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% cut "gRPC-бэкенд" %}
 
-     ```bash
-     yc alb backend-group add-grpc-backend \
-       --backend-group-name <имя_бэкенд_группы> \
-       --name <имя_добавляемого_бэкенда> \
-       --weight <вес_бэкенда> \
-       --port <порт_бэкенда> \
-       --target-group-id=<идентификатор_целевой_группы> \
-       --panic-threshold 90 \
-       --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
-     ```
+     Выполните команду:
 
-     Где:
-     * `--panic-threshold` — порог для режима паники.
-     * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
-       * `port` — порт.
-       * `healthy-threshold` — порог работоспособности.
-       * `unhealthy-threshold` — порог неработоспособности.
-       * `timeout` — таймаут.
-       * `interval` — интервал.
-       * `service-name` — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+     {% include [cli-code-gRPC-backend-create](../../_includes/application-load-balancer/cli-code-gRPC-backend-create.md) %}
+
+     {% include [cli-gRPC-where-legend](../../_includes/application-load-balancer/cli-gRPC-where-legend.md) %}
 
      Результат:
 
@@ -188,28 +153,9 @@ description: "Следуя данной инструкции, вы сможет�
 
      Выполните команду:
 
-     ```bash
-     yc alb backend-group add-stream-backend \
-       --backend-group-name <имя_бэкенд_группы> \
-       --name <имя_добавляемого_бэкенда> \
-       --weight <вес_бэкенда> \
-       --port <порт_бэкенда> \
-       --target-group-id=<идентификатор_целевой_группы> \
-       --panic-threshold 90 \
-       --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
-     ```
+     {% include [cli-code-Stream-backend-create](../../_includes/application-load-balancer/cli-code-Stream-backend-create.md) %}
 
-     Где:
-     * `--panic-threshold` — порог для режима паники.
-     * `--stream-healthcheck` — параметры проверки состояния ресурсов:
-       * `port` — порт.
-       * `healthy-threshold` — порог работоспособности.
-       * `unhealthy-threshold` — порог неработоспособности.
-       * `timeout` — таймаут.
-       * `interval` — интервал.
-       * `send-text` — данные, которые отправляются на эндпоинт для проверки состояния.
-       * `receive-text` — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
+     {% include [cli-Stream-where-legend](../../_includes/application-load-balancer/cli-Stream-where-legend.md) %}
 
      Результат:
 
@@ -236,6 +182,7 @@ description: "Следуя данной инструкции, вы сможет�
                  text: <данные_к_эндпоинту>
                receive:
                  text: <данные_от_эндпоинта>
+         enable_proxy_protocol: true
      created_at: "2022-04-06T09:17:57.104324513Z"
      ```
 
@@ -244,9 +191,9 @@ description: "Следуя данной инструкции, вы сможет�
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
-  
+
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 
      ```hcl
@@ -257,22 +204,23 @@ description: "Следуя данной инструкции, вы сможет�
            source_ip = <режим_привязки_сессий_по_IP-адресу>
          }
        }
-
-       http_backend {
+       stream_backend {
          name                   = "<имя_бэкенда>"
          weight                 = 1
          port                   = 80
          target_group_ids       = ["<идентификатор_целевой_группы>"]
          load_balancing_config {
            panic_threshold      = 90
-         }    
+         }
+         enable_proxy_protocol  = true
          healthcheck {
            timeout              = "10s"
            interval             = "2s"
            healthy_threshold    = 10
-           unhealthy_threshold  = 15 
-           http_healthcheck {
-             path               = "/"
+           unhealthy_threshold  = 15
+           stream_healthcheck {
+             send               = "<данные_к_эндпоинту>"
+             receive            = "<данные_от_эндпоинта>"
            }
          }
        }
@@ -289,22 +237,7 @@ description: "Следуя данной инструкции, вы сможет�
          * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
-     Параметры бэкенда:
-     * `name` — имя бэкенда.
-     * `port` — порт бэкенда.
-     * `weight` — вес бэкенда.
-     * `target_group_ids` — идентификатор [целевой группы](../concepts/target-group.md). Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/): `yc alb target-group list`.
-     * `load_balancing_config` — параметры балансировки:
-       * `panic_threshold` — порог для режима паники.
-     * `healthcheck` — параметры проверки состояния:
-       * `timeout` — таймаут.
-       * `interval` — интервал.
-       * `healthy_threshold` — порог работоспособности.
-       * `unhealthy_threshold` — порог неработоспособности.
-       * `http_healthcheck` — параметры проверки состояния типа `HTTP`:
-         * `path` — путь.
-
-       {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+     {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Создайте ресурсы:
@@ -319,6 +252,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/BackendGroup/create.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/BackendGroup/create.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Create](../api-ref/grpc/BackendGroup/create.md).
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](../concepts/best-practices.md)

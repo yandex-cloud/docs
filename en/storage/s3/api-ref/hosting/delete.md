@@ -2,28 +2,29 @@
 
 Deletes a static website hosting configuration for a bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}?website HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `website` | Required parameter that indicates the type of operation. |
+`website` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 
 ## Response {#response}
@@ -36,4 +37,6 @@ Responses can only contain [common response headers](../common-response-headers.
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-If there aren't any hosting configurations, {{ objstorage-name }} returns a 200 code.
+If there is no hosting configuration, {{ objstorage-name }} will return code 200.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

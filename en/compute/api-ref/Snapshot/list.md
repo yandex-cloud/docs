@@ -3,30 +3,56 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/list.md
 ---
 
-# Compute Cloud API, REST: Snapshot.list
-Retrieves the list of Snapshot resources in the specified folder.
- 
+# Compute Cloud API, REST: Snapshot.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of Snapshot resources in the specified folder.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/snapshots
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list snapshots in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by ``AND`` operator: ``<condition1> [AND <condition2> [<...> AND <conditionN>]]``.</p> <p>Each condition has the form ``<field> <operator> <value>``, where:</p> <ol> <li>``<field>`` is the field name. Currently you can use filtering only on the limited number of fields.</li> <li>``<operator>`` is a logical operator, one of ``=``, ``!=``, ``IN``, ``NOT IN``.</li> <li>``<value>`` represents a value. String values should be written in double (``"``) or single (``'``) quotes. C-style escape sequences are supported (``\"`` turns to ``"``, ``\'`` to ``'``, ``\\`` to backslash).</li> </ol> <p>The maximum string length in characters is 1000.</p> 
-orderBy | <p>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.compute.v1.ListSnapshotsRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list snapshots in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+
+Each condition has the form `<field> <operator> <value>`, where:
+1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+3. `<value>` represents a value.
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+|| orderBy | **string**
+
+By which column the listing should be ordered and in which direction,
+format is "createdAt desc". "id asc" if omitted.
+The default sorting order is ascending ||
+|#
+
+## Response {#yandex.cloud.compute.v1.ListSnapshotsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "snapshots": [
     {
@@ -35,33 +61,152 @@ orderBy | <p>By which column the listing should be ordered and in which directio
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
+      "labels": "string",
       "storageSize": "string",
       "diskSize": "string",
       "productIds": [
         "string"
       ],
       "status": "string",
-      "sourceDiskId": "string"
+      "sourceDiskId": "string",
+      "hardwareGeneration": {
+        // Includes only one of the fields `legacyFeatures`, `generation2Features`
+        "legacyFeatures": {
+          "pciTopology": "string"
+        },
+        "generation2Features": "object"
+        // end of the list of possible fields
+      },
+      "kmsKey": {
+        "keyId": "string",
+        "versionId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-snapshots[] | **object**<br><p>List of snapshots.</p> 
-snapshots[].<br>id | **string**<br><p>ID of the snapshot.</p> 
-snapshots[].<br>folderId | **string**<br><p>ID of the folder that the snapshot belongs to.</p> 
-snapshots[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-snapshots[].<br>name | **string**<br><p>Name of the snapshot. 1-63 characters long.</p> 
-snapshots[].<br>description | **string**<br><p>Description of the snapshot. 0-256 characters long.</p> 
-snapshots[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
-snapshots[].<br>storageSize | **string** (int64)<br><p>Size of the snapshot, specified in bytes.</p> 
-snapshots[].<br>diskSize | **string** (int64)<br><p>Size of the disk when the snapshot was created, specified in bytes.</p> 
-snapshots[].<br>productIds[] | **string**<br><p>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine.</p> <p>The correct license ID is generated by the platform. IDs are inherited by new resources created from this resource.</p> <p>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost. You can specify them in the <a href="/docs/compute/api-ref/Image/create">create</a> request.</p> 
-snapshots[].<br>status | **string**<br><p>Current status of the snapshot.</p> <ul> <li>CREATING: Snapshot is being created.</li> <li>READY: Snapshot is ready to use.</li> <li>ERROR: Snapshot encountered a problem and cannot operate.</li> <li>DELETING: Snapshot is being deleted.</li> </ul> 
-snapshots[].<br>sourceDiskId | **string**<br><p>ID of the source disk used to create this snapshot.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| snapshots[] | **[Snapshot](#yandex.cloud.compute.v1.Snapshot)**
+
+List of snapshots. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListSnapshotsRequest.pageSize](#yandex.cloud.compute.v1.ListSnapshotsRequest), use
+the `nextPageToken` as the value
+for the [ListSnapshotsRequest.pageToken](#yandex.cloud.compute.v1.ListSnapshotsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## Snapshot {#yandex.cloud.compute.v1.Snapshot}
+
+A Snapshot resource. For more information, see [Snapshots](/docs/compute/concepts/snapshot).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the snapshot. ||
+|| folderId | **string**
+
+ID of the folder that the snapshot belongs to. ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the snapshot. 1-63 characters long. ||
+|| description | **string**
+
+Description of the snapshot. 0-256 characters long. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
+|| storageSize | **string** (int64)
+
+Size of the snapshot, specified in bytes. ||
+|| diskSize | **string** (int64)
+
+Size of the disk when the snapshot was created, specified in bytes. ||
+|| productIds[] | **string**
+
+License IDs that indicate which licenses are attached to this resource.
+License IDs are used to calculate additional charges for the use of the virtual machine.
+
+The correct license ID is generated by the platform. IDs are inherited by new resources created from this resource.
+
+If you know the license IDs, specify them when you create the image.
+For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
+You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/api-ref/Image/create#Create) request. ||
+|| status | **enum** (Status)
+
+Current status of the snapshot.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Snapshot is being created.
+- `READY`: Snapshot is ready to use.
+- `ERROR`: Snapshot encountered a problem and cannot operate.
+- `DELETING`: Snapshot is being deleted. ||
+|| sourceDiskId | **string**
+
+ID of the source disk used to create this snapshot. ||
+|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+
+If specified, forces the same HardwareGeneration features to be applied to the instance
+created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
+
+A set of features, specific to a particular Compute hardware generation.
+They are not necessary supported by every host OS or distro, thus they are fixed to an image
+and are applied to all instances created with it as their boot disk image.
+These features significantly determine how the instance is created, thus cannot be changed after the fact.
+
+#|
+||Field | Description ||
+|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+
+Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+|| generation2Features | **object**
+
+Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+|#
+
+## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
+
+A first hardware generation, by default compatible with all legacy images.
+Allows switching to PCI_TOPOLOGY_V2 and back.
+
+#|
+||Field | Description ||
+|| pciTopology | **enum** (PCITopology)
+
+- `PCI_TOPOLOGY_UNSPECIFIED`
+- `PCI_TOPOLOGY_V1`
+- `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
+|#

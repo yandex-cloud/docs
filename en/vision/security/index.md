@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ vision-full-name }}"
-description: "Access management in {{ vision-full-name }}, a service for computer vision and image analysis. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner."
+title: Access management in {{ vision-full-name }}
+description: 'Access management in {{ vision-full-name }}, a service for computer vision and image analysis. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
 ---
 
 # Access management in {{ vision-name }}
@@ -13,7 +13,7 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -44,6 +44,8 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 #### What's next {#what-is-next}
 

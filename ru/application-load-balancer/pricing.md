@@ -1,10 +1,14 @@
 ---
-title: "Правила тарификации для {{ alb-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ alb-name }}."
+title: Правила тарификации для {{ alb-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ alb-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ alb-full-name }}
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## Из чего складывается стоимость использования {{ alb-name }} {#rules}
 
@@ -65,13 +69,12 @@ editable: false
 
 
 
- 
 
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 {% list tabs group=pricing %}
 
@@ -86,5 +89,5 @@ editable: false
 {% endlist %}
 
 
- 
+
 

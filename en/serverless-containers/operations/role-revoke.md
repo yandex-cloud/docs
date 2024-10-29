@@ -1,6 +1,6 @@
 ---
-title: "Revoking roles assigned to a container"
-description: "Use this guide to revoke roles assigned to a container."
+title: Revoking roles assigned to a container
+description: Use this guide to revoke roles assigned to a container.
 ---
 
 # Revoking roles assigned to a container
@@ -33,7 +33,7 @@ description: "Use this guide to revoke roles assigned to a container."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the [All authenticated users](../../iam/concepts/access-control/public-group.md) `public group`):
       ```
       yc serverless container remove-access-binding \
         --name <container_name> \
@@ -47,6 +47,6 @@ description: "Use this guide to revoke roles assigned to a container."
 
 - API {#api}
 
-   To revoke container roles, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/container_service.md#UpdateAccessBindings) gRPC API call.
+   To revoke container roles, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

@@ -2,9 +2,11 @@
 
 Возвращает настройки временной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 ```
 

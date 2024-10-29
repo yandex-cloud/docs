@@ -1,6 +1,6 @@
 ---
-title: "Управление резервными копиями (снапшотами) Elasticsearch"
-description: "Сервис Elasticsearch позволяет использовать механизм снапшотов Elasticsearch для управления резервными копиями данных. Для работы со снапшотами используется публичный API Elasticsearch, а для их хранения — бакет в {{ objstorage-name }}."
+title: Управление резервными копиями (снапшотами) Elasticsearch
+description: Сервис Elasticsearch позволяет использовать механизм снапшотов Elasticsearch для управления резервными копиями данных. Для работы со снапшотами используется публичный API Elasticsearch, а для их хранения — бакет в {{ objstorage-name }}.
 keywords:
   - резервные копии Elasticsearch
   - снапшоты Elasticsearch
@@ -62,9 +62,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-    Чтобы получить список резервных копий всех кластеров {{ mes-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/backup_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    Чтобы получить список резервных копий всех кластеров {{ mes-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -102,7 +102,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
     Чтобы узнать идентификатор, [получите список резервных копий](#list-backups).
 
@@ -146,7 +146,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -218,7 +218,7 @@ keywords:
 
     1. Запросите создание кластера из резервной копии:
 
-        
+
         ```bash
         {{ yc-mdb-es }} cluster restore \
            --backup-id=<идентификатор_резервной_копии> \
@@ -253,7 +253,7 @@ keywords:
 
             * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
-            
+
             * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или   больше подсетей.
             * `assign-public-ip` — флаг, который указывается, если для хоста требуется [публичный доступ](../concepts/network.md#public-access-to-a-host): : `true` или `false`.
 
@@ -264,7 +264,7 @@ keywords:
         * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.
         * `--datanode-disk-type` — [тип диска](../concepts/storage.md) для хостов с ролью Data node:
 
-            
+
             * `network-hdd`;
             * `network-ssd`;
             * `local-ssd`;
@@ -282,7 +282,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
+    Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
 
     * Идентификатор требуемой резервной копии в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
     * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.

@@ -16,25 +16,23 @@ Labels shared by all HTTP metrics:
 | virtual_host | Name of the [virtual host](../../../application-load-balancer/concepts/http-router.md#virtual-host) |
 | zone | [Availability zone](../../../overview/concepts/geo-scope.md) |
 
-HTTP metrics:
-
-| Metric name<br>Type, units of measurement | Description<br>Labels |
+| Metric name<br>Type, units | Description<br>Labels |
 | --- | --- |
-| `load_balancer.request_bytes_per_second`<br>`DGAUGE`, bytes/s | Total amount of load balancer requests per second.<br>When combined with the *zone* label, only requests from a specific availability zone will be counted. |
-| `load_balancer.requests_count_per_second`<br>`DGAUGE`, requests/s | Number of load balancer requests per second.<br>When combined with the *zone* label, only requests from a specific availability zone will be counted.<br>A special label named *code* indicates the code of a response, e.g., `200` or `grpc:CANCELLED`. |
-| `load_balancer.requests_latency_milliseconds`<br>`IGUAGE`, milliseconds | Distribution histogram of the response latency (the time between the load balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles, in milliseconds.<br>When combined with the *zone* label, only responses in a specific availability zone will be counted.<br>A special label named *bin* indicates histogram buckets. |
-| `load_balancer.response_bytes_per_second`<br>`DGAUGE`, bytes/s | Total amount of load balancer responses per second.<br>When combined with the *zone* label, only responses in a specific availability zone will be counted. |
+| `load_balancer.request_bytes_per_second`<br>`DGAUGE`, bytes per second | Total volume of load balancer requests per second.<br>When combined with the `zone` label, only requests from a specific availability zone will be counted. |
+| `load_balancer.requests_count_per_second`<br>`DGAUGE`, requests per second | Number of load balancer requests per second.<br>When combined with the `zone` label, only requests from a specific availability zone will be counted.<br>The special `code` label represents a response code, e.g., `200` or `grpc:CANCELLED`. |
+| `load_balancer.requests_latency_milliseconds`<br>`IGUAGE`, ms | Response latency distribution histogram (time from the load balancer receiving the first byte of the request to sending the last byte of the response), 50th to 99th percentiles, in milliseconds.<br>When combined with the `zone` label, only responses in a specific availability zone will be counted.<br>Special `bin` label: Histogram buckets. |
+| `load_balancer.response_bytes_per_second`<br>`DGAUGE`, bytes per second  | Total volume of load balancer responses per second.<br>When combined with the `zone` label, only responses in a specific availability zone will be counted. |
 
 ## Scaling metrics {#scaling-metrics}
 
-| Metric name<br>Type, units of measurement | Description<br>Labels |
+| Metric name<br>Type, units | Description<br>Labels |
 | --- | --- |
-| `load_balancer.scaling.active_connections`<br>`DGAUGE`, pieces | Number of active connections |
-| `load_balancer.scaling.bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data processed per second |
-| `load_balancer.scaling.connections_per_second`<br>`DGAUGE`, connections/s | Number of connections per second |
-| `load_balancer.scaling.http_received_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data received per second |
-| `load_balancer.scaling.http_transmitted_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data transmitted per second |
-| `load_balancer.scaling.requests_per_second`<br>`DGAUGE`, requests/s | Number of requests per second |
+| `load_balancer.scaling.active_connections`<br>`DGAUGE`, number | Number of active connections |
+| `load_balancer.scaling.bytes_per_second`<br>`DGAUGE`, bytes per second | Amount of data processed per second |
+| `load_balancer.scaling.connections_per_second`<br>`DGAUGE`, connections per second | Number of connections per second |
+| `load_balancer.scaling.http_received_bytes_per_second`<br>`DGAUGE`, bytes per second | Amount of data received per second |
+| `load_balancer.scaling.http_transmitted_bytes_per_second`<br>`DGAUGE`, bytes per second | Amount of data transmitted per second |
+| `load_balancer.scaling.requests_per_second`<br>`DGAUGE`, requests per second | Number of requests per second |
 
 ## {{ sws-name }} metrics {#sws-metrics}
 

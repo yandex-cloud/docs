@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию об HTTP-роутере в {{ alb-full-name }}"
+title: Как получить информацию об HTTP-роутере в {{ alb-full-name }}
 ---
 
 # Получить информацию об HTTP-роутере
@@ -38,7 +38,7 @@ title: "Как получить информацию об HTTP-роутере в
 
       Результат:
 
-      ```bash
+      ```text
       id: ds7u8nv8gl2s********
       name: alb-router
       folder_id: b1geoelk7fld********
@@ -81,8 +81,8 @@ title: "Как получить информацию об HTTP-роутере в
          * `http_router_id` — идентификатор HTTP-роутера.
       * `output "tf-router-name"` — выходная переменная, которая содержит имя HTTP-роутера:
          * `value` — возвращаемое значение.
-       
-     Вместо `name` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_alb_http_router` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_alb_http_router).
+
+     Вместо `name` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_alb_http_router` см. в [документации провайдера]({{ tf-provider-datasources-link }}/alb_http_router).
 
   1. Создайте ресурсы:
 
@@ -96,12 +96,12 @@ title: "Как получить информацию об HTTP-роутере в
 
       Результат:
 
-      ```bash
+      ```text
       tf-router-name = "myrouter"
       ```
 
 - API {#api}
 
-  Чтобы получить подробную информацию об HTTP-роутере, воспользуйтесь методом REST API [get](../api-ref/HttpRouter/get.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Get](../api-ref/grpc/http_router_service.md#Get).
+  Чтобы получить подробную информацию об HTTP-роутере, воспользуйтесь методом REST API [get](../api-ref/HttpRouter/get.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md).
 
 {% endlist %}

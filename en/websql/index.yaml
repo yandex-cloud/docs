@@ -12,8 +12,8 @@ description:
     Hub Connection Manager and vice versa.
   - >-
     Yandex WebSQL supports the following database versions: <ul> <li>PostgreSQL:
-    12, 13, 14, 15, 16.</li> <li>MySQL: 5, 8.</li> <li>ClickHouse®: 23, 24.</li>
-    </ul>
+    12 and higher.</li> <li>MySQL: 5 and higher.</li> <li>ClickHouse®: 23 and
+    higher.</li> <li>Redis (non-sharded clusters only): 6 and higher.</li> </ul>
 meta:
   title: Yandex WebSQL
 links:

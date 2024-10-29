@@ -1,10 +1,5 @@
 title: Yandex Load Testing
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -20,12 +15,14 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Экспорт отчётов с результатами тестирования
+        href: operations/export-test-reports.md
       - name: Собрать пользовательские запросы с помощью Dispatcher
         href: operations/payload-dispatcher.md
-      - name: Передать логи теста в {{ cloud-logging-name }}
-        href: operations/logging.md
       - name: Создать и настроить дашборд регрессий
         href: operations/regressions.md
+      - name: Проверить превышение порогов метрик регрессий
+        href: operations/check-regression.md
       - name: Сохранить артефакты теста в {{ objstorage-name }}
         href: operations/save-artifacts.md
       - name: Посмотреть операции с ресурсами сервиса
@@ -62,6 +59,8 @@ items:
         href: concepts/index.md
       - name: Агент
         href: concepts/agent.md
+      - name: Выбор агента
+        href: concepts/agent-select.md
       - name: Генератор нагрузки
         href: concepts/load-generator.md
       - name: Профиль нагрузки
@@ -116,16 +115,88 @@ items:
         items:
           - name: Overview
             href: user/api-ref/grpc/index.md
-          - name: AgentService
-            href: user/api-ref/grpc/agent_service.md
-          - name: ConfigService
-            href: user/api-ref/grpc/config_service.md
-          - name: ReportService
-            href: user/api-ref/grpc/report_service.md
-          - name: TestService
-            href: user/api-ref/grpc/test_service.md
-          - name: OperationService
-            href: user/api-ref/grpc/operation_service.md
+          - name: Agent
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/Agent/index.md
+              - name: Create
+                href: user/api-ref/grpc/Agent/create.md
+              - name: Get
+                href: user/api-ref/grpc/Agent/get.md
+              - name: List
+                href: user/api-ref/grpc/Agent/list.md
+              - name: Delete
+                href: user/api-ref/grpc/Agent/delete.md
+              - name: Update
+                href: user/api-ref/grpc/Agent/update.md
+          - name: Config
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/Config/index.md
+              - name: Create
+                href: user/api-ref/grpc/Config/create.md
+              - name: Get
+                href: user/api-ref/grpc/Config/get.md
+              - name: List
+                href: user/api-ref/grpc/Config/list.md
+              - name: Delete
+                href: user/api-ref/grpc/Config/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: user/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: user/api-ref/grpc/Operation/cancel.md
+          - name: RegressionDashboard
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/RegressionDashboard/index.md
+              - name: Create
+                href: user/api-ref/grpc/RegressionDashboard/create.md
+              - name: Get
+                href: user/api-ref/grpc/RegressionDashboard/get.md
+              - name: List
+                href: user/api-ref/grpc/RegressionDashboard/list.md
+              - name: Delete
+                href: user/api-ref/grpc/RegressionDashboard/delete.md
+              - name: Update
+                href: user/api-ref/grpc/RegressionDashboard/update.md
+          - name: Report
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/Report/index.md
+              - name: GetTable
+                href: user/api-ref/grpc/Report/getTable.md
+              - name: CalculateKpiValues
+                href: user/api-ref/grpc/Report/calculateKpiValues.md
+          - name: Test
+            items:
+              - name: Overview
+                href: user/api-ref/grpc/Test/index.md
+              - name: Create
+                href: user/api-ref/grpc/Test/create.md
+              - name: Get
+                href: user/api-ref/grpc/Test/get.md
+              - name: Stop
+                href: user/api-ref/grpc/Test/stop.md
+              - name: Delete
+                href: user/api-ref/grpc/Test/delete.md
+              - name: List
+                href: user/api-ref/grpc/Test/list.md
+          - name: Load Testing API
+            items:
+              - name: Overview
+                href: agent/user/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: agent/user/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: agent/user/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: agent/user/api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -134,50 +205,89 @@ items:
             items:
               - name: Overview
                 href: user/api-ref/Agent/index.md
-              - name: create
+              - name: Create
                 href: user/api-ref/Agent/create.md
-              - name: delete
-                href: user/api-ref/Agent/delete.md
-              - name: get
+              - name: Get
                 href: user/api-ref/Agent/get.md
-              - name: list
+              - name: List
                 href: user/api-ref/Agent/list.md
-              - name: update
+              - name: Delete
+                href: user/api-ref/Agent/delete.md
+              - name: Update
                 href: user/api-ref/Agent/update.md
           - name: Config
             items:
               - name: Overview
                 href: user/api-ref/Config/index.md
-              - name: create
+              - name: Create
                 href: user/api-ref/Config/create.md
-              - name: delete
-                href: user/api-ref/Config/delete.md
-              - name: get
+              - name: Get
                 href: user/api-ref/Config/get.md
-              - name: list
+              - name: List
                 href: user/api-ref/Config/list.md
+              - name: Delete
+                href: user/api-ref/Config/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: user/api-ref/Operation/index.md
+              - name: Get
+                href: user/api-ref/Operation/get.md
+              - name: Cancel
+                href: user/api-ref/Operation/cancel.md
+          - name: RegressionDashboard
+            items:
+              - name: Overview
+                href: user/api-ref/RegressionDashboard/index.md
+              - name: Create
+                href: user/api-ref/RegressionDashboard/create.md
+              - name: Get
+                href: user/api-ref/RegressionDashboard/get.md
+              - name: List
+                href: user/api-ref/RegressionDashboard/list.md
+              - name: Delete
+                href: user/api-ref/RegressionDashboard/delete.md
+              - name: Update
+                href: user/api-ref/RegressionDashboard/update.md
           - name: Report
             items:
               - name: Overview
                 href: user/api-ref/Report/index.md
-              - name: getTable
+              - name: GetTable
                 href: user/api-ref/Report/getTable.md
+              - name: CalculateKpiValues
+                href: user/api-ref/Report/calculateKpiValues.md
           - name: Test
             items:
               - name: Overview
                 href: user/api-ref/Test/index.md
-              - name: create
+              - name: Create
                 href: user/api-ref/Test/create.md
-              - name: delete
-                href: user/api-ref/Test/delete.md
-              - name: get
+              - name: Get
                 href: user/api-ref/Test/get.md
-              - name: list
-                href: user/api-ref/Test/list.md
-              - name: stop
+              - name: Stop
                 href: user/api-ref/Test/stop.md
+              - name: Delete
+                href: user/api-ref/Test/delete.md
+              - name: List
+                href: user/api-ref/Test/list.md
+          - name: Load Testing API
+            items:
+              - name: Overview
+                href: agent/user/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: agent/user/api-ref/Operation/index.md
+                  - name: Get
+                    href: agent/user/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: agent/user/api-ref/Operation/cancel.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/load-testing
+deepBase: 2

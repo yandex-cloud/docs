@@ -1,8 +1,12 @@
 # Example of using {{ message-queue-full-name }} in Python
 
+{% note warning %}
+
 To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.amazon.com/sdk-for-python/), an SDK designed for Python.
 
-## Installation {#install}
+{% endnote %}
+
+## Installing {#install}
 
 To install boto, follow the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 

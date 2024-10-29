@@ -10,6 +10,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](terraform-modules.md)
 
 ## Setting up and testing scaling {#scaling}
 
@@ -26,10 +27,16 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
+To learn about installing the NGINX Ingress controller using {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
+
 ## {{ container-registry-full-name }} usage {#container-registry}
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
+
+## {{ mkf-name }} usage {#kafka}
+
+[{#T}](deploy-kafka-ui.md)
 
 ## Continuous integration with {{ GL }} {#gitlab}
 
@@ -45,10 +52,11 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+* [{#T}](cert-manager-webhook.md)
 
 ## Backups {#backup}
 
-* [{#T}](backup.md)
+* [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
 ## Monitoring {#monitoring}
@@ -66,8 +74,10 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](custom-health-checks.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
+* [{#T}](marketplace/hashicorp-vault.md)

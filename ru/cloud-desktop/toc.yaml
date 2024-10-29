@@ -1,11 +1,6 @@
 title: Yandex Cloud Desktop
 stage: preview
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -53,6 +48,8 @@ items:
     items:
       - name: Рабочие столы и их группы
         href: concepts/desktops-and-groups.md
+      - name: Список управления доступом (ACL)
+        href: concepts/acl.md
       - name: Диски
         href: concepts/disks.md
       - name: Образы
@@ -61,8 +58,121 @@ items:
         href: concepts/showcase.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/desktops/index.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: DesktopGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/DesktopGroup/index.md
+              - name: Get
+                href: api-ref/grpc/DesktopGroup/get.md
+              - name: List
+                href: api-ref/grpc/DesktopGroup/list.md
+              - name: ListDesktops
+                href: api-ref/grpc/DesktopGroup/listDesktops.md
+              - name: ListOperations
+                href: api-ref/grpc/DesktopGroup/listOperations.md
+              - name: Create
+                href: api-ref/grpc/DesktopGroup/create.md
+              - name: Delete
+                href: api-ref/grpc/DesktopGroup/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/DesktopGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/DesktopGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/DesktopGroup/updateAccessBindings.md
+          - name: Desktop
+            items:
+              - name: Overview
+                href: api-ref/grpc/Desktop/index.md
+              - name: Get
+                href: api-ref/grpc/Desktop/get.md
+              - name: GetRdpFile
+                href: api-ref/grpc/Desktop/getRdpFile.md
+              - name: List
+                href: api-ref/grpc/Desktop/list.md
+              - name: ListOperations
+                href: api-ref/grpc/Desktop/listOperations.md
+              - name: Create
+                href: api-ref/grpc/Desktop/create.md
+              - name: Delete
+                href: api-ref/grpc/Desktop/delete.md
+              - name: ResetPassword
+                href: api-ref/grpc/Desktop/resetPassword.md
+              - name: Restart
+                href: api-ref/grpc/Desktop/restart.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: DesktopGroup
+            items:
+              - name: Overview
+                href: api-ref/DesktopGroup/index.md
+              - name: Get
+                href: api-ref/DesktopGroup/get.md
+              - name: List
+                href: api-ref/DesktopGroup/list.md
+              - name: ListDesktops
+                href: api-ref/DesktopGroup/listDesktops.md
+              - name: ListOperations
+                href: api-ref/DesktopGroup/listOperations.md
+              - name: Create
+                href: api-ref/DesktopGroup/create.md
+              - name: Delete
+                href: api-ref/DesktopGroup/delete.md
+              - name: ListAccessBindings
+                href: api-ref/DesktopGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/DesktopGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/DesktopGroup/updateAccessBindings.md
+          - name: Desktop
+            items:
+              - name: Overview
+                href: api-ref/Desktop/index.md
+              - name: Get
+                href: api-ref/Desktop/get.md
+              - name: GetRdpFile
+                href: api-ref/Desktop/getRdpFile.md
+              - name: List
+                href: api-ref/Desktop/list.md
+              - name: ListOperations
+                href: api-ref/Desktop/listOperations.md
+              - name: Create
+                href: api-ref/Desktop/create.md
+              - name: Delete
+                href: api-ref/Desktop/delete.md
+              - name: ResetPassword
+                href: api-ref/Desktop/resetPassword.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
 base: ru/cloud-desktop
+deepBase: 2

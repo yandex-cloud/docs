@@ -6,18 +6,17 @@ editable: false
 
 
 
-{{ foundation-models-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Сервис тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb). Детализация использования {{ yagpt-full-name }} доступна в {{ billing-name }} как использование ресурсов {{ foundation-models-full-name }}. 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
-В [консоли управления]({{ link-console-main }}) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) для тестирования доступны запросы к моделям:
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-* {{ yagpt-full-name }} — {{ gpt-freetier }} бесплатных запросов в час.
-* {{ yandexart-name }} — {{ art-freetier }} бесплатных запросов в сутки.
+{% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 
 ### Единица тарификации {#unit}
 
-Использование сервиса {{ foundation-models-name }} детализируется в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для генерации и векторизации текста.
+Использование сервиса {{ foundation-models-name }} детализируется в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](./concepts/yandexgpt/index.md) и [векторизации](./concepts/embeddings.md) текста.
 
 ### Генерация текста {#rules-generating}
 
@@ -32,11 +31,11 @@ editable: false
 
 #### Токенизация {#rules-tokens}
 
-Использование токенизатора (вызовы [TokenizerService](./text-generation/api-ref/grpc/TokenizerService.md) и методы [Tokenizer](./text-generation/api-ref/Tokenizer/index.md)) не тарифицируются.
+Использование токенизатора (вызовы [TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) и методы [Tokenizer](./text-generation/api-ref/Tokenizer/index.md)) не тарифицируются.
 
 #### Дообученные модели {#rules-tuned-generating}
 
-Работа модели краткого пересказа тарифицируется по правилам {{ gpt-lite }}. Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
+Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
 
 ### Классификация текста {#rules-text-classifier}
 
@@ -44,11 +43,19 @@ editable: false
 
 ### Векторизация текста {#rules-embedding}
 
-Стоимость представления текста в виде векторов (получения эмбеддингов по тексту) зависит от объема текста, поданного на векторизацию.
+Стоимость представления текста в виде [векторов](./concepts/embeddings.md) (получения эмбеддингов по тексту) зависит от объема текста, поданного на векторизацию.
 
 ### Генерация изображений {#rules-image-generation}
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ yandexart-name }} не тарифицируется.
+
+{% note warning %}
+
+Правила тарификации, описанные ниже, начнут действовать 1 ноября 2024 года.
+
+{% endnote %}
+
+Использование {{ yandexart-name }} тарифицируется за каждый запрос на генерацию. При этом запросы не идемпотентны, поэтому два запроса с идентичными параметрами и промтом генерации считаются двумя самостоятельными запросами.
 
 ### Внутренние ошибки сервера {#error-request}
 
@@ -56,9 +63,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Генерация текста в {{ yagpt-full-name }} {#pricing-generating}
 
@@ -113,6 +118,23 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-embedding.md) %}
+
+{% endlist %}
+
+
+
+### Генерация изображений {#pricing-image-generation}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-embedding.md](../_pricing/yandexgpt/rub-image.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-image.md) %}
 
 {% endlist %}
 
@@ -178,7 +200,7 @@ editable: false
 * Количество токенов в ответе — 30.
 * Модель {{ gpt-pro }}, дообученная в {{ ml-platform-name }}.
 * Синхронный режим работы модели.
- 
+
 
 {% list tabs group=pricing %}
 

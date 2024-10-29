@@ -4,6 +4,7 @@
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
+Чтобы обнаружить возможные проблемы в кластере, [используйте другие инструменты](../tutorials/performance-problems.md) для анализа состояния кластера вместе с его логами.
 
 ## Получить лог кластера {#get-log}
 
@@ -71,18 +72,79 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  1. Воспользуйтесь методом [Cluster.listLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Тип сервиса, логи которого вы запрашиваете, в параметре `serviceType`:
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:logs?serviceType=<тип_сервиса>&columnFilter=<список_колонок>&fromTime=<левая_граница_временного_диапазона>&toTime=<правая_граница_временного_диапазона>'
+     ```
 
-        * `POSTGRESQL` — логи операций {{ PG }}.
-        * `POOLER` — логи операций менеджера подключений.
+     Где:
+
+     * `serviceType` — тип сервиса, логи которого нужно получить:
+
+       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POOLER` — логи операций менеджера подключений.
+
+     * `columnFilter` — список колонок, информацию по которым нужно вывести. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+     * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "service_type": "<тип_сервиса>",
+             "column_filter": [
+               "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+             ],
+             "from_time": "<левая_граница_временного_диапазона>",
+             "to_time": "<правая_граница_временного_диапазона>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.ListLogs
+     ```
+
+     Где:
+
+     * `service_type` — тип сервиса, логи которого нужно получить:
+
+       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POOLER` — логи операций менеджера подключений.
+
+     * `column_filter` — массив колонок, информацию по которым нужно вывести. Массив состоит из строк, каждая из которых содержит название колонки. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+     * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse).
 
 {% endlist %}
 
@@ -106,17 +168,78 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  1. Воспользуйтесь методом [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Тип сервиса, логи которого вы запрашиваете, в параметре `serviceType`:
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:stream_logs?serviceType=<тип_сервиса>&columnFilter=<список_колонок>'
+     ```
 
-        * `POSTGRESQL` — логи операций {{ PG }}.
-        * `POOLER` — логи операций менеджера подключений.
+     Где:
+
+     * `serviceType` — тип сервиса, логи которого нужно получить:
+
+       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POOLER` — логи операций менеджера подключений.
+
+     * `columnFilter` — список колонок, информацию по которым нужно вывести. В качестве значений используйте поля объекта `message` из ответа на запрос.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord).
+
+     Команда не завершается после отправки. Новые логи отображаются в выводе команды в режиме реального времени.
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "service_type": "<тип_сервиса>",
+             "column_filter": [
+               "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.StreamLogs
+     ```
+
+     Где:
+
+     * `service_type` — тип сервиса, логи которого нужно получить:
+
+       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POOLER` — логи операций менеджера подключений.
+
+     * `column_filter` — массив колонок, информацию по которым нужно вывести. Массив состоит из строк, каждая из которых содержит название колонки. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+     * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord).
+
+     Команда не завершается после отправки. Новые логи отображаются в выводе команды в режиме реального времени.
 
 {% endlist %}

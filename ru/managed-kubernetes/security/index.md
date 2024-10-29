@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ managed-k8s-name }}"
-description: "Управление доступом в сервисе для работы с контейнеризованными приложениями {{ managed-k8s-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы сервисным аккаунтам кластера {{ managed-k8s-name }}, какие роли нужны для работы с {{ managed-k8s-name }} через консоль управления {{ yandex-cloud }}."
+title: Управление доступом в {{ managed-k8s-name }}
+description: Управление доступом в сервисе для работы с контейнеризованными приложениями {{ managed-k8s-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы сервисным аккаунтам кластера {{ managed-k8s-name }}, какие роли нужны для работы с {{ managed-k8s-name }} через консоль управления {{ yandex-cloud }}.
 ---
 
 # Управление доступом в {{ managed-k8s-name }}
@@ -89,15 +89,58 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 #### {{ roles-viewer }} {#viewer}
 
-{% include notitle [roles-viewer](../../_includes/roles-viewer.md) %}
+{% include notitle [roles-viewer](../../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-{% include notitle [roles-editor](../../_includes/roles-editor.md) %}
+{% include notitle [roles-editor](../../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-{% include notitle [roles-admin](../../_includes/roles-admin.md) %}
+{% include notitle [roles-admin](../../_roles/primitive-roles/admin.md) %}
+
+{% note info %}
+
+Вы можете предоставить пользователям гранулярный доступ в пространства имен кластера с помощью механизма {{ k8s }} RBAC.
+
+{% cut "Пример" %}
+
+1. Создайте в кластере роль, которая позволит управлять всеми ресурсами в заданном пространстве имен:
+
+    ```yaml
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: <пространство_имен>
+      name: <название_роли>
+    rules:
+    - apiGroups: [""]
+      resources: ["*"]   
+      verbs: ["*"]                   
+    ```
+
+1. Создайте связь с этой ролью для аккаунта пользователя:
+
+    ```yaml
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: iam-user
+      namespace: <пространство_имен>
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: <название_роли>
+    subjects:
+    - kind: User
+      name: <название_аккаунта>
+    ```
+
+Проверьте создание ресурсов в кластере. В других пространствах имен пользователь не будет иметь право на создание или редактирование ресурсов.
+
+{% endcut %}
+
+{% endnote %}
 
 ## Какие роли необходимы для создания {{ managed-k8s-name }} {#required-roles}
 
@@ -124,7 +167,7 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 Для доступа к {{ managed-k8s-name }} через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} минимально необходимая роль `k8s.viewer`.
 
-Чтобы получить подробную информацию о кластере {{ managed-k8s-name }} и группе узлов необходима дополнительная роль `k8s.cluster-api.viewer`. Эта роль соответствует роли `viewer` в {{ k8s }} RBAC и предоставляет права доступа к ограниченному набору ресурсов в {{ k8s }} API, поэтому возможности консоли будут ограничены.
+Чтобы получить подробную информацию о кластере {{ managed-k8s-name }} и группе узлов необходима дополнительная роль `k8s.cluster-api.viewer`. Эта роль соответствует роли `view` в {{ k8s }} RBAC и предоставляет права доступа к ограниченному набору ресурсов в {{ k8s }} API, поэтому возможности консоли будут ограничены.
 
 Пользователи с ролью `k8s.cluster-api.cluster-admin` имеют полный доступ к {{ k8s }} API кластера {{ managed-k8s-name }} и могут использовать все возможности консоли управления.
 

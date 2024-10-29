@@ -1,23 +1,23 @@
 ---
-title: "How to change {{ GP }} cluster settings in {{ mgp-full-name }}"
-description: "Follow this guide to change {{ GP }} cluster settings."
+title: How to change {{ GP }} cluster settings in {{ mgp-full-name }}
+description: Follow this guide to change {{ GP }} cluster settings.
 ---
 
 # Updating {{ GP }} cluster settings
 
-After you create a cluster, you can:
+After creating a cluster, you can:
 
-* [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description)
 
-* [{#T}](#change-public-access).
+* [{#T}](#change-public-access)
 
-* [{#T}](#change-additional-settings).
+* [{#T}](#change-additional-settings)
 
-* [{#T}](#change-gp-settings).
+* [{#T}](#change-gp-settings)
 
-* [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset)
 
-* [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size)
 
 * [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
 
@@ -66,7 +66,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
 - API {#api}
 
-   To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * A new name in the `name` parameter.
@@ -148,7 +148,8 @@ If you enabled public access to the cluster but cannot access it from the inter
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
       * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-      * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+
+
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -157,10 +158,10 @@ If you enabled public access to the cluster but cannot access it from the inter
 
          You cannot disable this option after you save your cluster settings.
 
-         
+
          {% note info %}
 
-         This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
+         This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
 
          {% endnote %}
 
@@ -187,17 +188,19 @@ If you enabled public access to the cluster but cannot access it from the inter
 
    1. Run the following command with a list of settings to update:
 
+
+
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
           --backup-window-start <backup_start_time> \
           --datalens-access=<access_from_DataLens> \
-          --datatransfer-access=<access_from_Data_Transfer> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
                               `hour=<hour> \
           --assign-public-ip=<public_access_to_cluster> \
-          --deletion-protection=<cluster_deletion_protection> \
+          --deletion-protection=<cluster_deletion_protection>
       ```
+
 
    You can change the following settings:
 
@@ -205,7 +208,6 @@ If you enabled public access to the cluster but cannot access it from the inter
 
    * `--datalens-access`: Enables [{{ datalens-full-name }}](../../datalens/concepts/index.md) access. The default value is `false`.
 
-   * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. The default value is `false`.
 
    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
@@ -221,7 +223,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - API {#api}
 
-   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Public access settings in the `config.assignPublicIp` parameter.
@@ -256,7 +258,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
 - API {#api}
 
-   To edit your cluster's scheduled maintenance operations settings, use the REST API [update](../api-ref/Cluster/update.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call, and provide the following in the request:
+   To edit your cluster's scheduled maintenance operations settings, use the REST API [update](../api-ref/Cluster/update.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call, and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New parameter values for the `configSpec.backgroundActivities.analyzeAndVacuum` object:
@@ -319,7 +321,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API {#api}
 
-   To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * New settings in the `configSpec.greenplumConfig_<version>` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter.
@@ -373,7 +375,7 @@ We recommend changing the host class only when the cluster has no active workloa
          {{ yc-mdb-gp }} resource-preset list segment
          ```
 
-      
+
       ```text
       +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
       |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |
@@ -434,7 +436,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - API {#api}
 
-   To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Master host class ID in the `masterConfig.resources.resourcePresetId` parameter or segment host class ID in the `segmentConfig.resources.resourcePresetId` parameter. You can get a list of supported values by using the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resource.
@@ -463,7 +465,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - API {#api}
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New master and segment host storage size in the `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize` parameters.

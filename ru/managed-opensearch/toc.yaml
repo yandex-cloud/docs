@@ -1,10 +1,5 @@
 title: '{{ mos-full-name }}'
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -56,6 +51,8 @@ items:
             href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Настройка политики индексов в {{ mos-name }}
+        href: tutorials/opensearch-index-policy.md
       - name: Миграция данных из {{ ES }}
         href: tutorials/migration-to-opensearch.md
       - name: Загрузка логов из {{ at-name }}
@@ -68,6 +65,24 @@ items:
           Миграция данных из стороннего кластера {{ OS }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/migration-from-standalone.md
+      - name: >-
+          Загрузка данных из {{ mos-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-object-storage.md
+      - name: >-
+          Миграция данных из {{ mos-name }} в {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-ydb.md
+      - name: >-
+          Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
+      - name: >-
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/postgresql-to-opensearch.md
+      - name: Аутентификация в {{ OS }} Dashboards с помощью {{ keycloak }}
+        href: tutorials/saml-keycloak.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -76,6 +91,8 @@ items:
         href: concepts/host-roles.md
       - name: Индексы
         href: concepts/indexing.md
+      - name: Политики индексов
+        href: concepts/index-policy.md
       - name: Поиск с помощью {{ OS }}
         href: concepts/searching.md
       - name: Классы хостов
@@ -112,14 +129,84 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: BackupService
-            href: api-ref/grpc/backup_service.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/grpc/Backup/index.md
+              - name: Get
+                href: api-ref/grpc/Backup/get.md
+              - name: List
+                href: api-ref/grpc/Backup/list.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Backup
+                href: api-ref/grpc/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/grpc/Cluster/deleteBackup.md
+              - name: Restore
+                href: api-ref/grpc/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
+              - name: ListBackups
+                href: api-ref/grpc/Cluster/listBackups.md
+              - name: Move
+                href: api-ref/grpc/Cluster/move.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListLogs
+                href: api-ref/grpc/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/grpc/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/grpc/Cluster/listHosts.md
+              - name: AddOpenSearchNodeGroup
+                href: api-ref/grpc/Cluster/addOpenSearchNodeGroup.md
+              - name: DeleteOpenSearchNodeGroup
+                href: api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md
+              - name: UpdateOpenSearchNodeGroup
+                href: api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md
+              - name: AddDashboardsNodeGroup
+                href: api-ref/grpc/Cluster/addDashboardsNodeGroup.md
+              - name: DeleteDashboardsNodeGroup
+                href: api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md
+              - name: UpdateDashboardsNodeGroup
+                href: api-ref/grpc/Cluster/updateDashboardsNodeGroup.md
+              - name: GetAuthSettings
+                href: api-ref/grpc/Cluster/getAuthSettings.md
+              - name: UpdateAuthSettings
+                href: api-ref/grpc/Cluster/updateAuthSettings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -128,76 +215,80 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Backup/get.md
-              - name: list
+              - name: List
                 href: api-ref/Backup/list.md
           - name: Cluster
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: addDashboardsNodeGroup
-                href: api-ref/Cluster/addDashboardsNodeGroup.md
-              - name: addOpenSearchNodeGroup
-                href: api-ref/Cluster/addOpenSearchNodeGroup.md
-              - name: backup
-                href: api-ref/Cluster/backup.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: deleteDashboardsNodeGroup
-                href: api-ref/Cluster/deleteDashboardsNodeGroup.md
-              - name: deleteOpenSearchNodeGroup
-                href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: getAuthSettings
-                href: api-ref/Cluster/getAuthSettings.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listBackups
-                href: api-ref/Cluster/listBackups.md
-              - name: listHosts
-                href: api-ref/Cluster/listHosts.md
-              - name: listLogs
-                href: api-ref/Cluster/listLogs.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: move
-                href: api-ref/Cluster/move.md
-              - name: rescheduleMaintenance
-                href: api-ref/Cluster/rescheduleMaintenance.md
-              - name: restore
-                href: api-ref/Cluster/restore.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: streamLogs
-                href: api-ref/Cluster/streamLogs.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
-              - name: updateAuthSettings
-                href: api-ref/Cluster/updateAuthSettings.md
-              - name: updateDashboardsNodeGroup
-                href: api-ref/Cluster/updateDashboardsNodeGroup.md
-              - name: updateOpenSearchNodeGroup
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Backup
+                href: api-ref/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/Cluster/deleteBackup.md
+              - name: Restore
+                href: api-ref/Cluster/restore.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: ListBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: Move
+                href: api-ref/Cluster/move.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: AddOpenSearchNodeGroup
+                href: api-ref/Cluster/addOpenSearchNodeGroup.md
+              - name: DeleteOpenSearchNodeGroup
+                href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
+              - name: UpdateOpenSearchNodeGroup
                 href: api-ref/Cluster/updateOpenSearchNodeGroup.md
-          - name: ResourcePreset
-            items:
-              - name: Overview
-                href: api-ref/ResourcePreset/index.md
-              - name: get
-                href: api-ref/ResourcePreset/get.md
-              - name: list
-                href: api-ref/ResourcePreset/list.md
+              - name: AddDashboardsNodeGroup
+                href: api-ref/Cluster/addDashboardsNodeGroup.md
+              - name: DeleteDashboardsNodeGroup
+                href: api-ref/Cluster/deleteDashboardsNodeGroup.md
+              - name: UpdateDashboardsNodeGroup
+                href: api-ref/Cluster/updateDashboardsNodeGroup.md
+              - name: GetAuthSettings
+                href: api-ref/Cluster/getAuthSettings.md
+              - name: UpdateAuthSettings
+                href: api-ref/Cluster/updateAuthSettings.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/ResourcePreset/get.md
+              - name: List
+                href: api-ref/ResourcePreset/list.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
@@ -209,3 +300,4 @@ items:
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/managed-opensearch
+deepBase: 2

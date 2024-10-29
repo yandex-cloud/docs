@@ -21,7 +21,7 @@
 
       * [`audit-trails.viewer`](../security/index.md#roles-list) на облако, с которого будут собираться аудитные логи:
 
-        ```
+        ```bash
         yc resource-manager cloud add-access-binding \
           --role audit-trails.viewer \
           --id <идентификатор_облака> \
@@ -36,7 +36,7 @@
 
       * [`logging.writer`](../../logging/security/index.md#roles-list) на каталог, в котором будет находиться трейл:
 
-        ```
+        ```bash
         yc resource-manager folder add-access-binding \
           --role logging.writer \
           --id <идентификатор_каталога> \
@@ -355,11 +355,13 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/trail_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
 Трейл создастся и начнет загружать аудитные логи в лог-группу. 
+
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
 
 ## Что дальше {#whats-next} 
 

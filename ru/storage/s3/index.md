@@ -1,6 +1,6 @@
 ---
-title: "Как пользоваться S3 API. {{ objstorage-name }}"
-description: "Из статьи вы узнаете, как подготовиться к работе с API, что представляет собой запрос к {{ objstorage-name }} API и как использовать кросс-доменные запросы."
+title: Как пользоваться S3 API. {{ objstorage-name }}
+description: Из статьи вы узнаете, как подготовиться к работе с API, что представляет собой запрос к {{ objstorage-name }} API и как использовать кросс-доменные запросы.
 keywords:
   - s3
   - s3 storage
@@ -22,7 +22,9 @@ keywords:
 
 Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../tools/index.md).
 
+
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
 Перечень поддерживаемых методов Amazon S3 HTTP API смотрите в [Справочнике API](api-ref/index.md).
 

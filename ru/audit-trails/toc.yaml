@@ -1,10 +1,5 @@
 title: Yandex Audit Trails
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -52,10 +47,6 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
-      - name: >-
-          Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в
-          {{ datalens-full-name }}
-        href: tutorials/logs-analysis.md
       - name: Экспорт аудитных логов в SIEM
         items:
           - name: Загрузка аудитных логов в {{ mos-full-name }}
@@ -100,36 +91,70 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Trail
             items:
               - name: Overview
                 href: api-ref/Trail/index.md
-              - name: create
-                href: api-ref/Trail/create.md
-              - name: delete
-                href: api-ref/Trail/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Trail/get.md
-              - name: list
+              - name: List
                 href: api-ref/Trail/list.md
-              - name: listAccessBindings
-                href: api-ref/Trail/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Trail/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Trail/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Trail/create.md
+              - name: Update
                 href: api-ref/Trail/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Trail/delete.md
+              - name: ListOperations
+                href: api-ref/Trail/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Trail/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Trail/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Trail/updateAccessBindings.md
       - name: gRPC (англ.)
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: TrailService
-            href: api-ref/grpc/trail_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Trail
+            items:
+              - name: Overview
+                href: api-ref/grpc/Trail/index.md
+              - name: Get
+                href: api-ref/grpc/Trail/get.md
+              - name: List
+                href: api-ref/grpc/Trail/list.md
+              - name: Create
+                href: api-ref/grpc/Trail/create.md
+              - name: Update
+                href: api-ref/grpc/Trail/update.md
+              - name: Delete
+                href: api-ref/grpc/Trail/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Trail/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Trail/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Trail/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Trail/updateAccessBindings.md
   - name: Метрики {{ monitoring-name }}
     href: concepts/user-metrics.md
   - name: Справочник событий уровня конфигурации
@@ -141,3 +166,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/audit-trails
+deepBase: 2

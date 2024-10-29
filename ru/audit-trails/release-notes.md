@@ -1,6 +1,259 @@
+---
+title: История изменений в {{ at-full-name }}
+description: В разделе представлена история изменений сервиса {{ at-name }}.
+---
+
 # История изменений в {{ at-full-name }}
 
-В разделе представлена история изменений сервиса {{ at-full-name }}.
+## II квартал 2024 {#q2-2024}
+
+* Добавлены новые события для сервисов:
+
+  {% cut "{{ api-gw-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetApiGatewayAccessBindings` | Назначение привязок прав доступа к API-шлюзу
+  `UpdateApiGatewayAccessBindings` | Изменение привязок прав доступа к API-шлюзу
+
+  {% endcut %}
+
+  {% cut "{{ backup-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `InitResource` | Инициализация подключения ВМ к сервису {{ backup-name }}
+  `UpdateResource`| Обновление статуса подключения ВМ к сервису {{ backup-name }}
+
+  {% endcut %}
+
+  {% cut "{{ certificate-manager-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
+  `SetDomainPrimaryCertificate` | Назначение домену основного сертификата
+
+  {% endcut %}
+
+  {% cut "{{ compute-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `AttachInstanceNetworkInterface` | Подключение сетевого интерфейса
+  `DetachInstanceNetworkInterface` | Отключение сетевого интерфейса
+
+  {% endcut %}
+
+  {% cut "{{ ml-platform-name }}" %}
+ 
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CloneJob` | Клонирование задания
+  `UpdateJobDataTtl` | Изменение времени жизни данных задания
+
+  {% endcut %}
+
+  {% cut "{{ sf-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `mdbproxy.SetProxyAccessBindings` | Назначение привязок прав доступа к управляемой базе данных
+  `mdbproxy.UpdateProxyAccessBindings` | Изменение привязок прав доступа к управляемой базе данных
+  `triggers.PauseTrigger` | Остановка триггера
+  `triggers.ResumeTrigger` | Запуск триггера
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetServiceAccountAccessBindings` | Назначение привязок прав доступа для сервисного аккаунта
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateIamToken` | Создание IAM-токена
+  `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
+  `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `DeleteBackup` | Удаление резервной копии
+
+  {% endcut %}
+
+  {% cut "{{ mgl-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `FinishMigration` | Завершение процесса миграции инстанса в другую зону доступности
+  `PrepareBackupUpload` | Подготовка к восстановлению из резервной копии
+  `RollbackMigration` | Отмена процесса миграции инстанса в другую зону доступности
+  `StartMigration` | Запуск процесса миграции инстанса в другую зону доступности
+
+  {% endcut %}
+
+  {% cut "{{ mpg-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `DatabaseUserSQLRequest`| SQL-запрос пользователя к базе данных
+
+  {% endcut %}
+
+  {% cut "{{ mrd-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `EnableClusterSharding` | Включение шардирования кластера
+
+  {% endcut %}
+
+  {% cut "{{ marketplace-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `ActivateSubscriptionAutoRenewal` | Активация автоматического продления подписки
+  `CancelSubscriptionAutoRenewal` | Отмена автоматического продления подписки
+
+  {% endcut %}
+  
+  {% cut "{{ speechsense-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateProject` | Создание проекта
+  `CreateSpace` | Создание пространства
+  `DeleteProject` | Удаление проекта
+  `DeleteSpace` | Удаление пространства
+  `SetProjectAccessBindings` | Назначение привязок прав доступа к проекту
+  `SetSpaceAccessBindings` | Назначение привязок прав доступа к пространству
+  `UpdateProject` | Изменение проекта
+  `UpdateProjectAccessBindings` | Изменение привязок прав доступа к проекту
+  `UpdateSpace` | Изменение пространства
+  `UpdateSpaceAccessBindings` | Изменение привязок прав доступа к пространству
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateTalksReport` | Создание отчета о диалоге
+  `GetTalk` | Получение диалога
+  `GetTalkAudio` | Получение аудиозаписи диалога
+  `SearchTalks` | Поиск диалога
+  `UploadTalkToConnection` | Загрузка диалога в подключение
+
+  {% endcut %}
+
+  {% cut "{{ websql-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateSavedQuery` | Сохранение запроса
+  `DeleteExecutedQuery` | Удаление выполненного запроса
+  `DeleteSavedQuery` | Удаление сохраненного запроса
+  `EditSavedQuery` | Редактирование сохраненного запроса
+  `PublishExecutedQuery` | Публикация выполненного запроса
+  `PublishSavedQuery` | Публикация сохраненного запроса
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `Execute` | Выполнение запроса
+  `GenerateSql` | Генерация запроса
+  `GetDatabaseStructure` | Получение структуры базы данных
+
+  {% endcut %}
+
+  {% cut "{{ wiki-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `AccessRequestCreate` | Создание запроса доступа к странице
+  `AccessRequestProcess` | Обработка запроса доступа к странице
+  `AttachmentCreate` | Загрузка файла на страницу
+  `AttachmentDelete` | Удаление файла со страницы
+  `AuthorRoleRequestCreate` | Создание запроса на добавление в авторы страницы
+  `AuthorRoleRequestProcess` | Обработка запроса на добавление в авторы страницы
+  `BookmarkCreate` | Добавление в избранное
+  `BookmarkDelete` | Удаление из избранного
+  `BookmarkTagsCreate` | Создание тегов для избранного
+  `BookmarkTagsDelete` | Удаление тегов для избранного
+  `BookmarkUpdate` | Обновление тегов для страницы в избранном
+  `ClusterMove` | Перемещение кластера страниц
+  `CommentCreate` | Создание комментария
+  `CommentDelete` | Удаление комментария
+  `CommentUpdate` | Обновление комментария
+  `GridAddColumns` | Добавление столбцов в динамическую таблицу
+  `GridAddRows` | Добавление строк в динамическую таблицу
+  `GridClone` | Создание копии динамической таблицы
+  `GridCreate` | Создание новой динамической таблицы
+  `GridDelete` | Удаление динамической таблицы
+  `GridImport` | Импорт динамической таблицы из файла
+  `GridMoveColumns` | Перемещение столбца динамической таблицы
+  `GridMoveRows` | Перемещение строки динамической таблицы
+  `GridRemoveColumns` | Удаление столбцов динамической таблицы
+  `GridRemoveRows` | Удаление строк в динамической таблице
+  `GridRollback` | Отмена изменений в динамической таблице
+  `GridUpdate` | Обновление динамической таблицы
+  `GridUpdateCells` | Обновление ячеек в динамической таблице
+  `GridUpdateColumn` | Обновление столбца в динамической таблице
+  `GridUpdateRow` | Обновление строки в динамической таблице
+  `PageChangeOrder` | Изменение порядка страницы
+  `PageChangeToYFM` | Конвертирование страницы в новый редактор
+  `PageClone` | Создание копии страницы
+  `PageCreate` | Создание страницы
+  `PageDelete` | Удаление страницы
+  `PageImport` | Импорт страницы из файла
+  `PageRecover` | Восстановление удаленной страницы
+  `PageUpdate`| Обновление страницы
+  `RecoveryTokenDelete` | Удаление токена для восстановления страницы
+  `SubscriberDelete` | Удаление подписчика
+  `SubscribersAdd` | Добавление подписчиков
+  `SubscriptionAdd` | Добавление подписки
+  `SubscriptionDelete` | Удаление подписки
+
+  {% endcut %}
+
+* Поле `impersonator_info` в блоке `authentication` было заменено на поле `token_info`.  
 
 ## I квартал 2024 {#q1-2024}
 
@@ -12,7 +265,7 @@
 
   Событие | Описание
   --- | ---
-  `UpdateDomainAccessBindings` | Изменение привязок прав доступа для домена
+  `UpdateDomainAccessBindings` | Изменение прав доступа для домена
 
   {% endcut %}
 
@@ -44,7 +297,7 @@
 
   Событие | Описание
   --- | ---
-  `ChangeLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
+  `ChangeLogGroupAccessBindings` | Изменение прав доступа для лог-группы
   `CreateExport` | Создание выгрузки логов
   `CreateLogGroup` | Создание лог-группы
   `CreateSink` | Создание приемника логов
@@ -52,14 +305,14 @@
   `DeleteExport` | Удаление выгрузки логов
   `DeleteLogGroup` | Удаление лог-группы
   `DeleteSink` | Удаление приемника логов
-  `SetExportAccessBindings` | Назначение привязок прав доступа для выгрузки логов
-  `SetLogGroupAccessBindings` | Назначение привязок прав доступа для лог-группы
-  `SetSinkAccessBindings` | Назначение привязок прав доступа для приемника логов
+  `SetExportAccessBindings` | Назначение прав доступа для выгрузки логов
+  `SetLogGroupAccessBindings` | Назначение прав доступа для лог-группы
+  `SetSinkAccessBindings` | Назначение прав доступа для приемника логов
   `UpdateExport` | Изменение выгрузки логов
-  `UpdateExportAccessBindings` | Изменение привязок прав доступа для выгрузки логов
-  `UpdateLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
+  `UpdateExportAccessBindings` | Изменение прав доступа для выгрузки логов
+  `UpdateLogGroupAccessBindings` | Изменение прав доступа для лог-группы
   `UpdateSink` | Изменение приемника логов
-  `UpdateSinkAccessBindings` | Изменение привязок прав доступа для приемника логов
+  `UpdateSinkAccessBindings` | Изменение прав доступа для приемника логов
 
   {% endcut %}
 

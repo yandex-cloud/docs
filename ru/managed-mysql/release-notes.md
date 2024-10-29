@@ -1,8 +1,15 @@
+---
+title: История изменений в {{ mmy-full-name }}
+description: В разделе представлена история изменений сервиса {{ mmy-name }}.
+---
+
 # История изменений в {{ mmy-full-name }}
 
-В разделе представлена история изменений сервиса {{ mmy-name }}.
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+## Сентябрь 2024 {#sep-2024}
+
+В настройках кластера стала доступна опция **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — она разрешает выполнять YQL-запросы из сервиса [{{ yq-full-name }}](../query/concepts/index.md) к базе данных {{ mgp-name }}.
+
 
 ## Май 2024 {#may-2024}
 
@@ -20,7 +27,7 @@
 
 ## IV квартал 2022 {#q4-2022}
 
-* Состояние хоста на странице **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}
+* Состояние хоста на странице **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи.
 * Добавлена возможность [переместить кластер](operations/update.md#move-cluster) в другой каталог с помощью {{ TF }}.
 * Добавлены новые настройки СУБД:
 
@@ -32,20 +39,20 @@
 
 ## III квартал 2022 {#q3-2022}
 
-* Добавлены графики `Free space` на вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) и `Inode usage` на странице [мониторинга хостов](operations/monitoring.md#monitoring-hosts). {{ tag-con }}
+* Добавлены графики `Free space` на вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) и `Inode usage` на странице [мониторинга хостов](operations/monitoring.md#monitoring-hosts).
 * Добавлена настройка [Binlog transaction dependency tracking](concepts/settings-list.md#setting-binlog-transaction-dependency-tracking).
 
 ## II квартал 2022 {#q2-2022}
 
-* В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`. {{ tag-tf }}
+* В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`.
 * Добавлена настройка [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level).
 * Ускорен процесс восстановления реплики из резервной копии за счет использования инструмента WAL-G с последующей синхронизацией данных с мастера.
-* Исправлено отображение длинных запросов на вкладке **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}**. {{ tag-con }}
+* Исправлено отображение длинных запросов на вкладке **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}**.
 
 ## I квартал 2022 {#q1-2022}
 
-* Добавлена возможность изменения настроек [Innodb strict mode](concepts/settings-list.md#setting-strict-mode), [Max digest length](concepts/settings-list.md#setting-max-digest-length) и [Max sp recursion depth](concepts/settings-list.md#setting-max-sp-recursion-depth).  {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
-* Добавлена секция диагностики производительности кластера {{ MY }} в {{ TF }}. {{ tag-tf }}
-* Добавлено управление настройками сервиса диагностики производительности. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
+* Добавлена возможность изменения настроек [Innodb strict mode](concepts/settings-list.md#setting-strict-mode), [Max digest length](concepts/settings-list.md#setting-max-digest-length) и [Max sp recursion depth](concepts/settings-list.md#setting-max-sp-recursion-depth).
+* Добавлена секция диагностики производительности кластера {{ MY }} в {{ TF }}.
+* Добавлено управление настройками сервиса диагностики производительности.
 * Доработан механизм переключения мастера: теперь переключение невозможно на значительно отставшую реплику или в случае отсутствия кворума. Максимальное отставание реплики задается настройкой [Mdb priority choice max lag](concepts/settings-list.md#setting-mdb-priority-choice-max-lag).
-* Добавлена возможность задавать приоритет выбора мастер-хоста в случае смены мастера. {{ tag-con }} {{ tag-cli }}
+* Добавлена возможность задавать приоритет выбора мастер-хоста в случае смены мастера.

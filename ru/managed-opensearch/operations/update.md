@@ -1,6 +1,6 @@
 ---
-title: "Изменение настроек кластера {{ OS }}"
-description: "После создания кластера {{ OS }} вы можете изменить его сервисные настройки."
+title: Изменение настроек кластера {{ OS }}
+description: После создания кластера {{ OS }} вы можете изменить его сервисные настройки.
 keywords:
   - настройки OpenSearch
   - настройки кластера OpenSearch
@@ -85,7 +85,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить настройки сервисного аккаунта, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить настройки сервисного аккаунта, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Идентификатор сервисного аккаунта, используемого для работы с кластером, в параметре `serviceAccountId`.
@@ -159,7 +159,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль пользователя `admin` в параметре `configSpec.adminPassword`.
@@ -197,7 +197,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить настройки {{ OS }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить настройки {{ OS }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новое максимально допустимое количество булевых выражений в параметре `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
@@ -242,7 +242,7 @@ keywords:
        --maintenance schedule=<тип_технического_обслуживания>,`
                     `weekday=<день_недели>,`
                     `hour=<час_дня> \
-       --delete-protection=<true_или_false> \
+       --delete-protection \
        --data-transfer-access=<true_или_false> \
        --serverless-access=<true_или_false>
     ```
@@ -258,11 +258,11 @@ keywords:
 
             Возможные значения параметра `weekday`: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. В параметре `hour` укажите, во сколько должно завершиться техническое обслуживание. Например, если указать `14`, техническое обслуживание будет проходить с 13:00 до 14:00 по UTC.
 
-    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`.
+    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+
     * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
 
 - {{ TF }} {#tf}
@@ -313,7 +313,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
@@ -384,7 +384,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить список групп безопасности для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить список групп безопасности для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Список идентификаторов групп безопасности в параметре `securityGroupIds`.

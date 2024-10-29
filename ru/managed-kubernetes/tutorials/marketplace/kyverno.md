@@ -1,11 +1,12 @@
 # Настройка Kyverno & Kyverno Policies
 
-
 Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности {{ k8s }}. Они представлены в Kyverno как ресурсы {{ k8s }}.
 
 Чтобы интегрировать [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:
-1. [{#T}](#kyverno-policies).
-1. [{#T}](#check-apps).
+
+1. [{#T}](#install-kyverno).
+1. [{#T}](#check-baseline).
+1. [{#T}](#create-check-policies).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -63,10 +64,61 @@
 
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Создайте политику Kyverno {#kyverno-policies}
+## Установите приложение Kyverno & Kyverno Policies {#install-kyverno}
 
-1. Установите приложение [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md).
-1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [{{ k8s }}-метку](../../../resource-manager/concepts/labels.md) `app.kubernetes.io/name`.
+Установите приложение [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md) со следующими настройками:
+
+* **Pod Security Standard profile** — `baseline`.
+* **Validation failure action** — `enforce`.
+
+[Профиль Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/) `baseline` уже содержит минимально ограничительную политику, которая предотвращает известные превышения привилегий.
+
+## Проверьте работу политики для профиля baseline {#check-baseline}
+
+* Создайте под `nginx` со стандартными параметрами:
+
+  ```bash
+  kubectl run nginx --image nginx
+  ```
+
+  Результат:
+
+  ```text
+  pod/nginx created
+  ```
+
+  Такой под удовлетворяет требованиям правил политики для профиля `baseline`.
+
+* Создайте под `nginx` в привилегированном режиме:
+
+  ```bash
+  kubectl run nginx --image nginx --privileged=true
+  ```
+
+  Результат:
+
+  ```text
+  Error from server: admission webhook "validate.kyverno.svc-fail" denied the request:
+
+  policy Pod/default/nginx for resource violation:
+
+  disallow-privileged-containers:
+    privileged-containers: 'validation error: Privileged mode is disallowed. The fields
+      spec.containers[*].securityContext.privileged and spec.initContainers[*].securityContext.privileged
+      must be unset or set to `false`. rule privileged-containers failed at path /spec/containers/0/securityContext/privileged/'
+  ```
+
+  Правила политики для профиля `baseline` запрещают создание подов в привилегированном режиме.
+
+{% note info %}
+
+Несмотря на то, что политики предназначены для подов, Kyverno применяет их на все ресурсы, способные создавать поды.
+
+{% endnote %}
+
+## Создайте собственную политику Kyverno policies и проверьте ее работу {#create-check-policies}
+
+1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [метку](../../../resource-manager/concepts/labels.md) `app.kubernetes.io/name`:
    1. Сохраните спецификацию для создания объекта `ClusterPolicy` в YAML-файл с названием `policy.yaml`:
 
       ```yaml
@@ -75,7 +127,7 @@
       metadata:
         name: require-labels
       spec:
-        validationFailureAction: enforce
+        validationFailureAction: Enforce
         rules:
         - name: check-for-labels
           match:
@@ -94,7 +146,7 @@
    1. Выполните команду:
 
       ```bash
-      kubectl apply -f ./policy.yaml
+      kubectl apply -f policy.yaml
       ```
 
       Результат:
@@ -102,22 +154,19 @@
       ```text
       clusterpolicy.kyverno.io/require-labels created
       ```
-
 1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
 
 ## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 
-* Создайте под без {{ k8s }}-метки `app.kubernetes.io/name`:
+* Создайте под `nginx` без {{ k8s }}-метки `app.kubernetes.io/name`:
 
   ```bash
   kubectl run nginx --image nginx
   ```
 
   Результат:
-
   ```text
   Error from server: admission webhook "validate.kyverno.svc-fail" denied the request:
-
   resource Pod/default/nginx was blocked due to the following policies
 
   require-labels:
@@ -125,7 +174,7 @@
       Rule check-for-labels failed at path /metadata/labels/app.kubernetes.io/name/'
   ```
 
-* Создайте под с {{ k8s }}-меткой `app.kubernetes.io/name`:
+* Создайте под `nginx` с меткой `app.kubernetes.io/name`:
 
   ```bash
   kubectl run nginx --image nginx --labels app.kubernetes.io/name=nginx
@@ -136,12 +185,6 @@
   ```text
   pod/nginx created
   ```
-
-{% note info %}
-
-Несмотря на то, что политики предназначены для подов, Kyverno применяет их на все ресурсы, способные создавать поды.
-
-{% endnote %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

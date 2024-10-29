@@ -68,12 +68,12 @@
       --prefix '<префикс_ключа_объекта>' \
       --suffix '<суффикс_ключа_объекта>' \
       --events 'create-object','delete-object','update-object' \
-      --batch-size <размер_группы> \
+      --batch-size <размер_группы_событий> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -87,7 +87,7 @@
     * `--events` — [события](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
 
     {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
-    
+
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
     Результат:
@@ -131,8 +131,7 @@
 
   1. Опишите в конфигурационном файле параметры триггера:
 
-     
-     ```
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<имя_триггера>"
        container {
@@ -143,18 +142,20 @@
        }
        object_storage {
          bucket_id    = "<идентификатор_бакета>"
+         prefix       = "<префикс_ключа_объекта>"
+         suffix       = "<суффикс_ключа_объекта>"
          create       = true
+         update       = true
          delete       = true
-         batch_cutoff = "<время_ожидания>"
+         batch_cutoff = "<максимальное_время_ожидания>"
          batch_size   = "<размер_группы_событий>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди_DLQ>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
      ```
-
 
      Где:
 
@@ -171,13 +172,15 @@
       * `object_storage` — параметры триггера:
 
           * `bucket_id` — идентификатор бакета.
-          * Выберите один или несколько типов [событий](../concepts/trigger/os-trigger.md#event), которые будет обрабатывать триггер:
+          * `prefix` — [префикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+          * `suffix` — [суффикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+          * [События](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается:
 
               * `create` — триггер вызовет контейнер при создании нового объекта в хранилище. Принимает значения `true` или `false`.
               * `update` — триггер вызовет контейнер при обновлении объекта в хранилище. Принимает значения `true` или `false`.
               * `delete` — триггер вызовет контейнер при удалении объекта из хранилища. Принимает значения `true` или `false`.
 
-          {% include [tf-batch-params.md](../../_includes/serverless-containers/tf-batch-params.md) %}
+          {% include [tf-batch-params-events.md](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -187,15 +190,15 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-        ```bash
-        yc serverless trigger list
-        ```
+     ```bash
+     yc serverless trigger list
+     ```
 
 - API {#api}
 
-  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -205,4 +208,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/os-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/os-trigger-create.md)

@@ -82,10 +82,12 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-data-proc`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `dataproc.agent` — для создания и использования кластеров {{ dataproc-name }}.
+      * `dataproc.provisioner` — для [автомасштабирования подкластеров](../../data-proc/concepts/autoscaling.md).
       * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 
@@ -167,7 +169,7 @@
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** выберите `{{ region-id }}-a`.
    1. При необходимости в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** задайте свойства Hadoop и его компонентов, например:
 
-      ```
+      ```text
       hdfs:dfs.replication : 2
       hdfs:dfs.blocksize : 1073741824
       spark:spark.driver.cores : 1
@@ -226,13 +228,13 @@
    import random
 
    def inside(p):
-     x, y = random.random(), random.random()
-     return x*x + y*y < 1
-
+       x, y = random.random(), random.random()
+       return x*x + y*y < 1
+   
    NUM_SAMPLES = 1_000_000
-
+   
    count = sc.parallelize(range(0, NUM_SAMPLES)) \
-      .filter(inside).count()
+       .filter(inside).count()
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
@@ -255,7 +257,7 @@
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
-Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. [{#T}](../../datasphere/concepts/data-proc.md#session).
+Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. в [концепции](../../datasphere/concepts/data-proc.md#existing-clusters).
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -265,9 +267,14 @@
 
 {% endnote %}
 
-Чтобы перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета;
-* [удалите бакет](../../storage/operations/buckets/delete.md);
-* [удалите кластер](../../data-proc/operations/cluster-delete.md);
-* [удалите проект](../../datasphere/operations/projects/delete.md).
+* [объекты](../../storage/operations/objects/delete-all.md) из бакета;
+* [бакет](../../storage/operations/buckets/delete.md);
+* [кластер](../../data-proc/operations/cluster-delete.md);
+* [проект](../../datasphere/operations/projects/delete.md);
+* [подсеть](../../vpc/operations/subnet-delete.md);
+* [таблицу маршрутизации](../../vpc/operations/delete-route-table.md);
+* [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md);
+* [сеть](../../vpc/operations/network-delete.md);
+* [сервисный аккаунт](../../iam/operations/sa/delete.md).

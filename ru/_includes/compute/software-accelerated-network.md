@@ -45,9 +45,9 @@ SAN нельзя включить для виртуальной машины с 
 
 Чтобы включить программно-ускоренную сеть:
 
-* включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md) или [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ;
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md) или [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ;
 
-* включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** в конфигурации базовой ВМ при [создании группы ВМ](../../compute/operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](../../compute/concepts/instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** в конфигурации базовой ВМ при [создании группы ВМ](../../compute/operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](../../compute/concepts/instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
 
 ## Рекомендации по использованию программно-ускоренной сети {#use-cases}
 

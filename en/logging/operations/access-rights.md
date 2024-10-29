@@ -36,7 +36,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API {#api}
 
-  To view the roles assigned for a custom log group, use the [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/ListAccessBindings](../api-ref/grpc/log_group_service.md#ListAccessBindings) gRPC API call.
+  To view the roles assigned for a custom log group, use the [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/ListAccessBindings](../api-ref/grpc/LogGroup/listAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -78,7 +78,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (`allAuthenticatedUsers` system group):
+    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group add-access-binding \
@@ -95,7 +95,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API {#api}
 
-  To assign roles for a custom log group, use the [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/SetAccessBindings](../api-ref/grpc/log_group_service.md#SetAccessBindings) gRPC API call.
+  To assign roles for a custom log group, use the [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/SetAccessBindings](../api-ref/grpc/LogGroup/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -137,7 +137,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (`allAuthenticatedUsers` system group):
+    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group remove-access-binding \
@@ -154,6 +154,6 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - API {#api}
 
-  To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/log_group_service.md#UpdateAccessBindings) gRPC API call.
+  To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

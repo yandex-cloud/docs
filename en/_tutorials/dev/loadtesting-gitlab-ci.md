@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure the security group {#security-group-setup}
 
@@ -84,7 +84,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled:
    * `SERVICE_ACCOUNT_ID`: ID of the `sa-loadtest` service account
@@ -140,6 +140,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
       enabled: true
       package: yandextank.plugins.Autostop
       autostop:
+         - limit(5m) # Required parameter
          - quantile(50,100,5,)
    core: {}
    ```
@@ -212,7 +213,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
    During the stage described here, the script will create a test agent, run the test, and check the test result. The result evaluation is based on the 50th percentile. If it exceeds 100ms, the stage will terminate with an error.
 
-   After saving the `.gitlab-ci.yml` configuration file, the build script will start.
+   After you save the `.gitlab-ci.yml` configuration file, the build script will start.
 
    You can view the test results in more detail in the management console:
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
@@ -233,3 +234,5 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the service accounts](../../iam/operations/sa/delete.md).
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 1. Make sure that the test agent created by the script was deleted. You can [delete the agent](../../compute/operations/vm-control/vm-delete.md) manually.
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

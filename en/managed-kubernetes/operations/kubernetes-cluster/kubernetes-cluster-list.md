@@ -32,7 +32,7 @@ Get a list of {{ k8s }} clusters in the default folder.
 
 - API {#api}
 
-   To get the list of {{ k8s }} clusters in the default folder, use the [list](../../api-ref/Cluster/list.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+   To get the list of {{ k8s }} clusters in the default folder, use the [list](../../managed-kubernetes/api-ref/Cluster/list.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
 {% endlist %}
 
@@ -69,6 +69,6 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
 - API {#api}
 
-   You can get detailed information about a {{ k8s }} cluster using the [get](../../api-ref/Cluster/get.md) method for the [Cluster](../../api-ref/Cluster/)resource.
+   You can get detailed information about a {{ k8s }} cluster using the [get](../../managed-kubernetes/api-ref/Cluster/get.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/)resource.
 
 {% endlist %}

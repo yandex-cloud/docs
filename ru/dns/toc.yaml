@@ -1,10 +1,5 @@
 title: Yandex Cloud DNS
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -50,7 +45,7 @@ items:
         href: concepts/dns-zone.md
       - name: Ресурсные записи
         href: concepts/resource-record.md
-      - name: Интеграция с Compute Cloud
+      - name: Интеграция с {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Квоты и лимиты
         href: concepts/limits.md
@@ -72,6 +67,16 @@ items:
         href: tutorials/cert-manager-webhook.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Публикация обновлений для игр
+        href: tutorials/prefetch.md
+      - name: Терминирование TLS-соединений
+        items:
+          - name: Обзор
+            href: tutorials/tls-termination/index.md
+          - name: Консоль управления
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -88,10 +93,46 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: DnsZoneService
-            href: api-ref/grpc/dns_zone_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: DnsZone
+            items:
+              - name: Overview
+                href: api-ref/grpc/DnsZone/index.md
+              - name: Get
+                href: api-ref/grpc/DnsZone/get.md
+              - name: List
+                href: api-ref/grpc/DnsZone/list.md
+              - name: Create
+                href: api-ref/grpc/DnsZone/create.md
+              - name: Update
+                href: api-ref/grpc/DnsZone/update.md
+              - name: Delete
+                href: api-ref/grpc/DnsZone/delete.md
+              - name: GetRecordSet
+                href: api-ref/grpc/DnsZone/getRecordSet.md
+              - name: ListRecordSets
+                href: api-ref/grpc/DnsZone/listRecordSets.md
+              - name: UpdateRecordSets
+                href: api-ref/grpc/DnsZone/updateRecordSets.md
+              - name: UpsertRecordSets
+                href: api-ref/grpc/DnsZone/upsertRecordSets.md
+              - name: ListOperations
+                href: api-ref/grpc/DnsZone/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/DnsZone/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/DnsZone/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/DnsZone/updateAccessBindings.md
+              - name: UpdatePrivateNetworks
+                href: api-ref/grpc/DnsZone/updatePrivateNetworks.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -100,35 +141,43 @@ items:
             items:
               - name: Overview
                 href: api-ref/DnsZone/index.md
-              - name: create
-                href: api-ref/DnsZone/create.md
-              - name: delete
-                href: api-ref/DnsZone/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/DnsZone/get.md
-              - name: getRecordSet
-                href: api-ref/DnsZone/getRecordSet.md
-              - name: list
+              - name: List
                 href: api-ref/DnsZone/list.md
-              - name: listAccessBindings
-                href: api-ref/DnsZone/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/DnsZone/listOperations.md
-              - name: listRecordSets
-                href: api-ref/DnsZone/listRecordSets.md
-              - name: setAccessBindings
-                href: api-ref/DnsZone/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/DnsZone/create.md
+              - name: Update
                 href: api-ref/DnsZone/update.md
-              - name: updateAccessBindings
-                href: api-ref/DnsZone/updateAccessBindings.md
-              - name: updatePrivateNetworks
-                href: api-ref/DnsZone/updatePrivateNetworks.md
-              - name: updateRecordSets
+              - name: Delete
+                href: api-ref/DnsZone/delete.md
+              - name: GetRecordSet
+                href: api-ref/DnsZone/getRecordSet.md
+              - name: ListRecordSets
+                href: api-ref/DnsZone/listRecordSets.md
+              - name: UpdateRecordSets
                 href: api-ref/DnsZone/updateRecordSets.md
-              - name: upsertRecordSets
+              - name: UpsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
-  - name: Метрики "{{ monitoring-name }}"
+              - name: ListOperations
+                href: api-ref/DnsZone/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/DnsZone/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/DnsZone/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/DnsZone/updateAccessBindings.md
+              - name: UpdatePrivateNetworks
+                href: api-ref/DnsZone/updatePrivateNetworks.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
@@ -139,3 +188,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/dns
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "How to format a text block in {{ wiki-full-name }}"
-description: "Follow this guide to format a text block in {{ wiki-full-name }}."
+title: How to format a text block in {{ wiki-full-name }}
+description: Follow this guide to format a text block in {{ wiki-full-name }}.
 ---
 
 # Block formatting

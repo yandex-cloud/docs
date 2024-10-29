@@ -1,3 +1,8 @@
+---
+title: Собственный домен
+description: Следуя данной инструкции, вы сможете настроить собственный домен для хостинга.
+---
+
 # Собственный домен
 
 Для публикации сайта вы можете использовать собственный домен, например `example.com`.
@@ -5,22 +10,28 @@
 Чтобы поддержать собственный домен:
 
 1. [Создайте](../buckets/create.md) бакет. Назовите его так же, как домен, например `example.com`.
-
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
+1. Создайте на [DNS-сервере](../../../glossary/dns.md#dns-server) публичную [зону DNS](../../../dns/concepts/dns-zone.md) и [ресурсную запись](../../../dns/concepts/resource-record.md), которая связывает ваше доменное имя и бакет.
 
-1. Создайте на [DNS-сервере](../../../glossary/dns.md#dns-server) публичную [зону DNS](../../../dns/concepts/dns-zone.md) и [ресурсную запись](../../../dns/concepts/resource-record.md), которая связывает ваше доменное имя и бакет:
+   {% include [storage-cloud-dns-domains](../../_includes_service/storage-cloud-dns-domains.md) %}
 
     {% list tabs group=instructions %}
 
     - {{ dns-full-name }} {#dns}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите использовать собственный домен.
-      1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      {% note warning %}
+
+      Использование сервиса {{ dns-name }} тарифицируется, подробнее см. [{#T}](../../../dns/pricing.md).
+
+      {% endnote %}
+
+      1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите использовать собственный домен.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
           {% note info %}
 
-          В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
+          В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** раздела **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
 
           {% endnote %}
 
@@ -29,13 +40,13 @@
       1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни ресурсной записи или выберите из предложенных.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
+      
       Чтобы получить доступ к именам из публичной зоны, делегируйте домен. Для этого в личном кабинете вашего доменного регистратора укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
 
       Делегирование домена и обновление ресурсных записей могут занять некоторое время.
 
-      Вы также можете создать зону DNS и ресурсную запись средствами {{ dns-name }}. Подробнее см. в [пошаговых инструкциях для {{ dns-name }}](../../../dns/operations/). 
-
+      Вы также можете [создать зону DNS](../../../dns/operations/zone-create-public.md) и [ресурсную запись](../../../dns/operations/resource-record-create) средствами {{ dns-name }}.
+      
       {% cut "Пример параметров зоны DNS и ресурсной записи" %}
 
       Параметры зоны DNS:
@@ -74,6 +85,13 @@
 1. Чтобы сайт был доступен по протоколу HTTPS:
 
     1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
+       
+       {% note info %}
+
+       Использование сервиса {{ certificate-manager-name }} не тарифицируется, подробнее см. [{#T}](../../../certificate-manager/pricing.md).
+       
+       {% endnote %}
+       
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
 
     {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}

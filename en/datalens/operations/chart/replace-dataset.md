@@ -1,6 +1,6 @@
 ---
-title: "How to replace a dataset in a chart in {{ datalens-full-name }}"
-description: "Follow this guide to replace a dataset in a chart."
+title: How to replace a dataset in a chart in {{ datalens-full-name }}
+description: Follow this guide to replace a dataset in a chart.
 ---
 
 # Replacing a dataset in a chart
@@ -17,7 +17,7 @@ To replace a dataset in a chart:
 
    {% note info %}
 
-   Make sure the new dataset contains fields with the same names as the old one. If, after replacing the dataset, the chart shows an error saying `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`, follow the [{#T}](../dataset/update-field.md#replace-field) guide.
+   Make sure the new dataset contains fields with the same names as the old one. If, after you replace the dataset, the chart shows the `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST` error, follow the instructions in [{#T}](../../dataset/create-dataset.md#update-fields).
 
    {% endnote %}
 

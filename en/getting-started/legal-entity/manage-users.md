@@ -10,11 +10,11 @@ To add employee accounts to the organization, follow these steps:
 
 1. [Log in]({{ link-passport-login }}) as the organization administrator.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
+1. In the panel on the left, select the [Users]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg) section.
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
 
-   {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
+    {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
 
 1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization as soon as they accept the invitation and select a log-in account for the organization.
 
@@ -34,82 +34,80 @@ To add federation users to an organization:
 
 - Management console {#console}
 
-   In the management console, you can only assign a role for a cloud or folder:
-
-   {% include [grant-role-console](../../_includes/grant-role-console.md) %}
+  {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 
 - CLI {#cli}
 
-   1. Select a role from the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-   1. [Get the user ID](../../organization/operations/users-get.md).
-   1. Assign the role using the command:
+  1. Select a role from the [{{ yandex-cloud }}](../../iam/roles-reference.md) role reference.
+  1. [Get the user ID](../../organization/operations/users-get.md).
+  1. Assign the role using the command:
 
-   ```
-   yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-     --role <ROLE-ID> \
-     --subject userAccount:<USER-ACCOUNT-ID>
-   ```
+    ```bash
+    yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+      --role <ROLE-ID> \
+      --subject userAccount:<USER-ACCOUNT-ID>
+    ```
 
-   Where:
+    where:
 
-   * `<SERVICE-NAME>`: Name of the service to whose resource a role, e.g., `resource-manager`, is assigned.
-   * `<RESOURCE>`: Resource category, e.g., `cloud`.
-   * `<RESOURCE-NAME>`: Name of the resource. You can specify a resource by its name or ID.
-   * `<RESOURCE-ID>`: Resource ID.
-   * `<ROLE-ID>`: Role ID, e.g., `{{ roles-cloud-owner }}`.
-   * `<USER-ACCOUNT-ID>`: ID of the user account to which the role is assigned.
+    * `<SERVICE-NAME>`: Name of the service for whose resource you are assigning the role, e.g., `resource-manager`.
+    * `<RESOURCE>`: Resource category, e.g., `cloud`.
+    * `<RESOURCE-NAME>`: Resource name. You can specify a resource by its name or ID.
+    * `<RESOURCE-ID>`: Resource ID.
+    * `<ROLE-ID>`: Role ID, e.g., `{{ roles-cloud-owner }}`.
+    * `<USER-ACCOUNT-ID>`: ID of the user account that gets the role.
 
-   For example, assign the `viewer` role for the `mycloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder):
+    For example, assign the `viewer` role for the `my-cloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-   ```
-   $ yc resource-manager cloud add-access-binding mycloud \
-     --role viewer \
-     --subject userAccount:aje6o61dvog2h6g9a33s
-   ```
+    ```bash
+    $ yc resource-manager cloud add-access-binding mycloud \
+      --role viewer \
+      --subject userAccount:aje6o61dvog2h6g9a33s
+    ```
 
 - API {#api}
 
-   Use the `updateAccessBindings` method for the corresponding resource.
+  Use the `updateAccessBindings` method for the appropriate resource.
 
-   1. Select a role from the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-   1. [Get the user ID](../../organization/operations/users-get.md).
-   1. Create the request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+  1. Select a role from the [{{ yandex-cloud }}](../../iam/roles-reference.md) role reference.
+  1. [Get the user ID](../../organization/operations/users-get.md).
+  1. Create the request body, e.g., in the `body.json` file. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`.
 
-   **body.json:**
-   ```json
-   {
-     "accessBindingDeltas": [{
-       "action": "ADD",
-       "accessBinding": {
-         "roleId": "editor",
-         "subject": {
-           "id": "gfei8n54hmfhuk5nogse",
-           "type": "userAccount"
-           }
-         }
-       }
-     ]
-   }
-   ```
+    **body.json:**
+    ```json
+    {
+      "accessBindingDeltas": [{
+        "action": "ADD",
+        "accessBinding": {
+          "roleId": "editor",
+          "subject": {
+            "id": "gfei8n54hmfhuk5nogse",
+            "type": "userAccount"
+            }
+          }
+        }
+      ]
+    }
+    ```
 
-   1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+  1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
 {% endlist %}
 
 
 ## Appoint an administrator {#admin}
 
-To grant a user organization management permissions, assign them one of the following roles:
+To grant organization management access to a user, assign one of the following roles:
 
 * `organization-manager.admin`: Organization administrator role.
 
-   The role allows you to edit organization settings, create identity federations, add and remove users, create other administrators, and manage the resources of an organization's clouds.
+  The role allows you to edit organization settings, create identity federations, add and remove users, create other administrators, and manage the organization's cloud resources.
 
-* `organization-manager.organizations.owner`: The organization owner role.
+* `organization-manager.organizations.owner`: Organization owner role.
 
-   The role allows you to appoint organization owners as well as use all the administrator privileges.
+  The role allows you to appoint organization owners and use all the administrator privileges.
 
-   By default, the user who creates an organization is the organization owner.
+  By default, the user who creates an organization is the organization owner.
 
-* `organization-manager.viewer`: This role allows you to view an organization's settings without editing them.
+* `organization-manager.viewer`: Enables viewing the organization settings without the permission to edit them.

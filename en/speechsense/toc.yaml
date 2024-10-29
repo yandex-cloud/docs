@@ -1,11 +1,5 @@
 title: Yandex SpeechSense
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in Russia.
-  theme: unknown
-  when: region == "kz"
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -19,8 +13,12 @@ items:
             href: operations/data/upload-data.md
           - name: Uploading chat conversations
             href: operations/data/upload-chat-text.md
+          - name: Searching data
+            href: operations/data/search-data.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
+          - name: Viewing related dialogs
+            href: operations/data/related-dialogs.md
           - name: Working with reports
             href: operations/data/manage-reports.md
       - name: Spaces
@@ -35,14 +33,6 @@ items:
             href: operations/space/delete.md
           - name: Removing a user from a space
             href: operations/space/delete-user-from-space.md
-          - name: Managing space tags
-            items:
-              - name: Creating a space tag
-                href: operations/space/tag/create.md
-              - name: Changing a space tag
-                href: operations/space/tag/change.md
-              - name: Deleting a space tag
-                href: operations/space/tag/delete.md
       - name: Connections
         items:
           - name: Creating a connection
@@ -57,14 +47,24 @@ items:
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
-          - name: Managing project tags
-            items:
-              - name: Creating a project tag
-                href: operations/project/tag/create.md
-              - name: Changing a project tag
-                href: operations/project/tag/change.md
-              - name: Deleting a project tag
-                href: operations/project/tag/delete.md
+      - name: Tags
+        items:
+          - name: Creating a tag
+            href: operations/project/tag/create.md
+          - name: Changing a tag
+            href: operations/project/tag/change.md
+          - name: Deleting a tag
+            href: operations/project/tag/delete.md
+      - name: Dictionaries
+        items:
+          - name: Creating a dictionary
+            href: operations/dictionary/create.md
+          - name: Editing a dictionary
+            href: operations/dictionary/change.md
+          - name: Adding a dictionary to a tag
+            href: operations/dictionary/add.md
+          - name: Removing a dictionary
+            href: operations/dictionary/delete.md
   - name: Concepts
     items:
       - name: Resource hierarchy
@@ -73,6 +73,8 @@ items:
         href: concepts/dialogs.md
       - name: Dialog tags
         href: concepts/tags.md
+      - name: Dictionaries for tags
+        href: concepts/dictionaries.md
       - name: Reports
         items:
           - name: Overview
@@ -81,6 +83,8 @@ items:
             href: concepts/reports/evaluation-form.md
           - name: Usage details
             href: concepts/reports/details.md
+          - name: Neuroparameters
+            href: concepts/reports/neuro-parameters.md
       - name: Supported audio formats
         href: concepts/formats.md
   - name: API reference
@@ -91,8 +95,34 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: TalkService
-            href: api-ref/grpc/talk_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Project
+            items:
+              - name: Overview
+                href: api-ref/grpc/Project/index.md
+              - name: Create
+                href: api-ref/grpc/Project/create.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/grpc/Talk/index.md
+              - name: UploadAsStream
+                href: api-ref/grpc/Talk/uploadAsStream.md
+              - name: Upload
+                href: api-ref/grpc/Talk/upload.md
+              - name: UploadText
+                href: api-ref/grpc/Talk/uploadText.md
+              - name: Search
+                href: api-ref/grpc/Talk/search.md
+              - name: Get
+                href: api-ref/grpc/Talk/get.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management
@@ -102,3 +132,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/speechsense
+deepBase: 2

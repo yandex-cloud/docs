@@ -1,12 +1,16 @@
 ---
-title: "Правила тарификации для {{ yds-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ yds-name }}."
+title: Правила тарификации для {{ yds-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ yds-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ yds-full-name }}
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 В сервисе {{ yds-name }} существуют два режима тарификации:
 
@@ -48,9 +52,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Цена единицы записываемых данных {#event}
 
@@ -77,8 +79,8 @@ editable: false
 
 Цена указывается за 1 час использования выделенных ресурсов.
 
-#### Цена за хранение данных при лимите пропускной способности сегмента до 128 КБ/с {#up-to-128}
 
+#### Цена за хранение данных при лимите пропускной способности сегмента до 128 КБ/с {#up-to-128}
 
 {% list tabs group=pricing %}
 
@@ -93,8 +95,8 @@ editable: false
 {% endlist %}
 
 
-#### Цена за хранение данных при лимите пропускной способности сегмента до 512 КБ/с {#up-to-512}
 
+#### Цена за хранение данных при лимите пропускной способности сегмента до 512 КБ/с {#up-to-512}
 
 {% list tabs group=pricing %}
 

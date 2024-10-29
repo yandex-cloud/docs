@@ -1,6 +1,6 @@
 ---
-title: "Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}"
-description: "Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}." 
+title: Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}
+description: Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}.
 ---
 
 # Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}
@@ -74,13 +74,13 @@ description: "Создайте триггер для топика брокера
     yc serverless trigger create iot-broker \
       --name <имя_триггера> \
       --broker-id <идентификатор_брокера> \
-      --mqtt-topic '<MQTT-топик_брокера>' \
+      --mqtt-topic '<MQTT-топик>' \
       --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -120,7 +120,7 @@ description: "Создайте триггер для топика брокера
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -130,4 +130,5 @@ description: "Создайте триггер для топика брокера
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в функцию {{ sf-name }}](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

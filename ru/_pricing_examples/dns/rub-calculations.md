@@ -1,19 +1,19 @@
-> (50&nbsp;000 / 1&nbsp;000&nbsp;000) × 32,00&nbsp;₽ = 0,05 × 32,00&nbsp;₽ = 1,60&nbsp;₽
+> (50&nbsp;000 / 1&nbsp;000&nbsp;000) × {{ sku|RUB|dns.requests.public.authoritative.v1|string }} = 0,05 × {{ sku|RUB|dns.requests.public.authoritative.v1|string }} = {% calc [currency=RUB] (50000 / 1000000) × {{ sku|RUB|dns.requests.public.authoritative.v1|number }} %}
 > 
-> Итого: 1,60&nbsp;₽
+> Итого: {% calc [currency=RUB] (50000 / 1000000) × {{ sku|RUB|dns.requests.public.authoritative.v1|number }} %}
 
 Где:
 
 * (50&nbsp;000 / 1&nbsp;000&nbsp;000) — количество миллионов выполненных запросов.
-* 32,00&nbsp;₽ — цена за 1 млн запросов в месяц.
+* {{ sku|RUB|dns.requests.public.authoritative.v1|string }} — цена за 1 млн запросов в месяц.
 
 Например, стоимость 1,2 млн рекурсивных запросов внешних имен, выполненных с 6 по 31 декабря с ваших ВМ, за месяц составит:
 
-> (1,2 − 1,0) × 32,00&nbsp;₽ = 0,2 × 32,00&nbsp;₽ = 6,40&nbsp;₽
+> (1,2 − 1,0) × {{ sku|RUB|dns.requests.public.recursive.v1|pricingRate.1|string }} = 0,2 × {{ sku|RUB|dns.requests.public.recursive.v1|pricingRate.1|string }} = {% calc [currency=RUB] (1,2 - 1,0) × {{ sku|RUB|dns.requests.public.recursive.v1|pricingRate.1|number }} %}
 > 
-> Итого: 6,40&nbsp;₽
+> Итого: {% calc [currency=RUB] (1,2 - 1,0) × {{ sku|RUB|dns.requests.public.recursive.v1|pricingRate.1|number }} %}
 
 Где:
 
 * (1,2 − 1,0) — количество миллионов выполненных запросов. Первый миллион рекурсивных запросов не тарифицируется начиная с 6 декабря 2021.
-* 32,00&nbsp;₽ — цена за 1 млн рекурсивных запросов в месяц.
+* {{ sku|RUB|dns.requests.public.recursive.v1|pricingRate.1|string }} — цена за 1 млн рекурсивных запросов в месяц.

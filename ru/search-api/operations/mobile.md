@@ -1,6 +1,11 @@
-# Получить результаты мобильной выдачи
+---
+title: Как получить результаты мобильной выдачи с помощью API v1 {{ search-api-full-name }}
+description: Следуя данной инструкции, вы узнаете, как получить результаты мобильной выдачи с помощью API v1 сервиса {{ search-api-name }}.
+---
 
-Мобильная выдача отличается от результатов по умолчанию формулой ранжирования и наличием ссылок на сайты, оптимизированные для мобильных устройств.
+# Получение результатов мобильной выдачи
+
+Мобильная выдача отличается от результатов по умолчанию формулой ранжирования и наличием ссылок на сайты, оптимизированные для мобильных устройств. Получение мобильной выдачи возможно только через интерфейс [API v1](../concepts/index.md#api-v1) сервиса {{ search-api-name }}.
 
 Чтобы получить результаты мобильной выдачи, добавьте заголовок `user-agent` со спецификацией устройства и браузера. Например, для поискового запроса `query=youtube`:
 
@@ -9,7 +14,9 @@
 - cURL {#curl}
 
   ```bash
-  curl -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1' 'https://yandex.ru/search/xml?query=youtube&user={USER}&key={KEY}&lr=2&l10n=en&page=0&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D1&filter=moderate&noredirect=1&nocache=da' 
+  curl \
+    --header 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1' \
+    'https://yandex.ru/search/xml?query=youtube&user={USER}&key={KEY}&lr=2&l10n=en&page=0&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D1&filter=moderate&noredirect=1&nocache=da'
   ```
 
 - Python {#python}
@@ -22,7 +29,7 @@
   with open('mob.xml', 'w') as f:
     subprocess.run(['curl', '-H', MOBILE_HEADER, URL], stdout=f)
   ```
-  
+
 {% endlist %}
 
 Результаты мобильной выдачи: 

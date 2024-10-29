@@ -21,7 +21,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/symmetric-encryption.md#add-context).
   * `--ciphertext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto encrypt \
     --id abj76v82fics******** \
     --plaintext-file plaintext-file \
@@ -30,7 +30,7 @@
 
 - API {#api}
 
-  Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../api-ref/grpc/symmetric_crypto_service.md#Encrypt).
+  Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../api-ref/grpc/SymmetricCrypto/encrypt.md).
 
 {% endlist %}
 
@@ -48,7 +48,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/symmetric-encryption.md#add-context).
   * `--plaintext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto decrypt \
     --id abj76v82fics******** \
     --ciphertext-file ciphertext-file \
@@ -57,7 +57,7 @@
 
 - API {#api}
 
-  Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../api-ref/grpc/symmetric_crypto_service.md#Decrypt).
+  Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../api-ref/grpc/SymmetricCrypto/decrypt.md).
 
 {% endlist %}
 

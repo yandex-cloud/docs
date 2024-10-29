@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage {{ objstorage-full-name }} buckets"
-description: "In this tutorial, you will learn what S3 API methods can be used to manage buckets."
+title: What S3 API methods can be used to manage {{ objstorage-full-name }} buckets
+description: In this tutorial, you will learn what S3 API methods can be used to manage buckets.
 ---
 
 # All Bucket methods
@@ -36,3 +36,5 @@ description: "In this tutorial, you will learn what S3 API methods can be used t
 || [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket labels. ||
 || [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket labels. ||
 |#
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1,6 +1,6 @@
 ---
-title: "Changing {{ OS }} cluster settings"
-description: "After creating an {{ OS }} cluster, you can edit its service settings."
+title: Changing {{ OS }} cluster settings
+description: After creating an {{ OS }} cluster, you can edit its service settings.
 keywords:
   - OpenSearch settings
   - OpenSearch cluster settings
@@ -85,7 +85,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
 - API {#api}
 
-   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
@@ -159,7 +159,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
 - API {#api}
 
-   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New `admin` user password in the `configSpec.adminPassword` parameter.
@@ -197,7 +197,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
 - API {#api}
 
-   To change {{ OS }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change {{ OS }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New maximum allowed number of boolean expressions in the `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount` parameter. See more in the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
@@ -221,6 +221,7 @@ If the cluster already uses a service account to access objects from {{ objstora
       * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../concepts/maintenance.md) settings:
 
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
 
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
@@ -261,7 +262,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
       {% include [Deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * `--data-transfer-access`: Access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), `true` or `false`.
+
    * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
 
 - {{ TF }} {#tf}
@@ -312,10 +313,10 @@ If the cluster already uses a service account to access objects from {{ objstora
 
 - API {#api}
 
-   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -383,7 +384,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
 - API {#api}
 
-   To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.

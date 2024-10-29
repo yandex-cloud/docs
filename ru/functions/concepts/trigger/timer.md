@@ -23,4 +23,5 @@ _Таймер_ — это [триггер](../trigger/), который запу
 
 ## См. также {#see-also}
 
-* [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/timer.md).
+* [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/timer.md)
+* [{#T}](../../../api-gateway/concepts/trigger/timer.md)

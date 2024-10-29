@@ -1,6 +1,6 @@
 ---
-title: "How to change project settings in {{ ml-platform-full-name }}"
-description: "Follow this guide to update your project settings."
+title: How to change project settings in {{ ml-platform-full-name }}
+description: Follow this guide to update your project settings.
 ---
 
 # Changing project settings
@@ -28,7 +28,7 @@ On the project editing page, you can change the project name and description, se
 
       {% include [subnet-create](../../../_includes/subnet-create.md) %}
 
-      * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../../vpc/concepts/security-groups.md) if you use them in your organization.
+      * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../../vpc/concepts/security-groups.md), if used in your organization.
       * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}**: Select the [{{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md), if required.
 
    * Under **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}**, you can set up [restrictions](restrictions.md) for your project.

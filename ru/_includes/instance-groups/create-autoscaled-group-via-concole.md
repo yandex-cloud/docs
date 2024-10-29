@@ -22,7 +22,7 @@
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
      * Укажите размер диска.
-     * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+     * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../compute/concepts/performance-levels.md) и объем RAM.
@@ -41,6 +41,8 @@
    * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** укажите, на какое количество ВМ можно превышать размер группы.
+
+       {% include [max-expansion-notice](./max-expansion-notice.md) %}
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** укажите, на какое количество ВМ можно уменьшать размер группы.
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** укажите, сколько ВМ можно одновременно создавать.
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** укажите срок, после которого ВМ начнет получать нагрузку.

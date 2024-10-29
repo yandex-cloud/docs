@@ -1,6 +1,6 @@
 ---
-title: "Deleting a lifecycle policy"
-description: "Follow this guide to delete a lifecycle policy."
+title: Deleting a lifecycle policy
+description: Follow this guide to delete a lifecycle policy.
 ---
 
 # Deleting a lifecycle policy
@@ -81,8 +81,8 @@ description: "Follow this guide to delete a lifecycle policy."
 
 - API {#api}
 
-   To delete a policy, use the [Delete](../../api-ref/grpc/lifecycle_policy_service.md#Delete) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify the policy ID.
+   To delete a policy, use the [Delete](../../api-ref/grpc/LifecyclePolicy/delete.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `lifecycle_policy_id` parameter, specify the policy ID.
 
-   You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+   You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}

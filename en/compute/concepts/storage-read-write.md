@@ -11,7 +11,7 @@ The actual IOPS value depends on the disk or storage configuration, total bandwi
 ![image](../../_assets/compute/iops.svg)
 
 Where:
-* _Max IOPS_: [Maximum IOPS](../concepts/limits.md#limits-disks) value for the disk or storage.
+* _Max IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
 * _Max bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by this formula:
@@ -19,7 +19,7 @@ Read and write operations utilize the same disk resource. The more read operatio
 ![image](../../_assets/compute/max-iops.svg)
 
 Where:
-* ![image](../../_assets/compute/alpha.svg): Share of write operations in the total number of read and write operations per second. Possible values: &alpha;&isin;[0,1].
+* ![image](../../_assets/compute/alpha.svg): Share of write operations out of the total number of read and write operations per second. The possible values are: &alpha;&isin;[0,1].
 * _WriteIOPS_: IOPS write value obtained using the formula for the actual IOPS value.
 * _ReadIOPS_: IOPS read value obtained using the formula for the actual IOPS value.
 
@@ -33,7 +33,7 @@ To achieve the maximum possible bandwidth, we recommend performing 4 MB reads an
 
 Disk or storage performance depends on its size: with more allocation units, you get higher IOPS and bandwidth values.
 
-For smaller HDDs, there is a performance boosting mechanism in place for them to operate on a par with 1 TB disks during peak load periods. By operating at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, a smaller HDD accumulates "credits for operations". These will be automatically spent when the load increases, e.g., when the VM starts. Such HDDs can be boosted for about 30 minutes a day. "Credits for operations" can be spent in one go or in small intervals. This feature is not available for HDD storages.
+For smaller HDDs, there is a performance boosting mechanism in place for them to operate on a par with 1 TB disks during peak load periods. By operating at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, a smaller HDD accumulates credits for operations. These will be automatically spent when the load increases, e.g., when the VM starts. Small HDDs can be boosted for about 30 minutes a day. Credits for operations can be spent either all at once or by small intervals. This feature is not available for HDD storages.
 
 ### Testing disk performance {#test-performance}
 
@@ -47,45 +47,44 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
 1. [Attach](../operations/vm-control/vm-attach-disk.md) a disk to a VM instance.
 1. Install [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) on your VM instance.
+    Sample command for Ubuntu:
 
-   Sample command for Ubuntu:
+    ```bash
+    sudo apt-get update && sudo apt-get install fio -y
+    ```
 
-   ```bash
-   sudo apt-get update && sudo apt-get install fio -y
-   ```
+1. Start `fio` and run the following:
 
-1. Start `fio` and run:
+    ```bash
+    sudo fio \
+    --filename=/dev/vdb \
+    --direct=1 \
+    --rw=write \
+    --bs=4k \
+    --ioengine=libaio \
+    --iodepth=64 \
+    --runtime=120 \
+    --numjobs=8 \
+    --time_based \
+    --group_reporting \
+    --eta-newline=1
+    ```
 
-   ```bash
-   sudo fio \
-   --filename=/dev/vdb \
-   --direct=1 \
-   --rw=write \
-   --bs=4k \
-   --ioengine=libaio \
-   --iodepth=64 \
-   --runtime=120 \
-   --numjobs=8 \
-   --time_based \
-   --group_reporting \
-   --eta-newline=1
-   ```
+    Where:
 
-   Where:
-
-   * `--filename=/dev/vdb`: Name of the disk you are testing. To view the disks attached, run the `lsblk` command.
-   * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means it is not used.
-   * `--rw`: Load template. The possible values include:
+    * `--filename=/dev/vdb`: Name of the disk you are testing. To view the attached disks, run the `lsblk` command.
+    * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means buffering is not used.
+    * `--rw`: Load template. The possible values are as follows: 
       * `read`: Sequential reads.
       * `write`: Sequential writes.
-      * `rw`: Sequential reads/writes.
-      * `randrw`: Random reads/writes.
+      * `rw`: Sequential reads and writes.
+      * `randrw`: Random reads and writes.
       * `randwrite`: Random writes.
       * `randread`: Random reads.
-   * `--bs`: Read/write block size. To get better results, specify a value that is less than or equal to the disk block size.
-   * `--iodepth`: I/O block depth per `job`.
-   * `--runtime`: Test duration in seconds.
-   * `--numjobs`: Number of read/write jobs.
+    * `--bs`: Read and write block size. To get better results, specify a value that is equal to the disk block size or less.
+    * `--iodepth`: I/O block depth per `job`.
+    * `--runtime`: Test duration in seconds.
+    * `--numjobs`: Number of read and write jobs.
 
 ### Test examples {#test-examples}
 
@@ -109,7 +108,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
   write: IOPS=39.7k, BW=155MiB/s (162MB/s)(5112MiB/33001msec); 0 zone resets
     slat (usec): min=2, max=19776, avg= 5.25, stdev=47.15
@@ -138,7 +137,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
 write: IOPS=9596, BW=37.5MiB/s (39.3MB/s)(4499MiB/120011msec); 0 zone resets
     slat (usec): min=2, max=338, avg= 5.21, stdev= 4.52
@@ -167,7 +166,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
    write: IOPS=112, BW=449MiB/s (471MB/s)(52.8GiB/120237msec); 0 zone resets
     slat (usec): min=166, max=270963, avg=8814.82, stdev=10995.16
@@ -196,7 +195,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
   read: IOPS=62.2k, BW=243MiB/s (255MB/s)(28.5GiB/120008msec)
     slat (usec): min=2, max=123901, avg= 6.88, stdev=151.96
@@ -225,7 +224,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
   read: IOPS=112, BW=449MiB/s (470MB/s)(52.7GiB/120227msec)
     slat (usec): min=85, max=177850, avg=8878.47, stdev=9824.19
@@ -254,7 +253,7 @@ sudo fio \
 
 Result:
 
-```
+```yaml
 ---
  read: IOPS=17.0k, BW=66.4MiB/s (69.6MB/s)(7966MiB/120006msec)
     slat (usec): min=2, max=114, avg= 9.05, stdev= 5.36
@@ -269,8 +268,8 @@ If a VM exceeds [disk limits](limits.md#compute-limits-disks) at any time, this 
 
 _Throttling_ is a feature that intentionally limits performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. Since all write and read operations are processed in a single thread (vCPU), overloading system disks may cause network problems. This is true for both VMs and physical servers.
 
-> For example, let's assume there is a write limit of 300 IPOS. The limit is split into 10 parts and applies once every 100 ms. 300 / 10 = 30 IOPS per write request will be allowed every 100 ms. If you send 30 requests once and then 30 more requests within 100 ms (evenly distributed across the 100 ms interval), this will trigger throttling and only the first 30 requests will be sent, while the rest will be queued and processed in the next 100 ms. If write requests are executed sporadically, throttling may cause significant delays. At times, there will be up to N IOPS of requests within 100 ms.
+> For example, let's assume there is a write limit of 300 IPOS. The limit is split into 10 parts and applies once every 100 ms. 300 / 10 = 30 IOPS per write request will be allowed every 100 ms. If you send 30 requests once and then 30 more requests within 100 ms (evenly distributed across the 100 ms interval), this will trigger throttling and only the first 30 requests will be sent. The rest of them will be enqueued and processed within the next 100 ms. If write requests are executed sporadically, throttling may cause significant delays. At times, there will be up to N IOPS of requests within 100 ms.
 
-Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-SSD`). Every increment of 32 GB increases the number of allocation units and, consequently, the performance.
+Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, consequently, the performance.
 
-You can select the storage type only when creating a VM. However, you can [make a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd` disk.
+You can select the storage type only when creating a VM. However, you can [take a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd`.

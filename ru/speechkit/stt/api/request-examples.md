@@ -1,4 +1,4 @@
-# Пример использования API синхронного распознавания
+# Пример использования API v1 синхронного распознавания
 
 Пример показывает, как с помощью [API v1](request-api.md) распознать речь, записанную в аудиофайле формата [OggOpus](../../formats.md#OggOpus), в режиме синхронного распознавания.
 
@@ -17,7 +17,7 @@
 
 - POST-запрос {#post}
 
-  Отправьте [запрос](../request.md) на преобразование речи в текст: 
+  Отправьте [запрос](../request.md) на преобразование речи в текст:
 
     ```httpget
     POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<идентификатор_каталога>} HTTP/1.1
@@ -41,10 +41,11 @@
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-         -H "Authorization: Bearer ${IAM_TOKEN}" \
-         --data-binary "@speech.ogg" \
-         "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
+    curl \
+      --request POST \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data-binary "@speech.ogg" \
+      "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
     ```
 
     Где:

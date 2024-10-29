@@ -1,6 +1,6 @@
 You can send SQL queries to databases in a {{ mmy-name }} cluster using [{{ websql-full-name }}](../../../websql).
 
-{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters, work with DBs, tables, and schemas, and run queries. It is a web-based tool that does not require additional authorization and simplifies working with SQL queries by suggesting prompts.
+{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters, work with DBs, tables, and schemas, and run SQL queries. It is a web-based tool that requires no additional authorization and simplifies working with SQL commands by suggesting prompts.
 
 To connect from {{ websql-name }} to a {{ mmy-name }} cluster, create a connection:
 
@@ -19,4 +19,4 @@ To connect from {{ websql-name }} to a {{ mmy-name }} cluster, create a connecti
 
 To open the SQL editor, click the created connection on the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
 
-For more information about working with {{ websql-name }}, see its [documentation](../../../websql/operations/index.md).
+For more information about working with {{ websql-name }}, see the [service documentation](../../../websql/operations/index.md).

@@ -49,7 +49,7 @@ If the file is multi-channel, take into account the total recording time of all 
 
 #### Internal Server Error {#internal-server-err}
 
-Make sure the [format](../../{{ speechkit-slug }}/stt/api/request-api.md#body_params) you specified in the request matches the actual file format. If the error persists, send us sample audio files that can't be recognized.
+Make sure the [format](../../{{ speechkit-slug }}/stt/api/request-api.md#body_params) you specified in the request matches the actual file format. If the error persists, send us examples of your audio files that cannot be recognized.
 
 #### When is a response sent during recognition? {#when-response}
 
@@ -77,7 +77,7 @@ When using the [API v2](../../{{ speechkit-slug }}/stt/streaming.md#session-rest
 
 Streaming recognition runs in real time. You can send "silence" for recognition so that the service does not terminate the connection.
 
-We recommend using the [API v3](../../) for streaming recognition. The API v3 features a [special message type](../../speechkit/stt-v3/api-ref/grpc/stt_service.md#SilenceChunk) for sending "silence", so you will not have to simulate it yourself in your audio recording.
+We recommend using the [API v3](../../) for streaming recognition. The API v3 features a [special message type](../../speechkit/stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.SilenceChunk) for sending "silence", so you will not have to simulate it yourself in your audio recording.
 
 #### How does the service figure out the end of an utterance and the duration of a recognition session? {#utterance-end}
 

@@ -28,8 +28,30 @@ An instance added to the instance group or restarted after being stopped gets in
 
 By default, the instance may be in the `OPENING_TRAFFIC` status for an unlimited time until it gets healthy. You can limit this time in the [integration settings](#settings) (the `max_opening_traffic_duration` field). In this case, {{ compute-name }} will automatically recover the instance that is not receiving any traffic for too long since it has been added to the group or started. For more information about instance recovery, see [{#T}](autohealing.md#healthcheck-cases).
 
+You can disable load balancer health checks using the `ignore_health_checks` parameter. In this case, the checks will not affect the instance group in any way. Negative check results will not prompt the instances to autoheal, and the group will receive no traffic from load balancers.
 
-## Settings {#settings} 
+{% cut "Ignoring load balancer health checks" %}
+
+Ignoring health checks may be useful in blue-green deployments, e.g.:
+
+1. There are two instance groups connected to the load balancer that serve as target groups:
+
+   * The blue one hosts the stable version of the app available to users. {{ ig-name }} automatically restores instances in this group if they fail load balancer health checks.
+   * The green one is used to test the next application version. This group is set up to ignore load balancer health checks.
+
+1. Load balancer health checks are intentionally configured so that the green instances fail them and receive no user traffic. However, these checks have no effect on the deployment of instances in the group. User traffic only goes to the blue group instances.
+1. To transfer user traffic to the new app version tested in the green group:
+
+   1. Load balancer health checks are reconfigured for the green instances to pass them and start receiving user traffic.
+   1. To enable autohealing for green instances that fail load balancer health checks, ignoring health checks is disabled in this group.
+   1. Load balancer health checks are reconfigured for the blue instances to fail them and stop receiving user traffic.
+   1. In the blue group, ignoring load balancer health checks is enabled.
+
+Now the blue instance group will be used for testing, and the green one will receive user traffic.
+
+{% endcut %}
+
+## Settings {#settings}
 
 You can integrate an instance group with {{ network-load-balancer-name }} or {{ alb-name }} in the management console or describe the integration in the group's [YAML specification](specification.md) to provide the specification through the {{ yandex-cloud }} CLI or API. You can specify the settings when [creating](../../operations/index.md#ig-create) or [updating](../../operations/index.md#ig-control) a group.
 
@@ -48,6 +70,7 @@ load_balancer_spec:
       foo: "baz"
       bar: "baz"
   max_opening_traffic_duration: 30s
+  ignore_health_checks: false
 ```
 
 The fields and options in the management console are located under **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** on the instance group creation and editing pages.
@@ -55,11 +78,12 @@ The fields and options in the management console are located under **{{ ui-key.y
 | YAML key<br/>Management console field or option | Description |
 | --- | --- |
 | `load_balancer_spec`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** | Settings for instance group integration with {{ network-load-balancer-name }}. If the key is missing in the YAML specification or the option is disabled in the management console, the group will not be integrated with {{ network-load-balancer-name }}. |
-| `target_group_spec` | Parameters of a [{{ network-load-balancer-name }} target group](../../../network-load-balancer/concepts/target-resources.md) being created from the instance group. |
+| `target_group_spec` | Parameters of a [{{ network-load-balancer-name }} target group](../../../network-load-balancer/concepts/target-resources.md) created from the instance group. |
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Name of the target group. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Description of the target group. |
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
 | `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. Possible values: 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [{#T}](#principles-health-checks). |
+| `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |
 
 ### Settings for integration with {{ alb-name }} {#settings-alb}
 
@@ -72,6 +96,7 @@ application_load_balancer_spec:
       foo: "baz"
       bar: "baz"
   max_opening_traffic_duration: 30s
+  ignore_health_checks: false
 ```
 
 The fields and options in the management console are located under **{{ ui-key.yacloud.compute.groups.create.section_alb }}** on the instance group creation and editing pages.
@@ -79,8 +104,9 @@ The fields and options in the management console are located under **{{ ui-key.y
 | YAML key<br/>Management console field or option | Description |
 | --- | --- |
 | `application_load_balancer_spec`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** | Settings for instance group integration with {{ alb-name }}. If the key is missing in the YAML specification or the option is disabled in the management console, the group will not be integrated with {{ alb-name }}. |
-| `target_group_spec` | Parameters of a [{{ alb-name }} target group](../../../application-load-balancer/concepts/target-group.md) being created from the instance group. |
+| `target_group_spec` | Parameters of an [{{ alb-name }} target group](../../../application-load-balancer/concepts/target-group.md) created from the instance group. |
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Name of the target group. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Description of the target group. |
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
-| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. Possible values: 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [{#T}](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [{#T}](#principles-health-checks). |
+| `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |

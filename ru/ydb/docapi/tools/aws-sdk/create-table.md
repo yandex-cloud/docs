@@ -1,6 +1,6 @@
 ---
-title: "Как создать таблицу в {{ ydb-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать таблицу." 
+title: Как создать таблицу в {{ ydb-full-name }}
+description: Следуя данной инструкции, вы сможете создать таблицу.
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
 # Создание таблицы в AWS SDK

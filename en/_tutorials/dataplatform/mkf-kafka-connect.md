@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `ACCESS_ROLE_CONSUMER`
       * `ACCESS_ROLE_PRODUCER`
 
-   
+
    1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Network.
       * Subnet.
 
-      
+
       * Default security group and rules required to connect to the cluster and VM from the internet.
 
 
@@ -166,7 +166,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
    {{ KFC }} will connect to the {{ mkf-name }} cluster as the [previously created](#before-you-begin) user named `user`.
 
-   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Create a file named `/etc/kafka-connect-worker/file-connector.properties` with connector settings:
 
@@ -207,7 +207,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
-   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
    The command output will contain the contents of the `/var/log/sample.json` test file passed in the previous step.
 
@@ -219,7 +219,7 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually {#manual}
 
-   
+
    1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

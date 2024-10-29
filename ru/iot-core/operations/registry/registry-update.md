@@ -24,12 +24,12 @@
 
   Измените имя реестра:
 
-  ```
+  ```bash
   yc iot registry update my-registry --new-name test-registry
   ```
-  
+
   Результат:
-  ```
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -64,7 +64,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -76,14 +76,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить измененное имя реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -94,7 +94,7 @@
 
 - API {#api}
 
-  Чтобы изменить имя реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
+  Чтобы изменить имя реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/Registry/update.md).
 
 {% endlist %}
 
@@ -118,12 +118,12 @@
 
   Измените описание реестра:
 
-  ```
+  ```bash
   yc iot registry update my-registry --description "My test registry."
   ```
-  
+
   Результат:
-  ```
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -161,7 +161,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -173,14 +173,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить измененное описание реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -191,7 +191,7 @@
 
 - API {#api}
 
-  Чтобы изменить описание реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
+  Чтобы изменить описание реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/Registry/update.md).
 
 {% endlist %}
 
@@ -223,12 +223,12 @@
 
   Добавьте метку реестру:
 
-  ```
+  ```bash
   yc iot registry add-labels my-registry --labels new_label=test_label
   ```
-  
+
   Результат:
-  ```
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -272,7 +272,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -284,14 +284,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить метки реестра можно с помощью команды [CLI](../../../cli/quickstart.md):
@@ -302,7 +302,7 @@
 
 - API {#api}
 
-  Чтобы добавить метку реестру, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
+  Чтобы добавить метку реестру, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/Registry/update.md).
 
 {% endlist %}
 
@@ -332,12 +332,12 @@
 
   {% endnote %}
 
-  ```
+  ```bash
   yc iot registry update my-registry --labels test_label=my_registry_label
   ```
-  
+
   Результат:
-  ```
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -376,7 +376,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -388,14 +388,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить метки реестра можно с помощью команды [CLI](../../../cli/quickstart.md):
@@ -406,7 +406,7 @@
 
 - API {#api}
 
-  Чтобы изменить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
+  Чтобы изменить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/Registry/update.md).
 
 {% endlist %}
 
@@ -430,12 +430,12 @@
 
   Удалите метку реестра:
 
-  ```
+  ```bash
   yc iot registry remove-labels my-registry --labels new_label
   ```
-  
+
   Результат:
-  ```
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -472,7 +472,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -484,14 +484,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить метки реестра можно с помощью команды [CLI](../../../cli/quickstart.md):
@@ -502,6 +502,6 @@
 
 - API {#api}
 
-  Чтобы удалить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
+  Чтобы удалить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/Registry/update.md).
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "Расширения спецификации {{ api-gw-name }}. Обзор"
-description: "Расширение x-yc-apigateway позволяет задать верхнеуровневые параметры API-шлюза, значения которых будут наследоваться вложенными расширениями. Расширение x-yc-apigateway-integration — это точка входа для интеграции API-шлюза с другими сервисами."
+title: Расширения спецификации {{ api-gw-name }}. Обзор
+description: Расширение x-yc-apigateway позволяет задать верхнеуровневые параметры API-шлюза, значения которых будут наследоваться вложенными расширениями. Расширение x-yc-apigateway-integration — это точка входа для интеграции API-шлюза с другими сервисами.
 ---
 
 # Расширения спецификации {{ api-gw-name }}. Обзор
@@ -15,11 +15,12 @@ description: "Расширение x-yc-apigateway позволяет задат
 
  Параметр                | Тип               | Описание                                                                                                                                          
 -------------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
- `service_account_id`    | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
+ `serviceAccountId`      | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.
  `validator`             | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
  `cors`                  | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
  `rateLimit`             | `RateLimitObject` | [Ограничение скорости обработки запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
  `ignoreTrailingSlashes` | `boolean`         | Если установлено значение `true`, {{ api-gw-name }} игнорирует слеш (`/`) в конце URL запроса, иначе — учитывает его наличие или отсутствие при поиске обработчика в OpenAPI-спецификации. Значение по умолчанию — `true`.
+ `securityProfileId`     | `string`          | Идентификатор [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}.
 
 ### Спецификация расширения {#tl-spec}
 
@@ -30,6 +31,8 @@ x-yc-apigateway:
   cors: <CorsRuleObject_или_ссылка_на_него>
   rateLimit: <RateLimitObject_или_ссылка_на_него>
   ignoreTrailingSlashes: <true_или_false>
+  smartWebSecurity:
+    securityProfileId: <идентификатор_профиля_безопасности>
 ```
 
 ## Расширение x-yc-apigateway-integration {#integration}
@@ -47,11 +50,11 @@ x-yc-apigateway:
 ### Спецификация расширения {#intg-spec}
 
 ```
-<Запрос>:
-  <Метод>:
+<запрос>:
+  <метод>:
     x-yc-apigateway-integration:
-      type: <Тип>
-      <Список параметров в виде пары ключ: значение>
+      type: <тип>
+      <список параметров в виде пары ключ: значение>
 ```
 
 Содержимое расширения меняется в зависимости от указанного типа (`type`) в блоке `x-yc-apigateway-integration`: 
@@ -64,7 +67,7 @@ x-yc-apigateway:
 * [serverless_containers](containers.md) — перенаправляет запрос в указанный контейнер.
 * [cloud_ymq](ymq.md) — обращается к {{ message-queue-full-name }} для выполнения операции с указанной очередью.
 * [cloud_ydb](ydb.md) — обращается к {{ ydb-full-name }} для выполнения операции с указанной [документной таблицей](../../../ydb/concepts/dynamodb-tables.md).
- 
+
 Все типы поддерживают подстановку параметров — замену всех ключей на соответствующее значение. Ключ должен быть определен как параметр соответствующей операции (допускаются все типы параметров, определенные в [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) — `path`, `query`, `header`, `cookie`).
 Подстановка параметров производится только в некоторых значениях, в зависимости от типа расширения.
 
@@ -110,3 +113,36 @@ components:
       http_headers:
         Content-Type: text/plain
 ```
+
+## Расширение x-yc-status-mapping {#status-mapping}
+
+Расширение [x-yc-status-mapping](status-mapping.md) позволяет заменить код ответа в интеграции.
+
+### Спецификация расширения {#status-mapping-spec}
+
+```json
+paths:
+  /:
+    <метод>:
+      responses:
+        <код_ответа>:
+          description: ""
+          content:
+            ...
+          x-yc-status-mapping: <новый_код_ответа>
+      ...
+```
+
+## Расширение x-yc-schema-mapping {#schema-mapping}
+
+Расширение [x-yc-schema-mapping](schema-mapping.md) позволяет преобразовывать JSON-тело запроса к интеграции или ответа от нее.
+
+### Спецификация расширения {#schema-mapping-spec}
+
+ ```json
+x-yc-schema-mapping:
+  type:static
+  template:
+    <название_поля>: "<значение_поля>"
+    ...
+ ```

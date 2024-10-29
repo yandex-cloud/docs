@@ -10,7 +10,7 @@ For more information about creating a timer, see [{#T}](../../operations/trigger
 
 ## Roles required for timers to run correctly {#roles}
 
-* To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
+* To create a timer, you need a permission for the service account under which the timer executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
 * To run a timer, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the timer.
 
 Read more about [access management](../../security/index.md).
@@ -23,4 +23,5 @@ After the trigger is activated, it sends the following message to the function:
 
 ## See also {#see-also}
 
-* [Timer that calls a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/timer.md).
+* [Timer to run a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/timer.md)
+* [{#T}](../../../api-gateway/concepts/trigger/timer.md)

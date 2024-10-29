@@ -18,6 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>Desktop folder id.|
+|`--image-id`|<b>`string`</b><br/>Desktop image id.|
 |`--name`|<b>`string`</b><br/>Desktop name.|
 |`--description`|<b>`string`</b><br/>Desktop description.|
 |`--resource-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>memory</code>:     Specifies how much memory desktop should have. (required)</li> <li><code>cores</code>:     Amount of cores to attach to the desktop. (required)</li> <li><code>core-fraction</code>:     Amount of core-fraction to attach to the desktop. (required)</li> </ul>|
@@ -40,4 +41,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

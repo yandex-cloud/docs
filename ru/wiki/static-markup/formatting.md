@@ -1,6 +1,6 @@
 ---
-title: "Как работать с оформлением текста в {{ wiki-full-name }}"
-description: "Из статьи вы узнаете, как работать с оформлением текста в {{ wiki-name }}."
+title: Как работать с оформлением текста в {{ wiki-full-name }}
+description: Из статьи вы узнаете, как работать с оформлением текста в {{ wiki-name }}.
 ---
 
 # Оформление текста
@@ -24,7 +24,6 @@ description: "Из статьи вы узнаете, как работать с 
     `++Подчеркнутый текст++` | ![](../../_assets/wiki/underlined.png)
     `~~Зачеркнутый текст~~` | ![](../../_assets/wiki/crossed.png)
     `##Моноширинный текст##` | ![](../../_assets/wiki/monospaced.png)
-    `==Выделенный текст==` | ![](../../_assets/wiki/small.png)
     Верхний индекс: `E=mc^2^` | ![](../../_assets/wiki/sup.png)
     `==Выделенный текст==` | ![](../../_assets/wiki/red-background.png)
     `{red}(Красный текст)` | ![](../../_assets/wiki/red-colored.png)

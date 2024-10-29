@@ -1,6 +1,6 @@
 ---
-title: "Управление резервными копиями {{ CH }}"
-description: "Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ CH }}. Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в облаке не хватает ресурсов для создания такого кластера, восстановиться из резервной копии не получится."
+title: Управление резервными копиями {{ CH }}
+description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ CH }}. Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в облаке не хватает ресурсов для создания такого кластера, восстановиться из резервной копии не получится.
 ---
 
 # Управление резервными копиями в {{ mch-name }}
@@ -52,7 +52,7 @@ description: "Вы можете создавать резервные копии
 
 - API {#api}
 
-  Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -66,12 +66,16 @@ description: "Вы можете создавать резервные копии
 
 Вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком. Восстановить кластер целиком можно только с помощью CLI или API.
 
+
+Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+
+
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы восстановить из резервной копии существующий кластер:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -82,21 +86,21 @@ description: "Вы можете создавать резервные копии
   Чтобы восстановить из резервной копии удаленный ранее кластер:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
+  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mch-name }} запустит операцию создания кластера из резервной копии.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы восстановить кластер из резервной копии:
-  
+
   1. Посмотрите описание команды CLI для восстановления кластера {{ CH }}:
 
       ```bash
@@ -120,7 +124,7 @@ description: "Вы можете создавать резервные копии
 
   1. Чтобы восстановить отдельный шард, передайте идентификатор одной резервной копии:
 
-      
+
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
@@ -156,11 +160,11 @@ description: "Вы можете создавать резервные копии
       * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
 
-          
+
           * `network-hdd`;
           * `network-ssd`;
 
-          
+
           * `local-ssd`;
           * `network-ssd-nonreplicated`.
 
@@ -176,7 +180,7 @@ description: "Вы можете создавать резервные копии
 
 - API {#api}
 
-  Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
+  Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
 
   * Идентификатор резервной копии нужного шарда в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
   * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
@@ -194,7 +198,7 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы получить список резервных копий кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -213,17 +217,17 @@ description: "Вы можете создавать резервные копии
   * Время окончания создания резервной копии по UTC.
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить список резервных копий кластеров {{ CH }}, доступных в каталоге по умолчанию, выполните команду:
-  
+
   ```bash
   {{ yc-mdb-ch }} backup list
   ```
-  
+
   ```text
   +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
@@ -245,9 +249,9 @@ description: "Вы можете создавать резервные копии
 
 - API {#api}
 
-  Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-  Чтобы получить список резервных копий всех кластеров {{ mch-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/backup_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+  Чтобы получить список резервных копий всех кластеров {{ mch-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -259,7 +263,7 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -267,24 +271,24 @@ description: "Вы можете создавать резервные копии
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
-  
+
   ```bash
   {{ yc-mdb-ch }} backup get <идентификатор_резервной_копии>
   ```
-  
+
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
 - API {#api}
 
-  Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+  Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
   Чтобы узнать идентификатор, [получите список резервных копий](#list-backups).
 
@@ -295,9 +299,9 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -310,12 +314,12 @@ description: "Вы можете создавать резервные копии
   {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
      --backup-window-start=<время_начала_резервного_копирования>
   ```
-  
+
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API {#api}
 
-    Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Его можно получить [со списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.

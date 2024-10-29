@@ -1,14 +1,23 @@
 # Updating a VM connection to {{ backup-name }}
 
+{% note info %}
+
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
+
+* [Connecting a Linux VM](connect-vm-linux.md)
+* [Connecting a Windows VM](connect-vm-windows.md)
+
+{% endnote %}
+
 After [restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md), the source VM the backup was created from becomes outdated.
 
 To avoid conflicts between the two VMs when making backups, update the outdated VM's connection to {{ backup-name }}:
 
 1. Reconnect to {{ backup-name }} from the outdated VM:
 
-   {% list tabs group=operating_system %}
+    {% list tabs group=operating_system %}
 
-   - Linux {#linux}
+    - Linux {#linux}
 
       1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
       1. Install the [jq](https://jqlang.github.io/jq/), [awk](http://awklang.org/), [curl](https://curl.se/), and [uuidgen](https://uuidgen.org/) utilities on the VM:
@@ -47,41 +56,41 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
           Finished
           ```
 
-   - Windows {#windows}
+    - Windows {#windows}
 
       1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
       1. Run Windows PowerShell.
 
-         {% include [ps-note](../../_includes/backup/ps-note.md) %}
+          {% include [ps-note](../../_includes/backup/ps-note.md) %}
 
       1. Run this command:
 
-         ```powershell
-         . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
-         ```
+          ```powershell
+          . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+          ```
 
-         Result:
+          Result:
 
-         ```text
-         ...
-         Backup agent reinit completed after 204 s!
-         ```
+          ```text
+          ...
+          Backup agent reinit completed after 204 s!
+          ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Disconnect from the VM.
 1. Make sure the outdated VM is no longer on the list of VMs connected to {{ backup-name }}:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-      1. In the ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the list does not contain the outdated VM marked as ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
+      1. On the ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the list does not contain the outdated VM marked as ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
 
-         If the outdated VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg) next to it, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+          If the outdated VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg) next to it, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
-   {% endlist %}
+    {% endlist %}
 
 1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.

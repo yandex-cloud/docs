@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ mch-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ mch-name }}."
+title: Пошаговые инструкции для {{ mch-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ mch-name }}.
 ---
 
 # Пошаговые инструкции для {{ mch-name }}
@@ -10,6 +10,7 @@ description: "На странице представлен список поша
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
+* [{#T}](change-server-level-settings.md)
 * [{#T}](change-query-level-settings.md)
 * [{#T}](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)

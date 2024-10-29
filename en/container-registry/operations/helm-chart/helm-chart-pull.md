@@ -6,17 +6,19 @@ You can pull [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ containe
 
 - CLI {#cli}
 
-   To pull a Helm chart, run the command below:
+  To pull a Helm chart, run the command below:
 
-   ```bash
-   helm pull oci://{{ registry }}/<registry_ID>/<Helm_chart_name> --version <version>
-   ```
+  ```bash
+  helm pull oci://{{ registry }}/<registry_ID>/<Helm_chart_name> --version <version>
+  ```
 
-   Command result:
+  {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   ```bash
-   Pulled: {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
-   Digest: sha256:14ae8791607a62ab7adde4c546fd4a256f34298ad96855eae6662f53********
-   ```
+  Command result:
+
+  ```bash
+  Pulled: {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
+  Digest: sha256:14ae8791607a62ab7adde4c546fd4a256f34298ad96855eae6662f53********
+  ```
 
 {% endlist %}

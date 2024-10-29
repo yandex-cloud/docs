@@ -204,7 +204,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -225,8 +225,8 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - API {#api}
 
-   1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets in three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
+   1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets in three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -270,14 +270,22 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
+
    1. Add bucket parameters to the configuration file:
 
       ```hcl
       ...
 
       resource "yandex_storage_bucket" "<bucket_name>" {
-        bucket = "<bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<bucket_name>"
+        acl        = "public-read"
       }
       ```
 
@@ -285,7 +293,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -374,7 +382,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -430,7 +438,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
 
       1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
@@ -539,7 +547,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -560,9 +568,9 @@ To create security groups:
 
 - API {#api}
 
-   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
+   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
-   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) field for the REST API.
 
 {% endlist %}
 
@@ -589,7 +597,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/BackendGroup/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -716,7 +724,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -737,8 +745,8 @@ To create security groups:
 
 - API {#api}
 
-   1. Create the `example-router` HTTP router using the gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create) call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+   1. Create the `example-router` HTTP router using the gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/HttpRouter/create.md) call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/VirtualHost/create.md) call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -939,7 +947,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -960,7 +968,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/LoadBalancer/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -1112,7 +1120,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1162,7 +1170,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1186,7 +1194,7 @@ To configure DNS:
    {% endlist %}
 
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit a CNAME record for `cdn.yandexcloud.example` to link them to the copied domain name:
+1. Create or edit a CNAME record for `cdn.yandexcloud.example` so that it points to the copied domain name:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1279,7 +1287,7 @@ To configure DNS:
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -1300,8 +1308,8 @@ To configure DNS:
 
    - API {#api}
 
-      1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-********.edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-********.edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -1327,7 +1335,7 @@ To check the service performance, open `https://cdn.yandexcloud.example/index.ht
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the `example-dns-zone` DNS zone.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN resource with the primary `cdn.yandexcloud.example` domain name.

@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ OS }} host groups in {{ mos-full-name }}"
-description: "You can get a list of {{ OS }} cluster hosts and add, edit, or delete cluster host groups."
+title: Managing {{ OS }} host groups in {{ mos-full-name }}
+description: You can get a list of {{ OS }} cluster hosts and add, edit, or delete cluster host groups.
 keywords:
   - Managing OpenSearch host groups
   - OpenSearch host groups
@@ -10,12 +10,12 @@ keywords:
 # Managing {{ OS }} host groups
 
 
-In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
+In a {{ mos-name }} cluster, you can manage [host groups](../concepts/host-roles.md):
 
-* [{#T}](#list-groups)
-* [{#T}](#add-host-group)
-* [{#T}](#update-host-group)
-* [{#T}](#delete-host-group)
+* [{#T}](#list-groups).
+* [{#T}](#add-host-group).
+* [{#T}](#update-host-group), including adding or removing hosts.
+* [{#T}](#delete-host-group).
 
 You can also get a list of [cluster hosts](#list-hosts).
 
@@ -48,7 +48,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
 - API {#api}
 
-   To get a list of host groups in a cluster, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of host groups in a cluster, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
@@ -72,9 +72,9 @@ To create a host group:
    1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
    1. Specify the group parameters:
 
-      * [Group type](../concepts/host-groups.md): `{{ OS }}` or `Dashboards`.
+      * [Group type](../concepts/host-roles.md): `{{ OS }}` or `Dashboards`.
       * Name which must be unique within the cluster.
-      * For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
+      * For a `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
       * Platform, host type, and host class.
 
          The host class defines the technical characteristics of virtual machines that {{ OS }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
@@ -87,17 +87,11 @@ To create a host group:
 
       * Number of hosts to create.
 
-      
+
       * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
 
    1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
-
-   {% note warning %}
-
-   Once you have added a host group, you will not be able to change the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. You can only [change](#update-host-group) other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
-
-   {% endnote %}
 
 - CLI {#cli}
 
@@ -140,7 +134,7 @@ To create a host group:
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-   1. To create а host group of the `{{ OS }}` type, add the `node_groups` section to `opensearch`:
+   1. To create an `{{ OS }}` host group, add the `node_groups` section to `opensearch`:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -172,7 +166,7 @@ To create a host group:
       * `assign_public_ip`: Public access to the host, `true` or `false`.
       * `roles`: `DATA` and `MANAGER` host roles.
 
-   1. To create а host group of the `Dashboards` type, add the `dashboards` section to `config`:
+   1. To create a `Dashboards` host group, add the `dashboards` section to `config`:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -213,9 +207,9 @@ To create a host group:
 
 - API {#api}
 
-   To create a host group of the `{{ OS }}` type, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup) gRPC API call.
+   To create an `{{ OS }}` host group, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/Cluster/addOpenSearchNodeGroup.md) gRPC API call.
 
-   To create a host group of the `Dashboards` type, use the [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup) gRPC API call.
+   To create a `Dashboards` host group, use the [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md) gRPC API call.
 
    Provide the group configuration under `nodeGroupSpec` in the request:
 
@@ -227,7 +221,7 @@ To create a host group:
    * List of availability zones in the `zoneIds` parameter.
    * List of subnets in the `subnetIds` parameter.
 
-   
+
    * Public access settings in the `assignPublicIp` parameter.
 
 
@@ -238,6 +232,39 @@ To create a host group:
 ## Updating a host group configuration {#update-host-group}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
+   1. Change host group settings:
+
+      * [Host roles](../concepts/host-roles.md) (for `{{ OS }}` host groups only).
+      * Platform, host type, and host class.
+
+         The host class defines the technical characteristics of virtual machines that {{ OS }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+
+      * Disk size.
+
+         Disk resizing increments depend on disk type:
+
+         * Network HDD and SSD storage: In increments of 1 GB.
+
+
+         * Local SSD storage:
+            * For **Intel Cascade Lake**: In increments of 100 GB.
+            * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+         * Non-replicated SSD storage: In increments of 93 GB.
+
+
+      * Host distribution across availability zones and subnets.
+
+      * Number of hosts.
+
+      * Public access to hosts.
+
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -276,7 +303,7 @@ To create a host group:
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-   1. To update the configuration of аn `{{ OS }}` host group, edit the parameters of the required `node_groups` section in `opensearch`:
+   1. To update the configuration of an `{{ OS }}` host group, edit the parameters of the required `node_groups` section in the `opensearch` section:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -304,7 +331,7 @@ To create a host group:
       * `assign_public_ip`: Public access to the host, `true` or `false`.
       * `roles`: `DATA` and `MANAGER` host roles.
 
-   1. To update the configuration of а `Dashboards` host group, edit the `dashboards` section parameters:
+   1. To update the configuration of a `Dashboards` host group, edit the `dashboards` section parameters:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -338,9 +365,9 @@ To create a host group:
 
 - API {#api}
 
-   To update the `{{ OS }}` host group configuration, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup) gRPC API call.
+   To update the configuration of an `{{ OS }}` host group, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md) gRPC API call.
 
-   To update the `Dashboards` host group configuration, use the [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup) gRPC API call.
+   To update the configuration of a `Dashboards` host group, use the [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/Cluster/updateDashboardsNodeGroup.md) gRPC API call.
 
    Provide a new configuration under `nodeGroupSpec` in the request:
 
@@ -391,9 +418,9 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-   1. To remove аn `{{ OS }}` host group, remove its corresponding `node_groups` section from `opensearch`.
+   1. To delete an `{{ OS }}` host group, remove the corresponding `node_groups` section from the `opensearch` section.
 
-   1. To remove а `Dashboards` host group, remove the corresponding `dashboards` section.
+   1. To delete a `Dashboards` host group, remove the `dashboards` section.
 
    1. Make sure the settings are correct.
 
@@ -407,9 +434,9 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
 - API {#api}
 
-   To delete a group of `{{ OS }}` hosts, use the [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup) gRPC API call.
+   To delete an `{{ OS }}` host group, use the [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md) gRPC API call.
 
-   To delete a group of `Dashboards` hosts, use the [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup) gRPC API call.
+   To delete a `Dashboards` host group, use the [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md) gRPC API call.
 
    Provide the following in the request:
 
@@ -432,7 +459,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
 - API {#api}
 
-   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 

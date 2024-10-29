@@ -1,8 +1,54 @@
-Вы можете загрузить цепочку [сертификатов](../../certificate-manager/concepts/index.md) и закрытый ключ для самостоятельного использования, например, при конфигурации веб-сервера на [виртуальной машине](../../compute/concepts/vm.md).
+Вы можете сохранить цепочку [сертификатов](../../certificate-manager/concepts/index.md) и приватный ключ для самостоятельного использования, например, при конфигурации веб-сервера на [виртуальной машине](../../compute/concepts/vm.md).
 
 Чтобы получить содержимое сертификата:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сертификат.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Напротив сертификата нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
+
+       Экспортировать можно только сертификаты в статусе `Issued`.
+    1. Выберите один из вариантов экспорта. В файле `certificate.pem` в текстовом формате в кодировке Base64 будут сохранены:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (корневой и конечный сертификат) и приватный ключ со стандартным обрамлением:
+          ```text
+          -----BEGIN CERTIFICATE-----
+          MIIE5zCCA8+gAwI...
+          -----END CERTIFICATE-----
+          -----BEGIN CERTIFICATE-----
+          MIIFFjCCAv6gAwIBAg...
+          -----END CERTIFICATE-----
+          -----BEGIN PRIVATE KEY-----
+          MIIEvgIBADANBgk...
+          -----END PRIVATE KEY-----
+          ```
+
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (корневой и конечный сертификат):
+         ```text
+          -----BEGIN CERTIFICATE-----
+          MIIE5zCCA8+gAwI...
+          -----END CERTIFICATE-----
+          -----BEGIN CERTIFICATE-----
+          MIIFFjCCAv6gAwIBAg...
+          -----END CERTIFICATE-----
+          ```
+
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
+           ```text
+          -----BEGIN CERTIFICATE-----
+          MIIFFjCCAv6gAwIBAg...
+          -----END CERTIFICATE-----`
+          ```
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
+          ```text
+          -----BEGIN PRIVATE KEY-----
+          MIIEvgIBADANBgk...
+          -----END PRIVATE KEY-----`
+          ```
+
+    1. Нажмите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**.
 
 - CLI {#cli}
 
@@ -28,7 +74,7 @@
   Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
-     
+
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
        certificate_id = "<идентификатор_сертификата>"
@@ -52,7 +98,7 @@
        * `value` — возвращаемое значение.
        * `sensitive` — пометить как конфиденциальные данные.
 
-     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content).
+     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -72,7 +118,7 @@
 
 - API {#api}
 
-  Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/certificate_content_service.md#Get).
+  Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/CertificateContent/get.md).
 
 {% endlist %}
 

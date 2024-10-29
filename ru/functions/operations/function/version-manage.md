@@ -1,6 +1,6 @@
 ---
-title: "Как создать версию функции"
-description: "Следуя данной инструкции, вы сможете создать версию функции."
+title: Как создать версию функции
+description: Следуя данной инструкции, вы сможете создать версию функции.
 ---
 
 # Создать версию функции
@@ -49,7 +49,6 @@ description: "Следуя данной инструкции, вы сможет�
 
     Чтобы создать версию функции, выполните команду:
 
-    
     ```
     yc serverless function version create \
       --function-name=my-nodejs-function \
@@ -59,7 +58,6 @@ description: "Следуя данной инструкции, вы сможет�
       --execution-timeout 5s \
       --source-path ./hello-js.zip
     ```
-  
 
     Где:
 
@@ -68,11 +66,10 @@ description: "Следуя данной инструкции, вы сможет�
     * `--entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
-    * `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
+    * `--source-path` — ZIP-архив с кодом функции и необходимыми зависимостями.
 
     Результат:
 
-    
     ```
     done (1s)
     id: d4evvn8obisa********
@@ -81,15 +78,15 @@ description: "Следуя данной инструкции, вы сможет�
     runtime: nodejs18
     entrypoint: index.handler
     resources:
-    memory: "134217728"
+      memory: "134217728"
     execution_timeout: 5s
     image_size: "4096"
     status: ACTIVE
     tags:
-    - $latest
-    log_group_id: ckg3qh8h363p********
+      - $latest
+    log_options:
+      folder_id: b1g681qpemb4********
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -120,7 +117,7 @@ description: "Следуя данной инструкции, вы сможет�
             name               = "test-function"
             description        = "Test function"
             user_hash          = "first-function"
-            runtime            = "python311"
+            runtime            = "nodejs18"
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
@@ -174,7 +171,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-    Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
+    Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
 
     **Пример запроса**
 
@@ -214,9 +211,10 @@ description: "Следуя данной инструкции, вы сможет�
 
         ```bash
         export IAM_TOKEN=<IAM-токен>
-        curl -X POST \
-            -H "Authorization: Bearer ${IAM_TOKEN}" \
-            -d "@<путь_к_файлу_body.json>" \
+        curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --data "@<путь_к_файлу_body.json>" \
             https://serverless-functions.{{ api-host }}/functions/v1/versions
         ```
         
@@ -237,11 +235,9 @@ description: "Следуя данной инструкции, вы сможет�
         }
         ```
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
 
 {% endlist %}
 

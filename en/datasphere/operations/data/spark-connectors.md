@@ -59,6 +59,10 @@ To stop paying for the {{ dataproc-name }} persistent cluster, [delete it](../..
 
 ## Sharing a Spark connector {#share}
 
+{% include [zones](../../../_includes/datasphere/zones.md) %}
+
+To share a Spark connector in a community, you need have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
+
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![spark-connector](../../../_assets/console-icons/route.svg) **{{ ui-key.yc-ui-datasphere.common.spark-connector }}**.
 1. Select the required Spark connector from the list.
@@ -77,3 +81,5 @@ You can only delete a connector that is not available in the community.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the connector has been deleted.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

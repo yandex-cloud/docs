@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch'
+---
+
 # Delivering data from {{ mkf-full-name }} to {{ mch-name }} using {{ data-transfer-full-name }}
 
 

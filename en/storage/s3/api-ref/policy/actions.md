@@ -1,6 +1,6 @@
 ---
-title: "What actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API"
-description: "In this tutorial, you will learn what actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API."
+title: What actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API
+description: In this tutorial, you will learn what actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API.
 ---
 
 # Actions
@@ -35,3 +35,5 @@ description: "In this tutorial, you will learn what actions upon triggering the 
 | [s3:PutObject](../object/upload.md) | Gives the right to add objects to buckets. |
 | `s3:PutObjectAcl` | Gives the right to set the specified object's ACL. |
 | `s3:PutObjectVersionAcl` | Gives the right to set the specified object version's ACL. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

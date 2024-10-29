@@ -1,6 +1,6 @@
 ---
-title: "Назначение привилегий и ролей пользователям PostgreSQL"
-description: "Атомарные полномочия в PostgreSQL называются привилегиями, группы полномочий — ролями. Подробнее об организации прав доступа читайте в документации PostgreSQL. Пользователь, создаваемый вместе с кластером {{ mpg-name }}, является владельцем первой базы данных в кластере. Вы можете создавать других пользователей и настраивать их права по своему усмотрению."
+title: Назначение привилегий и ролей пользователям PostgreSQL
+description: Атомарные полномочия в PostgreSQL называются привилегиями, группы полномочий — ролями. Подробнее об организации прав доступа читайте в документации PostgreSQL. Пользователь, создаваемый вместе с кластером {{ mpg-name }}, является владельцем первой базы данных в кластере. Вы можете создавать других пользователей и настраивать их права по своему усмотрению.
 ---
 
 # Назначение привилегий и ролей пользователям {{ PG }}
@@ -53,7 +53,7 @@ description: "Атомарные полномочия в PostgreSQL называ
 
   Чтобы назначить роли, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} user update <имя_пользователя> \
          --grants=<роль1,роль2> \
          --cluster-id <идентификатор_кластера>
@@ -91,19 +91,127 @@ description: "Атомарные полномочия в PostgreSQL называ
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы указать новый список необходимых ролей для пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Имя пользователя в параметре `userName`.
-    * Список новых ролей пользователя в параметре `grants`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Имеющиеся роли будут полностью перезаписаны: если вы хотите дополнить или уменьшить имеющийся список, сначала запросите текущие роли с информацией о пользователе методом [get](../api-ref/User/get.md).
+  1. Чтобы проверить список текущих ролей, воспользуйтесь методом [User.get](../api-ref/User/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `grants`), в параметре `updateMask`.
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+     ```
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](cluster-users.md#list-users).
+
+     Список текущих ролей указан в параметре `grants` в выводе команды.
+
+  1. Чтобы изменить список ролей пользователя, воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+       --data '{
+                 "updateMask": "grants",
+                 "grants": [
+                   "роль_1", "роль_2", ..., "роль_N"
+                 ]
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `grants` — массив строк с новыми ролями. Каждая строка соответствует отдельной роли. Возможные значения:
+
+       * `mdb_admin`
+       * `mdb_monitor`
+       * `mdb_replication`
+       * `mdb_superuser`
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Чтобы проверить список текущих ролей, воспользуйтесь вызовом [UserService/Get](../api-ref/grpc/User/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "user_name": "<имя_пользователя>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.UserService.Get
+     ```
+
+     Список текущих ролей указан в параметре `grants` в выводе команды.
+
+  1. Чтобы изменить список ролей пользователя, воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "user_name": "<имя_пользователя>",
+             "update_mask": {
+               "paths": [
+                 "grants"
+               ]
+             },
+             "grants": [
+               "роль_1", "роль_2", ..., "роль_N"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.UserService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `grants` — массив строк с новыми ролями. Каждая строка соответствует отдельной роли. Возможные значения:
+
+       * `mdb_admin`
+       * `mdb_monitor`
+       * `mdb_replication`
+       * `mdb_superuser`
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](cluster-users.md#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

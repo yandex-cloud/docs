@@ -4,9 +4,11 @@
 
 Метод эквивалентен методу [get](get.md), но в ответе отсутствует сам объект.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 HEAD /{bucket}/{key} HTTP/2
 ```
 

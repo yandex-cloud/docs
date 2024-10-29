@@ -87,4 +87,4 @@ The example uses the following parameters:
        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
    ```
 
-For core information on how to work with {{ yds-name }} using the Kafka API, see the [YDB documentation](https://ydb.tech/en/docs/reference/kafka-api).
+For core information on how to work with {{ yds-name }} using the Kafka API, see the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).

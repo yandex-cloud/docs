@@ -20,19 +20,23 @@
 
 ## Создайте инфраструктуру {#deploy}
 
-{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Для создания инфраструктуры c помощью {{ TF }}:
-1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
-1. Подготовьте файл с описанием инфраструктуры:
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
 
-    - Готовый архив {#ready}
+    - Готовая конфигурация {#ready}
 
-      1. Создайте папку для файла с описанием инфраструктуры.
-      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1,5 КБ).
-      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `run-docker-on-vm.tf`.
+      1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-run-docker-on-vm) с конфигурационными файлами:
+
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-run-docker-on-vm.git
+          ```
+
+      1. Перейдите в директорию с репозиторием. В ней должнен появиться файл `run-docker-on-vm-config.tf` с конфигурацией создаваемой инфраструктуры.
 
     - Вручную {#manual}
 

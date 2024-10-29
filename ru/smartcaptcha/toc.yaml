@@ -1,10 +1,5 @@
 title: Yandex SmartCaptcha
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -20,24 +15,24 @@ items:
         href: operations/get-keys.md
       - name: Добавить виджет расширенным методом
         href: operations/advanced-method.md
+      - name: Проверить капчу
+        href: operations/validate-captcha.md
       - name: Посмотреть операции с капчей
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Капча в мобильном приложении
-        items:
-          - name: Размещение HTML-кода для работы {{ captcha-full-name }}
-            href: tutorials/mobile-app/website.md
-          - name: Капча в приложении на Android
-            items:
-              - name: Капча в приложении на Android
-                href: tutorials/mobile-app/android/quickstart-android.md
-              - name: Невидимая капча в приложении на Android
-                href: tutorials/mobile-app/android/invisible-captcha-android.md
-          - name: Капча в приложении на iOS
-            href: tutorials/mobile-app/ios/quickstart-ios.md
+      - name: Добавление HTML-страницы для работы {{ captcha-full-name }}
+        href: tutorials/mobile-app/website.md
+      - name: Капча в приложении Android
+        href: tutorials/mobile-app/android/quickstart-android.md
+      - name: Невидимая капча в приложении Android
+        href: tutorials/mobile-app/android/invisible-captcha-android.md
+      - name: Капча в приложении Android на Flutter
+        href: tutorials/mobile-app/android/quickstart-android-flutter.md
+      - name: Капча в приложении iOS
+        href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Концепции
     items:
       - name: Валидация пользователя
@@ -46,6 +41,8 @@ items:
         href: concepts/domain-validation.md
       - name: Типы заданий
         href: concepts/tasks.md
+      - name: Варианты заданий
+        href: concepts/captcha-variants.md
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Ключи капчи
@@ -70,4 +67,7 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/smartcaptcha
+deepBase: 2

@@ -8,7 +8,7 @@ IAM-токен — уникальная последовательность с
 
 Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
-```
+```hcl
 provider "yandex" {
   token = "<IAM-токен>"
 }
@@ -22,11 +22,17 @@ IAM-токен действует не больше {{ iam-token-lifetime }}. В
 
 Чтобы не возникла ситуация, когда токен прекратил действовать, а новый вы еще не получили, запрашивайте токен заранее.
 
-Если вы создадите новый {{ iam-short-name }}-токен, старый продолжит действовать, пока не закончится его время жизни.
+Если вы создадите новый {{ iam-short-name }}-токен, старый продолжит действовать, пока не закончится его время жизни или вы не [отзовете](../../operations/iam-token/revoke-iam-token.md) его.
 
 Если токен создан с использованием cookie (например, при [аутентификации с помощью федерации](../../../cli/operations/authentication/federated-user.md)), то его время жизни ограничено временем жизни cookie. Если отозвать cookie (например, пользователь разлогинится), то все токены, которые были созданы для cookie, будут аннулированы.
 
 API сервиса {{ iam-short-name }} может вернуть один и тот же токен на разные запросы, если его время жизни еще велико.
+
+## Отзыв IAM-токена {#revoke}
+
+В случае, если IAM-токен оказался [скомпрометирован](../../operations/compromised-credentials.md), или в целях безопасности вы хотите прекратить действие старого IAM-токена при выпуске нового, IAM-токен можно [отозвать](../../operations/iam-token/revoke-iam-token.md) до истечения срока его жизни.
+
+Отозвать IAM-токен может любой аутентифицированный пользователь с помощью [YC CLI](../../../cli/quickstart.md) или [API](../../api-ref/authentication.md).
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
@@ -62,3 +68,4 @@ t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)
 * [{#T}](../../../functions/operations/function-sa.md)
 * [{#T}](./index.md)
+* [{#T}](../../operations/iam-token/revoke-iam-token.md)

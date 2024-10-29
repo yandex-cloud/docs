@@ -1,6 +1,6 @@
 ---
-title: "How to mark pages as obsolete in {{ wiki-full-name }}"
-description: "Follow this guide to mark pages as obsolete."
+title: How to mark pages as obsolete in {{ wiki-full-name }}
+description: Follow this guide to mark pages as obsolete.
 ---
 
 # Marking pages as obsolete

@@ -2,44 +2,81 @@
 
 - {{ org-name }} interface {#cloud-org}
 
-   1. [Log in]({{ link-passport-login }}) as the organization administrator.
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-   1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a [group](../../organization/concepts/groups.md) name and description.
+  1. [Log in]({{ link-passport-login }}) as the organization administrator.
+  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
+  1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a [group](../../organization/concepts/groups.md) name and description.
 
-- {{ TF }} {#tf}
+      The name must be unique within the organization and satisfy the relevant requirements:
 
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+      {% include [group-name-format](group-name-format.md) %}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+- CLI {#cli}
 
-   1. In the configuration file, describe the [group](../../organization/concepts/groups.md) parameters:
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-      ```hcl
-      resource "yandex_organizationmanager_group" "my-group" {
-         name            = "<group_name>"
-         description     = "<group_description>"
-         organization_id = "<organization_ID>"
-      }
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the command for creating a {{ org-name }} user group:
+
+      ```bash
+      yc organization-manager group create --help
+      ```
+  
+  1. To create a user group in {{ org-name }}, run this command:
+
+      ```bash
+      yc organization-manager group create \
+        --name <group_name> \
+        --organization-id <organization_ID> \
+        --description <group_description>
       ```
 
       Where:
 
-      * `name`: Group name. The name format is as follows:
+      * `--name`: User group name. This is a required parameter. The name must be unique within the organization and satisfy the relevant requirements:
 
-         {% include [name-format](../../_includes/name-format.md) %}
+        {% include [group-name-format](group-name-format.md) %}
 
-      * `description`: Group description. This is an optional parameter.
-      * `organization_id`: ID of the organization to add the group to.
+      * `--organization-id`: Organization ID. This is an optional parameter.
+      * `--description`: Text description of the user group. This is an optional parameter.
 
-   1. Create resources:
+- {{ TF }} {#tf}
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      ```bash
-      yc organization-manager group list --organization-id=<organization_ID>
-      ```
+  1. In the configuration file, describe the [group](../../organization/concepts/groups.md) parameters:
+
+     ```hcl
+     resource "yandex_organizationmanager_group" "my-group" {
+       name            = "<group_name>"
+       description     = "<group_description>"
+       organization_id = "<organization_ID>"
+     }
+     ```
+
+     Where:
+     * `name`: Group name. The name must be unique within the organization and satisfy the relevant requirements:
+
+        {% include [group-name-format](group-name-format.md) %}
+
+     * `description`: Group description. This is an optional parameter.
+     * `organization_id`: ID of the organization to add the group to.
+  1. Create resources:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+     ```bash
+     yc organization-manager group list \
+       --organization-id <organization_ID>
+     ```
+
+- API {#api}
+
+    Use the [Group.create](../../organization/api-ref/Group/create.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Create](../../organization/api-ref/grpc/Group/create.md) gRPC API call.
 
 {% endlist %}

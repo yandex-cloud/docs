@@ -1,6 +1,6 @@
 ---
-title: "Configuring connection access permissions"
-description: "Follow this guide to configure connection access permissions."
+title: Configuring connection access permissions
+description: Follow this guide to configure connection access permissions.
 ---
 
 # Configuring connection access permissions
@@ -13,7 +13,7 @@ description: "Follow this guide to configure connection access permissions."
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to configure access to a connection.
   1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
   1. Click the connection name.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **Access permissions** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.

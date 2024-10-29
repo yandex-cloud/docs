@@ -11,9 +11,13 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-{% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
+Кластеру {{ mgp-name }} может быть назначена одна или несколько групп безопасности. Для подключения к кластеру необходимо, чтобы группы безопасности содержали правила, разрешающие входящий трафик на порт {{ port-mgp }} с определенных IP-адресов или из других групп безопасности.
 
-Для обеспечения работоспособности кластера {{ mgp-name }} и сетевой связности между его хостами необходимо, чтобы хотя бы в одной из его групп безопасности были правила, разрешающие любой входящий и исходящий трафик по любому протоколу с любых IP-адресов.
+{% note info %}
+
+Группа безопасности, назначенная на кластер, регулирует трафик между кластером и другими ресурсами в облаке или вне его. Взаимодействие хостов кластера между собой регулируется отдельной, системной группой безопасности и не требует настройки.
+
+{% endnote %}
 
 Настройки правил будут различаться в зависимости от выбранного способа подключения:
 
@@ -25,17 +29,31 @@
 
 - С ВМ в {{ yandex-cloud }} {#cloud}
 
-    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
+    1. Добавьте в группу безопасности кластера следующие правила:
 
-    1. [Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
+        1. Для входящего трафика:
 
-        Пример правил для ВМ:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
+
+         1. Для исходящего трафика:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+            Это правило позволит {{ mgp-name }} работать с внешними источниками данных, например PXF или GPFDIST.
+
+    1. [Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md), в которой находится ВМ, так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера:
 
         * Для входящего трафика:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазон адресов, с которых производится подключение.
 
             Это правило позволяет подключаться к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
@@ -201,7 +219,7 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
         mkdir --parents ~/.postgresql && \
         wget "{{ crt-web-path }}" \
              --output-document ~/.postgresql/root.crt && \
-        chmod 0600 ~/.postgresql/root.crt
+        chmod 0655 ~/.postgresql/root.crt
     ```
 
 {% endlist %}

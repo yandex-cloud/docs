@@ -34,7 +34,7 @@
      1. Введите имя бюджета.
      1. Выберите **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
      1. Задайте **Сумму бюджета**: 
-        
+
         * для типов **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
         * для типа **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.
 
@@ -59,7 +59,7 @@
 
 - API {#api}
 
-  Чтобы создать бюджет, воспользуйтесь методом REST API [create](../api-ref/Budget/create.md) для ресурса [Budget](../api-ref/Budget/index.md) или вызовом gRPC API [BudgetService/Create](../api-ref/grpc/budget_service.md#Create).
+  Чтобы создать бюджет, воспользуйтесь методом REST API [create](../api-ref/Budget/create.md) для ресурса [Budget](../api-ref/Budget/index.md) или вызовом gRPC API [BudgetService/Create](../api-ref/grpc/Budget/create.md).
   
 {% endlist %}
 

@@ -76,9 +76,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 - API {#api}
 
-   To edit a lifecycle policy, use the [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. Specify the policy ID in the `lifecycle_policy_id` property.
+   To edit a lifecycle policy, use the [Update](../../api-ref/grpc/LifecyclePolicy/update.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` property.
 
-   You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+   You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}
 

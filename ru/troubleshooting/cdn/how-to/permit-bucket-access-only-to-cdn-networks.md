@@ -15,8 +15,8 @@
 
 Список задействованных сервисом IP-адресов и подсетей можно получить по следующим ссылкам:
 
-- [Список публичных IP-адресов провайдера EdgeЦентр](https://api.edgecenter.ru/cdn/public_ips_list);
-- [Список подсетей провайдера EdgeЦентр c указанием CIDR](https://api.edgecenter.ru/cdn/public_net_list).
+* [Список публичных IP-адресов провайдера EdgeЦентр](https://api.edgecenter.ru/cdn/public_ips_list);
+* [Список подсетей провайдера EdgeЦентр c указанием CIDR](https://api.edgecenter.ru/cdn/public_net_list).
 
 {% note info %}
 
@@ -45,7 +45,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "103.242.74.224/29"
+          "aws:sourceip": "103.242.74.224/29"
         }
        }
      },
@@ -56,7 +56,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "185.211.231.192/29"
+          "aws:sourceip": "185.211.231.192/29"
         }
        }
      },
@@ -67,7 +67,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "5.188.132.0/28"
+          "aws:sourceip": "5.188.132.0/28"
         }
        }
      },
@@ -78,7 +78,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "195.34.58.164/31"
+          "aws:sourceip": "195.34.58.164/31"
         }
        }
      },
@@ -89,7 +89,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "217.118.183.248/30"
+          "aws:sourceip": "217.118.183.248/30"
         }
        }
      },
@@ -100,7 +100,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.145.176/28"
+          "aws:sourceip": "178.176.145.176/28"
         }
        }
      },
@@ -111,7 +111,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "194.67.48.24/30"
+          "aws:sourceip": "194.67.48.24/30"
         }
        }
      },
@@ -122,7 +122,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "176.56.179.176/29"
+          "aws:sourceip": "176.56.179.176/29"
         }
        }
      },
@@ -133,7 +133,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "98.158.98.226/31"
+          "aws:sourceip": "98.158.98.226/31"
         }
        }
      },
@@ -144,7 +144,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "87.239.191.78/31"
+          "aws:sourceip": "87.239.191.78/31"
         }
        }
      },
@@ -155,7 +155,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "195.3.244.188/30"
+          "aws:sourceip": "195.3.244.188/30"
         }
        }
      },
@@ -166,7 +166,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.123.96/27"
+          "aws:sourceip": "92.223.123.96/27"
         }
        }
      },
@@ -177,7 +177,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "138.204.14.150/31"
+          "aws:sourceip": "138.204.14.150/31"
         }
        }
      },
@@ -188,7 +188,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "81.211.44.154/31"
+          "aws:sourceip": "81.211.44.154/31"
         }
        }
      },
@@ -199,7 +199,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "220.158.132.70/31"
+          "aws:sourceip": "220.158.132.70/31"
         }
        }
      },
@@ -210,7 +210,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.108.0/27"
+          "aws:sourceip": "92.223.108.0/27"
         }
        }
      },
@@ -221,7 +221,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "194.186.66.252/30"
+          "aws:sourceip": "194.186.66.252/30"
         }
        }
      },
@@ -232,7 +232,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "5.188.121.128/25"
+          "aws:sourceip": "5.188.121.128/25"
         }
        }
      },
@@ -243,7 +243,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.153.0/24"
+          "aws:sourceip": "178.176.153.0/24"
         }
        }
      },
@@ -254,7 +254,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.145.96/27"
+          "aws:sourceip": "178.176.145.96/27"
         }
        }
      },
@@ -265,7 +265,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "5.101.68.0/27"
+          "aws:sourceip": "5.101.68.0/27"
         }
        }
      },
@@ -276,7 +276,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "91.243.83.0/26"
+          "aws:sourceip": "91.243.83.0/26"
         }
        }
      },
@@ -287,7 +287,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "31.173.147.2/31"
+          "aws:sourceip": "31.173.147.2/31"
         }
        }
      },
@@ -298,7 +298,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.122.160/27"
+          "aws:sourceip": "92.223.122.160/27"
         }
        }
      },
@@ -309,7 +309,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.131.224/28"
+          "aws:sourceip": "178.176.131.224/28"
         }
        }
      },
@@ -320,7 +320,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "195.239.135.56/30"
+          "aws:sourceip": "195.239.135.56/30"
         }
        }
      },
@@ -331,7 +331,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.145.0/27"
+          "aws:sourceip": "178.176.145.0/27"
         }
        }
      },
@@ -342,7 +342,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.110.0/27"
+          "aws:sourceip": "92.223.110.0/27"
         }
        }
      },
@@ -353,7 +353,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "87.229.240.64/30"
+          "aws:sourceip": "87.229.240.64/30"
         }
        }
      },
@@ -364,7 +364,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "5.188.7.0/26"
+          "aws:sourceip": "5.188.7.0/26"
         }
        }
      },
@@ -375,7 +375,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.131.128/26"
+          "aws:sourceip": "178.176.131.128/26"
         }
        }
      },
@@ -386,7 +386,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.50.131.190/31"
+          "aws:sourceip": "92.50.131.190/31"
         }
        }
      },
@@ -397,7 +397,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "109.200.129.16/29"
+          "aws:sourceip": "109.200.129.16/29"
         }
        }
      },
@@ -408,7 +408,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "194.154.79.64/30"
+          "aws:sourceip": "194.154.79.64/30"
         }
        }
      },
@@ -419,7 +419,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.123.0/26"
+          "aws:sourceip": "92.223.123.0/26"
         }
        }
      },
@@ -430,7 +430,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.64.0/28"
+          "aws:sourceip": "92.223.64.0/28"
         }
        }
      },
@@ -441,7 +441,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "185.101.137.0/28"
+          "aws:sourceip": "185.101.137.0/28"
         }
        }
      },
@@ -452,7 +452,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "92.223.114.0/26"
+          "aws:sourceip": "92.223.114.0/26"
         }
        }
      },
@@ -463,7 +463,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "178.176.145.64/27"
+         "aws:sourceip": "178.176.145.64/27"
         }
        }
      },
@@ -474,7 +474,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "195.239.185.56/30"
+         "aws:sourceip": "195.239.185.56/30"
         }
        }
      },
@@ -485,7 +485,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "178.176.145.128/28"
+         "aws:sourceip": "178.176.145.128/28"
         }
        }
      },
@@ -496,7 +496,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "178.176.145.144/28"
+         "aws:sourceip": "178.176.145.144/28"
         }
        }
      },
@@ -507,7 +507,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": "178.176.145.0/26"
+          "aws:sourceip": "178.176.145.0/26"
         }
        }
      },
@@ -518,7 +518,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "5.8.43.0/28"
+         "aws:sourceip": "5.8.43.0/28"
         }
        }
      },
@@ -529,7 +529,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-         "aws:SourceIp": "185.228.134.96/31"
+         "aws:sourceip": "185.228.134.96/31"
         }
        }
      },
@@ -540,7 +540,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
        "IpAddress": {
-        "aws:SourceIp": "5.188.121.128/26"
+        "aws:sourceip": "5.188.121.128/26"
         }
       }
     },
@@ -551,7 +551,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
       "IpAddress": {
-      "aws:SourceIp": "62.141.95.96/30"
+      "aws:sourceip": "62.141.95.96/30"
         }
        }
      },
@@ -562,7 +562,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
        "IpAddress": {
-        "aws:SourceIp": "92.223.43.0/26"
+        "aws:sourceip": "92.223.43.0/26"
         }
        }
      },
@@ -573,7 +573,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
        "IpAddress": {
-        "aws:SourceIp": "185.11.76.52/31"
+        "aws:sourceip": "185.11.76.52/31"
         }
        }
      },
@@ -584,7 +584,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-           "aws:SourceIp": "178.176.131.0/26"
+           "aws:sourceip": "178.176.131.0/26"
         }
        }
      },
@@ -595,7 +595,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-            "aws:SourceIp": "178.176.145.160/28"
+            "aws:sourceip": "178.176.145.160/28"
         }
        }
      },
@@ -606,7 +606,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-            "aws:SourceIp": "31.173.147.0/31"
+            "aws:sourceip": "31.173.147.0/31"
         }
        }
      },
@@ -617,7 +617,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-            "aws:SourceIp": "178.176.131.192/27"
+            "aws:sourceip": "178.176.131.192/27"
         }
        }
      },
@@ -628,7 +628,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
       "IpAddress": {
-            "aws:SourceIp": "178.176.131.240/28"
+            "aws:sourceip": "178.176.131.240/28"
         }
        }
      },
@@ -639,7 +639,7 @@
       "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
-            "aws:SourceIp": "178.176.131.64/26"
+            "aws:sourceip": "178.176.131.64/26"
         }
       }
     }

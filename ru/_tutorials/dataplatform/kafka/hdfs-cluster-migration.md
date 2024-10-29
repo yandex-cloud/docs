@@ -5,7 +5,6 @@
 
 * Ниже описано, как перенести кластеры с файловой системой HDFS.
 * О миграции [легковесных кластеров](../../../data-proc/concepts/index.md#light-weight-clusters) читайте в [инструкции](../../../data-proc/operations/migration-to-an-availability-zone.md).
-* Миграция кластеров {{ metastore-full-name }} недоступна. Если вы используете такие кластеры и они расположены в зоне `{{ region-id }}-c`, служба технической поддержки {{ yandex-cloud }} оповестит вас о готовности инструкции по миграции.
 
 {% include [zone-d-host-restrictions](../../../_includes/mdb/ru-central1-d-broadwell.md) %}
 

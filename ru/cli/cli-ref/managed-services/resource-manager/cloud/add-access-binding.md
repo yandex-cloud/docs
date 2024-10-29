@@ -24,6 +24,7 @@ Syntax:
 |`--service-account-name`|<b>`string`</b><br/>Service account, whose access will be updated.|
 |`--user-account-id`|<b>`string`</b><br/>User account, whose access will be updated.|
 |`--user-yandex-login`|<b>`string`</b><br/>User account, whose access will be updated.|
+|`--agent`|<b>`string`</b><br/>Agent service account, whose access will be updated; in SERVICE_ID:MICROSERVICE_ID format.|
 |`--all-authenticated-users`|Access will be updated for all authenticated users|
 |`--group-members`|<b>`string`</b><br/>Update access for members of the group with specified ID|
 |`--organization-users`|<b>`string`</b><br/>Update access for users of organization with specified ID|
@@ -48,4 +49,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

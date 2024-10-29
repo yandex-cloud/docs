@@ -3,29 +3,51 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/list.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.list
-Retrieves the list of Gateway resources in the specified folder.
- 
+# Virtual Private Cloud API, REST: Gateway.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of Gateway resources in the specified folder.
+
+## HTTP request
+
 ```
 GET https://vpc.{{ api-host }}/vpc/v1/gateways
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list gateways in.</p> <p>To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/vpc/api-ref/Gateway/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/vpc/api-ref/Gateway/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters Gateway listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/vpc/api-ref/Gateway#representation">Gateway.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-gateway``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.vpc.v1.ListGatewaysRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list gateways in.
+
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListGatewaysResponse.nextPageToken](#yandex.cloud.vpc.v1.ListGatewaysResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListGatewaysResponse.nextPageToken](#yandex.cloud.vpc.v1.ListGatewaysResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters Gateway listed in the response.
+
+The expression must specify:
+1. The field name. Currently you can use filtering only on [Gateway.name](#yandex.cloud.vpc.v1.Gateway) field.
+2. An `=` operator.
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+Example of a filter: `name=my-gateway`. ||
+|#
+
+## Response {#yandex.cloud.vpc.v1.ListGatewaysResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "gateways": [
     {
@@ -34,23 +56,71 @@ filter | <p>A filter expression that filters Gateway listed in the response.</p>
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
-      "sharedEgressGateway": {}
+      "labels": "string",
+      // Includes only one of the fields `sharedEgressGateway`
+      "sharedEgressGateway": "object"
+      // end of the list of possible fields
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-gateways[] | **object**<br><p>List of gateways.</p> 
-gateways[].<br>id | **string**<br><p>ID of the gateway. Generated at creation time.</p> 
-gateways[].<br>folderId | **string**<br><p>ID of the folder that the gateway belongs to.</p> 
-gateways[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-gateways[].<br>name | **string**<br><p>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
-gateways[].<br>description | **string**<br><p>Description of the gateway. 0-256 characters long.</p> 
-gateways[].<br>labels | **object**<br><p>Gateway labels as ``key:value`` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\\@0-9a-z]*``. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\\@0-9a-z]*``.</p> 
-gateways[].<br>sharedEgressGateway | **object**<br><p>Shared Egress Gateway configuration</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/vpc/api-ref/Gateway/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/vpc/api-ref/Gateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| gateways[] | **[Gateway](#yandex.cloud.vpc.v1.Gateway)**
+
+List of gateways. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListGatewaysRequest.pageSize](#yandex.cloud.vpc.v1.ListGatewaysRequest), use `next_page_token` as the value
+for the [ListGatewaysRequest.pageToken](#yandex.cloud.vpc.v1.ListGatewaysRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## Gateway {#yandex.cloud.vpc.v1.Gateway}
+
+A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateways).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the gateway. Generated at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the gateway belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the gateway.
+The name is unique within the folder.
+Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. ||
+|| description | **string**
+
+Description of the gateway. 0-256 characters long. ||
+|| labels | **string**
+
+Gateway labels as `key:value` pairs.
+No more than 64 per resource.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_./\\@0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. ||
+|| sharedEgressGateway | **object**
+
+Includes only one of the fields `sharedEgressGateway`.
+
+Gateway specification ||
+|#

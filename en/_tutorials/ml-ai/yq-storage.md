@@ -50,7 +50,7 @@ For working with {{ objstorage-name }} data, the cost of infrastructure support 
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
-      * `datasphere.community-project.editor`: To run {{ ml-platform-name }} computations.
+      * `datasphere.community-projects.editor`: To run {{ ml-platform-name }} computations.
       * `yq.editor`: To send {{ yq-name }} queries.
       * `storage.viewer`: To view the contents of the {{ objstorage-name }} bucket and objects.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

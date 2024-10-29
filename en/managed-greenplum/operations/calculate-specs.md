@@ -2,18 +2,6 @@
 
 This section provides recommendations to optimize the cluster configuration for a standard load when using {{ mgp-name }} as corporate [data storage](https://en.wikipedia.org/wiki/Data_storage).
 
-In addition, when creating a cluster in the management console, you can use a wizard that will help you choose the optimal configuration:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** → **{{ ui-key.yacloud.greenplum.wizard.action_open-wizard }}**.
-
-{% endlist %}
-
 ## Segment host configuration {#segment}
 
 Segment hosts are designed to store data and process queries against such data, which is why they are resource intensive. When choosing a segment host configuration, start with the estimated amount of data you will be storing (in GB) before compression.

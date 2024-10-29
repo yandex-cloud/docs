@@ -1,6 +1,6 @@
 ---
-title: "{{ ydb-full-name }} pricing policy"
-description: "This article describes the {{ ydb-full-name }} pricing policy."
+title: '{{ ydb-full-name }} pricing policy'
+description: This article describes the {{ ydb-full-name }} pricing policy.
 ---
 
 # {{ ydb-full-name }} pricing

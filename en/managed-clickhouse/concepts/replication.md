@@ -1,6 +1,6 @@
 ---
-title: "Replication in {{ mch-full-name }}"
-description: "In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}."
+title: Replication in {{ mch-full-name }}
+description: In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}.
 ---
 
 # Replication in {{ mch-name }}
@@ -34,7 +34,7 @@ If the cluster was created without {{ CK }} support, before adding new hosts to 
 You can enable fault tolerance and configure {{ ZK }} hosts [after creating a cluster](../operations/zk-hosts.md#add-zk) with a single host.
 
 
-You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. Note that:
+You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In this case:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.
@@ -53,10 +53,7 @@ The {{ ZK }} host class can be changed when configuring fault tolerance or [clus
 
 {% note warning %}
 
-Note:
-
-* {{ ZK }} hosts, if any, are taken into account when calculating [resource usage]({{ link-console-quotas }}) and the cost of the cluster.
-* In shards with multiple hosts, if you created a cluster and then enabled fault tolerance, you will not be able to reduce the number of hosts to one.
+{{ ZK }} hosts, if any, are taken into account when calculating [resource usage]({{ link-console-quotas }}) and the cost of the cluster.
 
 {% endnote %}
 

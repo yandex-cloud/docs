@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ monitoring-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ monitoring-name }}.
+---
+
 # Справочник {{ TF }} для {{ monitoring-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -16,4 +21,4 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/datasource_monitoring_dashboard) | Информация о [дашборде](./concepts/visualization/dashboard.md) |
+| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/monitoring_dashboard) | Информация о [дашборде](./concepts/visualization/dashboard.md) |

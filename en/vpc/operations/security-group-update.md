@@ -85,7 +85,7 @@ After creating a security group, you can change its name and description, and [a
 
 - API {#api}
 
-   To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) gRPC API call, and provide the following in the request:
+   To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/SecurityGroup/update.md) gRPC API call, and provide the following in the request:
 
    * ID of the security group you want to update, in the `securityGroupIds` parameter.
 

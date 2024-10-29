@@ -28,7 +28,7 @@
 
         * Введите имя и описание триггера.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `API-шлюз`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
@@ -54,7 +54,7 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Чтобы создать триггер, который отправялет сообщения в WebSocket-соединения, выполните команду:
+  Чтобы создать триггер, который отправляет сообщения в WebSocket-соединения, выполните команду:
 
     ```bash
     yc serverless trigger create container-registry \
@@ -105,7 +105,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для {{ container-registry-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ container-registry-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 

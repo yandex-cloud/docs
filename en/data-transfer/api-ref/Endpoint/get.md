@@ -3,39 +3,39 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/get.md
 ---
 
-# Data Transfer API, REST: Endpoint.get
+# Data Transfer API, REST: Endpoint.Get {#Get}
 
- 
+## HTTP request
 
- 
-## HTTP request {#https-request}
 ```
 GET https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-endpointId | 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| endpointId | **string**
+
+Required field.  ||
+|#
+
+## Response {#yandex.cloud.datatransfer.v1.Endpoint}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "settings": {
-
-    // `settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
+    // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
     "mysqlSource": {
       "connection": {
-
-        // `settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -44,23 +44,21 @@ endpointId |
             "string"
           ],
           "tlsMode": {
-
-            // `settings.mysqlSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.mysqlSource.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.mysqlSource.connection`
-
+        }
+        // end of the list of possible fields
       },
       "database": "string",
       "user": "string",
       "password": {
+        // Includes only one of the fields `raw`
         "raw": "string"
+        // end of the list of possible fields
       },
       "timezone": "string",
       "objectTransferSettings": {
@@ -82,8 +80,7 @@ endpointId |
     },
     "postgresSource": {
       "connection": {
-
-        // `settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -92,23 +89,21 @@ endpointId |
             "string"
           ],
           "tlsMode": {
-
-            // `settings.postgresSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.postgresSource.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.postgresSource.connection`
-
+        }
+        // end of the list of possible fields
       },
       "database": "string",
       "user": "string",
       "password": {
+        // Includes only one of the fields `raw`
         "raw": "string"
+        // end of the list of possible fields
       },
       "includeTables": [
         "string"
@@ -164,60 +159,54 @@ endpointId |
         "string"
       ],
       "parser": {
-
-        // `settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+        // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
         "jsonParser": {
           "dataSchema": {
-
-            // `settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+            // Includes only one of the fields `jsonFields`, `fields`
+            "jsonFields": "string",
             "fields": {
               "fields": [
                 {
                   "name": "string",
                   "type": "string",
-                  "key": true,
-                  "required": true,
+                  "key": "boolean",
+                  "required": "boolean",
                   "path": "string"
                 }
               ]
-            },
-            "jsonFields": "string",
-            // end of the list of possible fields`settings.ydsSource.parser.jsonParser.dataSchema`
-
+            }
+            // end of the list of possible fields
           },
-          "nullKeysAllowed": true,
-          "addRestColumn": true,
-          "unescapeStringValues": true
+          "nullKeysAllowed": "boolean",
+          "addRestColumn": "boolean",
+          "unescapeStringValues": "boolean"
         },
-        "auditTrailsV1Parser": {},
-        "cloudLoggingParser": {},
+        "auditTrailsV1Parser": "object",
+        "cloudLoggingParser": "object",
         "tskvParser": {
           "dataSchema": {
-
-            // `settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+            // Includes only one of the fields `jsonFields`, `fields`
+            "jsonFields": "string",
             "fields": {
               "fields": [
                 {
                   "name": "string",
                   "type": "string",
-                  "key": true,
-                  "required": true,
+                  "key": "boolean",
+                  "required": "boolean",
                   "path": "string"
                 }
               ]
-            },
-            "jsonFields": "string",
-            // end of the list of possible fields`settings.ydsSource.parser.tskvParser.dataSchema`
-
+            }
+            // end of the list of possible fields
           },
-          "nullKeysAllowed": true,
-          "addRestColumn": true,
-          "unescapeStringValues": true
-        },
-        // end of the list of possible fields`settings.ydsSource.parser`
-
+          "nullKeysAllowed": "boolean",
+          "addRestColumn": "boolean",
+          "unescapeStringValues": "boolean"
+        }
+        // end of the list of possible fields
       },
-      "allowTtlRewind": true,
+      "allowTtlRewind": "boolean",
       "endpoint": "string",
       "subnetId": "string",
       "securityGroups": [
@@ -227,8 +216,7 @@ endpointId |
     },
     "kafkaSource": {
       "connection": {
-
-        // `settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`
+        // Includes only one of the fields `clusterId`, `onPremise`
         "clusterId": "string",
         "onPremise": {
           "brokerUrls": [
@@ -236,32 +224,28 @@ endpointId |
           ],
           "subnetId": "string",
           "tlsMode": {
-
-            // `settings.kafkaSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.kafkaSource.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.kafkaSource.connection`
-
+        }
+        // end of the list of possible fields
       },
       "auth": {
-
-        // `settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`
+        // Includes only one of the fields `sasl`, `noAuth`
         "sasl": {
           "user": "string",
           "mechanism": "string",
           "password": {
+            // Includes only one of the fields `raw`
             "raw": "string"
+            // end of the list of possible fields
           }
         },
-        "noAuth": {},
-        // end of the list of possible fields`settings.kafkaSource.auth`
-
+        "noAuth": "object"
+        // end of the list of possible fields
       },
       "securityGroups": [
         "string"
@@ -276,58 +260,52 @@ endpointId |
         "serviceAccountId": "string"
       },
       "parser": {
-
-        // `settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+        // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
         "jsonParser": {
           "dataSchema": {
-
-            // `settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+            // Includes only one of the fields `jsonFields`, `fields`
+            "jsonFields": "string",
             "fields": {
               "fields": [
                 {
                   "name": "string",
                   "type": "string",
-                  "key": true,
-                  "required": true,
+                  "key": "boolean",
+                  "required": "boolean",
                   "path": "string"
                 }
               ]
-            },
-            "jsonFields": "string",
-            // end of the list of possible fields`settings.kafkaSource.parser.jsonParser.dataSchema`
-
+            }
+            // end of the list of possible fields
           },
-          "nullKeysAllowed": true,
-          "addRestColumn": true,
-          "unescapeStringValues": true
+          "nullKeysAllowed": "boolean",
+          "addRestColumn": "boolean",
+          "unescapeStringValues": "boolean"
         },
-        "auditTrailsV1Parser": {},
-        "cloudLoggingParser": {},
+        "auditTrailsV1Parser": "object",
+        "cloudLoggingParser": "object",
         "tskvParser": {
           "dataSchema": {
-
-            // `settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+            // Includes only one of the fields `jsonFields`, `fields`
+            "jsonFields": "string",
             "fields": {
               "fields": [
                 {
                   "name": "string",
                   "type": "string",
-                  "key": true,
-                  "required": true,
+                  "key": "boolean",
+                  "required": "boolean",
                   "path": "string"
                 }
               ]
-            },
-            "jsonFields": "string",
-            // end of the list of possible fields`settings.kafkaSource.parser.tskvParser.dataSchema`
-
+            }
+            // end of the list of possible fields
           },
-          "nullKeysAllowed": true,
-          "addRestColumn": true,
-          "unescapeStringValues": true
-        },
-        // end of the list of possible fields`settings.kafkaSource.parser`
-
+          "nullKeysAllowed": "boolean",
+          "addRestColumn": "boolean",
+          "unescapeStringValues": "boolean"
+        }
+        // end of the list of possible fields
       },
       "topicNames": [
         "string"
@@ -335,14 +313,9 @@ endpointId |
     },
     "mongoSource": {
       "connection": {
+        // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          "user": "string",
-          "password": {
-            "raw": "string"
-          },
-          "authSource": "string",
-
-          // `settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -351,19 +324,23 @@ endpointId |
             "port": "string",
             "replicaSet": "string",
             "tlsMode": {
-
-              // `settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-              "disabled": "object",
+              // Includes only one of the fields `enabled`
               "enabled": {
                 "caCertificate": "string"
-              },
-              // end of the list of possible fields`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode`
-
+              }
+              // end of the list of possible fields
             }
           },
-          // end of the list of possible fields`settings.mongoSource.connection.connectionOptions`
-
+          // end of the list of possible fields
+          "user": "string",
+          "password": {
+            // Includes only one of the fields `raw`
+            "raw": "string"
+            // end of the list of possible fields
+          },
+          "authSource": "string"
         }
+        // end of the list of possible fields
       },
       "subnetId": "string",
       "collections": [
@@ -378,22 +355,16 @@ endpointId |
           "collectionName": "string"
         }
       ],
-      "secondaryPreferredMode": true,
+      "secondaryPreferredMode": "boolean",
       "securityGroups": [
         "string"
       ]
     },
     "clickhouseSource": {
       "connection": {
+        // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          "user": "string",
-          "password": {
-            "raw": "string"
-          },
-          "database": "string",
-
-          // `settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-          "mdbClusterId": "string",
+          // Includes only one of the fields `onPremise`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -406,19 +377,24 @@ endpointId |
             "httpPort": "string",
             "nativePort": "string",
             "tlsMode": {
-
-              // `settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-              "disabled": "object",
+              // Includes only one of the fields `enabled`
               "enabled": {
                 "caCertificate": "string"
-              },
-              // end of the list of possible fields`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode`
-
+              }
+              // end of the list of possible fields
             }
           },
-          // end of the list of possible fields`settings.clickhouseSource.connection.connectionOptions`
-
+          "mdbClusterId": "string",
+          // end of the list of possible fields
+          "user": "string",
+          "password": {
+            // Includes only one of the fields `raw`
+            "raw": "string"
+            // end of the list of possible fields
+          },
+          "database": "string"
         }
+        // end of the list of possible fields
       },
       "includeTables": [
         "string"
@@ -429,12 +405,12 @@ endpointId |
       "subnetId": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "clickhouseClusterName": "string"
     },
     "mysqlTarget": {
       "connection": {
-
-        // `settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -443,26 +419,24 @@ endpointId |
             "string"
           ],
           "tlsMode": {
-
-            // `settings.mysqlTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.mysqlTarget.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.mysqlTarget.connection`
-
+        }
+        // end of the list of possible fields
       },
       "database": "string",
       "user": "string",
       "password": {
+        // Includes only one of the fields `raw`
         "raw": "string"
+        // end of the list of possible fields
       },
       "sqlMode": "string",
-      "skipConstraintChecks": true,
+      "skipConstraintChecks": "boolean",
       "timezone": "string",
       "cleanupPolicy": "string",
       "serviceDatabase": "string",
@@ -472,8 +446,7 @@ endpointId |
     },
     "postgresTarget": {
       "connection": {
-
-        // `settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -482,23 +455,21 @@ endpointId |
             "string"
           ],
           "tlsMode": {
-
-            // `settings.postgresTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.postgresTarget.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.postgresTarget.connection`
-
+        }
+        // end of the list of possible fields
       },
       "database": "string",
       "user": "string",
       "password": {
+        // Includes only one of the fields `raw`
         "raw": "string"
+        // end of the list of possible fields
       },
       "cleanupPolicy": "string",
       "securityGroups": [
@@ -507,15 +478,9 @@ endpointId |
     },
     "clickhouseTarget": {
       "connection": {
+        // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          "user": "string",
-          "password": {
-            "raw": "string"
-          },
-          "database": "string",
-
-          // `settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-          "mdbClusterId": "string",
+          // Includes only one of the fields `onPremise`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -528,19 +493,24 @@ endpointId |
             "httpPort": "string",
             "nativePort": "string",
             "tlsMode": {
-
-              // `settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-              "disabled": "object",
+              // Includes only one of the fields `enabled`
               "enabled": {
                 "caCertificate": "string"
-              },
-              // end of the list of possible fields`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode`
-
+              }
+              // end of the list of possible fields
             }
           },
-          // end of the list of possible fields`settings.clickhouseTarget.connection.connectionOptions`
-
+          "mdbClusterId": "string",
+          // end of the list of possible fields
+          "user": "string",
+          "password": {
+            // Includes only one of the fields `raw`
+            "raw": "string"
+            // end of the list of possible fields
+          },
+          "database": "string"
         }
+        // end of the list of possible fields
       },
       "subnetId": "string",
       "altNames": [
@@ -551,8 +521,7 @@ endpointId |
       ],
       "cleanupPolicy": "string",
       "sharding": {
-
-        // `settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`
+        // Includes only one of the fields `columnValueHash`, `customMapping`
         "columnValueHash": {
           "columnName": "string"
         },
@@ -561,16 +530,15 @@ endpointId |
           "mapping": [
             {
               "columnValue": {
+                // Includes only one of the fields `stringValue`
                 "stringValue": "string"
+                // end of the list of possible fields
               },
               "shardName": "string"
             }
           ]
-        },
-        "transferId": "object",
-        "roundRobin": "object",
-        // end of the list of possible fields`settings.clickhouseTarget.sharding`
-
+        }
+        // end of the list of possible fields
       },
       "clickhouseClusterName": "string",
       "securityGroups": [
@@ -588,13 +556,12 @@ endpointId |
       "securityGroups": [
         "string"
       ],
-      "isTableColumnOriented": true,
+      "isTableColumnOriented": "boolean",
       "defaultCompression": "string"
     },
     "kafkaTarget": {
       "connection": {
-
-        // `settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`
+        // Includes only one of the fields `clusterId`, `onPremise`
         "clusterId": "string",
         "onPremise": {
           "brokerUrls": [
@@ -602,52 +569,45 @@ endpointId |
           ],
           "subnetId": "string",
           "tlsMode": {
-
-            // `settings.kafkaTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-            "disabled": "object",
+            // Includes only one of the fields `enabled`
             "enabled": {
               "caCertificate": "string"
-            },
-            // end of the list of possible fields`settings.kafkaTarget.connection.onPremise.tlsMode`
-
+            }
+            // end of the list of possible fields
           }
-        },
-        // end of the list of possible fields`settings.kafkaTarget.connection`
-
+        }
+        // end of the list of possible fields
       },
       "auth": {
-
-        // `settings.kafkaTarget.auth` includes only one of the fields `sasl`, `noAuth`
+        // Includes only one of the fields `sasl`, `noAuth`
         "sasl": {
           "user": "string",
           "mechanism": "string",
           "password": {
+            // Includes only one of the fields `raw`
             "raw": "string"
+            // end of the list of possible fields
           }
         },
-        "noAuth": {},
-        // end of the list of possible fields`settings.kafkaTarget.auth`
-
+        "noAuth": "object"
+        // end of the list of possible fields
       },
       "securityGroups": [
         "string"
       ],
       "topicSettings": {
-
-        // `settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`
+        // Includes only one of the fields `topic`, `topicPrefix`
         "topic": {
           "topicName": "string",
-          "saveTxOrder": true
+          "saveTxOrder": "boolean"
         },
-        "topicPrefix": "string",
-        // end of the list of possible fields`settings.kafkaTarget.topicSettings`
-
+        "topicPrefix": "string"
+        // end of the list of possible fields
       },
       "serializer": {
-
-        // `settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
-        "serializerAuto": {},
-        "serializerJson": {},
+        // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
+        "serializerAuto": "object",
+        "serializerJson": "object",
         "serializerDebezium": {
           "serializerParameters": [
             {
@@ -655,21 +615,15 @@ endpointId |
               "value": "string"
             }
           ]
-        },
-        // end of the list of possible fields`settings.kafkaTarget.serializer`
-
+        }
+        // end of the list of possible fields
       }
     },
     "mongoTarget": {
       "connection": {
+        // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          "user": "string",
-          "password": {
-            "raw": "string"
-          },
-          "authSource": "string",
-
-          // `settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -678,19 +632,23 @@ endpointId |
             "port": "string",
             "replicaSet": "string",
             "tlsMode": {
-
-              // `settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
-              "disabled": "object",
+              // Includes only one of the fields `enabled`
               "enabled": {
                 "caCertificate": "string"
-              },
-              // end of the list of possible fields`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode`
-
+              }
+              // end of the list of possible fields
             }
           },
-          // end of the list of possible fields`settings.mongoTarget.connection.connectionOptions`
-
+          // end of the list of possible fields
+          "user": "string",
+          "password": {
+            // Includes only one of the fields `raw`
+            "raw": "string"
+            // end of the list of possible fields
+          },
+          "authSource": "string"
         }
+        // end of the list of possible fields
       },
       "database": "string",
       "cleanupPolicy": "string",
@@ -704,7 +662,9 @@ endpointId |
         "string"
       ],
       "token": {
+        // Includes only one of the fields `raw`
         "raw": "string"
+        // end of the list of possible fields
       },
       "streams": [
         {
@@ -719,12 +679,11 @@ endpointId |
       "database": "string",
       "stream": "string",
       "serviceAccountId": "string",
-      "saveTxOrder": true,
+      "saveTxOrder": "boolean",
       "serializer": {
-
-        // `settings.ydsTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
-        "serializerAuto": {},
-        "serializerJson": {},
+        // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
+        "serializerAuto": "object",
+        "serializerJson": "object",
         "serializerDebezium": {
           "serializerParameters": [
             {
@@ -732,412 +691,1269 @@ endpointId |
               "value": "string"
             }
           ]
-        },
-        // end of the list of possible fields`settings.ydsTarget.serializer`
-
+        }
+        // end of the list of possible fields
       },
       "endpoint": "string",
       "subnetId": "string",
       "securityGroups": [
         "string"
       ]
-    },
-    // end of the list of possible fields`settings`
-
+    }
+    // end of the list of possible fields
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**
-folderId | **string**
-name | **string**
-description | **string**
-labels | **object**
-settings | **object**
-settings.<br>mysqlSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>mysqlSource.<br>connection | **object**<br><p>Database connection settings</p> 
-settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise MySQL <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>hosts[] | **string**
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for server connection. Disabled by default.</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mysqlSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mysqlSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mysqlSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>mysqlSource.<br>database | **string**<br><p>Database name</p> <p>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source.</p> 
-settings.<br>mysqlSource.<br>user | **string**<br><p>User for database access.</p> 
-settings.<br>mysqlSource.<br>password | **object**<br><p>Password for database access.</p> 
-settings.<br>mysqlSource.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>mysqlSource.<br>timezone | **string**<br><p>Database timezone</p> <p>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.</p> 
-settings.<br>mysqlSource.<br>objectTransferSettings | **object**<br><p>Schema migration</p> <p>Select database objects to be transferred during activation or deactivation.</p> 
-settings.<br>mysqlSource.<br>objectTransferSettings.<br>view | **string**<br><p>Views</p> <p>CREATE VIEW ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>mysqlSource.<br>objectTransferSettings.<br>routine | **string**<br><p>Routines</p> <p>CREATE PROCEDURE ... ; CREATE FUNCTION ... ;</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>mysqlSource.<br>objectTransferSettings.<br>trigger | **string**<br><p>Triggers</p> <p>CREATE TRIGGER ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>mysqlSource.<br>objectTransferSettings.<br>tables | **string**<br><ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>mysqlSource.<br>includeTablesRegex[] | **string**
-settings.<br>mysqlSource.<br>excludeTablesRegex[] | **string**
-settings.<br>mysqlSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>mysqlSource.<br>serviceDatabase | **string**<br><p>Database for service tables</p> <p>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
-settings.<br>postgresSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>postgresSource.<br>connection | **object**<br><p>Database connection settings</p> 
-settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for PostgreSQL cluster ID</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise PostgreSQL <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Will be used if the cluster ID is not specified.</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>hosts[] | **string**
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for server connection. Disabled by default.</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.postgresSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.postgresSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.postgresSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>postgresSource.<br>database | **string**<br><p>Database name</p> 
-settings.<br>postgresSource.<br>user | **string**<br><p>User for database access.</p> 
-settings.<br>postgresSource.<br>password | **object**<br><p>Password for database access.</p> 
-settings.<br>postgresSource.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>postgresSource.<br>includeTables[] | **string**<br><p>Included tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
-settings.<br>postgresSource.<br>excludeTables[] | **string**<br><p>Excluded tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
-settings.<br>postgresSource.<br>slotByteLagLimit | **string** (int64)<br><p>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted.</p> 
-settings.<br>postgresSource.<br>serviceSchema | **string**<br><p>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public</p> 
-settings.<br>postgresSource.<br>objectTransferSettings | **object**<br><p>Select database objects to be transferred during activation or deactivation.</p> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>sequence | **string**<br><p>Sequences</p> <p>CREATE SEQUENCE ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>sequenceOwnedBy | **string**<br><p>Owned sequences</p> <p>CREATE SEQUENCE ... OWNED BY ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>table | **string**<br><p>Tables</p> <p>CREATE TABLE ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>primaryKey | **string**<br><p>Primary keys</p> <p>ALTER TABLE ... ADD PRIMARY KEY ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>fkConstraint | **string**<br><p>Foreign keys</p> <p>ALTER TABLE ... ADD FOREIGN KEY ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>defaultValues | **string**<br><p>Default values</p> <p>ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>constraint | **string**<br><p>Constraints</p> <p>ALTER TABLE ... ADD CONSTRAINT ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>index | **string**<br><p>Indexes</p> <p>CREATE INDEX ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>view | **string**<br><p>Views</p> <p>CREATE VIEW ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>function | **string**<br><p>Functions</p> <p>CREATE FUNCTION ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>trigger | **string**<br><p>Triggers</p> <p>CREATE TRIGGER ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>type | **string**<br><p>Types</p> <p>CREATE TYPE ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>rule | **string**<br><p>Rules</p> <p>CREATE RULE ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>collation | **string**<br><p>Collations</p> <p>CREATE COLLATION ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>policy | **string**<br><p>Policies</p> <p>CREATE POLICY ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>cast | **string**<br><p>Casts</p> <p>CREATE CAST ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>materializedView | **string**<br><p>Materialized views</p> <p>CREATE MATERIALIZED VIEW ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>objectTransferSettings.<br>sequenceSet | **string**<br><ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
-settings.<br>postgresSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>ydbSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>ydbSource.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
-settings.<br>ydbSource.<br>instance | **string**<br><p>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135</p> 
-settings.<br>ydbSource.<br>paths[] | **string**
-settings.<br>ydbSource.<br>serviceAccountId | **string**
-settings.<br>ydbSource.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>ydbSource.<br>saKeyContent | **string**<br><p>Authorization Key</p> 
-settings.<br>ydbSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>ydbSource.<br>changefeedCustomName | **string**<br><p>Pre-created change feed</p> 
-settings.<br>ydsSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>ydsSource.<br>database | **string**<br><p>Database</p> 
-settings.<br>ydsSource.<br>stream | **string**<br><p>Stream</p> 
-settings.<br>ydsSource.<br>serviceAccountId | **string**<br><p>SA which has read access to the stream.</p> 
-settings.<br>ydsSource.<br>supportedCodecs[] | **string**<br><p>Compression codec</p> 
-settings.<br>ydsSource.<br>parser | **object**<br><p>Data parsing rules</p> 
-settings.<br>ydsSource.<br>parser.<br>jsonParser | **object** <br>`settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
-settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
-settings.<br>ydsSource.<br>parser.<br>auditTrailsV1Parser | **object** <br>`settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>ydsSource.<br>parser.<br>cloudLoggingParser | **object** <br>`settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>ydsSource.<br>parser.<br>tskvParser | **object** <br>`settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
-settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
-settings.<br>ydsSource.<br>allowTtlRewind | **boolean** (boolean)<br><p>Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data</p> 
-settings.<br>ydsSource.<br>endpoint | **string**<br><p>for dedicated db</p> 
-settings.<br>ydsSource.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>ydsSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>ydsSource.<br>consumer | **string**<br><p>for important streams</p> 
-settings.<br>kafkaSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>kafkaSource.<br>connection | **object**<br><p>Connection settings</p> 
-settings.<br>kafkaSource.<br>connection.<br>clusterId | **string** <br>`settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise Kafka <br>`settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br>
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>brokerUrls[] | **string**<br><p>Kafka broker URLs</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for broker connection. Disabled by default.</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.kafkaSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.kafkaSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.kafkaSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>kafkaSource.<br>auth | **object**<br><p>Authentication settings</p> 
-settings.<br>kafkaSource.<br>auth.<br>sasl | **object**<br>Authentication with SASL <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
-settings.<br>kafkaSource.<br>auth.<br>sasl.<br>user | **string**<br><p>User name</p> 
-settings.<br>kafkaSource.<br>auth.<br>sasl.<br>mechanism | **string**<br><p>SASL mechanism for authentication</p> 
-settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password | **object**<br><p>Password for user</p> 
-settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>kafkaSource.<br>auth.<br>noAuth | **object**<br>No authentication <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
-settings.<br>kafkaSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name Deprecated in favor of topic names</p> 
-settings.<br>kafkaSource.<br>transformer | **object**<br><p>Data transformation rules</p> 
-settings.<br>kafkaSource.<br>transformer.<br>cloudFunction | **string**<br><p>Cloud function</p> 
-settings.<br>kafkaSource.<br>transformer.<br>numberOfRetries | **string** (int64)<br><p>Number of retries</p> 
-settings.<br>kafkaSource.<br>transformer.<br>bufferSize | **string**<br><p>Buffer size for function</p> 
-settings.<br>kafkaSource.<br>transformer.<br>bufferFlushInterval | **string**<br><p>Flush interval</p> 
-settings.<br>kafkaSource.<br>transformer.<br>invocationTimeout | **string**<br><p>Invocation timeout</p> 
-settings.<br>kafkaSource.<br>transformer.<br>serviceAccountId | **string**<br><p>Service account</p> 
-settings.<br>kafkaSource.<br>parser | **object**<br><p>Data parsing rules</p> 
-settings.<br>kafkaSource.<br>parser.<br>jsonParser | **object** <br>`settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
-settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
-settings.<br>kafkaSource.<br>parser.<br>auditTrailsV1Parser | **object** <br>`settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>kafkaSource.<br>parser.<br>cloudLoggingParser | **object** <br>`settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>kafkaSource.<br>parser.<br>tskvParser | **object** <br>`settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
-settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
-settings.<br>kafkaSource.<br>topicNames[] | **string**<br><p>List of topic names to read</p> 
-settings.<br>mongoSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>mongoSource.<br>connection | **object**
-settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>user | **string**<br><p>User name</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>authSource | **string**<br><p>Database name associated with the credentials</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>hosts[] | **string**
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>port | **string** (int64)
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>replicaSet | **string**
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>mongoSource.<br>subnetId | **string**
-settings.<br>mongoSource.<br>collections[] | **object**<br><p>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name.</p> 
-settings.<br>mongoSource.<br>collections[].<br>databaseName | **string**
-settings.<br>mongoSource.<br>collections[].<br>collectionName | **string**
-settings.<br>mongoSource.<br>excludedCollections[] | **object**<br><p>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema.</p> 
-settings.<br>mongoSource.<br>excludedCollections[].<br>databaseName | **string**
-settings.<br>mongoSource.<br>excludedCollections[].<br>collectionName | **string**
-settings.<br>mongoSource.<br>secondaryPreferredMode | **boolean** (boolean)<br><p>Read mode for mongo client</p> 
-settings.<br>mongoSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>clickhouseSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>clickhouseSource.<br>connection | **object**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions | **object**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>user | **string**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>httpPort | **string** (int64)
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>nativePort | **string** (int64)
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>clickhouseSource.<br>includeTables[] | **string**<br><p>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
-settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br><p>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
-settings.<br>clickhouseSource.<br>subnetId | **string**
-settings.<br>clickhouseSource.<br>securityGroups[] | **string**
-settings.<br>mysqlTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>mysqlTarget.<br>connection | **object**<br><p>Database connection settings</p> 
-settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise MySQL <br>`settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for server connection. Disabled by default.</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mysqlTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mysqlTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mysqlTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>mysqlTarget.<br>database | **string**<br><p>Database name</p> <p>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table.</p> 
-settings.<br>mysqlTarget.<br>user | **string**<br><p>User for database access.</p> 
-settings.<br>mysqlTarget.<br>password | **object**<br><p>Password for database access.</p> 
-settings.<br>mysqlTarget.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>mysqlTarget.<br>sqlMode | **string**<br><p>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.</p> 
-settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br><p>Disable constraints checks</p> <p>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0.</p> 
-settings.<br>mysqlTarget.<br>timezone | **string**<br><p>Database timezone</p> <p>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.</p> 
-settings.<br>mysqlTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> <ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
-settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
-settings.<br>mysqlTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>postgresTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>postgresTarget.<br>connection | **object**<br><p>Database connection settings</p> 
-settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for PostgreSQL cluster ID</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise PostgreSQL <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Will be used if the cluster ID is not specified.</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for server connection. Disabled by default.</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.postgresTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.postgresTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.postgresTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>postgresTarget.<br>database | **string**<br><p>Database name</p> 
-settings.<br>postgresTarget.<br>user | **string**<br><p>User for database access.</p> 
-settings.<br>postgresTarget.<br>password | **object**<br><p>Password for database access.</p> 
-settings.<br>postgresTarget.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>postgresTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy for activate, reactivate and reupload processes. Default is truncate.</p> <ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
-settings.<br>postgresTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>clickhouseTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>clickhouseTarget.<br>connection | **object**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions | **object**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>user | **string**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>httpPort | **string** (int64)
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>nativePort | **string** (int64)
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>clickhouseTarget.<br>subnetId | **string**
-settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alternative table names in target</p> 
-settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
-settings.<br>clickhouseTarget.<br>altNames[].<br>toName | **string**<br><p>Target table name</p> 
-settings.<br>clickhouseTarget.<br>cleanupPolicy | **string**
-settings.<br>clickhouseTarget.<br>sharding | **object**
-settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
-settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash.<br>columnName | **string**
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**
-settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**
-settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**
-settings.<br>clickhouseTarget.<br>securityGroups[] | **string**
-settings.<br>ydbTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
-settings.<br>ydbTarget.<br>instance | **string**<br><p>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135</p> 
-settings.<br>ydbTarget.<br>path | **string**<br><p>Path extension for database, each table will be layouted into this path</p> 
-settings.<br>ydbTarget.<br>serviceAccountId | **string**
-settings.<br>ydbTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> 
-settings.<br>ydbTarget.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>ydbTarget.<br>saKeyContent | **string**<br><p>SA content</p> 
-settings.<br>ydbTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>ydbTarget.<br>isTableColumnOriented | **boolean** (boolean)<br><p>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP)</p> 
-settings.<br>ydbTarget.<br>defaultCompression | **string**<br><p>Compression that will be used for default columns family on YDB table creation</p> 
-settings.<br>kafkaTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>kafkaTarget.<br>connection | **object**<br><p>Connection settings</p> 
-settings.<br>kafkaTarget.<br>connection.<br>clusterId | **string** <br>`settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise Kafka <br>`settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br>
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>brokerUrls[] | **string**<br><p>Kafka broker URLs</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for broker connection. Disabled by default.</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.kafkaTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.kafkaTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.kafkaTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>kafkaTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>kafkaTarget.<br>auth | **object**<br><p>Authentication settings</p> 
-settings.<br>kafkaTarget.<br>auth.<br>sasl | **object**<br>Authentication with SASL <br>`settings.kafkaTarget.auth` includes only one of the fields `sasl`, `noAuth`<br>
-settings.<br>kafkaTarget.<br>auth.<br>sasl.<br>user | **string**<br><p>User name</p> 
-settings.<br>kafkaTarget.<br>auth.<br>sasl.<br>mechanism | **string**<br><p>SASL mechanism for authentication</p> 
-settings.<br>kafkaTarget.<br>auth.<br>sasl.<br>password | **object**<br><p>Password for user</p> 
-settings.<br>kafkaTarget.<br>auth.<br>sasl.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>kafkaTarget.<br>auth.<br>noAuth | **object**<br>No authentication <br>`settings.kafkaTarget.auth` includes only one of the fields `sasl`, `noAuth`<br>
-settings.<br>kafkaTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>kafkaTarget.<br>topicSettings | **object**<br><p>Target topic settings</p> 
-settings.<br>kafkaTarget.<br>topicSettings.<br>topic | **object**<br>Full topic name <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br>
-settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>topicName | **string**<br><p>Topic name</p> 
-settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>saveTxOrder | **boolean** (boolean)<br><p>Save transactions order Not to split events queue into separate per-table queues.</p> 
-settings.<br>kafkaTarget.<br>topicSettings.<br>topicPrefix | **string** <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br><br><p>Topic prefix</p> <p>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name &lt;topic_prefix&gt;.<schema>.&lt;table_name&gt;.</p> 
-settings.<br>kafkaTarget.<br>serializer | **object**<br><p>Data serialization format settings</p> <p>Data serialization format</p> 
-settings.<br>kafkaTarget.<br>serializer.<br>serializerAuto | **object**<br>Select the serialization format automatically <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>kafkaTarget.<br>serializer.<br>serializerJson | **object**<br>Serialize data in json format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium | **object**<br>Serialize data in debezium format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[] | **object**<br><p>Settings of sterilization parameters as key-value pairs</p> 
-settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>key | **string**<br><p>Name of the serializer parameter</p> 
-settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>value | **string**<br><p>Value of the serializer parameter</p> 
-settings.<br>mongoTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>mongoTarget.<br>connection | **object**
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions | **object**
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>user | **string**<br><p>User name</p> 
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>authSource | **string**<br><p>Database name associated with the credentials</p> 
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>hosts[] | **string**
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>port | **string** (int64)
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>replicaSet | **string**
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
-settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
-settings.<br>mongoTarget.<br>database | **string**<br><p>Database name</p> 
-settings.<br>mongoTarget.<br>cleanupPolicy | **string**<br><ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
-settings.<br>mongoTarget.<br>subnetId | **string**
-settings.<br>mongoTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-settings.<br>metrikaSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>metrikaSource.<br>counterIds[] | **string** (int64)
-settings.<br>metrikaSource.<br>token | **object**
-settings.<br>metrikaSource.<br>token.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>metrikaSource.<br>streams[] | **object**
-settings.<br>metrikaSource.<br>streams[].<br>type | **string**
-settings.<br>metrikaSource.<br>streams[].<br>columns[] | **string**
-settings.<br>ydsTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
-settings.<br>ydsTarget.<br>database | **string**<br><p>Database</p> 
-settings.<br>ydsTarget.<br>stream | **string**<br><p>Stream</p> 
-settings.<br>ydsTarget.<br>serviceAccountId | **string**<br><p>SA which has read access to the stream.</p> 
-settings.<br>ydsTarget.<br>saveTxOrder | **boolean** (boolean)<br><p>Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name.</p> 
-settings.<br>ydsTarget.<br>serializer | **object**<br><p>Data serialization format</p> <p>Data serialization format</p> 
-settings.<br>ydsTarget.<br>serializer.<br>serializerAuto | **object**<br>Select the serialization format automatically <br>`settings.ydsTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>ydsTarget.<br>serializer.<br>serializerJson | **object**<br>Serialize data in json format <br>`settings.ydsTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>ydsTarget.<br>serializer.<br>serializerDebezium | **object**<br>Serialize data in debezium format <br>`settings.ydsTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>ydsTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[] | **object**<br><p>Settings of sterilization parameters as key-value pairs</p> 
-settings.<br>ydsTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>key | **string**<br><p>Name of the serializer parameter</p> 
-settings.<br>ydsTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>value | **string**<br><p>Value of the serializer parameter</p> 
-settings.<br>ydsTarget.<br>endpoint | **string**<br><p>for dedicated db</p> 
-settings.<br>ydsTarget.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
-settings.<br>ydsTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
+#|
+||Field | Description ||
+|| id | **string** ||
+|| folderId | **string** ||
+|| name | **string** ||
+|| description | **string** ||
+|| labels | **string** ||
+|| settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)** ||
+|#
+
+## EndpointSettings {#yandex.cloud.datatransfer.v1.EndpointSettings}
+
+#|
+||Field | Description ||
+|| mysqlSource | **[MysqlSource](#yandex.cloud.datatransfer.v1.endpoint.MysqlSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| postgresSource | **[PostgresSource](#yandex.cloud.datatransfer.v1.endpoint.PostgresSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| ydbSource | **[YdbSource](#yandex.cloud.datatransfer.v1.endpoint.YdbSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| ydsSource | **[YDSSource](#yandex.cloud.datatransfer.v1.endpoint.YDSSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| kafkaSource | **[KafkaSource](#yandex.cloud.datatransfer.v1.endpoint.KafkaSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| mongoSource | **[MongoSource](#yandex.cloud.datatransfer.v1.endpoint.MongoSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| clickhouseSource | **[ClickhouseSource](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| mysqlTarget | **[MysqlTarget](#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| postgresTarget | **[PostgresTarget](#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| clickhouseTarget | **[ClickhouseTarget](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| ydbTarget | **[YdbTarget](#yandex.cloud.datatransfer.v1.endpoint.YdbTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| kafkaTarget | **[KafkaTarget](#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| mongoTarget | **[MongoTarget](#yandex.cloud.datatransfer.v1.endpoint.MongoTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| metrikaSource | **[MetrikaSource](#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|| ydsTarget | **[YDSTarget](#yandex.cloud.datatransfer.v1.endpoint.YDSTarget)**
+
+Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+|#
+
+## MysqlSource {#yandex.cloud.datatransfer.v1.endpoint.MysqlSource}
+
+#|
+||Field | Description ||
+|| connection | **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
+
+Database connection settings ||
+|| database | **string**
+
+Database name
+
+You can leave it empty, then it will be possible to transfer tables from several
+databases at the same time from this source. ||
+|| user | **string**
+
+User for database access. ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for database access. ||
+|| timezone | **string**
+
+Database timezone
+
+Is used for parsing timestamps for saving source timezones. Accepts values from
+IANA timezone database. Default: local timezone. ||
+|| objectTransferSettings | **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
+
+Schema migration
+
+Select database objects to be transferred during activation or deactivation. ||
+|| includeTablesRegex[] | **string** ||
+|| excludeTablesRegex[] | **string** ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| serviceDatabase | **string**
+
+Database for service tables
+
+Default: data source database. Here created technical tables (__tm_keeper,
+__tm_gtid_keeper). ||
+|#
+
+## MysqlConnection {#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection}
+
+#|
+||Field | Description ||
+|| mdbClusterId | **string**
+
+Managed Service for MySQL cluster ID
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|| onPremise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
+
+Connection options for on-premise MySQL
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|#
+
+## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Database port ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| hosts[] | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|#
+
+## TLSMode {#yandex.cloud.datatransfer.v1.endpoint.TLSMode}
+
+#|
+||Field | Description ||
+|| enabled | **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
+
+Includes only one of the fields `enabled`. ||
+|#
+
+## TLSConfig {#yandex.cloud.datatransfer.v1.endpoint.TLSConfig}
+
+#|
+||Field | Description ||
+|| caCertificate | **string**
+
+CA certificate
+
+X.509 certificate of the certificate authority which issued the server's
+certificate, in PEM format. When CA certificate is specified TLS is used to
+connect to the server. ||
+|#
+
+## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
+
+#|
+||Field | Description ||
+|| raw | **string**
+
+Raw secret value
+
+Includes only one of the fields `raw`. ||
+|#
+
+## MysqlObjectTransferSettings {#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings}
+
+#|
+||Field | Description ||
+|| view | **enum** (ObjectTransferStage)
+
+Views
+
+CREATE VIEW ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| routine | **enum** (ObjectTransferStage)
+
+Routines
+
+CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| trigger | **enum** (ObjectTransferStage)
+
+Triggers
+
+CREATE TRIGGER ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| tables | **enum** (ObjectTransferStage)
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|#
+
+## PostgresSource {#yandex.cloud.datatransfer.v1.endpoint.PostgresSource}
+
+#|
+||Field | Description ||
+|| connection | **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
+
+Database connection settings ||
+|| database | **string**
+
+Database name ||
+|| user | **string**
+
+User for database access. not required as may be in connection ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for database access. ||
+|| includeTables[] | **string**
+
+Included tables
+
+If none or empty list is presented, all tables are replicated. Full table name
+with schema. Can contain schema_name.* patterns. ||
+|| excludeTables[] | **string**
+
+Excluded tables
+
+If none or empty list is presented, all tables are replicated. Full table name
+with schema. Can contain schema_name.* patterns. ||
+|| slotByteLagLimit | **string** (int64)
+
+Maximum lag of replication slot (in bytes); after exceeding this limit
+replication will be aborted. ||
+|| serviceSchema | **string**
+
+Database schema for service tables (__consumer_keeper,
+__data_transfer_mole_finder). Default is public ||
+|| objectTransferSettings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
+
+Select database objects to be transferred during activation or deactivation. ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#
+
+## PostgresConnection {#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection}
+
+#|
+||Field | Description ||
+|| mdbClusterId | **string**
+
+Managed Service for PostgreSQL cluster ID
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|| onPremise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
+
+Connection options for on-premise PostgreSQL
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|#
+
+## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Will be used if the cluster ID is not specified. ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| hosts[] | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|#
+
+## PostgresObjectTransferSettings {#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings}
+
+#|
+||Field | Description ||
+|| sequence | **enum** (ObjectTransferStage)
+
+Sequences
+
+CREATE SEQUENCE ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| sequenceOwnedBy | **enum** (ObjectTransferStage)
+
+Owned sequences
+
+CREATE SEQUENCE ... OWNED BY ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| table | **enum** (ObjectTransferStage)
+
+Tables
+
+CREATE TABLE ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| primaryKey | **enum** (ObjectTransferStage)
+
+Primary keys
+
+ALTER TABLE ... ADD PRIMARY KEY ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| fkConstraint | **enum** (ObjectTransferStage)
+
+Foreign keys
+
+ALTER TABLE ... ADD FOREIGN KEY ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| defaultValues | **enum** (ObjectTransferStage)
+
+Default values
+
+ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| constraint | **enum** (ObjectTransferStage)
+
+Constraints
+
+ALTER TABLE ... ADD CONSTRAINT ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| index | **enum** (ObjectTransferStage)
+
+Indexes
+
+CREATE INDEX ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| view | **enum** (ObjectTransferStage)
+
+Views
+
+CREATE VIEW ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| function | **enum** (ObjectTransferStage)
+
+Functions
+
+CREATE FUNCTION ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| trigger | **enum** (ObjectTransferStage)
+
+Triggers
+
+CREATE TRIGGER ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| type | **enum** (ObjectTransferStage)
+
+Types
+
+CREATE TYPE ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| rule | **enum** (ObjectTransferStage)
+
+Rules
+
+CREATE RULE ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| collation | **enum** (ObjectTransferStage)
+
+Collations
+
+CREATE COLLATION ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| policy | **enum** (ObjectTransferStage)
+
+Policies
+
+CREATE POLICY ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| cast | **enum** (ObjectTransferStage)
+
+Casts
+
+CREATE CAST ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| materializedView | **enum** (ObjectTransferStage)
+
+Materialized views
+
+CREATE MATERIALIZED VIEW ...
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|| sequenceSet | **enum** (ObjectTransferStage)
+
+- `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+- `BEFORE_DATA`: Before data transfer
+- `AFTER_DATA`: After data transfer
+- `NEVER`: Don't copy ||
+|#
+
+## YdbSource {#yandex.cloud.datatransfer.v1.endpoint.YdbSource}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Path in YDB where to store tables ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 ||
+|| paths[] | **string** ||
+|| serviceAccountId | **string** ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| saKeyContent | **string**
+
+Authorization Key ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| changefeedCustomName | **string**
+
+Pre-created change feed ||
+|#
+
+## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database ||
+|| stream | **string**
+
+Stream ||
+|| serviceAccountId | **string**
+
+SA which has read access to the stream. ||
+|| supportedCodecs[] | **enum** (YdsCompressionCodec)
+
+Compression codec
+
+- `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+- `YDS_COMPRESSION_CODEC_RAW`
+- `YDS_COMPRESSION_CODEC_GZIP`
+- `YDS_COMPRESSION_CODEC_ZSTD` ||
+|| parser | **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
+
+Data parsing rules ||
+|| allowTtlRewind | **boolean**
+
+Should continue working, if consumer read lag exceed TTL of topic
+False: stop the transfer in error state, if detected lost data. True: continue
+working with losing part of data ||
+|| endpoint | **string**
+
+for dedicated db ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| consumer | **string**
+
+for important streams ||
+|#
+
+## Parser {#yandex.cloud.datatransfer.v1.endpoint.Parser}
+
+#|
+||Field | Description ||
+|| jsonParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+|| auditTrailsV1Parser | **object**
+
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+|| cloudLoggingParser | **object**
+
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+|| tskvParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+|#
+
+## GenericParserCommon {#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon}
+
+#|
+||Field | Description ||
+|| dataSchema | **[DataSchema](#yandex.cloud.datatransfer.v1.endpoint.DataSchema)** ||
+|| nullKeysAllowed | **boolean**
+
+Allow null keys, if no - null keys will be putted to unparsed data ||
+|| addRestColumn | **boolean**
+
+Will add _rest column for all unknown fields ||
+|| unescapeStringValues | **boolean**
+
+Unescape string values ||
+|#
+
+## DataSchema {#yandex.cloud.datatransfer.v1.endpoint.DataSchema}
+
+#|
+||Field | Description ||
+|| jsonFields | **string**
+
+Includes only one of the fields `jsonFields`, `fields`. ||
+|| fields | **[FieldList](#yandex.cloud.datatransfer.v1.endpoint.FieldList)**
+
+Includes only one of the fields `jsonFields`, `fields`. ||
+|#
+
+## FieldList {#yandex.cloud.datatransfer.v1.endpoint.FieldList}
+
+#|
+||Field | Description ||
+|| fields[] | **[ColSchema](#yandex.cloud.datatransfer.v1.endpoint.ColSchema)**
+
+Column schema ||
+|#
+
+## ColSchema {#yandex.cloud.datatransfer.v1.endpoint.ColSchema}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| type | **enum** (ColumnType)
+
+- `COLUMN_TYPE_UNSPECIFIED`
+- `INT32`
+- `INT16`
+- `INT8`
+- `UINT64`
+- `UINT32`
+- `UINT16`
+- `UINT8`
+- `DOUBLE`
+- `BOOLEAN`
+- `STRING`
+- `UTF8`
+- `ANY`
+- `DATETIME`
+- `INT64` ||
+|| key | **boolean** ||
+|| required | **boolean** ||
+|| path | **string** ||
+|#
+
+## KafkaSource {#yandex.cloud.datatransfer.v1.endpoint.KafkaSource}
+
+#|
+||Field | Description ||
+|| connection | **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
+
+Connection settings ||
+|| auth | **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
+
+Authentication settings ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| topicName | **string**
+
+Full source topic name
+Deprecated in favor of topic names ||
+|| transformer | **[DataTransformationOptions](#yandex.cloud.datatransfer.v1.endpoint.DataTransformationOptions)**
+
+Data transformation rules ||
+|| parser | **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
+
+Data parsing rules ||
+|| topicNames[] | **string**
+
+List of topic names to read ||
+|#
+
+## KafkaConnectionOptions {#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions}
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Managed Service for Kafka cluster ID
+
+Includes only one of the fields `clusterId`, `onPremise`. ||
+|| onPremise | **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
+
+Connection options for on-premise Kafka
+
+Includes only one of the fields `clusterId`, `onPremise`. ||
+|#
+
+## OnPremiseKafka {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka}
+
+#|
+||Field | Description ||
+|| brokerUrls[] | **string**
+
+Kafka broker URLs ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for broker connection. Disabled by default. ||
+|#
+
+## KafkaAuth {#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth}
+
+#|
+||Field | Description ||
+|| sasl | **[KafkaSaslSecurity](#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity)**
+
+Authentication with SASL
+
+Includes only one of the fields `sasl`, `noAuth`. ||
+|| noAuth | **object**
+
+No authentication
+
+Includes only one of the fields `sasl`, `noAuth`. ||
+|#
+
+## KafkaSaslSecurity {#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity}
+
+#|
+||Field | Description ||
+|| user | **string**
+
+User name ||
+|| mechanism | **enum** (KafkaMechanism)
+
+SASL mechanism for authentication
+
+- `KAFKA_MECHANISM_UNSPECIFIED`
+- `KAFKA_MECHANISM_SHA256`
+- `KAFKA_MECHANISM_SHA512` ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for user ||
+|#
+
+## DataTransformationOptions {#yandex.cloud.datatransfer.v1.endpoint.DataTransformationOptions}
+
+#|
+||Field | Description ||
+|| cloudFunction | **string**
+
+Cloud function ||
+|| numberOfRetries | **string** (int64)
+
+Number of retries ||
+|| bufferSize | **string**
+
+Buffer size for function ||
+|| bufferFlushInterval | **string**
+
+Flush interval ||
+|| invocationTimeout | **string**
+
+Invocation timeout ||
+|| serviceAccountId | **string**
+
+Service account ||
+|#
+
+## MongoSource {#yandex.cloud.datatransfer.v1.endpoint.MongoSource}
+
+#|
+||Field | Description ||
+|| connection | **[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)** ||
+|| subnetId | **string** ||
+|| collections[] | **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
+
+List of collections for replication. Empty list implies replication of all
+tables on the deployment. Allowed to use * as collection name. ||
+|| excludedCollections[] | **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
+
+List of forbidden collections for replication. Allowed to use * as collection
+name for forbid all collections of concrete schema. ||
+|| secondaryPreferredMode | **boolean**
+
+Read mode for mongo client ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#
+
+## MongoConnection {#yandex.cloud.datatransfer.v1.endpoint.MongoConnection}
+
+#|
+||Field | Description ||
+|| connectionOptions | **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
+
+Includes only one of the fields `connectionOptions`. ||
+|#
+
+## MongoConnectionOptions {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions}
+
+#|
+||Field | Description ||
+|| mdbClusterId | **string**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|| onPremise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+|| user | **string**
+
+User name ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for user ||
+|| authSource | **string**
+
+Database name associated with the credentials ||
+|#
+
+## OnPremiseMongo {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo}
+
+#|
+||Field | Description ||
+|| hosts[] | **string** ||
+|| port | **string** (int64) ||
+|| replicaSet | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|#
+
+## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
+
+#|
+||Field | Description ||
+|| databaseName | **string** ||
+|| collectionName | **string** ||
+|#
+
+## ClickhouseSource {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource}
+
+#|
+||Field | Description ||
+|| connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
+|| includeTables[] | **string**
+
+While list of tables for replication. If none or empty list is presented - will
+replicate all tables. Can contain * patterns. ||
+|| excludeTables[] | **string**
+
+Exclude list of tables for replication. If none or empty list is presented -
+will replicate all tables. Can contain * patterns. ||
+|| subnetId | **string** ||
+|| securityGroups[] | **string** ||
+|| clickhouseClusterName | **string**
+
+Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+ShardGroup. ||
+|#
+
+## ClickhouseConnection {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection}
+
+#|
+||Field | Description ||
+|| connectionOptions | **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
+
+Includes only one of the fields `connectionOptions`. ||
+|#
+
+## ClickhouseConnectionOptions {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions}
+
+#|
+||Field | Description ||
+|| onPremise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
+
+Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+|| mdbClusterId | **string**
+
+Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+|| user | **string** ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
+|| database | **string**
+
+Database ||
+|#
+
+## OnPremiseClickhouse {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse}
+
+#|
+||Field | Description ||
+|| shards[] | **[ClickhouseShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard)** ||
+|| httpPort | **string** (int64) ||
+|| nativePort | **string** (int64) ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|#
+
+## ClickhouseShard {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| hosts[] | **string** ||
+|#
+
+## MysqlTarget {#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget}
+
+#|
+||Field | Description ||
+|| connection | **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
+
+Database connection settings ||
+|| database | **string**
+
+Database name
+
+Allowed to leave it empty, then the tables will be created in databases with the
+same names as on the source. If this field is empty, then you must fill below db
+schema for service table. ||
+|| user | **string**
+
+User for database access. ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for database access. ||
+|| sqlMode | **string**
+
+Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. ||
+|| skipConstraintChecks | **boolean**
+
+Disable constraints checks
+
+Recommend to disable for increase replication speed, but if schema contain
+cascading operations we don't recommend to disable. This option set
+FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. ||
+|| timezone | **string**
+
+Database timezone
+
+Is used for parsing timestamps for saving source timezones. Accepts values from
+IANA timezone database. Default: local timezone. ||
+|| cleanupPolicy | **enum** (CleanupPolicy)
+
+Cleanup policy
+
+Cleanup policy for activate, reactivate and reupload processes. Default is
+DISABLED.
+
+- `CLEANUP_POLICY_UNSPECIFIED`
+- `DISABLED`: Don't cleanup
+- `DROP`: Drop
+- `TRUNCATE`: Truncate ||
+|| serviceDatabase | **string**
+
+Database schema for service table
+
+Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#
+
+## PostgresTarget {#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget}
+
+#|
+||Field | Description ||
+|| connection | **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
+
+Database connection settings ||
+|| database | **string**
+
+Database name ||
+|| user | **string**
+
+User for database access. not required as may be in connection ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for database access. ||
+|| cleanupPolicy | **enum** (CleanupPolicy)
+
+Cleanup policy for activate, reactivate and reupload processes. Default is
+truncate.
+
+- `CLEANUP_POLICY_UNSPECIFIED`
+- `DISABLED`: Don't cleanup
+- `DROP`: Drop
+- `TRUNCATE`: Truncate ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#
+
+## ClickhouseTarget {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget}
+
+#|
+||Field | Description ||
+|| connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
+|| subnetId | **string** ||
+|| altNames[] | **[AltName](#yandex.cloud.datatransfer.v1.endpoint.AltName)**
+
+Alternative table names in target ||
+|| cleanupPolicy | **enum** (ClickhouseCleanupPolicy)
+
+- `CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED`
+- `CLICKHOUSE_CLEANUP_POLICY_DISABLED`
+- `CLICKHOUSE_CLEANUP_POLICY_DROP`
+- `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
+|| sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
+|| clickhouseClusterName | **string**
+
+Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+ShardGroup. ||
+|| securityGroups[] | **string** ||
+|#
+
+## AltName {#yandex.cloud.datatransfer.v1.endpoint.AltName}
+
+#|
+||Field | Description ||
+|| fromName | **string**
+
+Source table name ||
+|| toName | **string**
+
+Target table name ||
+|#
+
+## ClickhouseSharding {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding}
+
+#|
+||Field | Description ||
+|| columnValueHash | **[ColumnValueHash](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash)**
+
+Includes only one of the fields `columnValueHash`, `customMapping`. ||
+|| customMapping | **[ColumnValueMapping](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping)**
+
+Includes only one of the fields `columnValueHash`, `customMapping`. ||
+|#
+
+## ColumnValueHash {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash}
+
+#|
+||Field | Description ||
+|| columnName | **string** ||
+|#
+
+## ColumnValueMapping {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping}
+
+#|
+||Field | Description ||
+|| columnName | **string** ||
+|| mapping[] | **[ValueToShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping.ValueToShard)** ||
+|#
+
+## ValueToShard {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping.ValueToShard}
+
+#|
+||Field | Description ||
+|| columnValue | **[ColumnValue](#yandex.cloud.datatransfer.v1.endpoint.ColumnValue)** ||
+|| shardName | **string** ||
+|#
+
+## ColumnValue {#yandex.cloud.datatransfer.v1.endpoint.ColumnValue}
+
+#|
+||Field | Description ||
+|| stringValue | **string**
+
+Includes only one of the fields `stringValue`. ||
+|#
+
+## YdbTarget {#yandex.cloud.datatransfer.v1.endpoint.YdbTarget}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Path in YDB where to store tables ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 ||
+|| path | **string**
+
+Path extension for database, each table will be layouted into this path ||
+|| serviceAccountId | **string** ||
+|| cleanupPolicy | **enum** (YdbCleanupPolicy)
+
+Cleanup policy
+
+- `YDB_CLEANUP_POLICY_UNSPECIFIED`
+- `YDB_CLEANUP_POLICY_DISABLED`
+- `YDB_CLEANUP_POLICY_DROP` ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| saKeyContent | **string**
+
+SA content ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| isTableColumnOriented | **boolean**
+
+Should create column-oriented table (OLAP). By default it creates row-oriented
+(OLTP) ||
+|| defaultCompression | **enum** (YdbDefaultCompression)
+
+Compression that will be used for default columns family on YDB table creation
+
+- `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
+- `YDB_DEFAULT_COMPRESSION_DISABLED`
+- `YDB_DEFAULT_COMPRESSION_LZ4` ||
+|#
+
+## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
+
+#|
+||Field | Description ||
+|| connection | **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
+
+Connection settings ||
+|| auth | **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
+
+Authentication settings ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|| topicSettings | **[KafkaTargetTopicSettings](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings)**
+
+Target topic settings ||
+|| serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
+
+Data serialization format settings ||
+|#
+
+## KafkaTargetTopicSettings {#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings}
+
+#|
+||Field | Description ||
+|| topic | **[KafkaTargetTopic](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopic)**
+
+Full topic name
+
+Includes only one of the fields `topic`, `topicPrefix`. ||
+|| topicPrefix | **string**
+
+Topic prefix
+
+Analogue of the Debezium setting database.server.name.
+Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+
+Includes only one of the fields `topic`, `topicPrefix`. ||
+|#
+
+## KafkaTargetTopic {#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopic}
+
+#|
+||Field | Description ||
+|| topicName | **string**
+
+Topic name ||
+|| saveTxOrder | **boolean**
+
+Save transactions order
+Not to split events queue into separate per-table queues. ||
+|#
+
+## Serializer {#yandex.cloud.datatransfer.v1.endpoint.Serializer}
+
+Data serialization format
+
+#|
+||Field | Description ||
+|| serializerAuto | **object**
+
+Select the serialization format automatically
+
+Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
+|| serializerJson | **object**
+
+Serialize data in json format
+
+Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
+|| serializerDebezium | **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
+
+Serialize data in debezium format
+
+Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
+|#
+
+## SerializerDebezium {#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium}
+
+#|
+||Field | Description ||
+|| serializerParameters[] | **[DebeziumSerializerParameter](#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter)**
+
+Settings of sterilization parameters as key-value pairs ||
+|#
+
+## DebeziumSerializerParameter {#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter}
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Name of the serializer parameter ||
+|| value | **string**
+
+Value of the serializer parameter ||
+|#
+
+## MongoTarget {#yandex.cloud.datatransfer.v1.endpoint.MongoTarget}
+
+#|
+||Field | Description ||
+|| connection | **[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)** ||
+|| database | **string**
+
+Database name ||
+|| cleanupPolicy | **enum** (CleanupPolicy)
+
+- `CLEANUP_POLICY_UNSPECIFIED`
+- `DISABLED`: Don't cleanup
+- `DROP`: Drop
+- `TRUNCATE`: Truncate ||
+|| subnetId | **string** ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#
+
+## MetrikaSource {#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource}
+
+#|
+||Field | Description ||
+|| counterIds[] | **string** (int64) ||
+|| token | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
+|| streams[] | **[MetrikaStream](#yandex.cloud.datatransfer.v1.endpoint.MetrikaStream)** ||
+|#
+
+## MetrikaStream {#yandex.cloud.datatransfer.v1.endpoint.MetrikaStream}
+
+#|
+||Field | Description ||
+|| type | **enum** (MetrikaStreamType)
+
+- `METRIKA_STREAM_TYPE_UNSPECIFIED`
+- `METRIKA_STREAM_TYPE_HITS`
+- `METRIKA_STREAM_TYPE_VISITS`
+- `METRIKA_STREAM_TYPE_HITS_V2` ||
+|| columns[] | **string** ||
+|#
+
+## YDSTarget {#yandex.cloud.datatransfer.v1.endpoint.YDSTarget}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database ||
+|| stream | **string**
+
+Stream ||
+|| serviceAccountId | **string**
+
+SA which has read access to the stream. ||
+|| saveTxOrder | **boolean**
+
+Save transaction order
+Not to split events queue into separate per-table queues.
+Incompatible with setting Topic prefix, only with Topic full name. ||
+|| serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
+
+Data serialization format ||
+|| endpoint | **string**
+
+for dedicated db ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
+|| securityGroups[] | **string**
+
+Security groups ||
+|#

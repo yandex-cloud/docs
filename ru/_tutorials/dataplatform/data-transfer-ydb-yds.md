@@ -119,7 +119,7 @@
 
 ## Создайте поток данных приемника {{ yds-name }} {#create-target-yds}
 
-[Создайте поток данных приемника {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
+[Создайте поток данных приемника {{ yds-name }}](../../data-streams/operations/manage-streams.md#create-data-stream).
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 

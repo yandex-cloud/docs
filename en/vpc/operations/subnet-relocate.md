@@ -1,6 +1,6 @@
 ---
-title: "How to move a subnet to a different availability zone"
-description: "Follow this guide to move a subnet to a different availability zone."
+title: How to move a subnet to a different availability zone
+description: Follow this guide to move a subnet to a different availability zone.
 ---
 
 
@@ -17,17 +17,17 @@ To move a subnet to a different availability zone:
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI subnet move command:
+  1. View the description of the CLI subnet move command:
 
       ```bash
       yc vpc subnet relocate --help
       ```
 
-   1. In the default folder, find the ID of the subnet you need to move:
+  1. In the default folder, find the ID of the subnet you need to move:
 
       ```bash
       yc vpc subnet list
@@ -47,7 +47,7 @@ To move a subnet to a different availability zone:
 
       {% include [non-empty-subnet-relocate-notice](../../_includes/compute/subnet-relocate-novms-warning.md) %}
 
-   1. Move the subnet:
+  1. Move the subnet:
 
       ```bash
       yc vpc subnet relocate \
@@ -56,17 +56,17 @@ To move a subnet to a different availability zone:
       ```
 
       Where:
-      * `--id`: ID of the subnet to move.
-      * `--destination-zone-id`: ID of the availability zone to move the subnet to. The possible values include:
+      * `--id`: ID of the subnet you need to move.
+      * `--destination-zone-id`: ID of the availability zone to move the subnet to. Possible values:
 
-         * `{{ region-id }}-a`
-         * `{{ region-id }}-b`
-         * `{{ region-id }}-c`
-         * `{{ region-id }}-d`
+          * `{{ region-id }}-a`
+          * `{{ region-id }}-b`
+          * `{{ region-id }}-c`
+          * `{{ region-id }}-d`
 
-      For example:
+      Example:
 
-      ```
+      ```bash
       yc vpc subnet relocate \
         --id e9bcd5mq43cn******** \
         --destination-zone-id {{ region-id }}-d
@@ -74,7 +74,7 @@ To move a subnet to a different availability zone:
 
       Result:
 
-      ```
+      ```bash
       id: e9bcd5mq43cn********
       folder_id: b1gt6g8ht345********
       created_at: "2023-10-06T10:30:06Z"
@@ -90,21 +90,21 @@ To move a subnet to a different availability zone:
 
 - API {#api}
 
-   Use the [relocate](../api-ref/Subnet/relocate.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Relocate](../api-ref/grpc/subnet_service#Relocate) gRPC API call.
+  Use the [relocate](../api-ref/Subnet/relocate.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Relocate](../api-ref/grpc/Subnet/relocate.md) gRPC API call.
 
-   **Sample request**
+  **Request example**
 
-   To run the sample, install [cURL](https://curl.haxx.se).
+  To run the sample, install [cURL](https://curl.haxx.se).
 
-   1. [Get](../../iam/operations/index.md#iam-tokens) an IAM token for [authentication](../api-ref/authentication.md) in the API.
+  1. [Get](../../iam/operations/index.md#iam-tokens) an IAM token for [authentication](../api-ref/authentication.md) in the API.
 
-   1. Save the token to a variable.
+  1. Save the token to a variable.
 
       ```bash
-      export IAM_TOKEN=<obtained_IAM_token>
+      export IAM_TOKEN=<received_IAM_token>
       ```
 
-   1. Prepare a `body.json` file with the request body, specifying the ID of the [availability zone](../../overview/concepts/geo-scope.md) to move the subnet to:
+  1. Prepare a `body.json` file with the request body, specifying the ID of the [availability zone](../../overview/concepts/geo-scope.md) to move the subnet to:
 
       ```json
       {
@@ -112,7 +112,7 @@ To move a subnet to a different availability zone:
       }
       ```
 
-   1. Run the following query:
+  1. Run the following query:
 
       ```bash
       curl -X POST \

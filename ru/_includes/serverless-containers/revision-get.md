@@ -17,11 +17,11 @@
 
     Чтобы получить подробную информацию о ревизии контейнера, выполните команду:
 
-    ```
+    ```bash
     yc serverless container revision get <идентификатор_ревизии>
     ```
     Результат:
-    ```
+    ```text
     id: bbaq84v92qqc********
     container_id: bbab5i36nvda********
     created_at: "2021-09-09T11:22:28.128Z"
@@ -40,6 +40,6 @@
 
 - API {#api}
 
-  Чтобы получить информацию о ревизии контейнера, воспользуйтесь методом REST API [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#GetRevision).
+  Чтобы получить информацию о ревизии контейнера, воспользуйтесь методом REST API [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/Container/getRevision.md).
 
 {% endlist %}

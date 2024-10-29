@@ -1,75 +1,26 @@
-1. [Включите](../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
+Чтобы подключиться к ВМ через OS Login по SSH-сертификату с помощью YC CLI:
 
-    Чтобы подключиться к ВМ по OS Login c SSH-сертификатом через YC CLI, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
-
+1. {% include [oslogin-connect-cert-enable-in-org](../../_includes/compute/oslogin-connect-cert-enable-in-org.md) %}
 1. Посмотрите описание команды CLI для подключения к ВМ:
 
     ```bash
     yc compute ssh --help
     ```
-
-1. Получите список всех ВМ в каталоге по умолчанию:
+1. {% include [os-login-cli-organization-list](../../_includes/organization/os-login-cli-organization-list.md) %}
+1. {% include [os-login-cli-profile-list](../../_includes/organization/os-login-cli-profile-list.md) %}
+1. {% include [oslogin-connect-instr-list-vms](../../_includes/compute/oslogin-connect-instr-list-vms.md) %}
+1. Подключитесь к ВМ:
 
     ```bash
-    yc compute instance list
+    yc compute ssh \
+      --name <имя_ВМ>
+      --login <логин_пользователя_или_сервисного_аккаунта>
+      --internal-address
     ```
 
-    Результат:
+    Где:
+    * `--name` — полученное ранее имя виртуальной машины. Вместо имени ВМ можно указать ее идентификатор, для этого используйте параметр `--id`.
+    * `--login` — полученный ранее логин пользователя или сервисного аккаунта, заданный в профиле OS Login. Необязательный параметр. Если параметр не задан, для подключения будет использован SSH-сертификат пользователя или сервисного аккаунта, авторизованного в текущий момент в профиле YC CLI.
+    * (опционально) `--internal-address` — для подключения по внутреннему IP-адресу.
 
-    ```text
-    +----------------------+-----------------+---------------+---------+----------------------+
-    |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    ```
-
-1. Подключитесь к ВМ, указав ее имя. Команда для подключения зависит от версии ОС Linux, установленной на виртуальной машине:
-
-   * **Debian, Ubuntu 20.04+**
-
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ>
-      ```
-
-      При подключении по OS Login вместо имени ВМ можно указать ее идентификатор:
-
-      ```bash
-      yc compute ssh \
-        --id <идентификатор_ВМ>
-      ```
-      
-      Для подключения по OS login по внутреннему IP-адресу используйте параметр `--internal-address`:
-      
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ> \
-        --internal-address
-      ```
-
-   * **CentOS 7, Ubuntu 18.04**
-
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      При подключении по OS Login вместо имени ВМ можно указать ее идентификатор:
-
-      ```bash
-      yc compute ssh \
-        --id <идентификатор_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      Для подключения по OS login по внутреннему IP-адресу используйте параметр `--internal-address`:
-
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com" \
-        --internal-address
-      ```
+    Команду для подключения к ВМ вы также можете посмотреть в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.compute.instance.overview.label_title }}** нужной ВМ в блоке **Подключение к виртуальной машине**: раскройте секцию **Подключиться с помощью CLI-интерфейса {{ yandex-cloud }}** и выберите вкладку **По сертификату**.

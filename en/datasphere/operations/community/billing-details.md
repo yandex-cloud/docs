@@ -1,6 +1,6 @@
 ---
-title: "How to view service usage details in {{ ml-platform-full-name }}"
-description: "In this tutorial, you will learn how to view your spending details in {{ ml-platform-name }}."
+title: How to view service usage details in {{ ml-platform-full-name }}
+description: In this tutorial, you will learn how to view your spending details in {{ ml-platform-name }}.
 ---
 
 # Viewing service usage details {{ ml-platform-name }}

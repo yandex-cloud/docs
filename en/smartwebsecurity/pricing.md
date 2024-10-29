@@ -2,46 +2,57 @@
 editable: false
 ---
 
-# {{ sws-full-name }} pricing
+# {{ sws-full-name }} pricing policy
 
 
 
-To calculate the cost of using {{ sws-name }}, see the prices on this page.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
-The {{ sws-name }} cost depends on the following parameters:
-* Number of requests to the protected resource
-* Number of [security profiles](./concepts/profiles.md)
-* Total number of [security rules](./concepts/rules.md) in all profiles
+The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#rule-action) requests.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Requests {#requests}
+{% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
+
+### Requests processed by security profile rules {#requests-smart}
 
 
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
 
-{% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
+{% cut "Example of cost calculation for requests processed by security profile rules" %}
 
-> For example, the total cost of sending 315.04 million requests per month to {{ sws-name }} for analysis will be:
-> 0.01 × $0.000000 + 0.99 × $200.000000 + 9 × $28.000000 + 90 × $1.600000 + 215.04 × $1.120000 = $834.844800 excluding VAT.
->
-> Where:
-> * 0.01 × $0.000000: Non-billable threshold of 0.01 million requests.
-> * 0.99 × $200.000000: Cost of the subsequent 0.99 million requests.
-> * 9 × $28.000000: Cost of the subsequent nine million requests.
-> * 90 × $1.600000: Cost of the subsequent 90 million requests.
-> * 215.04 × $1.120000: Cost of the remaining 215.04 million requests.
+{% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
+
+{% endcut %}
 
 
-### Security profiles and rules {#profiles-and-rules}
+### Requests processed by WAF rules {#requests-waf}
 
-Minimum billing units are one security profile per month and one security rule per month.
+{% note warning %}
+
+The following price will be effective as of October 1, 2024.
+
+{% endnote %}
 
 
 
-{% include [usd-profiles-and-rules](../_pricing/smartwebsecurity/usd-profiles-and-rules.md) %}
+{% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
+
+### Ready-made cost calculations for requests
+
+To estimate the approximate cost of requests, the table below shows the price calculations for a certain number of requests per month. This number does not include the free limit of 10,000 requests. The cost provided is for reference. The actual usage of {{ sws-name }} by your services will be calculated based on the actual number of requests.
+
+
+
+{% include [usd-smartwebsecurity-pack](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity-pack.md) %}
+
+
+To use DDoS protection at levels 3 and 4 of the OSI model, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). The service is charged for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).

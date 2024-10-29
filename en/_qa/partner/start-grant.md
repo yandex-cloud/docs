@@ -15,7 +15,3 @@ When you create your first billing account as a partner, the initial grant is gi
 #### How do I get the initial grant when I connect a customer under the partner program and create a subaccount? {#client connection}
 
 The initial grant is only provided when the customer's first and main billing account is created. It is not available for subaccounts. If required, you can use [{#T}](../../partner/qa/additional-grants.md).
-
-#### What is a subaccount? {#sub-account}
-
-A subaccount is an additional account for a customer billing account. It is created automatically when you link your customer account to your account on the partner portal. It is displayed both in your {{ yandex-cloud }} account's management console and the customer's management console.

@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ MY }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ MY }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ MY }} target endpoint
 
@@ -18,13 +18,13 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} target e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
-* [Migration with the storage change from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
-* [Migration with the storage change from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
+   * [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
+   * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+   * [Migration with change of storage from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
-* [Delivering data from {{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
+   * [Delivering data from {{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -32,13 +32,13 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md)
+* [{{ PG }}](../source/postgresql.md)​
+* [{{ MY }}](../source/mysql.md)​
 * [{{ KF }}](../source/kafka.md)
-* [{{ AB }}](../../../transfer-matrix.md#airbyte)
-* [{{ DS }}](../source/data-streams.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)​
+* [{{ DS }}](../source/data-streams.md)​
 * [{{ objstorage-full-name }}](../source/object-storage.md)
-* [{{ ydb-name }}](../source/ydb.md).
+* [{{ ydb-name }}](../source/ydb.md)
 
 ## Preparing the target database {#prepare}
 
@@ -46,7 +46,7 @@ Configure one of the supported data sources:
 
 ## Configuring the {{ MY }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -83,7 +83,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"
@@ -137,7 +137,7 @@ For OnPremise, all fields are filled in manually.
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"
@@ -202,7 +202,7 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.skip_constraint_checks.title }}**: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and the `UNIQUE_CHECKS` values are set to `0` (no checks are performed).
 
-      {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
+         {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}**: Specify the name of the schema where service tables needed for the transfer operation will be created.
 
@@ -273,3 +273,5 @@ See a full list of recommendations in the [Troubleshooting](../../../troubleshoo
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

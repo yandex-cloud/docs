@@ -1,116 +1,113 @@
 title: Готовые решения для известных сценариев
 description:
   - >-
-    Известные решения и советы для оптимального использования сервисов Yandex
-    Cloud.
+    "Известные решения и советы для оптимального использования сервисов {{
+    yandex-cloud }}."
 meta:
   title: Troubleshooting
   description: >-
-    Известные решения и советы для оптимального использования сервисов Yandex
-    Cloud.
+    Известные решения и советы для оптимального использования сервисов {{
+    yandex-cloud }}.
 links:
-  - title: Application Load Balancer
-    description: Решения для Application Load Balancer
+  - title: '{{ alb-name }}'
+    description: Решения для {{ alb-name }}
     href: application-load-balancer/
-  - title: Billing
-    description: Решения для Cloud Billing
+  - title: '{{ billing-name }}'
+    description: Решения для {{ billing-name }}
     href: billing/
-  - title: Business
-    description: Решения для Cloud Business
-    href: business/
-  - title: CDN
-    description: Решения для Cloud CDN
+  - title: '{{ cdn-name }}'
+    description: Решения для {{ cdn-name }}
     href: cdn/
-  - title: Certificate Manager
-    description: Решения для Certificate Manager
+  - title: '{{ certificate-manager-name }}'
+    description: Решения для {{ certificate-manager-name }}
     href: certificate-manager/
-  - title: ClickHouse
-    description: Решения для ClickHouse
+  - title: '{{ mch-name }}'
+    description: Решения для {{ mch-name }}
     href: clickhouse/
-  - title: DNS
-    description: Решения для Cloud DNS
+  - title: '{{ dns-name }}'
+    description: Решения для {{ dns-name }}
     href: dns/
-  - title: Cloud Functions
-    description: Решения для Cloud Functions
+  - title: '{{ sf-name }}'
+    description: Решения для {{ sf-name }}
     href: functions/
-  - title: Cloud Logging
-    description: Решения для Cloud Logging
+  - title: '{{ cloud-logging-name }}'
+    description: Решения для {{ cloud-logging-name }}
     href: cloud-logging/
-  - title: Compute
-    description: Решения для Compute Cloud
+  - title: '{{ compute-name }}'
+    description: Решения для {{ compute-name}}
     href: compute/
-  - title: Container Registry
-    description: Решения для Container Registry
+  - title: '{{ container-registry-name }}'
+    description: Решения для {{ container-registry-name }}
     href: container-registry/
-  - title: DataLens
-    description: Решения для DataLens
+  - title: '{{ console-name }}'
+    description: Решения для {{ console-name }}
+    href: console/
+  - title: '{{ datalens-name }}'
+    description: Решения для {{ datalens-name}}
     href: datalens/
-  - title: DataProc
-    description: Решения для DataProc
+  - title: '{{ dataproc-name }}'
+    description: Решения для {{ dataproc-name }}
     href: dataproc/
-  - title: DataSphere
-    description: Решения для DataSphere
+  - title: '{{ ml-platform-name }}'
+    description: Решения для {{ ml-platform-name }}
     href: datasphere/
-  - title: Data Transfer
-    description: Решения для Data Transfer
+  - title: '{{ data-transfer-name }}'
+    description: Решения для {{ data-transfer-name }}
     href: data-transfer/
-  - title: Forms
-    description: Решения для Forms
+  - title: '{{ forms-name }}'
+    description: Решения для {{ forms-name }}
     href: forms/
-  - title: IAM
-    description: Решения для Identity and Access Management
+  - title: '{{ iam-name }}'
+    description: Решения для {{ iam-short-name }}
     href: iam/
-  - title: KMS
-    description: Решения для Key Management Service
+  - title: '{{ kms-name }}'
+    description: Решения для {{ kms-short-name }}
     href: kms/
-  - title: Managed Service for GitLab
-    description: Решения для Managed Service for GitLab
-    href: managed-gitlab/
-  - title: Managed Service for Kubernetes
-    description: Решения для Managed Service for Kubernetes
-    href: managed-kubernetes/
   - title: Legal
     description: Решения для Legal
     href: legal/
-  - title: Object Storage
-    description: Решения для Object Storage
-    href: storage/
-  - title: Managed MySQL
-    description: Решения для Managed Service for MySQL
+  - title: '{{ mgl-name }}'
+    description: Решения для {{ mgl-name }}
+    href: managed-gitlab/
+  - title: '{{ managed-k8s-name }}'
+    description: Решения для {{ managed-k8s-name }}
+    href: managed-kubernetes/
+  - title: '{{ mmy-name }}'
+    description: Решения для {{ mmy-name }}
     href: managed-mysql/
-  - title: Managed PostgreSQL
-    description: Решения для Managed Service for PostgreSQL
+  - title: '{{ mpg-name }}'
+    description: Решения для {{ mpg-name }}
     href: managed-postgresql/
-  - title: Managed Service for YDB
-    description: Решения для Managed Service for YDB
+  - title: '{{ ydb-name }}'
+    description: Решения для {{ ydb-name }}
     href: managed-ydb/
-  - title: Monitoring
-    description: Решения для Yandex Monitoring
+  - title: '{{ monitoring-name }}'
+    description: Решения для {{ monitoring-name }}
     href: monitoring/
-  - title: Network load Balancer
-    description: Решения для Network load Balancer
+  - title: '{{ network-load-balancer-name }}'
+    description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: Serverless Containers
-    description: Решения для Serverless Containers
-    href: serverless-containers/
-  - title: SmartCaptcha
-    description: Решения для SmartCaptcha
-    href: smartcaptcha/
-  - title: SpeechKit
-    description: Решения для SpeechKit
-    href: speechkit/
-  - title: VPC
-    description: Решения для Virtual Private Cloud
-    href: vpc/
-  - title: Консоль управления
-    description: Решения для Консоли управления
-    href: terraform/
-  - title: Terraform-провайдер для Yandex Cloud
-    description: Решения по Terraform-провайдеру для Yandex Cloud
-    href: terraform/
-  - title: Tracker
-    description: Решения для Tracker
-    href: tracker/
+  - title: '{{ objstorage-name }}'
+    description: Решения для {{ objstorage-name }}
+    href: storage/
   - title: Partner
     description: Решения для Partner
     href: partner/
+  - title: '{{ serverless-containers-name }}'
+    description: Решения для {{ serverless-containers-name }}
+    href: serverless-containers/
+  - title: '{{ captcha-name }}'
+    description: Решения для {{ captcha-name }}
+    href: smartcaptcha/
+  - title: '{{ speechkit-name }}'
+    description: Решения для {{ speechkit-name }}
+    href: speechkit/
+  - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
+    description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
+    href: terraform/
+  - title: '{{ tracker-name }}'
+    description: Решения для {{ tracker-name }}
+    href: tracker/
+  - title: '{{ vpc-name }}'
+    description: Решения для {{ vpc-short-name}}
+    href: vpc/

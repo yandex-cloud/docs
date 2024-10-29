@@ -58,7 +58,7 @@ See details of using and paying for your CVoS below.
 
    4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS will be additionally charged based on [standard prices](/prices). Go to step 5.
 
-1. At the beginning of the next billing period, your personal account balance and payments for the services are reviewed. Depending on your [billing account type](../concepts/billing-account.md#ba-types), you may get an invoice. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+1. At the beginning of the next billing period, your personal account balance and payments for the services are reviewed. Depending on your [billing account type](../concepts/billing-account.md#ba-types), you may get an invoice or have your linked bank card debited. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 ## Charged amount {#formula}
 
@@ -96,6 +96,7 @@ Prices for services that you can purchase a CVoS for:
 * [{{ compute-name }}](../../compute/pricing.md#cvos)
 * [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
+* [{{ mgp-name }}](../../managed-greenplum/pricing/index.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)

@@ -1,6 +1,6 @@
 ---
-title: "VM instances FAQ"
-description: "Answers to frequently asked questions about VM instances in the {{ yandex-cloud }} infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use."
+title: VM instances FAQ
+description: Answers to frequently asked questions about VM instances in the {{ yandex-cloud }} infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use.
 keywords:
   - vm
   - VM instances
@@ -70,6 +70,10 @@ If you want to change the FQDN, delete the VM and create a new one. To preserve 
 Standard operations for changing VM configuration, such as changing the number of vCPUs, the amount of vRAM, and adding disks, will not affect the UUID. However, in some cases, the UUID may change. For example, this may happen when updating BIOS or performing similar operations that affect the hardware part of the service.
 
 Keep this in mind when using third-party software licenses. The best solution is to purchase a license that does not have any link to the UUID.
+
+#### Can I install the required software on a VM when creating it? {#preinstall-software}
+
+Yes, you can. To do this, specify a custom script with commands to install the required software in the metadata of the VM instance you are creating. For more information, see [{#T}](../../compute/operations/vm-create/create-with-cloud-init-scripts.md).
 
 #### How do I change metadata after creating a VM? {#change-metadata-after-creating}
 

@@ -19,7 +19,7 @@
 1. [Запустите тестовое приложение](#test-app).
 1. [Удалите созданные ресурсы](#delete-resources).
 
-{% include [requirements](backup.md#requirements) %}
+{% include [requirements](kubernetes-backup.md#requirements) %}
 
 {% include [before-you-begin](../../_includes/before-begin.md) %}
 
@@ -252,7 +252,7 @@ yc container registry configure-docker
 
    Результат:
 
-   ```bash
+   ```text
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+-----------------------------+-------+-----------------+

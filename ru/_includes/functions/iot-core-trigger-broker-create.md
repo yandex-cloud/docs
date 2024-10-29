@@ -69,13 +69,13 @@
     yc serverless trigger create iot-broker \
       --name <имя_триггера> \
       --broker-id <идентификатор_брокера> \
-      --mqtt-topic '<MQTT-топик_брокера>' \
+      --mqtt-topic '<MQTT-топик>' \
       --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -116,7 +116,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -126,4 +126,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/iot-core-trigger-broker-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

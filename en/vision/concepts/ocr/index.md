@@ -1,5 +1,5 @@
 ---
-description: "OCR stands for optical character recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages."
+description: 'OCR stands for optical character recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages.'
 ---
 
 # About {{ vision-full-name }}
@@ -54,8 +54,8 @@ The service highlights the text characters found in the image and groups them by
 As a result, {{ vision-full-name }} returns an object with the following properties:
 * For `pages[]`: Page size.
 * For `blocks[]`: Position of the text on the page.
-* For `lines[]`: Position and [recognition accuracy](#confidence).
-* For `words[]`: Position, accuracy, text, and language used for recognition.
+* For `lines[]`: Position of lines.
+* For `words[]`: Position of words, text, and language used for recognition.
 
 To show the position of the text, {{ vision-full-name }} returns the coordinates of the rectangle that frames the text. Coordinates are the number of pixels from the top-left corner of the image.
 
@@ -79,12 +79,6 @@ To fix this error, do one of the following:
 
 * Change the image processor settings so that the rotation angle specified in the `exif` section is considered while viewing images.
 * Remove the `Orientation` attribute from the image `exif` section or set it to `0` when providing the image to {{ vision-full-name }}.
-
-### Recognition accuracy {#confidence}
-
-Recognition accuracy (`confidence`) represents {{ vision-full-name }}'s estimated result accuracy. For example, `"confidence": 0.9412244558` for the _we like you_ line means that the text is recognized correctly with a probability of 94%.
-
-Currently, the recognition accuracy value is only calculated for lines. You will also see it for words and languages, but it will be borrowed from the line's value.
 
 #### What's next {#what-is-next}
 

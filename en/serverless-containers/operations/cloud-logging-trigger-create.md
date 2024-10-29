@@ -16,7 +16,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -34,12 +34,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [logging-settings](../../_includes/functions/logging-settings.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Batch size. The values may range from 1 to 100. The default value is 1.
-      * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+      {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified group size.
+      {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -47,7 +46,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -63,16 +62,16 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    yc serverless trigger create logging \
      --name <trigger_name> \
      --log-group-name <log_group_name> \
-     --batch-size 1 \
-     --batch-cutoff 1s \
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --resource-ids <resource_ID> \
      --resource-types <resource_type> \
      --stream-names <logging_stream> \
      --log-levels <logging_level> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -144,13 +143,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
           group_id       = "<log_group_ID>"
           resource_types = [ "<resource_type>" ]
           resource_ids   = [ "<resource_ID>" ]
-          levels         = [ "INFO", "ERROR" ]
-          stream_names   = [ "<log_stream>" ]
-          batch_cutoff   = "<timeout>"
-          batch_size     = "<event_batch_size>"
+          stream_names   = [ "<logging_stream>" ]
+          levels         = [ "logging_level", "logging_level" ]
+          batch_cutoff   = "<maximum_wait_time>"
+          batch_size     = "<message_batch_size>"
         }
         dlq {
-         queue_id           = "<DLQ_ID>"
+         queue_id           = "<dead_letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
       }
@@ -170,11 +169,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       * `logging`: Trigger parameters:
 
-         * `group_id`: Log group ID.
+         * `group_id`: ID of the log group that invokes the container when entries are added there.
          * `resource_types`: Types of resources, e.g., {{ sf-name }} functions. This is an optional parameter.
          * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
-         * `levels`: Logging levels. This is an optional parameter.
          * `stream_names`: Log streams. This is an optional parameter.
+         * `levels`: Logging levels. This is an optional parameter.
 
             A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
 
@@ -188,7 +187,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
@@ -196,7 +195,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 - API {#api}
 
-   To create a trigger for {{ cloud-logging-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ cloud-logging-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -206,4 +205,5 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 ## See also {#see-also}
 
-* [Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function](../../functions/operations/trigger/cloud-logging-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/cloud-logging-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cloud-logging-trigger-create.md)

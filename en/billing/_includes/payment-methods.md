@@ -10,5 +10,6 @@ The method for crediting funds depends on your legal status ([billing account ty
 
   - [Wire transfer](../payment/payment-methods-business.md)
 
+  - [Bank card transfer](../payment/payment-methods-card-business.md)
   
 {% endlist %}

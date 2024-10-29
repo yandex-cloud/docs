@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mch-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ mch-name }}."
+title: Step-by-step guides for {{ mch-full-name }}
+description: This page provides a list of step-by-step guides for {{ mch-name }}.
 ---
 
 # Step-by-step guides for {{ mch-name }}
@@ -10,6 +10,7 @@ description: "This page provides a list of step-by-step guides for {{ mch-name }
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Changing cluster settings](update.md)
+* [{#T}](change-server-level-settings.md)
 * [{#T}](change-query-level-settings.md)
 * [{#T}](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)

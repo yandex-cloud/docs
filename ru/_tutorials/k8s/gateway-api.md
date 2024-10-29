@@ -1,8 +1,7 @@
 
 # Настройка Gateway API
 
-
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов API, моделирующих сетевое взаимодействие в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Из этой статьи вы узнаете, как организовать доступ к приложениям, находящимся в двух тестовых средах `dev` и `prod`, с помощью [{{ alb-full-name }}](../../application-load-balancer/) через Gateway API. Для этого потребуется создать [публичную доменную зону](../../dns/concepts/dns-zone.md#public-zones) и делегировать домен сервису [{{ dns-full-name }}](../../dns).
 

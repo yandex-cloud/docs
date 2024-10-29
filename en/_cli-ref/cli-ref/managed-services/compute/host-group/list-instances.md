@@ -23,6 +23,7 @@ Aliases:
 |`--id`|<b>`string`</b><br/>Host group id.|
 |`--name`|<b>`string`</b><br/>Host group name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--host-id`|<b>`string`</b><br/>Host id to list instances on|
 
 #### Global Flags
 
@@ -41,4 +42,5 @@ Aliases:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

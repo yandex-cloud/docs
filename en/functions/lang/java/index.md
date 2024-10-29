@@ -1,6 +1,6 @@
 ---
-title: "Developing in Java in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04."
+title: Developing in Java in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04.
 ---
 
 # Developing in Java. Overview
@@ -20,7 +20,7 @@ With {{ sf-name }}, you can run applications written in [Java](https://docs.orac
 You can connect the [SDK library](https://github.com/yandex-cloud/java-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 
 
-When creating a new [function version](../../concepts/function.md#version), the [builder](../../concepts/builder.md) will automatically install all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
+When creating a function version, the [builder](../../concepts/builder.md) will automatically install all declared dependencies required for the function to run. To learn more about the requirements for declaring dependencies, see [{#T}](dependencies.md).
 
 The runtime environment automatically loads your code and invokes the [request handler](handler.md) you specified. It receives an incoming request and the [invocation context](context.md) as arguments. The context contains additional information about the function parameters.
 

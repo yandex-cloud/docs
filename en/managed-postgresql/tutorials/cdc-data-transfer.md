@@ -1,6 +1,7 @@
 ---
 title: Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{ data-transfer-full-name }}
-description: "You can track data changes in a {{ mpg-name }} source cluster and send them to a {{ mkf-name }} target cluster using Change Data Capture in {{ data-transfer-name }}."
+description: You can track data changes in a {{ mpg-name }} source cluster and send them to a {{ mkf-name }} target cluster using Change Data Capture in {{ data-transfer-name }}.
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg'
 ---
 
 # Delivering data to {{ mkf-full-name }} using {{ data-transfer-full-name }}

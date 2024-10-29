@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ load-testing-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ load-testing-name }}.
+---
+
 # {{ TF }} reference for {{ load-testing-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

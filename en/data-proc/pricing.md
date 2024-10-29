@@ -2,11 +2,15 @@
 editable: false
 ---
 
-# {{ dataproc-name }} pricing
+# {{ dataproc-name }} pricing policy
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ dataproc-name }} {#rules}
 
@@ -22,9 +26,9 @@ The total cost of using {{ dataproc-name }} includes:
 
 ### Using computing resources {#rules-compute}
 
-Charges are made as part of the {{ compute-name }} service per hour of host virtual machine time based on the [{{ compute-full-name }} computing resource pricing policy](../compute/pricing.md#prices) with a surcharge for using managed {{ dataproc-name }}.
+The cost is charged per hour of host virtual machine time as part of {{ compute-name }} based on the [{{ compute-full-name }}](../compute/pricing.md#prices) computing resource pricing policy with a surcharge for using managed {{ dataproc-name }}.
 
-For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
+For information about external IP pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
 ### Disk space usage {#rules-storage}
 
@@ -39,12 +43,12 @@ You pay for receiving and storing your logs based on the {{ cloud-logging-full-n
 Per-hour cost of using a cluster of two subclusters with the following parameters:
 
 * First subcluster:
-  * **Master host**: `b2.medium` class, Intel Cascade Lake, 2 × 50% vCPU, 4 GB RAM.
-  * **Master host storage**: 20 GB of `network-ssd`.
+  * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
+  * **Master host storage**: 20 GB `network-ssd`.
 
 * Second subcluster:
   * **Data storage host**: `s2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
-  * **Host storage**: 100 GB of `network-hdd`.
+  * **Host storage**: 100 GB `network-hdd`.
 
 The cost is calculated as follows:
 
@@ -57,81 +61,47 @@ The cost is calculated as follows:
   Per-hour cost of using a cluster of two subclusters with the following parameters:
 
   * First subcluster:
-    * **Master host**: `b2.medium` class, Intel Cascade Lake, 2 × 50% vCPU, 4 GB RAM.
-    * **Master host storage**: 20 GB of `network-ssd`.
+    * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
+    * **Master host storage**: 20 GB `network-ssd`.
 
   * Second subcluster:
     * **Data storage host**: `s2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
-    * **Host storage**: 100 GB of `network-hdd`.
+    * **Host storage**: 100 GB `network-hdd`.
 
   The cost is calculated as follows:
 
-  > ({{ sku|USD|compute.vm.cpu.50.v2|string }} + {{ sku|USD|mdb.dataproc.v2.cpu.c50|string }}) × 2 + ({{ sku|USD|compute.vm.ram.v2|string }} + {{ sku|USD|mdb.dataproc.v2.ram|string }}) × 4 + {{ sku|USD|nbs.network-nvme.allocated|string }} × 20 = $0.026288
-  >
-  > Total: $0.026288, cost of using the first subcluster per hour.
-
-  Where:
-
-  * {{ sku|USD|compute.vm.cpu.50.v2|string }}: Cost of using 50% vCPU per hour.
-  * {{ sku|USD|mdb.dataproc.v2.cpu.c50|string }}: {{ dataproc-name }} markup for using 50% vCPU.
-  * 2 is the number of vCPUs per master host.
-  * {{ sku|USD|compute.vm.ram.v2|string }}: Сost of using 1 GB of RAM per hour.
-  * {{ sku|USD|mdb.dataproc.v2.ram|string }}: {{ dataproc-name }} markup for using 1 GB of RAM.
-  * 4 is the amount of RAM per master host (in GB).
-  * {{ sku|USD|nbs.network-nvme.allocated|string }}: Сost of using 1 GB of `network-ssd` per hour.
-  * 20 is the master host storage capacity (in GB).
-
-  > ({{ sku|USD|compute.vm.cpu.c100.v2|string }} + {{ sku|USD|mdb.dataproc.v2.cpu.c100|string }}) × 2 + ({{ sku|USD|compute.vm.ram.v2|string }} + {{ sku|USD|mdb.dataproc.v2.ram|string }}) × 8 + {{ sku|USD|nbs.network-hdd.allocated|string }} × 100 = $0.046694
-  >
-  > Total: $0.046694, cost of using the second subcluster per hour.
-
-  Where:
-
-  * {{ sku|USD|compute.vm.cpu.c100.v2|string }}: Cost of using 100% vCPU per hour.
-  * {{ sku|USD|mdb.dataproc.v2.cpu.c100|string }}: {{ dataproc-name }} markup for using 100% vCPU.
-  * 2 is the number of vCPUs per data storage host.
-  * {{ sku|USD|compute.vm.ram.v2|string }}: Сost of using 1 GB of RAM per hour.
-  * {{ sku|USD|mdb.dataproc.v2.ram|string }}: {{ dataproc-name }} markup for using 1 GB of RAM.
-  * 8 is the amount of RAM per data storage host (in GB).
-  * {{ sku|USD|nbs.network-hdd.allocated|string }}: Сost of using 1 GB of `network-hdd` per hour.
-  * 100 is the storage capacity per data storage host (in GB).
-
-  > $0.026288 + $0.046694 = $0.072982
-  >
-  > Total: $0.072982, cost of using a cluster with two subclusters per hour.
-
-  Where:
-
-  * $0.026288: Cost of using the first subcluster per hour.
-  * $0.046694: Cost of using the second subcluster per hour.
+  {% include [usd-data-proc](../_pricing_examples/data-proc/usd.md) %}
 
 {% endlist %}
 
-
-## {{ metastore-full-name }} cluster pricing
-
-This functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+
+All prices below do not include VAT.
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 
+#### Standard hosts {#standard-hosts}
 
 
-{% list tabs %}
 
-- Standard hosts
+{% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
 
-  {% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
 
-- Dedicated hosts
+#### Dedicated hosts {#dedicated-hosts}
 
-  For the prices of the computing resources of dedicated hosts, see the [{{ compute-full-name }} documentation](../compute/pricing.md#prices-dedicated-host).
+The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) computing resources and {{ dataproc-name }} charges for these resources.
 
-  {% include [usd-dedicated-hosts](../_pricing/data-proc/usd-dedicated-hosts.md) %}
 
-{% endlist %}
+
+{% include [usd-dedicated-hosts](../_pricing/data-proc/usd-dedicated-hosts.md) %}
 
 
 {% note info %}

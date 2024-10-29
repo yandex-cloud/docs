@@ -21,7 +21,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя `group-coi`.
      1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
@@ -37,7 +37,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: ajeabccde01d********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:32:18.900092Z"
@@ -81,7 +81,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: enpabce123hd********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:57:15Z"
@@ -96,7 +96,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: e1lnabc23r1c********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T16:23:12Z"
@@ -190,7 +190,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (48s)
      id: cl0q12abcd4e********
      folder_id: b0g12ga82bcv********
@@ -202,7 +202,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
+     Воспользуйтесь методом [CreateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 
@@ -225,7 +225,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
@@ -236,7 +236,7 @@
 
    - API {#api}
 
-     Посмотрите список созданных ВМ с помощью метода [List](../../compute/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
+     Посмотрите список созданных ВМ с помощью метода [List](../../compute/instancegroup/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 
@@ -254,7 +254,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
 
       * Documentation:  https://help.ubuntu.com
@@ -277,7 +277,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      CONTAINER ID  IMAGE  COMMAND                 CREATED             STATUS             PORTS               NAMES
      c0a125a1765a  redis  "docker-entrypoint.s…"  About a minute ago  Up About a minute  6379/tcp            redis
      01288d7e382f  nginx  "/docker-entrypoint.…"  About a minute ago  Up About a minute  0.0.0.0:80->80/tcp  nginx

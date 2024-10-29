@@ -59,4 +59,42 @@
 
     Подробнее о репликации, {{ CK }} и {{ ZK }} см. в разделе [Репликация](replication.md).
 
+- Идентификаторы шардов в {{ yandex-cloud }} отличаются от их идентификаторов в {{ CH }}:
+  
+    * В кластере {{ mch-name }} используются имена шардов.
+    * В {{ CH }} используются числовые идентификаторы, которые соответствуют лексикографическому порядку имен шардов в {{ mch-name }} (например, `A-shard`, `B-shard`, `shard10`, `shard100`).
+  
+    Учитывайте это, если ваше приложение обращается к шардам по их идентификаторам при записи и чтении данных распределенной таблицы.
+
+    Чтобы узнать, как идентификаторы {{ yandex-cloud }} и {{ CH }} соответствуют друг другу, используйте запрос:
+
+    ```sql
+    SELECT
+     substitution AS shard_name,
+     shardNum() AS shard_number
+    FROM cluster('{cluster}', system.macros)
+    WHERE macro = 'shard'
+    ORDER BY shard_name
+    ```
+
+    Например, в кластере с шардами `shard1`, `shard2`, `shard3`, `shard4`, `shard100` соответствие будет выглядеть так:
+
+    ```text
+    ┌─shard_name─┬─shard_number─┐
+    │ shard1     │            1 │
+    └────────────┴──────────────┘
+    ┌─shard_name─┬─shard_number─┐
+    │ shard100   │            2 │
+    └────────────┴──────────────┘
+    ┌─shard_name─┬─shard_number─┐
+    │ shard2     │            3 │
+    └────────────┴──────────────┘
+    ┌─shard_name─┬─shard_number─┐
+    │ shard3     │            4 │
+    └────────────┴──────────────┘
+    ┌─shard_name─┬─shard_number─┐
+    │ shard4     │            5 │
+    └────────────┴──────────────┘
+    ```
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

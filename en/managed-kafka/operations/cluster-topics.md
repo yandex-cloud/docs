@@ -1,23 +1,28 @@
 ---
-title: "How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}"
-description: "Follow this guide to manage topics and partitions."
+title: How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}
+description: Follow this guide to manage topics and partitions.
 ---
 
 # Managing {{ KF }} topics
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
-* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
-* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you prefer to use your existing solution to manage topics and partitions.
 
-## Managing topics via the {{ KF }} Admin API {#admin-api}
+* Using [native {{ yandex-cloud }} interfaces](#yandex-cloud), such as the CLI, API, or management console. Choose this method if you want to manage topics using {{ mkf-name }} features.
 
-To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
-1. [Create](cluster-accounts.md#create-user) a cluster admin user.
-1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
+    You can perform the following actions on {{ mkf-name }} topics:
 
-For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
+    * [Create a topic](#create-topic).
+    * [Update topic settings](#update-topic).
+    * [Get a list of topics in a cluster](#list-topics).
+    * [Get detailed information about a topic](#get-topic).
+    * [Import a topic to {{ TF }}](#import-topic).
+    * [Delete a topic](#delete-topic).
 
-## Creating a topic {#create-topic}
+* Using the [{{ KF }} Admin API](#admin-api). Select this method if you prefer to use your existing solution to manage topics and partitions.
+
+## Managing topics via {{ yandex-cloud }} interfaces {#yandex-cloud}
+
+### Creating a topic {#create-topic}
 
 Prior to creating a topic, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size).
 
@@ -67,7 +72,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
+   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config` if required:
 
       ```hcl
       resource "yandex_mdb_kafka_topic" "<topic_name>" {
@@ -96,7 +101,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - API {#api}
 
-   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/topic_service.md#Create) gRPC API call and provide the following in the request:
+   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/Topic/create.md) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic settings in the `topicSpec` parameter.
 
@@ -109,7 +114,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 {% endnote %}
 
-## Updating topic settings {#update-topic}
+### Updating topic settings {#update-topic}
 
 You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
@@ -187,7 +192,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
+   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/Topic/update.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
@@ -198,7 +203,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endlist %}
 
-## Listing topics in a cluster {#list-topics}
+### Getting a list of topics in a cluster {#list-topics}
 
 {% list tabs group=instructions %}
 
@@ -223,14 +228,14 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/topic_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/Topic/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 {% endlist %}
 
-## Getting detailed information about a topic {#get-topic}
+### Getting detailed information about a topic {#get-topic}
 
 {% list tabs group=instructions %}
 
@@ -256,14 +261,14 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
+   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/Topic/get.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}
 
-## Importing topics to {{ TF }} {#import-topic}
+### Importing topics to {{ TF }} {#import-topic}
 
 Using import, you can bring the existing cluster topics under {{ TF }} management.
 
@@ -287,7 +292,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 {% endlist %}
 
-## Deleting a topic {#delete-topic}
+### Deleting a topic {#delete-topic}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
@@ -339,9 +344,17 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 - API {#api}
 
-   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
+   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}
+
+## Managing topics via the {{ KF }} Admin API {#admin-api}
+
+To manage topics via the {{ KF }} Admin API:
+1. [Create](cluster-accounts.md#create-account) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
+1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Review your favorite programming language manual for information on working with the Admin API.
+
+For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).

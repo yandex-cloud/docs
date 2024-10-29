@@ -1,6 +1,6 @@
 ---
-title: "Изменение лог-группы"
-description: "Следуя данной инструкции, вы сможете изменить лог-группу."
+title: Изменение лог-группы
+description: Следуя данной инструкции, вы сможете изменить лог-группу.
 ---
 
 # Изменить лог-группу
@@ -113,9 +113,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы изменить лог-группу, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update).
+  Чтобы изменить лог-группу, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md).
 
-  
+
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}

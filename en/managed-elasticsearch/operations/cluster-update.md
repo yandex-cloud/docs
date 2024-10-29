@@ -1,6 +1,6 @@
 ---
-title: "Changing Elasticsearch cluster settings"
-description: "After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster."
+title: Changing Elasticsearch cluster settings
+description: After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster.
 keywords:
   - Elasticsearch settings
   - Elasticsearch cluster settings
@@ -14,23 +14,23 @@ keywords:
 After creating a cluster, you can:
 
 
-* [Change service account settings](#change-service-account)
+* [Change service account settings](#change-service-account).
 
 
-* [{#T}](#change-resource-preset)
-* [{#T}](#change-disk-size)
+* [Change host class](#change-resource-preset).
+* [Increase storage size](#change-disk-size).
 * Configure [{{ ES }} servers](#change-elasticsearch-config) as described in the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
-* [{#T}](#change-admin-password)
-* [{#T}](#change-additional-settings)
+* [Change admin password](#change-admin-password).
+* [Change additional cluster settings](#change-additional-settings).
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-version-update.md).
 
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 
-## Change service account settings {#change-service-account}
+## Changing service account settings {#change-service-account}
 
 {% list tabs group=instructions %}
 
@@ -92,7 +92,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -190,7 +190,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -200,7 +200,7 @@ Learn more about other cluster updates:
       * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId`: For hosts with the *Data node* role.
       * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId`: For hosts with the *Master node* role.
 
-      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
    * List of settings to update, in the `updateMask` parameter.
 
@@ -303,7 +303,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -370,7 +370,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -465,7 +465,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -521,9 +521,9 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    You can change the following settings:
 
-   * `--plugins`: List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) available in the cluster. Plugins that are not included in the list will be disabled.
+   * `--plugins`: List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) available in the cluster. Plugins that are not on the list will be disabled.
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -554,7 +554,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       }
       ```
 
-      Plugins that are not included in the list will be disabled.
+      Plugins that are not on the list will be disabled.
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -581,7 +581,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -589,11 +589,13 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) in the `plugins` parameter.
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in the `configSpec.access.dataTransfer` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

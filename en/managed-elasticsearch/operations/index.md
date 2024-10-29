@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mes-name }}"
-description: "This section contains step-by-step guides for {{ mes-name }}."
+title: Step-by-step guides for {{ mes-name }}
+description: This section contains step-by-step guides for {{ mes-name }}.
 ---
 
 # Step-by-step guides for {{ mes-name }}

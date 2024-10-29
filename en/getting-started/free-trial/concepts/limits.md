@@ -22,12 +22,7 @@ Technical support is provided in full during the trial period. For more informat
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-
-Some products are not available during the trial period, such as:
-* Microsoft SQL Server
-* Windows Server Standard
-* Windows RDS
-
+During the trial period, no {{ marketplace-full-name }} paid products are available. However, once your paid consumption starts, you will be able to use the balance of your starting grant to pay for them.
 
 
 ## Service quotas and limits {#quotes-and-limits}

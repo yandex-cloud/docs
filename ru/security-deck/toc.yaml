@@ -1,0 +1,52 @@
+title: Yandex Security Deck
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    items:
+      - name: Обзор
+        href: quickstart-overview.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Контроль данных (DSPM)
+        items:
+          - name: Создать источник данных
+            href: operations/dspm/create-data-source.md
+          - name: Создать сканирование
+            href: operations/dspm/create-scan.md
+      - name: Диагностика доступов (CIEM)
+        items:
+          - name: Просмотреть список доступов
+            href: operations/ciem/view-permissions.md
+          - name: Отозвать доступ
+            href: operations/ciem/revoke-permissions.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Access Transparency
+        href: concepts/access-transparency.md
+      - name: Контроль данных (DSPM)
+        href: concepts/dspm.md
+      - name: Диагностика доступов (CIEM)
+        href: concepts/ciem.md
+      - name: Портал соответствия требованиям
+        href: concepts/compliance.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    items:
+      - name: Обзор
+        href: security/index.md
+      - name: Роли Access Transparency
+        href: security/access-transparency-roles.md
+      - name: Роли DSPM
+        href: security/dspm-roles.md
+      - name: Роли CIEM
+        href: security/ciem-roles.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/security-deck
+deepBase: 2

@@ -55,11 +55,13 @@ To view all created nodes:
 1. (Optional) In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}** field, enter a description of the node.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**, select the resource to base your node on: **{{ ui-key.yc-ui-datasphere.common.docker }}**.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.source }}**, select the container registry. You can select {{ container-registry-name }} or any other registry. For {{ container-registry-name }}, specify:
-   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** in the `cr.yandex/<registry_ID>/<image_ID>:<tag>` format.
+   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** in the `{{ registry }}/<registry_ID>/<image_ID>:<tag>` format.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** will automatically get the `json_key` value.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: In the project settings, select the [secret](../../concepts/secrets.md) containing the file with the [authorized key](../../../iam/concepts/authorization/key.md) for the service account from the list.
 
    To use an image from another Docker image storage, select the **{{ ui-key.yc-ui-datasphere.common.other }}** type and fill the remaining fields with the values required for connection to your registry.
+
+1. Optionally, under **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}**, set the disk size available in the Docker image.
 
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
@@ -80,8 +82,11 @@ To view all created nodes:
    * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: Required number of successful checks.
 1. (Optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}**, set the total memory available in the Docker image.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
-1. In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** field, specify how many of the node's instances can be stopped for maintenance at the same time.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**:
+   * **{{ ui-key.yc-ui-datasphere.node-page.instance-spec }}**: Select a [configuration](../../concepts/configurations.md) of the [instance's](../../concepts/deploy/index.md) computing resources.
+   * **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**: Add an [availability zone](../../../overview/concepts/geo-scope.md) and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}**: Specify how many of the node's instances can be stopped for maintenance at the same time.
+   * **{{ ui-key.yc-ui-datasphere.new-node.additional-disk.title }}**: Optionally, add an additional disk for the instance. If you selected multiple instances, a disk will be created for each one.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 

@@ -99,7 +99,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для бюджетов, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для бюджетов, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -109,5 +109,6 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/budget-trigger-create.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

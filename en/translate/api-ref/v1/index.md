@@ -1,6 +1,6 @@
 ---
-title: "Yandex Translate API v1"
-description: "A set of methods for the Yandex Translate service."
+title: Yandex Translate API v1
+description: A set of methods for the Yandex Translate service.
 ---
 
 # Yandex Translate API v1
@@ -8,6 +8,8 @@ description: "A set of methods for the Yandex Translate service."
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 
 A set of methods for the Yandex Translate service.
+
+When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header.
 
 ## Methods {#methods}
 

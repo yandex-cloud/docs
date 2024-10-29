@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ load-testing-full-name }}"
-description: "Из статьи вы узнаете, как работать с {{ load-testing-full-name }} в {{ yandex-cloud }}."
+title: Инструкции по работе с {{ load-testing-full-name }}
+description: Из статьи вы узнаете, как работать с {{ load-testing-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Пошаговые инструкции для {{ load-testing-name }}
@@ -9,5 +9,8 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](security-groups-agent.md)
 * [{#T}](security-groups-target.md)
 * [{#T}](create-test-bucket.md)
-* [{#T}](logging.md)
+* [{#T}](export-test-reports.md)
+* [{#T}](payload-dispatcher.md)
+* [{#T}](regressions.md)
 * [{#T}](save-artifacts.md)
+* [{#T}](operation-logs.md)

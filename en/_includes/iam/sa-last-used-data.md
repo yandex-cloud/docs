@@ -1,0 +1,1 @@
+In the [management console]({{ link-console-main }}), the page with service account information shows the date and time of the most recent authentication. This information helps track cases of unauthorized access to service accounts.

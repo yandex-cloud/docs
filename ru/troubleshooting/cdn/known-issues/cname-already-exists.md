@@ -1,4 +1,4 @@
-# Устранение ошибки CNAME already exists
+# Устранение ошибки `CNAME already exists`
 
 
 ## Описание проблемы {#issue-description}
@@ -10,7 +10,7 @@ cname:["CNAME cdn.<domain> already exists. Try another CNAME or contact support.
 
 ## Решение {#issue-resolution}
 
-Проблема заключается в том, что у провайдера CDN ресурс с таким же именем хоста уже занят. После его удаления возможно будет создать такой же в Yandex Cloud.
+Проблема заключается в том, что у провайдера CDN ресурс с таким же именем хоста уже занят. После его удаления возможно будет создать такой же в {{ yandex-cloud }}.
 
 ## Если проблема осталась {#if-issue-still-persists}
 

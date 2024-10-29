@@ -2,9 +2,11 @@
 editable: false
 ---
 
-# {{ vpc-name }} pricing
+# {{ vpc-name }} pricing policy
 
-{{ vpc-name }} usage is rated by the pricing policy described in this section.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -23,6 +25,7 @@ After deleting or stopping resources, you will continue to pay for the reserved 
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### {{ vpc-short-name }} {#vpc-prices}
@@ -46,20 +49,12 @@ All prices are net of VAT.
 
 The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
 
-
 For example, the cost of an inactive public static address will be:
 
 
 
-> $0.001920 + $0.002480 = $0.004400
->
-> Total: $0.004400 per hour.
 
-Where:
-
-* $0.001920: Cost of using a public IP address per hour.
-* $0.002480: Cost of reserving an inactive public static IP address per hour.
-
+{% include [examples-usd-hour](../_pricing_examples/vpc/usd-hour.md) %}
 
 
 #### NAT gateways {#nat-gateways}
@@ -117,9 +112,9 @@ All prices below do not include VAT.
 
 Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
 
-For example, let's assume a user's VM was subject to a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of useful files.
+For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of relevant files from the internet. When the attack ended, the user downloaded another 2 GB of relevant files.
 
-In this case, only 4 GB of filtered traffic are charged: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not charged.
+In which case the user will be charged only for the 4 GB of relevant traffic: the 2 GB that DDoS Protection had allowed to reach the cloud resources during the attack and the 2 GB downloaded when no attack was ongoing. Malicious traffic will be filtered at no charge to the user.
 
 ### {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
@@ -180,3 +175,4 @@ All prices below do not include VAT.
 The Managed Web Application Firewall plan includes the following services:
 
 {% include [waf-services](../_pricing/vpc/waf-services.md) %}
+

@@ -66,7 +66,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Policy Reporter выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_policy-reporter.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_policy-reporter.helmChart.tag }} \
      --untar && \
@@ -84,7 +83,9 @@
      policy-reporter ./policy-reporter/
    ```
 
-   Где: 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+   Параметры команды:
 
    * `ui.enabled` — включение Policy Reporter UI. Возможные значения: `true` или `false`.
    * `target.s3.enabled` — экспорт в {{ objstorage-name }}. Возможные значения: `true` или `false`.

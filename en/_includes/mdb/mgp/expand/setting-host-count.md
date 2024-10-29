@@ -1,0 +1,1 @@
+The minimum value (default) is `2`, the maximum value cannot exceed the [limit on the number of segment hosts in the cluster](../../../../managed-greenplum/concepts/limits.md#limits) (minus existing hosts).

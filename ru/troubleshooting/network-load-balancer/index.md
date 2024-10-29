@@ -1,4 +1,4 @@
-# Решения для Network Load Balancer
+# Решения для {{ network-load-balancer-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -67,6 +67,12 @@
 * [Инструкция по настройке SAML федерации удостоверений](../../../organization/concepts/add-federation.md#federation-usage).
 * [Инструкция по настройке SAML федерации с KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
+##### 1.1.1 Настроено сопоставление групп пользователей в федерации удостоверений {#group-mapping}
+
+Для организаций, в которых много участников, одинаковые права доступа к ресурсам {{ yandex-cloud }} могут потребоваться сразу нескольким пользователям. В этом случае роли и доступы эффективнее выдавать не персонально, а для группы.
+
+Если вы используете группы пользователей в вашем поставщике удостоверений или собираетесь это сделать, [настройте сопоставление групп](../../../organization/operations/federation-group-mapping.md) пользователей между поставщиком удостоверений и {{ org-name }}. Пользователи в группах поставщика удостоверений будут иметь права доступа к ресурсам {{ yandex-cloud }} из сопоставленных групп в {{ org-name }}.
+
 #### 1.2 Учетные записи Яндекс ID используются только в исключительных случаях {#yandex-id-accounts}
 
 Наиболее правильный с точки зрения безопасности подход к управлению учетными записями — это использование федерации удостоверений (подробнее в рекомендации № 1.1). В связи с этим необходимо стремиться к тому, чтобы в списке пользователей вашей организации находились только федеративные пользователи (пользователи c атрибутом <q>FEDERATION ID</q>) и минимум учетных записей с Яндекс ID. Список допустимых исключений:
@@ -335,7 +341,7 @@
 
 Сервис метаданных Google Compute Engine использует дополнительный заголовок для защиты от SSRF и повышения безопасности.
 
-Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions).
+Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions).
 
 {% list tabs group=instructions %}
 
@@ -365,7 +371,7 @@
 
 **Инструкции и решения по выполнению:**
 
-В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) значение `DISABLED` у найденных ВМ:
+В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) значение `DISABLED` у найденных ВМ:
 
 ```bash
 yc compute instance update <ID_виртуальной_машины> \
@@ -382,7 +388,8 @@ yc compute instance update <ID_виртуальной_машины> \
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Проверьте список сервисных аккаунтов.
   1. Повторите действия для других каталогов.
   1. Перейдите во вкладку **Права доступа** на уровнях облаков и каталогов.
@@ -458,7 +465,8 @@ yc compute instance update <ID_виртуальной_машины> \
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Нажмите на сервисный аккаунт и перейдите во вкладку **Права доступа**.
   1. Проверьте права, назначенные на сервисный аккаунт.
   1. Если в списке находятся только валидные администраторы, рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
@@ -512,8 +520,9 @@ yc compute instance update <ID_виртуальной_машины> \
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите на сервисный аккаунт и в разделе **Свойства ключей доступа** проверьте дату создания каждого ключа.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. Нажмите на нужный сервисный аккаунт и в разделе **Свойства ключей доступа** проверьте дату создания каждого ключа.
   1. Повторите действия в каждом из своих каталогов.
   1. Если даты создания ключей не старше 90 дней, то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
@@ -595,7 +604,7 @@ yc compute instance update <ID_виртуальной_машины> \
 **Инструкции и решения по выполнению:**
 
 * [Двухфакторная аутентификация — Яндекс ID](https://yandex.ru/support/id/authorization/twofa.html).
-* [KeyCloak — Creating other credentials](https://www.keycloak.org/docs/12.0/server_admin/#creating-other-credentials).
+* [KeyCloak — Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials).
 * [Configure Additional Authentication Methods for AD FS](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
 #### 1.12 Привилегированные роли назначены только доверенным администраторам {#privileged-users}
@@ -772,16 +781,16 @@ yc compute instance update <ID_виртуальной_машины> \
 
 #### 1.16 На ресурсах в организации отсутствует <q>публичный доступ</q> {#public-access}
 
-В {{ yandex-cloud }} существует возможность предоставлять публичный доступ на ресурсы. Публичный доступ предоставляется путем назначения прав доступа для [системных групп](../../../iam/concepts/access-control/system-group.md) (`{{ subjects-allAuthenticatedUsers }}`, `{{ subjects-allUsers }}`). 
+В {{ yandex-cloud }} существует возможность предоставлять публичный доступ на ресурсы. Публичный доступ предоставляется путем назначения прав доступа для [публичных групп](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`). 
 
-Описание системных групп:
+Описание публичных групп:
 
-* `{{ subjects-allAuthenticatedUsers }}` — все пользователи, прошедшие аутентификацию. Это все зарегистрированные пользователи или сервисные аккаунты {{ yandex-cloud }}: как из ваших облаков, так и из облаков других пользователей.
-* `{{ subjects-allUsers }}` — любой пользователь, аутентификация не требуется.
+* `All authenticated users` — все пользователи, прошедшие аутентификацию. Это все зарегистрированные пользователи или сервисные аккаунты {{ yandex-cloud }}: как из ваших облаков, так и из облаков других пользователей.
+* `All users` — любой пользователь, аутентификация не требуется.
 
 {% note warning %}
 
-Сейчас `{{ subjects-allUsers }}` поддерживается только в сервисах: {{ objstorage-short-name }} при управлении доступом с помощью ACL, {{ container-registry-name }}, {{ sf-name }}. В остальных сервисах назначение роли для группы `{{ subjects-allUsers }}` эквивалентно назначению роли для `{{ subjects-allAuthenticatedUsers }}`.
+Сейчас `All users` поддерживается только в сервисах: {{ objstorage-short-name }} при управлении доступом с помощью ACL, {{ container-registry-name }}, {{ sf-name }}. В остальных сервисах назначение роли для группы `All users` эквивалентно назначению роли для `All authenticated users`.
 
 {% endnote %}
 
@@ -795,21 +804,21 @@ yc compute instance update <ID_виртуальной_машины> \
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в общее меню облака (нажать на облако в исходном меню облака). Выберите вкладку **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
 
   Проверка ролей в каталоге:
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог нужного облака и перейдите во вкладку **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
   1. Повторите действия для всех каталогов всех ваших облаков.
 
   Проверка ролей в {{ objstorage-short-name }}:
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужное облако и найдите сервис **{{ objstorage-short-name }}**.
-  1. Нажмите на три точки напротив бакета и проверьте ACL бакета на наличие `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
-  1. Зайдите внутрь бакета и проверьте ACL на каждый объект бакета на наличие `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Нажмите на три точки напротив бакета и проверьте ACL бакета на наличие `allUsers`, `allAuthenticatedUsers`.
+  1. Зайдите внутрь бакета и проверьте ACL на каждый объект бакета на наличие `allUsers`, `allAuthenticatedUsers`.
   1. Зайдите в глобальные настройки бакета и в разделе **Доступ на чтение объектов** проверьте, что параметр **Публичный** выключен.
   1. Повторите действия для всех бакетов и объектов во всех ваших облаках.
 
@@ -818,7 +827,7 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в каждое облако и найдите сервис **{{ container-registry-name }}**.
   1. Перейдите в необходимый реестр и слева нажмите **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
   1. Повторите действия для всех ваших облаков.
 
   Проверка ролей в {{ sf-name }}:
@@ -826,7 +835,7 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в каждое облако и найдите сервис **{{ sf-name }}**.
   1. Перейдите во все облачные функции и проверьте, что параметр **Публичный доступ** выключен.
-  1. Если в каждом указанном ресурсе нет субъектов `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`, то рекомендация выполняется. Если есть, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. Если в каждом указанном ресурсе нет субъектов `All users` и `All authenticated users`, то рекомендация выполняется. Если есть, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
 - Проверка через CLI {#cli}
 
@@ -845,7 +854,7 @@ yc compute instance update <ID_виртуальной_машины> \
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner")'
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне облаков:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне облаков:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -854,7 +863,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне каталогов:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне каталогов:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -865,7 +874,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне {{ container-registry-name }} во всех каталогах:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне {{ container-registry-name }} во всех каталогах:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -878,7 +887,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне {{ sf-name }} во всех каталогах:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне {{ sf-name }} во всех каталогах:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -891,13 +900,13 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Если в каждом указанном ресурсе отсутствуют субъекты: `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. Если в каждом указанном ресурсе отсутствуют субъекты: `allUsers`, `allAuthenticatedUsers` то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
-Если обнаружено наличие прав доступа у `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}`, необходимо удалить данные права.
+Если обнаружено наличие прав доступа у `All users`, `All authenticated users`, необходимо удалить данные права.
 
 #### 1.17 Контактные данные ответственного за организацию актуальны {#org-contacts}
 
@@ -1111,3 +1120,21 @@ yc compute instance update <ID_виртуальной_машины> \
 
 1. [Назначьте](../../../iam/operations/roles/grant.md) роль `{{ roles-auditor }}` пользователям, которые не нуждаются в доступе к данным.
 1. Удалите избыточные права аккаунта с помощью сервиса {{ iam-short-name }}.
+
+#### 1.24 Отслеживается дата последнего использования ключей доступа в {{ iam-full-name }} {#key-usage-control}
+
+{% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
+
+Подробнее см. в разделе [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт с ключами доступа.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В открывшемся списке выберите нужный сервисный аккаунт.
+  1. Данные о времени последнего использования ключа доступны в таблице с информацией о ключах в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.
+
+{% endlist %}

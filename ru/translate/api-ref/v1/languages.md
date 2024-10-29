@@ -1,6 +1,6 @@
 ---
-title: "Список поддерживаемых языков"
-description: "Получение списка направлений перевода, поддерживаемых сервисом."
+title: Список поддерживаемых языков
+description: Получение списка направлений перевода, поддерживаемых сервисом.
 ---
 
 # Список поддерживаемых языков
@@ -9,9 +9,11 @@ description: "Получение списка направлений перев�
 
 Получение списка направлений перевода, поддерживаемых сервисом.
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
+
 ## Запрос {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/languages
 ```
 
@@ -47,10 +49,11 @@ POST https://translate.{{ api-host }}/translate/v1/languages
 ```httpget
 export FOLDER_ID=<идентификатор_каталога>
 export TOKEN=<IAM-токен>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
-     -d "folderId=${FOLDER_ID}" \
-     "https://translate.{{ api-host }}/translate/v1/languages"
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data "folderId=${FOLDER_ID}" \
+  "https://translate.{{ api-host }}/translate/v1/languages"
 ```
 
 ### Пример ответа {#response-example}

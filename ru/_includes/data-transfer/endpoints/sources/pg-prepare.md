@@ -49,11 +49,13 @@
     
        После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
     
-    1. Настройте мониторинг WAL-лога. Для трансферов типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ используется [логическая репликация]({{ pg-docs }}/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
-        
+    1. Настройте мониторинг WAL-лога. {#wal-setup-recommendation}
+
+       Для трансферов типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ используется [логическая репликация]({{ pg-docs }}/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
+
         1. Для мониторинга размера использованного хранилища или диска [настройте алерт средствами мониторинга](../../../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (см. описание `disk.used_bytes`).
         
-        1. Задайте максимальный размер WAL при репликации в [настройке](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}. Если вы хотите экстренно запретить операции чтения трансферу, то [удалите слот репликации](../../../../managed-postgresql/operations/replication-slots.md#delete).
+        1. Задайте максимальный размер WAL при репликации в [настройке](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}. Если вы хотите экстренно запретить операции чтения трансферу, то [удалите слот репликации](../../../../managed-postgresql/operations/replication-slots.md#delete). 
         
            {% note warning %}
         
@@ -195,7 +197,7 @@
     
     1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
     
-       После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
+       После этого укажите количество [воркеров](../../../../data-transfer/concepts/index.md#worker) и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
     
     1. Если на источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), добавьте в его конфигурацию [блок ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
     

@@ -24,13 +24,13 @@
 
     Чтобы создать функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless function create --name=python-function
     ```
 
     Результат:
 
-    ```
+    ```text
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2023-08-16T19:01:37.475Z"
@@ -72,7 +72,7 @@
             'body': 'Hello, {}!'.format(name)
         }
     ```
-        
+
 1. Добавьте файл `hello.py` в ZIP-архив `hello-py.zip`.
 
 ### Создайте версию функции {#create-version}
@@ -103,7 +103,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=python-function \
       --runtime python311 \
@@ -124,7 +124,7 @@
 
     Результат:
 
-    ```
+    ```text
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

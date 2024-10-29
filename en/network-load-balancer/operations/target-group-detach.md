@@ -1,6 +1,6 @@
 ---
-title: "Detaching a target group from a network load balancer"
-description: "Follow this guide to detach a target group from a network load balancer."
+title: Detaching a target group from a network load balancer
+description: Follow this guide to detach a target group from a network load balancer.
 ---
 
 # Detaching a target group from a network load balancer
@@ -75,7 +75,7 @@ description: "Follow this guide to detach a target group from a network load bal
 
 - API {#api}
 
-   To detach a target group from a network load balancer, use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#DetachTargetGroup) gRPC API call and provide the following in the request:
+   To detach a target group from a network load balancer, use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/detachTargetGroup.md) gRPC API call and provide the following in the request:
 
    * Load balancer ID in the `networkLoadBalancerId` parameter.
    * Target group ID in the `targetGroupId` parameter.

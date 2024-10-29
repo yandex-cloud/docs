@@ -140,7 +140,7 @@
      ```
 
      Сохраните идентификатор сервисного аккаунта — параметр `id`, он понадобится для дальнейшей настройки.
-     
+
   1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
       ```bash
@@ -166,7 +166,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      access_key:
        id: ajen8d7fur27********
        service_account_id: aje6aoc8hccu********
@@ -177,7 +177,7 @@
      ```
 
      Сохраните следующие параметры, они понадобятся для конфигурации утилиты AWS CLI:
-     * `key_id` — идентификатор статического ключ доступа.
+     * `key_id` — идентификатор статического ключа доступа.
      * `secret` — секретный ключ.
   1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта:
 
@@ -193,7 +193,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: aje3qc9pagb9********
      service_account_id: aje6aoc8hccu********
      created_at: "2022-10-13T12:53:04.810240976Z"
@@ -392,14 +392,14 @@
       EOF
       # Отправить изображение в Vision для распознавания и записать результат в файл output.json.
       echo "Processing file $f in Vision..."
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAMTOKEN}" \
-        -H "x-data-logging-enabled: true" \
-        -H "x-folder-id: ${FOLDERID}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAMTOKEN}" \
+        --header "x-data-logging-enabled: true" \
+        --header "x-folder-id: ${FOLDERID}" \
+        --data '@body.json' \
         https://ocr.{{ api-host }}/ocr/v1/recognizeText \
-        -o output.json
+        --output output.json
 
       # Получить имя файла с изображением для дальнейшей подстановки.
       IMAGE_BASE_NAME=$(basename -- "$f")

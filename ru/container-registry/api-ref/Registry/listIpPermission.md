@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/listIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.listIpPermission
-List ip permissions for the specified registry.
- 
+# Container Registry API, REST: Registry.ListIpPermission {#ListIpPermission}
 
- 
-## HTTP request {#https-request}
+List ip permissions for the specified registry.
+
+## HTTP request
+
 ```
 GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:listIpPermission
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-registryId | <p>Required. ID of the Registry to return ip permission list.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| registryId | **string**
+
+Required field. ID of the Registry to return ip permission list. ||
+|#
+
+## Response {#yandex.cloud.containerregistry.v1.ListIpPermissionsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "permissions": [
     {
@@ -33,9 +37,21 @@ registryId | <p>Required. ID of the Registry to return ip permission list.</p> <
 }
 ```
 
- 
-Field | Description
---- | ---
-permissions[] | **object**<br><p>List of ip permissions for registry</p> 
-permissions[].<br>action | **string**
-permissions[].<br>ip | **string**
+#|
+||Field | Description ||
+|| permissions[] | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
+
+List of ip permissions for registry ||
+|#
+
+## IpPermission {#yandex.cloud.containerregistry.v1.IpPermission}
+
+#|
+||Field | Description ||
+|| action | **enum** (Action)
+
+- `ACTION_UNSPECIFIED`
+- `PULL`
+- `PUSH` ||
+|| ip | **string** ||
+|#

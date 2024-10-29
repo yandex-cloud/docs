@@ -23,6 +23,8 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>New name for the ClickHouse cluster|
 |`--description`|<b>`string`</b><br/>New description for the ClickHouse cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the ClickHouse cluster as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--service-account`|<b>`string`</b><br/>New service account for the ClickHouse cluster.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
@@ -70,4 +72,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

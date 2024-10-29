@@ -1,6 +1,6 @@
 ---
-title: "How to configure test target security groups"
-description: "This guide describes how you can configure test target security groups."
+title: How to configure test target security groups
+description: This guide describes how you can configure test target security groups.
 ---
 
 # Configuring test target security groups

@@ -1,6 +1,6 @@
 ---
-title: "Getting started with the management console"
-description: "Follow this guide to create a bucket and upload an object to it using the management console."
+title: Getting started with the management console
+description: Follow this guide to create a bucket and upload an object to it using the management console.
 ---
 
 # Getting started with {{ objstorage-full-name }}

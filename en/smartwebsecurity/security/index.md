@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ sws-name }}"
-description: "This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ sws-name }}
+description: This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ sws-name }}
@@ -51,3 +51,5 @@ You can assign a role for an [organization](../../organization/), [cloud](../../
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

@@ -1,6 +1,6 @@
 ---
-title: "Остановка и запуск кластера Elasticsearch"
-description: "При необходимости вы можете остановить кластер Elasticsearch и запустить его заново. При остановке кластера все данные в нем сохранятся. Они снова станут доступны, когда вы запустите кластер."
+title: Остановка и запуск кластера Elasticsearch
+description: При необходимости вы можете остановить кластер Elasticsearch и запустить его заново. При остановке кластера все данные в нем сохранятся. Они снова станут доступны, когда вы запустите кластер.
 keywords:
   - остановка Elasticsearch
   - запуск Elasticsearch
@@ -43,7 +43,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -77,7 +77,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 

@@ -1,6 +1,6 @@
 ---
-title: "How to update a {{ CH }} cluster version in {{ mch-full-name }}"
-description: "Follow this guide to update a {{ CH }} cluster version."
+title: How to update a {{ CH }} cluster version in {{ mch-full-name }}
+description: Follow this guide to update a {{ CH }} cluster version.
 ---
 
 # Upgrading the {{ CH }} version
@@ -31,7 +31,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - API {#api}
 
-   To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/versions_service.md#List) gRPC API call.
+   To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/Versions/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -116,7 +116,7 @@ Make sure this does not affect your applications:
 
 - API {#api}
 
-   To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ CH }} version in the `configSpec.version` parameter: {{ versions.api.str }}.

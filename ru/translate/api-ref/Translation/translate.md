@@ -5,8 +5,8 @@ sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/translate.md
 
 # Метод translate
 Переводит текст на указанный язык.
- 
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
  
 ## HTTP-запрос {#https-request}
 ```

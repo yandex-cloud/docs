@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для режима {{ ydb-full-name }} с выделенными инстансами"
-description: "Из статьи вы узнаете о правилах тарификации для режима {{ ydb-full-name }} с выделенными инстансами."
+title: Правила тарификации для режима {{ ydb-full-name }} с выделенными инстансами
+description: Из статьи вы узнаете о правилах тарификации для режима {{ ydb-full-name }} с выделенными инстансами.
 editable: false
 ---
 
@@ -9,6 +9,8 @@ editable: false
 
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -62,8 +64,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
 
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
@@ -109,7 +111,7 @@ editable: false
 - Цены в рублях {#prices-rub}
 
   {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
-  
+
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}

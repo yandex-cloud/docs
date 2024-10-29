@@ -131,8 +131,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Depending on the number of {{ mkf-name }} clusters:
 
-   - If there is a single {{ KF }} cluster, [specify authentication data](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. In this case, the {{ mch-name }} cluster will use these authentication credentials to access any topic.
-   - If there are multiple {{ KF }} clusters, specify authentication data for each {{ mkf-name }} topic in the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
+   - If there is a single {{ KF }} cluster, [specify authentication data](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. In this case, the {{ mch-name }} cluster will use these authentication credentials to access any topic.
+   - If there are multiple {{ KF }} clusters, specify authentication data for each {{ mkf-name }} topic in the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
 
    Authentication data:
 
@@ -343,10 +343,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - Delete the clusters:
 
-      - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-      - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
+      - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md)​.
+      - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md)​.
 
-   
+
    - If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
 
 

@@ -1,6 +1,6 @@
 ---
-title: "How to connect a Windows Server VM to {{ backup-full-name }}"
-description: "Follow this guide to connect a Windows Server VM to {{ backup-name }}."
+title: How to connect a Windows Server VM to {{ backup-full-name }}
+description: Follow this guide to connect a Windows Server VM to {{ backup-name }}.
 ---
 
 # Connecting a Windows Server VM to {{ backup-name }}
@@ -10,6 +10,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
+
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it, follow the steps below.
 
 To connect a Windows VM to {{ backup-name }}:
 

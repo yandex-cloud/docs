@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ search-api-full-name }}"
-description: "Access management in the {{ search-api-full-name }} search service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ search-api-full-name }}
+description: Access management in the {{ search-api-full-name }} search service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ search-api-name }}
@@ -13,7 +13,7 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -23,6 +23,9 @@ In this section, you will learn:
 
 {% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
+
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

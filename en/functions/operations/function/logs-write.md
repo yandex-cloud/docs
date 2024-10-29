@@ -1,8 +1,191 @@
-# Logging data to the function execution log
+# Writing to the function execution log
+
+{% include [logging-note](../../../_includes/functions/logging-note.md) %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Select the function you want to configure logging for.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+   1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
+      * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
+      * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../../concepts/logs.md) to the default [log group](../../../logging/concepts/log-group.md) for the folder the function is in.
+         1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
+      * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
+         1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
+         1. In the **{{ ui-key.yacloud.logging.label_loggroup }}** field, select the log group to write the logs to. If you do not have a log group, [create](../../../logging/operations/create-group.md) one.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+
+   {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   ### Logging destination {#destination}
+
+   {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
+
+   To write logs to a custom log group, provide the log group ID in the `--log-group-id` parameter when [creating a function version](version-manage.md). The log group must reside in the same folder as the function.
+
+   ### Minimum logging level {#log-level}
+
+   To set a minimum logging level, provide it in the `--min-log-level` parameter when creating a function version.
+
+   {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+   ### Disabling logging {#disabled}
+
+   To disable logging, set the `--no-logging` parameter when creating a function version.
+
+   ### Command example {#example}
+
+   To write logs to a custom log group, run this command:
+
+   ```
+   {{ yc-serverless }} function version create \
+     --function-id <function_ID> \
+     --runtime <runtime_environment> \
+     --entrypoint <entry_point> \
+     --memory <RAM_amount> \
+     --source-path <ZIP_archive_with_function_code> \
+     --log-group-id <log_group_ID> \
+     --min-log-level <minimum_logging_level>
+   ```
+
+   Where:
+   * `--function-id`: Function ID.
+   * `--runtime`: Runtime environment.
+   * `--entrypoint`: Entry point specified in `<file_name_without_extension>.<handler_name>` format.
+   * `--memory`: Amount of RAM.
+   * `--source-path`: ZIP archive with the function code and required dependencies.
+   * `--log-group-id`: ID of the log group to write logs to.
+   * `--min-log-level`: Minimum logging level. This is an optional parameter.
+
+   Result:
+   ```
+   done (4s)
+   id: d4ech7qdki6r********
+   function_id: d4e7tbg7m4np********
+   created_at: "2024-04-19T10:13:00.019Z"
+   runtime: python37
+   entrypoint: index.handler
+   resources:
+     memory: "134217728"
+   execution_timeout: 5s
+   image_size: "53248"
+   status: ACTIVE
+   tags:
+     - $latest
+   log_options:
+     log_group_id: e23u2vn449av********
+     min_level: DEBUG
+   ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   ### Logging destination {#destination}
+
+   {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
+
+   To write logs to a custom log group, under `log_options`, provide the log group ID in the `log_group_id` parameter when [creating a function version](version-manage.md). The log group must reside in the same folder as the function.
+
+   ### Minimum logging level {#log-level}
+
+   To set a minimum logging level, provide it in the `log_group_id` parameter when creating a function version.
+
+   {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
+
+   ### Disabling logging {#disabled}
+
+   To disable logging, under `log_options`, set the `disabled` parameter to `true` when creating a function version.
+
+   ### Example {#example}
+
+   To write logs to a custom log group:
+
+   1. Open the {{ TF }} configuration file and add the `log_options` section to the `yandex_function` resource description:
+
+      Here are some examples of the configuration file structure:
+
+      ```hcl
+      resource "yandex_function" "<function_name>" {
+        name       = "<function_name>"
+        user_hash  = "<random_string>"
+        runtime    = "<runtime_enviornment>"
+        entrypoint = "<entry_point>"
+        memory     = "<RAM_amount>"
+        content {
+          zip_filename = "<ZIP_archive_name>"
+        }
+        log_options {
+          log_group_id = "<log_group_ID>"
+          min_level = "<minimum_logging_level>"
+        }
+      }
+      ```
+
+      Where:
+      * `name`: Function name.
+      * `user_hash`: Any string to identify the function version.
+      * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
+      * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
+      * `memory`: Amount of memory allocated for the function, in MB.
+      * `content`: Function source code.
+         * `zip_filename`: Name of the ZIP archive containing the function source code.
+      * `log_group_id`: ID of the log group to write logs to.
+      * `min_level`: Minimum logging level. This is an optional parameter.
+
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+
+   1. Check the configuration using this command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, you will get this message:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run this command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+- API {#api}
+
+   To write to the function execution log, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions) gRPC API call.
+
+{% endlist %}
+
+## Structured logs {#structured-logs}
 
 Apart from text, you can write [structured logs](../../concepts/logs.md#structured-logs) to the standard output stream (`stdout`) and standard error output stream (`stderr`).
 
-## Function examples
+### Function examples
 
 {% list tabs group=programming_language %}
 
