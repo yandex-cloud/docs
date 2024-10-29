@@ -14,9 +14,9 @@ In {{ tracker-name }}, you can open any portfolio available to you from the navi
 
 The project portfolio page shows information about the portfolio team and current status and specifies the projects included in the portfolio:
 
-* **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. Portfolio description, status, timeline, portfolio author and owner, list of team members, comments, customers, [links](./create-portfolio.md#links) to other portfolios and projects, tags.
+* **About the portfolio** tab. Portfolio description, status, timeline, portfolio author and owner, list of team members, comments, customers, [links](./create-portfolio.md#links) to other portfolios and projects, tags.
 
-* **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder them, move across portfolios, and filter by the parameters you specify.
+* **Projects** tab. The list shows both open and closed portfolios and projects. You can reorder them, move across portfolios, and filter by the parameters you specify.
 
 * **Gantt chart** tab. This is a roadmap for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/portfolio.md).
 

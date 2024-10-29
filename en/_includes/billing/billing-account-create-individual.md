@@ -14,7 +14,7 @@ To create a billing account:
 
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** section, you can select one of them or add a new one. To add a payer:
 
-   * Select the **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-invididual }}** payer type and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   * Select the **Individual** payer type and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
    * Enter your first and last name.
    * (Optional) Enter your middle name and mailing address.
    * Click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.

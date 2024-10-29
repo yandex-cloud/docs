@@ -6,7 +6,7 @@ To send emails from the issue page:
 
 ### Step 1. Set up email integration in the queue
 
-1. Go to **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}** in the queue settings and [add queue address](manager/queue-mail.md).
+1. Go to **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}** in the queue settings and [add queue address](manager/queue-mail.md).
 
    If you want to send issues from the issue page, you need a shared queue address. The user responses sent to the queue address will be added as issue comments.
 

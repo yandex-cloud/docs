@@ -7,7 +7,7 @@ You need to avoid debiting your billing account for unused resources.
 
 ## Solution {#case-resolution}
 
-To understand which cloud products continue to consume your resources and balance, review the usage details in the **{{ ui-key.yacloud.billing.account.detail.tab_product }}** tab on your account page.
+To understand which cloud products continue to consume your resources and balance, review the usage details in the **{{ ui-key.yacloud_billing.billing.account.detail.tab_product }}** tab on your account page.
 
 If you stop your VM, you are no longer charged only for its computing resources: vCPU and RAM.
 However, you will continue paying for VM-attached disks, generated snapshots and images.

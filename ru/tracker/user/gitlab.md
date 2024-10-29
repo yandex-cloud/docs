@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, как работает св
 ## Настроить связь {#relation}
 
 
-В [задачах {{ tracker-name }}](../about-tracker.md#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ](../glossary.md#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../external-links.md).
+В [задачах {{ tracker-name }}](../about-tracker.md#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ](../glossary.md#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [{{ ui-key.startrek.ui_Issues_smart-components_issue-links_ExternalLinksCollapse.external-relations}}](../external-links.md).
 
 Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [{{ mgl-name }}](../../managed-gitlab/).
 

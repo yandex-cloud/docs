@@ -59,6 +59,10 @@ The following viewing statistics are currently available:
 
     On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
 
+## Subtitles {#subtitles}
+
+Supported subtitle formats: SRT and VTT. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video. View the list of supported languages in [{{ video-name }} interface]({{ link-video-main }}).
+
 ## See also {#see-also}
 
 * [Getting started with video hosting](../hosting.md)

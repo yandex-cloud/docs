@@ -34,11 +34,12 @@ Creates new reseller-served customer.
 ||Field | Description ||
 || resellerId | **string**
 
-Required field. ID of the reseller that customer will be associated with.
+Required field. ID of the reseller that customer will be associated with.</br>
 
-Value must match either one of the two regular expressions:
-`^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\|[0-9a-f]{32})$`
-or `^[a-z][-a-zA-Z0-9.]{0,48}[a-zA-Z0-9]$`. ||
+Value must match either one of the three regular expressions:
+</br>- `^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$`
+</br>- `^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{32})$`
+</br>- `^[a-z][-a-zA-Z0-9.]{0,48}[a-zA-Z0-9]$` ||
 || name | **string**
 
 Required field. Name of the customer.

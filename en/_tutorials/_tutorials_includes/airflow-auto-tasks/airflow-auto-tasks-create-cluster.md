@@ -10,7 +10,7 @@
 
         * One uppercase letter
         * One lowercase letter
-        * One number
+        * One digit
         * One special character
 
      {% note info %}

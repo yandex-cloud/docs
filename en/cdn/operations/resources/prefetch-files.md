@@ -19,7 +19,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-  1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and choose **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
   1. Enter the file names in the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field.
 
@@ -98,3 +98,4 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
   Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/Cache/prefetch.md) gRPC API call.
 
 {% endlist %}
+  

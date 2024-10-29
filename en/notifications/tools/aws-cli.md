@@ -1,4 +1,4 @@
-# Getting started with the AWS CLI in {{ cns-full-name }}
+# Getting started with {{ cns-full-name }} using AWS CLI
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
@@ -9,9 +9,9 @@
 {% include [channels-push-preview](../../_includes/notifications/channels-push-preview.md) %}
 
 With {{ cns-name }}, you can send notifications to apps registered in the following services:
-* [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs)
-* [Firebase Cloud Messaging](https://firebase.google.com/) (FCM)
-* [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS)
+* [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
+* [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
+* [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
 
 To get started with the AWS CLI:
 1. [Prepare your cloud](#before-you-begin).
@@ -115,10 +115,10 @@ Where:
 
     We recommend escaping the file contents using the `jq @json <<< cat private_key.json` command, as the AWS CLI accepts this parameter in string format.
 
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting from June 2024.
+    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting from June 2024.
   * HMS:
-    * `PlatformPrincipal`: Key ID.
-    * `PlatformCredential`: API key.
+    * `PlatformPrincipal`: Key ID
+    * `PlatformCredential`: API key
 
 As a result, you will get a notification channel ID (ARN). Save it for future use.
 

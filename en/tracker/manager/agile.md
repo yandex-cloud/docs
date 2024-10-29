@@ -32,7 +32,7 @@ Managing issue boards in {{ tracker-name }} is similar to [working with a regula
 
 - **Scrum** boards allow you to display statuses and offer [sprint](#dlen_sprint) management tools, [issue estimation](planning-poker.md), and [burn down charts](#dlen_burndown).
 
-- **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](#dlen_backlog) column.
+- **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**Backlog**](#dlen_backlog) column.
 
 For more information about working with an issue boards:
 

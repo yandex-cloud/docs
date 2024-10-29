@@ -24,10 +24,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
   1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website homepage.
-      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
+      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `pages/index.html`.
+      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to be displayed in case of 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -39,7 +38,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```bash
      yc storage bucket update --help
      ```
-
+     
+  1. Create a hosting settings file in JSON format. Here is an example:
+     
      ```json
      {
        "index": "index.html",
@@ -49,19 +50,19 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
      Where:
 
-     * `index`: Absolute path to the file of the website home page.
+     * `index`: Absolute path to the website home page file. 
      * `error`: Absolute path to the file the user will see in case of 4xx errors.
-
+  
   1. Run the following command:
 
      ```bash
      yc storage bucket update --name <bucket_name> \
        --website-settings-from-file <path_to_file>
      ```
-
+     
      Where:
      * `--name`: Bucket name.
-     * `--website-settings-from-file`: Path to the hosting configuration file.
+     * `--website-settings-from-file`: Path to the hosting settings file.
 
      Result:
 
@@ -131,12 +132,12 @@ You can host your static website in {{ objstorage-name }}. A static website is b
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
        bucket     = "<bucket_name>"
        acl        = "public-read"
-
+     
        website {
          index_document = "index.html"
          error_document = "error.html"
        }
-
+     
      }
      ```
 
@@ -145,12 +146,12 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      Where:
 
      * `access_key`: Static access key ID.
-     * `secret_key`: Secret access key value.
+     * `secret_key`: Private access key value.
      * `bucket`: Bucket name.
-     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+       * `index_document`: Absolute path to the website home page file. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
 
   1. Make sure the configuration files are correct.
 
@@ -170,7 +171,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```
      terraform apply
      ```
-
+   
      1. Confirm that you want to create the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
@@ -221,7 +222,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      Where:
      * `protocol`: Data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
      * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
-
+  
   1. Run the following command:
 
      ```bash
@@ -246,7 +247,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```
 
 - {{ TF }} {#tf}
-
+ 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
@@ -264,7 +265,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
        secret_key = "<secret_key>"
        bucket     = "<bucket_name>"
        acl        = "public-read"
-
+     
        website {
          index_document = "<absolute_path_to_website_homepage_file>"
          error_document = "<absolute_path_to_error_file>"
@@ -276,12 +277,12 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
      Where:
      * `access_key`: Static access key ID.
-     * `secret_key`: Secret access key value.
+     * `secret_key`: Private access key value.
      * `bucket`: Bucket name.
-     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+       * `index_document`: Absolute path to the website home page file. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
@@ -291,9 +292,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```bash
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```bash
      Success! The configuration is valid.
      ```
@@ -303,7 +304,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```bash
      terraform plan
      ```
-
+  
      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
@@ -311,7 +312,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```bash
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
@@ -345,7 +346,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
       * Response code to determine the redirect type.
       * Replace the key: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}** specified in the condition.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
+  
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -357,9 +358,9 @@ Using routing rules, you can redirect requests based on the object name prefixes
      ```bash
      yc storage bucket update --help
      ```
-
-  1. Create a file with conditional redirect settings in JSON format. For example:
-
+     
+  1. Create a file with conditional redirect settings in JSON format. Here is an example:
+     
      ```json
      {
        "routingRules": [
@@ -382,18 +383,18 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
      Where:
      * `condition`: Condition to trigger a redirect:
-
+     
        * `httpErrorCodeReturnedEquals`: HTTP response code.
        * `keyPrefixEquals`: Object key prefix.
-
+       
      * `redirect`: Redirect settings:
-
+     
        * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
        * `httpRedirectCode`: New HTTP response code.
        * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
        * `replaceKeyPrefixWith`: New object key prefix.
        * `replaceKeyWith`: New object key.
-
+  
   1. Run the following command:
 
      ```bash
@@ -418,10 +419,10 @@ Using routing rules, you can redirect requests based on the object name prefixes
      ```
 
 - {{ TF }} {#tf}
-
+ 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -436,7 +437,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
        secret_key = "<secret_key>"
        bucket     = "<bucket_name>"
        acl        = "public-read"
-
+     
        website {
          index_document = "<absolute_path_to_website_homepage_file>"
          error_document = "<absolute_path_to_error_file>"
@@ -465,13 +466,13 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
      Where:
      * `access_key`: Static access key ID.
-     * `secret_key`: Secret access key value.
+     * `secret_key`: Private access key value.
      * `bucket`: Bucket name.
-     * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+     * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-       * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
-       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
+       * `index_document`: Absolute path to the website home page file. This is a required parameter.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
+       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q>. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
@@ -480,9 +481,9 @@ Using routing rules, you can redirect requests based on the object name prefixes
      ```bash
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```bash
      Success! The configuration is valid.
      ```
@@ -492,7 +493,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      ```bash
      terraform plan
      ```
-
+  
      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
@@ -500,11 +501,11 @@ Using routing rules, you can redirect requests based on the object name prefixes
      ```bash
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
-
+        
 - API {#api}
 
   To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.

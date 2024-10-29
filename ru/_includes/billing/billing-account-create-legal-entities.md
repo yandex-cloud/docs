@@ -14,7 +14,7 @@
 
 1. Если в блоке **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
 
-1. Выберите тип плательщика: **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}**.
+1. Выберите тип плательщика: **Юридическое лицо или ИП**.
 
 1. Выберите способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** или **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
 

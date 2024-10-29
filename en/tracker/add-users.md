@@ -73,9 +73,9 @@ To create an identity federation for an organization:
 
    1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-   1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
+   1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
-   1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. The {{ org-full-name }} page will open.
+   1. Under **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. The {{ org-full-name }} page will open.
 
    1. Specify the federation settings and click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
@@ -95,9 +95,9 @@ To create user accounts, connect your company's email domain in [{{ ya-360 }}]({
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
+1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
-1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. A window with your organizations will open. You can create a new organization or go to an existing one.
+1. Under **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrganizationSmallPane.add-org-button }}**. A window with your organizations will open. You can create a new organization or go to an existing one.
 
    {% note info %}
 

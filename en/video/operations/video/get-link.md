@@ -16,8 +16,8 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
       1. Set the required playback parameters for the video:
 
-          1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`.
-          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`.
+          1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`
+          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`
           1. `Display controls in the player`.
 
           {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
@@ -31,6 +31,8 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 - API {#api}
 
-  Use the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call or the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource.
+  Use the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call.
+  
+  For details on how to get a link to your video, see [Getting started with the {{ video-full-name }} API](../../api-ref/quickstart.md#get-link)
 
 {% endlist %}

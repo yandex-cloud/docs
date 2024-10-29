@@ -4744,162 +4744,39 @@ default:
                 issue: Создать задачу
               transition: Изменить статус задачи
     startrek:
-      ui_components_actions-panel_ActionsPanel:
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
+        enable-backlog: Включить бэклог
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader:
+        settings: Настройки
+      ui_Common_pages_page-my_PageMy:
+        page-title: Моя страница
+      ui_Common_pages_promo_Page:
+        login-button-label: Войти в Tracker
+      ui_Common_smart-components_actions-panel_ActionsPanel:
         action-menu-title: Действия
-      ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
-        server-url-label: Ссылка на репозиторий
-      ui_components_admin-repositories_ConnectRepositoryDialog:
+      ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog:
         connect: Подключить
         token-label: Токен
-      ui_components_admin-tab-types_AdminTabTypes:
-        title: Типы задач
-      ui_components_agile_agile-board_AgileBoardActionsMenu:
-        delete-board-menu-item: Удалить доску
-        migration-rollback: Миграция в старую версию
-      ui_components_agile_agile-board_AgileBoardAddColumnButton:
-        new-column-button: Добавить колонку
-      ui_components_agile_agile-board_AgileBoardColumnHeader:
-        column-menu--add-note: Добавить заметку
-        column-menu--delete: Удалить
-        column-menu--edit: Редактировать
-      ui_components_agile_agile-board_AgileBoardCreateModal:
-        board-type--scrum: С бэклогом и спринтами
-        board-type--simple: Простая
-        submit-btn: Создать
-      ui_components_agile_agile-board_AgileBoardEmptyScreen:
-        empty-screen--new-issue: Новая задача
-      ui_components_agile_agile-board_AgileBoardIssue:
-        issue-actions--delete-from-board: Убрать с доски
-        issue-actions--move-down: Перенести вниз колонки
-        issue-actions--move-up: Перенести наверх колонки
-      ui_components_agile_agile-board_AgileBoardMigrationForm:
-        submit-btn: Начать миграцию
-      ui_components_agile_agile-board_AgileBoardUnusedStatuses:
-        unused-statuses-add-to-column: Добавить в колонку
-        unused-statuses-create-column: Создать колонку
-      ui_components_agile_backlog_BacklogAddColumnButton:
-        add-column: Добавить колонку
-      ui_components_agile_backlog_BacklogIssue:
-        backlog-default-column: Бэклог
-      ui_components_agile_common_AddIssueButton:
-        add-issue-button: Добавить задачу
-      ui_components_agile_common_AgileFilters:
-        action-title-save: Сохранить
-        all-issues-filter-title: Все задачи
-        reset-button: Сбросить
-      ui_components_agile_common_AgileTabs:
-        backlog: Бэклог
-        board: Доска
-        poker: Покер
-      ui_components_agile_common_BulkActionsPanel:
-        add-to-sprint: Добавить в спринт
-      ui_components_agile_common_ColumnForm:
-        create-column-label--statuses: Статусы в колонке
-        create-column-submit-button--create: Добавить
-      ui_components_agile_common_FieldsSelect:
-        fields-settings: Поля карточки
-      ui_components_agile_common_FinishedSprintsButton:
-        finished-sprints: Завершенные спринты
-      ui_components_agile_common_IssueActionsMenu:
-        select-issue: Выделить
-      ui_components_agile_common_QuickFilterPopup:
-        filters-manage: Управление фильтрами
-      ui_components_agile_common_QuickFiltersItem:
-        quick-filter--assignee-me: Я исполнитель
-        quick-filter--author-me: Я автор
-      ui_components_agile_common_SprintForm:
-        create-sprint: Создать спринт
-        edit-sprint: Редактировать спринт
-      ui_components_agile_common_SprintFormFields:
-        take-sprint-to-work: Взять в работу
-      ui_components_agile_common_StartSprintButton:
-        start: Запустить
-      ui_components_agile_common_UnusedStatusesButton:
-        unused-statuses-button: Неиспользуемые статусы
-      ui_components_agile_common_ViewModeControl:
-        columns: Колонки
-        columnsByStatus: Колонки по статусам
-        customColumns: Произвольные колонки
-      ui_components_agile_poker_hooks:
-        add-issue-to-poker: Добавить в покер
-      ui_components_agile_poker_PokerButton:
-        poker: Покер
-      ui_components_agile_poker_PokerIssueForm:
-        apply-estimate: Выставить итоговую
-        show-estimates: Показать оценки
-      ui_components_agile_settings_AgileSettingsLayout:
-        issue-updates: Автоматическое добавление<br />и удаление задач
-        poker: Покер
-      ui_components_agile_settings_BoardIssueUpdatesSettings:
-        import-title: Добавление задач на доску
-        removal-title: Удаление задач с доски
-      ui_components_agile_settings_PokerSettings:
-        aggregation-function-field-label: Расчёт итоговой оценки
-        deck-field-label: Колода оценок
-        display-estimated-field-label: Отображать оценённые задачи
-        save: Сохранить
-      ui_components_App:
-        title-queues: Очереди
-      ui_components_attachments-manager:
+      ui_Common_smart-components_attachments-manager:
         attach: Прикрепить файлы
         attachments-section-title: Файлы
-      ui_components_bulk_BulkChangeParametersDialog:
+      ui_Common_smart-components_bulk_BulkChangeParametersDialog:
         button-submit-text: Применить
-      ui_components_BulkSuggestPopup:
+      ui_Common_smart-components_BulkSuggestPopup:
         apply: Применить
-      ui_components_CreateIssueForm:
-        create-issue: Создать задачу
-      ui_components_dashboard_CollapseHeader:
-        copy-menu-item: Копировать
-      ui_components_dashboard_DashboardActionsMenu:
-        set-start-page-action: Сделать стартовой
-      ui_components_dashboard_DashboardHeader:
-        dashboard-header-add-button: Добавить
-        dashboard-header-add-orgAdmin: Информация для сотрудников
-        dashboard-header-settings-button: Редактировать
-      ui_components_dashboard_FilterEditor:
-        editor-source-radio-query: Язык запросов
-      ui_components_dashboard_InfoPresetsWidget:
-        choose-template-button: Выбрать шаблон
-        widget-title: Шаблоны рабочих процессов
-      ui_components_dashboard_IssuesStatEditor:
-        editor-sort-by-field-label: Сортировка
-        editor-source-radio-parameters: Параметры
-      ui_components_dashboard_OrgAdminEditor:
-        editor-published-field-label: Виджет опубликован
-        editor-save-button: Сохранить
-      ui_components_dashboard_TableWidget:
-        show-all: Показать все
-      ui_components_entity-page_ActivitySection:
-        activity: Активность
-        new-activity-on-top: Сначала новые
-      ui_components_entity-page_checklist_ChecklistActionsMenu:
+      ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu:
         remove-title: Удалить чеклист
-      ui_components_entity-page_checklist_ChecklistItem:
-        button-cancel: Отменить
-        button-submit: Сохранить
-        remove-item-title: Удалить пункт
-      ui_components_entity-page_checklist_Footer:
+      ui_Common_smart-components_entity-page_checklist_Footer:
         new-item-button-caption: Добавить пункт
-      ui_components_entity-page_checklist_Header:
+      ui_Common_smart-components_entity-page_checklist_Header:
         header-title: Чеклист
-      ui_components_entity-page_comments_CommentEditor_mobile:
-        write-comment: Написать комментарий
-      ui_components_entity-page_macros_FavoriteButton:
+      ui_Common_smart-components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Добавить в избранное
-      ui_components_entity-page_macros_MacrosExecutor:
-        apply-button-label: Выполнить
-      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+      ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Изменить список параметров
-      ui_components_FieldEdit:
-        form-submit: Сохранить
-      ui_components_filter-field:
-        save-button: Сохранить
-      ui_components_filter-pane_FieldsSelectButton:
+      ui_Common_smart-components_filter-pane_FieldsSelectButton:
         add-filter-field-button-title: Добавить поле для фильтрации
-      ui_components_filter-pane_ViewModeSwitch:
-        mode-gantt: Диаграмма Ганта
-      ui_components_filter-pane:
+      ui_Common_smart-components_filter-pane:
         action-title-save: Сохранить
         action-title-save-as: Сохранить как новый
         all-issues-filter-title: Все задачи
@@ -4907,35 +4784,68 @@ default:
         list-mode-tree: Древовидный список
         reset-button: Сбросить
         search-placeholder: Поиск по названию задачи
-      ui_components_FilterExportMenu:
-        menu-item-export: Выгрузить
-        title: Действия над фильтром
-      ui_components_FormField_TimeTrackingBlock:
+      ui_Common_smart-components_FormField_TimeTrackingBlock:
         field-comment-title: Комментарий
         field-datetime-title: Дата записи
         field-estimation-title: Общая оценка задачи
         field-remain-title: Осталось времени
         field-spent-title: Затрачено времени
-      ui_components_Gantt_IssueActionsCell:
-        issue-action-menu-title: Меню действий задачи
-      ui_components_Gantt:
-        color-type-by-manual: назначать вручную
-        color-type-by-parameter: по параметрам задачи
-        color-type-monochrome: однотонный
-        delete-link: Удалить связь
-        exit: Выйти
-        scale-days: Неделя
-        scale-month: Месяц
-        scale-quarters: Квартал
-        shift-blocked-with-blocker: >-
-          Автоматически сдвигать сроки зависимой задачи при переносе дедлайна
-          блокирующей задачи
-        show-external-blockers: Показывать внешние блокеры
-        show-issue-assignee: исполнителя
-        show-issue-title: название
-        show-links: Показывать блокирующие связи
-        timeline-config: Настройки диаграммы
-      ui_components_issue-actions_IssueMenu:
+      ui_Common_smart-components_page-admin_OrganizationSmallPane:
+        add-org-button: Добавить организацию
+      ui_Common_smart-components_page-admin_OrgGroupsPane:
+        access-level_full-access: Полный
+        access-level_read_only: Чтение
+        title_access: Доступ в Tracker
+      ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane:
+        federation-task-action: Подключить
+        source-title: Yandex Cloud Organization
+      ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane:
+        domain-task-action: Подключить
+        source-title: Яндекс 360 для бизнеса
+      ui_Common_smart-components_page-admin_PageAdmin:
+        access-and-payment: Доступы и оплата
+        menu-item-groups: Группы
+        menu-item-orgs: Организации
+        menu-item-repositories: Репозитории
+        menu-item-users: Пользователи
+      ui_Common_smart-components_SortButton:
+        default-title: Сортировка
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody:
+        column-comment: Комментарий
+        column-date: Дата записи
+        column-spent: Затрачено времени
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog:
+        title: История учёта времени
+      ui_Common_smart-components_TrackerSearch:
+        queues: Очереди
+      ui_Dashboards_smart-components_DashboardHeader:
+        dashboard-header-add-button: Добавить
+        dashboard-header-add-orgAdmin: Информация для сотрудников
+        dashboard-header-settings-button: Редактировать
+      ui_Dashboards_smart-components_InfoPresetsWidget:
+        choose-template-button: Выбрать шаблон
+        widget-title: Шаблоны рабочих процессов
+      ui_Dashboards_smart-components_OrgAdminEditor:
+        editor-published-field-label: Виджет опубликован
+        editor-save-button: Сохранить
+      ui_Issues_pages_page-issues_touch:
+        all-issues-filter-title: Все задачи
+        query-language: Язык запросов
+      ui_Issues_pages_PageCreateIssue:
+        change-template: Редактировать форму
+        change-title-and-description: Изменить название и описание
+        create-new: Создать форму
+        create-new-template: Создать новую форму
+        description-placeholder: >-
+          Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
+          этой задаче
+        switch-to-admin-panel: Перейти в админку
+        try-yandex-forms: Попробуйте Yandex Forms для создания задач
+      ui_Issues_pages_PageCreateIssueForm:
+        continue: Продолжить
+      ui_Issues_pure-components_issue-comments-templates:
+        create-template-item: Создать шаблон
+      ui_Issues_smart-components_issue-actions_IssueMenu:
         add-notification: Добавить напоминание
         add-worklog: Указать затраченное время
         calendar-event-me: Зарезервировать время для работы над задачей
@@ -4946,22 +4856,16 @@ default:
         move-issue: Изменить очередь
         title: Действия
         to-subissue: Сделать подзадачей
-      ui_components_issue-actions_worklog_AddWorklogDialog:
+      ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog:
         apply-button: Сохранить
         date-label: Начало работы
         duration-label: Затрачено времени
-      ui_components_issue-comments-templates:
-        create-template-item: Создать шаблон
-      ui_components_issue-links_ExternalLinksCollapse:
+      ui_Issues_smart-components_issue-links_ExternalLinksCollapse:
         external-relations: Связи с внешними приложениями
-      ui_components_issue-links_InternalLinksCollapse:
-        relations: Связанные задачи
-      ui_components_issue-templates_Select:
+      ui_Issues_smart-components_issue-templates_Select:
         manage-templates: Управление шаблонами
         select-template: Применить шаблон
-      ui_components_IssueActionsButton:
-        menu-item-create-subticket: Создать подзадачу
-      ui_components_IssueBulkActionPanel:
+      ui_Issues_smart-components_IssueBulkActionPanel:
         add-link: Добавить связь
         add-me-to-followers: Добавить меня в наблюдатели
         add-to-board: Добавить на доску
@@ -4974,77 +4878,15 @@ default:
         move: Переместить
         remove-from-both-fields: Из обоих полей
         remove-me-from: Удалить меня из поля...
-      ui_components_issues_create-issue-popup_NewIssueForm:
-        milestone-type: Веха
-      ui_components_issues-import_IssuesImportDialog:
-        import: Импортировать
-      ui_components_issues-import_IssuesImportFilters:
-        add-parameters: Добавить параметры
-      ui_components_IssuesGroupHeader:
-        no-epic: Без эпика
-      ui_components_IssuesPresetSelect:
+      ui_Issues_smart-components_IssuesPresetSelect:
         preset_assignee: Я исполнитель
         preset_author: Я автор
         preset_deadline: Скоро дедлайн
         preset-deadline: Скоро дедлайн
-      ui_components_IssueTabs:
-        description-tab: Описание
-        fields-tab: Параметры
-        links-tab: Связи
-      ui_components_ModalTextEditor:
-        save: Сохранить
-      ui_components_navigation:
-        invite-user: Добавить пользователя
-      ui_components_new-process_ProcessTypeStepRedesign:
-        information-time-tracking-title: Учёт времени
-        process-type-development: Разработка
-        process-type-project: Управление проектами
-        process-type-standard: Базовый
-        process-type-support: Поддержка
-      ui_components_new-process_QueueSetupForm:
-        next-button: Продолжить
-      ui_components_page-admin_BillingAccountInfo:
-        person-type-company: Юридическое лицо или ИП
-        person-type-invididual: Физическое лицо
-        rebind-account: Заменить платёжный аккаунт
-        refill-balance: Пополнить баланс
-        refill-dialog-ok-issue: Выписать счёт
-      ui_components_page-admin_BillingAccountList:
-        bind: Привязать
-        create-account: Создать новый аккаунт
-      ui_components_page-admin_BillingScreen:
-        create-account: Создать
-      ui_components_page-admin_ChangeOrganizationModal:
-        add-button: Сменить организацию
-      ui_components_page-admin_OrganizationSmallPane:
-        add-org-button: Добавить организацию
-      ui_components_page-admin_OrgMainInfoPane:
-        org-manage-button: Управление организацией
-      ui_components_page-admin_OrgPanes_CloudOrgPane:
-        federation-task-action: Подключить
-        source-title: Yandex Cloud Organization
-      ui_components_page-admin_OrgPanes_DirectoryOrgPane:
-        domain-task-action: Подключить
-        source-title: Яндекс 360 для бизнеса
-      ui_components_page-admin_OrgUsersPane:
-        access-level_full-access: Полный
-        access-level_read_only: Чтение
-        title_access: Доступ в Tracker
-      ui_components_page-admin_PageAdmin:
-        access-and-payment: Доступы и оплата
-        menu-item-groups: Группы
-        menu-item-orgs: Организации
-        menu-item-repositories: Репозитории
-        menu-item-users: Пользователи
-      ui_components_page-issues_touch_FilterSettingsMenu:
-        item-filters: Фильтры
-        item-group: Группировка
-      ui_components_page-issues_touch:
-        all-issues-filter-title: Все задачи
-        query-language: Язык запросов
-      ui_components_page-my_PageMy:
-        page-title: Моя страница
-      ui_components_page-queue-admin_AliasesCreateForm:
+      ui_Portfolios_smart-components_project-list_utils:
+        field-name-resolution: Резолюция
+        filter-macro-empty_: Без значения
+      ui_Queues_pages_page-queue-admin_AliasesCreateForm:
         mail-address: Почта
         mail-allow-external: Принимать письма не только от сотрудников организации
         mail-archive-folder: Папка для архива
@@ -5057,7 +4899,7 @@ default:
         mail-settings-title: Почта для получения писем
         mail-ssl: Защищенное соединение (SSL)
         save-button: Сохранить
-      ui_components_page-queue-admin_AliasesFormSendPanel:
+      ui_Queues_pages_page-queue-admin_AliasesFormSendPanel:
         send-mail-login: Логин
         send-mail-password: Пароль
         send-mail-port: Порт
@@ -5066,89 +4908,28 @@ default:
         send-settings-title: Почта для отправки ответов
         signature-settings-title: Подписи
         test-mail-button: Отправить тестовое письмо
-      ui_components_page-queue-admin_AliasesStateList:
+      ui_Queues_pages_page-queue-admin_AliasesStateList:
         action-add-mail: Добавить адрес
         action-domain: Подключить домен
-      ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu:
-        add-form: Добавить форму
-        create-new: Создать новую
-      ui_components_page-queue-admin_QueueActionsMenu:
+      ui_Queues_pages_page-queue-admin_QueueActionsMenu:
         remove-queue-action: Удалить очередь
-      ui_components_page-queue-admin_QueueAdminPageContent:
+      ui_Queues_pages_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Почтовые ящики
         menu-item-autoactions: Автодействия
         menu-item-forms: Интеграция форм
         menu-item-permissions: Права доступа
         menu-item-timetracking: Учёт времени
         menu-item-workflows: Рабочие процессы
-      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+      ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
         change-owner: Изменить владельца
         set-as-default: Назначать исполнителем по умолчанию
-      ui_components_page-queue-admin_Signature:
-        alias-title: Псевдоним
-      ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
-        enable-backlog: Включить бэклог
-      ui_components_PageAgileBoard_PageAgileBoardHeader:
-        settings: Настройки
-      ui_components_PageAgileBoardSettings_Header:
-        settings: Настройки
-      ui_components_PageCreateIssue:
-        change-template: Редактировать форму
-        change-title-and-description: Изменить название и описание
-        create-new: Создать форму
-        create-new-template: Создать новую форму
-        description-placeholder: >-
-          Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
-          этой задаче
-        switch-to-admin-panel: Перейти в админку
-        try-yandex-forms: Попробуйте Yandex Forms для создания задач
-      ui_components_PageCreateIssueForm:
-        continue: Продолжить
-      ui_components_PageHiThere:
-        wrong-user-btn: Войти
-      ui_components_PageIssues:
-        search-title: Поиск по всем задачам
-      ui_components_PageQueue_header:
+      ui_Queues_pages_PageQueue_header:
         export: Выгрузить
         settings: Настройки очереди
         subscribe: Подписаться
         subscribe-all: Подписаться на все уведомления
         subscribe-new-tickets: Подписаться на создание задач
-      ui_components_PageQueues:
-        new-queue: Создать очередь
-      ui_components_portfolios_Header:
-        description-tab: О портфеле
-        projects-tab: Проекты
-      ui_components_portfolios_portfolio-page_ListFilterPane:
-        filter-issues: По задачам
-        filter-projects: По проектам
-        search-placeholder: Поиск
-      ui_components_portfolios_PortfolioMenu:
-        remove-portfolio: Удалить портфель проектов
-      ui_components_projects_hooks:
-        copy-to-clipboard: Скопировать ссылку
-        delete-from-project: Удалить из проекта
-        issue-actions--move-down: Перенести вниз списка
-        issue-actions--move-up: Перенести наверх списка
-      ui_components_projects_Sidebar:
-        sidebar-param-title--endDate: Дедлайн
-        sidebar-param-title--lead: Ответственный
-        sidebar-param-title--startDate: Дата начала
-        sidebar-param-title--status: Статус
-        sidebar-param-title--teamUsers: Участники
-      ui_components_projects_Table:
-        add-issue: Добавить задачу
-        add-sub-issue: Добавить подзадачу
-      ui_components_projects_utils:
-        field-name-resolution: Резолюция
-        filter-macro-empty_: Без значения
-      ui_components_promo_Page:
-        login-button-label: Войти в Tracker
-      ui_components_queue-admin-tab-integrations_IntegrationForms:
-        title: Формы
-      ui_components_queue-admin-tab-main_QueueAdminTabMain:
-        save: Сохранить
-      ui_components_queue-admin-tab-timetracking_TimetackingForm:
+      ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
         field-can-assignee-update-time: Разрешить редактирование своих записей
         field-show-time-field-on-close: Рассчитывать затраченное время автоматически
         field-track-time-in-issues: Включить расширенный учёт времени
@@ -5156,40 +4937,34 @@ default:
         field-use-summary-time: Отображать поле “Общая оценка задачи”
         field-working-calendar: График работы
         save: Сохранить
-      ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
+      ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog:
         action-copy: Скопировать
         label-name: Название нового процесса
         label-queue: Копировать из очереди
         label-workflow: Копируемый процесс
-      ui_components_queue-admin-tab-workflows_WorkflowsStateList:
+      ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Создать рабочий процесс
         default-type-title: Тип задачи по умолчанию
-      ui_components_QueueAdminTemplateOptions:
+      ui_Queues_smart-components_new-process_ProcessTypeStepRedesign:
+        information-time-tracking-title: Учёт времени
+        process-type-development: Разработка
+        process-type-project: Управление проектами
+        process-type-standard: Базовый
+        process-type-support: Поддержка
+      ui_Queues_smart-components_new-process_QueueSetupForm:
+        next-button: Продолжить
+      ui_Queues_smart-components_QueueAdminTemplateOptions:
         allow-empty-template: Разрешить создание задач без формы
         always: всегда
         never: никогда
         team: только команде очереди
-      ui_components_settings_IssueUpdatesSettings:
-        save: Сохранить
-      ui_components_SortButton:
-        default-title: Сортировка
-      ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
-        column-comment: Комментарий
-        column-date: Дата записи
-        column-spent: Затрачено времени
-      ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: История учёта времени
-      ui_components_TrackerSearch:
-        queues: Очереди
-      ui_components_TransitionScreen:
-        screen-next-button: Продолжить
-      ui_components_workflow-conditions_ConditionsMenu:
+      ui_Queues_smart-components_workflow-conditions_ConditionsMenu:
         add-condition: Добавить условие
-      ui_components_workflow-conditions_WorkflowGroupCondition:
+      ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition:
         add-conditions-group: Добавить группу условий
-      ui_components_workflow-functions_WorkflowFunctionMenu:
+      ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu:
         menu-title: Добавить автоматизацию
-      ui_components_workflow-functions:
+      ui_Queues_smart-components_workflow-functions:
         type-AddCommentFunction: Добавить комментарий
         type-AddTextToFieldFunction: Заполнить поле
         type-CalculateFieldFunction: Записать сумму чисел в поле
@@ -5322,10 +5097,12 @@ default:
             label_from: От
             label_product: Продукты
             label_service: Сервисы
+            label_title: Детализация
             label_title-usage-short: Потребление за
             label_to: До
             label_top-cost: Стоимость потребления
             label_top-total: К оплате
+            popup-csv_button_download: Скачать
             tab_label: По меткам
             tab_product: По продуктам
             tab_service: По сервисам
@@ -6149,19 +5926,6 @@ default:
         title_section-server-network-settings: Сетевые настройки
         title_section-server-product: Образ
         title_server-access: Доступ
-      billing:
-        account:
-          dashboard-overview:
-            button_refill: Пополнить баланс
-            popup-refill_button_company-action: Выписать счет
-          detail:
-            button_export: Экспорт детализации
-            label_title: Детализация
-            popup-csv_button_download: Скачать
-            tab_product: По продуктам
-          switch_detail: Детализация
-        label_accounts: Аккаунты
-        label_service: Биллинг
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
@@ -6689,7 +6453,8 @@ default:
           popup-upload_field_pooled: Оптимизировать для развертывания
         instance:
           access-method:
-            field_os-login-access-method: Доступ через OS Login
+            field_os-login-access-method: Доступ по OS Login
+            label_oslogin-control-ssh-option-title: SSH-ключ
           console:
             connect: Подключиться
           edit-network-interface:
@@ -6765,7 +6530,7 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Добавить сетевой интерфейс
             section_access: Доступ
-            section_additional: Дополнительные настройки
+            section_additional: Дополнительно
             section_backup: Cloud Backup
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
@@ -7285,7 +7050,7 @@ default:
           popup-add_field_name: Имя
         node-group:
           access-method:
-            field_os-login-access-method: Доступ через OS Login
+            field_os-login-access-method: Доступ по OS Login
           overview:
             label_network-hdd: HDD
             label_network-ssd: SSD
@@ -8491,7 +8256,6 @@ default:
           overview:
             button_create_route-table: Создать таблицу маршрутизации
             button_create_subnetwork: Создать подсеть
-            column_subnetwork_id: Идентификатор
             section_subnetworks: Подсети
           security-groups:
             button_add-rule: Добавить правило
@@ -8803,6 +8567,9 @@ default:
                         title: Пароль
                       user:
                         title: Пользователь
+                    ConnmanConnection:
+                      connection_id:
+                        title: Подключение
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Добавить неразмеченные столбцы
@@ -9385,9 +9152,6 @@ default:
               console:
                 form:
                   postgres:
-                    ConnmanConnection:
-                      connection_id:
-                        title: Идентификатор подключения
                     OnPremisePostgres:
                       ca_certificate:
                         title: Сертификат CA

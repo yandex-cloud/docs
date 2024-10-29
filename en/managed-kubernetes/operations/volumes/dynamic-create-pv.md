@@ -62,7 +62,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    persistentvolumeclaim/pvc-dynamic created
    ```
 
-1. View the new `PersistentVolumeClaim` object's info:
+1. View the information about the new `PersistentVolumeClaim` object:
 
    ```bash
    kubectl describe persistentvolumeclaim pvc-dynamic
@@ -121,7 +121,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    pod/pod created
    ```
 
-1. View information about the pod created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod pod

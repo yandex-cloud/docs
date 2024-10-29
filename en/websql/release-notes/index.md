@@ -5,6 +5,26 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2024
 
+## September {#september}
+
+### New features {#new-features-september}
+
+1. Now you can [connect](../quickstart.md) to unsharded {{ RD }} clusters.
+
+1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles for viewing metadata requests and permissions to access them.
+
+### Improvements {#improvements-september}
+
+1. Added the experiment of displaying connections as database users.
+
+1. {{ PG }} tables are now displayed as database objects even if the user does not have access to these tables.
+
+1. Added the display of empty {{ PG }} schemas to the list of database objects.
+
+### Fixed issues {#fixes-september}
+
+Configured the backend request timeout as 25 seconds.
+
 ## August {#august}
 
 ### Improvements {#improvements-august}

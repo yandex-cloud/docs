@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ video-full-name }}. Step-by-step guides
+title: Working with {{ video-full-name }}. Step-by-step guides
 description: Step-by-step guides on how to use the streaming and video hosting service in {{ yandex-cloud }}. In this tutorial, you will learn how to manage channels and videos in {{ video-full-name }}.
 ---
 
@@ -15,6 +15,7 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 
 * [{#T}](video/upload.md)
 * [{#T}](video/update.md)
+* [{#T}](video/subtitles.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)

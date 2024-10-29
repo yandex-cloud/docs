@@ -150,6 +150,16 @@ items:
         href: tutorials/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: tutorials/usergate-proxy.md
+      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+        href: tutorials/usergate-firewall.md
+      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+        href: tutorials/route-switcher.md
+      - name: >-
+          Создание туннеля между двумя подсетями при помощи OpenVPN Access
+          Server
+        href: tutorials/site-to-site-openvpn.md
+      - name: Создание бастионного хоста
+        href: tutorials/bastion.md
       - name: >-
           Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в
           другую зону доступности

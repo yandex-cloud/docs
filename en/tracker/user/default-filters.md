@@ -22,7 +22,7 @@ Find your issues using preset system filters.
 
    * **Waiting for response**: Issues you were [invited to comment](comments.md#call-comment) on.
 
-   * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are reporter, assignee, or follower and where:
+   * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are reporter, assignee, or follower and where:
 
       * Issues that have exceeded their deadlines in the past two weeks.
 
@@ -36,7 +36,7 @@ Find your issues using preset system filters.
    * To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** to the right of the search bar and select the desired parameter.
       
 
-   * To save an issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** and select the download file format or simply copy the list to the clipboard.
+   * To save an issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Export** and select the download file format or simply copy the list to the clipboard.
 
    * To collapse the panel with the filter list, in the top-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**.
 
@@ -52,7 +52,7 @@ Use filtering by parameters to narrow down your issue list and display only thos
 
 * To filter issues by their [resolution](../manager/create-resolution.md), click **{{ ui-key.startrek-backend.fields.issue.resolution-key-value }}** and select relevant values from the list.
 
-* To use [advanced search parameters](#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
+* To use [advanced search parameters](#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 
 As a result, only the issues that meet the selected filter criteria are shown in the list.
 
@@ -62,18 +62,18 @@ As a result, only the issues that meet the selected filter criteria are shown in
 
 To find issues by the parameters that cannot be set using the system filters, add search conditions.
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-source-radio-parameters }}**. A panel with the specified filtering parameters will be shown under the search bar.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**. A panel with the specified filtering parameters will be shown under the search bar.
 
-1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.
+1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.
 
-1. Select an issue parameter, set its value, and click **{{ ui-key.startrek.ui_components_filter-field.save-button }}**.
+1. Select an issue parameter, set its value, and click **Save**.
 
    Any issues that do not meet your criteria are filtered out of the list.
 
 
 1. If you need to refine the search conditions, add more parameters.
 
-1. You can reset the search parameters by clicking **{{ ui-key.startrek.ui_components_filter-pane.reset-button }}** above the issue list.
+1. You can reset the search parameters by clicking **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.reset-button }}** above the issue list.
 
 For example, you can search issues by their name or description:
 
@@ -92,7 +92,7 @@ If you set multiple search conditions, only those issues that meet all the condi
 
 If you cannot set search conditions using the issue parameters, use the request:
 
-1. Click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}** in the top-right corner. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
+1. Click ![](../../_assets/tracker/svg/query-language.svg) **Query language** in the top-right corner. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
 
 1. Use the [query language](query-filter.md) to add parameters.
 

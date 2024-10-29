@@ -17,7 +17,7 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -57,7 +57,7 @@
         * `expose-headers`: List of headers that can be displayed in a JavaScript app in the browser. This is an optional parameter.
         * `max-age-seconds`: Time in seconds during which the browser caches the results of requests to an object. This is an optional parameter.
 
-        Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces, e.g., `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
+        Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces. For example, `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
         Permissions specified in the command override the current CORS settings of the bucket. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full`.
 
@@ -85,7 +85,7 @@
 
   To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS object configurations in JSON format. For example:
+  1. Describe the CORS object configurations in JSON format. Here is an example:
 
      ```json
      {
@@ -134,7 +134,7 @@
        name = "<service_account_name>"
      }
 
-     // Assigning roles to a service account
+     // Assigning a role to a service account
      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
        folder_id = "<folder_ID>"
        role      = "storage.admin"
@@ -175,13 +175,13 @@
 
      `CORS` parameters:
      * `allowed_headers`: Allowed headers. This is an optional parameter.
-     * `allowed_methods`: Allowed methods. Possible values: `GET`, `PUT`, `POST`, `DELETE`, and `HEAD`. This is a required parameter.
+     * `allowed_methods`: Allowed methods. The possible values are `GET`, `PUT`, `POST`, `DELETE` or `HEAD`. This is a required parameter.
      * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. This is a required parameter.
      * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. This is an optional parameter. 
      * `max_age_seconds`: Time in seconds during which the browser caches the results of requests to an object. This is an optional parameter.
      * `server_side_encryption_configuration`: Bucket encryption settings on the server side. This is an optional parameter.
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
      1. In the command line, go to the folder where you created the configuration file.

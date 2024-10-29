@@ -73,9 +73,9 @@
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-  1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
+  1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
  
-  1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
+  1. В блоке **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
 
   2. Задайте настройки федерации и нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
   
@@ -95,9 +95,9 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
 
-1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. Откроется окно с вашими организациями. Вы можете создать новую организацию или перейти в существующую.
+1. В блоке **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrganizationSmallPane.add-org-button }}**. Откроется окно с вашими организациями. Вы можете создать новую организацию или перейти в существующую.
 
    {% note info %}
 

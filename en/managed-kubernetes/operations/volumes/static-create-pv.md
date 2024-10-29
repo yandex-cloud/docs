@@ -223,7 +223,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ```
 
    For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f test-pod.yaml
@@ -235,7 +235,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    pod/test-pod created
    ```
 
-1. View information about the pod created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod test-pod

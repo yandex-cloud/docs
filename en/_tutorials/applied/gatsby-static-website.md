@@ -46,8 +46,8 @@ Infrastructure support costs include fees for storing data in {{ objstorage-name
 	Result:
 
 	```
-	ns2.{{ dns-ns-host-sld }}
-	ns1.{{ dns-ns-host-sld }}
+	ns2.{{ dns-ns-host-sld }}.
+	ns1.{{ dns-ns-host-sld }}.
 	```
 
 ## Create the website locally {#create-local-site}
@@ -162,7 +162,7 @@ To host your static website in the cloud, create a bucket:
        name = "<service_account_name>"
      }
 
-     // Assigning roles to a service account
+     // Assigning a role to a service account
      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
        folder_id = "<folder_ID>"
        role      = "storage.editor"
@@ -185,9 +185,9 @@ To host your static website in the cloud, create a bucket:
 
      Where:
 
-     * `yandex_iam_service_account`: Description of the service account that will create and use a bucket:
+     * `yandex_iam_service_account`: Description of the service account to create and use the bucket:
        * `name`: Service account name
-     * `yandex_storage_bucket`: Secret description
+     * `--description`: Secret description
        * `bucket`: Bucket name. Specify the domain name you registered, e.g., `gatsbytest.ru`.
 
 
@@ -235,7 +235,7 @@ To configure a bucket for static website hosting:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Create a hosting settings file in JSON format. For example:
+  1. Create a hosting settings file in JSON format. Here is an example:
 
      ```json
      {
@@ -247,17 +247,17 @@ To configure a bucket for static website hosting:
      Where:
 
      * `index`: Absolute path to the file of the website home page.
-     * `error`: Absolute path to the file the user will see in case of `4xx` errors.
+     * `error`: Absolute path to the file the user will see in case of 4xx errors.
 
   1. Run the following command:
 
      ```bash
      yc storage bucket update --name <bucket_name> \
-       --website-settings-from-file <file_path>
+       --website-settings-from-file <path_to_file>
      ```
 
      Where:
-     * `--name`: Bucket name, which is `gatsbytest.ru` in our example.
+     * `--name`: Bucket name, `gatsbytest.ru` in our example.
      * `--website-settings-from-file`: Path to the hosting settings file.
 
   To make sure the bucket description now contains the hosting settings, run this command:
@@ -619,7 +619,7 @@ To configure access to your website over a secure protocol, get a security certi
 
    - Management console {#console}
 
-       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+       1. In the [management console]({{ link-console-main }}), select the folder.
        1. Select **{{ objstorage-name }}**.
        1. Click the bucket name, `gatsbytest.ru` in our example.
        1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
@@ -695,7 +695,7 @@ To configure access to your website over a secure protocol, get a security certi
         terraform apply
         ```
 
-     1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+     1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
         You can use the [management console]({{ link-console-main }}) to check the selected certificate.
 

@@ -2,7 +2,7 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. На панели слева выберите **Автоматизация** → **Автодействия**.
 

@@ -1,6 +1,10 @@
 # {{ backup-full-name }} overview
 
-{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. Backup and recovery is available for [{{ compute-name }} VMs](../../compute/concepts/vm.md) VMs with [supported operating systems](vm-connection.md#os).
+{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. Backup and recovery is available for [{{ compute-name }}](../../compute/concepts/vm.md) VMs with [supported operating systems](vm-connection.md#os).
+
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 VM backups are application-consistent: they save not only the data stored on disks but also the data already sent but not yet fully written. This allows you to resume applications that were running at the time of creating a backup directly after recovering a VM. This is important for VMs forming a part of data storage systems, e.g., those hosting a DBMS.
 

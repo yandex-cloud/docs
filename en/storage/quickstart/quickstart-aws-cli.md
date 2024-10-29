@@ -23,7 +23,7 @@ To get started with the AWS CLI:
 - Management console {#console}
 
   1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-  1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
   1. On the [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) page, make sure you have the following _minimum_ roles:
       * To create a [service account](../../iam/concepts/users/service-accounts.md) and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role for that service account will be enough.
       * To assign a role to a service account: [storage.admin](../../storage/security/index.md#storage-admin) for a bucket or folder.
@@ -91,7 +91,7 @@ To get started with the AWS CLI:
       1. In the terminal, run this command:
 
           ```bash
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --output "awscliv2.zip"
           unzip awscliv2.zip
           sudo ./aws/install
           ```
@@ -103,7 +103,7 @@ To get started with the AWS CLI:
       1. In the terminal, run this command:
 
           ```bash
-          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
           sudo installer -pkg AWSCLIV2.pkg -target /
           ```
 
@@ -130,7 +130,7 @@ To get started with the AWS CLI:
           aws configure
           ```
 
-      1. Enter the values for the parameters:
+      1. Enter the values for these parameters:
 
           * `AWS Access Key ID`: Previously obtained static key ID.
           * `AWS Secret Access Key`: Previously obtained secret key.
@@ -145,7 +145,7 @@ To get started with the AWS CLI:
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-      1. Set a {{ objstorage-name }} endpoint:
+      1. Set the {{ objstorage-name }} endpoint:
 
           ```bash
           aws configure set endpoint_url https://{{ s3-storage-host }}/
@@ -218,7 +218,7 @@ Give consideration to the [special aspects](../tools/aws-cli.md#specifics) of us
   In the terminal, run the command below stating the bucket name, object key, and link lifetime in seconds:
 
   ```bash
-  aws s3 presign s3://<bucket_name>/<object_key> --expires-in <life_time>
+  aws s3 presign s3://<bucket_name>/<object_key> --expires-in <lifetime>
   ```
 
   You can share the received link or use it in your service to access the file.

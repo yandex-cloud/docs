@@ -14,7 +14,7 @@ To manage the workflows for official employment and onboarding of new employees,
 
 Create separate issue types for various procedures related to employment and onboarding of new employees. For example, to grant access permissions and provide equipment, create an issue type named *Access permissions and equipment*:
 
-1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. In the left-hand panel, select **Issue types**.
 1. Wait for the page to load and click **Add issue type**.
 1. In the form that appears:
@@ -37,7 +37,7 @@ Make sure the issue types are unique.
 
 To automate replication of issues from the `Candidates Queue` to the `Employment Queue`, create a trigger that will fire when the candidate issue status changes to Hired:
 
-1. In the top-right corner of the `Candidates Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the `Candidates Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
 1. In the **Name** field, enter a trigger name, e.g., `employ_candidate`.
 1. Under **Trigger conditions**, select **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
@@ -85,7 +85,7 @@ Once the candidate issue is copied to the `Employment Queue`, you need to create
 
 ### Create a trigger
 
-1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
 1. In the **Name** field, enter a trigger name, e.g., `start_employment`.
 1. Under **Trigger conditions**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.

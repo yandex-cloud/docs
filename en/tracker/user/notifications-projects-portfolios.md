@@ -39,7 +39,7 @@ If you are the customer for a project, you will receive notifications about the 
 
 * You are assigned a customer.
 * Description changed.
-* The following fields updated: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, and **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* The following fields updated: **Start date**, **Deadline**, **Responsible**, and **Participants**.
 * Changing the start and end dates changed the quarters that the project was scheduled for.
 * Comment added.
 * Reaction to a comment added.
@@ -51,7 +51,7 @@ If you are the customer for a project, you will receive notifications about the 
 If you are the customer for a portfolio, you will receive notifications about the following changes to it:
 
 * You are assigned a customer.
-* The following fields updated: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--status }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, and **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* The following fields updated: **Start date**, **Deadline**, **Status**, **Responsible**, and **Participants**.
 * Changing the start and end dates changed the quarters that the portfolio was scheduled for.
 * Comment added.
 * Reaction to a comment added.
@@ -62,9 +62,9 @@ If you are the customer for a portfolio, you will receive notifications about th
 If you are a participant of a portfolio or a project, you will receive notifications about the following changes to them:
 
 * You are assigned a participant.
-* The following fields updated: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--startDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--endDate }}**, **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--lead }}**, and **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--teamUsers }}**.
+* The following fields updated: **Start date**, **Deadline**, **Responsible**, and **Participants**.
 * Changing the start and end dates changed the quarters that the project or portfolio was scheduled for.
 * Description changed.
 * Comment added.
 * Reaction to a comment added.
-* For portfolios: **{{ ui-key.startrek.ui_components_projects_Sidebar.sidebar-param-title--status }}** field updated.
+* For portfolios: **Status** field updated.

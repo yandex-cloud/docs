@@ -1,6 +1,22 @@
 # Вопросы и ответы про {{ ca-full-name }}
 
-### Ошибка в Visual Studio Code при аутентификации {#crypto-is-not-defined}
+## Общие вопросы {#common-questions}
+
+### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
+
+[Платежный аккаунт](../billing/concepts/billing-account.md) **не нужен**.
+
+### Можно ли использовать плагин без доступа в интернет? {#using-plugin-without-internet}
+
+Нет. Для работы {{ ca-short-name }} требуется постоянный доступ в интернет.
+
+### Как изменить пользователя, аутентифицированного в плагине {{ ca-name }} {#change-user}
+
+Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./quickstart.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./quickstart.md#install-plugin).
+
+## Работа в Visual Studio Code {#vs-code-ide}
+
+### Ошибка при аутентификации {#crypto-is-not-defined}
 
 Текст ошибки:
 
@@ -28,17 +44,21 @@ OS: Windows_NT x64 10.0.19045
 
 См. также [Как узнать версию IDE](https://code.visualstudio.com/docs/setup/setup-overview#_how-do-i-know-which-version-im-running).
 
-### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
+## Работа в IDE от JetBrains {#jetbrains-ide}
 
-[Платежный аккаунт](../billing/concepts/billing-account.md) **не нужен**.
+### Какие версии IDE поддерживаются? {#ide-versions}
 
-### Работа в IDE от JetBrains {#jetbrains-ide}
+{{ ca-short-name }} поддерживает работу в IDE от JetBrains версий 2024.1 и 2024.2.
 
-#### Плагин устанавливается некорректно {#plugin-installed-incorrectly}
+### Плагин не запускается, сообщение об ошибке 404, не появляются предложения от {{ ca-short-name }} {#plugin-doesnt-start}
+
+Попробуйте перезапустить IDE.
+
+### Плагин устанавливается некорректно {#plugin-installed-incorrectly}
 
 {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
 
-#### Ошибка аутентификации с прокси {#auth-error-proxy}
+### Ошибка аутентификации с прокси {#auth-error-proxy}
 
 Текст ошибки:
 
@@ -48,13 +68,9 @@ Failed to authenticate with proxy
 
 Проверьте, не включен ли прокси-сервер в IDE. Если включен — отключите и попробуйте аутентифицироваться еще раз.
 
-#### Как получить логи работы IDE {#get-logs-ide}
+### Как получить логи работы IDE {#get-logs-ide}
 
 Если для решения проблем с {{ ca-short-name }} вы хотите обратиться в [техническую поддержку]({{ link-console-support }}), заранее подготовьте файл с логом IDE:
 
 1. В верхнем меню IDE нажмите **Help** и выберите **Show log in Explorer** (**Show Log in Finder** на macOS).
 1. В открывшемся окне скопируйте файл `idea.log` и приложите его к обращению в техническую поддержку.
-
-#### Как изменить пользователя, аутентифицированного в плагине {{ ca-name }} {#change-user}
-
-Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./quickstart.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./quickstart.md#install-plugin).

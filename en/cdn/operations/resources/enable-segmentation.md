@@ -134,10 +134,10 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating access to content for end users. If set to `True`, CDN content will be available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
+      * `active`: Flag indicating content availablity to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
+      * `origin_protocol`: Protocol for origins. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the origin group description in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter. The default value is `false`.
 
@@ -170,7 +170,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

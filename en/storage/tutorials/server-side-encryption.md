@@ -26,7 +26,7 @@ If you no longer need to encrypt new bucket objects, [disable encryption](#disab
 The cost of maintaining a bucket with encryption includes:
 
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../pricing.md#prices-storage)).
-* Fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
+* Fee for operations with data (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
 * Fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 
@@ -38,7 +38,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
@@ -83,10 +83,10 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "{{ objstorage-name }} bucket management account"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        bucket_name = "Bucket name" # Name of the new bucket. If you do not specify a bucket name for the `yandex_storage_bucket` resource, the name will be generated automatically.
+        bucket_name = "Bucket name" # Name of the bucket you are creating. If you do not specify a bucket name for the `yandex_storage_bucket` resource, the name will be generated automatically.
       }
 
       terraform {
@@ -127,7 +127,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       }
       ```
 
-      For more information about the resources that you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 
@@ -197,7 +197,7 @@ Create a new key or use an existing one. To create a key:
 
   * `--name`: Key name.
   * `--default-algorithm`: Encryption algorithm: `aes-128`, `aes-192`, or `aes-256`.
-  * `--rotation-period`: Key rotation period. The value is set in hours, minutes, and seconds and cannot be less than 24 hours, e.g.: `--rotation-period 27h14m27s`.
+  * `--rotation-period`: Key rotation period. The value is set in hours, minutes, and seconds and cannot be less than 24 hours, e.g., `--rotation-period 27h14m27s`.
 
       To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
 
@@ -215,10 +215,10 @@ Create a new key or use an existing one. To create a key:
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "{{ objstorage-name }} bucket management account"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        key_name    = "bucket-key" # KMS key name.
+        key_name    = "bucket-key" # KMS key name
         key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name"
@@ -318,7 +318,8 @@ To enable bucket encryption with a {{ kms-short-name }} key:
   1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `bucket-key`.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -355,10 +356,10 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "{{ objstorage-name }} bucket management account"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        key_name    = "bucket-key" # KMS key name.
+        key_name    = "bucket-key" # KMS key name
         key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name" # Bucket name.
@@ -470,8 +471,9 @@ After you disable bucket encryption, previously uploaded objects will be stored 
   1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
-  1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}`.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - AWS CLI {#aws-cli}
@@ -496,11 +498,11 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "{{ objstorage-name }} bucket management account"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
         key_name    = "bucket-key"
-        key_desc = "Bucket encryption key"
+        key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name"
       }

@@ -133,7 +133,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Regular recognition of audio files in buckets
+      - name: Regular recognition of audio files in a bucket
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -170,6 +170,10 @@ items:
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
       - name: >-
+          Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
+          }}
+        href: tutorials/greenplum-yezzey.md
+      - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
@@ -190,7 +194,7 @@ items:
             href: tutorials/static/terraform.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: Creating a VM backup with Hystax Acura Backup
+      - name: Backing up a VM with Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: tutorials/object-storage-cloudberry.md
@@ -228,7 +232,7 @@ items:
         href: concepts/pre-signed-urls.md
       - name: Multipart upload
         href: concepts/multipart.md
-      - name: Access control lists (ACLs)
+      - name: Access control list (ACL)
         href: concepts/acl.md
       - name: Bucket policy
         href: concepts/policy.md
@@ -302,7 +306,7 @@ items:
         href: security/overview.md
       - name: '{{ iam-name }}'
         href: security/index.md
-      - name: Access control lists (ACLs)
+      - name: Access control list (ACL)
         href: security/acl.md
       - name: Bucket policy
         href: security/policy.md

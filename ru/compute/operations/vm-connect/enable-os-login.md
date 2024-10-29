@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Если вам необходимо настроить подключение по OS Login к уже развернутой виртуальной машине, вы можете самостоятельно установить на нее агент OS Login.
 
+{% include [metadata-keys](../../../_includes/compute/os-login-enablement-notice.md) %}
+
 ## Включить доступ по OS Login {#enable-os-login}
 
 Чтобы настроить доступ по OS Login к существующей виртуальной машине:
@@ -77,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
         1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
         1. В правом верхнем углу экрана нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** отключите опцию **Доступ через OS Login**.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**.
         1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
     - CLI {#cli}

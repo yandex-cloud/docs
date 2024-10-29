@@ -33,7 +33,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   1. Download the [{{ ca-name }} plugin]({{ link-ca-vscode }}) for [Visual Studio Code](https://code.visualstudio.com/).
 
-      If you cannot download it for any reason, contact your system administrator so that they open network access to {{ yandex-cloud }} resources.
+      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
 
   1. Install the plugin:
       1. Open Visual Studio Code.
@@ -56,6 +56,41 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   {{ ca-name }} is now enabled, ready to go, and displayed in the bottom panel of the editor as ![image](../_assets/code-assistant/vsc-icon-small.svg).
 
+- JetBrains IDE {#jb}
+
+  {% note warning %}
+
+  The supported IDE versions are 2024.1 and 2024.2.
+
+  {% endnote %}
+
+  1. Download the {{ ca-name }} plugin for your [JetBrains IDE](https://www.jetbrains.com/ides/) version:
+      * [2024.1]({{ link-ca-jb-2024-1 }})
+      * [2024.2]({{ link-ca-jb-2024-2 }})
+
+      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
+
+  1. Install the plugin:
+      1. Open the IDE.
+      1. Open settings by pressing **Ctrl** + **Alt** + **S** for Windows or Linux or **Command** + **,** for macOS.
+      1. Go to **Plugins**.
+      1. Click ![image](../_assets/console-icons/gear.svg) and select **Install Plugin from Disk...**.
+      1. Select the plugin file you downloaded previously.
+      1. Confirm that you would like to use a third-party plugin and click **OK**.
+
+  1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
+      1. In the **Yandex Code Assistant OAuth** pop-up window, click **Yandex Code Assist: Login**.
+      1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+      1. Go back to the IDE. 
+
+  The `Code Assist plugin started` message means the plugin is active and ready for use.
+
+  {% note tip %}
+
+  If the plugin failed to start, or you do not see suggestions from {{ ca-name }}, try restarting the IDE.
+
+  {% endnote %}
+
 {% endlist %}
 
 ## Test the plugin {#work-with-plugin}
@@ -72,61 +107,68 @@ To work with {{ ca-name }}, you will need continuous internet access.
 
 How to work with {{ ca-name }}:
 
-{% list tabs group=ide %}
+1. Open the IDE and create a test file named `server.cpp` with the following contents:
 
-- Visual Studio Code {#vscode}
+    ```cpp
+    // simple web-server to work with sockets
 
-  1. Open Visual Studio Code and create the `server.cpp` test file with the following content:
+    #include <iostream>
+    #include <string>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <unistd.h>
 
-      ```cpp
-      // simple web-server to work with sockets
+    using namespace std;
 
-      #include <iostream>
-      #include <string>
-      #include <sys/socket.h>
-      #include <netinet/in.h>
-      #include <unistd.h>
+    int main() {
 
-      using namespace std;
+    }
+    ```
 
-      int main() {
+1. In the `int main()` section, start typing something, e.g., `//create socket`. See the {{ ca-name }} suggestion:
 
-      }
-      ```
+    ```cpp
+    ...
+    int main() {
 
-  1. In the `int main()` section, start typing something, e.g., `//create socket`. See the {{ ca-name }} suggestion:
+    //create socket
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-      ```cpp
-      ...
-      int main() {
+    }
+    ```
 
-      //create socket
-      int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+1. Select an action for the suggestion:
 
-      }
-      ```
+    {% list tabs group=ide %}
 
-      Click **Tab** to accept the suggestion.
+    - Visual Studio Code {#vscode}
 
-      To start accepting the suggestion word by word, press **Ctrl** + **→** for Windows or Linux or **Command** + **→** for macOS.
+      * Click **Tab** to accept the suggestion.
+      * To start accepting the suggestion word by word, press **Ctrl** + **→** for Windows or Linux or **Command** + **→** for macOS.
+      * To discard the suggestion, press **Esc**.
+      * If there are multiple suggestions, you can switch between them using **Alt** + **[** and **Alt** + **]** for Windows or Linux or **Option** + **[** and **Option** + **]** for macOS.
 
-      To discard the suggestion, press **Esc**. 
+    - JetBrains IDE {#jb}
 
-      If there are various suggestions, you can switch between them using **Alt** + **[** and **Alt** + **]** for Windows or Linux or **Option** + **[** and **Option** + **]** for macOS.
+      * Click **Tab** to accept the suggestion.
+      * To discard the suggestion, press **Esc**. 
 
-{% endlist %}
+    {% endlist %}
 
 You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.ru/services/code-assistant).
 
 ## Manage the plugin {#manage-plugin}
 
-### Enable or disable {{ ca-name }} {#enable-disable-plugin}
+### Enable or disable auto suggestions {#enable-disable-plugin}
+
+You can enable or disable auto suggestions only in Visual Studio Code.
 
 {% list tabs group=ide %}
 
 - Visual Studio Code {#vscode}
 
-  To enable or disable {{ ca-name }}, click ![image](../_assets/code-assistant/vsc-icon-small.svg) on the Visual Studio Code bottom panel.
+  1. Click ![image](../_assets/code-assistant/vsc-icon-small.svg) in the Visual Studio Code bottom panel.
+  1. In the list that opens, select ![image](../_assets/console-icons/triangle-right.svg) **Enable autotrigger** or ![image](../_assets/console-icons/stop.svg) **Disable autotrigger**.
 
 {% endlist %}
 
@@ -138,6 +180,13 @@ You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.
 
   Download the [{{ ca-name }} current version]({{ link-ca-vscode }}) for Visual Studio Code and [install it](#install-plugin).
 
+- JetBrains IDE {#jb}
+
+  1. Download the appropriate {{ ca-name }} plugin for your JetBrains IDE version:
+      * [2024.1]({{ link-ca-jb-2024-1 }})
+      * [2024.2]({{ link-ca-jb-2024-2 }})
+  1. [Install the plugin](#install-plugin).
+
 {% endlist %}
 
 ### Remove the plugin {#remove-plugin}
@@ -148,6 +197,13 @@ You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.
 
   1. Open the list of installed plugins by pressing **Ctrl** + **Shift** + **X** for Windows or Linux or **Command** + **Shift** + **X** for macOS.
   1. In the {{ ca-full-name }} row, click ![image](../_assets/console-icons/gear.svg) and select **Uninstall**.
+
+- JetBrains IDE {#jb}
+
+  1. Open settings by pressing **Ctrl** + **Alt** + **S** for Windows or Linux or **Command** + **,** for macOS.
+  1. Go to the **Plugins** section and select the {{ ca-full-name }} plugin.
+  1. In the plugin description section, click ![image](../_assets/console-icons/chevron-down.svg) and select **Uninstall**.
+  1. Confirm deletion and click **OK**.
 
 {% endlist %}
 

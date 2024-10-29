@@ -26,7 +26,7 @@ To get the URL and other details of an origin:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get information about an origin:
+  1. See the description of the CLI command to get information about an origin:
 
       ```bash
       yc cdn origin get --help
@@ -76,7 +76,7 @@ To get the name, set of origins, and other details of an origin group:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get information about an origin group:
+  1. See the description of the CLI command to get information about an origin group:
 
       ```bash
       yc cdn origin-group get --help

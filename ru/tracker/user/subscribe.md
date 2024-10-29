@@ -18,7 +18,7 @@
 
 1. Откройте страницу задачи.
 
-1. На правой панели в поле **{{ ui-key.startrek-backend.fields.issue.followers }}** нажмите **Добавить меня**. Если поля **{{ ui-key.startrek-backend.fields.issue.followers }}** нет, добавьте его с помощью кнопки ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
+1. На правой панели в поле **{{ ui-key.startrek-backend.fields.issue.followers }}** нажмите **Добавить меня**. Если поля **{{ ui-key.startrek-backend.fields.issue.followers }}** нет, добавьте его с помощью кнопки ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 
 Если вы все сделали правильно, в поле наблюдатели появится ваше имя. Теперь вы будете получать письма с уведомлениями о любых изменениях этой задачи.
@@ -35,9 +35,9 @@
 
 1. Откройте [страницу очереди](queue.md).
 
-1. В правом верхнем углу нажмите значок ![](../../_assets/tracker/svg/actions.svg). Затем нажмите ![](../../_assets/tracker/svg/subscribe.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.subscribe }}** и выберите значение:
-    - **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-new-tickets }}**, чтобы получать уведомления о создании новых задач в очереди. Вы также будете подписаны на все события, которые указаны в [настройках уведомлений](user-notifications.md#sec_add_role) для роли **{{ ui-key.startrek-backend.roles.role.name.queue-follower-key-value }}**.
-    - **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-all }}**, чтобы получать уведомления о любых изменениях задач очереди.
+1. В правом верхнем углу нажмите значок ![](../../_assets/tracker/svg/actions.svg). Затем нажмите ![](../../_assets/tracker/svg/subscribe.svg)&nbsp;**{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe }}** и выберите значение:
+    - **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe-new-tickets }}**, чтобы получать уведомления о создании новых задач в очереди. Вы также будете подписаны на все события, которые указаны в [настройках уведомлений](user-notifications.md#sec_add_role) для роли **{{ ui-key.startrek-backend.roles.role.name.queue-follower-key-value }}**.
+    - **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.subscribe-all }}**, чтобы получать уведомления о любых изменениях задач очереди.
     
 Вы также можете [выбрать события](user-subscriptions.md), уведомления о которых хотите получать.
 

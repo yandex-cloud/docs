@@ -14,8 +14,9 @@
     {% include [Maintenance window](console/maintenance-window-description.md) %}
 
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). 
+- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы пользоваться встроенным инструментом для [диагностики производительности](../../managed-mongodb/operations/performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 - {% include [Deletion protection](console/deletion-protection.md) %}
 
     {% include [Ограничения защиты от удаления](deletion-protection-limits-db.md) %}
+

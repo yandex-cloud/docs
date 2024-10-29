@@ -14,7 +14,7 @@
 
 1. Если в блоке **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового. Чтобы добавить плательщика:
   
-   * Выберите тип плательщика: **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-invididual }}** и нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   * Выберите тип плательщика: **Физическое лицо** и нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
    * Укажите ваше имя и фамилию.
    * (Опционально) Укажите отчество и почтовый адрес.
    * Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.

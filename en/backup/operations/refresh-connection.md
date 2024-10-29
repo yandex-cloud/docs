@@ -87,9 +87,9 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
       1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-      1. On the ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the list does not contain the outdated VM marked as ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
+      1. On ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the outdated VM is not listed with the ![irrelevant](../../_assets/console-icons/circle-info-fill.svg) label.
 
-          If the outdated VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg) next to it, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+          If the VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.delete }}** and confirm deletion.
 
     {% endlist %}
 

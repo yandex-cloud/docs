@@ -424,7 +424,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. Go to ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-         1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
+         1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **ID**.
 
       - CLI
 

@@ -8,7 +8,7 @@ You can create a new issue directly on the board. You only need to specify its n
 
 1. Open the board page.
 
-1. In the leftmost column, click ![](../../_assets/tracker/svg/add-task.svg) and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardEmptyScreen.empty-screen--new-issue }}**.
+1. In the leftmost column, click ![](../../_assets/tracker/svg/add-task.svg) and select **New issue**.
 
 1. Enter a name for the issue.
 
@@ -38,7 +38,7 @@ You can add no more than 2000 issues per board.
 
 1. Open the issue page.
 
-1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
+1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 1. Start typing the board name and pick the option you need from the list that appears.
 
@@ -48,7 +48,7 @@ You can add no more than 2000 issues per board.
 
 1. Select the issues that you want to add to the board.
 
-1. In the left-hand panel, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**.
+1. In the left-hand panel, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_Issues_smart-components_IssueBulkActionPanel.add-to-board }}**.
 
 1. Start typing the board name and pick the option you need from the list that appears.
 
@@ -58,8 +58,8 @@ You can add no more than 2000 issues per board.
 
 To automatically add issues, such as all issues with a certain assignee, to a board, use issue auto-import:
 
-1. On the board, click **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}** → **{{ ui-key.startrek.ui_components_agile_settings_AgileSettingsLayout.issue-updates }}**.
-1. Under **{{ ui-key.startrek.ui_components_agile_settings_BoardIssueUpdatesSettings.import-title }}**, click **+ {{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**. Select a parameter from the list and set its value. For example, to add all issues where you are the assignee to the board, select the **Assignee** parameter and set it to **Me**. To add more parameters, repeat the step.
+1. On the board, click **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}** → **Automatic issues addition and removal**.
+1. Under **Adding issues to the board**, click **+ Add parameters**. Select a parameter from the list and set its value. For example, to add all issues where you are the assignee to the board, select the **Assignee** parameter and set it to **Me**. To add more parameters, repeat the step.
 
 The page will show the number of issues added to the board. During the first export, the issues that meet the preset condition will be added, except for issues that:
 
@@ -74,8 +74,8 @@ At further updates, the board will be added all the issues that meet the paramet
 
 There is a limit on the number of issues per board: a maximum of 2,000. To make sure your board does not get overloaded, you can set up automatic issue removal, e.g., to remove any closed issues or issues that were closed several months ago.
 
-1. On the board, click **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}** → **{{ ui-key.startrek.ui_components_agile_settings_AgileSettingsLayout.issue-updates }}**.
-1. Under **{{ ui-key.startrek.ui_components_agile_settings_BoardIssueUpdatesSettings.removal-title }}**, add all appropriate statuses and specify how long an issue should be in a certain status.
+1. On the board, click **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}** → **Automatic issues addition and removal**.
+1. Under **Removal of issues from the board**, add all appropriate statuses and specify how long an issue should be in a certain status.
 
 Once the condition is met, the issue will be removed from the board.
 
@@ -115,6 +115,6 @@ Board owners can delete boards that they no longer need. All the issues present 
 
 1. Open the board.
 
-1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.delete-board-menu-item }}**.
+1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete board**.
 
 1. Confirm the deletion.

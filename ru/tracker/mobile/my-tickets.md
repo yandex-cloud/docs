@@ -22,7 +22,7 @@ description: Из статьи вы узнаете, как можно посмо
     * **Я исполнитель**.
     * **Я наблюдатель**.
     * **Ждут ответа**.
-    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset-deadline }}**.
+    * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset-deadline }}**.
 
 * Чтобы отфильтровать задачи по [резолюции](../manager/create-resolution.md), нажмите кнопку **{{ ui-key.startrek-backend.fields.issue.resolution-key-value }}** и выберите нужные значения из списка.
 

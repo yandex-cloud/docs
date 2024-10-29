@@ -59,6 +59,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: postgresql_anonymizer
+            href: operations/extensions/pg_anon.md
           - name: Словари от Hunspell для полнотекстового поиска
             href: operations/extensions/hunspell.md
       - name: Логи и мониторинг

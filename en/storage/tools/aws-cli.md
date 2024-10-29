@@ -19,7 +19,7 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following co
 
 ## Setup {#setup}
 
-To configure the AWS CLI, run the `aws configure` command in your terminal. The command requests values for the following parameters:
+To configure the AWS CLI, run the `aws configure` command in your terminal. The command will request values for the following parameters:
 1. `AWS Access Key ID`: ID of the static key created when [getting started](#before-you-begin).
 1. `AWS Secret Access Key`: Contents of the static access key.
 1. `Default region name`: `{{ region-id }}`.
@@ -107,7 +107,7 @@ Give consideration to the special aspects of using the AWS CLI with {{ objstorag
       {{ storage-aws-cli-alias }} ls
       ```
 
-## Example operations {#aws-cli-examples}
+## Examples of operations {#aws-cli-examples}
 
 {% note info %}
 
@@ -174,7 +174,7 @@ You can upload all objects within a directory, use a filter, or upload objects o
   ```text
   upload: ./testfile.txt to s3://bucket-name/path_style_prefix/textfile.txt
   ```
-
+  
 ### Getting a list of objects {#getting-objects-list}
 
 ```bash
@@ -182,7 +182,6 @@ aws s3 ls --recursive s3://bucket-name
 ```
 
 Result:
-
 ```text
 2022-09-05 17:10:34      10023 other/test1.png
 2022-09-05 17:10:34      57898 other/test2.png

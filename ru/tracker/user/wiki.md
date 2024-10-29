@@ -34,7 +34,7 @@
 
     1. Откройте [список доступных задач]({{ link-tracker }}issues) и [настройте фильтрацию](create-filter.md#set-conditions).
 
-    1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** → **Копировать список задач**.
+    1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Выгрузить** → **Копировать список задач**.
         
     
     1. Вставьте список на страницу.

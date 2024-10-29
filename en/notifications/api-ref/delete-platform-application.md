@@ -1,6 +1,6 @@
 # DeletePlatformApplication
 
-Deletes the [mobile push notification channel](../concepts/index.md#mobile-channel), as well as all related [endpoints](../concepts/index.md#mobile-endpoints).
+Deletes the [mobile push notification channel](../concepts/push.md) and all related [endpoints](../concepts/index.md#mobile-endpoints).
 
 ## HTTP request {#request}
 
@@ -10,11 +10,11 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `DeletePlatformApplication`. |
-| `PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default)</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `DeletePlatformApplication`.
+`PlatformApplicationArn` | **string**<br/>This is a required field.<br/>ID of a mobile push notification channel.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -30,24 +30,24 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <DeletePlatformApplicationResponse>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   </DeletePlatformApplicationResponse>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <DeletePlatformApplicationResponse>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+  </DeletePlatformApplicationResponse>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    }
+  }
+  ```
 
 {% endlist %}
 

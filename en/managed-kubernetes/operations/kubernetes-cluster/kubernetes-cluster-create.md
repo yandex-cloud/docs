@@ -24,7 +24,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
   1. Create [service accounts](../../../iam/operations/sa/create.md):
      * Service account with the `k8s.clusters.agent` [role](../../security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
+     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/registry.md) [registry](../../../container-registry/concepts/docker-image.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
      You can use the same service account for both operations.
 
@@ -52,7 +52,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   To create a cluster:
 
-  1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (the example shows only some of the parameters):
+  1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (the example below does not list all possible parameters):
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -90,7 +90,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
+     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/registry.md) from the [registry](../../../container-registry/concepts/docker-image.md) on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
      Result:

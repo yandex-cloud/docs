@@ -22,7 +22,7 @@
 
     * **Ждут ответа** – задачи, в которых вас [призвали в комментарии](comments.md#call-comment).
 
-    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем и в которых:
+    * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_deadline }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем и в которых:
             
       * дедлайн уже наступил за последние две недели;
           
@@ -36,7 +36,7 @@
     * Чтобы сгруппировать задачи по определенному параметру, справа от строки поиска нажмите ![](../../_assets/tracker/svg/group.svg) **Без группировки** и выберите параметр.
       
 
-    * Чтобы сохранить список задач, в верхнем правом углу нажмите ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
+    * Чтобы сохранить список задач, в верхнем правом углу нажмите ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Выгрузить** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
 
     * Чтобы свернуть панель со списком фильтров, в верхнем правом углу страницы нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **Параметры**. 
 
@@ -52,7 +52,7 @@
 
  * Чтобы отфильтровать задачи по [резолюции](../manager/create-resolution.md), нажмите кнопку **{{ ui-key.startrek-backend.fields.issue.resolution-key-value }}** и выберите нужные значения из списка.
 
- * Чтобы использовать [дополнительные параметры поиска](#add-condition), нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
+ * Чтобы использовать [дополнительные параметры поиска](#add-condition), нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
 
 В результате в списке останутся только те задачи, которые удовлетворяют выбранным фильтрам.
 
@@ -62,18 +62,18 @@
 
 Чтобы найти в списке задачи по параметрам, которые нельзя задать с помощью системных фильтров, добавьте условия поиска.
 
-1. В верхнем правом углу страницы нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-source-radio-parameters }}**. Под строкой поиска отобразится панель с установленными параметрами фильтрации.
+1. В верхнем правом углу страницы нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **Параметры**. Под строкой поиска отобразится панель с установленными параметрами фильтрации.
 
-1. Нажмите значок ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.  
+1. Нажмите значок ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.  
 
-1. Выберите параметр задачи, затем задайте его значение нажмите кнопку **{{ ui-key.startrek.ui_components_filter-field.save-button }}**. 
+1. Выберите параметр задачи, затем задайте его значение нажмите кнопку **Сохранить**. 
 
     В списке останутся только задачи, параметры которых удовлетворяют заданному условию.
 
 
 1. Если нужно уточнить условия поиска, добавьте еще несколько параметров.
 
-1. Чтобы отменить заданные условия поиска, над списком задач нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.reset-button }}**.
+1. Чтобы отменить заданные условия поиска, над списком задач нажмите кнопку **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.reset-button }}**.
 
 Например, вы можете искать задачи по названию или описанию: 
 
@@ -92,7 +92,7 @@
 
 Если условия поиска не удается задать с помощью параметров задачи, используйте запрос:
 
-1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**. Все параметры поиска, которые вы задали с помощью системных фильтров и условий, отобразятся в строке запроса.
+1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **Язык запросов**. Все параметры поиска, которые вы задали с помощью системных фильтров и условий, отобразятся в строке запроса.
 
 1. Добавьте в строку условия с помощью [языка запросов](query-filter.md).
 

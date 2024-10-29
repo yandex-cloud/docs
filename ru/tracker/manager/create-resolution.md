@@ -12,9 +12,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Чтобы посмотреть, какие типы задач и резолюции определены в каждом из них, нажмите ![](../../_assets/tracker/svg/arrow.svg) в строке с нужным рабочим процессом.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Чтобы посмотреть, какие типы задач и резолюции определены в каждом из них, нажмите ![](../../_assets/tracker/svg/arrow.svg) в строке с нужным рабочим процессом.
 
 1. Чтобы добавить резолюцию в существующий процесс, наведите курсор на часть строки этого процесса с резолюциями. Нажмите на появившийся значок ![](../../_assets/tracker/svg/add-filter.svg) и выберите резолюцию из списка. О том, как добавить резолюцию в новый рабочий процесс, читайте в [инструкции по созданию рабочего процесса](./add-workflow.md#create).
 
@@ -45,9 +45,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новую резолюцию.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новую резолюцию.
 
 1. Наведите курсор на часть строки с резолюциями. Нажмите на появившийся значок ![](../../_assets/tracker/svg/add-filter.svg), начните вводить название новой резолюции и нажмите на кнопку создания.
 
@@ -66,8 +66,8 @@
 
 1. С помощью фильтров [найдите все задачи очереди](quick-filters.md), которые содержат удаляемую резолюцию. Затем поменяйте для задач резолюцию или измените их статус.
 
-1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в котором содержится резолюция, которую вы хотите удалить.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в котором содержится резолюция, которую вы хотите удалить.
 
 1. Наведите курсор на строку с удаляемым типом задач и нажмите на крестик рядом с удаляемой резолюцией.

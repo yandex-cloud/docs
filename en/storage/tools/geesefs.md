@@ -53,7 +53,7 @@ GeeseFS does not support the following:
   * ID of the owner of all files and directories in the `--uid` option value.
   * ID of the group all files and directories belong to in the `--gid` option value.
 
-  For example:
+  Here is an example:
 
   ```bash
   geesefs \
@@ -80,7 +80,7 @@ GeeseFS does not support the following:
 
 - Linux {#linux}
 
-  1. Install the utilities required by FUSE, e.g.:
+  1. Install the utilities required by FUSE. Here is an example:
 
      * Debian, Ubuntu:
 
@@ -242,7 +242,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
           start=auto
         ```
 
-        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. For example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
+        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. Here is an example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
 
         Result:
 

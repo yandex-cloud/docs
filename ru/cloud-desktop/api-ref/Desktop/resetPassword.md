@@ -27,7 +27,8 @@ Required field. ID of the desktop. ||
 ```json
 {
   "user": {
-    "subjectId": "string"
+    "subjectId": "string",
+    "subjectType": "string"
   }
 }
 ```
@@ -46,6 +47,9 @@ Required field. User of the desktop. ||
 || subjectId | **string**
 
 Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.ResetPasswordResponse}

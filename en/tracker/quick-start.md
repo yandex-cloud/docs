@@ -9,13 +9,13 @@ To get started with {{ tracker-name }}, create a queue: this is a shared space w
 In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](manager/edit-queue-general.md) a queue manually, or use [automation tools](automation.md). To create a queue preconfigured for a specific workflow, we recommend using [workflow templates](manager/create-work-process.md).
 
 
-1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
-1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStepRedesign.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
+1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.widget-title }}** widget.
+1. Select **{{ ui-key.startrek.ui_Queues_smart-components_new-process_ProcessTypeStepRedesign.process-type-standard }}** and click **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
    * [Queue key](manager/create-queue.md#key)
    * Permissions
-1. Click **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
+1. Click **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 
 This will create a queue with a basic set of issue [types and statuses](manager/workflow.md) and a [simple issue board](manager/agile.md#sec_boards).
 
@@ -56,17 +56,17 @@ Use the full form to set up all the issue attributes you need right from the sta
 
    1. Enter a name for the issue in the **Issue name** field. Make sure the name is explicative so that the issue is easy to find in the list, e.g.: _Find the answer to the ultimate question of life, the Universe, and everything else_.
 
-   1. Enter a description of the issue if needed. To do so, click the `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` placeholder and describe the issue in the text editor that opens.
+   1. Enter a description of the issue if needed. To do so, click the `{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.description-placeholder }}` placeholder and describe the issue in the text editor that opens.
 
-   1. If you need to upload files, click **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
+   1. If you need to upload files, click **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**.
 
-   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** and fill out the form that opens.
+   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** and fill out the form that opens.
 
    1. On the left-hand panel, enter the relevant issue details, for example:
       * In the **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** field, assign the issue to yourself by clicking **Assign to me**.
       * In the **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** field, enter an arbitrary deadline.
 
-   1. Edit the list of the issue's displayed fields if needed. To do this, click **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** and set the relevant parameters.
+   1. Edit the list of the issue's displayed fields if needed. To do this, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** and set the relevant parameters.
 
 1. Click **{{ ui-key.startrek-backend.types.types.trigger.action.create.issue }}**.
 

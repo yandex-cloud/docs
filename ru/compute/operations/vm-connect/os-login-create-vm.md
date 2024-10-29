@@ -11,6 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
 К ВМ с включенным доступом по OS Login можно подключиться как [с помощью YC CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль OS Login пользователя или сервисного аккаунта в {{ org-full-name }}.
 
+{% include [metadata-keys](../../../_includes/compute/os-login-enablement-notice.md) %}
+
 При этом на создаваемой ВМ желательно создать локального пользователя и отдельно передать для него SSH-ключ: так вы сможете [подключаться к ВМ по SSH](./ssh.md#vm-connect), если отключите для нее доступ по OS Login. Создать локального пользователя ВМ и передать SSH-ключ для него можно с помощью [метаданных](../../concepts/vm-metadata.md#how-to-send-metadata).
 
 {% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
@@ -25,9 +27,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. [Создайте ВМ](../images-with-pre-installed-software/create.md) из подготовленного образа с поддержкой доступа по OS Login. Такие образы доступны в [{{ marketplace-full-name }}](/marketplace).
   
-     При создании ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** включите опцию **Доступ через OS Login**.
+     При создании ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Доступ по OS Login**. Если эта опция недоступна, значит выбранный образ не поддерживает доступ по OS Login.
   
-     Чтобы получить возможность [подключаться](./ssh.md#vm-connect) к ВМ по SSH без использования OS Login, [измените](../vm-control/vm-update.md) настройки ВМ, отключив эту опцию.
+     Чтобы получить возможность [подключаться](./ssh.md#vm-connect) к ВМ по SSH без использования OS Login, [измените](../vm-control/vm-update.md) настройки ВМ, выбрав вариант подключения **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**.
 
 - CLI {#cli}
 

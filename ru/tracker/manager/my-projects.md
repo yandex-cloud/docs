@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 
 * Чтобы найти портфель или проект по названию, введите его в поле **Поиск**. Если вы находитесь во вкладке **Структура**, то вы автоматически перейдете во вкладку **Список**.
 
-* Чтобы выбрать параметр поиска по полю портфеля или проекта, нажмите на его название над списком. Для выбора дополнительных параметров нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
+* Чтобы выбрать параметр поиска по полю портфеля или проекта, нажмите на его название над списком. Для выбора дополнительных параметров нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** и выберите поле.
 
     {% note info %}
 
@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
-* Чтобы настроить порядок отображения, нажмите кнопку ![](../../_assets/tracker/svg/sorting.svg) **{{ ui-key.startrek.ui_components_SortButton.default-title }}** и выберите параметр.
+* Чтобы настроить порядок отображения, нажмите кнопку ![](../../_assets/tracker/svg/sorting.svg) **{{ ui-key.startrek.ui_Common_smart-components_SortButton.default-title }}** и выберите параметр.
 
     {% note info %}
 

@@ -8,6 +8,8 @@
 
 LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-source code corpus.
 
+The {{ ca-name }} plugin is available for [Visual Studio Code](https://code.visualstudio.com/) and [JetBrains IDE](https://www.jetbrains.com/ides/) versions 2024.1 and 2024.2.
+
 {% note info %}
 
 To work with {{ ca-name }}, you need continuous internet access.
@@ -27,4 +29,5 @@ The code analysis is running using the {{ yandex-cloud }} computing resources, w
 ## See also {#see-also}
 
 * [{#T}](../quickstart.md)
-* [Terms of Use of {{ ca-full-name }}](https://yandex.com/legal/cloud_terms_code_assistant/)
+* [{{ ca-full-name }} terms of use](https://yandex.com/legal/cloud_terms_code_assistant/)
+

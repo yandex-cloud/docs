@@ -16,6 +16,6 @@ To create a filter:
 
 {% note info %}
 
-To save the filter, use the {{ tracker-name }} web version: Your saved filters will be available in the **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** checkbox under **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
+To save the filter, use the {{ tracker-name }} web version: Your saved filters will be available in the **All issues** checkbox under **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
 
 {% endnote %}

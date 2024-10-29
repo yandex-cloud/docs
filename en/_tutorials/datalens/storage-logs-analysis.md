@@ -37,7 +37,7 @@ The cost includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
@@ -105,7 +105,8 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the bucket you want to enable logging for.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.  
+  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.  
   1. Enable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
   1. Select **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
   1. In the **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field, specify the `s3-logs/` prefix.
@@ -139,7 +140,7 @@ The cost includes:
   
   To enable logging for a bucket you want to track:
 
-     1. Open the {{ TF }} configuration file and add a section called `logging` to the bucket description fragment.
+     1. Open the {{ TF }} configuration file and add the `logging` section to the bucket description fragment.
 
         ```hcl
         resource "yandex_storage_bucket" "bucket-logs" {
@@ -292,7 +293,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      }
      ```
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
   1. Make sure the settings are correct.
 
@@ -320,7 +321,7 @@ Wait for the cluster status to change to `Alive`.
 
   1. Select the `s3-logs` cluster.
   1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-  1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. In the **Date time input format** field, select `best_effort`.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -347,32 +348,32 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
      CREATE TABLE s3_data.s3logs
      (
         bucket String,              -- Bucket name.
-        bytes_received Int64,       -- Size of request in bytes.
-        bytes_send Int64,           -- Size of response in bytes.
-        handler String,             -- Request method in REST.<HTTP method>.<subject> format.
+        bytes_received Int64,       -- Size of the request in bytes.
+        bytes_send Int64,           -- Response size in bytes.
+        handler String,             -- Request method in this format: REST.<HTTP method>.<subject>.
         http_referer String,        -- URL of request source.
         ip String,                  -- User IP address.
         method String,              -- HTTP request method.
-        object_key String,          -- Object's key in URL encoded format.
-        protocol String,            -- Version of data transfer protocol.
+        object_key String,          -- Object key in URL-encoded format.
+        protocol String,            -- Data transfer protocol version.
         range String,               -- HTTP header that defines range of bytes to load from object.
         requester String,           -- User ID.
-        request_args String,        -- Argument of URL request.
-        request_id String,          -- Request ID.
-        request_path String,        -- Full path of request.
-        request_time Int64,         -- Request processing time, in milliseconds.
-        scheme String,              -- Type of data transfer protocol.
-                                    -- Possible values:
-                                    -- * http: An application layer protocol.
-                                    -- * https: An application layer protocol with encryption support.
+        request_args String,        -- Arguments of the URL request.
+        request_id String,          -- Query ID.
+        request_path String,        -- Full path of the request.
+        request_time Int64,         -- Request processing time in milliseconds.
+        scheme String,              -- Data transfer protocol type.
+                                    -- The possible values are:
+                                    -- * http: Application layer protocol.
+                                    -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
         status Int64,               -- HTTP response code.
-        storage_class String,       -- Object's storage class.
-        timestamp DateTime,        -- Date and time of the operation with the bucket, in the YYYY-MM-DDTHH:MM:MMZ format.
-        user_agent String,          -- Client application (User Agent) that executed request.
-        version_id String,          -- Version of object.
+        storage_class String,       -- Storage class of the object.
+        timestamp DateTime,        -- Date and time of the operation with the bucket in the YYYY-MM-DDTHH:MM:MMZ format.
+        user_agent String,          -- Client application (user agent) that executed the request.
+        version_id String,          -- Object version.
         vhost String                -- Virtual host of request.
-                                    -- Possible values:
+                                    -- The possible values are:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
@@ -418,11 +419,11 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 1. Click **Create dataset**.
 1. In the new dataset, move the `s3_data.s3logs` table to the workspace.
 1. Go to the **Fields** tab.
-1. Click the ![image](../../_assets/console-icons/plus.svg)**Add field**.
+1. Click ![image](../../_assets/console-icons/plus.svg)**Add field**.
 1. Create a calculated field with the file type:
    
-   * Field name: `object_type`.
-   * Formula: `SPLIT([object_key], '.', -1)`.
+   * Field name: `object_type`
+   * Formula: `SPLIT([object_key], '.', -1)`
 
 1. Click **Create**.
 1. In the top-right corner, click **Save**.
