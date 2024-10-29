@@ -5,8 +5,9 @@ description: При работе с {{ TF }} в облаке важно искл
 
 # Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
 
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
-В {{ yandex-cloud }} поддерживается [управление инфраструктурой с помощью {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
 Когда несколько пользователей одновременно работают с одним состоянием из {{ objstorage-name }}, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [{{ ydb-full-name }}](../../ydb/) и использовать ее для механизма блокировок, встроенного в {{ TF }} (state locking). При каждом изменении инфраструктуры через {{ TF }} состояние будет автоматически блокироваться, пока изменение не применится.
 
@@ -22,8 +23,6 @@ description: При работе с {{ TF }} в облаке важно искл
 1. [Проверьте блокировку состояния](#check-state-lock).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -127,7 +126,7 @@ description: При работе с {{ TF }} в облаке важно искл
      ```
 
    - PowerShell {#powershell}
-   
+
     ```powershell
     $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
     $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
