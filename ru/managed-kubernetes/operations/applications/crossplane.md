@@ -45,7 +45,7 @@
    helm install \
      --namespace <пространство_имен> \
      --create-namespace \
-     --set-file providerJetYC.creds=key.json \
+     --set-file providerJetYc.creds=key.json \
      crossplane ./crossplane/
    ```
 
