@@ -1,3 +1,8 @@
+---
+title: Data event reference {{ at-full-name }}
+description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
+---
+
 # Data event reference
 
 The value of the `event_type` field in a data event audit log is determined by the event source service.
@@ -10,6 +15,7 @@ The general value format is as follows:
 
 On this page, you will find events for the following services:
 
+* [{{ certificate-manager-full-name }}](#certificate-manager)
 * [{{ dns-full-name }}](#dns)
 * [{{ compute-full-name }}](#compute)
 * [{{ iam-full-name }}](#iam)
@@ -23,6 +29,12 @@ On this page, you will find events for the following services:
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
 * [{{ websql-full-name }}](#websql)
+
+## {{ certificate-manager-full-name }} {#certificate-manager}
+
+Service name: `certificatemanager`.
+
+{% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
 
 ## {{ dns-full-name }} {#dns}
 

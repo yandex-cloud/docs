@@ -6,8 +6,8 @@ If [versioning](../buckets/versioning.md) and [object version locks](../buckets/
 
 Minimum required roles:
 
-* `storage.uploader` to set an object lock.
-* `storage.admin` to change an active object lock.
+* `storage.uploader`: To set lock.
+* `storage.admin`: To change an existing lock.
 
 You can only extend a compliance-mode retention. You cannot shrink it or replace with a governance-mode retention.
 
@@ -17,38 +17,38 @@ To put or configure a retention:
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run this command:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. Run this command:
 
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-object-retention \
-        --bucket <bucket_name> \
-        --key <object_key> \
-        --version-id <version_ID> \
-        --retention Mode=<retention_type>,RetainUntilDate="<date_and_time>" \
-        --bypass-governance-retention
-      ```
+     ```bash
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+       s3api put-object-retention \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --version-id <version_ID> \
+       --retention Mode=<lock_type>,RetainUntilDate="<date_and_time>" \
+       --bypass-governance-retention
+     ```
 
-      Where:
+     Where:
 
-      * `--bucket`: Name of your bucket.
-      * `--key`: Object [key](../../concepts/object.md#key).
-      * `--version-id`: Object version ID.
-      * `--retention`: Settings of an object lock with a retention period (both parameters are required):
+     * `--bucket`: Name of your bucket.
+     * `--key`: Object [key](../../concepts/object.md#key).
+     * `--version-id`: Object version ID.
+     * `--retention`: Temporary lock settings (both parameters are required):
 
-         * `Mode` is the [type](../../concepts/object-lock.md#types) of object lock:
+       * `Mode`: Lock [type](../../concepts/object-lock.md#types):
 
-            * `GOVERNANCE`: Object lock with a predefined retention period that can be managed. You cannot set this type if an object version is already locked in compliance mode.
-            * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
+         * `GOVERNANCE`: Temporary managed lock. You cannot set this type if an object version is already locked in compliance mode.
+         * `COMPLIANCE`: Temporary strict lock.
 
-         * `RetainUntilDate`: Lock end date and time in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record. For more information, see [this example](#example-lock). If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
+       * `RetainUntilDate`: Lock end date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. For example: `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record. For more information, see [this example](#example-lock). If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
 
-      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
+     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
 
 - API {#api}
 
-   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method.
+  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method.
 
 {% endlist %}
 
@@ -62,30 +62,30 @@ To remove a retention:
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run this command:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. Run this command:
 
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-object-retention \
-        --bucket <bucket_name> \
-        --key <object_key> \
-        --version-id <version ID> \
-        --retention '{}' \
-        --bypass-governance-retention
-      ```
+     ```bash
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+       s3api put-object-retention \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --version-id <version_ID> \
+       --retention '{}' \
+       --bypass-governance-retention
+     ```
 
-      Where:
+     Where:
 
-      * `--bucket`: Name of your bucket.
-      * `--key`: Object [key](../../concepts/object.md#key).
-      * `--version-id`: Object version ID.
-      * `--retention`: Settings of an object lock with a retention period. In both parameters, empty lines are specified to remove a lock.
-      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
+     * `--bucket`: Name of your bucket.
+     * `--key`: Object [key](../../concepts/object.md#key).
+     * `--version-id`: Object version ID.
+     * `--retention`: Temporary lock settings. In both parameters, empty lines are specified to remove a lock.
+     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
 - API {#api}
 
-   Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
+  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
 
 {% endlist %}
 
@@ -100,34 +100,34 @@ To put or configure a legal hold:
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   1. Run this command:
+  1. Run this command:
 
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-object-legal-hold \
-        --bucket <bucket_name> \
-        --key <object_key> \
-        --version-id <version_ID> \
-        --legal-hold Status=<legal_hold_status>
-      ```
+     ```bash
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+       s3api put-object-legal-hold \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --version-id <version_ID> \
+       --legal-hold Status=<lock_status>
+     ```
 
-      Where:
+     Where:
 
-      * `--bucket`: Name of your bucket.
-      * `--key`: Object [key](../../concepts/object.md#key).
-      * `--version-id`: Object version ID.
-      * `--legal-hold`: Legal hold settings:
+     * `--bucket`: Name of your bucket.
+     * `--key`: Object [key](../../concepts/object.md#key).
+     * `--version-id`: Object version ID.
+     * `--legal-hold`: Indefinite lock settings:
 
-         * `Status`: Legal hold status:
+       * `Status`: Lock status:
 
-            * `ON`: Enabled.
-            * `OFF`: Disabled.
+         * `ON`: Enabled.
+         * `OFF`: Disabled.
 
 - API {#api}
 
-   Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
+  Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}
 

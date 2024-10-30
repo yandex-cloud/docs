@@ -1,7 +1,6 @@
 # Resolving GATEWAY_REQUEST_ERROR
 
 
-
 ## **Problem description** {#issue-description}
 
 When trying to change the ACL configuration of the {{ objstorage-short-name }} bucket, you see this error message:

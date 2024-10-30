@@ -1,35 +1,27 @@
-## Пользователи с аккаунтом на Яндексе{#useraccount}
+## Пользователи с аккаунтом на Яндексе {#useraccount}
 
 Если у сотрудников компании есть аккаунты на Яндексе (например, `{{ login-example }}`), они могут использовать эти аккаунты для доступа к сервисам {{yandex-cloud}}, подключенным к вашей организации.
 
-Пользователя можно пригласить в организацию через консоль управления или сервис {{ org-full-name }}. Приглашение присоединиться к организации направляется пользователю на электронную почту.
+Пользователя можно пригласить в организацию через консоль управления или интерфейс {{ cloud-center }}. Приглашение присоединиться к организации направляется пользователю на электронную почту.
 
 ### Отправьте приглашение {#send-invitation}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
-    1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-    1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
-
-        {% include [send-invitation](send-invitation.md) %}
-
-    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+  {% include [add-yandex-user](./add-yandex-user.md) %}
 
 - Консоль управления {#console}
 
-    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-    1. Войдите в [консоль управления]({{ link-console-main }}).
+    1. Войдите в [консоль управления]({{ link-console-main }}) с учетной записью администратора облака.
+
     1. В списке слева выберите нужное облако. Пример:
 
         ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
 
-    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В правом верхнем углу нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+
     1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
 
         Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
@@ -40,17 +32,43 @@
 
 Пользователь сможет войти в организацию, как только примет приглашение по ссылке из письма и выберет подходящий аккаунт для входа. Для доступа к [сервисам](../../organization/concepts/manage-services.md#collaboration), которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
-Удалить приглашение или отправить приглашение повторно можно только через {{ org-name }}.
+Удалить приглашение или отправить приглашение повторно можно только в сервисе {{ org-name }}.
 
 ### Удалите приглашение {#delete-invitation}
 
-1. В разделе [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg) перейдите на вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** → **{{ ui-key.yacloud_org.entity.invitation.label_option-actual }}**.
-1. В строке приглашения нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+
+  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}**.
+
+  1. В строке с нужным приглашением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
+
+  1. В открывшемся окне подтвердите удаление.
+
+{% endlist %}
 
 ### Отправьте приглашение повторно {#resend-invitation}
 
-1. В разделе [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg) перейдите на вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** → **{{ ui-key.yacloud_org.entity.invitation.label_option-actual }}**.
-1. В строке приглашения нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+
+  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}**.
+
+  1. В строке с нужным приглашением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
+
+  1. В открывшемся окне подтвердите повторную отправку приглашения.
+
+{% endlist %}
 
 {% note info %}
 

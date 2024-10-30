@@ -1,10 +1,5 @@
 title: '{{ sf-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
@@ -102,8 +97,12 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Выделить память для директории /tmp
             href: operations/function/allocate-memory-tmp.md
-          - name: Смонтировать бакеты
-            href: operations/function/mount-bucket.md
+          - name: Смонтировать файловые системы
+            items:
+              - name: Смонтировать бакеты
+                href: operations/function/mount-bucket.md
+              - name: Смонтировать эфемерный диск
+                href: operations/function/mount-ephemeral-disk.md
           - name: Управлять тегами
             items:
               - name: Добавить тег
@@ -204,7 +203,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Предзагружаемая среда выполнения
             href: concepts/runtime/preload-runtime.md
-      - name: Монтирование бакетов
+      - name: Монтирование файловых систем
         href: concepts/mounting.md
       - name: Сборщик
         href: concepts/builder.md
@@ -304,6 +303,8 @@ items:
     items:
       - name: Обзор
         href: lang/bash/index.md
+      - name: Управление зависимостями
+        href: lang/bash/dependencies.md
       - name: Обработчик запросов
         href: lang/bash/handler.md
       - name: Журналирование
@@ -458,6 +459,11 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Мониторинг состояния географически распределенных устройств
@@ -488,12 +494,82 @@ items:
         items:
           - name: Overview
             href: functions/api-ref/grpc/index.md
-          - name: FunctionService
-            href: functions/api-ref/grpc/function_service.md
-          - name: NetworkService
-            href: functions/api-ref/grpc/network_service.md
-          - name: OperationService
-            href: functions/api-ref/grpc/operation_service.md
+          - name: Function
+            items:
+              - name: Overview
+                href: functions/api-ref/grpc/Function/index.md
+              - name: Get
+                href: functions/api-ref/grpc/Function/get.md
+              - name: List
+                href: functions/api-ref/grpc/Function/list.md
+              - name: Create
+                href: functions/api-ref/grpc/Function/create.md
+              - name: Update
+                href: functions/api-ref/grpc/Function/update.md
+              - name: Delete
+                href: functions/api-ref/grpc/Function/delete.md
+              - name: GetVersion
+                href: functions/api-ref/grpc/Function/getVersion.md
+              - name: GetFunctionVersion
+                href: functions/api-ref/grpc/Function/getFunctionVersion.md
+              - name: GetVersionByTag
+                href: functions/api-ref/grpc/Function/getVersionByTag.md
+              - name: GetFunctionVersionByTag
+                href: functions/api-ref/grpc/Function/getFunctionVersionByTag.md
+              - name: ListVersions
+                href: functions/api-ref/grpc/Function/listVersions.md
+              - name: ListFunctionVersions
+                href: functions/api-ref/grpc/Function/listFunctionVersions.md
+              - name: DeleteVersion
+                href: functions/api-ref/grpc/Function/deleteVersion.md
+              - name: SetTag
+                href: functions/api-ref/grpc/Function/setTag.md
+              - name: RemoveTag
+                href: functions/api-ref/grpc/Function/removeTag.md
+              - name: ListTagHistory
+                href: functions/api-ref/grpc/Function/listTagHistory.md
+              - name: ListFunctionTagHistory
+                href: functions/api-ref/grpc/Function/listFunctionTagHistory.md
+              - name: CreateVersion
+                href: functions/api-ref/grpc/Function/createVersion.md
+              - name: CreateFunctionVersion
+                href: functions/api-ref/grpc/Function/createFunctionVersion.md
+              - name: ListRuntimes
+                href: functions/api-ref/grpc/Function/listRuntimes.md
+              - name: ListOperations
+                href: functions/api-ref/grpc/Function/listOperations.md
+              - name: ListAccessBindings
+                href: functions/api-ref/grpc/Function/listAccessBindings.md
+              - name: SetAccessBindings
+                href: functions/api-ref/grpc/Function/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: functions/api-ref/grpc/Function/updateAccessBindings.md
+              - name: ListScalingPolicies
+                href: functions/api-ref/grpc/Function/listScalingPolicies.md
+              - name: SetScalingPolicy
+                href: functions/api-ref/grpc/Function/setScalingPolicy.md
+              - name: RemoveScalingPolicy
+                href: functions/api-ref/grpc/Function/removeScalingPolicy.md
+          - name: Network
+            items:
+              - name: Overview
+                href: functions/api-ref/grpc/Network/index.md
+              - name: GetUsed
+                href: functions/api-ref/grpc/Network/getUsed.md
+              - name: ListUsed
+                href: functions/api-ref/grpc/Network/listUsed.md
+              - name: ListConnectedResources
+                href: functions/api-ref/grpc/Network/listConnectedResources.md
+              - name: TriggerUsedCleanup
+                href: functions/api-ref/grpc/Network/triggerUsedCleanup.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: functions/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: functions/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: functions/api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -502,60 +578,68 @@ items:
             items:
               - name: Overview
                 href: functions/api-ref/Function/index.md
-              - name: create
-                href: functions/api-ref/Function/create.md
-              - name: createVersion
-                href: functions/api-ref/Function/createVersion.md
-              - name: delete
-                href: functions/api-ref/Function/delete.md
-              - name: deleteVersion
-                href: functions/api-ref/Function/deleteVersion.md
-              - name: get
+              - name: Get
                 href: functions/api-ref/Function/get.md
-              - name: getVersion
-                href: functions/api-ref/Function/getVersion.md
-              - name: getVersionByTag
-                href: functions/api-ref/Function/getVersionByTag.md
-              - name: list
+              - name: List
                 href: functions/api-ref/Function/list.md
-              - name: listAccessBindings
-                href: functions/api-ref/Function/listAccessBindings.md
-              - name: listOperations
-                href: functions/api-ref/Function/listOperations.md
-              - name: listRuntimes
-                href: functions/api-ref/Function/listRuntimes.md
-              - name: listScalingPolicies
-                href: functions/api-ref/Function/listScalingPolicies.md
-              - name: listTagHistory
-                href: functions/api-ref/Function/listTagHistory.md
-              - name: listVersions
-                href: functions/api-ref/Function/listVersions.md
-              - name: removeScalingPolicy
-                href: functions/api-ref/Function/removeScalingPolicy.md
-              - name: removeTag
-                href: functions/api-ref/Function/removeTag.md
-              - name: setAccessBindings
-                href: functions/api-ref/Function/setAccessBindings.md
-              - name: setScalingPolicy
-                href: functions/api-ref/Function/setScalingPolicy.md
-              - name: setTag
-                href: functions/api-ref/Function/setTag.md
-              - name: update
+              - name: Create
+                href: functions/api-ref/Function/create.md
+              - name: Update
                 href: functions/api-ref/Function/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: functions/api-ref/Function/delete.md
+              - name: GetVersion
+                href: functions/api-ref/Function/getVersion.md
+              - name: GetVersionByTag
+                href: functions/api-ref/Function/getVersionByTag.md
+              - name: ListVersions
+                href: functions/api-ref/Function/listVersions.md
+              - name: DeleteVersion
+                href: functions/api-ref/Function/deleteVersion.md
+              - name: SetTag
+                href: functions/api-ref/Function/setTag.md
+              - name: RemoveTag
+                href: functions/api-ref/Function/removeTag.md
+              - name: ListTagHistory
+                href: functions/api-ref/Function/listTagHistory.md
+              - name: CreateVersion
+                href: functions/api-ref/Function/createVersion.md
+              - name: ListRuntimes
+                href: functions/api-ref/Function/listRuntimes.md
+              - name: ListOperations
+                href: functions/api-ref/Function/listOperations.md
+              - name: ListAccessBindings
+                href: functions/api-ref/Function/listAccessBindings.md
+              - name: SetAccessBindings
+                href: functions/api-ref/Function/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: functions/api-ref/Function/updateAccessBindings.md
+              - name: ListScalingPolicies
+                href: functions/api-ref/Function/listScalingPolicies.md
+              - name: SetScalingPolicy
+                href: functions/api-ref/Function/setScalingPolicy.md
+              - name: RemoveScalingPolicy
+                href: functions/api-ref/Function/removeScalingPolicy.md
           - name: Network
             items:
               - name: Overview
                 href: functions/api-ref/Network/index.md
-              - name: getUsed
+              - name: GetUsed
                 href: functions/api-ref/Network/getUsed.md
-              - name: listConnectedResources
-                href: functions/api-ref/Network/listConnectedResources.md
-              - name: listUsed
+              - name: ListUsed
                 href: functions/api-ref/Network/listUsed.md
-              - name: triggerUsedCleanup
+              - name: ListConnectedResources
+                href: functions/api-ref/Network/listConnectedResources.md
+              - name: TriggerUsedCleanup
                 href: functions/api-ref/Network/triggerUsedCleanup.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: functions/api-ref/Operation/index.md
+              - name: Get
+                href: functions/api-ref/Operation/get.md
+              - name: Cancel
+                href: functions/api-ref/Operation/cancel.md
   - name: Справочник API Triggers
     items:
       - name: Аутентификация в API
@@ -564,34 +648,66 @@ items:
         items:
           - name: Overview
             href: triggers/api-ref/grpc/index.md
-          - name: TriggerService
-            href: triggers/api-ref/grpc/trigger_service.md
-          - name: OperationService
-            href: triggers/api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/grpc/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/grpc/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/grpc/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/grpc/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/grpc/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/grpc/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/grpc/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/grpc/Trigger/listOperations.md
       - name: REST (англ.)
         items:
           - name: Overview
             href: triggers/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/Operation/cancel.md
           - name: Trigger
             items:
               - name: Overview
                 href: triggers/api-ref/Trigger/index.md
-              - name: create
-                href: triggers/api-ref/Trigger/create.md
-              - name: delete
-                href: triggers/api-ref/Trigger/delete.md
-              - name: get
+              - name: Get
                 href: triggers/api-ref/Trigger/get.md
-              - name: list
+              - name: List
                 href: triggers/api-ref/Trigger/list.md
-              - name: listOperations
-                href: triggers/api-ref/Trigger/listOperations.md
-              - name: pause
-                href: triggers/api-ref/Trigger/pause.md
-              - name: resume
-                href: triggers/api-ref/Trigger/resume.md
-              - name: update
+              - name: Create
+                href: triggers/api-ref/Trigger/create.md
+              - name: Update
                 href: triggers/api-ref/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/Trigger/listOperations.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
@@ -603,3 +719,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/functions
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "Настройки сервиса {{ sk-hybrid-name }}"
-description: "Из статьи вы узнаете, как настроить компоненты сервиса {{ sk-hybrid-name }}."
+title: Настройки сервиса {{ sk-hybrid-name }}
+description: Из статьи вы узнаете, как настроить компоненты сервиса {{ sk-hybrid-name }}.
 ---
 
 # Настройки сервиса {{ sk-hybrid-name }}

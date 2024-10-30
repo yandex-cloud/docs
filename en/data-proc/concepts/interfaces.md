@@ -1,6 +1,6 @@
 ---
-title: "{{ dataproc-full-name }} component interfaces and ports"
-description: "In this tutorial, you will learn what component interfaces and ports are supported in {{ dataproc-name }} and how you can use them."
+title: '{{ dataproc-full-name }} component interfaces and ports'
+description: In this tutorial, you will learn what component interfaces and ports are supported in {{ dataproc-name }} and how you can use them.
 ---
 
 # {{ dataproc-name }} component interfaces and ports

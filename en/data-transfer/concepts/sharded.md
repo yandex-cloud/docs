@@ -4,8 +4,9 @@
 
 Scaling capabilities depend on the type of source database:
 
-* The [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md), and [{{ GP }}](../operations/endpoint/source/greenplum.md) sources support table partitioning and parallel copy of data from a single table.
+* The [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md), and [{{ GP }}](../operations/endpoint/source/greenplum.md) sources support table partitioning and parallel copy of data from a single table. For {{ PG }}, the primary key must be of the `serial` type.
 * The [{{ OS }}](../operations/endpoint/source/opensearch.md) and [{{ ES }}](../operations/endpoint/source/elasticsearch.md) sources support parallel copy of data from a single index.
+* [{{ CH }}](../operations/endpoint/source/clickhouse.md) sources support parallel partition-based copying. For this, a table must have multiple partitions. A single-partition table will be copied in a single thread. Parallel copying is only available for {{ CH }}-to-{{ CH }} transfers.
 * The [{{ objstorage-full-name }}](../operations/endpoint/source/object-storage.md) source supports parallel copy of data from a single folder.
 
 To enable parallel copy, specify its [settings](#settings). We recommend selecting parallel copy settings individually for each transfer.

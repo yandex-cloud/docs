@@ -1,11 +1,11 @@
 ---
-title: "Managing {{ ydb-short-name }} topic configurations"
-description: "This guide describes properties of the `yandex_ydb_table` resource for managing {{ ydb-short-name }} topic configurations."
+title: Managing {{ ydb-short-name }} topic configurations
+description: This guide describes properties of the `yandex_ydb_table` resource for managing {{ ydb-short-name }} topic configurations.
 ---
 
 # Managing {{ ydb-short-name }} topic configurations
 
-To work with [topics](https://ydb.tech/docs/ru/concepts/topic), use the `yandex_ydb_topic` resource.
+To work with [topics]({{ ydb.docs }}/concepts/topic), use the `yandex_ydb_topic` resource.
 
 {% note info %}
 
@@ -55,11 +55,11 @@ The following fields are supported:
 
 {% note info %}
 
-You can create, but cannot delete a consumer using {{ TF }}. You can delete a consumer using the [management console]({{ link-console-main }}) or [{{ ydb-short-name }} CLI](https://ydb.tech/docs/en/reference/ydb-cli/install).
+You can create, but cannot delete a consumer using {{ TF }}. You can delete a consumer using the [management console]({{ link-console-main }}) or [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/install).
 
 {% endnote %}
 
-Data [consumer](https://ydb.tech/docs/ru/concepts/topic#consumer) description:
+Data [consumer]({{ ydb.docs }}/concepts/topic#consumer) description:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
 |`name`|`string`<br>`required`|Consumer name|

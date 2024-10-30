@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о ресурсе в {{ cdn-full-name }}"
+title: Как получить информацию о ресурсе в {{ cdn-full-name }}
 ---
 
 # Получение информации о ресурсе
@@ -87,8 +87,8 @@ title: "Как получить информацию о ресурсе в {{ cdn
          * `resource_id` — идентификатор ресурса.
       * `output "resource_active"` — выходная переменная, которая содержит информацию о статусе активности CDN-ресурса:
          * `value` — возвращаемое значение.
-      
-     Вместо `active` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+
+     Вместо `active` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Создайте ресурсы:
 
@@ -108,7 +108,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [ресурсе](../../concepts/resource.md), воспользуйтесь методом REST API [get](../../api-ref/Resource/get.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get).
+  Чтобы получить подробную информацию о [ресурсе](../../concepts/resource.md), воспользуйтесь методом REST API [get](../../api-ref/Resource/get.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Get](../../api-ref/grpc/Resource/get.md).
 
 {% endlist %}
 
@@ -136,7 +136,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
       ```
 
   1. Получите информацию о ресурсе, указав его идентификатор или имя:
-      
+
       ```bash
       yc cdn resource get-provider-cname
       ```
@@ -174,8 +174,8 @@ title: "Как получить информацию о ресурсе в {{ cdn
          * `resource_id` — идентификатор ресурса.
       * `output "resource_cname"` — выходная переменная, которая содержит информацию о доменном имени:
          * `value` — возвращаемое значение.
-      
-     Вместо `cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+
+     Вместо `cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Создайте ресурсы:
 

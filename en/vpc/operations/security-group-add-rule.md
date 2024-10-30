@@ -1,6 +1,6 @@
 ---
-title: "Adding a new rule to a {{ vpc-full-name }} security group"
-description: "You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
+title: Adding a new rule to a {{ vpc-full-name }} security group
+description: You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 ---
 
 # Adding a new rule to a security group
@@ -264,7 +264,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - API {#api}
 
-   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
+   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in the request:
 
    * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
 

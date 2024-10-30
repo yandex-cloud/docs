@@ -1,6 +1,6 @@
 ---
-title: "{{ org-full-name }} use cases"
-description: "Various {{ org-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ org-full-name }} use cases'
+description: Various {{ org-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ org-name }} tutorials

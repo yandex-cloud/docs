@@ -47,10 +47,10 @@ VALUES
 
 Мы рекомендуем применять `raw string` и способ экранирования с помощью `\"`, так как он более нагляден.
 
-## Смотрите также {#see-also}
+#### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* Функция [JSON_EXISTS](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_exists).
-* Функция [JSON_VALUE](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_value).
-* Функция [JSON_QUERY](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_query).
-* [Функции для работы с JSON](https://ydb.tech/ru/docs/yql/reference/builtins/json).
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* Функция [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists)
+* Функция [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value)
+* Функция [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query)
+* [Функции для работы с JSON]({{ ydb.docs }}/yql/reference/builtins/json)

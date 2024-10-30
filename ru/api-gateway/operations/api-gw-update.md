@@ -1,6 +1,6 @@
 ---
-title: "Изменить API-шлюз"
-description: "Следуя данной инструкции, вы сможете изменить API-шлюз."
+title: Изменить API-шлюз
+description: Следуя данной инструкции, вы сможете изменить API-шлюз.
 ---
 
 # Изменить API-шлюз
@@ -136,7 +136,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
+  Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

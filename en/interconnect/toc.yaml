@@ -1,10 +1,5 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
-label:
-  title: To be announced soon
-  description: The service will soon be available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Concepts
     expanded: true
@@ -44,8 +39,13 @@ items:
         href: operations/priv-add.md
       - name: Adding a public connection to a direct or partner trunk
         href: operations/pub-add.md
+  - name: Tutorials
+    items:
+      - name: Integrating with a corporate DNS service
+        href: tutorials/dns-integration.md
   - name: Pricing policy
     href: pricing.md
   - name: Release notes
     href: release-notes.md
 base: en/interconnect
+deepBase: 2

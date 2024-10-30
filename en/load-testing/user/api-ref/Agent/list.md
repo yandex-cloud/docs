@@ -3,29 +3,61 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/list.md
 ---
 
-# Load Testing API, REST: Agent.list
-Retrieves the list of agents in the specified folder.
- 
+# Load Testing API, REST: Agent.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of agents in the specified folder.
+
+## HTTP request
+
 ```
 GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list agents in.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/load-testing/user/api-ref/Agent/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/load-testing/user/api-ref/Agent/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters agents listed in the response.</p> <p>The filter expression may contain multiple field expressions joined by ``AND``. The field expression must specify:</p> <ol> <li>The field name.</li> <li>An operator: <ul> <li>``=``, ``!=``, ``CONTAINS``, for single values.</li> <li>``IN`` or ``NOT IN`` for lists of values.</li> </ul> </li> <li>The value. String values must be encosed in ``"``, boolean values are {``true``, ``false``}, timestamp values in ISO-8601.</li> </ol> <p>Currently supported fields:</p> <ul> <li>``id`` ``id`` <ul> <li>operators: ``=``, ``!=``, ``IN``, ``NOT IN``</li> </ul> </li> <li>``name`` ``name`` <ul> <li>operators: ``=``, ``!=``, ``IN``, ``NOT IN``, ``CONTAINS``</li> </ul> </li> </ul> <p>Examples:</p> <ul> <li>``id IN ("1", "2", "3")``</li> <li>``name CONTAINS "compute-agent-large" AND id NOT IN ("4", "5")``</li> </ul> <p>The maximum string length in characters is 1000.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.loadtesting.api.v1.ListAgentsRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list agents in. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters agents listed in the response.
+
+The filter expression may contain multiple field expressions joined by `AND`.
+The field expression must specify:
+1. The field name.
+2. An operator:
+- `=`, `!=`, `CONTAINS`, for single values.
+- `IN` or `NOT IN` for lists of values.
+3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
+
+Currently supported fields:
+- `id` [yandex.cloud.loadtesting.api.v1.agent.Agent.id](#yandex.cloud.loadtesting.api.v1.agent.Agent)
+- operators: `=`, `!=`, `IN`, `NOT IN`
+- `name` [yandex.cloud.loadtesting.api.v1.agent.Agent.name](#yandex.cloud.loadtesting.api.v1.agent.Agent)
+- operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
+
+Examples:
+- `id IN ("1", "2", "3")`
+- `name CONTAINS "compute-agent-large" AND id NOT IN ("4", "5")` ||
+|#
+
+## Response {#yandex.cloud.loadtesting.api.v1.ListAgentsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "agents": [
     {
@@ -40,25 +72,96 @@ filter | <p>A filter expression that filters agents listed in the response.</p> 
       ],
       "currentJobId": "string",
       "agentVersionId": "string",
-      "labels": "object"
+      "labels": "string",
+      "logSettings": {
+        "cloudLogGroupId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-agents[] | **object**<br><p>List of agents in the specified folder.</p> 
-agents[].<br>id | **string**<br><p>ID of the agent. Generated at creation time.</p> 
-agents[].<br>folderId | **string**<br><p>ID of the folder that the agent belongs to.</p> 
-agents[].<br>name | **string**<br><p>Name of the agent.</p> 
-agents[].<br>description | **string**<br><p>Description of the agent.</p> 
-agents[].<br>computeInstanceId | **string**<br><p>ID of the compute instance managed by the agent.</p> <p>Empty if there is no such instance (i.e. the case of external agent).</p> 
-agents[].<br>status | **string**<br><p>Status of the agent.</p> <p>Agent status.</p> <ul> <li>STATUS_UNSPECIFIED: Status is not specified. - PREPARING_TEST: Agent is preparing a test to be executed.</li> <li>READY_FOR_TEST: Agent is ready to take a test.</li> <li>TESTING: Agent is executing a test.</li> <li>TANK_FAILED: Agent application encountered an error and cannot operate normally.</li> <li>PROVISIONING: Agent is waiting for resources to be allocated.</li> <li>STOPPING: Agent is being stopped.</li> <li>STOPPED: Agent is stopped.</li> <li>STARTING: Agent is being started.</li> <li>RESTARTING: Agent is being restarted.</li> <li>UPDATING: Agent is being updated.</li> <li>ERROR: Agent encountered an error and cannot operate.</li> <li>CRASHED: Agent is crashed and will be restarted automatically.</li> <li>DELETING: Agent is being deleted.</li> <li>INITIALIZING_CONNECTION: Service is waiting for connection with agent to be established.</li> <li>LOST_CONNECTION_WITH_AGENT: Service has lost connection with agent.</li> <li>UPLOADING_ARTIFACTS: Agent is uploading test artifacts.</li> </ul> 
-agents[].<br>errors[] | **string**<br><p>List of errors reported by the agent.</p> 
-agents[].<br>currentJobId | **string**<br><p>ID of the test that is currently being executed by the agent.</p> 
-agents[].<br>agentVersionId | **string**<br><p>Version of the agent.</p> 
-agents[].<br>labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/load-testing/user/api-ref/Agent/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/load-testing/user/api-ref/Agent/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 
+#|
+||Field | Description ||
+|| agents[] | **[Agent](#yandex.cloud.loadtesting.api.v1.agent.Agent)**
+
+List of agents in the specified folder. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListAgentsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest), use `next_page_token` as the value
+for the [ListAgentsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## Agent {#yandex.cloud.loadtesting.api.v1.agent.Agent}
+
+Load testing agent on which tests are executed.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the agent. Generated at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the agent belongs to. ||
+|| name | **string**
+
+Name of the agent. ||
+|| description | **string**
+
+Description of the agent. ||
+|| computeInstanceId | **string**
+
+ID of the compute instance managed by the agent.
+
+Empty if there is no such instance (i.e. the case of external agent). ||
+|| status | **enum** (Status)
+
+Status of the agent.
+
+- `STATUS_UNSPECIFIED`: Status is not specified.
+- `PREPARING_TEST`: Agent is preparing a test to be executed.
+- `READY_FOR_TEST`: Agent is ready to take a test.
+- `TESTING`: Agent is executing a test.
+- `TANK_FAILED`: Agent application encountered an error and cannot operate normally.
+- `PROVISIONING`: Agent is waiting for resources to be allocated.
+- `STOPPING`: Agent is being stopped.
+- `STOPPED`: Agent is stopped.
+- `STARTING`: Agent is being started.
+- `RESTARTING`: Agent is being restarted.
+- `UPDATING`: Agent is being updated.
+- `ERROR`: Agent encountered an error and cannot operate.
+- `CRASHED`: Agent is crashed and will be restarted automatically.
+- `DELETING`: Agent is being deleted.
+- `INITIALIZING_CONNECTION`: Service is waiting for connection with agent to be established.
+- `LOST_CONNECTION_WITH_AGENT`: Service has lost connection with agent.
+- `UPLOADING_ARTIFACTS`: Agent is uploading test artifacts. ||
+|| errors[] | **string**
+
+List of errors reported by the agent. ||
+|| currentJobId | **string**
+
+ID of the test that is currently being executed by the agent. ||
+|| agentVersionId | **string**
+
+Version of the agent. ||
+|| labels | **string**
+
+Agent labels as `key:value` pairs. ||
+|| logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
+
+Agent log settings ||
+|#
+
+## LogSettings {#yandex.cloud.loadtesting.api.v1.agent.LogSettings}
+
+#|
+||Field | Description ||
+|| cloudLogGroupId | **string**
+
+Id of Yandex Cloud log group to upload agent logs to ||
+|#

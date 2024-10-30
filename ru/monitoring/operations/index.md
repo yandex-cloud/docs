@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ monitoring-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ monitoring-name }}."
+title: Пошаговые инструкции для {{ monitoring-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ monitoring-name }}.
 ---
 
 # Пошаговые инструкции для {{ monitoring-full-name }}

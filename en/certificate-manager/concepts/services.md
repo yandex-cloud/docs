@@ -1,6 +1,6 @@
 ---
-title: "Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} services"
-description: "In this tutorial, you will learn in which {{ yandex-cloud }} services you can use certificates from {{ certificate-manager-name }}."
+title: Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} services
+description: In this tutorial, you will learn in which {{ yandex-cloud }} services you can use certificates from {{ certificate-manager-name }}.
 ---
 
 # Integration with {{ yandex-cloud }} services

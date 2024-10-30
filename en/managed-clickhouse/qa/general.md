@@ -1,6 +1,6 @@
 ---
-title: "{{ mch-name }}. FAQ"
-description: "What is {{ mch-name }}? Which tasks are best addressed using {{ mch-name }}, and which using VMs with databases? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article."
+title: '{{ mch-name }}. FAQ'
+description: What is {{ mch-name }}? Which tasks are best addressed using {{ mch-name }}, and which using VMs with databases? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article.
 ---
 
 # General questions about {{ mch-name }}

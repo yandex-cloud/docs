@@ -45,6 +45,7 @@
       | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | Входящий | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `any`           | `22`    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Исходящий | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -65,27 +66,41 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
+      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * В поле **Имя** введите имя ВМ: `minecraft-server`.
-         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image}}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** и выберите образ операционной системы [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages}}** выберите диск HDD размером 18 ГБ.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите рекомендуемую конфигурацию для сервера Minecraft:
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — Intel Ice Lake.
-         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — 100%.
-         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — 2.
-         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — 2 ГБ.
+      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.      
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
+
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `18 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите рекомендуемые параметры для сервера Minecraft:
+
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-         * Выберите **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**, к которой нужно подключить виртуальную машину. Если нужной подсети еще нет, создайте ее в этом же блоке.
-         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `minecraft-sg`.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
+          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+
+              * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+              * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+
+                  * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+                  * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+                  * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `minecraft-sg`.
+
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
 
             {% note alert %}
 
@@ -93,8 +108,9 @@
 
             {% endnote %}
 
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+          * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `minecraft-server`.
       1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    {% endlist %}

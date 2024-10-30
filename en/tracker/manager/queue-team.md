@@ -1,6 +1,6 @@
 ---
-title: "How to add a queue team"
-description: "Follow this guide to add a queue team."
+title: How to add a queue team
+description: Follow this guide to add a queue team.
 ---
 
 # Adding a queue team
@@ -30,19 +30,19 @@ Changing the queue owner:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Go to the **Access rights** tab.
 
 1. Click the user picture next to the owner name. The window to change the queue owner will open.
 
-1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.change-owner }}**.
+1. Click **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.change-owner }}**.
 
 1. Enter the name or username of the new owner.
 
 1. Click **Save**.
 
-1. If you want all new issues to be automatically assigned to the owner, enable the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.set-as-default }}** option.
+1. If you want all new issues to be automatically assigned to the owner, enable the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.set-as-default }}** option.
 
 1. Click **Save**.
 
@@ -54,7 +54,7 @@ To change the list of team members:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Go to the **Queue team** tab.
 

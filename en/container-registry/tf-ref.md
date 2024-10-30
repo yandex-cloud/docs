@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ container-registry-full-name }}'
+description: This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}.
+---
+
 # {{ TF }} reference for {{ container-registry-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -9,10 +14,10 @@ The following {{ TF }} provider resources are supported for {{ container-registr
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry) | [Registry](./concepts/registry.md) |
-| [yandex_container_registry_iam_binding]({{ tf-provider-resources-link }}/container_registry_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a registry |
+| [yandex_container_registry_iam_binding]({{ tf-provider-resources-link }}/container_registry_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a registry |
 | [yandex_container_registry_ip_permission]({{ tf-provider-resources-link }}/container_registry_ip_permission) | [Registry access](./operations/registry/registry-access.md) |
 | [yandex_container_repository]({{ tf-provider-resources-link }}/container_repository) | [Repository](./concepts/repository.md) |
-| [yandex_container_repository_iam_binding]({{ tf-provider-resources-link }}/container_repository_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a repository |
+| [yandex_container_repository_iam_binding]({{ tf-provider-resources-link }}/container_repository_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a repository |
 | [yandex_container_repository_lifecycle_policy]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy) | [Docker image lifecycle policy](./concepts/lifecycle-policy.md) |
 
 ## Data sources {#data-sources}

@@ -1,6 +1,6 @@
 ---
-title: "How to add a user to {{ datalens-full-name }}"
-description: "Follow this guide to add a user to {{ datalens-full-name }}."
+title: How to add a user to {{ datalens-full-name }}
+description: Follow this guide to add a user to {{ datalens-full-name }}.
 ---
 
 # Adding users to {{ datalens-short-name }}

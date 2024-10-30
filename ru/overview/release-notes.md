@@ -11,6 +11,7 @@
 * [{{ dns-full-name }}](../dns/release-notes.md)
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)
+* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ objstorage-full-name }}](../storage/release-notes.md)
 * [{{ sws-full-name }}](../smartwebsecurity/release-notes.md)
 * [{{ vpc-full-name }}](../vpc/release-notes.md)
@@ -38,6 +39,7 @@
 
 ## Инструменты разработчика {#dev-tools}
 
+* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
 
 ## Бессерверные вычисления {#serverless}
@@ -51,6 +53,9 @@
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
+* [{{ certificate-manager-full-name }}](../certificate-manager/release-notes.md)
+* [{{ lockbox-full-name }}](../lockbox/release-notes.md)
+* [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
 ## Мониторинг и управление ресурсами {#resources-operations}
 

@@ -39,7 +39,7 @@
         ```bash
         {{ yc-mdb-kf }} cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
-           --columns <список_колонок_для_вывода_информации> \
+           --columns <список_колонок_лога> \
            --filter <настройки_фильтрации_записей> \
            --since <левая_граница_временного_диапазона> \
            --until <правая_граница_временного_диапазона>
@@ -48,11 +48,11 @@
         Где:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-        * `--columns` — список колонок для вывода информации:
+        * `--columns` — список колонок лога, из которых будет выводиться информация:
             * `hostname` — [имя хоста](cluster-hosts.md).
             * `message` — сообщение, которое выводит компонент.
-            * `severity` — уровень логирования, например, `I` или `W` (`Info` и `Warning` соответственно).
-            * `origin` — источник сообщения, например, `kafka_server` или `kafka_controller`.
+            * `severity` — уровень логирования. Пример выводимого значения: `INFO`.
+            * `origin` — источник сообщения. Примеры выводимых значений: `kafka_server` или `kafka_controller`.
 
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
@@ -62,7 +62,7 @@
 
 - API {#api}
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 
@@ -92,7 +92,7 @@
 
 - API {#api}
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 

@@ -1,6 +1,6 @@
 ---
-title: "List of {{ yandex-cloud }} metric references"
-description: "The page contains a list of {{ yandex-cloud }} metric references, whose metrics are automatically collected in {{ monitoring-full-name }}."
+title: List of {{ yandex-cloud }} metric references
+description: The page contains a list of references for {{ yandex-cloud }} metrics, which are automatically collected in {{ monitoring-full-name }}.
 ---
 
 # {{ yandex-cloud }} metric references
@@ -9,14 +9,16 @@ description: "The page contains a list of {{ yandex-cloud }} metric references, 
 * [{{ api-gw-full-name }}](api-gateway-ref.md)
 * [{{ alb-full-name }}](alb-ref.md)
 * [{{ at-full-name }}](at-ref.md)
-* [{{ backup-full-name }}](backup-ref.md)
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)
+* [{{ backup-full-name }}](backup-ref.md)
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ sf-full-name }}](functions-ref.md)
+* [{{ cloud-logging-full-name }}](logging-ref.md)
 * [{{ compute-full-name }}](compute-ref.md)
 * [{{ container-registry-full-name }}](container-registry-ref.md)
 * [{{ dataproc-full-name }}](data-proc-ref.md)
 * [{{ data-transfer-full-name }}](data-transfer-ref.md)
+* [{{ dns-full-name }}](dns-ref.md)
 * [{{ iam-full-name }}](iam-ref.md)
 * [{{ iot-full-name }}](iot-core-ref.md)
 * [{{ kms-full-name }}](kms-ref.md)
@@ -34,6 +36,7 @@ description: "The page contains a list of {{ yandex-cloud }} metric references, 
 * [{{ ydb-full-name }}](ydb-ref.md)
 * [{{ message-queue-full-name }}](message-queue-ref.md)
 * [{{ monitoring-full-name }}](monitoring-ref.md)
+* [{{ network-load-balancer-full-name }}](network-load-balancer-ref.md)
 * [{{ objstorage-full-name }}](storage-ref.md)
 * [{{ captcha-full-name }}](captcha-ref.md)
 * [{{ sws-full-name }}](smartwebsecurity-ref.md)

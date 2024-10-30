@@ -9,7 +9,7 @@
 Количество запросов в секунду, [асинхронный режим](../foundation-models/concepts/index.md#working-mode) (запрос) | 10
 Количество запросов в секунду, асинхронный режим (получение ответа) | 50
 Количество запросов в час, асинхронный режим (запрос) | 5000
-Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/TokenizerService.md) | 50
+Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
 **[Классификация текста](../foundation-models/concepts/classifier/index.md)** |
 Количество запросов на классификацию текста в секунду | 1
 **[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |
@@ -23,12 +23,15 @@
 ----- | -----
 Срок хранения результатов асинхронных запросов на сервере | 3 суток
 **[Векторизация текста](../foundation-models/concepts/embeddings.md)** |
-Количество [токенов](../foundation-models/concepts/yandexgpt/tokens.md) на вход | 2000
+Количество [токенов](../foundation-models/concepts/yandexgpt/tokens.md) на вход | 2 000
 Размерность выходного вектора | {{ emb-vector }}
 **[Генерация текста](../foundation-models/concepts/yandexgpt/index.md)** |
-Количество токенов на ответ | 2000 | 2000
-Максимальное количество токенов в ответе в [консоли управления]({{ link-console-main }}) | 500
-Суммарное количество токенов | {{ yagpt-max-tokens }}
+Максимальное количество токенов в ответе через API | 2 000 
+Максимальное количество токенов в ответе в [консоли управления]({{ link-console-main }}) | 1 000
+Суммарное количество токенов в запросе и ответе, [модели 3 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Суммарное количество токенов в запросе и ответе, синхронный режим [моделей 4 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Суммарное количество токенов в запросе и ответе, асинхронный режим [моделей 4 поколения](../foundation-models/concepts/yandexgpt/models.md) | 32 000
+Суммарное количество токенов в запросе и ответе, модель {{ yagpt-name }} 32k | 32 000
 Количество бесплатных запросов в час для пользователей без платежного аккаунта. Доступно только в консоли управления | {{ gpt-freetier }}
 **[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |
 Максимальная длина [промта](../foundation-models/concepts/index.md#prompt) | 500 символов

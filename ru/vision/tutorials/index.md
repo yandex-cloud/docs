@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ vision-full-name }}"
-description: "Различные сценарии использования {{ vision-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ vision-full-name }}
+description: Различные сценарии использования {{ vision-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ vision-full-name }}

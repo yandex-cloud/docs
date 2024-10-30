@@ -1,6 +1,6 @@
 ---
-title: "Working with the AWS CLI. Overview"
-description: "This section describes how to create, add, read, and update table data using the AWS CLI: Examples of how to execute simple queries are given."
+title: Working with the AWS CLI. Overview
+description: 'This section describes how to create, add, read, and update table data using the AWS CLI: Examples of how to execute simple queries are given.'
 ---
 
 # Working with the AWS CLI in {{ ydb-name }}. Overview

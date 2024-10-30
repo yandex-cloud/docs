@@ -1,6 +1,6 @@
 ---
-title: "How to set up a notebook template in {{ ml-platform-full-name }}"
-description: "Follow this guide to start using the {{ jlab }}Lab-templates extension."
+title: How to set up a notebook template in {{ ml-platform-full-name }}
+description: Follow this guide to start using the {{ jlab }}Lab-templates extension.
 ---
 
 # Setting up template-based {{ jlab }}Lab notebook creation

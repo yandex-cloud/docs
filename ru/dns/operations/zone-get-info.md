@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о зоне DNS в {{ dns-full-name }}"
+title: Как получить информацию о зоне DNS в {{ dns-full-name }}
 ---
 
 # Получить информации о зоне DNS
@@ -71,7 +71,7 @@ title: "Как получить информацию о зоне DNS в {{ dns-f
      * `output "zone"` — выходная переменная, которая содержит информацию о типе зоне DNS:
        * `value` — возвращаемое значение.
 
-     Вместо `public` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_dns_zone` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_dns_zone).
+     Вместо `public` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_dns_zone` см. в [документации провайдера]({{ tf-provider-datasources-link }}/dns_zone).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -90,6 +90,6 @@ title: "Как получить информацию о зоне DNS в {{ dns-f
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [зоне DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [get](../api-ref/DnsZone/get.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/Get](../api-ref/grpc/dns_zone_service.md#Get).
+  Чтобы получить подробную информацию о [зоне DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [get](../api-ref/DnsZone/get.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/Get](../api-ref/grpc/DnsZone/get.md).
 
 {% endlist %}

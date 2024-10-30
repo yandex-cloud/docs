@@ -24,7 +24,7 @@
   Чтобы получить список операций для зоны DNS, воспользуйтесь командой:
 
   ```bash
-  yc dns zone list-operations <имя_или_идентификатор_зоны> 
+  yc dns zone list-operations <имя_или_идентификатор_зоны>
   ```
 
   По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
@@ -57,7 +57,7 @@
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/dns_zone_service.md#ListOperations).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 
@@ -104,7 +104,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

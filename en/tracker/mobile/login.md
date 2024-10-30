@@ -26,7 +26,7 @@ To log in to {{ tracker-full-name }}:
 
 1. When you launch the app for the first time, log in to the account you use to work with {{ tracker-name }}:
 
-   * To log in using your Yandex email address or the email address on your company's domain, tap **{{ ui-key.startrek.ui_components_PageHiThere.wrong-user-btn }}** and enter your username, such as `{{ example-account }}` or `login@example.com`. If you do not have an organization, one will be created automatically the [first time you log in](enable-tracker.md) to the app.
+   * To log in using your Yandex email address or the email address on your company's domain, tap **Log in** and enter your username, such as `{{ example-account }}` or `login@example.com`. If you do not have an organization, one will be created automatically the [first time you log in](enable-tracker.md) to the app.
 
    * If your organization uses the Single Sign-On authentication scheme with an [identity federation](../add-users.md#federation), click **Log in via SSO**, specify the federation ID, and log in to your corporate account.
 

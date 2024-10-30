@@ -1,6 +1,6 @@
 ---
-title: "Encoding a file in Base64 in {{ vision-full-name }}"
-description: "Follow this guide to deliver an image file to the {{ vision-short-name }} API."
+title: Encoding a file in Base64 in {{ vision-full-name }}
+description: Follow this guide to deliver an image file to the {{ vision-short-name }} API.
 ---
 
 # Encoding a file as Base64

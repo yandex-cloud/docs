@@ -1,6 +1,6 @@
 ---
-title: "Как настроить права доступа к виртуальной машине {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к виртуальной машине."
+title: Как настроить права доступа к виртуальной машине {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к виртуальной машине.
 ---
 
 # Настроить права доступа к виртуальной машине
@@ -110,7 +110,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -129,7 +129,7 @@ description: "Следуя данной инструкции, вы настро�
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
   1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -217,7 +217,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/SetAccessBindings](../../api-ref/grpc/instance_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/SetAccessBindings](../../api-ref/grpc/Instance/setAccessBindings.md).
 
 {% endlist %}
 
@@ -234,7 +234,7 @@ description: "Следуя данной инструкции, вы настро�
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -302,6 +302,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

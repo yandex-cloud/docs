@@ -1,6 +1,6 @@
 ---
-title: "How to create a Snowflake connection in {{ datalens-full-name }}"
-description: "Follow this guide to create a Snowflake connection."
+title: How to create a Snowflake connection in {{ datalens-full-name }}
+description: Follow this guide to create a Snowflake connection.
 ---
 
 # Creating a Snowflake connection

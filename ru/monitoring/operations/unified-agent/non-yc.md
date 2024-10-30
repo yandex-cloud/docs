@@ -5,7 +5,7 @@
 1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/key.md) сервисного аккаунта для доступа к каталогу, в который будут поставляться метрики.
 
 1. [Установите и настройте {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) для сбора и отправки метрик.
- 
+
 Описанная методика может также применяться для отправки метрик с виртуальных машин {{ yandex-cloud }} без привязанного сервисного аккаунта.
 
 {% note warning %}
@@ -30,7 +30,7 @@
 
       Другие способы создания авторизованных ключей описаны в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
 
-   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где будет установлен {{unified-agent-short-name}}.
+   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где будет установлен {{ unified-agent-short-name }}.
 
        Пример файла **jwt_params.json**:
        ```json
@@ -44,8 +44,8 @@
        }
        ```
 
-1. [Установите и настройте на хосте {{unified-agent-full-name}}](../../concepts/data-collection/unified-agent/installation.md):
-   
+1. [Установите и настройте на хосте {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md):
+
    1. Установите [Docker](https://docs.docker.com).
 
    1. Создайте в домашнем каталоге файл **config.yml**.
@@ -75,7 +75,7 @@
               output:
                 plugin: yc_metrics
                 config:
-                  url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+                  url: https://{{ api-host-monitoring-1 }}/monitoring/v2/data/write
                   folder_id: "$FOLDER_ID"
                   iam:
                     jwt:
@@ -121,7 +121,7 @@
        * `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
        * `iam.jwt.file` – путь к файлу с параметрами JWT.
 
-   1. Установите {{unified-agent-short-name}}, выполнив в домашнем каталоге команду:
+   1. Установите {{ unified-agent-short-name }}, выполнив в домашнем каталоге команду:
 
       ```bash
       docker run \

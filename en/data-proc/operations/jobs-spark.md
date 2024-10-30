@@ -1,6 +1,6 @@
 ---
-title: "How to manage Spark jobs in {{ dataproc-full-name }}"
-description: "In this tutorial, you will learn how to manage Spark jobs in {{ dataproc-full-name }}."
+title: How to manage Spark jobs in {{ dataproc-full-name }}
+description: In this tutorial, you will learn how to manage Spark jobs in {{ dataproc-full-name }}.
 ---
 
 # Managing Spark jobs

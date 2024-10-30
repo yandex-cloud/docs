@@ -21,8 +21,8 @@
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description` — описание ключа.
-   * `default-algorithm` — алгоритм шифрования. Возможные значения: `AES-128`, `AES-192` или `AES-256`.
-   * `rotation-period` — период [ротации](../../kms/concepts/version.md#rotate-key) (частота смены версии ключа по умолчанию). Чтобы создать ключ без автоматической ротации, не указывайте параметр `rotation-period`.
+   * `default_algorithm` — алгоритм шифрования. Возможные значения: `AES-128`, `AES-192` или `AES-256`.
+   * `rotation_period` — период [ротации](../../kms/concepts/version.md#rotate-key) (частота смены версии ключа по умолчанию). Чтобы создать ключ без автоматической ротации, не указывайте параметр `rotation_period`.
 
    {% note warning %}
 
@@ -39,7 +39,7 @@
    ```
 
    Если конфигурация является корректной, появится сообщение:
-  
+
    ```text
    Success! The configuration is valid.
    ```

@@ -11,6 +11,12 @@ meta:
     {{ cloudml-name }} — это сервисы искусственного интеллекта {{ yandex-cloud
     }}, работающие внутри вашей инфраструктуры.
 links:
+  - title: Функциональные характеристрики
+    description: Архитектура и назначение {{ cloudml-name }}
+    href: architecture
+  - title: Начало работы
+    description: Как развернуть демонстрационный стенд {{ cloudml-name }}
+    href: quickstart
   - title: Стоимость
-    description: Узнайте о моделях лицензирования {{ cloudml-name }}
+    description: Моделях лицензирования {{ cloudml-name }}
     href: pricing

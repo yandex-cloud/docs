@@ -1,10 +1,14 @@
 ---
-title: "{{ at-full-name }} pricing policy"
-description: "This article describes the {{ at-name }} pricing policy."
+title: '{{ at-full-name }} pricing policy'
+description: This article describes the {{ at-name }} pricing policy.
 editable: false
 ---
 
 # {{ at-full-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 Delivered [data events](./concepts/events-data-plane.md) are billed.
 
@@ -48,7 +52,7 @@ For example, delivering 17,000 data events will cost:
 
 
 
-  
+
   {% include [usd-lockbox](../_pricing_examples/audit-trails/usd-lockbox.md) %}
 
 
@@ -67,6 +71,5 @@ For example, delivering 17,000 data events will cost:
 
 
 
-  
-  {% include [usd-storage](../_pricing_examples/audit-trails/usd-storage.md) %}
 
+  {% include [usd-storage](../_pricing_examples/audit-trails/usd-storage.md) %}

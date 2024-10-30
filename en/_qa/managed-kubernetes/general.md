@@ -1,6 +1,6 @@
 ---
-title: "{{ managed-k8s-full-name }}. Questions and answers"
-description: "How do I get the logs of my activity in Yandex Managed Service for {{ k8s }}? Find the answer to this and other questions in this article."
+title: '{{ managed-k8s-full-name }}. Questions and answers'
+description: How do I get the logs of my activity in Yandex Managed Service for {{ k8s }}? Find the answer to this and other questions in this article.
 ---
 
 # General questions about {{ managed-k8s-name }}

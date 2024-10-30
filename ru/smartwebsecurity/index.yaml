@@ -2,15 +2,10 @@ title: Yandex Smart Web Security
 description:
   - >-
     Yandex Smart Web Security позволяет защитить вашу инфраструктуру от
-    DDoS-атак и ботов на уровне приложений (L7).
-  - >-
-    Также вы можете подключить дополнительную защиту: <a
-    href="/docs/smartwebsecurity/concepts/waf">Web Application Firewall
-    (WAF)</a> и ограничитель запросов <a
-    href="/docs/smartwebsecurity/concepts/arl">Advanced Rate Limiter (ARL)</a>. 
-  - >-
-    Функциональность WAF и ARL находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.
+    DDoS-атак и ботов на уровне приложений (L7).  Также вы можете подключить
+    дополнительную защиту: <a href="/docs/smartwebsecurity/concepts/waf">Web
+    Application Firewall (WAF)</a> и ограничитель запросов <a
+    href="/docs/smartwebsecurity/concepts/arl">Advanced Rate Limiter (ARL)</a>.
 meta:
   title: Yandex Smart Web Security
 links:

@@ -1,6 +1,6 @@
 ---
-title: "Deleting a function label"
-description: "Follow this guide to delete a function label."
+title: Deleting a function label
+description: Follow this guide to delete a function label.
 ---
 
 # Deleting a function label
@@ -113,6 +113,6 @@ description: "Follow this guide to delete a function label."
 
 - API {#api}
 
-   To delete a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
+   To delete a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 {% endlist %}

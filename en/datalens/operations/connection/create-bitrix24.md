@@ -1,6 +1,6 @@
 ---
-title: "How to create a Bitrix24 connection"
-description: "Follow this guide to create a Bitrix24 connection."
+title: How to create a Bitrix24 connection
+description: Follow this guide to create a Bitrix24 connection.
 ---
 
 # Creating a Bitrix24 connection

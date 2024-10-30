@@ -16,7 +16,7 @@
 
 - API {#api}
 
-   Воспользуйтесь методом REST API [listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) для ресурса [Cluster](../../../managed-kafka/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+   Воспользуйтесь методом REST API [listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) для ресурса [Cluster](../../../managed-kafka/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
    FQDN указан в ответе в поле `hosts[].name`.
 

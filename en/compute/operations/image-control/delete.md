@@ -1,6 +1,6 @@
 ---
-title: "How to delete a disk image"
-description: "Follow this guide to delete a disk image."
+title: How to delete a disk image
+description: Follow this guide to delete a disk image.
 ---
 
 # Deleting a disk image
@@ -71,6 +71,6 @@ To delete an image:
 
 - API {#api}
 
-   Use the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete) gRPC API call.
+   Use the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/Image/delete.md) gRPC API call.
 
 {% endlist %}

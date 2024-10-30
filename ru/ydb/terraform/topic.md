@@ -1,11 +1,11 @@
 ---
-title: "Управление конфигурацией топиков {{ydb-short-name}}"
-description: "В инструкции описаны свойства ресурса yandex_ydb_topic для управления конфигурацией топиков {{ydb-short-name}}."
+title: Управление конфигурацией топиков {{ydb-short-name}}
+description: В инструкции описаны свойства ресурса yandex_ydb_topic для управления конфигурацией топиков {{ydb-short-name}}.
 ---
 
 # Управление конфигурацией топиков {{ydb-short-name}}
 
-Для работы с [топиками](https://ydb.tech/docs/ru/concepts/topic) используется ресурс `yandex_ydb_topic`.
+Для работы с [топиками]({{ ydb.docs }}/concepts/topic) используется ресурс `yandex_ydb_topic`.
 
 {% note info %}
 
@@ -55,11 +55,11 @@ resource "yandex_ydb_topic" "ydb_topic" {
 
 {% note info %}
 
-Читателя (consumer) можно создать, используя {{ TF }}, но нельзя удалить. Читателя можно удалить в [консоли управления]({{ link-console-main }}) или с помощью [{{ ydb-short-name }} CLI](https://ydb.tech/docs/en/reference/ydb-cli/install).
+Читателя (consumer) можно создать, используя {{ TF }}, но нельзя удалить. Читателя можно удалить в [консоли управления]({{ link-console-main }}) или с помощью [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/install).
 
 {% endnote %}
 
-Описание читателя данных ([consumer](https://ydb.tech/docs/ru/concepts/topic#consumer)):
+Описание читателя данных ([consumer]({{ ydb.docs }}/concepts/topic#consumer)):
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |`name`|`string`<br>`required`|Имя читателя|

@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ iam-full-name }} ({{ iam-short-name }})"
-description: "Управление доступом в сервисе идентификации и контроля доступа {{ iam-full-name }} ({{ iam-short-name }}). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+title: Управление доступом в {{ iam-full-name }} ({{ iam-short-name }})
+description: Управление доступом в сервисе идентификации и контроля доступа {{ iam-full-name }} ({{ iam-short-name }}). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
 # Управление доступом в сервисе {{ iam-name }}
@@ -57,6 +57,34 @@ description: "Управление доступом в сервисе идент
 #### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
 
 {% include [iam.serviceAccounts.tokenCreator](../../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
+#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
+
+{% include [iam.serviceAccounts.federatedCredentialViewer](../../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
+
+#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
+
+{% include [iam.serviceAccounts.federatedCredentialEditor](../../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
+
+#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
+
+{% include [iam.workloadIdentityFederations.auditor](../../_roles/iam/workloadIdentityFederations/auditor.md) %}
+
+#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
+
+{% include [iam.workloadIdentityFederations.viewer](../../_roles/iam/workloadIdentityFederations/viewer.md) %}
+
+#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
+
+{% include [iam.workloadIdentityFederations.user](../../_roles/iam/workloadIdentityFederations/user.md) %}
+
+#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
+
+{% include [iam.workloadIdentityFederations.editor](../../_roles/iam/workloadIdentityFederations/editor.md) %}
+
+#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
+
+{% include [iam.workloadIdentityFederations.admin](../../_roles/iam/workloadIdentityFederations/admin.md) %}
 
 #### iam.auditor {#iam-auditor}
 

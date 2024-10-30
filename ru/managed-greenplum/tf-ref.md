@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ mgp-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mgp-name }}."
+title: Справочник {{ TF }} для {{ mgp-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mgp-name }}.
 ---
 
 # Справочник {{ TF }} для {{ mgp-full-name }}
@@ -21,4 +21,4 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_greenplum_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | Информация о [кластере](./concepts/index.md) |

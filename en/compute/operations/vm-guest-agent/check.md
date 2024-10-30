@@ -1,6 +1,6 @@
 ---
-title: "How to verify password reset agent operation on a Windows Server VM"
-description: "This tutorial describes how to verify password reset agent operation on a Windows Server VM."
+title: How to verify password reset agent operation on a Windows Server VM
+description: This tutorial describes how to verify password reset agent operation on a Windows Server VM.
 ---
 
 # Verifying password reset agent operation on a Windows Server VM
@@ -130,6 +130,6 @@ To get logs:
 
 - API {#api}
 
-   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput) gRPC API call. Set the `port` field to `4`.
+   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/Instance/getSerialPortOutput.md) gRPC API call. Set the `port` field to `4`.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "What are quotas and limits in {{ yandex-cloud }}"
-description: "{{ yandex-cloud }} services may be subject to quotas and limits. Quotas are organizational restrictions that can be changed by technical support on request. Limits are technical restrictions due to the {{ yandex-cloud }} architecture. The limits cannot be changed."
+title: What are quotas and limits in {{ yandex-cloud }}
+description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support on request. Limits are technical constraints due to {{ yandex-cloud }} architecture. Limits cannot be changed.'
 ---
 
 # {{ yandex-cloud }} service quotas and limits
@@ -9,16 +9,16 @@ description: "{{ yandex-cloud }} services may be subject to quotas and limits. Q
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum limits that {{ yandex-cloud }} can provide you with. Quotas are restrictions that can potentially be increased up to their limits.
+When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum limits that {{ yandex-cloud }} can provide you with. Quotas are modifiable constraints that can potentially be increased up to the limit values.
 
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability: with quotas, new users cannot take up too much resources for testing purposes.
+Quotas serve as a soft constraint on requesting resources and enable {{ yandex-cloud }} to guarantee service stability: with quotas, new users cannot take up too much resources for testing purposes.
 
-If ready to use more resources, you can increase the quotas in the following ways:
+If ready to use more resources, you can increase your quotas in the following ways:
 
-* [Generate a request for a quota increase]({{ link-console-quotas }}). You must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
+* [Generate a request for a quota increase]({{ link-console-quotas }}). You must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher, such as `editor` or `admin`.
 * Contact [technical support]({{ link-console-support }}) and tell us which quotas you want increased and by how much.
 
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
@@ -114,6 +114,11 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 
 
+### {{ video-full-name }} {#video}
+
+{% include [video-limits](../../_includes/video-limits.md) %}
+
+
 ### {{ compute-full-name }} {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}
@@ -177,7 +182,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 There are no active quotas in {{ load-testing-name }}.
 
-The computing resources consumed by [agents](../../load-testing/concepts/agent.md) are factored into the [quotas]({{ link-console-quotas }}) for [{{ compute-full-name }}](../../compute/concepts/limits.md).
+The computing resources consumed by [agents](../../load-testing/concepts/agent.md) are counted towards the [quotas]({{ link-console-quotas }}) and subject to the [{{ compute-full-name }}](../../compute/concepts/limits.md) limits.
 
 
 

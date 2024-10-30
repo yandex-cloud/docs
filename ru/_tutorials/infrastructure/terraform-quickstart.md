@@ -33,7 +33,7 @@
 
 {% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
-{% cut "Управление ресурсами от имени от имени аккаунта на Яндексе или федеративного аккаунта" %}
+{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
 
 {% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 

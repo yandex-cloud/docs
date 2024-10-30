@@ -50,4 +50,4 @@
 
 #### См. также {#see-also}
 
-[Синтаксис {{ yql-short-name }}](https://ydb.tech/ru/docs/yql/reference/syntax/)
+[Синтаксис {{ yql-short-name }}]({{ ydb.docs }}/yql/reference/syntax/)

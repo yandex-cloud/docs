@@ -1,6 +1,6 @@
 ---
-title: "Изменить имя контейнера"
-description: "Следуя данной инструкции, вы сможете изменить имя контейнера."
+title: Изменить имя контейнера
+description: Следуя данной инструкции, вы сможете изменить имя контейнера.
 ---
 
 # Изменить имя контейнера
@@ -106,6 +106,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы изменить имя контейнера, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update).
+  Чтобы изменить имя контейнера, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/Container/update.md).
 
 {% endlist %}

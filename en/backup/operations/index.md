@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ backup-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ backup-name }}."
+title: Step-by-step guides for {{ backup-full-name }}
+description: This page provides a list of step-by-step guides for {{ backup-name }}.
 ---
 
 # Step-by-step guides for {{ backup-name }}
@@ -19,6 +19,7 @@ description: "This page provides a list of step-by-step guides for {{ backup-nam
 * [Creating a backup policy](./policy-vm/create.md)
 * [Updating a backup policy](./policy-vm/update.md)
 * [Linking a VM to a backup policy](./policy-vm/attach-and-detach-vm.md)
+* [Getting information about a backup policy](./policy-vm/get-info.md)
 * [Unlinking a VM from a backup policy](./policy-vm/detach-vm.md)
 * [Deleting a backup policy](./policy-vm/delete.md)
 

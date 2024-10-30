@@ -1,6 +1,6 @@
 ---
-title: "Сделать ревизию активной"
-description: "Следуя данной инструкции, вы сможете сделать ревизию контейнера активной."
+title: Сделать ревизию активной
+description: Следуя данной инструкции, вы сможете сделать ревизию контейнера активной.
 ---
 
 # Сделать ревизию активной
@@ -52,6 +52,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы сделать ревизию контейнера активной, воспользуйтесь методом REST API [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/container_service.md#Rollback).
+  Чтобы сделать ревизию контейнера активной, воспользуйтесь методом REST API [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/Container/rollback.md).
 
 {% endlist %}

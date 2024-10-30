@@ -1,6 +1,6 @@
 ---
-title: "How to create a GPU cluster"
-description: "Follow this guide to create a GPU cluster."
+title: How to create a GPU cluster
+description: Follow this guide to create a GPU cluster.
 ---
 
 # Creating a GPU cluster

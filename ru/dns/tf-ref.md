@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ dns-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ dns-name }}."
+title: Справочник {{ TF }} для {{ dns-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ dns-name }}.
 ---
 
 # Справочник {{ TF }} для {{ dns-full-name }}
@@ -22,4 +22,4 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_dns_zone]({{ tf-provider-datasources-link }}/datasource_dns_zone) | Информация о [зоне DNS](./concepts/dns-zone.md) |
+| [yandex_dns_zone]({{ tf-provider-datasources-link }}/dns_zone) | Информация о [зоне DNS](./concepts/dns-zone.md) |

@@ -1,10 +1,5 @@
 title: Yandex Identity and Access Management
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -22,7 +17,7 @@ items:
         href: operations/compromised-credentials.md
       - name: Users
         items:
-          - name: Adding users
+          - name: Adding a user
             href: operations/users/create.md
           - name: Getting user information
             href: operations/users/get.md
@@ -46,7 +41,7 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Setting up service account access permissions
             href: operations/sa/set-access-bindings.md
-          - name: Getting service account ID
+          - name: Getting information about a service account
             href: operations/sa/get-id.md
           - name: Deleting a service account
             href: operations/sa/delete.md
@@ -56,7 +51,7 @@ items:
             href: operations/roles/grant.md
           - name: Viewing assigned roles
             href: operations/roles/get-assigned-roles.md
-          - name: Revoking roles
+          - name: Revoking a role
             href: operations/roles/revoke.md
       - name: IAM tokens
         items:
@@ -66,6 +61,8 @@ items:
             href: operations/iam-token/create-for-sa.md
           - name: Getting an IAM token for a federated account
             href: operations/iam-token/create-for-federation.md
+          - name: Revoking an IAM token
+            href: operations/iam-token/revoke-iam-token.md
       - name: Keys
         items:
           - name: Creating a static access key
@@ -130,11 +127,13 @@ items:
             href: concepts/authorization/access-key.md
       - name: Identity federations
         href: concepts/federations.md
+      - name: Workload identity federations
+        href: concepts/workload-identity.md
       - name: '{{ sts-name }}'
         href: concepts/authorization/sts.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Using {{ yandex-cloud }} securely
+  - name: Secure use of {{ yandex-cloud }}
     href: best-practices/using-iam-securely.md
   - name: Access management
     href: security/index.md
@@ -154,34 +153,263 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ApiKeyService
-            href: api-ref/grpc/api_key_service.md
-          - name: IamTokenService
-            href: api-ref/grpc/iam_token_service.md
-          - name: KeyService
-            href: api-ref/grpc/key_service.md
-          - name: RoleService
-            href: api-ref/grpc/role_service.md
-          - name: ServiceAccountService
-            href: api-ref/grpc/service_account_service.md
-          - name: ServiceControlService
-            href: api-ref/grpc/service_control_service.md
-          - name: UserAccountService
-            href: api-ref/grpc/user_account_service.md
-          - name: YandexPassportUserAccountService
-            href: api-ref/grpc/yandex_passport_user_account_service.md
-          - name: AccessKeyService
-            href: api-ref/grpc/access_key_service.md
-          - name: CertificateService
-            href: api-ref/grpc/certificate_service.md
-          - name: FederationService
-            href: api-ref/grpc/federation_service.md
-          - name: FederatedCredentialService
-            href: api-ref/grpc/federated_credential_service.md
-          - name: FederationService
-            href: api-ref/grpc/federation_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: ApiKey
+            items:
+              - name: Overview
+                href: api-ref/grpc/ApiKey/index.md
+              - name: List
+                href: api-ref/grpc/ApiKey/list.md
+              - name: Get
+                href: api-ref/grpc/ApiKey/get.md
+              - name: Create
+                href: api-ref/grpc/ApiKey/create.md
+              - name: Update
+                href: api-ref/grpc/ApiKey/update.md
+              - name: Delete
+                href: api-ref/grpc/ApiKey/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/ApiKey/listOperations.md
+              - name: ListScopes
+                href: api-ref/grpc/ApiKey/listScopes.md
+          - name: IamToken
+            items:
+              - name: Overview
+                href: api-ref/grpc/IamToken/index.md
+              - name: Create
+                href: api-ref/grpc/IamToken/create.md
+              - name: CreateForServiceAccount
+                href: api-ref/grpc/IamToken/createForServiceAccount.md
+              - name: Revoke
+                href: api-ref/grpc/IamToken/revoke.md
+          - name: Key
+            items:
+              - name: Overview
+                href: api-ref/grpc/Key/index.md
+              - name: Get
+                href: api-ref/grpc/Key/get.md
+              - name: List
+                href: api-ref/grpc/Key/list.md
+              - name: Create
+                href: api-ref/grpc/Key/create.md
+              - name: Update
+                href: api-ref/grpc/Key/update.md
+              - name: Delete
+                href: api-ref/grpc/Key/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Key/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: RefreshToken
+            items:
+              - name: Overview
+                href: api-ref/grpc/RefreshToken/index.md
+              - name: List
+                href: api-ref/grpc/RefreshToken/list.md
+              - name: Revoke
+                href: api-ref/grpc/RefreshToken/revoke.md
+          - name: Role
+            items:
+              - name: Overview
+                href: api-ref/grpc/Role/index.md
+              - name: Get
+                href: api-ref/grpc/Role/get.md
+              - name: List
+                href: api-ref/grpc/Role/list.md
+          - name: ServiceAccount
+            items:
+              - name: Overview
+                href: api-ref/grpc/ServiceAccount/index.md
+              - name: Get
+                href: api-ref/grpc/ServiceAccount/get.md
+              - name: List
+                href: api-ref/grpc/ServiceAccount/list.md
+              - name: Create
+                href: api-ref/grpc/ServiceAccount/create.md
+              - name: Update
+                href: api-ref/grpc/ServiceAccount/update.md
+              - name: Delete
+                href: api-ref/grpc/ServiceAccount/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/ServiceAccount/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/ServiceAccount/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/ServiceAccount/updateAccessBindings.md
+              - name: ListOperations
+                href: api-ref/grpc/ServiceAccount/listOperations.md
+          - name: ServiceControl
+            items:
+              - name: Overview
+                href: api-ref/grpc/ServiceControl/index.md
+              - name: Get
+                href: api-ref/grpc/ServiceControl/get.md
+              - name: List
+                href: api-ref/grpc/ServiceControl/list.md
+              - name: Enable
+                href: api-ref/grpc/ServiceControl/enable.md
+              - name: Disable
+                href: api-ref/grpc/ServiceControl/disable.md
+              - name: ResolveAgent
+                href: api-ref/grpc/ServiceControl/resolveAgent.md
+          - name: UserAccount
+            items:
+              - name: Overview
+                href: api-ref/grpc/UserAccount/index.md
+              - name: Get
+                href: api-ref/grpc/UserAccount/get.md
+          - name: YandexPassportUserAccount
+            items:
+              - name: Overview
+                href: api-ref/grpc/YandexPassportUserAccount/index.md
+              - name: GetByLogin
+                href: api-ref/grpc/YandexPassportUserAccount/getByLogin.md
+          - name: Identity and Access Management API
+            items:
+              - name: Overview
+                href: awscompatibility/api-ref/grpc/index.md
+              - name: AccessKey
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/grpc/AccessKey/index.md
+                  - name: List
+                    href: awscompatibility/api-ref/grpc/AccessKey/list.md
+                  - name: Get
+                    href: awscompatibility/api-ref/grpc/AccessKey/get.md
+                  - name: Create
+                    href: awscompatibility/api-ref/grpc/AccessKey/create.md
+                  - name: Update
+                    href: awscompatibility/api-ref/grpc/AccessKey/update.md
+                  - name: Delete
+                    href: awscompatibility/api-ref/grpc/AccessKey/delete.md
+                  - name: ListOperations
+                    href: awscompatibility/api-ref/grpc/AccessKey/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: awscompatibility/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: awscompatibility/api-ref/grpc/Operation/cancel.md
+          - name: Identity and Access Management SAML API
+            items:
+              - name: Overview
+                href: saml/api-ref/grpc/index.md
+              - name: Certificate
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Certificate/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Certificate/get.md
+                  - name: List
+                    href: saml/api-ref/grpc/Certificate/list.md
+                  - name: Create
+                    href: saml/api-ref/grpc/Certificate/create.md
+                  - name: Update
+                    href: saml/api-ref/grpc/Certificate/update.md
+                  - name: Delete
+                    href: saml/api-ref/grpc/Certificate/delete.md
+                  - name: ListOperations
+                    href: saml/api-ref/grpc/Certificate/listOperations.md
+              - name: Federation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Federation/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Federation/get.md
+                  - name: List
+                    href: saml/api-ref/grpc/Federation/list.md
+                  - name: Create
+                    href: saml/api-ref/grpc/Federation/create.md
+                  - name: Update
+                    href: saml/api-ref/grpc/Federation/update.md
+                  - name: Delete
+                    href: saml/api-ref/grpc/Federation/delete.md
+                  - name: AddUserAccounts
+                    href: saml/api-ref/grpc/Federation/addUserAccounts.md
+                  - name: ListUserAccounts
+                    href: saml/api-ref/grpc/Federation/listUserAccounts.md
+                  - name: ListOperations
+                    href: saml/api-ref/grpc/Federation/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: saml/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: saml/api-ref/grpc/Operation/cancel.md
+          - name: Identity and Access Management Workload Identity API
+            items:
+              - name: Overview
+                href: workload/workload-identity/api-ref/grpc/index.md
+              - name: FederatedCredential
+                items:
+                  - name: Overview
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/FederatedCredential/index.md
+                  - name: Get
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/FederatedCredential/get.md
+                  - name: List
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/FederatedCredential/list.md
+                  - name: Create
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/FederatedCredential/create.md
+                  - name: Delete
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/FederatedCredential/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: workload/workload-identity/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: workload/workload-identity/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: >-
+                      workload/workload-identity/api-ref/grpc/Operation/cancel.md
+              - name: Identity and Access Management Workload Identity API
+                items:
+                  - name: Overview
+                    href: workload/oidc/workload-identity/api-ref/grpc/index.md
+                  - name: Federation
+                    items:
+                      - name: Overview
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/index.md
+                      - name: Get
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/get.md
+                      - name: List
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/list.md
+                      - name: Create
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/create.md
+                      - name: Update
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/update.md
+                      - name: Delete
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/delete.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -190,172 +418,258 @@ items:
             items:
               - name: Overview
                 href: api-ref/ApiKey/index.md
-              - name: create
-                href: api-ref/ApiKey/create.md
-              - name: delete
-                href: api-ref/ApiKey/delete.md
-              - name: get
-                href: api-ref/ApiKey/get.md
-              - name: list
+              - name: List
                 href: api-ref/ApiKey/list.md
-              - name: listOperations
-                href: api-ref/ApiKey/listOperations.md
-              - name: listScopes
-                href: api-ref/ApiKey/listScopes.md
-              - name: update
+              - name: Get
+                href: api-ref/ApiKey/get.md
+              - name: Create
+                href: api-ref/ApiKey/create.md
+              - name: Update
                 href: api-ref/ApiKey/update.md
+              - name: Delete
+                href: api-ref/ApiKey/delete.md
+              - name: ListOperations
+                href: api-ref/ApiKey/listOperations.md
+              - name: ListScopes
+                href: api-ref/ApiKey/listScopes.md
           - name: IamToken
             items:
               - name: Overview
                 href: api-ref/IamToken/index.md
-              - name: create
+              - name: Create
                 href: api-ref/IamToken/create.md
-              - name: createForServiceAccount
+              - name: CreateForServiceAccount
                 href: api-ref/IamToken/createForServiceAccount.md
-              - name: revoke
+              - name: Revoke
                 href: api-ref/IamToken/revoke.md
           - name: Key
             items:
               - name: Overview
                 href: api-ref/Key/index.md
-              - name: create
-                href: api-ref/Key/create.md
-              - name: delete
-                href: api-ref/Key/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Key/get.md
-              - name: list
+              - name: List
                 href: api-ref/Key/list.md
-              - name: listOperations
-                href: api-ref/Key/listOperations.md
-              - name: update
+              - name: Create
+                href: api-ref/Key/create.md
+              - name: Update
                 href: api-ref/Key/update.md
+              - name: Delete
+                href: api-ref/Key/delete.md
+              - name: ListOperations
+                href: api-ref/Key/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: RefreshToken
+            items:
+              - name: Overview
+                href: api-ref/RefreshToken/index.md
+              - name: List
+                href: api-ref/RefreshToken/list.md
+              - name: Revoke
+                href: api-ref/RefreshToken/revoke.md
           - name: Role
             items:
               - name: Overview
                 href: api-ref/Role/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Role/get.md
-              - name: list
+              - name: List
                 href: api-ref/Role/list.md
           - name: ServiceAccount
             items:
               - name: Overview
                 href: api-ref/ServiceAccount/index.md
-              - name: create
-                href: api-ref/ServiceAccount/create.md
-              - name: delete
-                href: api-ref/ServiceAccount/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/ServiceAccount/get.md
-              - name: list
+              - name: List
                 href: api-ref/ServiceAccount/list.md
-              - name: listAccessBindings
-                href: api-ref/ServiceAccount/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/ServiceAccount/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/ServiceAccount/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/ServiceAccount/create.md
+              - name: Update
                 href: api-ref/ServiceAccount/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/ServiceAccount/delete.md
+              - name: ListAccessBindings
+                href: api-ref/ServiceAccount/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/ServiceAccount/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/ServiceAccount/updateAccessBindings.md
+              - name: ListOperations
+                href: api-ref/ServiceAccount/listOperations.md
           - name: ServiceControl
             items:
               - name: Overview
                 href: api-ref/ServiceControl/index.md
-              - name: disable
-                href: api-ref/ServiceControl/disable.md
-              - name: enable
-                href: api-ref/ServiceControl/enable.md
-              - name: get
+              - name: Get
                 href: api-ref/ServiceControl/get.md
-              - name: list
+              - name: List
                 href: api-ref/ServiceControl/list.md
-              - name: resolveAgent
+              - name: Enable
+                href: api-ref/ServiceControl/enable.md
+              - name: Disable
+                href: api-ref/ServiceControl/disable.md
+              - name: ResolveAgent
                 href: api-ref/ServiceControl/resolveAgent.md
           - name: UserAccount
             items:
               - name: Overview
                 href: api-ref/UserAccount/index.md
-              - name: get
+              - name: Get
                 href: api-ref/UserAccount/get.md
           - name: YandexPassportUserAccount
             items:
               - name: Overview
                 href: api-ref/YandexPassportUserAccount/index.md
-              - name: getByLogin
+              - name: GetByLogin
                 href: api-ref/YandexPassportUserAccount/getByLogin.md
-          - name: Operation
+          - name: Identity and Access Management API
             items:
               - name: Overview
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
-          - name: AccessKey
+                href: awscompatibility/api-ref/index.md
+              - name: AccessKey
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/AccessKey/index.md
+                  - name: List
+                    href: awscompatibility/api-ref/AccessKey/list.md
+                  - name: Get
+                    href: awscompatibility/api-ref/AccessKey/get.md
+                  - name: Create
+                    href: awscompatibility/api-ref/AccessKey/create.md
+                  - name: Update
+                    href: awscompatibility/api-ref/AccessKey/update.md
+                  - name: Delete
+                    href: awscompatibility/api-ref/AccessKey/delete.md
+                  - name: ListOperations
+                    href: awscompatibility/api-ref/AccessKey/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/Operation/index.md
+                  - name: Get
+                    href: awscompatibility/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: awscompatibility/api-ref/Operation/cancel.md
+          - name: Identity and Access Management SAML API
             items:
               - name: Overview
-                href: api-ref/AccessKey/index.md
-              - name: create
-                href: api-ref/AccessKey/create.md
-              - name: delete
-                href: api-ref/AccessKey/delete.md
-              - name: get
-                href: api-ref/AccessKey/get.md
-              - name: list
-                href: api-ref/AccessKey/list.md
-              - name: listOperations
-                href: api-ref/AccessKey/listOperations.md
-              - name: update
-                href: api-ref/AccessKey/update.md
-          - name: Certificate
+                href: saml/api-ref/index.md
+              - name: Certificate
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Certificate/index.md
+                  - name: Get
+                    href: saml/api-ref/Certificate/get.md
+                  - name: List
+                    href: saml/api-ref/Certificate/list.md
+                  - name: Create
+                    href: saml/api-ref/Certificate/create.md
+                  - name: Update
+                    href: saml/api-ref/Certificate/update.md
+                  - name: Delete
+                    href: saml/api-ref/Certificate/delete.md
+                  - name: ListOperations
+                    href: saml/api-ref/Certificate/listOperations.md
+              - name: Federation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Federation/index.md
+                  - name: Get
+                    href: saml/api-ref/Federation/get.md
+                  - name: List
+                    href: saml/api-ref/Federation/list.md
+                  - name: Create
+                    href: saml/api-ref/Federation/create.md
+                  - name: Update
+                    href: saml/api-ref/Federation/update.md
+                  - name: Delete
+                    href: saml/api-ref/Federation/delete.md
+                  - name: AddUserAccounts
+                    href: saml/api-ref/Federation/addUserAccounts.md
+                  - name: ListUserAccounts
+                    href: saml/api-ref/Federation/listUserAccounts.md
+                  - name: ListOperations
+                    href: saml/api-ref/Federation/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: saml/api-ref/Operation/index.md
+                  - name: Get
+                    href: saml/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: saml/api-ref/Operation/cancel.md
+          - name: Identity and Access Management Workload Identity API
             items:
               - name: Overview
-                href: api-ref/Certificate/index.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: get
-                href: api-ref/Certificate/get.md
-              - name: list
-                href: api-ref/Certificate/list.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
-              - name: update
-                href: api-ref/Certificate/update.md
-          - name: Federation
-            items:
-              - name: Overview
-                href: api-ref/Federation/index.md
-              - name: addUserAccounts
-                href: api-ref/Federation/addUserAccounts.md
-              - name: create
-                href: api-ref/Federation/create.md
-              - name: delete
-                href: api-ref/Federation/delete.md
-              - name: get
-                href: api-ref/Federation/get.md
-              - name: list
-                href: api-ref/Federation/list.md
-              - name: listOperations
-                href: api-ref/Federation/listOperations.md
-              - name: listUserAccounts
-                href: api-ref/Federation/listUserAccounts.md
-              - name: update
-                href: api-ref/Federation/update.md
-          - name: FederatedCredential
-            items:
-              - name: Overview
-                href: api-ref/FederatedCredential/index.md
-              - name: create
-                href: api-ref/FederatedCredential/create.md
-              - name: delete
-                href: api-ref/FederatedCredential/delete.md
-              - name: get
-                href: api-ref/FederatedCredential/get.md
-              - name: list
-                href: api-ref/FederatedCredential/list.md
+                href: workload/workload-identity/api-ref/index.md
+              - name: FederatedCredential
+                items:
+                  - name: Overview
+                    href: >-
+                      workload/workload-identity/api-ref/FederatedCredential/index.md
+                  - name: Get
+                    href: >-
+                      workload/workload-identity/api-ref/FederatedCredential/get.md
+                  - name: List
+                    href: >-
+                      workload/workload-identity/api-ref/FederatedCredential/list.md
+                  - name: Create
+                    href: >-
+                      workload/workload-identity/api-ref/FederatedCredential/create.md
+                  - name: Delete
+                    href: >-
+                      workload/workload-identity/api-ref/FederatedCredential/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: workload/workload-identity/api-ref/Operation/index.md
+                  - name: Get
+                    href: workload/workload-identity/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: workload/workload-identity/api-ref/Operation/cancel.md
+              - name: Identity and Access Management Workload Identity API
+                items:
+                  - name: Overview
+                    href: workload/oidc/workload-identity/api-ref/index.md
+                  - name: Federation
+                    items:
+                      - name: Overview
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/index.md
+                      - name: Get
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/get.md
+                      - name: List
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/list.md
+                      - name: Create
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/create.md
+                      - name: Update
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/update.md
+                      - name: Delete
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/delete.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Operation/index.md
+                      - name: Get
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -371,3 +685,4 @@ items:
       - name: All questions on one page
         href: qa/index.md
 base: en/iam
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ mgl-full-name }}"
-description: "{{ mgl-full-name }} has quotas and limits. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ mgl-full-name }}
+description: '{{ mgl-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

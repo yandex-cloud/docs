@@ -1,6 +1,6 @@
-# Справочник Cloud Video Player SDK для IFrame
+# Справочник SDK видеоплеера для IFrame
 
-Вы можете разместить [видеоплеер](./concepts/player.md) с контентом из {{ video-name }} на HTML-странице с помощью Cloud Video Player SDK для IFrame.
+Вы можете разместить [видеоплеер](./concepts/player.md) с контентом из {{ video-name }} на HTML-странице с помощью SDK видеоплеера для IFrame.
 
 Добавьте в код страницы [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)-контейнер:
 
@@ -10,11 +10,11 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=1"
+    src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=1"
 ></iframe>
 ```
 
-Где `{video_content_id}` — идентификатор видео-контента. Подробнее см. в [{#T}](./operations/video/get-link.md) и [{#T}](./operations/streams/get-link.md).
+{% include [video-content-id-desc](../_includes/video/video-content-id-desc.md) %}
 
 Код вставки содержит iframe-контейнер, в котором отображается плеер с указанным видео.
 
@@ -32,7 +32,7 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}"
+    src="https://runtime.video.cloud.yandex.net/player/..."
 ></iframe>
 ```
 
@@ -46,7 +46,7 @@
         scrolling="no"
         allowfullscreen
         allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-        src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=true"
+        src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=true"
     ></iframe>
   </div>
 </div>
@@ -59,7 +59,7 @@
 К URL кода вставки после символа `?` добавьте пары `параметр=значение`, разделяя их символом `&`:
 
 ```http
-https://https://runtime.video.cloud.yandex.net/player/{video_content_id}?{param1=value1}&...&{paramN=valueN}
+https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=valueN}
 ```
 
 Список параметров и их значений приведен в таблице ниже. Если параметры не указаны, плеер загрузится с параметрами по умолчанию.

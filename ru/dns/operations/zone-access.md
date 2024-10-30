@@ -1,6 +1,6 @@
 ---
-title: "Как настроить права доступа к зоне DNS в {{ dns-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к зоне DNS." 
+title: Как настроить права доступа к зоне DNS в {{ dns-name }}
+description: Следуя данной инструкции, вы настроите права доступа к зоне DNS.
 ---
 
 # Настроить права доступа к зоне DNS
@@ -101,7 +101,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/dns_zone_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -202,7 +202,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/dns_zone_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md).
 
   {% note alert %}
 
@@ -221,7 +221,7 @@ description: "Следуя данной инструкции, вы настро�
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для отзыва роли на зону DNS:
 
       ```bash
@@ -286,6 +286,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/dns_zone_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

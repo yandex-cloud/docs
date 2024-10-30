@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ compute-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ compute-name }}."
+title: История изменений в {{ compute-full-name }}
+description: В разделе представлена история изменений сервиса {{ compute-name }}.
 ---
 
 # История изменений в {{ compute-full-name }}

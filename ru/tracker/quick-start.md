@@ -9,13 +9,13 @@
 В {{ tracker-name }} вы можете [создать](manager/create-queue.md) и [настроить](manager/edit-queue-general.md) очередь вручную или же воспользоваться средствами [автоматизации](automation.md). Для создания очереди, преднастроенной на конкретную специфику рабочего процесса, рекомендуем воспользоваться [шаблонами рабочих процессов](manager/create-work-process.md):
 
 
-1. На стартовой странице [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
-1. Выберите **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. На стартовой странице [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.choose-template-button }}**.
+1. Выберите **{{ ui-key.startrek.ui_Queues_smart-components_new-process_ProcessTypeStepRedesign.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 1. Укажите параметры очереди:
     * Название очереди задач;
     * [Ключ очереди](manager/create-queue.md#key);
     * Права доступа.
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 
 Будет создана очередь с базовым набором [типов и статусов](manager/workflow.md) задач и [простая доска задач](manager/agile.md#sec_boards).
 
@@ -56,17 +56,17 @@
 
    1. В поле **Название задачи** введите название задачи. Лучше, если название будет емким, чтобы задачу легко можно было найти в списке, например: «Найти ответ на главный вопрос жизни, вселенной и всего остального».
 
-   1. При желании дайте описание задачи. Для этого кликните по плейсхолдеру `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` и опишите задачу в открывшемся текстовом редакторе.
+   1. При желании дайте описание задачи. Для этого кликните по плейсхолдеру `{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.description-placeholder }}` и опишите задачу в открывшемся текстовом редакторе.
 
-   1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**. 
+   1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**. 
 
-   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** и заполнив открывшуюся форму.
+   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** и заполнив открывшуюся форму.
 
    1. На панели справа внесите необходимые данные по задаче, например:
       * в поле **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** укажите себя как исполнителя, нажав кнопку **Назначить меня**;
       * в поле **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** задайте произвольный дедлайн.
 
-   1. При необходимости, измените список отображаемых полей задачи. Для этого кликните на кнопку **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и выберите нужные параметры.
+   1. При необходимости, измените список отображаемых полей задачи. Для этого кликните на кнопку **{{ ui-key.startrek.ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и выберите нужные параметры.
 
 1. Нажмите кнопку **{{ ui-key.startrek-backend.types.types.trigger.action.create.issue }}**.
 

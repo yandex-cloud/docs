@@ -1,6 +1,6 @@
 ---
-title: "Смонтировать бакеты в контейнер"
-description: "Следуя данной инструкции, вы сможете смонтировать бакеты в контейнер."
+title: Как смонтировать бакеты в контейнер {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете смонтировать бакеты в контейнер {{ serverless-containers-name }}.
 ---
 
 # Смонтировать бакеты в контейнер
@@ -25,11 +25,11 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы смонтировать бакет, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
+  Чтобы смонтировать бакет, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}
 
 ## См. также {#see-also}
 
-* [Монтирование бакетов в контейнер](../concepts/mounting.md)
-* [Монтирование бакетов в функцию](../../functions/concepts/mounting.md)
+* [Монтирование файловых систем в контейнер](../concepts/mounting.md)
+* [Монтирование файловых систем в функцию](../../functions/concepts/mounting.md)

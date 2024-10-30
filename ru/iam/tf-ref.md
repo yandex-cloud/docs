@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ iam-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ iam-name }}."
+title: Справочник {{ TF }} для {{ iam-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ iam-name }}.
 ---
 
 # Справочник {{ TF }} для {{ iam-full-name }}
@@ -27,7 +27,7 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_iam_policy]({{ tf-provider-datasources-link }}/datasource_iam_policy) | Информация о политике доступа |
-| [yandex_iam_role]({{ tf-provider-datasources-link }}/datasource_iam_role) | Информация о [роли](./concepts/access-control/roles.md) |
-| [yandex_iam_service_account]({{ tf-provider-datasources-link }}/datasource_iam_service_account) | Информация о [сервисном аккаунте](./concepts/users/service-accounts.md) |
-| [yandex_iam_user]({{ tf-provider-datasources-link }}/datasource_iam_user) | Информация о пользователе |
+| [yandex_iam_policy]({{ tf-provider-datasources-link }}/iam_policy) | Информация о политике доступа |
+| [yandex_iam_role]({{ tf-provider-datasources-link }}/iam_role) | Информация о [роли](./concepts/access-control/roles.md) |
+| [yandex_iam_service_account]({{ tf-provider-datasources-link }}/iam_service_account) | Информация о [сервисном аккаунте](./concepts/users/service-accounts.md) |
+| [yandex_iam_user]({{ tf-provider-datasources-link }}/iam_user) | Информация о пользователе |

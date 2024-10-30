@@ -1,13 +1,13 @@
 ---
-title: "How to resolve issues with {{ yandex-cloud }}"
-description: "This article lists materials you can use to resolve issues with {{ yandex-cloud }}."
+title: How to resolve issues with {{ yandex-cloud }}
+description: This article lists materials you can use to resolve issues with {{ yandex-cloud }}.
 ---
 
 # Troubleshooting
 
 ## Support {#support}
 
-{{ yandex-cloud }} technical support is available 24/7. Depending on your [service plan](../support/overview.md), you can ask for help with various issues in the [Support]({{ link-console-support }}) section of the management console. For a detailed description of the support service, see our [documentation](../support/).
+{{ yandex-cloud }} support is available 24/7. Depending on your [service plan](../support/overview.md), you can request help with various issues in the [Support]({{ link-console-support }}) section of the management console. For a detailed description of the support service, see our [documentation](../support/).
 
 If you did not find an answer to your question about using {{ yandex-cloud }} in the documentation, contact the support team.
 
@@ -114,6 +114,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ tracker-full-name }}](../tracker/faq.md)
+* [{{ video-full-name }}](../video/troubleshooting.md)
 
 
 

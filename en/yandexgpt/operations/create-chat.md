@@ -1,6 +1,6 @@
 ---
-title: "How to send a request in chat mode {{ yagpt-full-name }}"
-description: "Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode."
+title: How to send a request in chat mode {{ yagpt-full-name }}
+description: Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode.
 ---
 
 # Sending requests in chat mode

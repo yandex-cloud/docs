@@ -1,6 +1,6 @@
 ---
-title: "Authentication in the {{ objstorage-full-name }} API"
-description: "To perform operations via the API in {{ objstorage-full-name }}, a scalable data storage, get an IAM token for your account."
+title: Authentication with the {{ objstorage-full-name }} API
+description: To perform operations through the API in {{ objstorage-full-name }}, a scalable data storage, get an IAM token for your account.
 ---
 
 # Authentication with the {{ objstorage-name }} API
@@ -14,7 +14,9 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 
 To authenticate in the [AWS S3 API](../s3/api-ref/) and work with {{ TF }} and other [supported tools](../tools/), use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
 
+
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
 For a full list of S3 API methods, see [S3 API reference](../s3/api-ref/).
 
@@ -22,11 +24,11 @@ For a full list of S3 API methods, see [S3 API reference](../s3/api-ref/).
 
 If you want to use the AWS S3 API directly (without an SDK or apps), you will need to [sign requests](../s3/signing-requests.md) yourself. You can test the request and signature generation process using the AWS CLI in [debug mode](../s3/signing-requests.md#debugging).
 
-### AWS S3 API usage example {#s3-api-example}
+### AWS S3 API use case {#s3-api-example}
 
 Starting from version [8.3.0](https://curl.se/changes.html), the `curl` utility supports automatic generation of the [signature string](../s3/signing-requests.md#string-to-sign-gen), [request signing](../s3/signing-requests.md#signing), and substitution of the required headers when working with the AWS S3 API.
 
-You can also generate these headers and sign requests manually. See the example for **curl 8.2.1 and lower**.
+You can also generate these headers and sign requests manually. For more information, see the example for **curl 8.2.1 and lower**.
 
 {% note info %}
 
@@ -40,91 +42,91 @@ Below are examples of requests for uploading an object to a bucket.
 
 - curl 8.3.0 and higher
 
-   ```bash
-   AWS_KEY_ID="<static_key_ID>"
-   AWS_SECRET_KEY="<secret_key>"
-   LOCAL_FILE="<path_to_local_file>"
-   BUCKET_NAME="<bucket_name>"
-   OBJECT_PATH="<object_key>"
+  ```bash
+  AWS_KEY_ID="<static_key_ID>"
+  AWS_SECRET_KEY="<secret_key>"
+  LOCAL_FILE="<local_file_path>"
+  BUCKET_NAME="<bucket_name>"
+  OBJECT_PATH="<object_key>"
 
-   curl \
-     --request PUT \
-     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-     --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
-     --upload-file "${LOCAL_FILE}" \
-     --verbose \
-     "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
-   ```
+  curl \
+    --request PUT \
+    --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
+    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --upload-file "${LOCAL_FILE}" \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
 
-   Where:
-   * `AWS_KEY_ID`: [ID](../../iam/concepts/authorization/access-key.md#key-id) of the static access key.
-   * `AWS_SECRET_KEY`: [Secret key](../../iam/concepts/authorization/access-key.md#private-key).
-   * `LOCAL_FILE`: Path to the local file you want to upload, e.g., `./sample.txt`.
-   * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
-   * `OBJECT_PATH`: [Key](../concepts/object.md#key) that will be assigned to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
+  Where:
+  * `AWS_KEY_ID`: Static access key [ID](../../iam/concepts/authorization/access-key.md#key-id).
+  * `AWS_SECRET_KEY`: [Secret key](../../iam/concepts/authorization/access-key.md#private-key).
+  * `LOCAL_FILE`: Path to the local file you want to upload, e.g., `./sample.txt`.
+  * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
+  * `OBJECT_PATH`: [Key](../concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
 
-   In the same way, you can upload the file to the bucket without saving it locally. For example, archive the directory and send the archive to the bucket:
+  In the same way, you can upload the file to the bucket without saving it locally. For example, archive the directory and send the archive to the bucket:
 
-   ```bash
-   AWS_KEY_ID="<static_key_ID>"
-   AWS_SECRET_KEY="<secret_key>"
-   BUCKET_NAME="<bucket_name>"
-   OBJECT_PATH="<object_key>"
-   DIRECTORY_PATH="<directory_path>"
+  ```bash
+  AWS_KEY_ID="<static_key_ID>"
+  AWS_SECRET_KEY="<secret_key>"
+  BUCKET_NAME="<bucket_name>"
+  OBJECT_PATH="<object_key>"
+  DIRECTORY_PATH="<path_to_directory>"
 
-   tar -cvzf - "${DIRECTORY_PATH}" | curl \
-     --request PUT \
-     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-     --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
-     --upload-file - \
-     --verbose \
-     "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
-   ```
+  tar -cvzf - "${DIRECTORY_PATH}" | curl \
+    --request PUT \
+    --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
+    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --upload-file - \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
 
-   Where `DIRECTORY_PATH` is the path to the directory you want to archive.
+  Where `DIRECTORY_PATH` is the path to the directory you want to archive.
 
 - curl 8.2.1 and lower
 
-   ```bash
-   AWS_KEY_ID="<static_key_ID>"
-   AWS_SECRET_KEY="<secret_key>"
-   LOCAL_FILE="<path_to_local_file>"
-   BUCKET_NAME="<bucket_name>"
-   OBJECT_PATH="<object_key>"
-   CONTENT_TYPE="<object_MIME_type>"
-   DATE_VALUE=`date -R`
-   STRING_TO_SIGN="PUT\n\n${CONTENT_TYPE}\n${DATE_VALUE}\n/${BUCKET_NAME}/${OBJECT_PATH}"
-   SIGNATURE=`echo -en ${STRING_TO_SIGN} | openssl sha1 -hmac ${AWS_SECRET_KEY} -binary | base64`
+  ```bash
+  AWS_KEY_ID="<static_key_ID>"
+  AWS_SECRET_KEY="<secret_key>"
+  LOCAL_FILE="<local_file_path>"
+  BUCKET_NAME="<bucket_name>"
+  OBJECT_PATH="<object_key>"
+  CONTENT_TYPE="<object_MIME_type>"
+  DATE_VALUE=`date -R`
+  STRING_TO_SIGN="PUT\n\n${CONTENT_TYPE}\n${DATE_VALUE}\n/${BUCKET_NAME}/${OBJECT_PATH}"
+  SIGNATURE=`echo -en ${STRING_TO_SIGN} | openssl sha1 -hmac ${AWS_SECRET_KEY} -binary | base64`
 
-   curl \
-     --request PUT \
-     --upload-file "${LOCAL_FILE}" \
-     --verbose \
-     --header "Host: {{ s3-storage-host }}" \
-     --header "Date: ${DATE_VALUE}" \
-     --header "Content-Type: ${CONTENT_TYPE}" \
-     --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-     "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
-   ```
+  curl \
+    --request PUT \
+    --upload-file "${LOCAL_FILE}" \
+    --verbose \
+    --header "Host: {{ s3-storage-host }}" \
+    --header "Date: ${DATE_VALUE}" \
+    --header "Content-Type: ${CONTENT_TYPE}" \
+    --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
 
-   Where:
-   * `AWS_KEY_ID`: [ID](../../iam/concepts/authorization/access-key.md#key-id) of the static access key.
-   * `AWS_SECRET_KEY`: [Secret key](../../iam/concepts/authorization/access-key.md#private-key).
-   * `LOCAL_FILE`: Path to the local file you want to upload, e.g., `./sample.txt`.
-   * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
-   * `OBJECT_PATH`: [Key](../concepts/object.md#key) that will be assigned to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
-   * `CONTENT_TYPE`: [MIME type](https://en.wikipedia.org/wiki/Media_type) of the object you are uploading, e.g., `text/plain`.
+  Where:
+  * `AWS_KEY_ID`: Static access key [ID](../../iam/concepts/authorization/access-key.md#key-id).
+  * `AWS_SECRET_KEY`: [Secret key](../../iam/concepts/authorization/access-key.md#private-key).
+  * `LOCAL_FILE`: Path to the local file you want to upload, e.g., `./sample.txt`.
+  * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
+  * `OBJECT_PATH`: [Key](../concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
+  * `CONTENT_TYPE`: [MIME type](https://en.wikipedia.org/wiki/Media_type) of the object being uploaded, e.g., `text/plain`.
 
 {% endlist %}
 
 ## {{ yandex-cloud }} gRPC and REST APIs {#yandex-api}
 
 
-For authentication in {{ yandex-cloud }} gRPC and REST APIs, get an [IAM token](../../iam/concepts/authorization/iam-token.md). Learn more about how to get an IAM token for different types of accounts:
+For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an IAM token. Learn more about how to get an IAM token for different types of accounts:
 
-* [Yandex account](../../iam/operations/iam-token/create.md).
-* [Federated account](../../iam/operations/iam-token/create-for-federation.md).
-* [Service account](../../iam/operations/iam-token/create-for-sa.md).
+* [Yandex account](../../iam/operations/iam-token/create.md)
+* [Federated account](../../iam/operations/iam-token/create-for-federation.md)
+* [Service account](../../iam/operations/iam-token/create-for-sa.md)
 
 {% include [iam-token-usage](../../_includes/iam-token-usage.md) %}
 
@@ -132,7 +134,7 @@ For authentication in {{ yandex-cloud }} gRPC and REST APIs, get an [IAM token](
 For a full list of {{ yandex-cloud }} API calls and methods, see [gRPC API](../api-ref/grpc/) and [REST API](../api-ref/) references.
 
 
-### {{ yandex-cloud }} API usage example {#example}
+### {{ yandex-cloud }} API use case {#example}
 
 In the example, a 50GB bucket is created with a standard storage class.
 
@@ -141,7 +143,7 @@ In the example, a 50GB bucket is created with a standard storage class.
 - gRPC
 
   ```bash
-  export IAM_TOKEN="<IAM token>"
+  export IAM_TOKEN="<IAM_token>"
   grpcurl \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -d '{
@@ -167,9 +169,9 @@ In the example, a 50GB bucket is created with a standard storage class.
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).
   * `max_size`: Bucket size.
   * `anonymous_access_flags`: Bucket [access](../..//storage/concepts/bucket.md#bucket-access) settings:
-    * `read`: Public access to read objects.
+    * `read`: Public read access to objects.
     * `list`: Public access to the list of objects.
-    * `configRead`: Public access to read the configuration.
+    * `configRead`: Public read access to settings.
 
   Result:
 
@@ -189,11 +191,12 @@ In the example, a 50GB bucket is created with a standard storage class.
 - REST
 
   ```bash
-  export IAM_TOKEN="<IAM token>"
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d '{
+  export IAM_TOKEN="<IAM_token>"
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data '{
       "name": "<bucket_name>",
       "folderId": "<folder_ID>",
       "defaultStorageClass": "STANDARD",
@@ -215,9 +218,9 @@ In the example, a 50GB bucket is created with a standard storage class.
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).
   * `maxSize`: Bucket size.
   * `anonymousAccessFlags`: Bucket [access](../..//storage/concepts/bucket.md#bucket-access) settings:
-     * `read`: Public access to read objects.
-     * `list`: Public access to the list of objects.
-     * `configRead`: Public access to read the configuration.
+    * `read`: Public read access to objects.
+    * `list`: Public access to the list of objects.
+    * `configRead`: Public read access to settings.
 
   Result:
 

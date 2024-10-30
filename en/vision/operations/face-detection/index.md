@@ -1,10 +1,14 @@
+---
+noIndex: true
+---
+
 # Detecting faces in images
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
-To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
+To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md) feature.
 
-To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
+To do this, in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 
@@ -18,19 +22,19 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 
 1. Prepare an image file that meets the requirements:
 
-   {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-   {% note info %}
+    {% note info %}
 
-   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
+    Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
-   {% endnote %}
-1. Encode the file as Base64:
+    {% endnote %}
+1. Encode the file into Base64:
 
-   {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Create a file with the request body, e.g., `body.json`:
 
-    **body.json:**
+    **body.json**:
     ```json
     {
         "folderId": "b1gvmob95yys********",
@@ -39,18 +43,18 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
             "features": [{
                 "type": "FACE_DETECTION"
             }]
-       }]
+        }]
     }
     ```
 
-   Where:
+    Where:
 
-   * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
-   * `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
+    * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
+    * `analyze_specs: content`: [Base64-encoded](../base64-encode.md) image.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
-   Where `IAM_TOKEN` is the IAM token received [before starting](#before-you-begin).
+    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-you-begin).
 
 ### Ready-to-use function for sending requests in bash {#oneliner}
 
@@ -61,7 +65,7 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 
     ```bash
     vision_face_detection() {
-        curl -H "Authorization: Bearer `yc iam create-token`" \
+        curl --header "Authorization: Bearer `yc iam create-token`" \
         "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {

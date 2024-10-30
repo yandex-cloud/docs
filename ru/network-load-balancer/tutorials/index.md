@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ network-load-balancer-full-name }}"
-description: "Различные сценарии использования {{ network-load-balancer-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ network-load-balancer-full-name }}
+description: Различные сценарии использования {{ network-load-balancer-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ network-load-balancer-name }}
@@ -11,3 +11,5 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./vm-autoscale/index.md)
 * [{#T}](./updating-under-load.md)
 * [{#T}](./dns-integration.md)
+* [{#T}](./exchange.md)
+* [{#T}](./mssql-alwayson-lb.md)

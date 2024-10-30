@@ -3,48 +3,68 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/resetPassword.md
 ---
 
-# Cloud Desktop API, REST: Desktop.resetPassword
-Reset password
- 
+# Cloud Desktop API, REST: Desktop.ResetPassword {#ResetPassword}
 
- 
-## HTTP request {#https-request}
+Reset password
+
+## HTTP request
+
 ```
 POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-desktopId | <p>Required. ID of the desktop.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| desktopId | **string**
+
+Required field. ID of the desktop. ||
+|#
+
+## Body parameters {#yandex.cloud.clouddesktop.v1.api.ResetPasswordRequest}
+
+```json
 {
   "user": {
-    "subjectId": "string"
+    "subjectId": "string",
+    "subjectType": "string"
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-user | **object**<br><p>Required. User of the desktop.</p> 
-user.<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| user | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+
+Required field. User of the desktop. ||
+|#
+
+## User {#yandex.cloud.clouddesktop.v1.api.User}
+
+#|
+||Field | Description ||
+|| subjectId | **string**
+
+Required field. Identity of the access binding. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+|#
+
+## Response {#yandex.cloud.clouddesktop.v1.api.ResetPasswordResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "password": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-password | **string**<br><p>Generated password</p> 
+#|
+||Field | Description ||
+|| password | **string**
+
+Generated password ||
+|#

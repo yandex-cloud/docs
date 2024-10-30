@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
 
@@ -90,7 +90,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
       If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}**: Set the `COMPRESSION` setting for the default column group (FAMILY default).
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory]({{ ydb.docs }}/concepts/datamodel/dir) to place tables in.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
@@ -104,8 +104,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the **time** type.
 
-            
-            For more information about table partitioning, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel/table#partitioning) documentation.
+
+            For more information about table partitioning, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
 
 
         If this setting is used, the specified number of data tables for different intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the respective tables in the target database.

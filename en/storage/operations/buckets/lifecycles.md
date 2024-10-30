@@ -475,7 +475,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
 - API {#api}
 
-   To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
+   To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
 
    If you are using the S3 API, specify a lifecycle configuration in the [XML format](../../s3/api-ref/lifecycles/xml-config.md).
 

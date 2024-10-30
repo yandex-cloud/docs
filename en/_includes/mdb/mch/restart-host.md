@@ -58,7 +58,7 @@ To restart a host:
 
       You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -68,7 +68,7 @@ To restart a host:
 
    1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/RestartHosts](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#RestartHosts) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/RestartHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/restartHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -91,6 +91,6 @@ To restart a host:
 
       You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-   1. View the [server response](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Operation14) to make sure the request was successful.
+   1. View the [server response](../../../managed-clickhouse/api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

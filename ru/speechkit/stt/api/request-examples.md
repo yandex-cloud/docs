@@ -41,10 +41,11 @@
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-         -H "Authorization: Bearer ${IAM_TOKEN}" \
-         --data-binary "@speech.ogg" \
-         "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
+    curl \
+      --request POST \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data-binary "@speech.ogg" \
+      "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
     ```
 
     Где:

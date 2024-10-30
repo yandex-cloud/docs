@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for application solutions in {{ yandex-cloud }}"
-description: "This page provides a list of tutorials on creating sites, using 1C and Internet of Things."
+title: Tutorials for application solutions in {{ yandex-cloud }}
+description: This page provides a list of tutorials on creating sites, using 1C and Internet of Things.
 ---
 
 # Application solutions

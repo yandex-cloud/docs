@@ -30,7 +30,7 @@ To perform a search:
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
 1. On the **Dialogs** tab, enter the desired text fragment in the search bar.
-1. (Optional) To the right of the search bar, select from the dropdown list the channel you want to search in: **Customer** or **Agent**.
+1. (Optional) To the right of the search bar, select the channel you want to search from the drop-down list: **Customer** or **Agent**.
 
 ## Viewing a dialog {#view-dialog}
 
@@ -39,16 +39,25 @@ To perform a search:
 1. Find the required dialog using [filters](#filters-dialogs) and the [search bar](#find-dialogs).
 1. Open the dialog in one of the following ways:
 
-   * To open a dialog preview, click the dialog line.
-   * To open the dialog in a new window, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) on the right in the dialog line.
+    * To open a dialog preview, click the dialog line.
+    * To open the dialog in a new window, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) on the right in the dialog line.
 
-For more information on dialogs, see [{#T}](../../concepts/dialogs.md).
+The dialog page displays the following information:
+
+* Metadata such as agent and customer names, call or message date, dialog language.
+* Conversation audio (only for audio).
+* Contents of the conversation on the **Dialog** tab.
+* Semantic analysis of the conversation on the **Analysis by {{ yagpt-name }}** tab.
+
+    The tab contains several sections. If you want to leave only a specific section, click on it.
+
+For more information, see [{#T}](../../concepts/dialogs.md#details).
 
 ## Example of searching dialogs by time period and text fragment {#example-find-dialogs-by-period-and-text}
 
 Search criteria:
 
-* For the period between `10/11/2023 and 16/11/2023`.
+* Period: `10/11/2023 - 16/11/2023`.
 * Contains the customer's utterance: `good service`.
 
 Follow these steps:
@@ -67,7 +76,7 @@ Example of ranking dialogs depending on the found text fragments:
 
 #|
 || **No.** | **Dialog date** | **Dialog fragment** ||
-|| 1 | 16/11/2023 | Thank you for the `good service` ||
-|| 2 | 13/11/2023 | `Good` equipment and `service` ||
-|| 3 | 15/11/2023 | Full system `service` ||
+|| 1 | 16/11/2023 | thank you for `good service` ||
+|| 2 | 13/11/2023 | `good` equipment and `service` ||
+|| 3 | 15/11/2023 | full system `service` ||
 |#

@@ -1,4 +1,4 @@
-# 8. Physical security
+# 7. Physical security
 
 {{ yandex-cloud }} ensures the physical security of data centers. See a [detailed description of its physical security measures](../../../security/standarts.md).
 

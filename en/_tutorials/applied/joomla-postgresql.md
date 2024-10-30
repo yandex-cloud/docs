@@ -1,10 +1,10 @@
 ---
-title: "Website powered by Joomla CMS on {{ PG }}: Installation and setup"
-description: "Joomla is a website management system written in PHP and JavaScript. This tutorial will teach you to deploy websites powered by Joomla CMS on a {{ PG }} database."
+title: 'Website powered by Joomla CMS on {{ PG }}: Installation and setup'
+description: Joomla is a website management system written in PHP and JavaScript. This tutorial will teach you to deploy websites powered by Joomla CMS on a {{ PG }} database.
 keywords:
   - joomla
   - CMS Joomla
-  - "{{ PG }}"
+  - '{{ PG }}'
   - joomla installation
   - joomla setup
   - joomla website hosting

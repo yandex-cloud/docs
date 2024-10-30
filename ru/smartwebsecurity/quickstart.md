@@ -61,8 +61,6 @@
   * [профиль WAF](./concepts/waf.md), подробнее см. [{#T}](./quickstart/quickstart-waf.md).
   * [профиль ARL](./concepts/arl.md), подробнее см. [{#T}](./quickstart/quickstart-arl.md).
 
-  {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 {% endlist %}
 
 ## Подключите профиль безопасности к виртуальному хосту {#profile-connect}
@@ -91,3 +89,4 @@
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Создать L7-балансировщик с профилем безопасности](./tutorials/balancer-with-sws-profile.md)
+* [Рекомендации по настройке {{ alb-name }}](concepts/index.md#alb-settings-recommendation)

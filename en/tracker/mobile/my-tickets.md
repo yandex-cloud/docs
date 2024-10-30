@@ -1,6 +1,6 @@
 ---
-title: "How to view a list of my issues in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to view a list of your issues."
+title: How to view a list of my issues in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to view a list of your issues.
 ---
 
 # My issues
@@ -22,7 +22,7 @@ To find issues you're working on:
    * **Assigned to me**.
    * **Followed by me**.
    * **Waiting for response**.
-   * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset-deadline }}**.
+   * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset-deadline }}**.
 
 * To filter issues by their [resolution](../manager/create-resolution.md), tap **{{ ui-key.startrek-backend.fields.issue.resolution-key-value }}** and select relevant values from the list.
 

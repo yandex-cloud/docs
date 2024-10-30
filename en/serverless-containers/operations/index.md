@@ -1,6 +1,6 @@
 ---
-title: "How to use {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to use the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}."
+title: Guides on using {{ serverless-containers-full-name }}
+description: In this article, you will learn how to work with the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}.
 ---
 
 # All {{ serverless-containers-name }} guides
@@ -14,7 +14,7 @@ description: "In this tutorial, you will learn how to use the {{ serverless-cont
 * [{#T}](./container-info.md)
 * [{#T}](./revision-info.md)
 
-## Managing container access rights {#manage-access-rights-container}
+## Managing permissions to access a container {#manage-access-rights-container}
 
 * [{#T}](./container-public.md)
 * [{#T}](./container-private.md)
@@ -44,9 +44,10 @@ description: "In this tutorial, you will learn how to use the {{ serverless-cont
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
 * [Mounting a bucket](./mount-bucket.md)
+* [Mounting an ephemeral disk](./mount-ephemeral-disk.md)
 * [Adding a label](./label-add.md)
 * [Updating a label](./label-update.md)
-* [Removing a label](./label-delete.md)
+* [Deleting a label](./label-delete.md)
 * [Viewing monitoring charts](./monitoring.md)
 * [Viewing logs](./logs.md)
 * [Writing to the execution log](./logs-write.md)

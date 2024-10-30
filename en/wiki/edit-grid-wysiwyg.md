@@ -1,6 +1,6 @@
 ---
-title: "How to edit a dynamic table in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn how to edit a dynamic table in {{ wiki-name }}."
+title: How to edit a dynamic table in {{ wiki-full-name }}
+description: In this tutorial, you will learn how to edit a dynamic table in {{ wiki-name }}.
 ---
 
 # Editing a dynamic table

@@ -89,7 +89,7 @@
 | Статические публичные IP-адреса | 2 |
 | Группы безопасности | 1 |
 | Зона DNS | 2 |
-| Реестр | 1 |  
+| Реестр | 1 |
 | Сервисный аккаунт | 1 |
 
 `*` *Если в `terraform.tfvars` не указать идентификатор существующей сети.*
@@ -100,13 +100,14 @@
 
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
-   
+
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -132,7 +133,7 @@
 
    - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
    {% endlist %}
 
@@ -142,11 +143,10 @@
 
    - Консоль управления {#console}
 
-      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сервисный аккаунт.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
+      1. В списке аккаунтов выберите `sa-terraform` и нажмите значок ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
 
@@ -159,7 +159,7 @@
 
    - API {#api}
 
-      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
    {% endlist %}
 
@@ -203,7 +203,7 @@
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <идентификатор_облака>
-         yc config set folder-id <идентификатор_каталога>  
+         yc config set folder-id <идентификатор_каталога>
          ```
 
          Где:
@@ -242,13 +242,13 @@
 1. Откройте файл `terraform.tfvars` и отредактируйте:
 
    1. Строку, содержащую идентификатор каталога:
-      
+
       ```text
       folder_id = "<идентификатор_каталога>"
       ```
 
    1. Строку, содержащую список агрегированных префиксов облачных подсетей, для которых разрешен доступ к {{ container-registry-short-name }}:
-      
+
       ```text
       trusted_cloud_nets = ["10.0.0.0/8", "192.168.0.0/16"]
       ```
@@ -275,25 +275,25 @@
 1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
    1. Выполните инициализацию {{ TF }}:
-       
+
       ```bash
       terraform init
       ```
 
    1. Проверьте конфигурацию {{ TF }} файлов:
-       
+
       ```bash
       terraform validate
       ```
 
    1. Проверьте список создаваемых облачных ресурсов:
-       
+
       ```bash
       terraform plan
       ```
 
    1. Создайте ресурсы:
-       
+
       ```bash
       terraform apply
       ```
@@ -310,7 +310,7 @@
    | `s3_nlb_ip_address` | IP-адрес внутреннего балансировщика для {{ objstorage-short-name }}. | `10.10.1.200` |
    | `test_vm_password` | Пароль пользователя `admin` для тестовой ВМ. | `v3RСqUrQN?x)` |
    | `vm_username` | Имя пользователя для ВМ с NAT и тестовой ВМ. | `admin` |
-   
+
    {% endcut %}
 
 ## Протестируйте работоспособность решения {#test-functionality}
@@ -321,7 +321,7 @@
 
 1. В списке виртуальных машин выберите ВМ `test-cr-vm`.
 
-1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. В меню слева выберите ![image](../../_assets/console-icons/terminal.svg)**{{ ui-key.yacloud.compute.instance.switch_console }}**.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
 
@@ -338,7 +338,7 @@
    ```text
    ;; ANSWER SECTION:
    {{registry}}.               300    IN      A       10.10.1.100
-   
+
    ;; ANSWER SECTION:
    {{ s3-storage-host }}. 300    IN      A       10.10.1.200
    ```
@@ -357,13 +357,13 @@
    ```
 
 1. Присвойте Docker-образу URL вида `{{registry}}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Идентификатор реестра будет получен из переменной среды на тестовой ВМ:
-   
+
    ```bash
    docker tag hello-world {{registry}}/$REGISTRY_ID/hello-world:demo
 
    docker image list
    ```
-   
+
    Результат:
    ```text
    REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
@@ -377,7 +377,6 @@
    Загрузить в {{ container-registry-short-name }} можно только Docker-образы с URL вида `{{registry}}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
 
    {% endnote %}
-   
 
 1. Загрузите необходимый Docker-образ в реестр:
 
@@ -412,10 +411,10 @@
    | ----------- | ----------- | ----------- |
    | `{{registry}}.` | `A` | `<IP-адрес внутреннего балансировщика для {{ container-registry-name }} из вывода команды terraform output cr_nlb_ip_address>` |
    | `{{ s3-storage-host }}.` | `A` | `<IP-адрес внутреннего балансировщика для {{ objstorage-name }} из вывода команды terraform output s3_nlb_ip_address>` |
-    
+
 * Сохраните приватный SSH-ключ `pt_key.pem`, используемый для подключения к ВМ с NAT, в надежное место либо пересоздайте его отдельно от {{ TF }};
 * После развертывания решения доступ по SSH к ВМ с NAT будет закрыт. Чтобы разрешить доступ к ВМ с NAT по протоколу SSH, добавьте входящее правило для SSH-трафика (`TCP/22`) в [группе безопасности](../../vpc/concepts/security-groups.md) `cr-nat-sg`, чтобы разрешить доступ только с определенных IP-адресов рабочих мест администраторов;
-* После проверки работоспособности удалите тестовую ВМ и её подсеть.
+* После проверки работоспособности удалите тестовую ВМ и ее подсеть.
 
 ## Удалите созданные ресурсы {#clear-out}
 

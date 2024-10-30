@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mos"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mos'
 ---
 
 # Поставка данных в {{ mos-full-name }} с помощью {{ data-transfer-full-name }}

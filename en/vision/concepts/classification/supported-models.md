@@ -1,8 +1,12 @@
+---
+noIndex: true
+---
+
 # Supported models
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
-{{ vision-full-name }} provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
+{{ vision-full-name }} provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration in the request.
 
 You can only include one of the two property types in the model:
 
@@ -18,17 +22,17 @@ Currently, the following models are supported:
 
 This model assesses the quality of an image.
 
-**With it, you can:**
+**With this model, you can**:
 
 * Filter low-quality images, for example, to exclude them from search results.
 * Moderate images for a photo contest and select only high-quality ones.
 * Compare similar images and choose the one with the best quality.
 
-You can [try this model](../../operations/classification/quality.md) now.
+[Try this model](../../operations/classification/quality.md).
 
-The **property type** for this model is mutually exclusive.
+**Type of properties**: Mutually exclusive.
 
-The **properties** are as follows:
+**Properties**:
 
 * `low`: Low-quality image with clearly visible artifacts.
 * `medium`: Regular quality image with minor artifacts.
@@ -38,7 +42,7 @@ The **properties** are as follows:
 
 {% list tabs %}
 
-- High
+- high
 
   ![image](../../../_assets/vision/high.jpg)
 
@@ -59,7 +63,7 @@ The **properties** are as follows:
   ]
   ```
 
-- Medium
+- medium
 
   ![image](../../../_assets/vision/medium.jpg)
 
@@ -80,7 +84,7 @@ The **properties** are as follows:
   ]
   ```
 
-- Low
+- low
 
   ![image](../../../_assets/vision/low.jpg)
 
@@ -111,19 +115,19 @@ This model evaluates how well the image matches the moderation properties.
 
 * Filter adult content.
 * Detect illegal content.
-* Show a copyright violation warning for images with watermarks.
-* Check whether there is text in an image to use the [text recognition feature](../ocr/index.md) afterwards.
+* Demonstrate a copyright violation warning for images with watermarks.
+* Check the image for text content so you can make use of [text recognition](../ocr/index.md).
 
-You can [try this model](../../operations/classification/moderation.md) now.
+[Try this model](../../operations/classification/moderation.md).
 
-The **property type** for this model is independent.
+**Type of properties**: Independent.
 
-The **properties** are as follows:
+**Properties**:
 
-* `adult`: The image has adult content.
-* `gruesome`: The image has shocking content.
-* `text`: The image has text.
-* `watermarks`: The image has watermarks.
+* `adult`: Image contains adult content.
+* `gruesome`: Image contains shocking content.
+* `text`: Image contains text.
+* `watermarks`: Image contains watermarks.
 
 **Example of a classification result:**
 

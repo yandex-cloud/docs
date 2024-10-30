@@ -64,21 +64,155 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-* API {#api}
+* REST API {#api}
 
-    Чтобы включить сбор статистики, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) или [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Идентификатор можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * Значение `true` в параметре `configSpec.performanceDiagnostics.enabled`.
-    * Интервал сбора сессий в параметре `configSpec.performanceDiagnostics.sessionsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
-    * Интервал сбора запросов в параметре `configSpec.performanceDiagnostics.statementsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
-    * Список полей, подлежащих изменению, в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% note warning %}
+    1. Чтобы включить сбор статистики при создании кластера:
 
-    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
+        1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и добавьте параметр `configSpec.performanceDiagnostics` в [команду cURL по созданию кластера](cluster-create.md#create-cluster):
 
-    {% endnote %}
+            ```bash
+            curl \
+                --request POST \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters' \
+                --data '{
+                          "configSpec": {
+                            "performanceDiagnostics": {
+                              "enabled": <активация_сбора_статистики:_true_или_false>,
+                              "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+                              "statementsSamplingInterval": "<интервала_сбора_запросов>"
+                            },
+                            ...
+                          },
+                          ...
+                        }'
+            ```
+
+            Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
+
+            * `enabled` — активация сбора статистики;
+            * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+    1. Чтобы включить сбор статистики при изменении существующего кластера:
+
+        1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>' \
+                --data '{
+                          "updateMask": "configSpec.performanceDiagnostics",
+                          "configSpec": {
+                            "performanceDiagnostics": {
+                              "enabled": <активация_сбора_статистики:_true_или_false>,
+                              "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+                              "statementsSamplingInterval": "<интервала_сбора_запросов>"
+                            }
+                          }
+                        }'
+            ```
+
+            Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
+
+            * `enabled` — активация сбора статистики;
+            * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+* gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Чтобы включить сбор статистики при создании кластера:
+
+        1. Воспользуйтесь методом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду gRPCurl по созданию кластера](cluster-create.md#grpc-api):
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "config_spec": {
+                        "performance_diagnostics": {
+                          "enabled": <активация_сбора_статистики:_true_или_false>,
+                          "sessions_sampling_interval": "<интервал_сбора_сессий>",
+                          "statements_sampling_interval": "<интервала_сбора_запросов>"
+                        },
+                        ...
+                      },
+                      ...
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.mysql.v1.ClusterService.Create
+            ```
+
+            Где `config_spec.performance_diagnostics` — настройки сбора статистики:
+
+            * `enabled` — активация сбора статистики;
+            * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+    1. Чтобы включить сбор статистики при изменении существующего кластера:
+
+        1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.performance_diagnostics"
+                        ]
+                      },
+                      "config_spec": {
+                        "performance_diagnostics": {
+                          "enabled": <активация_сбора_статистики:_true_или_false>,
+                          "sessions_sampling_interval": "<интервал_сбора_сессий>",
+                          "statements_sampling_interval": "<интервала_сбора_запросов>"
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.mysql.v1.ClusterService.Update
+            ```
+
+            Где `config_spec.performance_diagnostics` — настройки сбора статистики:
+
+            * `enabled` — активация сбора статистики;
+            * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

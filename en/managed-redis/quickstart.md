@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mrd-full-name }}"
-description: "Follow this guide to create a {{ RD }} cluster and connect to it."
+title: Getting started with {{ mrd-full-name }}
+description: Follow this guide to create a {{ RD }} cluster and connect to it.
 ---
 
 # Getting started with {{ mrd-name }}

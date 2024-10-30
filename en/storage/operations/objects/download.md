@@ -1,6 +1,6 @@
 ---
-title: "How to download an object from a {{ objstorage-full-name }} bucket"
-description: "In this tutorial, you will learn how to download an object from {{ objstorage-full-name }}."
+title: How to download an object from a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn how to download an object in {{ objstorage-full-name }}.
 ---
 
 # Downloading an object
@@ -19,79 +19,79 @@ To download an object group with a specified prefix (a [directory](../../concept
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Select the bucket from which you want to download an object.
-   1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. Select **{{ objstorage-name }}**.
+  1. Select the bucket from which you want to download an object.
+  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
 
-   {% note info %}
+  {% note info %}
 
-   You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) tools to download or upload objects using the GUI.
+  You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) tools to download or upload objects using the GUI.
 
-   {% endnote %}
+  {% endnote %}
 
 - AWS CLI {#cli}
 
-   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   **Downloading a single object**
+  **Downloading a single object**
 
-   ```bash
-   aws s3 cp \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     s3://<bucket_name>/<object_key> \
-     <local_path>
-   ```
+  ```bash
+  aws s3 cp \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    s3://<bucket_name>/<object_key> \
+    <local_path>
+  ```
 
-   Where:
+  Where:
 
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-   * `<bucket_name>`: Name of the bucket you want to download the object from.
-   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
-   * `<local_path>`: Path to the directory to save the downloaded object to. e.g., `~/downloads/`.
+  * `--endpoint-url`: {{ objstorage-name }} endpoint.
+  * `<bucket_name>`: Name of the bucket you want to download the object from.
+  * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
+  * `<local_path>`: Path to the folder to save the downloaded object to. For example: `~/downloads/`.
 
-   **Downloading a directory (all objects with a specified prefix)**
+  **Downloading a directory (all objects with a specified prefix)**
 
-   For more information about directories in {{ objstorage-name }}, see [{#T}](../../concepts/object.md#folder).
+  For more information about folders in {{ objstorage-name }}, see [{#T}](../../concepts/object.md#folder).
 
-   ```bash
-   aws s3 cp \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --recursive \
-     s3://<bucket_name>/<prefix>/ \
-     <local_path>
-   ```
+  ```bash
+  aws s3 cp \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --recursive \
+    s3://<bucket_name>/<prefix>/ \
+    <local_path>
+  ```
 
-   Where:
+  Where:
 
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-   * `--recursive`: Parameter for downloading all objects with the specified prefix.
-   * `<bucket_name>`: Name of the bucket you want to download the objects from.
-   * `<prefix>`: Prefix (directory) of the objects you want to download, e.g., `test/folder`.
-   * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
+  * `--endpoint-url`: {{ objstorage-name }} endpoint.
+  * `--recursive`: Parameter for downloading all objects with the specified prefix.
+  * `<bucket_name>`: Name of the bucket you want to download the objects from.
+  * `<prefix>`: Prefix (folder) of the objects you want to download, e.g., `test/folder`.
+  * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
 
-   **Downloading all objects from a bucket**
+  **Downloading all objects from a bucket**
 
-   ```bash
-   aws s3 cp \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --recursive \
-     s3://<bucket_name> \
-     <local_path>
-   ```
+  ```bash
+  aws s3 cp \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --recursive \
+    s3://<bucket_name> \
+    <local_path>
+  ```
 
-   Where:
+  Where:
 
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-   * `--recursive`: Parameter for downloading all objects from the bucket to a local directory.
-   * `<bucket_name>`: Name of the bucket you want to download the objects from.
-   * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
+  * `--endpoint-url`: {{ objstorage-name }} endpoint.
+  * `--recursive`: Parameter for downloading all objects from the bucket to a local folder.
+  * `<bucket_name>`: Name of the bucket you want to download the objects from.
+  * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
 
-   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+  `aws s3 cp` is a high-level command with limited functionality. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
-   You can download bucket objects selectively using the `aws s3api` command and a JMESPath query template. To download objects using a query template, run this command:
+  You can download bucket objects selectively using the `aws s3api` command and a JMESPath query template. To download objects using a query template, run this command:
 
-   * **Bash**:
+  * **Bash**:
 
       ```bash
       aws s3api list-objects \
@@ -106,9 +106,9 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
+      * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
 
-      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` to the `~/downloads/` local directory:
+      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `~/downloads/` local folder:
 
       ```bash
       aws s3api list-objects \
@@ -118,7 +118,7 @@ To download an object group with a specified prefix (a [directory](../../concept
         --output text | xargs -I {} aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {} ~/downloads/{}
       ```
 
-   * **PowerShell**
+  * **PowerShell**:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -134,9 +134,9 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `d:\downloads\`.
+      * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `d:\downloads\`.
 
-      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` to the `d:\downloads\` local directory:
+      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `d:\downloads\` local folder:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -149,7 +149,7 @@ To download an object group with a specified prefix (a [directory](../../concept
 
 - API {#api}
 
-   To download an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
+  To download an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
 
 {% endlist %}
 

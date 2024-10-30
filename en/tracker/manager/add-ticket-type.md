@@ -16,13 +16,13 @@ To add a new issue type to the queue:
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue and the issue types and resolutions set in each workflow.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue and the issue types and resolutions set in each workflow.
 
 1. To add an issue type to an existing workflow, click **Add issue type** in the respective workflow section and select the appropriate issue type from the list of system issue types. To learn how to add an issue type to a new workflow, see the [guide on creating workflows](add-workflow.md#create).
 
-To set the default type for a queue issue, select one of the options in the {{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} field.
+To set the default type for a queue issue, select one of the options in the {{ ui-key.startrek.ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} field.
 
 ## Creating an issue type {#create-ticket-type}
 
@@ -51,9 +51,9 @@ You can also create a new issue type on the workflows page. The created issue ty
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add the new issue type to and click ![](../../_assets/tracker/svg/arrow.svg) in the respective workflow line.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add the new issue type to and click ![](../../_assets/tracker/svg/arrow.svg) in the respective workflow line.
 
 1. Click **Add issue type**, start typing the name of the new issue type, and click the create button.
 
@@ -72,8 +72,8 @@ Before removing an issue type from the queue, make sure it is not used in any of
 
 1. Use filters to [find all the queue issues](quick-filters.md) that belong to the type you want to remove and change it to any other type the queue supports.
 
-1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow containing the issue type you want to remove.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow containing the issue type you want to remove.
 
 1. Hover over the line with the issue type to be removed, click the issue type and then click ![](../../_assets/tracker/svg/actions.svg) → **Remove issue type from the queue** in the respective workflow line.

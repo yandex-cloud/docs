@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mos-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ mos-name }}."
+title: Step-by-step guides for {{ mos-full-name }}
+description: This page provides a list of step-by-step guides for {{ mos-name }}.
 ---
 
 # Step-by-step guides for {{ mos-name }}

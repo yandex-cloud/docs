@@ -10,7 +10,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 
 ## Using the registry of data format schemas with {{ mkf-name }} {#schema-registry}
 
-* [Overview](./schema-registry-overview.md)
+* [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
 * [{#T}](./confluent-schema-registry.md)
 
@@ -24,6 +24,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ yds-name }}](mkf-yds-stream.md)
 * [From {{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
 * [From {{ KF }} to {{ MG }}](mkf-to-mmg-migration.md)
+* [From {{ MY }} to {{ KF }}](cdc/cdc-mmy.md)
 * [From {{ KF }} to {{ MY }}](mkf-to-mmy-migration.md)
 * [From {{ KF }} to {{ OS }}](mkf-to-mos-migration.md)
 

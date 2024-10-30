@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе со {{ speechsense-name }}"
-description: "Страница содержит все инструкции для работы со {{ speechsense-name }} в {{ yandex-cloud }}. Рассказываем о том, как создать пространство, как создать проект для определенного подключения и загрузить данные, как работать с диалогами и формировать отчеты."
+title: Инструкции по работе со {{ speechsense-name }}
+description: Страница содержит все инструкции для работы со {{ speechsense-name }} в {{ yandex-cloud }}. Рассказываем о том, как создать пространство, как создать проект для определенного подключения и загрузить данные, как работать с диалогами и формировать отчеты.
 ---
 
 # Пошаговые инструкции для {{ speechsense-name }}
@@ -9,7 +9,12 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
-* [{#T}](data/search-data.md)
+
+* Поиск данных:
+
+  * [{#T}](data/search-data-grpc.md)
+  * [{#T}](data/search-data-rest.md)
+
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Relationships between {{ iot-full-name }} resources"
-description: "The main {{ iot-full-name }} service elements are devices, registries, and brokers. They can exchange various data and commands using the MQTT server. Data is exchanged via MQTT version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern."
+title: Relationships between {{ iot-full-name }} resources
+description: The main {{ iot-full-name }} service elements are devices, registries, and brokers. They can exchange various data and commands using the MQTT server. Data is exchanged via MQTT version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern.
 ---
 
 # Relationships between resources in {{ iot-name }}

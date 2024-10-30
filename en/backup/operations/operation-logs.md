@@ -8,7 +8,7 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
 - Management console {#console}
 
-   To see all operations with the service's resources, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To see all operations with the service's resources, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
 
 {% endlist %}
 
@@ -18,9 +18,9 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
       Result:
 
-      ```yaml
+      ```text
       id: cdg4g6c4jlak********
       description: apply policy
       created_at: "2024-05-14T15:24:23.800129Z"
@@ -48,11 +48,11 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
         value: {}
       ```
 
-   - API {#api}
+    - API {#api}
 
-      Use the [OperationService/Get](../backup/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../backup/api-ref/grpc/Operation/get.md) gRPC API call.
 
-   {% endlist %}
+    {% endlist %}
 
 #### See also {#see-also}
 

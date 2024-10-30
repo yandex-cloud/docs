@@ -1,7 +1,5 @@
 # Как начать работать с {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/index.md#working-mode) без дополнения контекста. Другие примеры см. в разделе [Инструкции для работы с {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
 
 В [консоли управления]({{ link-console-main }}/link/foundation-models/yandexgpt) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к своему облаку.
@@ -30,14 +28,13 @@
 
   1. Получите IAM-токен: см. инструкцию для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. При обращении к {{ yagpt-full-name }} через API в каждом запросе передавайте полученные параметры:
+  1. При обращении к {{ yagpt-full-name }} через API передайте полученные параметры:
 
-     * в заголовке `Authorization` указывайте IAM-токен;
-     * в заголовке `x-folder-id` указывайте идентификатор каталога.
+     * в файле запроса в параметре `modelUri` указывайте идентификатор каталога;
+     * в запросе в заголовке `Authorization` указывайте IAM-токен.
 
      ```json
-     Authorization: Bearer <IAM-токен> 
-     x-folder-id: <идентификатор_каталога>
+     Authorization: Bearer <IAM-токен>
      ```
 
   Другие способы аутентификации в API описаны на странице [{#T}](../api-ref/authentication.md).
@@ -55,10 +52,15 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
   1. В списке сервисов выберите **{{ foundation-models-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
+
+     ![screen01](../../_assets/foundation-models/quickstart/yandexgpt/screen01.png)
+
+  1. В поле **{{ ui-key.yacloud.yagpt.label_temperature-text }}** укажите значение от `0` до `1`, которое определяет вариативность ответа модели: чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
   1. В блоке **{{ ui-key.yacloud.yagpt.label_instruction-text }}** опишите контекст запроса.
   1. В блоке **{{ ui-key.yacloud.yagpt.label_request-text }}** опишите свой запрос к модели.
-  1. В поле **{{ ui-key.yacloud.yagpt.label_temperature-text }}** укажите значение от `0` до `1`, которое определяет вариативность ответа модели: чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
   1. Нажмите кнопку **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. Ответ отобразится в правой части экрана.
+
+     ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
 
 - API {#api}
 
@@ -94,11 +96,11 @@
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
      export IAM_TOKEN=<IAM-токен>
-     curl --request POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -H "x-folder-id: ${FOLDER_ID}" \
-       -d "@prompt.json" \
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/completion"
      ```
 

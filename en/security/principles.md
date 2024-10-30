@@ -1,6 +1,6 @@
 ---
-title: "Key principles of {{ yandex-cloud }} security"
-description: "In this tutorial, you will learn about the key security principles adopted in {{ yandex-cloud }}."
+title: Key principles of {{ yandex-cloud }} security
+description: In this tutorial, you will learn about the key security principles adopted in {{ yandex-cloud }}.
 ---
 
 # Key security principles {{ yandex-cloud }}

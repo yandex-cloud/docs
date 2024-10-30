@@ -1,6 +1,6 @@
 ---
-title: "How to set up OS Login access on an existing VM"
-description: "Follow this guide to set up access to an existing VM via OS Login."
+title: How to set up OS Login access on an existing VM
+description: Follow this guide to set up access to an existing VM via OS Login.
 ---
 
 # Setting up OS Login access on an existing VM
@@ -17,39 +17,39 @@ To set up OS Login access to an existing VM:
 
 1. Install the OS Login agent on the VM. Depending on the VM's OS, run one of the following commands:
 
-   {% list tabs %}
+    {% list tabs %}
 
-   - Ubuntu 22.04
+    - Ubuntu 22.04
 
       ```bash
       curl https://{{ s3-storage-host }}/oslogin-configs/ubuntu-22.04/config_oslogin.sh | bash
       ```
 
-   - Ubuntu 20.04
+    - Ubuntu 20.04
 
       ```bash
       curl https://{{ s3-storage-host }}/oslogin-configs/ubuntu-20.04/config_oslogin.sh | bash
       ```
 
-   - Ubuntu 18.04
+    - Ubuntu 18.04
 
       ```bash
       curl https://{{ s3-storage-host }}/oslogin-configs/ubuntu-18.04/config_oslogin.sh | bash
       ```
 
-   - CentOS 7
+    - CentOS 7
 
       ```bash
       curl https://{{ s3-storage-host }}/oslogin-configs/centos-7/config_oslogin.sh | bash
       ```
 
-   - Debian 11
+    - Debian 11
 
       ```bash
       curl https://{{ s3-storage-host }}/oslogin-configs/debian-11/config_oslogin.sh | bash
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. [Enable](../vm-control/vm-update.md#enable-oslogin-access) access via OS Login on the VM.
 
@@ -63,9 +63,9 @@ To be able to [connect](ssh.md) to the VM over SSH without using OS Login:
 
 1. Disable access via OS Login.
 
-   {% list tabs %}
+    {% list tabs %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
       Run this command:
 
@@ -83,26 +83,26 @@ To be able to [connect](ssh.md) to the VM over SSH without using OS Login:
 
       Result:
 
-      ```bash
+      ```text
       ...
       username@12.345.***.***: Permission denied (publickey).
       ...
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. [Connect](./ssh.md#vm-connect) to the VM over SSH.
 
 1. Run the following command to delete OS Login packets:
 
-   {% list tabs %}
+    {% list tabs %}
 
-   - Linux {#linux}
+    - Linux {#linux}
 
-      ```
+      ```bash
       curl https://storage.yandexcloud.net/oslogin-configs/common/remove_oslogin.sh | bash
       ```
 
       When deleting, you will be prompted to confirm the deletion of the `cron` and `unscd` packets. To confirm, type `y` and press **Enter**.
 
-   {% endlist %}
+    {% endlist %}

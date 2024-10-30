@@ -1,6 +1,6 @@
 ---
-title: "Как изменить линию в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить линию {{ video-full-name }}."
+title: Как изменить линию в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете изменить линию {{ video-full-name }}.
 ---
 
 # Изменить линию
@@ -30,6 +30,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [StreamLineService/Update](../../api-ref/grpc/stream_line_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/StreamLine/update.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Update](../../api-ref/grpc/StreamLine/update.md).
 
 {% endlist %}

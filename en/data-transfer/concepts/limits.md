@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ data-transfer-full-name }}"
-description: "There are no quotas or limits for {{ data-transfer-full-name }}."
-
+title: Quotas and limits in {{ data-transfer-full-name }}
+description: There are no quotas or limits for {{ data-transfer-full-name }}.
 editable: false
 ---
 

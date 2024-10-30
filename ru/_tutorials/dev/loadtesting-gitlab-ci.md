@@ -166,7 +166,7 @@
       before_script:
          # Установка инструментов.
          - sudo apt-get install -y jq
-         - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+         - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
          - sudo bash install.sh -i /usr/local/yandex-cloud -n
          - sudo ln -f -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
          # Аутентификация с помощью ключа сервисного аккаунта

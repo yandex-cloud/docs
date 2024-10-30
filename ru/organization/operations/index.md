@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ org-full-name }}"
-description: "Из статьи вы узнаете, как работать с {{ org-full-name }} в {{ yandex-cloud }}."
+title: Инструкции по работе с {{ org-full-name }}
+description: Из статьи вы узнаете, как работать с {{ org-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Инструкции по работе с {{ org-full-name }}
@@ -8,6 +8,7 @@ description: "Из статьи вы узнаете, как работать с 
 ## Управление организациями {#manage-orgs}
 
 * [{#T}](enable-org.md).
+* [{#T}](organization-get-id.md).
 * [{#T}](org-profile.md).
 * [{#T}](manage-organizations.md).
 * [{#T}](delete-org.md).
@@ -19,8 +20,15 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](add-role.md).
 * [{#T}](edit-account.md).
 * [{#T}](leave-organization.md).
-* [{#T}](manage-groups.md).
 * [{#T}](subscribe-user-for-notifications.md).
+
+## Управление группами пользователей {#manage-groups}
+
+* [{#T}](create-group.md).
+* [{#T}](add-member-group.md).
+* [{#T}](edit-group.md).
+* [{#T}](access-manage-group.md).
+* [{#T}](access-group.md).
 
 ## Управление федерациями {#manage-feds}
 

@@ -1,3 +1,8 @@
+---
+title: Управление жизненными циклами объектов в бакете {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете управлять жизненными циклами объектов в бакете {{ objstorage-name }}.
+---
+
 # Управление жизненными циклами объектов в бакете
 
 {{ objstorage-name }} позволяет управлять [жизненными циклами объектов](../../concepts/lifecycles.md) в бакете.
@@ -8,10 +13,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить жизненные циклы объектов.
-  1. Выберите **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
-  1. На отобразившейся странице можно добавлять, удалять и редактировать правила конфигурации.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить жизненные циклы объектов.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
+  1. Заполните открывшуюся форму. Вы можете добавлять, удалять и редактировать правила конфигурации.
 
      {% include [storage-create-rule](../../_includes_service/storage-create-rule.md) %}
 
@@ -475,7 +481,7 @@
 
 - API {#api}
 
-  Чтобы управлять жизненными циклами объектов в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/lifecycles/upload.md).
+  Чтобы управлять жизненными циклами объектов в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/lifecycles/upload.md).
 
   Если вы используете S3 API, задайте конфигурацию жизненного цикла в [формате XML](../../s3/api-ref/lifecycles/xml-config.md).
 

@@ -1,10 +1,5 @@
 title: Yandex SmartCaptcha
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -30,7 +25,7 @@ items:
         href: tutorials/index.md
       - name: CAPTCHA in mobile apps
         items:
-          - name: Adding HTML code to enable {{ captcha-full-name }}
+          - name: Embedding {{ captcha-full-name }} HTML code
             href: tutorials/mobile-app/website.md
           - name: CAPTCHA in Android apps
             items:
@@ -48,6 +43,8 @@ items:
         href: concepts/domain-validation.md
       - name: Challenge types
         href: concepts/tasks.md
+      - name: Challenge options
+        href: concepts/captcha-variants.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
       - name: CAPTCHA keys
@@ -72,4 +69,7 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
 base: en/smartcaptcha
+deepBase: 2

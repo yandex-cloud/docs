@@ -1,10 +1,5 @@
 title: Yandex Virtual Private Cloud
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -75,6 +70,18 @@ items:
             href: operations/delete-route-table.md
           - name: Deleting a NAT gateway
             href: operations/delete-nat-gateway.md
+      - name: Service connections
+        items:
+          - name: Creating a service connection
+            href: operations/private-endpoint-create.md
+          - name: Getting information about a service connection
+            href: operations/private-endpoint-get-info.md
+          - name: >-
+              Assigning an access policy in Object Storage for a service
+              connection
+            href: operations/private-endpoint-storage-policy.md
+          - name: Deleting a service connection
+            href: operations/private-endpoint-delete.md
       - name: Security groups
         items:
           - name: Creating a security group
@@ -93,7 +100,7 @@ items:
             href: operations/security-group-delete.md
       - name: Enabling a software-accelerated network
         href: operations/enable-software-accelerated-network.md
-      - name: DDoS protection
+      - name: Protection against DDoS attacks
         items:
           - name: Enabling DDoS protection
             href: operations/enable-ddos-protection.md
@@ -109,13 +116,21 @@ items:
         href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
+      - name: DHCP settings for working with a corporate DNS server
+        href: tutorials/dhcp-options.md
       - name: Routing through a NAT instance
-        href: tutorials/nat-instance.md
+        items:
+          - name: Overview
+            href: tutorials/nat-instance/index.md
+          - name: Management console
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
       - name: Setting up network connectivity with IPsec gateways
         items:
           - name: Solution diagram
             href: tutorials/ipsec/index.md
-          - name: Implementation on your own using {{ yandex-cloud }}
+          - name: Unaided implementation with {{ yandex-cloud }}
             href: tutorials/ipsec/ipsec-vpn.md
           - name: SGW solution by the {{ yandex-cloud }} architect team
             href: tutorials/ipsec/sgw.md
@@ -125,16 +140,22 @@ items:
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
+      - name: >-
+          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          other cloud networks
+        href: tutorials/clickhouse-dns-peering.md
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in proxy server mode
         href: tutorials/usergate-proxy.md
-      - name: Configuring networks for {{ dataproc-full-name }}
+      - name: Configuring a network for {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
       - name: Network between folders
         href: tutorials/multi-folder-vpc.md
       - name: Setting up PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: Using {{ yandex-cloud }} modules in {{ TF }}
+        href: tutorials/terraform-modules.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -151,6 +172,8 @@ items:
         href: concepts/security-groups.md
       - name: Gateways
         href: concepts/gateways.md
+      - name: Service connections
+        href: concepts/private-endpoint.md
       - name: Monitoring network connections
         href: concepts/monitoring-connections.md
       - name: Public IP address ranges
@@ -195,156 +218,334 @@ items:
             items:
               - name: Overview
                 href: api-ref/Address/index.md
-              - name: create
-                href: api-ref/Address/create.md
-              - name: delete
-                href: api-ref/Address/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Address/get.md
-              - name: getByValue
+              - name: GetByValue
                 href: api-ref/Address/getByValue.md
-              - name: list
+              - name: List
                 href: api-ref/Address/list.md
-              - name: listOperations
-                href: api-ref/Address/listOperations.md
-              - name: move
-                href: api-ref/Address/move.md
-              - name: update
+              - name: Create
+                href: api-ref/Address/create.md
+              - name: Update
                 href: api-ref/Address/update.md
+              - name: Delete
+                href: api-ref/Address/delete.md
+              - name: ListOperations
+                href: api-ref/Address/listOperations.md
+              - name: Move
+                href: api-ref/Address/move.md
           - name: Gateway
             items:
               - name: Overview
                 href: api-ref/Gateway/index.md
-              - name: create
-                href: api-ref/Gateway/create.md
-              - name: delete
-                href: api-ref/Gateway/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Gateway/get.md
-              - name: list
+              - name: List
                 href: api-ref/Gateway/list.md
-              - name: listOperations
-                href: api-ref/Gateway/listOperations.md
-              - name: move
-                href: api-ref/Gateway/move.md
-              - name: update
+              - name: Create
+                href: api-ref/Gateway/create.md
+              - name: Update
                 href: api-ref/Gateway/update.md
+              - name: Delete
+                href: api-ref/Gateway/delete.md
+              - name: ListOperations
+                href: api-ref/Gateway/listOperations.md
+              - name: Move
+                href: api-ref/Gateway/move.md
           - name: Network
             items:
               - name: Overview
                 href: api-ref/Network/index.md
-              - name: create
-                href: api-ref/Network/create.md
-              - name: delete
-                href: api-ref/Network/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Network/get.md
-              - name: list
+              - name: List
                 href: api-ref/Network/list.md
-              - name: listOperations
-                href: api-ref/Network/listOperations.md
-              - name: listRouteTables
-                href: api-ref/Network/listRouteTables.md
-              - name: listSecurityGroups
-                href: api-ref/Network/listSecurityGroups.md
-              - name: listSubnets
-                href: api-ref/Network/listSubnets.md
-              - name: move
-                href: api-ref/Network/move.md
-              - name: update
+              - name: Create
+                href: api-ref/Network/create.md
+              - name: Update
                 href: api-ref/Network/update.md
-          - name: RouteTable
-            items:
-              - name: Overview
-                href: api-ref/RouteTable/index.md
-              - name: create
-                href: api-ref/RouteTable/create.md
-              - name: delete
-                href: api-ref/RouteTable/delete.md
-              - name: get
-                href: api-ref/RouteTable/get.md
-              - name: list
-                href: api-ref/RouteTable/list.md
-              - name: listOperations
-                href: api-ref/RouteTable/listOperations.md
-              - name: move
-                href: api-ref/RouteTable/move.md
-              - name: update
-                href: api-ref/RouteTable/update.md
-          - name: SecurityGroup
-            items:
-              - name: Overview
-                href: api-ref/SecurityGroup/index.md
-              - name: create
-                href: api-ref/SecurityGroup/create.md
-              - name: delete
-                href: api-ref/SecurityGroup/delete.md
-              - name: get
-                href: api-ref/SecurityGroup/get.md
-              - name: list
-                href: api-ref/SecurityGroup/list.md
-              - name: listOperations
-                href: api-ref/SecurityGroup/listOperations.md
-              - name: move
-                href: api-ref/SecurityGroup/move.md
-              - name: update
-                href: api-ref/SecurityGroup/update.md
-              - name: updateRule
-                href: api-ref/SecurityGroup/updateRule.md
-              - name: updateRules
-                href: api-ref/SecurityGroup/updateRules.md
-          - name: Subnet
-            items:
-              - name: Overview
-                href: api-ref/Subnet/index.md
-              - name: addCidrBlocks
-                href: api-ref/Subnet/addCidrBlocks.md
-              - name: create
-                href: api-ref/Subnet/create.md
-              - name: delete
-                href: api-ref/Subnet/delete.md
-              - name: get
-                href: api-ref/Subnet/get.md
-              - name: list
-                href: api-ref/Subnet/list.md
-              - name: listOperations
-                href: api-ref/Subnet/listOperations.md
-              - name: listUsedAddresses
-                href: api-ref/Subnet/listUsedAddresses.md
-              - name: move
-                href: api-ref/Subnet/move.md
-              - name: relocate
-                href: api-ref/Subnet/relocate.md
-              - name: removeCidrBlocks
-                href: api-ref/Subnet/removeCidrBlocks.md
-              - name: update
-                href: api-ref/Subnet/update.md
+              - name: Delete
+                href: api-ref/Network/delete.md
+              - name: ListSubnets
+                href: api-ref/Network/listSubnets.md
+              - name: ListSecurityGroups
+                href: api-ref/Network/listSecurityGroups.md
+              - name: ListRouteTables
+                href: api-ref/Network/listRouteTables.md
+              - name: ListOperations
+                href: api-ref/Network/listOperations.md
+              - name: Move
+                href: api-ref/Network/move.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: RouteTable
+            items:
+              - name: Overview
+                href: api-ref/RouteTable/index.md
+              - name: Get
+                href: api-ref/RouteTable/get.md
+              - name: List
+                href: api-ref/RouteTable/list.md
+              - name: Create
+                href: api-ref/RouteTable/create.md
+              - name: Update
+                href: api-ref/RouteTable/update.md
+              - name: Delete
+                href: api-ref/RouteTable/delete.md
+              - name: ListOperations
+                href: api-ref/RouteTable/listOperations.md
+              - name: Move
+                href: api-ref/RouteTable/move.md
+          - name: SecurityGroup
+            items:
+              - name: Overview
+                href: api-ref/SecurityGroup/index.md
+              - name: Get
+                href: api-ref/SecurityGroup/get.md
+              - name: List
+                href: api-ref/SecurityGroup/list.md
+              - name: Create
+                href: api-ref/SecurityGroup/create.md
+              - name: Update
+                href: api-ref/SecurityGroup/update.md
+              - name: UpdateRules
+                href: api-ref/SecurityGroup/updateRules.md
+              - name: UpdateRule
+                href: api-ref/SecurityGroup/updateRule.md
+              - name: Delete
+                href: api-ref/SecurityGroup/delete.md
+              - name: Move
+                href: api-ref/SecurityGroup/move.md
+              - name: ListOperations
+                href: api-ref/SecurityGroup/listOperations.md
+          - name: Subnet
+            items:
+              - name: Overview
+                href: api-ref/Subnet/index.md
+              - name: Get
+                href: api-ref/Subnet/get.md
+              - name: List
+                href: api-ref/Subnet/list.md
+              - name: Create
+                href: api-ref/Subnet/create.md
+              - name: Update
+                href: api-ref/Subnet/update.md
+              - name: AddCidrBlocks
+                href: api-ref/Subnet/addCidrBlocks.md
+              - name: RemoveCidrBlocks
+                href: api-ref/Subnet/removeCidrBlocks.md
+              - name: Delete
+                href: api-ref/Subnet/delete.md
+              - name: ListOperations
+                href: api-ref/Subnet/listOperations.md
+              - name: Move
+                href: api-ref/Subnet/move.md
+              - name: Relocate
+                href: api-ref/Subnet/relocate.md
+              - name: ListUsedAddresses
+                href: api-ref/Subnet/listUsedAddresses.md
+          - name: Virtual Private Cloud API
+            items:
+              - name: Overview
+                href: privatelink/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: privatelink/api-ref/Operation/index.md
+                  - name: Get
+                    href: privatelink/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: privatelink/api-ref/Operation/cancel.md
+              - name: PrivateEndpoint
+                items:
+                  - name: Overview
+                    href: privatelink/api-ref/PrivateEndpoint/index.md
+                  - name: Get
+                    href: privatelink/api-ref/PrivateEndpoint/get.md
+                  - name: List
+                    href: privatelink/api-ref/PrivateEndpoint/list.md
+                  - name: Create
+                    href: privatelink/api-ref/PrivateEndpoint/create.md
+                  - name: Update
+                    href: privatelink/api-ref/PrivateEndpoint/update.md
+                  - name: Delete
+                    href: privatelink/api-ref/PrivateEndpoint/delete.md
+                  - name: ListOperations
+                    href: privatelink/api-ref/PrivateEndpoint/listOperations.md
       - name: gRPC
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: AddressService
-            href: api-ref/grpc/address_service.md
-          - name: GatewayService
-            href: api-ref/grpc/gateway_service.md
-          - name: NetworkService
-            href: api-ref/grpc/network_service.md
-          - name: RouteTableService
-            href: api-ref/grpc/route_table_service.md
-          - name: SecurityGroupService
-            href: api-ref/grpc/security_group_service.md
-          - name: SubnetService
-            href: api-ref/grpc/subnet_service.md
-          - name: PrivateEndpointService
-            href: api-ref/grpc/private_endpoint_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Address
+            items:
+              - name: Overview
+                href: api-ref/grpc/Address/index.md
+              - name: Get
+                href: api-ref/grpc/Address/get.md
+              - name: GetByValue
+                href: api-ref/grpc/Address/getByValue.md
+              - name: List
+                href: api-ref/grpc/Address/list.md
+              - name: Create
+                href: api-ref/grpc/Address/create.md
+              - name: Update
+                href: api-ref/grpc/Address/update.md
+              - name: Delete
+                href: api-ref/grpc/Address/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Address/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Address/move.md
+          - name: Gateway
+            items:
+              - name: Overview
+                href: api-ref/grpc/Gateway/index.md
+              - name: Get
+                href: api-ref/grpc/Gateway/get.md
+              - name: List
+                href: api-ref/grpc/Gateway/list.md
+              - name: Create
+                href: api-ref/grpc/Gateway/create.md
+              - name: Update
+                href: api-ref/grpc/Gateway/update.md
+              - name: Delete
+                href: api-ref/grpc/Gateway/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Gateway/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Gateway/move.md
+          - name: Network
+            items:
+              - name: Overview
+                href: api-ref/grpc/Network/index.md
+              - name: Get
+                href: api-ref/grpc/Network/get.md
+              - name: List
+                href: api-ref/grpc/Network/list.md
+              - name: Create
+                href: api-ref/grpc/Network/create.md
+              - name: Update
+                href: api-ref/grpc/Network/update.md
+              - name: Delete
+                href: api-ref/grpc/Network/delete.md
+              - name: ListSubnets
+                href: api-ref/grpc/Network/listSubnets.md
+              - name: ListSecurityGroups
+                href: api-ref/grpc/Network/listSecurityGroups.md
+              - name: ListRouteTables
+                href: api-ref/grpc/Network/listRouteTables.md
+              - name: ListOperations
+                href: api-ref/grpc/Network/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Network/move.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: RouteTable
+            items:
+              - name: Overview
+                href: api-ref/grpc/RouteTable/index.md
+              - name: Get
+                href: api-ref/grpc/RouteTable/get.md
+              - name: List
+                href: api-ref/grpc/RouteTable/list.md
+              - name: Create
+                href: api-ref/grpc/RouteTable/create.md
+              - name: Update
+                href: api-ref/grpc/RouteTable/update.md
+              - name: Delete
+                href: api-ref/grpc/RouteTable/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/RouteTable/listOperations.md
+              - name: Move
+                href: api-ref/grpc/RouteTable/move.md
+          - name: SecurityGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/SecurityGroup/index.md
+              - name: Get
+                href: api-ref/grpc/SecurityGroup/get.md
+              - name: List
+                href: api-ref/grpc/SecurityGroup/list.md
+              - name: Create
+                href: api-ref/grpc/SecurityGroup/create.md
+              - name: Update
+                href: api-ref/grpc/SecurityGroup/update.md
+              - name: UpdateRules
+                href: api-ref/grpc/SecurityGroup/updateRules.md
+              - name: UpdateRule
+                href: api-ref/grpc/SecurityGroup/updateRule.md
+              - name: Delete
+                href: api-ref/grpc/SecurityGroup/delete.md
+              - name: Move
+                href: api-ref/grpc/SecurityGroup/move.md
+              - name: ListOperations
+                href: api-ref/grpc/SecurityGroup/listOperations.md
+          - name: Subnet
+            items:
+              - name: Overview
+                href: api-ref/grpc/Subnet/index.md
+              - name: Get
+                href: api-ref/grpc/Subnet/get.md
+              - name: List
+                href: api-ref/grpc/Subnet/list.md
+              - name: Create
+                href: api-ref/grpc/Subnet/create.md
+              - name: Update
+                href: api-ref/grpc/Subnet/update.md
+              - name: AddCidrBlocks
+                href: api-ref/grpc/Subnet/addCidrBlocks.md
+              - name: RemoveCidrBlocks
+                href: api-ref/grpc/Subnet/removeCidrBlocks.md
+              - name: Delete
+                href: api-ref/grpc/Subnet/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Subnet/listOperations.md
+              - name: Move
+                href: api-ref/grpc/Subnet/move.md
+              - name: Relocate
+                href: api-ref/grpc/Subnet/relocate.md
+              - name: ListUsedAddresses
+                href: api-ref/grpc/Subnet/listUsedAddresses.md
+          - name: Virtual Private Cloud API
+            items:
+              - name: Overview
+                href: privatelink/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: privatelink/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: privatelink/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: privatelink/api-ref/grpc/Operation/cancel.md
+              - name: PrivateEndpoint
+                items:
+                  - name: Overview
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/index.md
+                  - name: Get
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/get.md
+                  - name: List
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/list.md
+                  - name: Create
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/create.md
+                  - name: Update
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/update.md
+                  - name: Delete
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
+                  - name: ListOperations
+                    href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
@@ -352,3 +553,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/vpc
+deepBase: 2

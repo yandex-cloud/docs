@@ -1,5 +1,5 @@
 ---
-description: "Чтобы оценить качество изображения, можно воспользоваться моделью quality сервиса {{ vision-full-name }}. Сервис сравнивает похожие изображения и выбирает лучшего качества или фильтрует изображения низкого качества, например, чтобы не показывать их в результатах поиска. Поддерживаемые форматы файлов для оценки качества JPEG, PNG, PDF."
+description: Чтобы оценить качество изображения, можно воспользоваться моделью quality сервиса {{ vision-full-name }}. Сервис сравнивает похожие изображения и выбирает лучшего качества или фильтрует изображения низкого качества, например, чтобы не показывать их в результатах поиска. Поддерживаемые форматы файлов для оценки качества JPEG, PNG, PDF.
 noIndex: true
 keywords:
   - image quality
@@ -81,7 +81,7 @@ keywords:
 
    ```bash
     vision_quality() {
-      curl -H "Authorization: Bearer `yc iam create-token`" \
+      curl --header "Authorization: Bearer `yc iam create-token`" \
       "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
       -d @<(cat << EOF
         {

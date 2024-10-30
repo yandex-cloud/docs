@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ data-transfer-full-name }}'
+description: This page provides reference information on the Terraform provider resources supported for {{ data-transfer-name }}.
+---
+
 # {{ TF }} reference for {{ data-transfer-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

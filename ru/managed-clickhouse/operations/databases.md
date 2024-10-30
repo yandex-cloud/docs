@@ -1,6 +1,6 @@
 ---
-title: "Как управлять базами данных кластера {{ CH }} в {{ mch-full-name }}"
-description: "Следуя данной инструкции, вы сможете управлять базами данных кластера {{ CH }}." 
+title: Как управлять базами данных кластера {{ CH }} в {{ mch-full-name }}
+description: Следуя данной инструкции, вы сможете управлять базами данных кластера {{ CH }}.
 ---
 
 # Управление базами данных в {{ mch-name }}
@@ -47,7 +47,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы получить список баз данных кластера, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List).
+  Чтобы получить список баз данных кластера, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/Database/list.md).
 
 - SQL {#sql}
 
@@ -128,7 +128,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы создать новую базу данных в кластере, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create).
+  Чтобы создать новую базу данных в кластере, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md).
 
 - SQL {#sql}
 
@@ -192,7 +192,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete).
+  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/Database/delete.md).
 
 - SQL {#sql}
 

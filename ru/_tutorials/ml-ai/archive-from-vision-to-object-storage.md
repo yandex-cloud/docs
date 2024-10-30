@@ -140,7 +140,7 @@
      ```
 
      Сохраните идентификатор сервисного аккаунта — параметр `id`, он понадобится для дальнейшей настройки.
-     
+
   1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
       ```bash
@@ -392,14 +392,14 @@
       EOF
       # Отправить изображение в Vision для распознавания и записать результат в файл output.json.
       echo "Processing file $f in Vision..."
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAMTOKEN}" \
-        -H "x-data-logging-enabled: true" \
-        -H "x-folder-id: ${FOLDERID}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAMTOKEN}" \
+        --header "x-data-logging-enabled: true" \
+        --header "x-folder-id: ${FOLDERID}" \
+        --data '@body.json' \
         https://ocr.{{ api-host }}/ocr/v1/recognizeText \
-        -o output.json
+        --output output.json
 
       # Получить имя файла с изображением для дальнейшей подстановки.
       IMAGE_BASE_NAME=$(basename -- "$f")

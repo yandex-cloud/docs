@@ -1,6 +1,6 @@
 ---
-title: "Как управлять формами в {{ forms-full-name }}"
-description: "Из статьи вы узнаете, как управлять формами в {{ forms-full-name }}."
+title: Как управлять формами в {{ forms-full-name }}
+description: Из статьи вы узнаете, как управлять формами в {{ forms-full-name }}.
 ---
 
 # Управлять формами

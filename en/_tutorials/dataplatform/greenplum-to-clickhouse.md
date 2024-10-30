@@ -22,7 +22,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
    1. [Create a {{ mch-full-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with any configuration with a database called `db1`.
 
-   
+
    1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
 
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
@@ -42,7 +42,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
       * [Networks](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) for hosting the clusters.
 
-      
+
       * [Security groups](../../vpc/concepts/security-groups.md) for connecting to clusters.
 
 

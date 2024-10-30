@@ -1,6 +1,6 @@
 ---
-title: "How to upload data to a {{ ydb-full-name }} table"
-description: "Follow this guide to upload data to a table."
+title: How to upload data to a {{ ydb-full-name }} table
+description: Follow this guide to upload data to a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Uploading data to a table
@@ -27,7 +27,7 @@ To upload data to the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesLoadData` project:
+  1. Create the `SeriesLoadData` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -36,15 +36,15 @@ To upload data to the `Series` table:
         -DartifactId=SeriesLoadData
       ```
 
-      As a result of running the command, the `SeriesLoadTable` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesLoadData` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesLoadData
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -124,7 +124,7 @@ To upload data to the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesLoadData.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesLoadData.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesLoadData.java
@@ -134,7 +134,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -200,17 +200,17 @@ To upload data to the `Series` table:
 
       The code uses Jackson, the open source JSON processing library. Jackson is included in the AWS SDK for Java.
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesLoadData.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesLoadData.jar` file will be generated in the `target/release/` folder.
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesLoadData.jar
@@ -219,18 +219,18 @@ To upload data to the `Series` table:
       Result:
 
       ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
+      Series added: 1 IT Crowd
+      Series added: 2 Silicon Valley
+      Series added: 3 House of Cards
+      Series added: 3 The Office
+      Series added: 3 True Detective
+      Series added: 4 The Big Bang Theory
+      Series added: 5 Twin Peaks
       ```
 
 - Python {#python}
 
-   1. Create the `SeriesLoadData.py` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesLoadData.py
@@ -240,7 +240,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -265,9 +265,9 @@ To upload data to the `Series` table:
           load_series(serie_list)
       ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesLoadData.py
@@ -276,18 +276,18 @@ To upload data to the `Series` table:
       Result:
 
       ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
+      Series added: 1 IT Crowd
+      Series added: 2 Silicon Valley
+      Series added: 3 House of Cards
+      Series added: 3 The Office
+      Series added: 3 True Detective
+      Series added: 4 The Big Bang Theory
+      Series added: 5 Twin Peaks
       ```
 
 - PHP {#php}
 
-   1. Create the `SeriesLoadData.php` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesLoadData.php
@@ -297,7 +297,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -357,9 +357,9 @@ To upload data to the `Series` table:
 
       The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the YDB format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a YDB record.
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesLoadData.php
@@ -368,18 +368,18 @@ To upload data to the `Series` table:
       Result:
 
       ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
+      Series added: 1 IT Crowd
+      Series added: 2 Silicon Valley
+      Series added: 3 House of Cards
+      Series added: 3 The Office
+      Series added: 3 True Detective
+      Series added: 4 The Big Bang Theory
+      Series added: 5 Twin Peaks
       ```
 
 - Node.js {#node}
 
-   1. Create the `SeriesLoadData.js` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesLoadData.js
@@ -389,7 +389,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -420,14 +420,14 @@ To upload data to the `Series` table:
                   console.log("Series added:", series.title);
               })
               .catch(err => {
-                  console.error("Couldn't add series", series.title, ". JSON error:", JSON.stringify(err, null, 2));
+                  console.error("Couldn't add series", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
               })
       });
       ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesLoadData.js
@@ -435,20 +435,20 @@ To upload data to the `Series` table:
 
       Result:
 
-      ```bash
+      ```text
       Uploading series to YDB. Please wait...
-      Added series: The Office
-      Added series: IT Crowd
-      Added series: House of Cards
-      Added series: The Big Bang Theory
-      Added series: Twin Peaks
-      Added series: Silicon Valley
-      Added series: True Detective
+      Series added: The Office
+      Series added: IT Crowd
+      Series added: House of Cards
+      Series added: The Big Bang Theory
+      Series added: Twin Peaks
+      Series added: Silicon Valley
+      Series added: True Detective
       ```
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesLoadData.rb` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesLoadData.rb
@@ -458,7 +458,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -497,8 +497,8 @@ To upload data to the `Series` table:
         series = JSON.parse(file)
         $total_series = series.count
 
-        puts "You are going to upload #{$total_series} series from the '#{data_file}' file " \
-          "to the table '#{table_name}'..."
+        puts "#{$total_series} series from file '#{data_file}' will be uploaded" \
+          "to table '#{table_name}'..."
 
         series.each do |seria|
           table_item = {
@@ -514,9 +514,9 @@ To upload data to the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesLoadData.rb

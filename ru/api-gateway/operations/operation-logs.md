@@ -74,7 +74,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для API-шлюза воспользуйтесь методом REST API [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/apigateway_service.md#ListOperations).
+  Например, для API-шлюза воспользуйтесь методом REST API [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/ApiGateway/listOperations.md).
 
 {% endlist %}
 
@@ -126,7 +126,7 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../apigateway/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../apigateway/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a digital signature key pair"
-description: "Follow this guide to assign roles for an asymmetric digital signature key pair."
+title: Configuring access permissions for a digital signature key pair
+description: Follow this guide to assign roles for an asymmetric digital signature key pair.
 ---
 
 # Configuring access permissions for a digital signature key pair
@@ -83,7 +83,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - API {#api}
 
-   Use the [AsymmetricSignatureKeyService/UpdateAccessBindings](../api-ref/grpc/asymmetric_signature_key_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [AsymmetricSignatureKeyService/UpdateAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
@@ -185,7 +185,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [AsymmetricSignatureKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_signature_key_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.

@@ -150,7 +150,9 @@ Docker-образ — исполняемый пакет, который соде
 После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](../operations/invoke.md#link) Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
 
 ```bash
-curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
+curl \
+  --header "Authorization: Bearer $(yc iam create-token)" \
+  https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```
 
 Результат:

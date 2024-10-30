@@ -1,6 +1,6 @@
 ---
-title: "Migrating a board to our new technologies in {{ tracker-full-name }}"
-description: "Follow this guide to migrate a board to our new technologies."
+title: Migrating a board to our new technologies in {{ tracker-full-name }}
+description: Follow this guide to migrate a board to our new technologies.
 ---
 
 # Migrating a board to our new technologies
@@ -28,7 +28,7 @@ When migrating the board, the following is retained:
 * Name
 * Issues added
 * Status distribution by column
-* {{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }} and {{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }} filters
+* {{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_author }} and {{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset_assignee }} filters
 * Filter for adding issues
 
 The board type is also retained during migration: **Basic** and **Kanban** (have the same functionality) boards are converted into basic boards, while **Scrum** boards become boards with a backlog and sprints.
@@ -61,11 +61,11 @@ To perform migration:
 
 1. Review the migration window:
    * If there are errors, follow the recommendations on how to fix them and try again.
-   * If there are no errors, click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardMigrationForm.submit-btn }}**. This may take a few minutes.
+   * If there are no errors, click **Start switching**. This may take a few minutes.
 
 ## Switching back to the old board version {#backward}
 
-If, after switching to our new technologies, you decide that they do not suit you, you can roll your board back to its original view. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.migration-rollback }}** in the board's top panel and wait until it switches back.
+If, after switching to our new technologies, you decide that they do not suit you, you can roll your board back to its original view. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Switch back to the old version** in the board's top panel and wait until it switches back.
 
 {% note warning %}
 

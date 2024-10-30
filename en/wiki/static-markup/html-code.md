@@ -1,6 +1,6 @@
 ---
-title: "HTML elements available in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn what HTML elements are available in {{ wiki-name }}."
+title: HTML elements available in {{ wiki-full-name }}
+description: In this tutorial, you will learn what HTML elements are available in {{ wiki-name }}.
 ---
 
 # HTML elements

@@ -1,10 +1,5 @@
 title: Yandex Managed Service for Apache Airflow™
 href: index.yaml
-label:
-  title: RU
-  description: The service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -48,8 +43,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ monitoring-name }} metrics'
-    href: metrics.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-airflow/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -58,10 +55,34 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -70,22 +91,35 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: '{{ monitoring-full-name }} metrics'
+    href: metrics.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 base: en/managed-airflow
+deepBase: 2

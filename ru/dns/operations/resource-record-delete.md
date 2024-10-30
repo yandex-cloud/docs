@@ -1,6 +1,6 @@
 ---
-title: "Как удалить ресурсную запись в {{ dns-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить ресурсную запись." 
+title: Как удалить ресурсную запись в {{ dns-full-name }}
+description: Следуя данной инструкции, вы сможете удалить ресурсную запись.
 ---
 
 # Удалить ресурсную запись
@@ -101,6 +101,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы удалить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+  Чтобы удалить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/DnsZone/updateRecordSets.md).
 
 {% endlist %}

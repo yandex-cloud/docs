@@ -1,6 +1,6 @@
 ---
-title: "How to install dependencies"
-description: "Follow this guide to install additional packages in {{ ds-nb }}."
+title: How to install dependencies
+description: Follow this guide to install additional packages in {{ ds-nb }}.
 ---
 
 # Installing dependencies

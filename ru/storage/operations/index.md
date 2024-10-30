@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ objstorage-full-name }} (S3)"
-description: "Из статьи вы узнаете, как работать с {{ objstorage-full-name }} (S3) в {{ yandex-cloud }}. Вы научитесь работать с бакетами (создавать, удалять и редактировать), объектами (загружать, скачивать, получать ссылки на скачивание, удалять объекты), размещать статические сайты (настраивать хостинг, собственный домен, настраивать https протокол)."
+title: Инструкции по работе с {{ objstorage-full-name }} (S3)
+description: Из статьи вы узнаете, как работать с {{ objstorage-full-name }} (S3) в {{ yandex-cloud }}. Вы научитесь работать с бакетами (создавать, удалять и редактировать), объектами (загружать, скачивать, получать ссылки на скачивание, удалять объекты), размещать статические сайты (настраивать хостинг, собственный домен, настраивать https протокол).
 ---
 
 # Пошаговые инструкции для {{ objstorage-name }}
@@ -14,9 +14,10 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/encrypt.md)
 * [{#T}](buckets/lifecycles.md)
 * [{#T}](buckets/cors.md)
-* [{#T}](buckets/policy.md)
 * [{#T}](buckets/versioning.md)
 * [{#T}](buckets/edit-acl.md)
+* [{#T}](buckets/policy.md)
+* [{#T}](buckets/access-via-vpc.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/tagging.md)

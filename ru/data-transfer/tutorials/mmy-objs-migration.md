@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mmy-objs-migration"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mmy-objs-migration'
 ---
 
 # Загрузка данных из {{ MY }} в {{ objstorage-full-name }}

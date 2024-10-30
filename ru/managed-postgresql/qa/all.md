@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ mpg-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ mpg-short-name }}."
+title: Вопросы и ответы про {{ mpg-full-name }}
+description: На странице представлены вопросы и ответы про {{ mpg-short-name }}.
 ---
 
 # Вопросы и ответы про {{ mpg-short-name }}

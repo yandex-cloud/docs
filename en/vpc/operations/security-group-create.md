@@ -1,6 +1,6 @@
 ---
-title: "How to create a security group"
-description: "Follow this guide to create a security group."
+title: How to create a security group
+description: Follow this guide to create a security group.
 ---
 
 # Creating a security group
@@ -94,7 +94,7 @@ To create a new [security group](../concepts/security-groups.md):
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
         token     = "<OAuth_or_service_account_static_key>"
@@ -164,7 +164,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 - API {#api}
 
-   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call, and provide the following in the request:
+   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/SecurityGroup/create.md) gRPC API call, and provide the following in the request:
 
    * ID of the folder where the security group will be placed, in the `folderId` parameter.
    * ID of the network where the security group will be placed, in the `networkId` parameter.

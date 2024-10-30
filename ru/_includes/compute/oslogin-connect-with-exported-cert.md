@@ -1,89 +1,26 @@
-Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью стандартного [SSH](../../glossary/ssh-keygen.md)-клиента. Для этого [экспортируйте](../../compute/operations/vm-connect/os-login-export-certificate.md) сертификат OS Login на локальный компьютер и укажите этот сертификат при подключении:
+Чтобы подключиться к ВМ через OS Login по SSH-сертификату с помощью стандартного SSH-клиента:
 
-1. [Включите](../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
+1. {% include [oslogin-connect-cert-enable-in-org](../../_includes/compute/oslogin-connect-cert-enable-in-org.md) %}
+1. [Экспортируйте](../../compute/operations/vm-connect/os-login-export-certificate.md) SSH-сертификат на локальный компьютер.
+1. {% include [os-login-cli-organization-list](../../_includes/organization/os-login-cli-organization-list.md) %}
+1. {% include [os-login-cli-profile-list](../../_includes/organization/os-login-cli-profile-list.md) %}
+1. {% include [oslogin-connect-instr-list-vms](../../_includes/compute/oslogin-connect-instr-list-vms.md) %}
 
-    Чтобы подключиться к ВМ по OS Login с SSH-сертификатом через стандартный SSH-клиент, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
-
-1. Получите список всех ВМ в каталоге по умолчанию:
-
-    ```bash
-    yc compute instance list
-    ```
-
-    Результат:
-
-    ```text
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    |          ID          |       NAME      |    ZONE ID    | STATUS  |  EXTERNAL IP  | INTERNAL IP  |
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | 158.160.**.** | 192.168.0.8  |
-    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | 51.250.**.*** | 192.168.0.12 |
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    ```
-
-1. Получите [публичный адрес](../../vpc/concepts/address.md#public-addresses) нужной ВМ, указав ее идентификатор:
-
-    ```bash
-    yc compute instance get \
-      --id <идентификатор_ВМ>
-    ```
-
-    {% cut "Результат:" %}
-
-    ```yaml
-    id: fhm0b28lgf**********
-    folder_id: b1gt6g8ht345********
-    created_at: "2023-12-09T06:23:04Z"
-    name: first-instance
-    zone_id: {{ region-id }}-a
-    platform_id: standard-v3
-    resources:
-      memory: "2147483648"
-      cores: "2"
-      core_fraction: "100"
-    status: RUNNING
-    metadata_options:
-      gce_http_endpoint: ENABLED
-      aws_v1_http_endpoint: ENABLED
-      gce_http_token: ENABLED
-      aws_v1_http_token: DISABLED
-    boot_disk:
-      mode: READ_WRITE
-      device_name: epd9m2csd95p********
-      auto_delete: true
-      disk_id: epd9m2csd95p********
-    network_interfaces:
-      - index: "0"
-        mac_address: d0:0d:87:75:**:**
-        subnet_id: e2li9tcgi7ii********
-        primary_v4_address:
-          address: 192.168.0.8
-          one_to_one_nat:
-            address: 158.160.**.**
-            ip_version: IPV4
-    gpu_settings: {}
-    fqdn: first-instance.{{ region-id }}.internal
-    scheduling_policy: {}
-    network_settings:
-      type: STANDARD
-    placement_policy: {}
-    ```
-
-    Публичный адрес виртуальной машины указан в поле `network_interfaces.primary_v4_address.one_to_one_nat.address`.
-
-    {% endcut %}
-
+    Сохраните публичный IP-адрес (значение поля `EXTERNAL IP`) виртуальной машины, к которой вы хотите подключиться.
 1. Подключитесь к ВМ:
 
     ```bash
-    ssh -i <путь_к_файлу_сертификата> <имя_пользователя>@<публичный_IP-адрес_ВМ>
+    ssh -i <путь_к_файлу_сертификата> \
+      -l <логин_пользователя_или_сервисного_аккаунта> <публичный_IP-адрес_ВМ>
     ```
 
     Где:
 
-    * `<путь_к_файлу_сертификата>` — путь к сохраненному ранее файлу `Identity` сертификата. Например: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<имя_пользователя>` — имя пользователя в организации. Имя пользователя указано в конце имени экспортированного сертификата OS Login. В примере выше это — `orgusername`.
-    * `<публичный_IP-адрес_ВМ>` — полученный ранее публичный адрес виртуальной машины.
+    * `<путь_к_файлу_сертификата>` — путь к экспортированному ранее файлу `Identity` сертификата. Например: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
+    * `<логин_пользователя_или_сервисного_аккаунта>` — полученный ранее логин пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), заданный в профиле OS Login.
+    * `<публичный_IP-адрес_ВМ>` — сохраненный ранее публичный адрес виртуальной машины.
+
+    Команду для подключения к ВМ вы также можете посмотреть в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.compute.instance.overview.label_title }}** нужной ВМ в блоке **Подключение к виртуальной машине**: раскройте секцию **Подключиться с помощью SSH-клиента** и выберите вкладку **По сертификату**.
 
     При первом подключении к ВМ появится предупреждение о неизвестном хосте:
 

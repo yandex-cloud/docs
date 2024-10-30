@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mch-short-name }}"
-description: "You can request detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mch-name }}."
+title: Information about clusters in {{ mch-short-name }}
+description: You can request detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mch-name }}.
 ---
 
 # Information about existing {{ CH }} clusters
@@ -49,11 +49,11 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters?folderId=<folder_ID>'
       ```
 
-      
+
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-   1. View the [server response](../api-ref/Cluster/list.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -63,7 +63,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/List](../api-ref/grpc/Cluster/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -79,11 +79,11 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           yandex.cloud.mdb.clickhouse.v1.ClusterService.List
       ```
 
-      
+
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#ListClustersResponse) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -127,7 +127,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/get.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -137,7 +137,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -155,7 +155,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#Cluster) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -202,7 +202,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/listOperations.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -212,7 +212,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -230,7 +230,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#ListClusterOperationsResponse) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 {% endlist %}
 

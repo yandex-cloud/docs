@@ -1,6 +1,6 @@
 ---
-title: "Viewing bucket metrics"
-description: "Follow this guide to view bucket metrics."
+title: Viewing bucket metrics
+description: Follow this guide to view bucket metrics.
 ---
 
 # Viewing bucket metrics

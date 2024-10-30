@@ -23,8 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure costs for image recognition and data storage include:
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for data storage in a [bucket](../../storage/concepts/bucket.md) and [operations](../../storage/operations/index.md) with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for data storage in a [bucket](../../storage/operations/index.md) and [operations](../../storage/concepts/bucket.md) with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
 
 
@@ -36,13 +36,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
-   1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform the operations in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -52,32 +52,32 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-   1. Enter the VM name. The naming requirements are as follows:
+  1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform the operations in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Enter the VM name. The naming requirements are as follows:
 
-      {% include [name-format](../../_includes/name-format.md) %}
+     {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select:
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
-   1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
-   1. Specify the VM access details:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+  1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select:
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD
+     * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
+  1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
+  1. Specify the VM access details:
+     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-   1. Wait for the VM status to change to `Running` and save its public IP address: you will need it for SSH connection.
+       You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Wait for the VM status to change to `Running` and save its public IP address: you will need it for SSH connection.
 
 {% endlist %}
 
@@ -93,21 +93,21 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
    - CLI {#cli}
 
-      Run the following command on the VM:
+     Run the following command on the VM:
 
-      ```bash
-      yc config list
-      ```
+     ```bash
+     yc config list
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      token: AQ...gs
-      cloud-id: b1gdtdqb1900********
-      folder-id: b1gveg9vude9********
-      ```
+     ```text
+     token: AQ...gs
+     cloud-id: b1gdtdqb1900********
+     folder-id: b1gveg9vude9********
+     ```
 
-      Save the `folder-id` parameter: you will need it to set up a [service account](../../iam/concepts/users/service-accounts.md).
+     Save the folder ID (the `folder-id` parameter): you will need it to configure a [service account](../../iam/concepts/users/service-accounts.md).
 
    {% endlist %}
 
@@ -117,31 +117,31 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - CLI {#cli}
 
-   1. Create a service account:
+  1. Create a service account:
 
-      ```bash
-      yc iam service-account create \
-        --name <service_account_name> \
-        --description "<service_account_description>"
-      ```
+     ```bash
+     yc iam service-account create \
+       --name <service_account_name> \
+       --description "<service_account_description>"
+     ```
 
-      Where:
-      * `--name`: Service account name, e.g., `vision-sa`.
-      * `--description`: Service account description, e.g., `This is a vision service account`.
+     Where:
+     * `--name`: Service account name, e.g., `vision-sa`.
+     * `--description`: Service account description, e.g., `this is vision service account`.
 
-      Result:
+     Result:
 
-      ```text
-      id: aje6aoc8hccu********
-      folder_id: b1gv87ssvu49********
-      created_at: "2022-10-12T14:04:43.198559512Z"
-      name: vision-sa
-      description: this is vision service account
-      ```
+     ```text
+     id: aje6aoc8hccu********
+     folder_id: b1gv87ssvu49********
+     created_at: "2022-10-12T14:04:43.198559512Z"
+     name: vision-sa
+     description: this is vision service account
+     ```
 
-      Save the `id` parameter: this is the service account ID you will later need for the setup.
+     Save the service account ID (the `id` parameter): you will need it for further configuration.
 
-   1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md) to your service account:
+  1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -150,81 +150,81 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Where:
-      * `--role`: Role being assigned.
+      * `--role`: Role you want to assign.
       * `--subject serviceAccount`: Service account ID.
-   1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for the service account.
+  1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for your service account:
 
-      ```bash
-      yc iam access-key create \
-        --service-account-id <service_account_ID> \
-        --description "<key_description>"
-      ```
+     ```bash
+     yc iam access-key create \
+       --service-account-id <service_account_ID> \
+       --description "<key_description>"
+     ```
 
-      Where:
-      * `--service-account-id`: Service account ID.
-      * `--description`: Key description, e.g., `This key is for vision`.
+     Where:
+     * `--service-account-id`: Service account ID.
+     * `--description`: Key description, e.g., `this key is for vision`.
 
-      Result:
+     Result:
 
-      ```yaml
-      access_key:
-        id: ajen8d7fur27********
-        service_account_id: aje6aoc8hccu********
-        created_at: "2022-10-12T15:08:08.045280520Z"
-        description: this key is for vision
-        key_id: YC...li
-      secret: YC...J5
-      ```
+     ```text
+     access_key:
+       id: ajen8d7fur27********
+       service_account_id: aje6aoc8hccu********
+       created_at: "2022-10-12T15:08:08.045280520Z"
+       description: this key is for vision
+       key_id: YC...li
+     secret: YC...J5
+     ```
 
-      Save the following parameters (you will need them to configure the AWS CLI utility):
-      * `key_id`: Static access key ID.
-      * `secret`: Secret key.
-   1. Create an [authorized key](../../iam/concepts/authorization/key.md) for a service account:
+     Save the following parameters (you will need them to configure the AWS CLI utility):
+     * `key_id`: Static access key ID.
+     * `secret`: Secret key.
+  1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account:
 
-      ```bash
-      yc iam key create \
-        --service-account-id <service_account_ID> \
-        --output key.json
-      ```
+     ```bash
+     yc iam key create \
+       --service-account-id <service_account_ID> \
+       --output key.json
+     ```
 
-      Where:
-      * `--service-account-id`: Service account ID.
-      * `--output`: Name of the JSON file with an authorized key.
+     Where:
+     * `--service-account-id`: Service account ID.
+     * `--output`: Name of the JSON file with the authorized key.
 
-      Result:
+     Result:
 
-      ```yaml
-      id: aje3qc9pagb9********
-      service_account_id: aje6aoc8hccu********
-      created_at: "2022-10-13T12:53:04.810240976Z"
-      key_algorithm: RSA_2048
-      ```
+     ```text
+     id: aje3qc9pagb9********
+     service_account_id: aje6aoc8hccu********
+     created_at: "2022-10-13T12:53:04.810240976Z"
+     key_algorithm: RSA_2048
+     ```
 
-   1. Create a {{ yandex-cloud }} CLI profile to run on behalf of the service account, such as `vision-profile`:
+  1. Create a {{ yandex-cloud }} CLI profile to run on behalf of the service account, such as `vision-profile`:
 
-      ```bash
-      yc config profile create vision-profile
-      ```
+     ```bash
+     yc config profile create vision-profile
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Profile 'vision-profile' created and activated
-      ```
+     ```text
+     Profile 'vision-profile' created and activated
+     ```
 
-   1. Specify the authorized key of the service account in the profile configuration:
+  1. Specify the authorized key of the service account in the profile configuration:
 
-      ```bash
-      yc config set service-account-key key.json
-      ```
+     ```bash
+     yc config set service-account-key key.json
+     ```
 
-   1. Get a [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) for the service account:
+  1. Get a [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) for the service account:
 
-      ```bash
-      yc iam create-token
-      ```
+     ```bash
+     yc iam create-token
+     ```
 
-      Save the {{ iam-name }} token, you will need it to send images to {{ vision-name }}.
+     Save the {{ iam-name }} token, you will need it to send images to {{ vision-name }}.
 
 {% endlist %}
 
@@ -249,17 +249,17 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    ```
 
    Specify the parameter values:
-   * `AWS Access Key ID`: ID of the `key_id` static access key you generated when [setting up the service account](#configure-sa).
-   * `AWS Secret Access Key`: `secret` key you generated when [setting up the service account](#configure-sa).
+   * `AWS Access Key ID`: Static access key ID (`key_id`) you got when [configuring the service account](#configure-sa).
+   * `AWS Secret Access Key`: Secret key (`secret`) you got when [configuring the service account](#configure-sa).
    * `Default region name`: `{{ region-id }}`.
    * `Default output format`: `json`.
-1. Make sure that the `~/.aws/credentials` file contains relevant values for `key_id` and `secret`:
+1. Check that the `~/.aws/credentials` file contains the correct `key_id` and `secret` values:
 
    ```bash
    cat ~/.aws/credentials
    ```
 
-1. Make sure that the `~/.aws/config` file contains relevant values for `Default region name` and `Default output format`:
+1. Check that the `~/.aws/config` file contains the correct `Default region name` and `Default output format` values:
 
    ```bash
    cat ~/.aws/config
@@ -277,13 +277,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<bucket_name>/
    ```
 
-1. Save the images from the bucket to the VM, for example, to the `my_pictures` folder:
+1. Save the images from the bucket to the VM, e.g., to the `my_pictures` directory:
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} s3 cp s3://<bucket_name>/ my_pictures --recursive
    ```
 
-1. Compress the images into an archive, for example, `my_pictures.tar`:
+1. Pack the images into an archive, e.g., `my_pictures.tar`:
 
    ```bash
    tar -cf my_pictures.tar my_pictures/*
@@ -305,7 +305,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    sudo yum install epel-release -y
    ```
 
-1. Install the `jq` package. The script will use it to process the results from {{ vision-name }}:
+1. Install the `jq` package to process the results from {{ vision-name }}:
 
    ```bash
    sudo yum install jq -y
@@ -321,14 +321,14 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
    ```bash
    export BUCKETNAME="<bucket_name>"
-   export FOLDERID="<folder_id>"
+   export FOLDERID="<folder_ID>"
    export IAMTOKEN="<IAM_token>"
    ```
 
    Where:
    * `BUCKETNAME`: Bucket name.
    * `FOLDERID`: Folder ID.
-   * `IAMTOKEN`: {{ iam-name }} token you obtained when [setting up the service account](#configure-sa).
+   * `IAMTOKEN`: {{ iam-name }} token you got when [configuring the service account](#configure-sa).
 
 ### Create a script {#create-script}
 
@@ -363,25 +363,25 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```bash
       #!/bin/bash
 
-      # Create the required directories.
+      # Create the relevant directories.
       echo "Creating directories..."
 
-      # Create a directory for the recognized text.
+      # Create a directory for recognized text.
       mkdir my_pictures_text
 
-      # Unpack the archive with images to the new directory.
+      # Unpack the archive with images to the directory you created.
       echo "Extract pictures in my_pictures directory..."
       tar -xf my_pictures.tar
 
-      # Recognize the images from the archive
+      # Recognize the images from the archive.
       FILES=my_pictures/*
       for f in $FILES
       # For each file in the directory, perform the following actions in a loop:
       do
-         # Encode the image to base64 to upload it to {{ vision-name }}.
+         # Encode the image as Base64 for sending to {{ vision-name }}.
          CODEIMG=$(base64 -i $f | cat)
 
-         # Create a body.json file to upload to {{ vision-name }} in a POST request.
+         # Create a `body.json` file to send to {{ vision-name }} in a POST request.
          cat <<EOF > body.json
       {
       "mimeType": "JPEG",
@@ -390,7 +390,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       "content": "$CODEIMG"
       }
       EOF
-      # Send the image to Vision for recognition and write the result to the output.json file.
+      # Send the image to Vision OCR for recognition and write the result to the `output.json` file.
       echo "Processing file $f in Vision..."
       curl -X POST \
         -H "Content-Type: application/json" \
@@ -401,11 +401,11 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
         https://ocr.{{ api-host }}/ocr/v1/recognizeText \
         -o output.json
 
-      # Get the name of the image file for substitution.
+      # Get the image file name to use it later.
       IMAGE_BASE_NAME=$(basename -- "$f")
       IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 
-      # Get the text data from the output.json file and write it to a .txt file with the same name as the image file.
+      # Get the text data from the `output.json` file and write it to a .txt file with the same name as the image file.
       cat output.json | jq -r '.result[].blocks[].lines[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
       done
 
@@ -446,12 +446,12 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-   1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where the bucket with the recognition results is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Open the bucket with the recognition results.
-   1. Make sure that the bucket contains the `my_pictures_text.tar` archive.
-   1. Download and unpack the archive.
-   1. Make sure that the text in the `<image name>.txt` file matches the text in the image.
+  1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder containing the bucket with the recognition results.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Open the bucket with the recognition results.
+  1. Make sure the bucket contains the `my_pictures_text.tar` archive.
+  1. Download and unpack the archive.
+  1. Make sure the text in the `image_name>.txt` file matches that in the images.
 
 {% endlist %}
 
@@ -460,6 +460,6 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 To stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/objects/delete-all.md) all the objects from the bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

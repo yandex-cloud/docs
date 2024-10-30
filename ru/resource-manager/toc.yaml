@@ -1,10 +1,5 @@
 title: Yandex Resource Manager
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -50,6 +45,12 @@ items:
             href: operations/folder/notify.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: tutorials/multi-folder-vpc.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex Cloud
@@ -76,12 +77,58 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: CloudService
-            href: api-ref/grpc/cloud_service.md
-          - name: FolderService
-            href: api-ref/grpc/folder_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Cloud
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cloud/index.md
+              - name: Get
+                href: api-ref/grpc/Cloud/get.md
+              - name: List
+                href: api-ref/grpc/Cloud/list.md
+              - name: Create
+                href: api-ref/grpc/Cloud/create.md
+              - name: Update
+                href: api-ref/grpc/Cloud/update.md
+              - name: Delete
+                href: api-ref/grpc/Cloud/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Cloud/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cloud/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cloud/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cloud/updateAccessBindings.md
+          - name: Folder
+            items:
+              - name: Overview
+                href: api-ref/grpc/Folder/index.md
+              - name: Get
+                href: api-ref/grpc/Folder/get.md
+              - name: List
+                href: api-ref/grpc/Folder/list.md
+              - name: Create
+                href: api-ref/grpc/Folder/create.md
+              - name: Update
+                href: api-ref/grpc/Folder/update.md
+              - name: Delete
+                href: api-ref/grpc/Folder/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Folder/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Folder/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Folder/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Folder/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -90,46 +137,54 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cloud/index.md
-              - name: create
-                href: api-ref/Cloud/create.md
-              - name: delete
-                href: api-ref/Cloud/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Cloud/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cloud/list.md
-              - name: listAccessBindings
-                href: api-ref/Cloud/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Cloud/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Cloud/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Cloud/create.md
+              - name: Update
                 href: api-ref/Cloud/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Cloud/delete.md
+              - name: ListOperations
+                href: api-ref/Cloud/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Cloud/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cloud/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Cloud/updateAccessBindings.md
           - name: Folder
             items:
               - name: Overview
                 href: api-ref/Folder/index.md
-              - name: create
-                href: api-ref/Folder/create.md
-              - name: delete
-                href: api-ref/Folder/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Folder/get.md
-              - name: list
+              - name: List
                 href: api-ref/Folder/list.md
-              - name: listAccessBindings
-                href: api-ref/Folder/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Folder/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Folder/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Folder/create.md
+              - name: Update
                 href: api-ref/Folder/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Folder/delete.md
+              - name: ListOperations
+                href: api-ref/Folder/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Folder/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Folder/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
@@ -139,3 +194,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/resource-manager
+deepBase: 2

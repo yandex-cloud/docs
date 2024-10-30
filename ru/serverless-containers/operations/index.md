@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ serverless-containers-full-name }}"
-description: "Из статьи вы узнаете, как работать с управляемым сервисом {{ serverless-containers-full-name }} в {{ yandex-cloud }}."
+title: Инструкции по работе с {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете, как работать с управляемым сервисом {{ serverless-containers-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Все инструкции для {{ serverless-containers-name }}
@@ -44,6 +44,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
 * [Смонтировать бакеты](./mount-bucket.md)
+* [Смонтировать эфемерный диск](./mount-ephemeral-disk.md)
 * [Добавить метку](./label-add.md)
 * [Изменить метку](./label-update.md)
 * [Удалить метку](./label-delete.md)

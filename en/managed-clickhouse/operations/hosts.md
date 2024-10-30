@@ -34,7 +34,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
-   
+
    1. Specify the host parameters:
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
@@ -51,7 +51,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
    To create one or more hosts:
 
-   
+
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -86,7 +86,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       The command for creating a single host looks like this:
 
-      
+
       ```bash
       {{ yc-mdb-ch }} hosts add \
         --cluster-name=<cluster_name> \
@@ -104,7 +104,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       {{ mch-name }} will run the operation for creating hosts.
 
-      
+
       The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
@@ -187,7 +187,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/addHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -197,7 +197,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -239,7 +239,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#Operation11) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -355,7 +355,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/updateHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -365,7 +365,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -404,7 +404,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#Operation12) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -501,7 +501,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/deleteHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -511,7 +511,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -534,7 +534,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/cluster_service.md#Operation13) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

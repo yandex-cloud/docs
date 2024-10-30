@@ -1,6 +1,6 @@
 ---
-title: "{{ mgl-full-name }} pricing policy"
-description: "This article describes the {{ mgl-name }} pricing policy."
+title: '{{ mgl-full-name }} pricing policy'
+description: This article provides the {{ mgl-name }} pricing policy.
 editable: false
 ---
 
@@ -10,15 +10,17 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
-When running {{ mgl-name }}, you pay for:
+When using {{ mgl-name }}, you pay for:
 * Computing resources of your VM instance.
 * Data storage used by the instance.
 
 Other consumed resources to be additionally paid for:
 * The space used in {{ objstorage-full-name }} to store backups.
-* Egress traffic from {{ yandex-cloud }}.
+* Amount of outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 
@@ -58,7 +60,7 @@ Calculation for storage and backup cost:
 
 
 
-{% include [usd-managed-gitlab-storage](../_pricing_examples/managed-gitlab/usd-managed-gitlab-storage.md) %}
+  {% include [usd-managed-gitlab-storage](../_pricing_examples/managed-gitlab/usd-managed-gitlab-storage.md) %}
 
 
 Total instance cost calculation:
@@ -98,4 +100,4 @@ The price of computing resources depends on the selected [approval rule](concept
 
 ## Licenses {#license}
 
-By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (`Premium` or `Ultimate`), contact [support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.
+By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (`Premium` or `Ultimate`), contact [technical support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.

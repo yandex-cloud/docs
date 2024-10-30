@@ -12,9 +12,9 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. If necessary, specify the assignee and deadline for this checklist item.
 
-1. To add the item, click **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.button-submit }}**. If you want to cancel this action, click **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.button-cancel }}**.
+1. To add the item, click **Save**. If you want to cancel this action, click **Cancel**.
 
-1. To add another item, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}**.
+1. To add another item, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}**.
 
 ## Managing a checklist {#checklist-operations}
 
@@ -32,8 +32,8 @@ The checklist operations include:
 
 * To move an item up or down the list, click ![](../../_assets/tracker/svg/range.svg) and drag the item to the desired location in the list.
 
-* To hide or show all the items, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Header.header-title }}** at the top of the list.
+* To hide or show all the items, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Header.header-title }}** at the top of the list.
 
-* To add an item to the checklist, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
+* To add an item to the checklist, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** at the bottom of the list.
 
-* To delete the checklist, click ![](../../_assets/horizontal-ellipsis.svg) and select ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistActionsMenu.remove-title }}** at the top of the list.
+* To delete the checklist, click ![](../../_assets/horizontal-ellipsis.svg) and select ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu.remove-title }}** at the top of the list.

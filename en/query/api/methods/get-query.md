@@ -4,7 +4,7 @@ The method returns information about a query, including query metada, its execut
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Query {#request}
+## Request {#request}
 
 `GET` request to `/queries/{query_id}?project={folder_id}`, where `{folder_id}` is the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID and `{query_id}` is the query ID.
 
@@ -57,27 +57,28 @@ If successful, an HTTP response with code 200 and query information is returned.
 }
 ```
 
-| Field | Description |
-| ----- | ----- |
-| `name` | Query name. |
-| `type` | Query type: `STREAMING` or `ANALYTICS`. |
-| `text` | Query text. |
-| `description` | Query description. |
-| `meta.started_at` | Query execution start time. |
-| `meta.finished_at` | Query execution end time. |
-| `issues` | If there are execution errors, contains an object named [`Issue`](../index.md#issue). |
-| `result_sets` | Array of query execution results. |
-| `result_sets[].rows` | Number of rows with query execution results. |
-| `result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated. |
+Field | Description
+--- | ---
+`name` | Query name.
+`type` | Query type: `STREAMING` and `ANALYTICS`.
+`text` | Query text.
+`description` | Query description.
+`meta.started_at` | Query execution start time.
+`meta.finished_at` | Query execution end time.
+`issues` | If there are execution errors, contains an [`Issue`](../index.md#issue) object.
+`result_sets` | Array of query execution results.
+`result_sets[].rows` | Number of rows with query execution results.
+`result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated.
 
 ## Example {#example}
 
-Query:
+Request:
 
 ```json
-curl -X 'GET' \
+curl \
+  --request 'GET' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********?project=b1gaue5b382m********' \
-  -H 'accept: application/json'
+  --header 'accept: application/json'
 ```
 
 Response:

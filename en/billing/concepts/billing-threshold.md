@@ -1,6 +1,6 @@
 ---
-title: "Billing threshold in {{ billing-name }}"
-description: "A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}."
+title: Billing threshold in {{ billing-name }}
+description: A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}.
 ---
 
 # Billing threshold
@@ -18,8 +18,6 @@ The billing threshold amount and the total arrears when you are blocked may be d
 {% endnote %}
 
 The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
-
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
 
 ## Billing threshold amount {#amount}
 

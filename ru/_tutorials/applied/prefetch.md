@@ -111,7 +111,7 @@
 
      Пример структуры конфигурационного файла:
 
-     
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth-токен>"
@@ -454,7 +454,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../../cdn/api-ref/Resource/create.md). Чтобы включить [кеширование](../../cdn/concepts/caching.md) на CDN-серверах, добавьте в тело запроса поле `edge_cache_settings`.
+  Используйте вызов gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) или метод REST API [create](../../cdn/api-ref/Resource/create.md). Чтобы включить [кеширование](../../cdn/concepts/caching.md) на CDN-серверах, добавьте в тело запроса поле `edge_cache_settings`.
 
 {% endlist %}
 
@@ -562,8 +562,8 @@
 
    - API {#api}
 
-     1. Если у вас нет публичной зоны DNS, создайте ее с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md). Чтобы сделать зону публичной, добавьте в тело запроса поле `public_visibility` (gRPC) или `publicVisibility` (REST).
-     1. Создайте в зоне [запись](../../dns/concepts/resource-record.md) `cdn CNAME cl-********.edgecdn.ru.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Если у вас нет публичной зоны DNS, создайте ее с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) или метода REST API [create](../../dns/api-ref/DnsZone/create.md). Чтобы сделать зону публичной, добавьте в тело запроса поле `public_visibility` (gRPC) или `publicVisibility` (REST).
+     1. Создайте в зоне [запись](../../dns/concepts/resource-record.md) `cdn CNAME cl-********.edgecdn.ru.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
 
    {% endlist %}
 
@@ -604,7 +604,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/cache_service.md#Prefetch) или метод REST API [prefetch](../../cdn/api-ref/Cache/prefetch.md).
+  Используйте вызов gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/Cache/prefetch.md) или метод REST API [prefetch](../../cdn/api-ref/Cache/prefetch.md).
 
 {% endlist %}
 

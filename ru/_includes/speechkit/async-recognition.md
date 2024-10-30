@@ -1,411 +1,105 @@
 1. [Получите ссылку на аудиофайл](../../storage/operations/objects/link-for-download.md) в {{ objstorage-name }}.
 1. Создайте файл `body.json` и добавьте в него код:
 
-   {% list tabs %}
-
-   - API v3
-
-      ```json
-      {
-        "uri": "https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>",
-        "recognition_model": {
-          "model": "general",
-          "audio_format": {
-            "container_audio": {
-              "container_audio_type": "WAV"
-            }
-          }
-        }
-      }
-      ```
-
-      Где:
-
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.wav`.
-
-         Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
-
-      * `model` — [модель распознавания речи](../../speechkit/stt/models.md#tags).
-      * `container_audio_type` — тип аудиоконтейнера.
-
-   - API v2
-
-      ```json
-      {
-         "config": {
-            "specification": {
-               "languageCode": "ru-RU",
-               "model": "general",
-               "audioEncoding": "LINEAR16_PCM",
-               "sampleRateHertz": 8000,
-               "audioChannelCount": 1
-            }
-         },
-         "audio": {
-            "uri": "<ссылка_на_аудиофайл>"
+   ```json
+   {
+      "config": {
+         "specification": {
+            "languageCode": "ru-RU",
+            "model": "general",
+            "audioEncoding": "LINEAR16_PCM",
+            "sampleRateHertz": 8000,
+            "audioChannelCount": 1
          }
+      },
+      "audio": {
+         "uri": "<ссылка_на_аудиофайл>"
       }
-      ```
+   }
+   ```
 
-      Где:
+   Где:
 
-      * `languageCode` — [язык](../../speechkit/stt/models.md#languages), для которого будет выполнено распознавание.
-      * `model` — [модель распознавания речи](../../speechkit/stt/models.md#tags).
-      * `audioEncoding` — [формат](../../speechkit/formats.md) передаваемого аудиофайла.
-      * `sampleRateHertz` — частота дискретизации аудиофайла в Гц.
-      * `audioChannelCount` — количество аудиоканалов.
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.pcm`.
+   * `languageCode` — [язык](../../speechkit/stt/models.md#languages), для которого будет выполнено распознавание.
+   * `model` — [модель распознавания речи](../../speechkit/stt/models.md#tags).
+   * `audioEncoding` — [формат](../../speechkit/formats.md) передаваемого аудиофайла.
+   * `sampleRateHertz` — частота дискретизации аудиофайла в Гц.
+   * `audioChannelCount` — количество аудиоканалов.
+   * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.pcm`.
 
-         Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
-
-   {% endlist %}
+      Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 
 1. Выполните созданный файл:
 
-   {% list tabs %}
+   ```bash
+   export API_KEY=<API-ключ_сервисного_аккаунта> && \
+   curl \
+     --insecure \
+     --header "Authorization: Api-Key ${API_KEY}" \
+     --data "@body.json"\
+     https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   ```
 
-   - API v3
+   Пример результата:
 
-      ```bash
-      export API_KEY=<API-ключ_сервисного_аккаунта> && \
-      curl -k \
-           -H "Authorization: Api-Key ${API_KEY}" \
-           -d "@body.json"\
-           https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
-      ```
-
-      Пример результата:
-
-      ```text
-      {
-         "id":"f8ddr61b30fk********",
-         "description":"STT v3 async recognition",
-         "createdAt":"2024-07-15T07:39:36Z",
-         "createdBy":"ajehumcuv38h********",
-         "modifiedAt":"2024-07-15T07:39:36Z",
-         "done":false,
-         "metadata":null
-      }
-      ```
-
-   - API v2
-
-      ```bash
-      export API_KEY=<API-ключ_сервисного_аккаунта> && \
-      curl -k \
-           -H "Authorization: Api-Key ${API_KEY}" \
-           -d "@body.json"\
-           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
-      ```
-
-      Пример результата:
-
-      ```text
-      {
-         "done": false,
-         "id": "e03sup6d5h1q********",
-         "createdAt": "2019-04-21T22:49:29Z",
-         "createdBy": "ajes08feato8********",
-         "modifiedAt": "2019-04-21T22:49:29Z"
-      }
-      ```
-
-   {% endlist %}
+   ```text
+   {
+      "done": false,
+      "id": "e03sup6d5h1q********",
+      "createdAt": "2019-04-21T22:49:29Z",
+      "createdBy": "ajes08feato8********",
+      "modifiedAt": "2019-04-21T22:49:29Z"
+   }
+   ```
 
    Сохраните идентификатор (`id`) операции распознавания, полученный в ответе.
 
 1. Подождите, пока закончится распознавание. Одна минута одноканального аудио распознается примерно за 10 секунд.
 1. Отправьте запрос на [получение информации об операции](../../api-design-guide/concepts/operation.md#monitoring):
 
-   {% list tabs %}
+   ```bash
+   curl \
+     --insecure \
+     --header "Authorization: Api-key ${API_KEY}" \
+     https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+   ```
 
-   * API v3
+   Пример результата:
 
-      ```bash
-      curl -k -H "Authorization: Api-key ${API_KEY}" \
-           https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
-      ```
-
-      {% cut "Пример результата" %}
-
-      ```text
-      {
-         "result": {
-            "sessionUuid": {
-               "uuid": "24935f24-2c1f62dc-8dd49006-********",
-               "userRequestId": "f8d2h7m07t4i********"
-            },
-            "audioCursors": {
-               "receivedDataMs": "7400",
-               "resetTimeMs": "0",
-               "partialTimeMs": "7400",
-               "finalTimeMs": "7400",
-               "finalIndex": "0",
-               "eouTimeMs": "0"
-            },
-            "responseWallTimeMs": "189",
-            "final": {
+   ```text
+   {
+      "done": true,
+      "response": {
+         "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
+         "chunks": [
+            {
                "alternatives": [
                   {
                      "words": [
                         {
-                           "text": "я",
-                           "startTimeMs": "459",
-                           "endTimeMs": "520"
+                           "startTime": "0.160s",
+                           "endTime": "0.500s",
+                           "word": "привет",
+                           "confidence": 1
                         },
                         {
-                           "text": "яндекс",
-                           "startTimeMs": "640",
-                           "endTimeMs": "1060"
-                        },
-                        {
-                           "text": "спичкит",
-                           "startTimeMs": "1120",
-                           "endTimeMs": "1959"
-                        },
-                        {
-                           "text": "я",
-                           "startTimeMs": "2480",
-                           "endTimeMs": "2520"
-                        },
-                        {
-                           "text": "могу",
-                           "startTimeMs": "2580",
-                           "endTimeMs": "2800"
-                        },
-                        {
-                           "text": "превратить",
-                           "startTimeMs": "2860",
-                           "endTimeMs": "3360"
-                        },
-                        {
-                           "text": "любой",
-                           "startTimeMs": "3439",
-                           "endTimeMs": "3709"
-                        },
-                        {
-                           "text": "текст",
-                           "startTimeMs": "3800",
-                           "endTimeMs": "4140"
-                        },
-                        {
-                           "text": "в",
-                           "startTimeMs": "4200",
-                           "endTimeMs": "4220"
-                        },
-                        {
-                           "text": "речь",
-                           "startTimeMs": "4279",
-                           "endTimeMs": "4740"
-                        },
-                        {
-                           "text": "теперь",
-                           "startTimeMs": "5140",
-                           "endTimeMs": "5759"
-                        },
-                        {
-                           "text": "и",
-                           "startTimeMs": "5859",
-                           "endTimeMs": "5900"
-                        },
-                        {
-                           "text": "вы",
-                           "startTimeMs": "5980",
-                           "endTimeMs": "6399"
-                        },
-                        {
-                           "text": "можете",
-                           "startTimeMs": "6660",
-                           "endTimeMs": "7180"
+                           "startTime": "0.580s",
+                           "endTime": "0.800s",
+                           "word": "мир",
+                           "confidence": 1
                         }
                      ],
-                     "text": "я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
-                     "startTimeMs": "0",
-                     "endTimeMs": "7400",
-                     "confidence": 0,
-                     "languages": []
+                     "text": "Привет мир",
+                     "confidence": 1
                   }
                ],
-               "channelTag": "0"
-            },
-            "channelTag": "0"
-         }
-      }
-      {
-         "result": {
-            "sessionUuid": {
-               "uuid": "24935f24-2c1f62dc-8dd49006-********",
-               "userRequestId": "f8d2h7m07t4i********"
-            },
-            "audioCursors": {
-               "receivedDataMs": "7400",
-               "resetTimeMs": "0",
-               "partialTimeMs": "7400",
-               "finalTimeMs": "7400",
-               "finalIndex": "0",
-               "eouTimeMs": "0"
-            },
-            "responseWallTimeMs": "189",
-            "finalRefinement": {
-               "finalIndex": "0",
-               "normalizedText": {
-                  "alternatives": [
-                     {
-                        "words": [
-                           {
-                              "text": "я",
-                              "startTimeMs": "459",
-                              "endTimeMs": "520"
-                           },
-                           {
-                              "text": "яндекс",
-                              "startTimeMs": "640",
-                              "endTimeMs": "1060"
-                           },
-                           {
-                              "text": "спичкит",
-                              "startTimeMs": "1120",
-                              "endTimeMs": "1959"
-                           },
-                           {
-                              "text": "я",
-                              "startTimeMs": "2480",
-                              "endTimeMs": "2520"
-                           },
-                           {
-                              "text": "могу",
-                              "startTimeMs": "2580",
-                              "endTimeMs": "2800"
-                           },
-                           {
-                              "text": "превратить",
-                              "startTimeMs": "2860",
-                              "endTimeMs": "3360"
-                           },
-                           {
-                              "text": "любой",
-                              "startTimeMs": "3439",
-                              "endTimeMs": "3709"
-                           },
-                           {
-                              "text": "текст",
-                              "startTimeMs": "3800",
-                              "endTimeMs": "4140"
-                           },
-                           {
-                              "text": "в",
-                              "startTimeMs": "4200",
-                              "endTimeMs": "4220"
-                           },
-                           {
-                              "text": "речь",
-                              "startTimeMs": "4279",
-                              "endTimeMs": "4740"
-                           },
-                           {
-                              "text": "теперь",
-                              "startTimeMs": "5140",
-                              "endTimeMs": "5759"
-                           },
-                           {
-                              "text": "и",
-                              "startTimeMs": "5859",
-                              "endTimeMs": "5900"
-                           },
-                           {
-                              "text": "вы",
-                              "startTimeMs": "5980",
-                              "endTimeMs": "6399"
-                           },
-                           {
-                              "text": "можете",
-                              "startTimeMs": "6660",
-                              "endTimeMs": "7180"
-                           }
-                        ],
-                        "text": "Я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
-                        "startTimeMs": "0",
-                        "endTimeMs": "7400",
-                        "confidence": 0,
-                        "languages": []
-                     }
-                  ],
-                  "channelTag": "0"
-               }
-            },
-            "channelTag": "0"
-         }
-      }
-      {
-         "result": {
-            "sessionUuid": {
-               "uuid": "24935f24-2c1f62dc-8dd49006-********",
-               "userRequestId": "f8d2h7m07t4i********"
-            },
-            "audioCursors": {
-               "receivedDataMs": "7400",
-               "resetTimeMs": "0",
-               "partialTimeMs": "7400",
-               "finalTimeMs": "7400",
-               "finalIndex": "0",
-               "eouTimeMs": "7400"
-            },
-            "responseWallTimeMs": "190",
-            "eouUpdate": {
-               "timeMs": "7400"
-            },
-            "channelTag": "0"
-         }
-      }
-      ```
-
-      {% endcut %}
-
-   * API v2
-
-      ```bash
-      curl -k -H "Authorization: Api-key ${API_KEY}" \
-         https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
-      ```
-
-      Пример результата:
-
-      ```text
-      {
-         "done": true,
-         "response": {
-            "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
-            "chunks": [
-               {
-                  "alternatives": [
-                     {
-                        "words": [
-                           {
-                              "startTime": "0.160s",
-                              "endTime": "0.500s",
-                              "word": "привет",
-                              "confidence": 1
-                           },
-                           {
-                              "startTime": "0.580s",
-                              "endTime": "0.800s",
-                              "word": "мир",
-                              "confidence": 1
-                           }
-                        ],
-                        "text": "Привет мир",
-                        "confidence": 1
-                     }
-                  ],
-                  "channelTag": "1"
-               }
-            ]
-         },
-         "id": "e03jjenu23uc********",
-         "createdAt": "2024-08-22T11:39:22Z",
-         "createdBy": "aje3bg430agh********",
-         "modifiedAt": "2024-08-22T11:39:23Z"
-      }
-      ```
-
-   {% endlist %}
+               "channelTag": "1"
+            }
+         ]
+      },
+      "id": "e03jjenu23uc********",
+      "createdAt": "2024-08-22T11:39:22Z",
+      "createdBy": "aje3bg430agh********",
+      "modifiedAt": "2024-08-22T11:39:23Z"
+   }
+   ```

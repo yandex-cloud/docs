@@ -185,7 +185,7 @@
 
     ```bash
     kubectl exec "$(kubectl get pod -l app=recommender -n todoapp -o jsonpath='{.items[0].metadata.name}')" -n todoapp \
-       -- curl -sS todoapp:80 | grep -o "<title>.*</title>"
+       -- curl --silent --show-error todoapp:80 | grep -o "<title>.*</title>"
     ```
 
     Результат:
@@ -415,7 +415,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
        --restart=Never curl \
        --image=curlimages/curl \
        --command \
-       -- sh -c 'curl -k http://todoapp.todoapp.svc.cluster.local'
+       -- sh -c 'curl --insecure http://todoapp.todoapp.svc.cluster.local'
     ```
 
     Результат:
@@ -449,7 +449,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
        --restart=Never curl \
        --image=curlimages/curl \
        --command \
-       -- sh -c 'curl -k http://todoapp.todoapp.svc.cluster.local'
+       -- sh -c 'curl --insecure http://todoapp.todoapp.svc.cluster.local'
     ```
 
     Результат:

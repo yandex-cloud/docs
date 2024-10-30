@@ -1,6 +1,6 @@
 ---
-title: "Updating basic WAF profile settings"
-description: "Follow this guide to update basic WAF profile settings."
+title: Updating basic WAF profile settings
+description: Follow this guide to update basic WAF profile settings.
 ---
 
 # Updating basic WAF profile settings

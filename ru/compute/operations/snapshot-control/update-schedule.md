@@ -1,6 +1,6 @@
 ---
-title: "Как изменить расписание, по которому создаются снимки дисков {{ compute-full-name }}"
-description: "Из статьи вы узнаете, как изменить расписание, по которому создаются снимки дисков {{ compute-name }}."
+title: Как изменить расписание, по которому создаются снимки дисков {{ compute-full-name }}
+description: Из статьи вы узнаете, как изменить расписание, по которому создаются снимки дисков {{ compute-name }}.
 ---
 
 # Изменить расписание, по которому создаются снимки дисков
@@ -149,11 +149,11 @@ description: "Из статьи вы узнаете, как изменить р�
 
 - API {#api}
 
-  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-  1. Измените расписание снимков [диска](../../concepts/disk.md) с помощью метода REST API [update](../../api-ref/SnapshotSchedule/update.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Update](../../api-ref/grpc/snapshot_schedule_service.md#Update).
+  1. Измените расписание снимков [диска](../../concepts/disk.md) с помощью метода REST API [update](../../api-ref/SnapshotSchedule/update.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Update](../../api-ref/grpc/SnapshotSchedule/update.md).
 
 {% endlist %}
 
@@ -313,9 +313,9 @@ description: "Из статьи вы узнаете, как изменить р�
 
 - API {#api}
 
-  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
-  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
-  1. Измените список дисков в расписании с помощью метода REST API [updateDisks](../../api-ref/SnapshotSchedule/updateDisks.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/UpdateDisks](../../api-ref/grpc/snapshot_schedule_service.md#UpdateDisks).
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md).
+  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
+  1. Измените список дисков в расписании с помощью метода REST API [updateDisks](../../api-ref/SnapshotSchedule/updateDisks.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/UpdateDisks](../../api-ref/grpc/SnapshotSchedule/updateDisks.md).
 
 {% endlist %}
 

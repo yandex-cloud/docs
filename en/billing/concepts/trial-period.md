@@ -1,6 +1,6 @@
 ---
-title: "Trial period for new customers"
-description: "The trial period is a one-time introductory offer for legal entities. You can use the trial period if you have never purchased {{ yandex-cloud }} services or activated the trial period before."
+title: Trial period for new customers
+description: The trial period is a one-time introductory offer for legal entities. You can use the trial period if you have never purchased {{ yandex-cloud }} services or activated the trial period before.
 ---
 
 # Trial period for new customers

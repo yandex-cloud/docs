@@ -8,45 +8,45 @@ To push an image, you need to [configure](../configure-docker.md) Docker and [ge
 
 {% endnote %}
 
-To push a Docker image to the registry, you need the `container-registry.images.pusher` [role](../../security/index.md#container-registry-images-pusher) or higher.
+To push a Docker image to the registry, you need the `container-registry.images.pusher`[role](../../security/index.md#container-registry-images-pusher) or higher.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. View the list of available [Docker images](../../concepts/docker-image.md):
+  1. View the list of available [Docker images](../../concepts/docker-image.md):
 
-      ```
-      docker image list
-      ```
+     ```bash
+     docker image list
+     ```
 
-      Result:
+     Result:
 
-      ```
-      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-      {{ registry }}/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
-      ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
-      ```
+     ```text
+     REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
+     {{ registry }}/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
+     ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
+     ```
 
-   1. (Optional) Assign to the Docker image a URL in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format:
+  1. (Optional) Assign to the Docker image a URL in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`:
 
-      ```
-      docker tag ubuntu \
-      {{ registry }}/<registry_ID>/ubuntu:hello
-      ```
+     ```bash
+     docker tag ubuntu \
+     {{ registry }}/<registry_ID>/ubuntu:hello
+     ```
 
-      {% note info %}
+     {% note info %}
 
-      You can only push Docker images to {{ container-registry-name }} if they have a URL in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format.
+     You can only push Docker images to {{ container-registry-name }} if they have a URL in this format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. Push the required Docker image to the registry:
+  1. Push the required Docker image to the registry:
 
-      ```
-      docker push {{ registry }}/<registry_ID>/ubuntu:hello
-      ```
+     ```bash
+     docker push {{ registry }}/<registry_ID>/ubuntu:hello
+     ```
 
-   1. Make sure the image has been pushed to the registry by [getting a list of docker images in the registry](docker-image-list.md#docker-image-list).
+  1. Make sure the image has been pushed to the registry by [getting a list of docker images in the registry](docker-image-list.md#docker-image-list).
 
 {% endlist %}

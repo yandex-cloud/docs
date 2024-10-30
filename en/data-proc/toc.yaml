@@ -1,10 +1,5 @@
 title: Yandex Data Proc
 href: index.yaml
-label:
-  title: RU
-  description: The service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -63,15 +58,7 @@ items:
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
       - name: '{{ metastore-name }} clusters'
-        items:
-          - name: Creating a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-create.md
-          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
-          - name: Exporting and importing a {{ metastore-name }} cluster
-            href: operations/metastore/export-and-import.md
-          - name: Deleting a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-delete.md
+        href: operations/metastore/cluster-create.md
       - name: Logs and monitoring
         items:
           - name: Working with logs
@@ -90,6 +77,16 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Network settings and cluster maintenance
+        items:
+          - name: Configuring a network for {{ dataproc-name }}
+            href: tutorials/configure-network.md
+          - name: Migrating an HDFS cluster to a different availability zone
+            href: tutorials/hdfs-cluster-migration.md
+          - name: >-
+              Reconfiguring a network connection when recreating a {{
+              dataproc-name }} cluster
+            href: tutorials/reconnect-network.md
       - name: Working with jobs
         items:
           - name: Overview
@@ -108,42 +105,40 @@ items:
             href: tutorials/run-spark-job.md
           - name: Running jobs from a remote host
             href: tutorials/remote-run-job.md
-      - name: Configuring networks for {{ dataproc-name }}
-        href: tutorials/configure-network.md
-      - name: Migrating an HDFS cluster to a different availability zone
-        href: tutorials/hdfs-cluster-migration.md
-      - name: >-
-          Reconfiguring a network connection when recreating a {{ dataproc-name
-          }} cluster
-        href: tutorials/reconnect-network.md
-      - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: Exchanging data with {{ mch-full-name }}
-        href: tutorials/exchange-data-with-mch.md
-      - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          Using initialization scripts to configure GeeseFS in {{ dataproc-name
-          }}
-        href: tutorials/geesefs-init-actions.md
-      - name: Integration with {{ ml-platform-full-name }}
-        href: tutorials/datasphere-integration.md
-      - name: Working with {{ KF }} topics using PySpark jobs
-        href: tutorials/kafka.md
-      - name: >-
-          Importing data from {{ objstorage-full-name }}, processing and
-          exporting it to {{ mch-full-name }}
-        href: tutorials/s3-dataproc-ch.md
-      - name: Automating operations using {{ maf-name }}
-        href: tutorials/airflow-automation.md
-      - name: Shared use of tables through {{ metastore-name }}
-        href: tutorials/dataproc-to-dataproc.md
-      - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
+      - name: Integrating {{ dataproc-name }} with other services
+        items:
+          - name: '{{ objstorage-name }}'
+            items:
+              - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+                href: tutorials/copy-files-from-object-storage.md
+              - name: >-
+                  Importing data from {{ objstorage-name }}, processing and
+                  exporting to {{ mch-name }}
+                href: tutorials/s3-dataproc-ch.md
+              - name: >-
+                  Mounting buckets to the file system of {{ dataproc-name }}
+                  hosts
+                href: tutorials/geesefs-init-actions.md
+          - name: '{{ metastore-full-name }}'
+            items:
+              - name: Shared use of tables through {{ metastore-name }}
+                href: tutorials/dataproc-to-dataproc.md
+              - name: >-
+                  Transferring metadata between {{ dataproc-name }} clusters
+                  using {{ metastore-name }}
+                href: tutorials/metastore-import.md
+          - name: Exchanging data with {{ mch-name }}
+            href: tutorials/exchange-data-with-mch.md
+          - name: Importing data from a {{ mmy-name }} cluster using Sqoop
+            href: tutorials/sqoop-mmy.md
+          - name: Importing data from a {{ mpg-name }} cluster using Sqoop
+            href: tutorials/sqoop-mpg.md
+          - name: Integration with {{ ml-platform-name }}
+            href: tutorials/datasphere-integration.md
+          - name: Working with {{ KF }} topics using PySpark jobs
+            href: tutorials/kafka.md
+          - name: Automating operations using {{ maf-name }}
+            href: tutorials/airflow-automation.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -204,16 +199,74 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: JobService
-            href: api-ref/grpc/job_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: SubclusterService
-            href: api-ref/grpc/subcluster_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/grpc/Cluster/listHosts.md
+              - name: ListUILinks
+                href: api-ref/grpc/Cluster/listUILinks.md
+          - name: Job
+            items:
+              - name: Overview
+                href: api-ref/grpc/Job/index.md
+              - name: List
+                href: api-ref/grpc/Job/list.md
+              - name: Create
+                href: api-ref/grpc/Job/create.md
+              - name: Get
+                href: api-ref/grpc/Job/get.md
+              - name: ListLog
+                href: api-ref/grpc/Job/listLog.md
+              - name: Cancel
+                href: api-ref/grpc/Job/cancel.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
+          - name: Subcluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Subcluster/index.md
+              - name: Get
+                href: api-ref/grpc/Subcluster/get.md
+              - name: List
+                href: api-ref/grpc/Subcluster/list.md
+              - name: Create
+                href: api-ref/grpc/Subcluster/create.md
+              - name: Update
+                href: api-ref/grpc/Subcluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Subcluster/delete.md
       - name: REST
         items:
           - name: Overview
@@ -222,62 +275,70 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listHosts
-                href: api-ref/Cluster/listHosts.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: listUILinks
-                href: api-ref/Cluster/listUILinks.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: ListUILinks
+                href: api-ref/Cluster/listUILinks.md
           - name: Job
             items:
               - name: Overview
                 href: api-ref/Job/index.md
-              - name: cancel
-                href: api-ref/Job/cancel.md
-              - name: create
-                href: api-ref/Job/create.md
-              - name: get
-                href: api-ref/Job/get.md
-              - name: list
+              - name: List
                 href: api-ref/Job/list.md
-              - name: listLog
+              - name: Create
+                href: api-ref/Job/create.md
+              - name: Get
+                href: api-ref/Job/get.md
+              - name: ListLog
                 href: api-ref/Job/listLog.md
+              - name: Cancel
+                href: api-ref/Job/cancel.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: ResourcePreset
             items:
               - name: Overview
                 href: api-ref/ResourcePreset/index.md
-              - name: get
+              - name: Get
                 href: api-ref/ResourcePreset/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourcePreset/list.md
           - name: Subcluster
             items:
               - name: Overview
                 href: api-ref/Subcluster/index.md
-              - name: create
-                href: api-ref/Subcluster/create.md
-              - name: delete
-                href: api-ref/Subcluster/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Subcluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Subcluster/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Subcluster/create.md
+              - name: Update
                 href: api-ref/Subcluster/update.md
+              - name: Delete
+                href: api-ref/Subcluster/delete.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -293,3 +354,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/data-proc
+deepBase: 2

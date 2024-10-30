@@ -4,21 +4,23 @@ At the build stage, {{ sf-name }} automatically installs dependencies required f
 
 {% note info %}
 
-The `ycf` build tag is set for the build.
+The build gets the `ycf` build tag.
 
 {% endnote %}
 
-{{ sf-name }} supports two ways to automatically manage dependencies: using modules and the `dep` utility.
+{{ sf-name }} supports two automatic dependency management methods for this purpose: modules and the `dep` utility.
 
 ### mod
 
-[Modules](https://github.com/golang/go/wiki/Modules) are built-in dependency management mechanisms for the `Go` language. This is the main and recommended way to manage dependencies in {{ sf-name }}.
+[Modules](https://github.com/golang/go/wiki/Modules) are a built-in dependency management mechanism for the `Go` language. They represent the main and recommended dependency management method for {{ sf-name }}.
 
-To install dependencies using modules, import the `go.mod` file together with the function source code. This installs the latest versions of the packages specified in this file. To specify the versions explicitly, you should also import the `go.sum` file.
+To deliver dependencies using modules, upload the `go.mod` file together with the function source code. This will install the latest versions of the packages specified in this file. To specify the versions explicitly, also upload the `go.sum` file.
 
 {% note warning %}
 
 Make sure the module name in the `go.mod` file is not `main`.
+
+{% include [move-groups-api](../../../_includes/functions/go-mod-lang-version-notice.md) %}
 
 {% endnote %}
 
@@ -30,13 +32,13 @@ This method of managing dependencies is obsolete and deprecated for version 1.16
 
 {% endnote %}
 
-[Dep](https://golang.github.io/dep/docs/introduction.html) is a system for managing dependencies in `Go`.
+[Dep](https://golang.github.io/dep/docs/introduction.html) is a dependency management system for `Go`.
 
-To install dependencies using the `dep` utility, import the `Gopkg.toml` and `Gopkg.lock` files together with the function source code. In this case, the `dep ensure` command is run just before the code is built.
+To deliver dependencies using `dep`, upload the `Gopkg.toml` and `Gopkg.lock` files together with the function source code. In which case the `dep ensure` command will be invoked just ahead of building the code.
 
 {% note info %}
 
-If you have both the `go.mod` and `Gopkg.toml` files, builder performance isn't guaranteed. **We don't recommend** using these two files at the same time.
+If you have both `go.mod` and `Gopkg.toml` among the files, builder performance is not guaranteed. **We do not recommend** using these two files at the same time.
 
 {% endnote %}
 

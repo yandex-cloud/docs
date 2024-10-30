@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ kms-full-name }}"
-description: "Access management in {{ kms-full-name }}, an encryption key management system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ kms-full-name }}
+description: Access management in {{ kms-full-name }}, an encryption key management system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ kms-name }}

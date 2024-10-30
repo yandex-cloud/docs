@@ -1,6 +1,6 @@
 ---
-title: "Payments in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn which users will be billed for {{ tracker-name }} and how to use its paid features."
+title: Payments in {{ tracker-full-name }}
+description: In this tutorial, you will learn which users will be billed for {{ tracker-name }} and how to use its paid features.
 ---
 
 # Payments in {{ tracker-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по управлению сертификатами брокера в {{ iot-full-name }}"
-description: "Из статьи вы узнаете, как получить список сертификатов брокера, добавить или удалить сертификат брокера в {{ iot-full-name }}."
+title: Инструкция по управлению сертификатами брокера в {{ iot-full-name }}
+description: Из статьи вы узнаете, как получить список сертификатов брокера, добавить или удалить сертификат брокера в {{ iot-full-name }}.
 ---
 
 # Управление сертификатами брокера
@@ -142,7 +142,7 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API {#api}
 
-  Чтобы добавить сертификат брокеру, воспользуйтесь методом REST API [addCertificate](../../broker/api-ref/Broker/addCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate).
+  Чтобы добавить сертификат брокеру, воспользуйтесь методом REST API [addCertificate](../../broker/api-ref/Broker/addCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddCertificate](../../broker/api-ref/grpc/Broker/addCertificate.md).
 
 {% endlist %}
 
@@ -249,6 +249,6 @@ description: "Из статьи вы узнаете, как получить с�
 
 - API {#api}
 
-  Чтобы удалить сертификат брокера, воспользуйтесь методом REST API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate).
+  Чтобы удалить сертификат брокера, воспользуйтесь методом REST API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/Broker/deleteCertificate.md).
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a {{ sws-full-name }} security profile"
-description: "Follow this guide to delete a {{ sws-full-name }} security profile."
+title: How to delete a {{ sws-full-name }} security profile
+description: Follow this guide to delete a {{ sws-full-name }} security profile.
 ---
 
 # Deleting a security profile
@@ -52,6 +52,6 @@ description: "Follow this guide to delete a {{ sws-full-name }} security profile
 
 - API {#api}
 
-   Use the [delete](../api-ref/SecurityProfile/delete.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Delete](../api-ref/grpc/security_profile_service.md#Delete) gRPC API call.
+   Use the [delete](../api-ref/SecurityProfile/delete.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Delete](../api-ref/grpc/SecurityProfile/delete.md) gRPC API call.
 
 {% endlist %}

@@ -1,10 +1,5 @@
 title: Yandex DataLens
 href: index.yaml
-label:
-  title: Coming soon
-  description: The service will soon be available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -72,7 +67,7 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
-          - name: 'Yandex Music podcasts: statistics'
+          - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
             href: tutorials/data-from-yandex-query-visualization.md
@@ -80,6 +75,10 @@ items:
             href: tutorials/data-from-monitoring-visualization.md
           - name: Visualizing {{ ytsaurus-name }} CHYT data
             href: tutorials/data-from-ch-over-yt.md
+          - name: >-
+              Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
+              and analyzing them with {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
       - name: Functional
         items:
           - name: Using parameters
@@ -153,35 +152,17 @@ items:
   - name: Datasets
     items:
       - name: Overview
-        href: concepts/dataset/index.md
+        href: dataset/index.md
+      - name: Working with datasets
+        href: dataset/create-dataset.md
       - name: Data model
-        href: concepts/dataset/data-model.md
+        href: dataset/data-model.md
+      - name: Dataset settings
+        href: dataset/settings.md
       - name: Data types
-        href: concepts/data-types.md
+        href: dataset/data-types.md
       - name: Data type mapping
         href: dataset/types-lookup-table.md
-      - name: Dataset settings
-        href: concepts/dataset/settings.md
-      - name: Step-by-step guides
-        items:
-          - name: Creating a dataset
-            href: operations/dataset/create.md
-          - name: Combining data from multiple tables
-            href: operations/dataset/join-data.md
-          - name: Creating a data field
-            href: operations/dataset/create-field.md
-          - name: Creating a calculated data field
-            href: operations/dataset/create-calculated-field.md
-          - name: Creating a default filter for new charts
-            href: operations/dataset/create-filter.md
-          - name: Replacing a connection in a dataset
-            href: operations/dataset/replace-connection.md
-          - name: Updating fields in datasets
-            href: operations/dataset/update-field.md
-          - name: Describing a dataset via a source SQL query
-            href: operations/dataset/add-data.md
-          - name: Adding parameters to a dataset
-            href: operations/dataset/add-parameter-dataset.md
   - name: Calculated fields
     items:
       - name: Overview
@@ -740,7 +721,7 @@ items:
         href: dashboard/markdown.md
       - name: Step-by-step guides
         items:
-          - name: Creating dashboards
+          - name: Creating a dashboard
             href: operations/dashboard/create.md
           - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
@@ -772,6 +753,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
+  - name: Reports
+    items:
+      - name: Overview
+        href: reports/index.md
+      - name: Working with reports
+        href: reports/report-operations.md
   - name: Access management
     items:
       - name: Overview
@@ -810,6 +797,8 @@ items:
     items:
       - name: UI customization
         href: settings/ui-customization.md
+      - name: Disabling folder navigation
+        href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
       - name: Overview
@@ -832,20 +821,24 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: July 2024
+      - name: August 2024
         href: release-notes/index.md
-      - name: June 2024
-        href: release-notes/2406.md
-      - name: May 2024
-        href: release-notes/2405.md
-      - name: April 2024
-        href: release-notes/2404.md
-      - name: March 2024
-        href: release-notes/2403.md
-      - name: February 2024
-        href: release-notes/2402.md
-      - name: January 2024
-        href: release-notes/2401.md
+      - name: Archive
+        items:
+          - name: July 2024
+            href: release-notes/2407.md
+          - name: June 2024
+            href: release-notes/2406.md
+          - name: May 2024
+            href: release-notes/2405.md
+          - name: April 2024
+            href: release-notes/2404.md
+          - name: March 2024
+            href: release-notes/2403.md
+          - name: February 2024
+            href: release-notes/2402.md
+          - name: January 2024
+            href: release-notes/2401.md
   - name: Troubleshooting
     items:
       - name: Optimization best practices
@@ -1034,6 +1027,9 @@ items:
       - name: Failed to create <object_type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Invalid file format
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
       - name: Cannot update data
         hidden: true
         href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
@@ -1056,3 +1052,4 @@ items:
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
 base: en/datalens
+deepBase: 2

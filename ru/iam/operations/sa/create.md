@@ -89,7 +89,7 @@
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../api-ref/grpc/ServiceAccount/create.md).
 
 {% endlist %}
 
@@ -121,15 +121,16 @@
 - API {#api}
 
   ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-          "folderId": "b1gvmob95yys********",
-          "name": "my-robot",
-          "description": "this is my favorite service account"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+      "folderId": "b1gvmob95yys********",
+      "name": "my-robot",
+      "description": "this is my favorite service account"
+    }' \
+    https://iam.{{ api-host }}/iam/v1/serviceAccounts
   ```
 
 {% endlist %}

@@ -34,7 +34,7 @@
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
-  
+
   1. Укажите параметры хоста:
      * Зону доступности.
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
@@ -51,7 +51,7 @@
 
   Чтобы создать один или несколько хостов:
 
-  
+
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
      ```bash
@@ -86,7 +86,7 @@
 
      Команда для создания одного хоста имеет вид:
 
-     
+
      ```bash
      {{ yc-mdb-ch }} hosts add \
        --cluster-name=<имя_кластера> \
@@ -104,7 +104,7 @@
 
      {{ mch-name }} запустит операцию создания хостов.
 
-     
+
      Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mch-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
@@ -187,7 +187,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -197,7 +197,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -239,7 +239,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation11).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -355,7 +355,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -365,7 +365,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -404,7 +404,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation12).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -501,7 +501,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -511,7 +511,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -534,7 +534,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation13).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

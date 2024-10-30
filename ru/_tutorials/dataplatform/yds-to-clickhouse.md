@@ -101,6 +101,8 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
+{% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
+
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.

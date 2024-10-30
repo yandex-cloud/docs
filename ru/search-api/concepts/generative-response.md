@@ -1,3 +1,8 @@
+---
+title: Генеративный ответ при текстовом запросе к {{ search-api-full-name }}
+description: В данной статье описан формат генеративного ответа, получаемого от сервиса {{ search-api-name }} при текстовом поисковом запросе.
+---
+
 # Генеративный ответ
 
 Вы можете использовать текстовый поиск {{ search-api-name }} в сочетании с генеративными возможностями [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md), чтобы получить на поисковый запрос пользователя единый емкий и понятный _генеративный ответ_, при формировании которого нейросеть анализирует релевантные результаты текстового поиска {{ search-api-name }} по сайтам вашей компании. 
@@ -6,9 +11,11 @@
 
 Чтобы получить доступ к возможности генеративного ответа, заполните [форму](#contact-form) или обратитесь к вашему аккаунт-менеджеру.
 
+В настоящий момент генеративный ответ доступен только для запросов, выполненных через интерфейс [API v1](./index.md#api-v1).
+
 ## Поисковый запрос {#request}
 
-Запросы к сервису {{ search-api-name }} на получение генеративного ответа отправляются методом POST на эндпойнт `{{ link-yandex }}/search/xml/generative`. 
+Запросы к сервису {{ search-api-name }} на получение генеративного ответа отправляются методом POST на эндпоинт `{{ link-yandex }}/search/xml/generative`. 
 
 Для выполнения запросов необходим [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../security/index.md#search-api-executor) `search-api.executor` и созданный для него [API-ключ](../../iam/concepts/authorization/api-key.md). Для успешной [авторизации](../operations/auth.md) передавайте в каждом запросе [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) и API-ключ сервисного аккаунта.
 
@@ -113,10 +120,11 @@ export API_KEY=<API-ключ>
 - cURL {#curl}
 
   ```bash
-  curl -X POST \
-    -H "Authorization: Api-Key ${API_KEY}" \
-    -d "@<путь_к_файлу_с_телом_запроса>" \
-  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
+  curl \
+    --request POST \
+    --header "Authorization: Api-Key ${API_KEY}" \
+    --data "@<путь_к_файлу_с_телом_запроса>" \
+    "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
   ```
 
 - Python 3 {#python}

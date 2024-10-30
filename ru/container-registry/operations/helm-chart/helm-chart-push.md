@@ -14,7 +14,7 @@
 
 - CLI {#cli}
 
-  1. [Установите](https://helm.sh/ru/docs/intro/install/) клиент Helm версии 3.7.1 или выше.
+  1. [Установите](https://helm.sh/ru/docs/intro/install/) клиент Helm версии 3.8.0 или выше.
 
      {% note info %}
 
@@ -22,13 +22,13 @@
 
      {% endnote %}
 
-  1. Включите поддержку [Open Container Initiative](https://opencontainers.org/) в клиенте Helm:
+  1. Если вы используете версию Helm ниже 3.8.0, включите поддержку [Open Container Initiative](https://opencontainers.org/) в клиенте Helm:
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  
+
   1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).

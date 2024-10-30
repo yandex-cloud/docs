@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ lockbox-full-name }}"
-description: "In this tutorial, you will learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data."
+title: Getting started with {{ lockbox-full-name }}
+description: In this tutorial, you will learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data.
 ---
 
 # Getting started with {{ lockbox-name }}
@@ -30,27 +30,27 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
-   1. Click the name of the secret you need.
-   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
+    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. Click the name of the secret you need.
+    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
 
 - CLI {#cli}
 
-   {% include [cli-install](../_includes/cli-install.md) %}
+  {% include [cli-install](../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get the contents of a secret:
+  1. See the description of the CLI command to get the contents of a secret:
 
       ```bash
       yc lockbox payload get --help
       ```
 
-   1. {% include [get-secret-id](../_includes/lockbox/get-secret-id.md) %}
+  1. {% include [get-secret-id](../_includes/lockbox/get-secret-id.md) %}
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       yc lockbox payload get \
@@ -77,7 +77,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
       Result:
 
-      ```bash
+      ```text
       version_id: e6qqr7k79ecm********
       entries:
         - key: first_key
@@ -88,29 +88,29 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
 - API {#api}
 
-   If you make a request without specifying a version, the contents of the current (latest) version is returned.
+    If you make a request without specifying a version, the contents of the current (latest) version is returned.
 
-   You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
+    You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
 
-   To get the contents of the secret:
-   1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
+    To get the contents of the secret:
+    1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
 
-      ```
-      export IAM_TOKEN=$(yc iam create-token)
-      ```
+        ```
+        export IAM_TOKEN=$(yc iam create-token)
+        ```
 
-      You can also get an IAM token for your service account from inside the VM the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
+        You can also get an IAM token for your service account from inside the VM the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
+        
+        ```
+        export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
+        ```
 
-      ```
-      export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
-      ```
+    1. Run the following query:
 
-   1. Run the following query:
-
-      ```
-      curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-      https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
-      ```
+        ```
+        curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
+        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
+        ```
 {% endlist %}
 
 You can manage secrets and their contents not only through the [management console]({{ link-console-main }}), [CLI](../cli/quickstart.md), and [API](../overview/api.md), but also using SDKs for popular programming languages. For more information, see [{#T}](./concepts/index.md#interface).

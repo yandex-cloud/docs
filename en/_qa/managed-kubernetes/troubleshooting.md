@@ -28,54 +28,54 @@ To fix the issue, delete the stuck resources manually.
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. [Connect to the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md).
-   1. Get a list of resources that remain within the namespace:
+  1. [Connect to the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md).
+  1. Get a list of resources that remain within the namespace:
 
-      ```bash
-      kubectl api-resources --verbs=list --namespaced --output=name \
-        | xargs --max-args=1 kubectl get --show-kind \
-        --ignore-not-found --namespace=<namespace>
-      ```
+     ```bash
+     kubectl api-resources --verbs=list --namespaced --output=name \
+       | xargs --max-args=1 kubectl get --show-kind \
+       --ignore-not-found --namespace=<namespace>
+     ```
 
-   1. Delete the resources found:
+  1. Delete the resources found:
 
-      ```bash
-      kubectl delete <resource_type> <resource_name> --namespace=<namespace>
-      ```
+     ```bash
+     kubectl delete <resource_type> <resource_name> --namespace=<namespace>
+     ```
 
-   If, after these actions, the namespace is still in the `Terminating` status and fails to be deleted, force-delete it with `finalizer`:
-   1. Enable {{ k8s }} API proxy to your local computer:
+  That being done, if the namespace is still in the `Terminating` status and cannot be deleted, delete it forcibly using `finalizer`:
+  1. Enable {{ k8s }} API proxy to your local computer:
 
-      ```bash
-      kubectl proxy
-      ```
+     ```bash
+     kubectl proxy
+     ```
 
-   1. Delete the namespace:
+  1. Delete the namespace:
 
-      ```bash
-      kubectl get namespace <namespace> --output=json \
-        | jq '.spec = {"finalizers":[]}' > temp.json && \
-      curl --insecure --header "Content-Type: application/json" \
-        --request PUT --data-binary @temp.json \
-        127.0.0.1:8001/api/v1/namespaces/<namespace>/finalize
-      ```
+     ```bash
+     kubectl get namespace <namespace> --output=json \
+       | jq '.spec = {"finalizers":[]}' > temp.json && \
+     curl --insecure --header "Content-Type: application/json" \
+       --request PUT --data-binary @temp.json \
+       127.0.0.1:8001/api/v1/namespaces/<namespace>/finalize
+     ```
 
-   We do not recommend immediately deleting a `Terminating` namespace using `finalizer`, as the stuck resources may remain in your {{ managed-k8s-name }} cluster.
+    We do not recommend deleting the namespace with the `Terminating` status using `finalizer` right away, as this may cause the stuck resources to remain in your {{ managed-k8s-name }} cluster.
 
 {% endlist %}
 
-#### I am using {{ network-load-balancer-full-name }} along with an Ingress controller. Why are some nodes in my cluster UNHEALTHY? {#nlb-ingress}
+#### I am using {{ network-load-balancer-full-name }} alongside an Ingress controller. Why are some of my cluster's nodes UNHEALTHY? {#nlb-ingress}
 
-This is normal for a [load balancer](../../network-load-balancer/concepts/index.md) with `External Traffic Policy: Local` enabled. Only the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) whose [pods](../../managed-kubernetes/concepts/index.md#pod) are ready to accept user traffic get the `HEALTHY` status. Other nodes are labeled as `UNHEALTHY`.
+This is normal behavior for a [load balancer](../../network-load-balancer/concepts/index.md) with `External Traffic Policy: Local` enabled. Only the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) whose [pods](../../managed-kubernetes/concepts/index.md#pod) are ready to accept user traffic get the `HEALTHY` status. The rest of the nodes are labeled as `UNHEALTHY`.
 
-To find out the policy type for a load balancer created with a `LoadBalancer` service, run this command:
+To find out the policy type of a load balancer created using a `LoadBalancer` type service, run this command:
 
 ```bash
-kubectl describe svc <LoadBalancer_service_name> \
+kubectl describe svc <LoadBalancer_type_service_name> \
 | grep 'External Traffic Policy'
 ```
 
@@ -90,7 +90,7 @@ To change the PVC status to **Running**:
 
    ```bash
    kubectl describe pvc <PVC_name> \
-     --namespace=<namespace_the_PVC_belongs_to>
+     --namespace=<namespace_PVC_resides_in>
    ```
 
    A message saying `waiting for first consumer to be created before binding` means that the PVC is waiting for a pod to be created.
@@ -104,34 +104,34 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To run diagnostics for your {{ managed-k8s-name }} cluster nodes:
-   1. [Connect to the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md).
-   1. Check the health of {{ managed-k8s-name }} nodes:
+  To run diagnostics for your {{ managed-k8s-name }} cluster nodes:
+  1. [Connect to the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md).
+  1. Check the health of {{ managed-k8s-name }} nodes:
 
-      ```bash
-      yc managed-kubernetes cluster list-nodes <cluster_ID>
-      ```
+     ```bash
+     yc managed-kubernetes cluster list-nodes <cluster_ID>
+     ```
 
-      A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. Example:
+     A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. Example:
 
-      ```text
-      +--------------------------------+-----------------+------------------+-------------+--------------+
-      |         CLOUD INSTANCE         | KUBERNETES NODE |     RESOURCES    |     DISK    |    STATUS    |
-      +--------------------------------+-----------------+------------------+-------------+--------------+
-      | fhmil14sdienhr5uh89no          |                 | 2 100% core(s),  | 64.0 GB hdd | PROVISIONING |
-      | CREATING_INSTANCE              |                 | 4.0 GB of memory |             |              |
-      | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
-      | on total size of network-hdd   |                 |                  |             |              |
-      | disks has exceeded.,           |                 |                  |             |              |
-      | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
-      | on total size of network-hdd   |                 |                  |             |              |
-      | disks has exceeded.            |                 |                  |             |              |
-      +--------------------------------+-----------------+------------------+-------------+--------------+
-      ```
+     ```text
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     |         CLOUD INSTANCE         | KUBERNETES NODE |     RESOURCES    |     DISK    |    STATUS    |
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     | fhmil14sdienhr5uh89no          |                 | 2 100% core(s),  | 64.0 GB hdd | PROVISIONING |
+     | CREATING_INSTANCE              |                 | 4.0 GB of memory |             |              |
+     | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
+     | on total size of network-hdd   |                 |                  |             |              |
+     | disks has exceeded.,           |                 |                  |             |              |
+     | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
+     | on total size of network-hdd   |                 |                  |             |              |
+     | disks has exceeded.            |                 |                  |             |              |
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     ```
 
 {% endlist %}
 
@@ -150,7 +150,7 @@ Number of elements must be less than or equal to 1"}
 
 The error occurs if different certificates are specified for the same Ingress controller listener.
 
-**Solution:** Edit and apply the Ingress controller specifications making sure that only one certificate is specified in each listener's description.
+**Solution**: Edit and apply the Ingress controller specifications making sure that only one certificate is specified in each listener's description.
 
 #### Why is DNS name resolution not working in my cluster? {#not-resolve-dns}
 
@@ -201,7 +201,7 @@ Make sure all the pods have the `Running` status.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab and click the name of any {{ managed-k8s-name }} node.
 1. Go to the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
-1. Make sure that, in the **CPU, [cores]** chart, the CPU `used` values have not reached the CPU `total` values. Check this for each {{ managed-k8s-name }} cluster node.
+1. Make sure that, in the **CPU, [cores]** chart, the `used` CPU values have not reached the `total` available CPU values. Check this for each {{ managed-k8s-name }} cluster node.
 
 ##### Set up autoscaling {#dns-autoscaler}
 
@@ -213,21 +213,21 @@ Set up [automatic DNS scaling by {{ managed-k8s-name }} cluster size](../../mana
 
 #### When creating a node group via the CLI, a parameter conflict occurs. How do I fix that? {#conflicting-flags}
 
-Check if the `--location`, `--network-interface`, and `--public-ip` parameters are specified in the same command. If you provide these parameters together, the following errors occur:
+Check whether the `--location`, `--network-interface`, and `--public-ip` parameters are specified in the same command. If you provide these parameters together, the following errors occur:
 * For the `--location` and `--public-ip` or `--location` and `--network-interface` pairs:
 
-   ```text
-   ERROR: rpc error: code = InvalidArgument desc = Validation error:
-   allocation_policy.locations[0].subnet_id: can't use "allocation_policy.locations[0].subnet_id" together with "node_template.network_interface_specs"
-   ```
+  ```text
+  ERROR: rpc error: code = InvalidArgument desc = Validation error:
+  allocation_policy.locations[0].subnet_id: can't use "allocation_policy.locations[0].subnet_id" together with "node_template.network_interface_specs"
+  ```
 
 * For the `--network-interface` and `--public-ip` pair:
 
-   ```text
-   ERROR: flag --public-ip cannot be used together with --network-interface. Use '--network-interface' option 'nat' to get public address
-   ```
+  ```text
+  ERROR: flag --public-ip cannot be used together with --network-interface. Use '--network-interface' option 'nat' to get public address
+  ```
 
-Make sure you only provide one of the three parameters in a command. It is sufficient to specify the location of a {{ managed-k8s-name }} node group either in `--location` or in `--network-interface`.
+Make sure you only provide one of the three parameters in a command. It is enough to specify the location of a {{ managed-k8s-name }} node group either in `--location` or `--network-interface`.
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
@@ -247,7 +247,7 @@ The error occurs if you try to [connect to a cluster](../../managed-kubernetes/o
    --external
 ```
 
-To connect to the cluster's private IP address from a VM located in the same network, get `kubectl` credentials with the command below:
+To connect to the cluster's private IP address from a VM located in the same network, get `kubectl` credentials using this command:
 
 ```bash
 {{ yc-k8s }} cluster \
@@ -272,13 +272,13 @@ Too many authentication failures
 Errors occur [when connecting to a {{ managed-k8s-name }} node](../../managed-kubernetes/operations/node-connect-ssh.md) in the following cases:
 * No public SSH key is added to the {{ managed-k8s-name }} node group metadata.
 
-   **Solution:** [Update the {{ managed-k8s-name }} node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+  **Solution**: [Update the {{ managed-k8s-name }}  node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
 * An invalid public SSH key is added to the {{ managed-k8s-name }} node group metadata.
 
-   **Solution:** [Change the format of the public key file to the appropriate one](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) and [update the {{ managed-k8s-name }} node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+  **Solution**: [Change the format of the public key file to the appropriate one](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) and [update the {{ managed-k8s-name }} node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
 * No private SSH key is added to an authentication agent (ssh-agent).
 
-   **Solution:** Add a private key by running the `ssh-add <path_to_private_key_file>` command.
+  **Solution**: Add a private key by running the following command: `ssh-add <path_to_private_key_file>`.
 
 #### How do I grant internet access to {{ managed-k8s-name }} cluster nodes? {#internet}
 
@@ -289,7 +289,7 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 ```
 
 There are several ways to grant internet access to {{ managed-k8s-name }} cluster nodes:
-* Create and configure a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate [VM instance](../../compute/concepts/vm.md) with NAT features.
+* Create and configure a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../vpc/tutorials/nat-instance/index.md). As a result, through [static routing](../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate [VM instance](../../compute/concepts/vm.md) with NAT features.
 * [Assign a public IP address to a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings).
 
 {% note info %}

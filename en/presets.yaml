@@ -3,6 +3,9 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  ai-studio-full-name: Yandex Cloud AI Studio
+  ai-studio-name: AI Studio
+  airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   all-mdb:
@@ -51,10 +54,12 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  baremetal-full-name: Yandex BareMetal
+  baremetal-name: BareMetal
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
-  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/
+  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=en
   brand-voice-cc: Brand Voice Call Center
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
@@ -64,6 +69,9 @@ default:
   brand-voice-premium: Brand Voice Premium
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
+  ca-full-name: Yandex Code Assistant
+  ca-name: Code Assistant
+  ca-short-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -91,8 +99,15 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cloud-notify-bot: YandexCloudNotify_bot
+  cloud-registry-full-name: Yandex Cloud Registry
+  cloud-registry-name: Cloud Registry
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
+  cns-full-name: Yandex Cloud Notification Service
+  cns-host: notifications.yandexcloud.net
+  cns-name: Cloud Notification Service
+  cns-short-name: CNS
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -163,6 +178,8 @@ default:
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   emb-vector: 256
+  er-full-name: Yandex EventRouter
+  er-name: EventRouter
   ES: Elasticsearch
   external-ip-examples:
     '0': 84.201.155.117
@@ -232,7 +249,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
   k8s-versions-regular: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-stable: 1.27, 1.28, 1.29
+  k8s-versions-stable: 1.27, 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -250,7 +267,12 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
-  link-calc: https://yandex.cloud/en/prices#calculator
+  link-ca-jb-2024-1: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
+  link-ca-jb-2024-2: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
+  link-ca-vscode: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
   link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
@@ -287,6 +309,8 @@ default:
   link-pci-dss-ru: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
+  link-sd-main: https://center.yandex.cloud/security/
+  link-sla: https://yandex.com/legal/cloud_sla/
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
@@ -369,6 +393,9 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
   microsoft-idp:
+    adfs-abbreviated: AD FS
+    adfs-full: Microsoft Active Directory Federation Services
+    adfs-short: Active Directory Federation Services
     azure-ad-legacy: Azure Active Directory
     entra-full: Microsoft Entra
     entra-id-full: Microsoft Entra ID
@@ -382,6 +409,8 @@ default:
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
   ml-project-size: 10 GB
+  ml-sdk-full-name: Yandex Cloud ML SDK
+  ml-sdk-name: ML SDK
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35
   mmg-backup-retention-min: 7
@@ -416,6 +445,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
+  mtr-full-name: Yandex Managed Service for Trino
+  mtr-name: Managed Service for Trino
   MY: MySQL
   my:
     docs: https://dev.mysql.com/doc
@@ -450,10 +481,10 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
-        str-1c: 11-1c, 12-1c, 13-1c, and 14-1c
+        str-1c: 13-1c, 14-1c, 15-1c, and 16-1c
       tf:
-        latest: '15'
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, or 15
+        latest: '17'
+        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, and 17
   pgadmin: "pgAdmin\_4"
   port-any: 0-65535
   port-http: 80
@@ -477,6 +508,7 @@ default:
   port-ssh: 22
   postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
+  postbox-host: postbox.cloud.yandex.net
   postbox-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
@@ -571,6 +603,12 @@ default:
       admin: managed-elasticsearch.admin
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    metastore:
+      admin: managed-metastore.admin
+      auditor: managed-metastore.auditor
+      editor: managed-metastore.editor
+      integrationProvider: managed-metastore.integrationProvider
+      viewer: managed-metastore.viewer
     mgp:
       admin: managed-greenplum.admin
       editor: managed-greenplum.editor
@@ -621,6 +659,9 @@ default:
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
+  schema-registry-name: Schema Registry
+  sd-full-name: Yandex Security Deck
+  sd-name: Security Deck
   search-api: Search API
   search-api-full-name: Yandex Search API
   search-api-name: Search API
@@ -636,17 +677,20 @@ default:
   sf-name: Cloud Functions
   sf-short-name: Cloud Functions
   sf-url: functions.yandexcloud.net
+  si-full-name: Yandex Serverless Integrations
+  si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.talk-analytics.yandexcloud.net:443
+  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
   sts-name: Security Token Service
   stt-long-audioLength: 4 hours
@@ -661,6 +705,8 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
   support-center-name: Support Center
+  sw-full-name: Yandex Workflows
+  sw-name: Workflows
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
@@ -685,6 +731,7 @@ default:
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
   tf-provider-link: https://terraform-provider.yandexcloud.net/
+  tf-provider-maf: https://terraform-provider.yandexcloud.net/Resources/airflow_cluster
   tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
     https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
@@ -697,6 +744,7 @@ default:
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
   TF-version: '0.90'
+  TR: Trino
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -759,7 +807,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     cli: ydb
-    docs: https://ydb.tech/en/docs/
+    docs: https://ydb.tech/docs/en/
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
@@ -791,11 +839,13 @@ default:
       translate|string: ₸2461.00
   sku|KZT|alb:
     balancer:
+      active|number: 11.1
       active|string: ₸11.10
   sku|KZT|api-gateway:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 600
           1|string: ₸600.00
       v1|string: Free
   sku|KZT|audit-trails:
@@ -833,13 +883,16 @@ default:
       cpu:
         c100:
           v1|string: ₸6.5794
+          v3|number: 5.9139
           v3|string: ₸5.9139
           v4|string: ₸9.70
       localssd:
         v1|month|string: ₸44.00
+        v1|number: 0.0611
         v1|string: ₸0.0611
       ram:
         v1|string: ₸1.7423
+        v3|number: 1.5665
         v3|string: ₸1.5665
         v4|string: ₸1.75
     image|month|string: ₸15.60
@@ -865,6 +918,7 @@ default:
             v3|string: ₸1.45
           preemptible|string: ₸1.70
           v2|string: ₸5.95
+          v3|number: 5.25
           v3|string: ₸5.25
         c100|string: ₸5.60
         c20:
@@ -873,6 +927,7 @@ default:
             v3|string: ₸0.70
           preemptible|string: ₸1.35
           v2|string: ₸2.45
+          v3|number: 2.2
           v3|string: ₸2.20
         c20|string: ₸4.40
         c50:
@@ -908,6 +963,7 @@ default:
           v3|string: ₸0.35
         preemptible|string: ₸0.60
         v2|string: ₸1.55
+        v3|number: 1.4
         v3|string: ₸1.40
       ram|string: ₸1.95
   sku|KZT|cr:
@@ -939,9 +995,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 160
           v1|string: ₸160.00
         recursive:
           v1|pricingRate:
+            1|number: 160
             1|string: ₸160.00
           v1|string: Free
     zones:
@@ -1115,10 +1173,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸6192.00
+            c100|number: 8.6
             c100|string: ₸8.60
             c50|month|string: ₸2196.00
             c50|string: ₸3.05
           ram|month|string: ₸1692.00
+          ram|number: 2.35
           ram|string: ₸2.35
       elasticsearch:
         v2:
@@ -1270,6 +1330,7 @@ default:
           ram|month|string: ₸1656.00
           ram|string: ₸2.30
       network-hdd:
+        ch|month|number: 16
         ch|month|string: ₸16.00
         elasticsearch|month|string: ₸16.00
         greenplum|month|string: ₸16.00
@@ -1422,8 +1483,10 @@ default:
             c100|month|string: ₸3924.00
             c100|string: ₸5.45
             c50|month|string: ₸2520.00
+            c50|number: 3.5
             c50|string: ₸3.50
           ram|month|string: ₸1008.00
+          ram|number: 1.4
           ram|string: ₸1.40
       kafka:
         v2:
@@ -1458,7 +1521,14 @@ default:
         read|string: ₸35.00
       dgauge:
         store|string: Free
+      prometheus:
+        export|number: 35
+        export|pricingRate:
+          50|string: ₸21.00
+        export|string: ₸35.00
+      write|number: 49
       write|pricingRate:
+        50|number: 28
         50|string: ₸28.00
       write|string: ₸49.00
     prometheus:
@@ -1488,7 +1558,9 @@ default:
         antiddos:
           qrator|string: ₸12.15
     public_fips:
+      deallocated|number: 1.55
       deallocated|string: ₸1.55
+    public_fips|number: 1.2
     public_fips|string: ₸1.20
   sku|KZT|nlb:
     balancer:
@@ -1626,20 +1698,36 @@ default:
         fixed_consumption:
           v1|string: ₸15000.00
   sku|KZT|sws:
-    profile:
-      v1|string: ₸1250.00
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 125000
           01|string: ₸125000.00
+        1|number: 17500
         1|string: ₸17500.00
+        10|number: 1000
         10|string: ₸1000.00
+        100|number: 700
         100|string: ₸700.00
+        1000|number: 250
         1000|string: ₸250.00
         10000|string: ₸125.00
       v1|string: Free
-    rule:
-      v1|string: ₸250.00
+    waf:
+      requests:
+        v1|number: 0
+        v1|pricingRate:
+          '0':
+            01|number: 125000
+            01|string: ₸125000.00
+          1|number: 17500
+          1|string: ₸17500.00
+          10|number: 1000
+          10|string: ₸1000.00
+          100|number: 700
+          100|string: ₸700.00
+          1000|number: 250
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -1853,6 +1941,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 106.9
           1|string: ₸106.90
   sku|KZT|yds:
     events:
@@ -1901,11 +1990,13 @@ default:
       translate|string: ₽492.20
   sku|RUB|alb:
     balancer:
+      active|number: 2.22
       active|string: ₽2.22
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 120
           1|string: ₽120.00
       v1|string: Free
   sku|RUB|audit-trails:
@@ -1943,13 +2034,16 @@ default:
       cpu:
         c100:
           v1|string: ₽1.3159
+          v3|number: 1.1828
           v3|string: ₽1.1828
           v4|string: ₽1.94
       localssd:
         v1|month|string: ₽8.80
+        v1|number: 0.0122
         v1|string: ₽0.0122
       ram:
         v1|string: ₽0.3485
+        v3|number: 0.3133
         v3|string: ₽0.3133
         v4|string: ₽0.35
     image|month|string: ₽3.12
@@ -1975,6 +2069,7 @@ default:
             v3|string: ₽0.29
           preemptible|string: ₽0.34
           v2|string: ₽1.19
+          v3|number: 1.05
           v3|string: ₽1.05
         c100|string: ₽1.12
         c20:
@@ -1983,6 +2078,7 @@ default:
             v3|string: ₽0.14
           preemptible|string: ₽0.27
           v2|string: ₽0.49
+          v3|number: 0.44
           v3|string: ₽0.44
         c20|string: ₽0.88
         c50:
@@ -2018,6 +2114,7 @@ default:
           v3|string: ₽0.07
         preemptible|string: ₽0.12
         v2|string: ₽0.31
+        v3|number: 0.28
         v3|string: ₽0.28
       ram|string: ₽0.39
   sku|RUB|cr:
@@ -2035,6 +2132,7 @@ default:
         v1|string: Free
   sku|RUB|datalens:
     users:
+      v1|number: 990
       v1|string: ₽990.00
   sku|RUB|datatransfer:
     compute:
@@ -2049,9 +2147,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 32
           v1|string: ₽32.00
         recursive:
           v1|pricingRate:
+            1|number: 32
             1|string: ₽32.00
           v1|string: Free
     zones:
@@ -2225,10 +2325,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1238.40
+            c100|number: 1.72
             c100|string: ₽1.72
             c50|month|string: ₽439.20
             c50|string: ₽0.61
           ram|month|string: ₽338.40
+          ram|number: 0.47
           ram|string: ₽0.47
       elasticsearch:
         v2:
@@ -2380,6 +2482,7 @@ default:
           ram|month|string: ₽331.20
           ram|string: ₽0.46
       network-hdd:
+        ch|month|number: 3.2
         ch|month|string: ₽3.20
         elasticsearch|month|string: ₽3.20
         greenplum|month|string: ₽3.20
@@ -2532,8 +2635,10 @@ default:
             c100|month|string: ₽784.80
             c100|string: ₽1.09
             c50|month|string: ₽504.00
+            c50|number: 0.7
             c50|string: ₽0.70
           ram|month|string: ₽201.60
+          ram|number: 0.28
           ram|string: ₽0.28
       kafka:
         v2:
@@ -2568,7 +2673,14 @@ default:
         read|string: ₽7.00
       dgauge:
         store|string: Free
+      prometheus:
+        export|number: 7
+        export|pricingRate:
+          50|string: ₽4.20
+        export|string: ₽7.00
+      write|number: 9.8
       write|pricingRate:
+        50|number: 5.6
         50|string: ₽5.60
       write|string: ₽9.80
     prometheus:
@@ -2598,7 +2710,9 @@ default:
         antiddos:
           qrator|string: ₽2.43
     public_fips:
+      deallocated|number: 0.31
       deallocated|string: ₽0.31
+    public_fips|number: 0.24
     public_fips|string: ₽0.24
   sku|RUB|nlb:
     balancer:
@@ -2731,31 +2845,41 @@ default:
         standard|pricingRate:
           720|month|string: ₽2.01
   sku|RUB|support:
-    business:
-      fixed_consumption:
-        v1|string: Free
     organization:
       business:
         fixed_consumption:
           v1|string: ₽3000.00
-    standard:
-      fixed_consumption:
-        v1|string: Free
   sku|RUB|sws:
-    profile:
-      v1|string: ₽250.00
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 25000
           01|string: ₽25000.00
+        1|number: 3500
         1|string: ₽3500.00
+        10|number: 200
         10|string: ₽200.00
+        100|number: 140
         100|string: ₽140.00
+        1000|number: 50
         1000|string: ₽50.00
         10000|string: ₽25.00
       v1|string: Free
-    rule:
-      v1|string: ₽50.00
+    waf:
+      requests:
+        v1|number: 0
+        v1|pricingRate:
+          '0':
+            01|number: 25000
+            01|string: ₽25000.00
+          1|number: 3500
+          1|string: ₽3500.00
+          10|number: 200
+          10|string: ₽200.00
+          100|number: 140
+          100|string: ₽140.00
+          1000|number: 50
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -2969,6 +3093,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 21.38
           1|string: ₽21.38
   sku|RUB|yds:
     events:
@@ -3017,11 +3142,13 @@ default:
       translate|string: $3.937600
   sku|USD|alb:
     balancer:
+      active|number: 0.01776
       active|string: $0.017760
   sku|USD|api-gateway:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 0.96
           1|string: $0.960000
       v1|string: Free
   sku|USD|audit-trails:
@@ -3059,13 +3186,16 @@ default:
       cpu:
         c100:
           v1|string: $0.010527
+          v3|number: 0.009462
           v3|string: $0.009462
           v4|string: $0.015520
       localssd:
         v1|month|string: $0.070400
+        v1|number: 0.000098
         v1|string: $0.000098
       ram:
         v1|string: $0.002788
+        v3|number: 0.002506
         v3|string: $0.002506
         v4|string: $0.002800
     image|month|string: $0.024960
@@ -3091,6 +3221,7 @@ default:
             v3|string: $0.002320
           preemptible|string: $0.002720
           v2|string: $0.009520
+          v3|number: 0.0084
           v3|string: $0.008400
         c100|string: $0.008960
         c20:
@@ -3099,6 +3230,7 @@ default:
             v3|string: $0.001120
           preemptible|string: $0.002160
           v2|string: $0.003920
+          v3|number: 0.00352
           v3|string: $0.003520
         c20|string: $0.007040
         c50:
@@ -3134,6 +3266,7 @@ default:
           v3|string: $0.000560
         preemptible|string: $0.000960
         v2|string: $0.002480
+        v3|number: 0.00224
         v3|string: $0.002240
       ram|string: $0.003120
   sku|USD|cr:
@@ -3165,9 +3298,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 0.256
           v1|string: $0.256000
         recursive:
           v1|pricingRate:
+            1|number: 0.256
             1|string: $0.256000
           v1|string: Free
     zones:
@@ -3340,10 +3475,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.907200
+            c100|number: 0.01376
             c100|string: $0.013760
             c50|month|string: $3.513600
             c50|string: $0.004880
           ram|month|string: $2.707200
+          ram|number: 0.00376
           ram|string: $0.003760
       elasticsearch:
         v2:
@@ -3487,6 +3624,7 @@ default:
           ram|month|string: $2.649600
           ram|string: $0.003680
       network-hdd:
+        ch|month|number: 0.0256
         ch|month|string: $0.025600
         elasticsearch|month|string: $0.025600
         greenplum|month|string: $0.025600
@@ -3638,8 +3776,10 @@ default:
             c100|month|string: $6.278400
             c100|string: $0.008720
             c50|month|string: $4.032000
+            c50|number: 0.0056
             c50|string: $0.005600
           ram|month|string: $1.612800
+          ram|number: 0.00224
           ram|string: $0.002240
       kafka:
         v2:
@@ -3668,7 +3808,14 @@ default:
         read|string: $0.056000
       dgauge:
         store|string: Free
+      prometheus:
+        export|number: 0.056
+        export|pricingRate:
+          50|string: $0.033600
+        export|string: $0.056000
+      write|number: 0.0784
       write|pricingRate:
+        50|number: 0.0448
         50|string: $0.044800
       write|string: $0.078400
     prometheus:
@@ -3698,7 +3845,9 @@ default:
         antiddos:
           qrator|string: $0.019440
     public_fips:
+      deallocated|number: 0.00248
       deallocated|string: $0.002480
+    public_fips|number: 0.00192
     public_fips|string: $0.001920
   sku|USD|nlb:
     balancer:
@@ -3829,31 +3978,36 @@ default:
         standard|pricingRate:
           720|month|string: $0.016080
   sku|USD|support:
-    business:
-      fixed_consumption:
-        v1|string: Free
     organization:
       business:
         fixed_consumption:
           v1|string: $24.000000
-    standard:
-      fixed_consumption:
-        v1|string: Free
   sku|USD|sws:
-    profile:
-      v1|string: $2.000000
     requests:
+      v1|number: 0
       v1|pricingRate:
         '0':
+          01|number: 200
           01|string: $200.000000
+        1|number: 28
         1|string: $28.000000
+        10|number: 1.6
         10|string: $1.600000
+        100|number: 1.12
         100|string: $1.120000
+        1000|number: 0.4
         1000|string: $0.400000
         10000|string: $0.200000
       v1|string: Free
-    rule:
-      v1|string: $0.400000
+    waf:
+      requests:
+        v1|pricingRate:
+          '0':
+            01|number: 200
+          1|number: 28
+          10|number: 1.6
+          100|number: 1.12
+          1000|number: 0.4
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -4115,6 +4269,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 0.17104
           1|string: $0.171040
         requests|string: Free
         storage|month|string: Free
@@ -4245,8 +4400,14 @@ default:
           data_type: Data type
     datalens:
       component:
+        access-rights:
+          view:
+            button_access-to-dash: Dashboard access
+            button_add: Add
+            section_main-title: Permissions
         aside-header:
           view:
+            switch_dashboards: Dashboards
             switch_datasets: Datasets
             switch_root: All objects
       connection:
@@ -4577,162 +4738,39 @@ default:
                 issue: Create issue
               transition: Change issue status
     startrek:
-      ui_components_actions-panel_ActionsPanel:
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
+        enable-backlog: Enable backlog
+      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader:
+        settings: Settings
+      ui_Common_pages_page-my_PageMy:
+        page-title: My page
+      ui_Common_pages_promo_Page:
+        login-button-label: Log in to Tracker
+      ui_Common_smart-components_actions-panel_ActionsPanel:
         action-menu-title: Actions
-      ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
-        server-url-label: Link to repository
-      ui_components_admin-repositories_ConnectRepositoryDialog:
+      ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog:
         connect: Connect
         token-label: Token
-      ui_components_admin-tab-types_AdminTabTypes:
-        title: Issues types
-      ui_components_agile_agile-board_AgileBoardActionsMenu:
-        delete-board-menu-item: Delete board
-        migration-rollback: Switch back to the old version
-      ui_components_agile_agile-board_AgileBoardAddColumnButton:
-        new-column-button: Add column
-      ui_components_agile_agile-board_AgileBoardColumnHeader:
-        column-menu--add-note: Add note
-        column-menu--delete: Delete
-        column-menu--edit: Edit
-      ui_components_agile_agile-board_AgileBoardCreateModal:
-        board-type--scrum: With backlog and sprints
-        board-type--simple: Basic
-        submit-btn: Create
-      ui_components_agile_agile-board_AgileBoardEmptyScreen:
-        empty-screen--new-issue: New issue
-      ui_components_agile_agile-board_AgileBoardIssue:
-        issue-actions--delete-from-board: Remove from board
-        issue-actions--move-down: Move to bottom of column
-        issue-actions--move-up: Move to top of column
-      ui_components_agile_agile-board_AgileBoardMigrationForm:
-        submit-btn: Start switching
-      ui_components_agile_agile-board_AgileBoardUnusedStatuses:
-        unused-statuses-add-to-column: Add to column
-        unused-statuses-create-column: Create column
-      ui_components_agile_backlog_BacklogAddColumnButton:
-        add-column: Add column
-      ui_components_agile_backlog_BacklogIssue:
-        backlog-default-column: Backlog
-      ui_components_agile_common_AddIssueButton:
-        add-issue-button: Add issue
-      ui_components_agile_common_AgileFilters:
-        action-title-save: Save
-        all-issues-filter-title: All issues
-        reset-button: Reset
-      ui_components_agile_common_AgileTabs:
-        backlog: Backlog
-        board: Board
-        poker: Planning poker
-      ui_components_agile_common_BulkActionsPanel:
-        add-to-sprint: Add to sprint
-      ui_components_agile_common_ColumnForm:
-        create-column-label--statuses: Column statuses
-        create-column-submit-button--create: Add
-      ui_components_agile_common_FieldsSelect:
-        fields-settings: Card fields
-      ui_components_agile_common_FinishedSprintsButton:
-        finished-sprints: Finished sprints
-      ui_components_agile_common_IssueActionsMenu:
-        select-issue: Select
-      ui_components_agile_common_QuickFilterPopup:
-        filters-manage: Manage filters
-      ui_components_agile_common_QuickFiltersItem:
-        quick-filter--assignee-me: Assigned to me
-        quick-filter--author-me: Created by me
-      ui_components_agile_common_SprintForm:
-        create-sprint: Create sprint
-        edit-sprint: Edit sprint
-      ui_components_agile_common_SprintFormFields:
-        take-sprint-to-work: Take to work
-      ui_components_agile_common_StartSprintButton:
-        start: Start
-      ui_components_agile_common_UnusedStatusesButton:
-        unused-statuses-button: Unused statuses
-      ui_components_agile_common_ViewModeControl:
-        columns: Columns
-        columnsByStatus: Columns by statuses
-        customColumns: Custom columns
-      ui_components_agile_poker_hooks:
-        add-issue-to-poker: Add to poker
-      ui_components_agile_poker_PokerButton:
-        poker: Poker
-      ui_components_agile_poker_PokerIssueForm:
-        apply-estimate: Set an estimate
-        show-estimates: Show estimates
-      ui_components_agile_settings_AgileSettingsLayout:
-        issue-updates: Automatic issues addition and removal
-        poker: Poker
-      ui_components_agile_settings_BoardIssueUpdatesSettings:
-        import-title: Adding issues to the board
-        removal-title: Removal of issues from the board
-      ui_components_agile_settings_PokerSettings:
-        aggregation-function-field-label: Calculation of the final score
-        deck-field-label: Deck of estimates
-        display-estimated-field-label: Display estimated issues
-        save: Save
-      ui_components_App:
-        title-queues: Queue
-      ui_components_attachments-manager:
+      ui_Common_smart-components_attachments-manager:
         attach: Attach files
         attachments-section-title: Files
-      ui_components_bulk_BulkChangeParametersDialog:
+      ui_Common_smart-components_bulk_BulkChangeParametersDialog:
         button-submit-text: Apply
-      ui_components_BulkSuggestPopup:
+      ui_Common_smart-components_BulkSuggestPopup:
         apply: Apply
-      ui_components_CreateIssueForm:
-        create-issue: Create issue
-      ui_components_dashboard_CollapseHeader:
-        copy-menu-item: Copy
-      ui_components_dashboard_DashboardActionsMenu:
-        set-start-page-action: Set as start page
-      ui_components_dashboard_DashboardHeader:
-        dashboard-header-add-button: Add
-        dashboard-header-add-orgAdmin: Information for employees
-        dashboard-header-settings-button: Edit
-      ui_components_dashboard_FilterEditor:
-        editor-source-radio-query: Query language
-      ui_components_dashboard_InfoPresetsWidget:
-        choose-template-button: Select template
-        widget-title: Workflow templates
-      ui_components_dashboard_IssuesStatEditor:
-        editor-sort-by-field-label: Sorting
-        editor-source-radio-parameters: Parameters
-      ui_components_dashboard_OrgAdminEditor:
-        editor-published-field-label: Widget published
-        editor-save-button: Save
-      ui_components_dashboard_TableWidget:
-        show-all: Show All
-      ui_components_entity-page_ActivitySection:
-        activity: Activity
-        new-activity-on-top: New comments first
-      ui_components_entity-page_checklist_ChecklistActionsMenu:
+      ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu:
         remove-title: Delete checklist
-      ui_components_entity-page_checklist_ChecklistItem:
-        button-cancel: Cancel
-        button-submit: Save
-        remove-item-title: Delete item
-      ui_components_entity-page_checklist_Footer:
+      ui_Common_smart-components_entity-page_checklist_Footer:
         new-item-button-caption: Add item
-      ui_components_entity-page_checklist_Header:
+      ui_Common_smart-components_entity-page_checklist_Header:
         header-title: Checklist
-      ui_components_entity-page_comments_CommentEditor_mobile:
-        write-comment: Write a comment
-      ui_components_entity-page_macros_FavoriteButton:
+      ui_Common_smart-components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Add to favorites
-      ui_components_entity-page_macros_MacrosExecutor:
-        apply-button-label: Run
-      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+      ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Edit parameters list
-      ui_components_FieldEdit:
-        form-submit: Save
-      ui_components_filter-field:
-        save-button: Save
-      ui_components_filter-pane_FieldsSelectButton:
+      ui_Common_smart-components_filter-pane_FieldsSelectButton:
         add-filter-field-button-title: Add a field for filtering
-      ui_components_filter-pane_ViewModeSwitch:
-        mode-gantt: Gantt chart
-      ui_components_filter-pane:
+      ui_Common_smart-components_filter-pane:
         action-title-save: Save
         action-title-save-as: Save as new
         all-issues-filter-title: All issues
@@ -4740,35 +4778,66 @@ default:
         list-mode-tree: Tree list
         reset-button: Reset
         search-placeholder: Search by issue name
-      ui_components_FilterExportMenu:
-        menu-item-export: Export
-        title: Filter actions
-      ui_components_FormField_TimeTrackingBlock:
+      ui_Common_smart-components_FormField_TimeTrackingBlock:
         field-comment-title: Comment
         field-datetime-title: Date to log work for
         field-estimation-title: Overall task estimation
         field-remain-title: Time left
         field-spent-title: Time spent
-      ui_components_Gantt_IssueActionsCell:
-        issue-action-menu-title: Issue actions menu
-      ui_components_Gantt:
-        color-type-by-manual: manual
-        color-type-by-parameter: by task parameters
-        color-type-monochrome: monochrome
-        delete-link: Remove link
-        exit: Exit
-        scale-days: Week
-        scale-month: Month
-        scale-quarters: Quarter
-        shift-blocked-with-blocker: >-
-          Automatically move the deadline of the dependent issue when the
-          blocking issue's deadline changes
-        show-external-blockers: Show external blockers
-        show-issue-assignee: assignee
-        show-issue-title: name
-        show-links: Show blocking links
-        timeline-config: Chart settings
-      ui_components_issue-actions_IssueMenu:
+      ui_Common_smart-components_page-admin_OrganizationSmallPane:
+        add-org-button: Add organization
+      ui_Common_smart-components_page-admin_OrgGroupsPane:
+        access-level_full-access: Full
+        access-level_read_only: Read
+        title_access: Access to Tracker
+      ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane:
+        federation-task-action: Connect
+        source-title: Yandex Cloud Organization
+      ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane:
+        domain-task-action: Connect
+        source-title: Yandex 360 for Business
+      ui_Common_smart-components_page-admin_PageAdmin:
+        access-and-payment: Access and payment
+        menu-item-groups: Groups
+        menu-item-orgs: Organizations
+        menu-item-repositories: Repositories
+        menu-item-users: Users
+      ui_Common_smart-components_SortButton:
+        default-title: Sort
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody:
+        column-comment: Comment
+        column-date: Log date
+        column-spent: Time spent
+      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog:
+        title: Time tracking history
+      ui_Common_smart-components_TrackerSearch:
+        queues: Queues
+      ui_Dashboards_smart-components_DashboardHeader:
+        dashboard-header-add-button: Add
+        dashboard-header-add-orgAdmin: Information for employees
+        dashboard-header-settings-button: Edit
+      ui_Dashboards_smart-components_InfoPresetsWidget:
+        choose-template-button: Select template
+        widget-title: Workflow templates
+      ui_Dashboards_smart-components_OrgAdminEditor:
+        editor-published-field-label: Widget published
+        editor-save-button: Save
+      ui_Issues_pages_page-issues_touch:
+        all-issues-filter-title: All issues
+        query-language: Query language
+      ui_Issues_pages_PageCreateIssue:
+        change-template: Edit form
+        change-title-and-description: Change title and description
+        create-new: Create form
+        create-new-template: Create new form
+        description-placeholder: Add a description of the issue so the assignee knows what to do
+        switch-to-admin-panel: Switch to admin panel
+        try-yandex-forms: Try Yandex Forms for creating issues
+      ui_Issues_pages_PageCreateIssueForm:
+        continue: Continue
+      ui_Issues_pure-components_issue-comments-templates:
+        create-template-item: Create template
+      ui_Issues_smart-components_issue-actions_IssueMenu:
         add-notification: Add reminder
         add-worklog: Add time spent
         calendar-event-me: Schedule a time to work on this issue
@@ -4779,22 +4848,16 @@ default:
         move-issue: Change queue
         title: Actions
         to-subissue: Convert to sub-issue
-      ui_components_issue-actions_worklog_AddWorklogDialog:
+      ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog:
         apply-button: Save
         date-label: Started
         duration-label: Time spent
-      ui_components_issue-comments-templates:
-        create-template-item: Create template
-      ui_components_issue-links_ExternalLinksCollapse:
+      ui_Issues_smart-components_issue-links_ExternalLinksCollapse:
         external-relations: Links to external applications
-      ui_components_issue-links_InternalLinksCollapse:
-        relations: Related issues
-      ui_components_issue-templates_Select:
+      ui_Issues_smart-components_issue-templates_Select:
         manage-templates: Manage templates
         select-template: Apply template
-      ui_components_IssueActionsButton:
-        menu-item-create-subticket: Create sub-issue
-      ui_components_IssueBulkActionPanel:
+      ui_Issues_smart-components_IssueBulkActionPanel:
         add-link: Add link
         add-me-to-followers: Add me as follower
         add-to-board: Add to board
@@ -4807,76 +4870,15 @@ default:
         move: Move
         remove-from-both-fields: From both fields
         remove-me-from: Remove move from field...
-      ui_components_issues_create-issue-popup_NewIssueForm:
-        milestone-type: Milestone
-      ui_components_issues-import_IssuesImportDialog:
-        import: Import
-      ui_components_issues-import_IssuesImportFilters:
-        add-parameters: Add parameters
-      ui_components_IssuesGroupHeader:
-        no-epic: No epic
-      ui_components_IssuesPresetSelect:
+      ui_Issues_smart-components_IssuesPresetSelect:
         preset_assignee: Assigned to me
         preset_author: Created by me
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
-      ui_components_IssueTabs:
-        description-tab: Description
-        fields-tab: Parameters
-        links-tab: Links
-      ui_components_ModalTextEditor:
-        save: Save
-      ui_components_navigation:
-        invite-user: Add user
-      ui_components_new-process_ProcessTypeStep:
-        next-button: Next
-        process-type-development: Development
-        process-type-project: Project management
-        process-type-standard: Basic template
-        process-type-support: Support
-        standard-info-section-time: Time spent
-      ui_components_page-admin_BillingAccountInfo:
-        person-type-company: Legal entity or individual entrepreneur
-        person-type-invididual: Individual
-        rebind-account: Change billing account
-        refill-balance: Top up balance
-        refill-dialog-ok-issue: Issue an invoice
-      ui_components_page-admin_BillingAccountList:
-        bind: Link
-        create-account: Create new account
-      ui_components_page-admin_BillingScreen:
-        create-account: Create
-      ui_components_page-admin_ChangeOrganizationModal:
-        add-button: Change organization
-      ui_components_page-admin_OrganizationSmallPane:
-        add-org-button: Add organization
-      ui_components_page-admin_OrgMainInfoPane:
-        org-manage-button: Manage organization
-      ui_components_page-admin_OrgPanes_CloudOrgPane:
-        federation-task-action: Connect
-        source-title: Yandex Cloud Organization
-      ui_components_page-admin_OrgPanes_DirectoryOrgPane:
-        domain-task-action: Connect
-        source-title: Yandex 360 for Business
-      ui_components_page-admin_OrgUsersPane:
-        access-level_full-access: Full
-        access-level_read_only: Read
-        title_access: Access to Tracker
-      ui_components_page-admin_PageAdmin:
-        access-and-payment: Access and payment
-        menu-item-groups: Groups
-        menu-item-orgs: Organizations
-        menu-item-repositories: Repositories
-        menu-item-users: Users
-      ui_components_page-issues_touch_FilterSettingsMenu:
-        item-filters: Filters
-        item-group: Grouping
-      ui_components_page-issues_touch:
-        all-issues-filter-title: All issues
-        query-language: Query language
-      ui_components_page-my_PageMy:
-        page-title: My page
-      ui_components_page-queue-admin_AliasesCreateForm:
+      ui_Portfolios_smart-components_project-list_utils:
+        field-name-resolution: Resolution
+        filter-macro-empty_: No value
+      ui_Queues_pages_page-queue-admin_AliasesCreateForm:
         mail-address: Email
         mail-allow-external: Accept letters not only from employees of the organization
         mail-archive-folder: Archive folder
@@ -4889,7 +4891,7 @@ default:
         mail-settings-title: Mail for receiving emails
         mail-ssl: Secure connection (SSL)
         save-button: Save
-      ui_components_page-queue-admin_AliasesFormSendPanel:
+      ui_Queues_pages_page-queue-admin_AliasesFormSendPanel:
         send-mail-login: Login
         send-mail-password: Password
         send-mail-port: Port
@@ -4898,87 +4900,28 @@ default:
         send-settings-title: Email for sending responses
         signature-settings-title: Signatures
         test-mail-button: Send a test email
-      ui_components_page-queue-admin_AliasesStateList:
+      ui_Queues_pages_page-queue-admin_AliasesStateList:
         action-add-mail: Add an email
         action-domain: Connect a domain
-      ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu:
-        add-form: Add form
-        create-new: Create new
-      ui_components_page-queue-admin_QueueActionsMenu:
+      ui_Queues_pages_page-queue-admin_QueueActionsMenu:
         remove-queue-action: Delete queue
-      ui_components_page-queue-admin_QueueAdminPageContent:
+      ui_Queues_pages_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
         menu-item-autoactions: Auto actions
         menu-item-forms: Form integration
         menu-item-permissions: Permissions
         menu-item-timetracking: Time tracking
         menu-item-workflows: Workflows
-      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+      ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
         change-owner: Change owner
         set-as-default: Set as default
-      ui_components_page-queue-admin_Signature:
-        alias-title: Alias
-      ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
-        enable-backlog: Enable backlog
-      ui_components_PageAgileBoard_PageAgileBoardHeader:
-        settings: Settings
-      ui_components_PageAgileBoardSettings_Header:
-        settings: Settings
-      ui_components_PageCreateIssue:
-        change-template: Edit form
-        change-title-and-description: Change title and description
-        create-new: Create form
-        create-new-template: Create new form
-        description-placeholder: Add a description of the issue so the assignee knows what to do
-        switch-to-admin-panel: Switch to admin panel
-        try-yandex-forms: Try Yandex Forms for creating issues
-      ui_components_PageCreateIssueForm:
-        continue: Continue
-      ui_components_PageHiThere:
-        wrong-user-btn: Log in
-      ui_components_PageIssues:
-        search-title: Search by all tasks
-      ui_components_PageQueue_header:
+      ui_Queues_pages_PageQueue_header:
         export: Export
         settings: Queue settings
         subscribe: Subscribe
         subscribe-all: Subscribe to all notifications
         subscribe-new-tickets: Subscribe to new issues
-      ui_components_PageQueues:
-        new-queue: New queue
-      ui_components_portfolios_Header:
-        description-tab: About the portfolio
-        projects-tab: Projects
-      ui_components_portfolios_portfolio-page_ListFilterPane:
-        filter-issues: Issues
-        filter-projects: Projects
-        search-placeholder: Search
-      ui_components_portfolios_PortfolioMenu:
-        remove-portfolio: Delete portfolio
-      ui_components_projects_hooks:
-        copy-to-clipboard: Copy link
-        delete-from-project: Delete from project
-        issue-actions--move-down: Move to bottom of list
-        issue-actions--move-up: Move to top of list
-      ui_components_projects_Sidebar:
-        sidebar-param-title--endDate: Deadline
-        sidebar-param-title--lead: Responsible
-        sidebar-param-title--startDate: Start date
-        sidebar-param-title--status: Status
-        sidebar-param-title--teamUsers: Participants
-      ui_components_projects_Table:
-        add-issue: Add issue
-        add-sub-issue: Add sub-issue
-      ui_components_projects_utils:
-        field-name-resolution: Resolution
-        filter-macro-empty_: No value
-      ui_components_promo_Page:
-        login-button-label: Log in to Tracker
-      ui_components_queue-admin-tab-integrations_IntegrationForms:
-        title: Forms
-      ui_components_queue-admin-tab-main_QueueAdminTabMain:
-        save: Save
-      ui_components_queue-admin-tab-timetracking_TimetackingForm:
+      ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
         field-can-assignee-update-time: Allow the assignee to edit logged time
         field-show-time-field-on-close: Automatically calculate spent time when closing the task
         field-track-time-in-issues: Advanced time tracking
@@ -4986,40 +4929,34 @@ default:
         field-use-summary-time: Display the Overall task estimation field
         field-working-calendar: Work schedule
         save: Save
-      ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
+      ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog:
         action-copy: Copy
         label-name: New workflow name
         label-queue: Copy from queue
         label-workflow: Copying workflow
-      ui_components_queue-admin-tab-workflows_WorkflowsStateList:
+      ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Create workflow
         default-type-title: Default issue type
-      ui_components_QueueAdminTemplateOptions:
+      ui_Queues_smart-components_new-process_ProcessTypeStepRedesign:
+        information-time-tracking-title: Time tracking
+        process-type-development: Development
+        process-type-project: Project management
+        process-type-standard: Basic
+        process-type-support: Support
+      ui_Queues_smart-components_new-process_QueueSetupForm:
+        next-button: Next
+      ui_Queues_smart-components_QueueAdminTemplateOptions:
         allow-empty-template: Allow issues to be created without a form
         always: Always
         never: Never
         team: Only for the queue team
-      ui_components_settings_IssueUpdatesSettings:
-        save: Save
-      ui_components_SortButton:
-        default-title: Sort
-      ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
-        column-comment: Comment
-        column-date: Log date
-        column-spent: Time spent
-      ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: Time tracking history
-      ui_components_TrackerSearch:
-        queues: Queues
-      ui_components_TransitionScreen:
-        screen-next-button: Continue
-      ui_components_workflow-conditions_ConditionsMenu:
+      ui_Queues_smart-components_workflow-conditions_ConditionsMenu:
         add-condition: Add condition
-      ui_components_workflow-conditions_WorkflowGroupCondition:
+      ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition:
         add-conditions-group: Add condition group
-      ui_components_workflow-functions_WorkflowFunctionMenu:
+      ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu:
         menu-title: Add automation
-      ui_components_workflow-functions:
+      ui_Queues_smart-components_workflow-functions:
         type-AddCommentFunction: Add comment
         type-AddTextToFieldFunction: Fill in the field
         type-CalculateFieldFunction: Enter totals in the field
@@ -5054,12 +4991,8 @@ default:
       ticket:
         create:
           action_create-ticket: Create ticket
-          field_access-type: Access
-          field_attachments: Attachments
-          field_message: Message
           field_service: Service
           field_subject: Subject
-          field_ticket-type: Type
           title_create-ticket-page: New ticket
       tickets:
         common:
@@ -5156,10 +5089,12 @@ default:
             label_from: From
             label_product: Products
             label_service: Services
+            label_title: Usage details
             label_title-usage-short: Consumption for
             label_to: To
             label_top-cost: Consumption cost
             label_top-total: Due and payable
+            popup-csv_button_download: Download
             tab_label: By labels
             tab_product: By product
             tab_service: By service
@@ -5217,8 +5152,6 @@ default:
           users:
             button_add: Add user
             button_remove-user: Remove user
-            button_tune-role: Configure roles
-            popup-tune-role_add-button: Assign role
         accounts:
           column_cloud: Clouds
           label_title: List of accounts
@@ -5254,16 +5187,21 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      cloud-center:
+        action_more: More
       cloud:
         button_delete: Delete
         button_save: Save
         label_delete-now: Delete now
       forms:
         label_value: Value
+      labelset:
+        button_add-label: Add label
       marketplace:
         label_product-ids: Product IDs
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
+        product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
       notify-subs:
         label_inherited-subscribers: Default subscribers
@@ -5278,11 +5216,19 @@ default:
       settings:
         button_add-empty-telegram: Set up
         button_submit: Confirm
+        field_email: Address
+        field_phone: Phone
         field_theme: Interface theme
         field_theme-contrast: Contrast
         label_alerting-name: Monitoring
+        label_billing-name: Billing
+        label_event-name: Events
         label_monitoring-name: Monitoring
+        label_promo_banner-name: Promo block
+        label_security-name: Security
+        label_tech-name: Maintenance work
         label_telegram: Telegram
+        label_telegram-link: Go to Telegram bot
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
@@ -5290,6 +5236,7 @@ default:
         section_phone: Phone number settings
         section_settings: Notification settings
         section_transports: Notification methods
+        value_theme-system: System
       usermenu:
         label_login: Log in
     yacloud_monitoring:
@@ -5459,23 +5406,36 @@ default:
     yacloud_org:
       actions:
         add: Add
+        exclude: Remove
         save-changes: Save
       common:
-        resource-acl:
-          label_service-accounts: Service accounts
+        columns:
+          column_id: Identifier
       component:
         form-file-upload:
+          field:
+            method: Method
           method:
             manual: Text
         subject-select-dialog:
           action_apply: Save
           title_dialog: Adding participants
+      dashboard:
+        notify:
+          placeholder_add-user-action: Add
+          title:
+            notify: Recipients of notifications from the organization
+        organization:
+          action:
+            delete-button: Delete
+            edit-button: Edit
       entity:
         certificate:
           action:
             add: Adding a certificate
         federation:
           field:
+            acsUrl: ACS URL
             autocreateUsers: Automatically create users
             caseInsensitiveNameIds: Case-insensitive user names
             cookieMaxAge: Cookie lifetime
@@ -5488,7 +5448,10 @@ default:
           action_add-acl: Assign roles
           action_add-member: Add member
           action_create: Create group
+          action_delete-group: Delete
           action_edit: Edit
+          action_remove-acl: Revoke access
+          action_remove-user: Remove from group
           action_update-acl: Configure access
           title_tab-access: Group access rights
           title_tab-members: Members
@@ -5500,6 +5463,9 @@ default:
         oslogin-profile:
           action:
             create: Create profile
+        ssh-keys:
+          action:
+            add-key: Add key
         user:
           action:
             acl: Assign bindings
@@ -5515,6 +5481,9 @@ default:
             action:
               role:
                 add: Add role
+        add-users:
+          action:
+            add: Add
         federation:
           action:
             create: Create federation
@@ -5531,21 +5500,47 @@ default:
             iam-group: IAM group
             tab-idp: IdP group
         organization:
+          create:
+            action:
+              create: Creating an organization
           select:
             action:
+              create: Create new organization
               enter: Log in
         oslogin-settings:
           title_allow-edit-own-keys: Allow members to use their own SSH keys
           title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
           title_user-ssh-key-settings: Access via OS Login using SSH keys
+        oslogin:
+          field_home-directory: Home directory
+          field_shell: Default shell
+          field_uid: ID (uid)
       forms:
         action:
           create: Create
           save: Save
+      groups:
+        action_create-group: Create group
+      iam-bindings:
+        subject:
+          action_revoke-all: Revoke all
+          title_group: Group
+          title_revoke-access-dialog: Revoke access
+          value_role-source-filter_direct: Directly appointed
+          value_role-source-filter_group: Assigned via group
+      layout:
+        organization: Organization
       page:
+        acl-diagnostics:
+          action_select-subject: Select subject
         context:
           action:
             create: Create new organization
+        federation:
+          link:
+            download-cert: Download certificate
+          section:
+            certificates: Certificates
         services:
           clouds:
             create: Create cloud
@@ -5557,6 +5552,7 @@ default:
             edit: Edit data
         user:
           title_tab-os-login: OS Login profiles
+          title_tab-ssh-keys: SSH keys
         users:
           action:
             add-federated-users: Add federated users
@@ -5679,6 +5675,7 @@ default:
         label_access_rights-public: All users
         label_accessRights: Access
         label_allow-access: Grant access
+        label_subtitles: Subtitles
         label_title: Name
         label_visibility-status: Public access
         status_error: Error
@@ -5890,28 +5887,37 @@ default:
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
         value_type-incremental: Incremental
-      billing:
-        account:
-          dashboard-overview:
-            button_refill: Top up account
-            popup-refill_button_company-action: Issue receipt
-          detail:
-            button_export: Export details
-            label_title: Usage details
-            popup-csv_button_download: Download
-            tab_product: By product
-          reconciliation-reports:
-            action_download-with-facsimile: Download signed report
-            action_download-without-facsimile: Download unsigned report
-            action_request-report: Request reconciliation report
-            action_request-report-short: Request
-            field_actions: Actions
-            value_completed: Done
-          switch_acts: Reporting documents
-          switch_detail: Usage details
-          tab_reconciliation-reports-title: Reconciliation reports
-        label_accounts: Accounts
-        label_service: Billing
+      baremetal:
+        action_delete-server: End lease
+        action_destroy-raid: Remove RAID
+        action_disk-layout-settings: Configure disk layout
+        action_reboot-server: Reboot
+        action-create-subnetwork: Create a private subnet
+        actions_add-partition: Add partition
+        field_CIDR: CIDR
+        field_description: Description
+        field_name: Name
+        field_needed-public-ip: Public address
+        field_network-id: Virtual network segment (VRF)
+        field_password: Password
+        field_server-count: Number of servers
+        field_server-lease-duration: Lease duration
+        field_server-pool: Pool
+        field_server-user: User
+        field_server-zone: Availability zone
+        field_ssh-public-key: Public SSH key
+        label_networks: VRF
+        label_one-month-duration: 1 month
+        label_public-ip-auto: Automatically
+        label_public-ip-no: No address
+        label_subnetworks: Private subnets
+        title_routing-settings: Routing settings
+        title_section-lease-conditions: Lease conditions
+        title_section-server-config: Configuration
+        title_section-server-info: Server information
+        title_section-server-network-settings: Network settings
+        title_section-server-product: Image
+        title_server-access: Access
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
@@ -5930,6 +5936,9 @@ default:
         field_group-name: Group name
         field_origin: Origin domain name
         field_origin-state: Priority
+        field_rewrite-rule-body: Rewrite rule
+        field_rewrite-rule-flag: Flag
+        field_rewrite-rule-redirect: Redirecting requests
         field_secure-key: Secret key
         field_secure-key-enabled: Access via secure token
         field_secure-key-type: Limit access by IP address
@@ -6087,6 +6096,7 @@ default:
           switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Data format schemas
+          switch_hosts: Hosts
           switch_logs: Logs
           switch_ml-models: Machine learning
           switch_monitoring: Monitoring
@@ -6094,13 +6104,17 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+        field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
             field_copy_schema: Copy data schema
         switch_backups: Backups
         switch_list: Clusters
+        switch_operations: Operations
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-tree-list:
+        value_search-placeholder: Search
       common:
         add: Add
         all: All
@@ -6151,6 +6165,7 @@ default:
         operations-key-value: Operations
         operations:
           column_status: Status
+          column_value_done: Completed
         overview: Overview
         password: Password
         remove: Delete
@@ -6162,10 +6177,10 @@ default:
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
-          label_inherited-bindings: Inherited roles
           label_service-account: Service account
           placeholder_filter-by-type: Account type
         save: Save
+        save-changes: Save changes
         section-base: General information
         select: Select
         start: Start
@@ -6189,7 +6204,6 @@ default:
           update-dialog:
             button_add-role: Add role
             button_select-subject: Select subject
-            label_title: Configure permissions
         certificates:
           button_empty-add: Add certificate
         compute:
@@ -6220,8 +6234,10 @@ default:
             field_memory: RAM
             field_platform: Platform
             field_preemptible: Preemptible
+            field_sw-accelerated-net: Software network acceleration
             label_sw-accelerated-net: Software accelerated network
             label_tab-custom: Custom
+            label_tab-gpu: GPU
             value_platform-tab-gpu: With GPU
         condition-column:
           condition_and: and
@@ -6277,8 +6293,14 @@ default:
         navigation-menu:
           label_account: Account
           label_billing: Billing
+          label_load-balancer: Network Load Balancer
+          label_managed-clickhouse: Managed Service for ClickHouse
+          label_managed-kubernetes: Managed Service for Kubernetes
+          label_managed-postgresql: Managed Service for PostgreSQL
           label_monitoring: Monitoring
           label_notifications: Notifications
+          label_serverless-containers: Serverless Containers
+          label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
         security-group-field:
           label_sg-auto: Auto
@@ -6296,12 +6318,6 @@ default:
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
-          create-subnetwork-dialog:
-            button_create: Create
-            field_cidr: CIDR
-            field_description: Description
-            field_name: Name
-            field_zone: Availability zone
           network-select:
             button_create-network: Create network
             button_create-subnetwork: Create subnet
@@ -6310,9 +6326,15 @@ default:
           button_attach: Attach
           field_instance: VM
         button_relocate-to-another-zone: Relocate to another zone
+        component:
+          instance-storage-dialog:
+            button_add-disk: Add disk
         disk-form:
           field_size: Size
           field_type: Type
+          label_disk-encryption: Encrypted disk
+          label_disk-kms-key: KMS key
+          label_service-account: Service account
         disk:
           overview:
             label_snapshot: Snapshot
@@ -6422,6 +6444,9 @@ default:
           popup-upload_button_upload: Upload
           popup-upload_field_pooled: Optimize for deployment
         instance:
+          access-method:
+            field_os-login-access-method: Access by OS Login
+            label_oslogin-control-ssh-option-title: SSH key
           console:
             connect: Connect
           edit-network-interface:
@@ -6438,6 +6463,7 @@ default:
             label_host: Internal FQDN
             label_network-interface: Network interface
             label_public-ipv4: Public IPv4 address
+            label_title: Overview
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
@@ -6454,6 +6480,7 @@ default:
           button_create: Create virtual machine
           button_gr-action-stop: Stop
           button_start-instance-relocation: Start relocation
+          column_internal-ip: Internal IPv4
           create-disk:
             button_create: Add
             field_name: Name
@@ -6464,12 +6491,11 @@ default:
             value_source-none: Empty
             value_source-snapshot: Snapshot
           create:
+            action_activate-backup: Connect
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
-            button_show-all-os-products: Show all OS's
-            column_disk-size: Size
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
             field_coi-command: Command
@@ -6483,7 +6509,6 @@ default:
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
-            field_os-login-access-method: Access by OS Login
             field_security-groups: Security groups
             field_serial-port-enable: Access to serial console
             field_service-account: Service account
@@ -6491,18 +6516,16 @@ default:
             field_zone: Availability zone
             image_coi_label_empty-button: Configure
             image_value_coi: Container Solution
-            image_value_custom: Custom image
+            image_value_custom_new: Custom
             image_value_marketplace: Marketplace
-            image_value_os-products: Operating systems
-            label_add-disk: Add disk
             label_add-network-interface: Add network interface
             section_access: Access
-            section_additional: Additional settings
+            section_additional: Additional
             section_backup: Cloud Backup
             section_base: General information
             section_coi: Docker container settings
             section_disk: Disks
-            section_image: Image/boot disk selection
+            section_image: Boot disk image
             section_monitoring: Monitoring
             section_network: Network settings
             section_placement: Placement
@@ -6719,8 +6742,10 @@ default:
         field_approval-rules-token: Gitlab token
         field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
+        label_additional-section: Advanced settings
         label_admin-section: Administrator data
         label_configuration-section: Configuration
+        switch_instances: Instances
         title_backups: Backups
         title_migration: Migration
         title_omniauth: OmniAuth
@@ -6728,7 +6753,7 @@ default:
         label_title: GPU clusters
       greenplum:
         action_expand-open: Expand cluster
-        action_expand-start: Save
+        action_expand-start: Expand
         cluster:
           perf-diag:
             label_action-terminate-query: Terminate query
@@ -6758,6 +6783,7 @@ default:
             value_hdfs: HDFS
             value_hive: Hive
             value_jdbc: JDBC
+            value_pxf: PXF
             value_s3: S3
           user-auth:
             action_add-rule: Add rule
@@ -6845,6 +6871,7 @@ default:
             label_datalens: DataLens
             label_dns: Cloud DNS
             label_foundation-models: Foundation Models
+            label_iam: Identity and Access Management
             label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
@@ -6865,6 +6892,7 @@ default:
             label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
+            label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: All services
@@ -6902,12 +6930,14 @@ default:
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
+              column_key_last-used-at: Date of last use
               field_key-description: Description
               label_id: ID
               label_title: Overview
               popup-confirm_button_delete: Delete
               popup-key_button_close: Close
               popup-key_button_create: Create
+              section_api_keys: API keys
               section_keys: Authorized keys
               section_service-account-keys: Access keys
             popup-robot_button_add: Create
@@ -6918,11 +6948,15 @@ default:
             button_action-delete: Delete
             button_action-edit: 'Edit '
             button_add: Create service account
+            column_date: Date created
+            column_last-auth: Date of last authentication
+            column_name: Name
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
           switch_dashboard: Folder dashboard
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
+        label_service-accounts: Service accounts
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -6940,6 +6974,8 @@ default:
         label_registries: Registries
         label_yds-exports: Export to Data Stream
       k8s:
+        access:
+          label_title: Access management
         cluster:
           marketplace:
             button_install: Install
@@ -6953,6 +6989,7 @@ default:
             label_health: State
             label_master-title: Master
             label_status: Status
+            label_title: Overview
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -7002,6 +7039,8 @@ default:
           button_create: Create
           popup-add_field_name: Name
         node-group:
+          access-method:
+            field_os-login-access-method: Access by OS Login
           overview:
             label_network-hdd: HDD
             label_network-ssd: SSD
@@ -7033,6 +7072,7 @@ default:
             label_runtime-CONTAINERD: containerd
             section_access: Access
             section_additional: Additional
+            section_allocation-policy: Location
             section_deploy: Allow when creating and updating
             section_disk: Storage
             section_gpu-settings: GPU settings
@@ -7188,6 +7228,7 @@ default:
         button_create-regression-dashboard: Create dashboard
         button_create-test: Create test
         button_duplicate-configuration: Duplicate configuration
+        button_export-report: Export
         field_chart-name: Chart name
         field_config-file: Configuration file
         field_export-bucket: Bucket name
@@ -7197,16 +7238,29 @@ default:
         field_export-is-archive: Archive in zip
         field_load-generator: Load generator
         field_logging-group: Log group
+        field_name-filter: Filter by name
         field_overload-test-id: Test ID
         field_overload-token: Token
+        field_report-export-bucket: Export to bucket
+        field_report-export-folder: Bucket folder
+        field_report-export-format: Report format
+        field_report-export-time-interval: Time interval
         field_settings-type: Configuration method
         field_test-data-type: Data type
+        filter_label_tags: Filter labels
+        label_agent-by-filter-any-option: Any suitable agent
+        label_agent-by-filter-condition-option: Set conditions
+        label_agent-by-filter-selector: First released
+        label_agent-from-list-selector: Select from list
+        label_agents-count: Agent count
         label_agents-list: Agents
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
         label_monitoring-report: Monitoring
         label_quantiles: Quantiles
         label_regressions-title: Regressions
+        label_report-export-title: Report export
+        label_report-exports-history-title: Exports history
         label_results-comparison-section-title: Results comparison
         label_settings-type-config: Config
         label_settings-type-form: Form
@@ -7260,6 +7314,7 @@ default:
         column_header-level: Level
         column_header-message: Message
         column_header-time: Time
+        field_logging: Write logs
         label_destination: Destination
         label_export: Export logs
         label_groups: Groups
@@ -7270,16 +7325,22 @@ default:
         label_stream: Stream
         label_title: Logging
       marketplace-v2:
+        action_attach-license-compute: Link to a virtual machine
+        action_attach-to-service: Link to a service
+        action_create-vm: Create a virtual machine
         action_detach-subscription: Unlink subscription
         action_disable-autorenewal: Disable autorenewal
         action_goto-partner-url: Link to service
         action_move: Move
         action_purchase-license: Purchase a subscription
         action_specify-vm: Link virtual machine
+        button_continue: Continue
         button_k8s-product-use: Go to install
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_tariff-type: Pricing type
+        section_tariff-section: Pricing method
       mdb:
         cluster:
           backups:
@@ -7293,8 +7354,6 @@ default:
             button_action-manage: Manage
             button_action-remove: Delete
             column_extensions: PostgreSQL extensions
-          delete-dialog:
-            popup-confirm_button_delete: Delete
           diagnostics:
             label_indexes: Suggested indexes
             label_interval-first: Interval 1
@@ -7329,6 +7388,7 @@ default:
             field_range-lifetime-min: Minimum
             field_replicas: Replicas
             field_size-in-cells: Cache size
+            field_source: Source
             field_structure-attributes: Data column
             field_structure-id: Numeric key
             field_table: Table
@@ -7338,6 +7398,8 @@ default:
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
           field_diskSizeLimit: Maximum storage size
+          field_emergencyUsageThreshold: Immediately when full at more than
+          field_plannedUsageThreshold: In the maintenance window when full at more than
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host
@@ -7390,6 +7452,7 @@ default:
           switch_hosts: Hosts
           switch_jobs: Jobs
           switch_monitoring: Monitoring
+          switch_network: Network
           switch_subclusters: Subclusters
           switch_users: Users
           users:
@@ -7456,7 +7519,6 @@ default:
           button_add-host: Add host
           button_add-initialization-action: Add
           button_add-subcluster: Add
-          button_configure: Add
           button_configure-settings: Settings
           button_create: Create cluster
           button_create-shard: Create shard
@@ -7490,7 +7552,6 @@ default:
           field_diagnostics-sessions-interval: Sessions sampling interval
           field_diagnostics-statements-interval: Statements sampling interval
           field_initialization-action-args: Arguments
-          field_initialization-action-timeout: Timeout
           field_initialization-action-uri: URI
           field_security-group: Security groups
           host_column_assign_public_ip: Public access
@@ -7499,7 +7560,8 @@ default:
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
           label_autoscaling-activated: Autoscaling
-          label_create-subcluster: ' Add subcluster'
+          label_compute-subcluster: Compute
+          label_data-subcluster: Data
           label_deletion-protection: Deletion protection
           label_disk-size: Size
           label_diskTypeId: Disk type
@@ -7575,6 +7637,8 @@ default:
           switch_users: Users
         hosts:
           action_stepdown-host: Step down
+        switch_list: Clusters
+        switch_operations: Operations
       monitoring:
         button_open-in-monitoring: Open in Monitoring
       mysql:
@@ -7591,6 +7655,7 @@ default:
         field_backup_priority: Backup priority
         field_priority: Master priority
         switch_list: Clusters
+        switch_operations: Operations
       opensearch:
         auth:
           button_save: Save
@@ -7646,6 +7711,8 @@ default:
           dialog:
             button_choose: Save
         switch_backups: Backups
+        switch_list: Clusters
+        switch_operations: Operations
       redis:
         cluster:
           switch_logs: Logs
@@ -7654,14 +7721,20 @@ default:
         field_announce-hostnames: Use FQDN instead of IP addresses
         field_tls-support: TLS support
         switch_backups: Backups
+        switch_list: Clusters
+        switch_operations: Operations
       search-api:
+        overview:
+          label_button-edit: Edit
         test-query:
           label_button-run-test: Run test
+          label_field-body: Request body
           label_field-method: Request method
           label_field-query: Search query text
           label_search_type-international: International
           label_search_type-russian: Russian
           label_search_type-turkish: Turkish
+          label_section-url: Search query
           label_title: Test queries
       serverless-containers:
         button_create-container: Create container
@@ -7960,6 +8033,8 @@ default:
           context_word-stress-title: Stress
           context_word-title: Emphasize word
         label_playground: SpeechKit Playground
+        label_speech-synthesis: Speech synthesis
+        label_speech-to-text: Speech recognition
         speech-synthesis:
           field_audio: Audio format
           field_language: Language
@@ -7969,6 +8044,10 @@ default:
           field_voice: Voice
           label_button_playback: Synthesize and playback
           label_synthesis-settings: Synthesis settings
+        speech-to-text:
+          field_language: Language
+          label_button_start-recognition: Start recognition
+          label_language-auto: Automatic
       storage:
         bucket:
           button_action-permissions: Object ACL
@@ -7977,6 +8056,14 @@ default:
           button_upload: Upload
           cors:
             button_cors_empty-create: Configure
+            button_save: Save
+            column_allowed-header: Allowed Headers
+            column_allowed-method: Allowed Methods
+            column_allowed-origin: Allowed Origins
+            column_description: Description
+            column_expose-header: Expose Headers
+            column_max-age-seconds: MaxAgeSeconds
+            label_add-cors-settings: Add rule
           encryption:
             button_save: Save
             field_key: KMS Key
@@ -7986,12 +8073,14 @@ default:
             button_save: Save
             field_certificate: Certificate
             field_certificate-manager: Certificate
+            field_private-key: Secret key
             field_source: Source
             value_method-certificate-manager: Certificate Manager
             value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save
+            column_storage_class: Storage class
             field_date: Trigger date
             field_days: Trigger time
             field_description: Description
@@ -8008,6 +8097,13 @@ default:
             value_date: Exact date
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
+          object-lock:
+            field_mode: Default lock type
+            field_object-lock-enabled: Enable locks
+            field_retention-period: Default lock period
+            field_rule-enabled: Default locks for new versions
+            title-mode-compliance: Compliance
+            title-mode-governance: Governance
           policy:
             button_add-resource: Add resource
             button_add-value: Add value
@@ -8039,21 +8135,31 @@ default:
             label_size-limit-disabled: No limit
           switch_cors: CORS
           switch_encryption: Encryption
+          switch_file-versions: Show versions
           switch_files: Objects
+          switch_general-settings: General
           switch_https: HTTPS
           switch_lifecycle: Lifecycle
+          switch_object-lock: Object locks
           switch_policy: Access policy
           switch_security: Security
           switch_server-logs: Logging
           switch_settings: Settings
+          switch_versioning: Versioning
           switch_website: Website
+          versioning:
+            field_status: Status
           website:
             button_add-routing-rule: Add forwarding rule
             button_save: Save
             field_error: Error page
+            field_host-name: Domain name
+            field_hostname: Domain name
             field_http-redirect-code: Response code
             field_index: Home page
             field_link: Link
+            field_protocol: Protocol
+            field_redirect_change: Replace key
             label_routing-condition: Condition
             label_routing-redirect: Redirect
             select_condition_prefix: Key prefix
@@ -8073,11 +8179,14 @@ default:
             button_create: Create bucket
           label_title: Buckets
         button_upload: Upload
+        field_perm-object-lock-enabled: Legal hold
+        field_temp-object-lock-enabled: Retention
         file:
           action_file-restore: Restore
           button_delete: Delete
           button_download: Download
           button_generate: Get link
+          button_object-lock: Object lock
           button_permissions: Object ACL
           button_version-history: Version history
           label_lifetime: Lifetime
@@ -8087,6 +8196,7 @@ default:
           label_server-logs: Write logs
           label_target-bucket: Bucket for log storage
         switch_buckets: Buckets
+        title_object-lock: Object version lock
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image
@@ -8129,13 +8239,13 @@ default:
           button_create-gateway: Create gateway
           field_name: Name
           field_type: Type
+          label_gateways: Gateways
           value_gateway-type-egress-nat: Egress NAT
         label_network: Network
         network:
           overview:
             button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
-            column_subnetwork_id: ID
             section_subnetworks: Subnets
           security-groups:
             button_add-rule: Add rule
@@ -8188,6 +8298,7 @@ default:
         subnet:
           add-route-table:
             button_add: Link
+            field_route-table-id: Route table
             label_title: Link routing table
         subnetworks:
           button_action-add-route-table: Link routing table
@@ -8264,6 +8375,7 @@ default:
           button_action-edit: Edit
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
+          label_kinesis-endpoint: Kinesis API endpoint
           label_serverless-billing: Pricing
           label_serverless-limits: Limits
           section_connection: Connection
@@ -8413,6 +8525,9 @@ default:
               console:
                 form:
                   common:
+                    AltName:
+                      to_name:
+                        title: Target table name
                     CleanupPolicy:
                       DISABLED:
                         title: Don't cleanup
@@ -8427,6 +8542,24 @@ default:
                         title: Name
                       type:
                         title: Type
+                    Connection:
+                      authorization_connman:
+                        title: Connection Manager
+                      authorization_plain:
+                        title: Self-managed
+                      authorization_type:
+                        title: Connection type
+                      connection_type:
+                        title: Installation type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
+                    ConnmanConnection:
+                      connection_id:
+                        title: Connection
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Add a column for missing keys
@@ -9019,16 +9152,8 @@ default:
                       subnet_id:
                         title: Subnet ID
                     PostgresConnection:
-                      connection_type:
-                        title: Installation type
-                      database:
-                        title: Database
-                      password:
-                        title: Password
                       security_groups:
                         title: Security groups
-                      user:
-                        title: User
                     PostgresConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for PostgreSQL cluster
@@ -9313,9 +9438,18 @@ default:
             RenameTablesTransformer:
               rename_tables:
                 array_item_label: Table
+            ToStringTransformer:
+              columns:
+                title: Columns
             Transformation:
               transformers:
                 array_item_label: Transformation
+            Transformer:
+              convert_to_string:
+                title: Convert values to string
+              table_splitter:
+                title: Table splitter transformer
+              title: Transformer
     yc-ui-datasphere:
       alias:
         private: Private
@@ -9369,6 +9503,7 @@ default:
           value: Value
         port: Port
         prefix: Prefix
+        projects: Projects
         projects-resources: Project
         resize: Resize
         resources: Resources
@@ -9563,6 +9698,7 @@ default:
         edit: Edit
         save: Save
       connections:
+        connection: Connection
         fields:
           client: Client
           operator: Agent
@@ -9572,6 +9708,7 @@ default:
         add-dictionary: Add dictionary
       projects:
         dialogs: Dialogs
+        projects: Projects
       tags:
         binding-events-key-value: Limitations
         binding-events:
@@ -9732,6 +9869,7 @@ default:
       yq-connection:
         action_clickhouse: Managed Service for ClickHouse
         action_datastreams: Data Streams
+        action_greenplum: Managed Service for Greenplum
         action_monitoring: Monitoring
         action_mysql: Managed Service for MySQL
         action_object-storage: Object Storage
@@ -9799,7 +9937,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.8
+        tag: v0.2.11
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -9816,7 +9954,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.7
+        tag: 1.14.8
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -9850,7 +9988,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.30
+        tag: 0.4.31
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -9881,7 +10019,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.2
+        tag: 1.2.0-7
     yc_metric-provider:
       helmChart:
         name: >-

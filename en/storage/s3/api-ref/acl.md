@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage access control lists in {{ objstorage-full-name }}"
-description: "In this tutorial, you will learn what S3 API methods can be used to manage access control lists."
+title: What S3 API methods can be used to manage access control lists in {{ objstorage-full-name }}
+description: In this tutorial, you will learn what S3 API methods can be used to manage access control lists.
 ---
 
 # All ACL methods

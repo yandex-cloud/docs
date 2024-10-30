@@ -30,17 +30,16 @@
    * [Manage data streams in {{ yds-name }}](../data-streams/quickstart/index.md).
    * [Use {{ iot-name }} as your framework for smart home development](../iot-core/quickstart.md).
 * Databases and clusters:
-   * [{{ CH }}](../managed-clickhouse/quickstart.md).
-   * [{{ MG }}](../managed-mongodb/quickstart.md).
-   * [{{ MY }}](../managed-mysql/quickstart.md).
-   * [{{ RD }}](../managed-redis/quickstart.md).
+   * [{{ CH }}](../managed-clickhouse/quickstart.md).   
+   * [{{ MY }}](../managed-mysql/quickstart.md).   
    * [{{ PG }}](../managed-postgresql/quickstart.md).
+   
    * [{{ OS }}](../managed-opensearch/quickstart.md).
    * [{{ KF }}](../managed-kafka/quickstart.md).
    * [{{ GP }}](../managed-greenplum/quickstart.md).
    * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
    * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
-   * Machine learning:
+* Machine learning:
    * [Convert text to speech and vice versa using {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
    * [Translate text in {{ translate-name }}](../translate/quickstart.md).
    * [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).

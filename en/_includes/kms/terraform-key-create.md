@@ -1,6 +1,6 @@
 To create a key:
 
-1. Describe the parameters of the `yandex_kms_symmetric_key` resource in a configuration file:
+1. Describe the parameters of the `yandex_kms_symmetric_key` resource in the configuration file:
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
@@ -21,12 +21,12 @@ To create a key:
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: Key description.
-   * `default-algorithm`: Encryption algorithm. Possible values: `AES-128`, `AES-192`, or `AES-256`.
-   * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (default key version change frequency). To create a key without automatic rotation, do not specify the `rotation-period` parameter.
+   * `default-algorithm`: Encryption algorithm. The possible values are `AES-128`, `AES-192`, or `AES-256`.
+   * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
    {% note warning %}
 
-   Deleting a {{ kms-short-name }} key destroys all data encrypted with that key: the data becomes unrecoverable after the key is deleted. The `lifecycle` block is necessary to prevent users from destroying keys (with the `terraform destroy` command, for example).
+   Deleting a {{ kms-short-name }} key destroys all data encrypted with that key: the data becomes unrecoverable after the key is deleted. The `lifecycle` block is necessary to prevent users from destroying keys (e.g., with the `terraform destroy` command).
 
    {% endnote %}
 
@@ -60,7 +60,7 @@ To create a key:
 
 1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   All the resources you need will then be created in the specified folder. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+   All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
    ```bash
    yc kms symmetric-key list

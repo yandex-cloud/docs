@@ -7,8 +7,8 @@ Metadata is also used by apps that launch at VM startup.
 ## Metadata formats supported inside VM {#metadata-formats}
 
 From inside a VM instance, metadata is available in the following formats:
-* [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (not all fields are supported).
-* [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (not all fields are supported).
+* [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (some fields are not supported).
+* [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (some fields are not supported).
 
 ## How to send metadata {#how-to-send-metadata}
 
@@ -30,7 +30,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
   In the CLI, you can provide metadata in any of the three parameters:
 
-  * `--metadata-from-file`: As a configuration file in the `--metadata-from-file key=<file_path>` format. Use this method to conveniently deliver a value consisting of several lines.
+  * `--metadata-from-file`: As a configuration file formatted as `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
 
       For example, to add several users to a VM at the same time, describe the configuration in a `YAML` file:
 
@@ -38,8 +38,8 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
   * `--metadata`: As a comma-separated list of `key=value` pairs, e.g., `--metadata foo1=bar,foo2=baz`.
 
-      For a multiline value, use `\n` to split lines, e.g., `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
-  * `--ssh-key`: Provide an SSH key. Only for Linux VMs.
+      For a multiline value, use `\n` as a separator: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
+  * `--ssh-key`: SSH key. Only for Linux VMs.
 
     {{ compute-name }} creates the `yc-user` user and adds the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
 
@@ -55,48 +55,48 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
 - {{ TF }} {#tf}
 
-   In {{ TF }}, you can specify metadata in three ways:
-   * As a separate file with user metadata to process by the `cloud-init` agent. Under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
+  In {{ TF }}, you can specify metadata in three ways:
+  * As a separate file with user metadata to process by the `cloud-init` agent. To do this, under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
 
-      ```hcl
-      ...
-      metadata = {
-        user-data = "${file("cloud-init.yaml")}"
-      }
-      ...
-      ```
+    ```hcl
+    ...
+    metadata = {
+      user-data = "${file("cloud-init.yaml")}"
+    }
+    ...
+    ```
 
-      {% cut "Sample contents of the `cloud-init.yaml` file" %}
+    {% cut "Sample contents of the `cloud-init.yaml` file" %}
 
-      {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
+    {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
 
-      {% endcut %}
+    {% endcut %}
 
-   * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` to split lines. For example:
+  * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` as a separator. For example:
 
-      ```hcl
-      ...
-      metadata = {
-        user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <SSH_key _contents>"
-      }
-      ...
-      ```
+    ```hcl
+    ...
+    metadata = {
+      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <SSH_key_contents>"
+    }
+    ...
+    ```
 
-   * Only for Linux VMs. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
+  * Only for Linux VMs. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
 
-      ```hcl
-      ...
-      metadata = {
-        ssh-keys = "<username>:<SSH_key_contents>"
-      }
-      ...
-      ```
+    ```hcl
+    ...
+    metadata = {
+      ssh-keys = "<username>:<SSH_key_contents>"
+    }
+    ...
+    ```
 
-      If you are using an out-of-the-box public [image](../concepts/image.md) from {{ marketplace-full-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. Such users vary depending on an image.
+    If you are using an out-of-the-box public [image](../concepts/image.md) from {{ marketplace-full-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. Such users vary depending on an image.
 
-      If you do not know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It contains the name of the user assigned the authorized keys.
+    If you do not know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It will contain the name of the user the authorized keys are assigned to.
 
-      If no such string is found, but you see the `no authorized ssh keys fingerprints found for user` string, it means that you did not provide your SSH key correctly. In this case, check the format or try providing the SSH keys in the `user-data` field.
+    If you cannot find this string but you see the `no authorized ssh keys fingerprints found for user` string, it means you have provided your SSH key incorrectly. Check the format once again or try providing the SSH keys in the `user-data` field.
 
 - API {#api}
 
@@ -127,9 +127,9 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
 - Linux {#linux}
 
-  * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). `1`: access enabled; `0`: (default) access disabled.
-  * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
-  * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. `1` stands for `install`, while `0` (default), for `do not install`.
+  * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). Use `1` to enable or `0` (default) to disable access.
+  * `enable-oslogin`: Flag enabling access via [OS Login](../operations/vm-connect/os-login.md). Use `true` to enable or `false` (default) to disable access.
+  * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. Use `1` to install or `0` (default) not to install the agent.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 
     Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
@@ -144,19 +144,19 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
     }
     ```
 
-    For example, in the `user-data` key, you can describe the [software installation scripts](../operations/vm-create/create-with-cloud-init-scripts.md#examples) to be run when creating a new VM.
+    In the `user-data` key, you may also describe the [software installation scripts](../operations/vm-create/create-with-cloud-init-scripts.md#examples) to be executed when creating a new VM.
 
-  * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Specify it in `<username>:<SSH_key_content>` format, e.g., `user:ssh-ed25519 AAC4NzaC1... user@example.com`. If you specify multiple keys, only the first one will be used.
+  * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Use this format: `<username>:<SSH_key_contents>`, e.g., `user:ssh-ed25519 AAC4NzaC1... user@example.com`. If you specify multiple keys, only the first one will be used.
 
 - Windows {#windows}
 
   `user-data`: String with user metadata to be processed by the [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) agent. This agent supports various [data formats](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), such as PowerShell scripts that set the administrator password:
 
-   ```json
-   "metadata": {
-     "user-data": "#ps1\nnet user Administrator Passw0rd"
-   }
-   ```
+  ```json
+  "metadata": {
+    "user-data": "#ps1\nnet user Administrator Passw0rd"
+  }
+  ```
 
 {% endlist %}
 
@@ -169,7 +169,7 @@ To request an identity document:
 1. Connect to the VM:
 
    ```bash
-   ssh <VM's_IP>
+   ssh <VM_IP_address>
    ```
 
 1. You can get an identity document in [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) and [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) formats. Run this command:
@@ -178,21 +178,21 @@ To request an identity document:
 
    - GCE
 
-      ```bash
-      curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
-      ```
+     ```bash
+     curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+     ```
 
    - EC2
 
-      ```bash
-      curl http://169.254.169.254/latest/vendor/instance-identity/document
-      ```
+     ```bash
+     curl http://169.254.169.254/latest/vendor/instance-identity/document
+     ```
 
    {% endlist %}
 
    Response example:
 
-   ```
+   ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
@@ -212,187 +212,187 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
 - RSA
 
-   1. Connect to the VM:
+  1. Connect to the VM:
 
-      ```bash
-      ssh <VM's_IP>
-      ```
+     ```bash
+     ssh <VM_IP_address>
+     ```
 
-   1. Get an RSA signature from the VM metadata and save it to a file named `rsa2048`:
+  1. Get an RSA signature from the VM metadata and save it to a file named `rsa2048`:
 
-      * **GCE**:
+     * **GCE**:
 
-         ```bash
-         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
-         ```
+       ```bash
+       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
+       ```
 
-      * **EC2**:
+     * **EC2**:
 
-         ```bash
-         curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
-         ```
+       ```bash
+       curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
+       ```
 
-   1. Create a `certificate` file and add a public certificate to it:
-
-
+  1. Create a file named `certificate` and add a public certificate to it:
 
 
-   1. Verify the signature and save the contents of the document to a file named `document`:
 
-      ```bash
-      openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
-      ```
 
-      If the signature is valid, you will see a message saying `Verification successful`.
+  1. Verify the signature and save the contents of the document to a file named `document`:
+
+     ```bash
+     openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
+     ```
+
+     If the signature is valid, you will see a message saying `Verification successful`.
 
 - DSA
 
-   1. Connect to the VM:
+  1. Connect to the VM:
 
-      ```bash
-      ssh <VM's_IP>
-      ```
+     ```bash
+     ssh <VM_IP_address>
+     ```
 
-   1. Get a dsa2048 signature from the VM metadata and save it to a file named `dsa2048`:
+  1. Get a signature from the VM metadata and save it to a file named `dsa2048`:
 
-      * **GCE**:
+     * **GCE**:
 
-         ```bash
-         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
-         ```
+       ```bash
+       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
+       ```
 
-      * **EC2**:
+     * **EC2**:
 
-         ```bash
-         curl http://169.254.169.254/latest/vendor/instance-identity/dsa > dsa2048
-         ```
+       ```bash
+       curl http://169.254.169.254/latest/vendor/instance-identity/dsa > dsa2048
+       ```
 
-   1. Create a `certificate` file and save a public certificate to it:
-
-      
-      ```
-      -----BEGIN CERTIFICATE-----
-      MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
-      MAAwHhcNMjMwNjA3MDY1NjI0WhcNMzMwNjA0MDY1NjI0WjAAMIIDRjCCAjkGByqG
-      SM44BAEwggIsAoIBAQDFyteKPnUOauqiHzsLCw2Z//c1IjSqVVPpIbETQ1NUCsUI
-      o6+at1VkxJ76K/HqvFlhC87nSGWuQMgflQXcVIEQ8c0wnQGRj4lwkkjm8WClo4xv
-      t/FsNyv4uEcPgcz45A2YxE4+5odjicKMCz4pPW+kc9t4BiKw4I9uGySBhA1p21e+
-      fmR4AzDSHdHGRlvlYOfYANZlVeWm+qLsb+VfyeETTOD+ooMA9Y4ue3dw2l8Clib8
-      WummF2PNRnnOeEFGbwZErtdObla2TjdNzFWc6QWo1EcqqkBXG1TutY/FgNcTj+Ps
-      nFoUu4ZIy7o8p8YgzyffSCQbP5ppRGpfh4DuIS+vAiEA8tkwKyKmcCxTWnpRNWlY
-      O6kUanHgEQczpLtP3mDvcdUCggEAMhbW4syX5p7X1qs0OnFCLcd4tYA2DnR1dLu3
-      ZPusUh6c9+cH3ICEnK22KB1nplMAHDyXjtV2rCvIGlNUcT6OkSulnkvNE185cfM0
-      UKofG4t6VJNpa8bngF7Ccyf6QBPcUzigHv+QDQDZuA4k3IcQp0hC9ppOaN6J9rKp
-      5cSPyLzJ2vyY6mG650omxgnwG4OGZSRX8c1JN/MvIj79m3LqM7civ8l6ljnC+LNm
-      1T7mcgZcf9iYc5+OWICoeDtFUdr+qsNIXonIMku6FpJu0pBgVgE6GI+nD4oaXSQS
-      bckxB24DEYvTlVALuXqPS8MZyQZz5ltoI8xnbEOMqtU3IPox1AOCAQUAAoIBADcS
-      Pt2SC+cGUCKNhrPquESB2/dZKUDuyEtYIYMidfoyoBGhz2QuqOqf5tEcLY9gCeMP
-      NxmaXW1AQtcAX/+tyCZrVxEc31btW3alLmu/NtKxmb6PRshsASI/LIE1wH82TV8C
-      4ymFDyKUGCb5AWN+Ziv5AP5/6Q08awQ7YAuz/sw0xOMqDuUfYkLerPEuQg5Sozs0
-      DWucS/ex7l+VqNAZUBZykta961bhplIDTRG05YD3Lz0w/WIBMdZzzolA7F3jgFJg
-      rCfZwQeDbf1iorfxRS5DqR0Vt7XE6/yqRUzDjOMctKY68jLZGFfOfTQ9iX2R9K/f
-      7kJPxaHnA+WWo13ExwGjUzBRMB0GA1UdDgQWBBTj+x+t2VJhAWI57o9xRwMOeTFj
-      mzAfBgNVHSMEGDAWgBTj+x+t2VJhAWI57o9xRwMOeTFjmzAPBgNVHRMBAf8EBTAD
-      AQH/MAsGCWCGSAFlAwQDAgNIADBFAiAX2ABj/9ea1Q4ssAgIGkA4vJywoUoT4Sbg
-      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
-      -----END CERTIFICATE-----
-      ```
+  1. Create a `certificate` file and save a public certificate to it:
 
 
+     ```text
+     -----BEGIN CERTIFICATE-----
+     MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
+     MAAwHhcNMjMwNjA3MDY1NjI0WhcNMzMwNjA0MDY1NjI0WjAAMIIDRjCCAjkGByqG
+     SM44BAEwggIsAoIBAQDFyteKPnUOauqiHzsLCw2Z//c1IjSqVVPpIbETQ1NUCsUI
+     o6+at1VkxJ76K/HqvFlhC87nSGWuQMgflQXcVIEQ8c0wnQGRj4lwkkjm8WClo4xv
+     t/FsNyv4uEcPgcz45A2YxE4+5odjicKMCz4pPW+kc9t4BiKw4I9uGySBhA1p21e+
+     fmR4AzDSHdHGRlvlYOfYANZlVeWm+qLsb+VfyeETTOD+ooMA9Y4ue3dw2l8Clib8
+     WummF2PNRnnOeEFGbwZErtdObla2TjdNzFWc6QWo1EcqqkBXG1TutY/FgNcTj+Ps
+     nFoUu4ZIy7o8p8YgzyffSCQbP5ppRGpfh4DuIS+vAiEA8tkwKyKmcCxTWnpRNWlY
+     O6kUanHgEQczpLtP3mDvcdUCggEAMhbW4syX5p7X1qs0OnFCLcd4tYA2DnR1dLu3
+     ZPusUh6c9+cH3ICEnK22KB1nplMAHDyXjtV2rCvIGlNUcT6OkSulnkvNE185cfM0
+     UKofG4t6VJNpa8bngF7Ccyf6QBPcUzigHv+QDQDZuA4k3IcQp0hC9ppOaN6J9rKp
+     5cSPyLzJ2vyY6mG650omxgnwG4OGZSRX8c1JN/MvIj79m3LqM7civ8l6ljnC+LNm
+     1T7mcgZcf9iYc5+OWICoeDtFUdr+qsNIXonIMku6FpJu0pBgVgE6GI+nD4oaXSQS
+     bckxB24DEYvTlVALuXqPS8MZyQZz5ltoI8xnbEOMqtU3IPox1AOCAQUAAoIBADcS
+     Pt2SC+cGUCKNhrPquESB2/dZKUDuyEtYIYMidfoyoBGhz2QuqOqf5tEcLY9gCeMP
+     NxmaXW1AQtcAX/+tyCZrVxEc31btW3alLmu/NtKxmb6PRshsASI/LIE1wH82TV8C
+     4ymFDyKUGCb5AWN+Ziv5AP5/6Q08awQ7YAuz/sw0xOMqDuUfYkLerPEuQg5Sozs0
+     DWucS/ex7l+VqNAZUBZykta961bhplIDTRG05YD3Lz0w/WIBMdZzzolA7F3jgFJg
+     rCfZwQeDbf1iorfxRS5DqR0Vt7XE6/yqRUzDjOMctKY68jLZGFfOfTQ9iX2R9K/f
+     7kJPxaHnA+WWo13ExwGjUzBRMB0GA1UdDgQWBBTj+x+t2VJhAWI57o9xRwMOeTFj
+     mzAfBgNVHSMEGDAWgBTj+x+t2VJhAWI57o9xRwMOeTFjmzAPBgNVHRMBAf8EBTAD
+     AQH/MAsGCWCGSAFlAwQDAgNIADBFAiAX2ABj/9ea1Q4ssAgIGkA4vJywoUoT4Sbg
+     LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
+     -----END CERTIFICATE-----
+     ```
 
-   1. Verify the signature and save the contents of the document to a file named `document`:
 
-      ```bash
-      openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
-      ```
 
-      If the signature is valid, you will see a message saying `Verification successful`.
+  1. Verify the signature and save the contents of the document to a file named `document`:
+
+     ```bash
+     openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
+     ```
+
+     If the signature is valid, you will see a message saying `Verification successful`.
 
 - BASE64
 
-   1. Connect to the VM:
+  1. Connect to the VM:
 
-      ```bash
-      ssh <VM's_IP>
-      ```
+     ```bash
+     ssh <VM_IP_address>
+     ```
 
-   1. Get a base64 signature from the VM metadata and save it to a file named `signature`:
+  1. Get a base64 signature from the VM metadata and save it to a file named `signature`:
 
-      * **GCE**:
+     * **GCE**:
 
-         ```bash
-         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | base64 -d >> signature
-         ```
+       ```bash
+       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | base64 -d >> signature
+       ```
 
-      * **EC2**:
+     * **EC2**:
 
-         ```bash
-         curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
-         ```
+       ```bash
+       curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
+       ```
 
-   1. Get an identity document and save it to a file named `document`:
+  1. Get an identity document and save it to a file named `document`:
 
-      * **GCE**:
+     * **GCE**:
 
-         ```bash
-         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
-         ```
+       ```bash
+       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
+       ```
 
-      * **EC2**:
+     * **EC2**:
 
-         ```bash
-         curl http://169.254.169.254/latest/vendor/instance-identity/document > document
-         ```
+       ```bash
+       curl http://169.254.169.254/latest/vendor/instance-identity/document > document
+       ```
 
-   1. Create a `certificate` file and save a public certificate to it:
-
-      
-      ```
-      -----BEGIN CERTIFICATE-----
-      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
-      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
-      SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDw6TvAvrbJvY4tzIIuDnLEVfRUW4BZJD3y
-      K8fyyxXrYDvC69RKCKk9+TQhnUOLhZNlDST4HFfSPlakOjXUduyJE5M1EmoLAstN
-      81aP3TejseDavxmaNijXRsa9E731T5H+zo44PgAHfQJmiD7rtcr+QOIosKUB2dwp
-      F2acp9hLKd389BfNctziG0Oxq7hlISTDBnhzBg7eKuqWtShjVW5RqQvp3bARfUPa
-      RWdYjmZvR+AnmozV1SGnpAnatzhnF6tNAb5XSEw49tumsX1D4A11J6mtrafO6bsP
-      wdIPwy9W15iCszUNlFcdBaZhESc34VbyCyLMvA5T0Uj1FJHz1RFlAgMBAAGjUzBR
-      MB0GA1UdDgQWBBQq0z6Vcmjcn8wnRTwKGSm5YGas9TAfBgNVHSMEGDAWgBQq0z6V
-      cmjcn8wnRTwKGSm5YGas9TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
-      A4IBAQBplippQ/Pxn7AkuwOTSwSTeJ7S+rMSb6iSL9chNHetanft0Ikr5BDsSrd6
-      TeHV0sEMilDIjX0EjSNHwYtYrDPk6cGjkzDTYb6/U10c5Xhwi0g7/lMH/RPihPz5
-      co80VEqXWlgfgHuE7/cAiTJ61PiFD9oI494bQcIISQNDfbUUiYfn32+8nK20rn8C
-      w7PbGoIv6zz6A0c6DJT7yXJF5sAHgX4M03Oi9edzQ077ZOboXSuUKe4VfHIpjTjZ
-      0sM/NbG5BFstyetVc3FZOGWGukTRb0C0GSASOm6hCyh5ctmpwlS4menc/OAx9BYO
-      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
-      -----END CERTIFICATE-----
-      ```
+  1. Create a `certificate` file and save a public certificate to it:
 
 
+     ```text
+     -----BEGIN CERTIFICATE-----
+     MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
+     BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
+     SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDw6TvAvrbJvY4tzIIuDnLEVfRUW4BZJD3y
+     K8fyyxXrYDvC69RKCKk9+TQhnUOLhZNlDST4HFfSPlakOjXUduyJE5M1EmoLAstN
+     81aP3TejseDavxmaNijXRsa9E731T5H+zo44PgAHfQJmiD7rtcr+QOIosKUB2dwp
+     F2acp9hLKd389BfNctziG0Oxq7hlISTDBnhzBg7eKuqWtShjVW5RqQvp3bARfUPa
+     RWdYjmZvR+AnmozV1SGnpAnatzhnF6tNAb5XSEw49tumsX1D4A11J6mtrafO6bsP
+     wdIPwy9W15iCszUNlFcdBaZhESc34VbyCyLMvA5T0Uj1FJHz1RFlAgMBAAGjUzBR
+     MB0GA1UdDgQWBBQq0z6Vcmjcn8wnRTwKGSm5YGas9TAfBgNVHSMEGDAWgBQq0z6V
+     cmjcn8wnRTwKGSm5YGas9TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
+     A4IBAQBplippQ/Pxn7AkuwOTSwSTeJ7S+rMSb6iSL9chNHetanft0Ikr5BDsSrd6
+     TeHV0sEMilDIjX0EjSNHwYtYrDPk6cGjkzDTYb6/U10c5Xhwi0g7/lMH/RPihPz5
+     co80VEqXWlgfgHuE7/cAiTJ61PiFD9oI494bQcIISQNDfbUUiYfn32+8nK20rn8C
+     w7PbGoIv6zz6A0c6DJT7yXJF5sAHgX4M03Oi9edzQ077ZOboXSuUKe4VfHIpjTjZ
+     0sM/NbG5BFstyetVc3FZOGWGukTRb0C0GSASOm6hCyh5ctmpwlS4menc/OAx9BYO
+     r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
+     -----END CERTIFICATE-----
+     ```
 
-   1. Extract a public key from the certificate and save it to a file named `key`:
 
-      ```bash
-      openssl x509 -pubkey -noout -in certificate >> key
-      ```
 
-   1. Verify the signature and save the contents of the document to a file named `document`:
+  1. Extract a public key from the certificate and save it to a file named `key`:
 
-      ```bash
-      openssl dgst -sha256 -verify key -signature signature document
-      ```
+     ```bash
+     openssl x509 -pubkey -noout -in certificate >> key
+     ```
 
-      If the signature is valid, you will see a message saying `Verified OK`.
+  1. Verify the signature and save the contents of the document to a file named `document`:
+
+     ```bash
+     openssl dgst -sha256 -verify key -signature signature document
+     ```
+
+     If the signature is valid, you will see a message saying `Verified OK`.
 
 {% endlist %}
 
 Map the identity document from the VM metadata to the document saved to the file:
 
-```
+```bash
 curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
 ```
 
-```
+```bash
 openssl dgst -sha256 < document
 ```
 
@@ -400,5 +400,5 @@ If they have the same hash, the identity document saved to the file matches the 
 
 #### See also {#see-also}
 
-* [{#T}](instance-groups/instance-template.md)
+* [{#T}](instance-groups/instance-template.md).
 * [Creating a VM with a custom configuration script](../operations/vm-create/create-with-cloud-init-scripts.md)

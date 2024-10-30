@@ -1,6 +1,6 @@
 ---
-title: "Как создать линию в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать линию {{ video-full-name }}."
+title: Как создать линию в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете создать линию {{ video-full-name }}.
 ---
 
 # Создать линию
@@ -27,6 +27,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [StreamLineService/Create](../../api-ref/grpc/stream_line_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/StreamLine/create.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Create](../../api-ref/grpc/StreamLine/create.md).
 
 {% endlist %}

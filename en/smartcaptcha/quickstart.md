@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ captcha-full-name }}"
-description: "Follow this guide to create and set up a CAPTCHA."
+title: Getting started with {{ captcha-full-name }}
+description: Follow this guide to create and set up a CAPTCHA.
 ---
 
 # Getting started with {{ captcha-full-name }}
@@ -25,28 +25,31 @@ To get started with the service:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
-   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-      ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
+       ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
 
-   1. Enter a CAPTCHA name. The naming requirements are as follows:
+    1. Enter a CAPTCHA name. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
+        {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
 
-   1. Select the type of the [main challenge](./concepts/tasks.md#main-task) to complete by the user.
-   1. Select the type of the [additional challenge](./concepts/tasks.md#additional-task) to complete by the user.
-   1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
+    1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
+    1. Specify a list of sites where the CAPTCHA will be placed.
+    1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
 
-      ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
+       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
 
-   1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
-   1. Specify a list of sites where the CAPTCHA will be placed.
-   1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Set up a default CAPTCHA:
+       1. Select the [main challenge](./concepts/tasks.md#main-task) type.
+       1. Select the [additional challenge](./concepts/tasks.md#additional-task) type.
+       1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
 
-      ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
+    1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+       ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
 
 {% endlist %}
 
@@ -57,12 +60,12 @@ To get started with the service:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
-   1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
-   1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
+    1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
 
-   ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
+    ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
 
 {% endlist %}
 
@@ -75,23 +78,23 @@ Add the widget automatically:
 
 1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
 
-   ```html
-   <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
-   ```
+    ```html
+    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    ```
 
-   The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
+    The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
 
-1. Add an empty container (`div` element) to the page so that the `captcha.js` script loads the widget to it:
+1. Add an empty container (a `div` element) to the page so that the `captcha.js` script loads the widget to it:
 
-   ```html
-   <div
-       id="captcha-container"
-       class="smart-captcha"
-       data-sitekey="<client_key>"
-   ></div>
-   ```
+    ```html
+    <div
+        id="captcha-container"
+        class="smart-captcha"
+        data-sitekey="<client_key>"
+    ></div>
+    ```
 
-   {% include [info-container-height](../_includes/smartcaptcha/info-container-height.md) %}
+    {% include [info-container-height](../_includes/smartcaptcha/info-container-height.md) %}
 
 The **I’m not a robot** button will appear on the page. The service will check the user request after the user clicks the button. If the request seems suspicious, the service will ask the user to perform an action.
 
@@ -107,11 +110,24 @@ After the check, the user is given a unique token. The token is loaded to the `<
 </div>
 ```
 
-To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.net/validate` with the following parameters:
+To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
+
+```HTML
+response = requests.post(
+"https://smartcaptcha.yandexcloud.net/validate",
+    {
+    "secret": SMARTCAPTCHA_SERVER_KEY,
+    "token": token,
+    "ip": "<user_IP_address>"
+    }
+)
+```
+
+Where:
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
-In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to a JSON object. It shows on what website the validation was passed. For response examples, see [User validation](concepts/validation.md#service-response).
+In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to the JSON object. It shows on what website the validation was passed. For response examples, see [User validation](concepts/validation.md#service-response).
 
 
 Example of the token validation function:
@@ -120,122 +136,147 @@ Example of the token validation function:
 
 - Node.js {#node}
 
-   ```js
-   const https = require('https'),
-       querystring = require('querystring');
+    ```js
+    const https = require('https'),
+        querystring = require('querystring');
 
-   const SMARTCAPTCHA_SERVER_KEY = "<server_key>";
-
-
-   function check_captcha(token, callback) {
-       const options = {
-           hostname: 'smartcaptcha.yandexcloud.net',
-           port: 443,
-           path: '/validate?' + querystring.stringify({
-               secret: SMARTCAPTCHA_SERVER_KEY,
-               token: token,
-               ip: '<user IP>', // Method for retrieving the user IP depends on your framework and proxy.
-           }),
-           method: 'GET',
-       };
-       const req = https.request(options, (res) => {
-           res.on('data', (content) => {
-               if (res.statusCode !== 200) {
-                   console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
-                   callback(true);
-                   return;
-               }
-               callback(JSON.parse(content).status === 'ok');
-           });
-       });
-       req.on('error', (error) => {
-           console.error(error);
-           callback(true);
-       });
-       req.end();
-   }
+    const SMARTCAPTCHA_SERVER_KEY = "<server_key>";
 
 
-   let token = "<token>";
-   check_captcha(token, (passed) => {
-       if (passed) {
-           console.log("Passed");
-       } else {
-           console.log("Robot");
-       }
-   });
-   ```
+    function check_captcha(token, callback) {
+        const postData = querystring.stringify({
+            secret: SMARTCAPTCHA_SERVER_KEY,
+            token: token,
+            ip: '<user_IP_address>', // Method for retrieving the user IP address depends on your framework and proxy.
+        });
+    
+        const options = {
+            hostname: 'smartcaptcha.yandexcloud.net',
+            port: 443,
+            path: '/validate',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Length': Buffer.byteLength(postData),
+            },
+        };
+    
+        const req = https.request(options, (res) => {
+            let content = '';
+    
+            res.on('data', (chunk) => {
+                content += chunk;
+            });
+    
+            res.on('end', () => {
+                if (res.statusCode !== 200) {
+                    console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
+                    callback(true);
+                    return;
+                }
+    
+                try {
+                    const parsedContent = JSON.parse(content);
+                    callback(parsedContent.status === 'ok');
+                } catch (err) {
+                    console.error('Error parsing response: ', err);
+                    callback(true);
+                }
+            });
+        });
+    
+        req.on('error', (error) => {
+            console.error(error);
+            callback(true);
+        });
+    
+        // Write the POST data to the request body
+        req.write(postData);
+        req.end();
+    }
+
+
+    let token = "<token>";
+    check_captcha(token, (passed) => {
+        if (passed) {
+            console.log("Passed");
+        } else {
+            console.log("Robot");
+        }
+    });
+    ```
 
 - PHP {#php}
 
-   ```php
-   define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
+    ```php
+    define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
 
-   function check_captcha($token) {
-       $ch = curl_init();
-       $args = http_build_query([
-           "secret" => SMARTCAPTCHA_SERVER_KEY,
-           "token" => $token,
-           "ip" => $_SERVER['REMOTE_ADDR'], // You need to provide the user IP.
-                                            // Method for retrieving the user IP depends on your proxy.
-       ]);
-       curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
-       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-       curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+    function check_captcha($token) {
+        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $args = [
+            "secret" => SMARTCAPTCHA_SERVER_KEY,
+            "token" => $token,
+            "ip" => "<user_IP_address>", // You need to provide the user IP address.
+                        // Method for retrieving the user IP depends on your proxy.
+        ];
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($args));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        $server_output = curl_exec($ch); 
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
 
-       $server_output = curl_exec($ch);
-       $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-       curl_close($ch);
+        if ($httpcode !== 200) {
+            echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
+            return true;
+        }
+     
+        $resp = json_decode($server_output);
+        return $resp->status === "ok";
+    }
 
-       if ($httpcode !== 200) {
-           echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
-           return true;
-       }
-       $resp = json_decode($server_output);
-       return $resp->status === "ok";
-   }
-
-   $token = $_POST['smart-token'];
-   if (check_captcha($token)) {
-       echo "Passed\n";
-   } else {
-       echo "Robot\n";
-   }
-   ```
+    $token = "<token>"; //For example, $_POST['smart-token'];
+    if (check_captcha($token)) {
+        echo "Passed\n";
+    } else {
+        echo "Robot\n";
+    }
+    ```
 
 - Python {#python}
 
-   ```py
-   import requests
-   import sys
-   import json
+    ```py
+    import requests
+    import sys
+    import json
 
+    SMARTCAPTCHA_SERVER_KEY = "<server_key>"
 
-   SMARTCAPTCHA_SERVER_KEY = "<server_key>"
-
-
-   def check_captcha(token):
-       resp = requests.get(
+    def check_captcha(token):
+        resp = requests.post(
            "https://smartcaptcha.yandexcloud.net/validate",
-           {
-               "secret": SMARTCAPTCHA_SERVER_KEY,
-               "token": token,
-               "ip": "<user IP>" # Method for retrieving the IP depends on your framework and proxy. 
-                                 # For example, in Flask, this can be request.remote_addr
+           data={
+              "secret": SMARTCAPTCHA_SERVER_KEY,
+              "token": token,
+              "ip": "<user_IP_address>"   # Method for retrieving the IP address depends on your framework and proxy.
+                                                # In Flask, for example, this can be `request.remote_addr`
            },
            timeout=1
-       )
-       server_output = resp.content.decode()
-       if resp.status_code != 200:
+        )
+        server_output = resp.content.decode()
+        if resp.status_code != 200:
            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
            return True
-       return json.loads(server_output)["status"] == "ok"
-   token = "<token>" # For example, request.form["smart-token"]
-   if check_captcha(token):
-       print("Passed")
-   else:
-       print("Robot")
-   ```
+        return json.loads(server_output)["status"] == "ok"
+
+    token = "<token>"  # For example, it can be `request.form["smart-token"]`
+    if check_captcha(token):
+        print("Passed")
+    else:
+        print("Robot")
+    ```
 
 {% endlist %}
 

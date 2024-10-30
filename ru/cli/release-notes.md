@@ -1,11 +1,153 @@
 ---
-title: "Список релизов YC CLI"
-description: "На странице представлены релизы YC CLI, а также изменения в каждом из них."
+title: Список релизов YC CLI
+description: На странице представлены релизы YC CLI, а также изменения в каждом из них.
 ---
 
 # Релизы YC CLI
 
 ## Текущая версия {#latest-release}
+
+## Версия 0.136.0 (21.10.24) {#version0.136.0}
+
+### Изменения в CLI {#cli}
+
+* В команде `yc init` теперь не предлагается зона `ru-central1-c`, поскольку она больше не используется.
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` добавлен параметр `--idle-timeout`, позволяющий указать таймаут неактивности соединения. 
+
+#### {{ er-name }} {#eventrouter}
+
+* Дополнена валидация параметров для команды `yc serverless eventrouter`.
+* Исправлена ошибка при вызове `yc serverless eventrouter put-event`.
+
+#### {{ objstorage-name }}
+
+* Добавлена возможность проставить `--storage-endpoint` с помощью `yc config set`. Если пользователь не указал явно `--storage-endpoint`, то эндпоинт будет получен из `ApiEndpointService`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В команды: `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` добавлены параметры:
+  * `--lua-time-limit`,
+  * `--repl-backlog-size-percent`,
+  * `--cluster-require-full-coverage`,
+  * `--cluster-allow-reads-when-down`,
+  * `--cluster-allow-pubsubshard-when-down`,
+  * `--lfu-decay-time`,
+  * `--lfu-log-factor`,
+  * `--turn-before-switchover`,
+  * `--allow-data-loss`.
+
+#### {{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}
+
+* Уточнено описание параметров `--disk-size`, по умолчанию размер диска передается в GB.
+
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.135.0 (07.10.24) {#version0.135.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+##### {{ managed-k8s-name }} {#k8s}
+
+* Добавлены команды для работы с продуктами {{ marketplace-name }} в кластере {{ managed-k8s-name }}: 
+   * `yc managed-kubernetes marketplace helm-release install` — установка Helm-чарта продукта {{ marketplace-name }} в указанный кластер {{ managed-k8s-name }}.
+   * `yc managed-kubernetes marketplace helm-release update` — обновление версии Helm-чарта продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release uninstall` — удаление версии Helm-чарта продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release get` — получение информации о Helm-чарте продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release list` — получение списка Helm-чартов {{ marketplace-name }}, установленных в кластере {{ managed-k8s-name }}.
+
+##### {{load-testing-name}}
+
+* В команду `yc loadtesting agent create` добавлены параметры `log-group-id` и `log-group-name` для указания целевой лог-группы для отправки логов агента нагрузочного тестирования.
+
+### Версия 0.134.0 (02.10.24) {#version0.134.0}
+
+#### Изменения в CLI {#cli}
+
+* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
+  * `yc iam role list --jq '.[].id'`
+  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ objstorage-name }} {#storage}
+
+* Добавлена базовая поддержка операций с объектами через S3 API:
+  * `yc storage s3api get-object` — получение объекта из бакета.
+  * `yc storage s3api put-object` — загрузка объекта в бакет.
+  * `yc storage s3api delete-object` — удаление объекта.
+  * `yc storage s3api copy-object` — копирование существующего в бакете объекта.
+  * `yc storage s3api head-object` — получение метаданных объекта.
+  * `yc storage s3api delete-objects` — удаление группы объектов.
+
+  Чтобы работать с объектами, укажите в конфигурационном файле YC CLI `~/.config/yandex-cloud/config.yaml` эндпоинт {{ objstorage-name }}:
+
+  ```yaml
+  ...
+  profiles:
+    default:
+      ...
+      storage-endpoint: https://{{ s3-storage-host }}/
+  ```
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Добавлены команды `yc cic point-of-presence get` и `yc cic point-of-presence list` для чтения точек присутствия.
+* Добавлены команды `yc cic partner get` и `yc cic partner list` для чтения партнеров {{ interconnect-name }}.
+* Добавлены команды `yc cic trunk-connection get` и `yc cic trunk-connection list` для чтения транковых подключений.
+* Добавлены команды `yc cic private-connection get` и `yc cic private-connection list` для чтения приватных соединений.
+* Добавлены команды `yc cic public-connection get` и `yc cic public-connection list` для чтения публичных соединений.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* В команду `yc desktops group create` добавлен параметр `--image-id`, который позволяет передать идентификатор образа для группы рабочих столов. 
+
+##### {{ backup-name }} {#backup}
+
+* Добавлены следующие команды:
+  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным OS Login к {{ backup-name }}.
+  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup provider activate` — для активации сервиса и подключения к провайдеру резервного копирования.
+
+* При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.
+
+##### {{ si-name }} {#serverless-integrations}
+
+* Добавлена поддержка {{ er-full-name }}.
+
+##### {{ iam-name }} {#iam}
+
+* Изменен заголовок в табличном выводе команды `yc iam service accounts list`.
+
+##### {{ org-name }} {#organization}
+
+* В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* В командах `yc managed-greenplum cluster create` и `yc managed-greenplum cluster restore` добавлена поддержка опций `--master-host-group-ids` и `--segment-host-group-ids` для указания, на какие группы выделенных хостов размещать хосты мастера и сегментов {{ GP }}.
+
+**{{ mrd-name }}**
+
+* Добавлена команда `yc managed-redis backup delete` для удаления бэкапов.
+* Изменена версия {{ RD }} по умолчанию на 7.2 в связи с окончанием поддержки 6.2 и 7.0.
+
+**{{ mkf-name }}**
+
+*  В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен флаг `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого дейcтвует данное правило для пользователя.
+
+**{{ maf-name }}**
+
+* Исправление ошибок и улучшения работы сервиса {{ maf-name }}.
 
 ### Версия 0.133.0 (09.09.24) {#version0.133.0}
 
@@ -60,8 +202,6 @@ description: "На странице представлены релизы YC CLI
 **{{ maf-name }}**
 
 * Добавлены команды для работы с сервисом {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.132.1 (28.08.24) {#version0.132.1}
 
@@ -334,7 +474,7 @@ description: "На странице представлены релизы YC CLI
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mgp-name }}** 
+**{{ mgp-name }}**
 
 * Добавлено дерево команд `yc managed-greenplum hba-rules` с командами `get`, `list`, `delete`, `create` и `update`.
 

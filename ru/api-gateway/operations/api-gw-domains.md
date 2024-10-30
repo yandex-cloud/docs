@@ -64,6 +64,6 @@
         
 - API {#api}
 
-  Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain).
+  Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/ApiGateway/addDomain.md).
 
 {% endlist %}

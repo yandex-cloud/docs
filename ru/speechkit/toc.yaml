@@ -1,10 +1,5 @@
 title: '{{ speechkit-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Обзор технологий {{ speechkit-name }}
     href: overview.md
@@ -42,6 +37,8 @@ items:
         href: stt/speaker-labeling.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Загрузка данных для дообучения модели распознавания речи
+        href: stt/upload-data-for-training.md
       - name: Определение конца фразы
         href: stt/eou.md
   - name: Синтез речи
@@ -100,12 +97,28 @@ items:
             items:
               - name: Overview
                 href: stt-v3/api-ref/grpc/index.md
-              - name: Recognizer
-                href: stt-v3/api-ref/grpc/stt_service.md
               - name: AsyncRecognizer
-                href: stt-v3/api-ref/grpc/AsyncRecognizer.md
-              - name: OperationService
-                href: stt-v3/api-ref/grpc/operation_service.md
+                items:
+                  - name: Overview
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/index.md
+                  - name: RecognizeFile
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md
+                  - name: GetRecognition
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: stt-v3/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: stt-v3/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: stt-v3/api-ref/grpc/Operation/cancel.md
+              - name: Recognizer
+                items:
+                  - name: Overview
+                    href: stt-v3/api-ref/grpc/Recognizer/index.md
+                  - name: RecognizeStreaming
+                    href: stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md
           - name: API v3 REST (англ.)
             items:
               - name: Overview
@@ -114,10 +127,18 @@ items:
                 items:
                   - name: Overview
                     href: stt-v3/api-ref/AsyncRecognizer/index.md
-                  - name: getRecognition
-                    href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
-                  - name: recognizeFile
+                  - name: RecognizeFile
                     href: stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
+                  - name: GetRecognition
+                    href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: stt-v3/api-ref/Operation/index.md
+                  - name: Get
+                    href: stt-v3/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: stt-v3/api-ref/Operation/cancel.md
       - name: Синтез
         items:
           - name: API v1
@@ -127,7 +148,11 @@ items:
               - name: Overview
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: tts-v3/api-ref/grpc/tts_service.md
+                items:
+                  - name: Overview
+                    href: tts-v3/api-ref/grpc/Synthesizer/index.md
+                  - name: UtteranceSynthesis
+                    href: tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md
           - name: API v3 REST (англ.)
             items:
               - name: Overview
@@ -136,7 +161,7 @@ items:
                 items:
                   - name: Overview
                     href: tts-v3/api-ref/Synthesizer/index.md
-                  - name: utteranceSynthesis
+                  - name: UtteranceSynthesis
                     href: tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
   - name: SDK
     items:
@@ -231,3 +256,4 @@ items:
       - name: Все вопросы на одной странице
         href: qa/all.md
 base: ru/speechkit
+deepBase: 2

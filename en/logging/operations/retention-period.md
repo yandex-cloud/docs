@@ -1,6 +1,6 @@
 ---
-title: "Updating a log group"
-description: "Follow this guide to update a log group."
+title: Updating a log group
+description: Follow this guide to update a log group.
 ---
 
 # Updating a log group
@@ -113,9 +113,9 @@ description: "Follow this guide to update a log group."
 
 - API {#api}
 
-   To update a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
+   To update a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md) gRPC API call.
 
-   
+
    **Sample request**
 
    {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}

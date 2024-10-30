@@ -1,6 +1,6 @@
 ---
-title: "Deleting Apache Kafka clusters"
-description: "You can delete an Apache Kafka® cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from."
+title: Deleting Apache Kafka clusters
+description: You can delete an Apache Kafka® cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
 ---
 
 # Deleting an {{ KF }} cluster
@@ -44,7 +44,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 - API {#api}
 
-   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

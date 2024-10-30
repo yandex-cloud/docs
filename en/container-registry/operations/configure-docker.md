@@ -1,6 +1,6 @@
 ---
-title: "Installing and configuring Docker"
-description: "Before you start using {{ container-registry-name }}, you must install and configure Docker on your local computer."
+title: Installing and configuring Docker
+description: Before you start using {{ container-registry-name }}, you must install and configure Docker on your local computer.
 ---
 
 # Installing and configuring Docker

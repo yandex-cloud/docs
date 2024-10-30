@@ -5,8 +5,9 @@
     * с помощью [curl](https://curl.haxx.se) в Bash:
 
         ```bash
-        curl -X POST \
-          -d '{"yandexPassportOauthToken":"<OAuth-токен>"}' \
+        curl \
+          --request POST \
+          --data '{"yandexPassportOauthToken":"<OAuth-токен>"}' \
           https://iam.{{ api-host }}/iam/v1/tokens
         ```
     * с помощью встроенной функции в PowerShell:

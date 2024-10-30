@@ -1,7 +1,5 @@
 # Как начать работать с профилем WAF
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
-
 {% include [realized-waf-glossary](../../_includes/smartwebsecurity/realized-waf-glossary.md) %}
 
 Создайте первый [профиль WAF](../concepts/waf.md) и подключите его к имеющемуся [профилю безопасности](../concepts/profiles.md) {{ sws-full-name }}.

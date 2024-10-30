@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication"
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication'
 ---
 
 # Захват изменений из {{ ydb-short-name }} и поставка в {{ KF }}

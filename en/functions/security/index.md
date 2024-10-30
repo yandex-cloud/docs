@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ sf-name }}"
-description: "Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ sf-name }}
+description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ sf-name }}

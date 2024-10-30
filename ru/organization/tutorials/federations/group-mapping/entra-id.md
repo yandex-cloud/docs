@@ -1,6 +1,6 @@
 ---
-title: "Сопоставление групп пользователей в {{ microsoft-idp.entra-id-full }}"
-description: "Как настроить сопоставление групп пользователей при аутентификации пользователей в организации."
+title: Сопоставление групп пользователей в {{ microsoft-idp.entra-id-full }}
+description: Как настроить сопоставление групп пользователей при аутентификации пользователей в организации.
 ---
 
 # Сопоставление групп пользователей в {{ microsoft-idp.entra-id-full }}
@@ -80,49 +80,65 @@ description: "Как настроить сопоставление групп п
 
 ## Создайте федерацию {{ org-full-name }} {#create-federation}
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
+  1. На панели слева выберите ![icon-federation](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. При необходимости добавьте описание.
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор {{ microsoft-idp.entra-full }}, [полученный в ходе настройки приложения Azure](#azure-settings-begin).
+      1. При необходимости добавьте описание.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте URL-адрес входа, полученный в ходе настройки приложения Azure.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор {{ microsoft-idp.entra-full }}, [полученный в ходе настройки приложения Azure](#azure-settings-begin).
 
-    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте URL-адрес входа, полученный в ходе настройки приложения Azure.
 
-1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
 
-1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию.
+      1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
-    Сертификат потребуется в дальнейшем при настройке входа на основе SAML для приложения Azure.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+  1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию.
+
+      Сертификат потребуется в дальнейшем при настройке входа на основе SAML для приложения Azure.
+
+{% endlist %}
 
 ## Добавьте SAML-сертификат приложения Azure в федерацию {#add-certificate}
 
 Чтобы при аутентификации сервис {{ org-name }} мог проверить SAML-сертификат приложения, добавьте сертификат в федерацию:
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) и выберите федерацию, для которой нужно добавить сертификат — `demo-federation`.
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Введите название и описание сертификата.
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. Включите опцию **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте данные [полученного ранее сертификата](#azure-settings-begin).
+  1. Нажмите на строку с федерацией, для которой нужно добавить сертификат — `demo-federation`.
+
+  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+
+  1. Введите название и описание сертификата.
+
+  1. В поле **{{ ui-key.yacloud_org.component.form-file-upload.field.method }}** выберите `{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}` и вставьте содержимое [полученного ранее сертификата](#azure-settings-begin).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+
+{% endlist %}
 
 ## Завершите настройку приложения Azure {#azure-settings-end}
 
@@ -244,23 +260,37 @@ description: "Как настроить сопоставление групп п
 
 ## Настройте сопоставление групп на стороне федерации {#org-mapping}
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. [Создайте группу пользователей](../../../operations/manage-groups.md#create-group) `yc-demo-group` в [{{ org-full-name }}]({{ link-org-main }}) и [выдайте ей права](../../../operations/manage-groups.md#access) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
-1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
-1. Включите сопоставление групп в поле **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
+{% list tabs group=instructions %}
 
-    {% note warning %}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    При [настройке сопоставления групп на стороне Azure](#map-azure-group) был выбран идентификатор группы в качестве атрибута источника.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-    Поэтому необходимо ввести именно идентификатор группы, а не ее имя.
+  1. [Создайте группу пользователей](../../../operations/create-group.md) `yc-demo-group` в {{ org-name }} и [выдайте ей права](../../../operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
 
-    {% endnote %}
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
-1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+  1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+
+  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
+
+      {% note warning %}
+
+      При [настройке сопоставления групп на стороне Azure](#map-azure-group) был выбран идентификатор группы в качестве атрибута источника.
+
+      Поэтому необходимо ввести именно идентификатор группы, а не ее имя.
+
+      {% endnote %}
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+{% endlist %}
 
 ## Проверьте работу аутентификации {#test-auth}
 

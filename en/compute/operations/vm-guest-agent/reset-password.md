@@ -1,6 +1,6 @@
 ---
-title: "How to reset a Windows Server admin password"
-description: "This tutorial describes how to reset a Windows Server VM admin password."
+title: How to reset a Windows Server admin password
+description: This tutorial describes how to reset a Windows Server VM admin password.
 ---
 
 # Resetting a Windows Server admin password

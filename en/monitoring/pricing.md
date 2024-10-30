@@ -1,10 +1,14 @@
 ---
-title: "{{ monitoring-full-name }} pricing policy"
-description: "This article describes the {{ monitoring-name }} pricing policy."
+title: '{{ monitoring-full-name }} pricing policy'
+description: This article describes the {{ monitoring-name }} pricing policy.
 editable: false
 ---
 
 # {{ monitoring-full-name }} pricing policy
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 

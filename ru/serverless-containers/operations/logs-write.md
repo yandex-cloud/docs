@@ -146,7 +146,7 @@
 
  - API {#api}
 
-    Чтобы записывать логи в журнал выполнения контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
+    Чтобы записывать логи в журнал выполнения контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}
 
@@ -204,7 +204,7 @@
 
     **index.py**
 
-      
+  
     ```python
     import logging
     import os

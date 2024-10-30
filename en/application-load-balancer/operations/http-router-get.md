@@ -1,5 +1,5 @@
 ---
-title: "How to get information about an HTTP router in {{ alb-full-name }}"
+title: How to get information about an HTTP router in {{ alb-full-name }}
 ---
 
 # Getting information about an HTTP router
@@ -12,25 +12,25 @@ To get information about an HTTP router:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your router.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-   1. Select the HTTP router.
-   1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your router.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Select the HTTP router.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See a description of the CLI command to get information about an HTTP router:
+  1. See a description of the CLI command to get information about an HTTP router:
 
       ```bash
       yc alb http-router get --help
       ```
 
-   1. Get information about an HTTP router by specifying its ID or name:
+  1. Get information about an HTTP router by specifying its ID or name:
 
       ```bash
       yc alb http-router get <HTTP_router_name>
@@ -38,7 +38,7 @@ To get information about an HTTP router:
 
       Result:
 
-      ```bash
+      ```text
       id: ds7u8nv8gl2s********
       name: alb-router
       folder_id: b1geoelk7fld********
@@ -57,13 +57,13 @@ To get information about an HTTP router:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To get information about an HTTP router using {{ TF }}:
+  To get information about an HTTP router using {{ TF }}:
 
-   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_alb_http_router" "tf-router" {
@@ -82,9 +82,9 @@ To get information about an HTTP router:
       * `output "tf-router-name"`: Output variable that contains the HTTP router name:
          * `value`: Returned value.
 
-      You can replace `name` with any other parameter to get the required information. For more information about `yandex_alb_http_router` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_http_router).
+     You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_alb_http_router` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_http_router).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -96,12 +96,12 @@ To get information about an HTTP router:
 
       Result:
 
-      ```bash
+      ```text
       tf-router-name = "myrouter"
       ```
 
 - API {#api}
 
-   To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/http_router_service.md#Get) gRPC API call.
+  To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md) gRPC API call.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "Equivalent services on other platforms. Overview"
-description: "If you have experience working with other cloud platforms, please see the comparison of {{ yandex-cloud }} with Amazon Web Services, Google Cloud Platform, and Microsoft Azure. This should help you find the {{ yandex-cloud }} services you're looking for."
+title: Equivalent services on other platforms. Overview
+description: If you have experience working with other cloud platforms, please see the comparison of {{ yandex-cloud }} with Amazon Web Services, Google Cloud Platform, and Microsoft Azure. This should help you find the {{ yandex-cloud }} services you're looking for.
 ---
 
 # Cloud platforms

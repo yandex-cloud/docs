@@ -232,7 +232,7 @@
    ```bash
    URL=$(kubectl get service rps-ingress-nginx-controller -o json \
      | jq -r '.status.loadBalancer.ingress[0].ip') && \
-     curl -H "Host: nginx.example.com" http://$URL
+     curl --header "Host: nginx.example.com" http://$URL
    ```
 
     {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
@@ -263,7 +263,7 @@
    ```bash
    URL=$(kubectl get service rps-ingress-nginx-controller -o json \
      | jq -r '.status.loadBalancer.ingress[0].ip') && \
-     while true; do curl -H "Host: nginx.example.com" http://$URL; done
+     while true; do curl --header "Host: nginx.example.com" http://$URL; done
    ```
 
     {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}

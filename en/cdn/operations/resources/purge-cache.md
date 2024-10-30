@@ -1,6 +1,6 @@
 ---
-title: "How to purge the resource cache in {{ cdn-full-name }}"
-description: "Follow this guide to purge the resource cache."
+title: How to purge the resource cache in {{ cdn-full-name }}
+description: Follow this guide to purge the resource cache.
 ---
 
 # Purging the resource cache
@@ -11,36 +11,36 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+  1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the resource name.
+  1. Click the resource name.
 
-   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   1. Select the type of cache purging:
+  1. Select the type of cache purging:
 
       * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}`: To purge the cache for all files.
       * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. Enter the names of the required files in the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field.
 
-   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+  1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../../_includes/cli-install.md) %}
+  {% include [include](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI update resource command:
+  1. View the description of the CLI update resource command:
 
       ```bash
       yc cdn resource update --help
       ```
 
-   1. Get a list of all resources in the default folder:
+  1. Get a list of all resources in the default folder:
 
       ```bash
       yc cdn resource list --format yaml
@@ -48,7 +48,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
       Result:
 
-      ```bash
+      ```text
       id: s0me1dkfjq********
       folder_id: s0mef01der7p********
       cname: testexample.com
@@ -87,19 +87,19 @@ To [purge the cache](../../concepts/caching.md) of the resource:
         status: READY
       ```
 
-   1. Purge the file cache using the `cache purge` argument:
+  1. Purge the file cache using the `cache purge` argument:
 
       ```bash
       yc cdn cache purge --resource-id <resource_ID> \
-        --path <paths_to_files>
+        --path <file_paths>
       ```
-      If you do not specify the `--path` flag with paths to files, the cache of all files will be purged.
+      If you omit the `--path` flag with paths to files, the cache of all files will be purged.
 
       For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
 - API {#api}
 
-   Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge) gRPC API call.
+  Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/Cache/purge.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,5 +1,5 @@
 ---
-title: "Получить информацию о таблице маршрутизации в {{ vpc-full-name }}"
+title: Получить информацию о таблице маршрутизации в {{ vpc-full-name }}
 ---
 
 # Получить информацию о таблице маршрутизации
@@ -71,7 +71,7 @@ title: "Получить информацию о таблице маршрути
      * `output "route-table"` — выходная переменная, которая содержит информацию о статических маршрутах таблицы маршрутизации:
        * `value` — возвращаемое значение.
 
-     Вместо `static_route` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_route_table` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_route_table).
+     Вместо `static_route` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_route_table` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_route_table).
 
   1. Создайте ресурсы:
 
@@ -97,6 +97,6 @@ title: "Получить информацию о таблице маршрути
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/routing.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get).
+  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/routing.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md).
 
 {% endlist %}

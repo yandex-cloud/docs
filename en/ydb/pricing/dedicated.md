@@ -1,6 +1,6 @@
 ---
-title: "Pricing rules for the {{ ydb-full-name }} mode with dedicated instances"
-description: "In this tutorial, you will learn about the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
+title: Pricing rules for the {{ ydb-full-name }} mode with dedicated instances
+description: "In this tutorial, you will learn about\_the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
 editable: false
 ---
 
@@ -9,6 +9,8 @@ editable: false
 
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -22,13 +24,13 @@ When using {{ ydb-name }} in dedicated mode, you pay for the following:
 
 Other consumed resources to be additionally paid for:
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
-* Egress traffic from {{ yandex-cloud }}.
+* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 
 ### Using computing resources {#rules-hosts-uptime}
 
-The cost is calculated for each hour of VM operation in accordance with its class. To view the specifications for each class, see [{#T}](../concepts/index.md).
+The cost is calculated for each hour of VM operation in accordance with its class. Exact class characteristics are given in [{#T}](../concepts/index.md).
 
 The minimum billing unit is one hour; for example, you will be charged for 2 hours when using a VM for 90 minutes (1.5 hours).
 
@@ -38,11 +40,11 @@ You pay for the following:
 * Storage allocated for DB storage groups.
 * Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
-   {% note info %}
+  {% note info %}
 
-   For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
+  For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
 
-   {% endnote %}
+  {% endnote %}
 
 The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
@@ -51,7 +53,7 @@ The price covers one month of use. The minimum billing unit is 1 GB per hour (e.
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ ydb-name }} Provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

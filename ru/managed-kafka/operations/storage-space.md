@@ -1,6 +1,6 @@
 ---
-title: "Управление дисковым пространством"
-description: "Вы можете отслеживать степень заполнения хранилища и увеличивать его размер вручную или автоматически."
+title: Управление дисковым пространством
+description: Вы можете отслеживать степень заполнения хранилища и увеличивать его размер вручную или автоматически.
 ---
 
 # Управление дисковым пространством в кластере {{ mkf-name }}
@@ -141,7 +141,7 @@ description: "Вы можете отслеживать степень запол
 
 * API {#api}
 
-    Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новые настройки хранилища в параметре `configSpec.kafka.resources` (`configSpec.zookeeper.resources` — для хостов {{ ZK }}).
@@ -164,6 +164,14 @@ description: "Вы можете отслеживать степень запол
 
 
 {% list tabs group=instructions %}
+
+* Консоль управления {#console}
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
+    
+        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}        
 
 * CLI {#cli}
 
@@ -192,7 +200,7 @@ description: "Вы можете отслеживать степень запол
 
 * API {#api}
 
-    Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
 

@@ -136,7 +136,8 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-   1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта, например, `sa-terraform`.
 
       Требования к формату имени:
@@ -194,7 +195,7 @@
 
 - API {#api}
 
-   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
    {% include [grant-role-for-sa-to-folder-via-api](../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
@@ -226,7 +227,7 @@
    1. Скачайте файл `terraform_1.3.9_linux_amd64.zip` с официального сайта, выполнив команду:
 
       ```bash
-      curl -LO https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
+      curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
       ```
 
    1. Установите утилиту `zip` и распакуйте zip-архив:

@@ -15,7 +15,7 @@
 
 1. Подготовьте инфраструктуру:
 
-    
+
     1. [Создайте пользовательскую инсталляцию {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
     1. [Обеспечьте доступ к кластеру из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
@@ -60,7 +60,8 @@
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --cacert ~/.elasticsearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -76,7 +77,8 @@
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --cacert ~/.elasticsearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Alice",
                "age" : "30"
@@ -85,7 +87,8 @@
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --cacert ~/.elasticsearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ ES }}_с_ролью_Data_Node>:{{ port-mes }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Robert",
                "age" : "32"

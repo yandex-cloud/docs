@@ -1,6 +1,6 @@
 ---
-title: "How to copy a dashboard"
-description: "Follow this guide to copy a dashboard."
+title: How to copy a dashboard
+description: Follow this guide to copy a dashboard.
 ---
 
 # Copying dashboards

@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к образу {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа для образа."
+title: Настроить права доступа к образу {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа для образа.
 ---
 
 # Настроить права доступа к образу
@@ -28,7 +28,7 @@ description: "Следуя данной инструкции, вы настро�
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для назначения роли на образ:
 
      ```bash
@@ -113,7 +113,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -224,7 +224,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Image/setAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/SetAccessBindings](../../api-ref/grpc/image_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Image/setAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/SetAccessBindings](../../api-ref/grpc/Image/setAccessBindings.md).
 
   {% note alert %}
 
@@ -319,6 +319,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роли на образ диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на образ диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

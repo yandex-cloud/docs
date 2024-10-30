@@ -1,9 +1,11 @@
 ---
-title: "Access management in {{ cloud-desktop-full-name }}"
-description: "Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions from a cloud or organization are inherited."
+title: Access management in {{ cloud-desktop-full-name }}
+description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions from a cloud or organization are inherited.'
 ---
 
-# Access management in {{ cloud-desktop-name }}
+# Access management in {{ cloud-desktop-full-name }}
+
+In {{ cloud-desktop-name }}, access control is achieved by using {{ iam-full-name }} roles and [access control lists (ACL)](../concepts/acl.md). See the [example of using access control mechanisms](../concepts/acl.md#example).
 
 In this section, you will learn:
 * [Which resources you can assign a role for](#resources).

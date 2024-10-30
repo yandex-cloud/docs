@@ -1,6 +1,6 @@
 ---
-title: "How to create a board in {{ tracker-full-name }}"
-description: "Follow this guide to create a board."
+title: How to create a board in {{ tracker-full-name }}
+description: Follow this guide to create a board.
 ---
 
 # Creating a board in {{ tracker-name }}
@@ -25,7 +25,7 @@ To create a board:
 
         Select this board if you are using the Scrum methodology.
 
-   - **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](agile.md#dlen_backlog) column.
+   - **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**Backlog**](agile.md#dlen_backlog) column.
 
         Select this board if your team deals with a massive flow of issues (for example, to support customers).
 
@@ -51,6 +51,6 @@ To create a board:
 
 1. Specify the queue where the issues will be created. This way, you can quickly create issues in this queue directly from the board page.
 
-1. Click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. The new board appears in the **Boards** menu in the {{ tracker-name }} top panel.
+1. Click **Create**. The new board appears in the **Boards** menu in the {{ tracker-name }} top panel.
 
 1. You can also [customize the columns and appearance of the issue card](edit-agile-board.md) if needed.

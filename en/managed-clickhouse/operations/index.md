@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mch-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ mch-name }}."
+title: Step-by-step guides for {{ mch-full-name }}
+description: This page provides a list of step-by-step guides for {{ mch-name }}.
 ---
 
 # Step-by-step guides for {{ mch-name }}

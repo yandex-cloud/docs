@@ -3,11 +3,11 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 ---
 # Updating a record
 
-This instruction describes how to make changes to an existing record in the table.
+Read this guide to learn how to make changes to an existing record in the table.
 
 ## Unconditional update {#update-item}
 
-In the following example, the value of the existing `release_date` attribute is updated and the new `rating` attribute is added.
+In the example below, we will update the value of the existing `release_date` and add the new `rating` attribute.
 
 To update a movie record in the `Series` table:
 
@@ -15,7 +15,7 @@ To update a movie record in the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps03` project:
+  1. Create the `SeriesItemOps03` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -24,15 +24,15 @@ To update a movie record in the `Series` table:
         -DartifactId=SeriesItemOps03
       ```
 
-      As a result of running the command, the `SeriesItemOps03` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesItemOps03` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps03
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -51,44 +51,44 @@ To update a movie record in the `Series` table:
         <name>SeriesItemOps03</name>
         <url>http://maven.apache.org</url>
         <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-jar-plugin</artifactId>
-              <configuration>
-                <archive>
-                  <manifest>
-                    <addClasspath>true</addClasspath>
-                    <classpathPrefix>lib/</classpathPrefix>
-                    <mainClass>com.mycompany.app.SeriesItemOps03</mainClass>
-                  </manifest>
-                  <manifestEntries>
-                    <Class-Path>.</Class-Path>
-                  </manifestEntries>
-                </archive>
-                <finalName>release/SeriesItemOps03</finalName>
-              </configuration>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>copy-dependencies</id>
-                  <phase>prepare-package</phase>
-                  <goals>
-                    <goal>copy-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>false</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>com.mycompany.app.SeriesItemOps03</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps03</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
         </build>
         <dependencies>
           <dependency>
@@ -112,7 +112,7 @@ To update a movie record in the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps03.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps03.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps03.java
@@ -122,7 +122,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -131,65 +131,65 @@ To update a movie record in the `Series` table:
 
       import java.util.Arrays;
 
-       import com.amazonaws.client.builder.AwsClientBuilder;
-       import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-       import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-       import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-       import com.amazonaws.services.dynamodbv2.document.Table;
-       import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
-       import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
-       import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-       import com.amazonaws.services.dynamodbv2.model.ReturnValue;
+      import com.amazonaws.client.builder.AwsClientBuilder;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+      import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+      import com.amazonaws.services.dynamodbv2.document.Table;
+      import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
+      import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
+      import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+      import com.amazonaws.services.dynamodbv2.model.ReturnValue;
 
       public class SeriesItemOps03 {
 
-        public static void main(String[] args) throws Exception {
+          public static void main(String[] args) throws Exception {
 
-          AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
-            .build();
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
+                  .build();
 
-          DynamoDB dynamoDB = new DynamoDB(client);
+              DynamoDB dynamoDB = new DynamoDB(client);
 
-          Table table = dynamoDB.getTable("Series");
+              Table table = dynamoDB.getTable("Series");
 
-          int series_id = 3;
-          String title = "Supernatural";
+              int series_id = 3;
+              String title = "Supernatural";
 
-          UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
-            .withUpdateExpression("set info.release_date=:d, info.rating=:r")
-            .withValueMap(new ValueMap().withString(":d", "2005-09-13").withNumber(":r", 8))
-            .withReturnValues(ReturnValue.UPDATED_NEW);
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
+                  .withUpdateExpression("set info.release_date=:d, info.rating=:r")
+                  .withValueMap(new ValueMap().withString(":d", "2005-09-13").withNumber(":r", 8))
+                  .withReturnValues(ReturnValue.UPDATED_NEW);
 
-          try {
-            System.out.println("Updating record...");
-            UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
-            System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
+              try {
+                  System.out.println("Updating record...");
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
 
+              }
+              catch (Exception e) {
+                  System.err.println("Couldn't update record: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
           }
-          catch (Exception e) {
-            System.err.println("Couldn't update record: " + series_id + " " + title);
-            System.err.println(e.getMessage());
-          }
-        }
       }
       ```
 
       You can add, update, or delete attributes for an existing record using the `updateItem` method.
 
-      This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
+      This code uses `UpdateExpression` to describe the updates one needs to perform for the specified record.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps03.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesItemOps03.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps03.jar
@@ -211,7 +211,7 @@ To update a movie record in the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps03.py` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps03.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps03.py
@@ -221,7 +221,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -231,38 +231,38 @@ To update a movie record in the `Series` table:
       import boto3
 
       def update_serie(title, series_id, release_date, rating):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
-        table = ydb_docapi_client.Table('Series')
+          table = ydb_docapi_client.Table('Series')
 
-        response = table.update_item(
-          Key = {
-            'series_id': series_id,
-            'title': title
-          },
-          UpdateExpression = "set info.release_date = :d, info.rating = :r ",
-          ExpressionAttributeValues = {
-            ':d': release_date,
-            ':r': Decimal(rating)
-          },
-          ReturnValues = "UPDATED_NEW"
-        )
-        return response
+          response = table.update_item(
+              Key = {
+                  'series_id': series_id,
+                  'title': title
+              },
+              UpdateExpression = "set info.release_date = :d, info.rating = :r ",
+              ExpressionAttributeValues = {
+                  ':d': release_date,
+                  ':r': Decimal(rating)
+              },
+              ReturnValues = "UPDATED_NEW"
+          )
+          return response
 
       if __name__ == '__main__':
-        update_response = update_serie(
-          "Supernatural", 3, "2005-09-13", 8)
-        print("Series data updated:")
-        pprint(update_response, sort_dicts = False)
+          update_response = update_serie(
+              "Supernatural", 3, "2005-09-13", 8)
+          print("Series data updated:")
+          pprint(update_response, sort_dicts = False)
       ```
 
       To update a record, use the `update_item` method. You can use it to update attribute values or add or remove attributes.
 
-      In the `UpdateExpression` parameter of the `update_item` method, all updates applied to the specified record are passed. The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
+      The `UpdateExpression` parameter of the `update_item` method provides all updates applied to the specified record. The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
       In the Boto 3 SDK, the `Decimal` class is used for storing {{ ydb-short-name }} numeric values.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps03.py
@@ -273,22 +273,22 @@ To update a movie record in the `Series` table:
       ```text
       Series data updated:
       {'Attributes': {'info': {'release_date': '2005-09-13',
-                               'series_info': 'Supernatural is an American '
-                                               'television series created by Eric '
-                                               'Kripke',
-                               'rating': Decimal('8')}},
+                              'series_info': 'Supernatural is an American '
+                                              'television series created by Eric '
+                                              'Kripke',
+                              'rating': Decimal('8')}},
       'ResponseMetadata': {'HTTPStatusCode': 200,
-                             'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
-                                             'x-amz-crc32': '672222905',
-                                             'x-request-id': '43c12c64-178b-4144-8766-95dbcf2421b8',
-                                             'date': 'Sun, 27 Dec 2020 13:01:12 GMT',
-                                             'content-length': '175'},
-                             'RetryAttempts': 0}}
+                            'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
+                                            'x-amz-crc32': '672222905',
+                                            'x-request-id': '43c12c64-178b-4144-8766-95dbcf2421b8',
+                                            'date': 'Sun, 27 Dec 2020 13:01:12 GMT',
+                                            'content-length': '175'},
+                            'RetryAttempts': 0}}
       ```
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps03.php` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps03.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps03.php
@@ -298,7 +298,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -313,9 +313,9 @@ To update a movie record in the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document_API_endpoint>',
-        'region'   => '{{ region-id }}',
-        'version'  => 'latest'
+          'endpoint' => '<Document_API_endpoint>',
+          'region'   => '{{ region-id }}',
+          'version'  => 'latest'
       ]);
 
       $dynamodb = $sdk->createDynamoDb();
@@ -327,27 +327,27 @@ To update a movie record in the `Series` table:
       $title = 'Supernatural';
 
       $key = $marshaler->marshalJson('
-        {
-          "series_id": ' . $series_id . ',
-          "title": "' . $title . '"
-        }
+          {
+              "series_id": ' . $series_id . ',
+              "title": "' . $title . '"
+          }
       ');
 
-
+      
       $eav = $marshaler->marshalJson('
-        {
-          ":d": "2005-09-13",
-          ":r": 8
-        }
+          {
+              ":d": "2005-09-13",
+              ":r": 8
+          }
       ');
 
       $params = [
-        'TableName' => $tableName,
-        'Key' => $key,
-        'UpdateExpression' =>
-          'set info.release_date=:d, info.rating = :r',
-        'ExpressionAttributeValues'=> $eav,
-        'ReturnValues' => 'UPDATED_NEW'
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' =>
+              'set info.release_date=:d, info.rating = :r',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
       ];
 
       try {
@@ -356,18 +356,18 @@ To update a movie record in the `Series` table:
           echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update record:\n";
-        echo $e->getMessage() . "\n";
+          echo "Couldn't update record:\n";
+          echo $e->getMessage() . "\n";
       }
 
       ?>
       ```
 
-      This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
+      This code uses `UpdateExpression` to describe the updates one needs to perform for the specified record.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps03.php
@@ -378,25 +378,25 @@ To update a movie record in the `Series` table:
       ```text
       Record updated.
       {
-        "info": {
-          "M": {
-            "rating": {
-              "N": "8"
-            },
-             "release_date": {
-               "S": "2005-09-13"
-             },
-             "series_info": {
-               "S": "Supernatural is an American television series created by Eric Kripke"
-             }
+          "info": {
+              "M": {
+                  "rating": {
+                      "N": "8"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  },
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  }
+              }
           }
-        }
       }
       ```
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps03.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps03.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps03.js
@@ -406,7 +406,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -427,17 +427,17 @@ To update a movie record in the `Series` table:
       console.log("Updating record...");
 
       dynamodb.send(new AWS.UpdateItemCommand({
-        TableName: table,
-        Key: marshall({
-          "series_id": series_id,
-          "title": title
-        },
-        UpdateExpression: "set info.release_date = :d, info.rating = :r",
-        ExpressionAttributeValues: marshall({
-          ":d": "2005-09-13",
-          ":r": 8
-        }),
-        ReturnValues: "UPDATED_NEW"
+          TableName: table,
+          Key: marshall({
+              "series_id": series_id,
+              "title": title
+          }),
+          UpdateExpression: "set info.release_date = :d, info.rating = :r",
+          ExpressionAttributeValues: marshall({
+              ":d": "2005-09-13",
+              ":r": 8
+          }),
+          ReturnValues: "UPDATED_NEW"
       }))
           .then(data => {
               console.log("Update successful:", JSON.stringify(data, null, 2));
@@ -447,11 +447,11 @@ To update a movie record in the `Series` table:
           });
       ```
 
-      To update the attributes of an existing record, use the command `UpdateItemCommand`. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
+      To update the attributes of an existing record, use the `UpdateItemCommand` command. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
-      The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only the updated attributes `UPDATED_NEW`.
+      The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesItemOps03.js
@@ -474,7 +474,7 @@ To update a movie record in the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps03.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps03.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps03.rb
@@ -484,7 +484,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -534,7 +534,7 @@ To update a movie record in the `Series` table:
           return_values: 'UPDATED_NEW'
         }
 
-        puts "Updating the table '#{table_name}' with information about " \
+        puts "Updating table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
         if table_item_updated?(dynamodb_client, table_item)
@@ -549,9 +549,9 @@ To update a movie record in the `Series` table:
 
       This program uses the `update_expression` expression to describe all the updates that you want to perform for the specified element.
 
-      The `return_values` parameter instructs {{ ydb-short-name }} to return only the updated attributes `UPDATED_NEW`.
+      The `return_values` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesItemOps03.rb
@@ -580,24 +580,24 @@ To increase the `rating` atomic counter for a series:
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps04` project:
+  1. Create the `SeriesItemOps04` project:
 
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
         -DgroupId=com.mycompany.app \
-        -DartifactId=SeriesItemOps03
+        -DartifactId=SeriesItemOps04
       ```
 
-      As a result of running the command, the `SeriesItemOps04` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesItemOps04` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps04
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -616,44 +616,44 @@ To increase the `rating` atomic counter for a series:
         <name>SeriesItemOps04</name>
         <url>http://maven.apache.org</url>
         <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-jar-plugin</artifactId>
-              <configuration>
-                <archive>
-                  <manifest>
-                    <addClasspath>true</addClasspath>
-                    <classpathPrefix>lib/</classpathPrefix>
-                    <mainClass>com.mycompany.app.SeriesItemOps04</mainClass>
-                  </manifest>
-                  <manifestEntries>
-                    <Class-Path>.</Class-Path>
-                  </manifestEntries>
-                </archive>
-                <finalName>release/SeriesItemOps04</finalName>
-              </configuration>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>copy-dependencies</id>
-                  <phase>prepare-package</phase>
-                  <goals>
-                    <goal>copy-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>false</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>com.mycompany.app.SeriesItemOps04</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps04</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
         </build>
         <dependencies>
           <dependency>
@@ -677,7 +677,7 @@ To increase the `rating` atomic counter for a series:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps04.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps04.java
@@ -687,7 +687,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -706,49 +706,49 @@ To increase the `rating` atomic counter for a series:
 
       public class SeriesItemOps04 {
 
-        public static void main(String[] args) throws Exception {
+          public static void main(String[] args) throws Exception {
 
-          AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
-            .build();
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
+                  .build();
 
-          DynamoDB dynamoDB = new DynamoDB(client);
+              DynamoDB dynamoDB = new DynamoDB(client);
 
-          Table table = dynamoDB.getTable("Series");
+              Table table = dynamoDB.getTable("Series");
 
-          int series_id = 3;
-          String title = "Supernatural";
+              int series_id = 3;
+              String title = "Supernatural";
 
-          UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
-            .withUpdateExpression("set info.rating = info.rating + :val")
-            .withValueMap(new ValueMap().withNumber(":val", 1)).withReturnValues(ReturnValue.UPDATED_NEW);
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
+                  .withUpdateExpression("set info.rating = info.rating + :val")
+                  .withValueMap(new ValueMap().withNumber(":val", 1)).withReturnValues(ReturnValue.UPDATED_NEW);
 
-          try {
-            System.out.println("Increasing an atomic counter...");
-            UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
-            System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
+              try {
+                  System.out.println("Increasing atomic counter...”);
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
+
+              }
+              catch (Exception e) {
+                  System.err.println("Couldn't update record: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
 
           }
-          catch (Exception e) {
-            System.err.println("Couldn't update record: " + series_id + " " + title);
-            System.err.println(e.getMessage());
-          }
-
-        }
       }
       ```
 
       Use the `updateItem` method to increase or decrease the value of an existing attribute independently of other write requests (all write requests are applied in the order they are received).
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps04.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesItemOps04.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps04.jar
@@ -770,7 +770,7 @@ To increase the `rating` atomic counter for a series:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps04.py` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps04.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps04.py
@@ -780,7 +780,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -790,34 +790,34 @@ To increase the `rating` atomic counter for a series:
       import boto3
 
       def increase_rating(title, series_id, rating_increase):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
-        table = ydb_docapi_client.Table('Series')
+          table = ydb_docapi_client.Table('Series')
 
-        response = table.update_item(
-          Key = {
-            'series_id': series_id,
-            'title': title
-          },
-          UpdateExpression = "set info.rating = info.rating + :val",
-          ExpressionAttributeValues = {
-            ':val': Decimal(rating_increase)
-          },
-          ReturnValues = "UPDATED_NEW"
-        )
-        return response
+          response = table.update_item(
+              Key = {
+                  'series_id': series_id,
+                  'title': title
+              },
+              UpdateExpression = "set info.rating = info.rating + :val",
+              ExpressionAttributeValues = {
+                  ':val': Decimal(rating_increase)
+              },
+              ReturnValues = "UPDATED_NEW"
+          )
+          return response
 
       if __name__ == '__main__':
-        update_response = increase_rating("Supernatural", 3, 1)
-        print("Series data updated:")
-        pprint(update_response, sort_dicts = False)
+          update_response = increase_rating("Supernatural", 3, 1)
+          print("Series data updated:")
+          pprint(update_response, sort_dicts = False)
       ```
 
       Use the `update_item` method to increase or decrease the value of an existing attribute. In this case, all write requests are applied in the order they arrive.
 
       Each time the program is started, the value of the `rating` attribute increases by one.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps04.py
@@ -825,25 +825,25 @@ To increase the `rating` atomic counter for a series:
 
       Result:
 
-      ```bash
+      ```text
       Series data updated:
       {'Attributes': {'info': {'rating': Decimal('9'),
-                               'release_date': '2005-09-13',
-                               'series_info': 'Supernatural is an American '
-                                               'television series created by Eric '
-                                               'Kripke'}},
+                              'release_date': '2005-09-13',
+                              'series_info': 'Supernatural is an American '
+                                              'television series created by Eric '
+                                              'Kripke'}},
       'ResponseMetadata': {'HTTPStatusCode': 200,
-                             'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
-                                             'x-amz-crc32': '1351796704',
-                                             'x-request-id': 'd5fcf336-c3b1-4d07-aaed-bb59f2a609ed',
-                                             'date': 'Sun, 27 Dec 2020 13:35:10 GMT',
-                                             'content-length': '175'},
-                             'RetryAttempts': 0}}
+                            'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
+                                            'x-amz-crc32': '1351796704',
+                                            'x-request-id': 'd5fcf336-c3b1-4d07-aaed-bb59f2a609ed',
+                                            'date': 'Sun, 27 Dec 2020 13:35:10 GMT',
+                                            'content-length': '175'},
+                            'RetryAttempts': 0}}
       ```
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps04.php` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps04.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps04.php
@@ -853,7 +853,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -868,9 +868,9 @@ To increase the `rating` atomic counter for a series:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document_API_endpoint>',
-        'region'   => '{{ region-id }}',
-        'version'  => 'latest'
+          'endpoint' => '<Document_API_endpoint>',
+          'region'   => '{{ region-id }}',
+          'version'  => 'latest'
       ]);
 
       $dynamodb = $sdk->createDynamoDb();
@@ -882,42 +882,42 @@ To increase the `rating` atomic counter for a series:
       $title = 'Supernatural';
 
       $key = $marshaler->marshalJson('
-        {
-          "series_id": ' . $series_id . ',
-          "title": "' . $title . '"
-        }
+          {
+              "series_id": ' . $series_id . ',
+              "title": "' . $title . '"
+          }
       ');
 
       $eav = $marshaler->marshalJson('
-        {
-          ":val": 1
-        }
+          {
+              ":val": 1
+          }
       ');
 
       $params = [
-        'TableName' => $tableName,
-        'Key' => $key,
-        'UpdateExpression' => 'set info.rating = info.rating + :val',
-        'ExpressionAttributeValues'=> $eav,
-        'ReturnValues' => 'UPDATED_NEW'
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' => 'set info.rating = info.rating + :val',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
       ];
 
       try {
-        $result = $dynamodb->updateItem($params);
-        echo "Record updated:\n";
-        echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+          $result = $dynamodb->updateItem($params);
+          echo "Record updated:\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update record:\n";
-        echo $e->getMessage() . "\n";
+          echo "Couldn't update record:\n";
+          echo $e->getMessage() . "\n";
       }
 
       ?>
       ```
 
-      Each time the above code is run, the value of `rating` increases by one.
+      Each time the above code is run, the `rating` value increases by one.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps04.php
@@ -928,25 +928,25 @@ To increase the `rating` atomic counter for a series:
       ```text
       Record updated:
       {
-        "info": {
-          "M": {
-            "rating": {
-              "N": "9"
-            },
-            "release_date": {
-              "S": "2005-09-13"
-            },
-            "series_info": {
-              "S": "Supernatural is an American television series created by Eric Kripke"
-            }
+          "info": {
+              "M": {
+                  "rating": {
+                      "N": "9"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  },
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  }
+              }
           }
-        }
       }
       ```
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps04.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps04.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps04.js
@@ -956,7 +956,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -976,22 +976,22 @@ To increase the `rating` atomic counter for a series:
       var title = "Supernatural";
 
       var params = {
-        TableName:table,
-        Key:{
-          "series_id": series_id,
-          "title": title
-        },
-        UpdateExpression: "set info.rating = info.rating + :val",
-        ExpressionAttributeValues:{
-          ":val": 1
-        },
-        ReturnValues:"UPDATED_NEW"
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          UpdateExpression: "set info.rating = info.rating + :val",
+          ExpressionAttributeValues:{
+              ":val": 1
+          },
+          ReturnValues:"UPDATED_NEW"
       };
 
       console.log("Updating record...");
       docClient.update(params, function(err, data) {
-        if (err) {
-          console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
+          if (err) {
+              console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
               console.log("Update successful:", JSON.stringify(data, null, 2));
@@ -999,9 +999,9 @@ To increase the `rating` atomic counter for a series:
       });
       ```
 
-      Each time the above code is run, the value of `rating` increases by one.
+      Each time the above code is run, the `rating` value increases by one.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesItemOps04.js
@@ -1009,7 +1009,7 @@ To increase the `rating` atomic counter for a series:
 
       Result:
 
-      ```bash
+      ```text
       Updating record...
       Update successful: {
         "Attributes": {
@@ -1024,7 +1024,7 @@ To increase the `rating` atomic counter for a series:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps04.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps04.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps04.rb
@@ -1034,7 +1034,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1096,36 +1096,36 @@ To increase the `rating` atomic counter for a series:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      Each time the above code is run, the value of `rating` increases by one.
+      Each time the above code is run, the `rating` value increases by one.
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      ruby SeriesItemOps04.rb
-      ```
+     ```bash
+     ruby SeriesItemOps04.rb
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Updating 'Series' with information about 'Supernatural (3)'...
-      Record updated with 'info' attributes:
-      rating: 9.0
-      release_date: 2005-09-13
-      series_info: Supernatural is an American television series created by Eric Kripke
-      Table updated.
-      ```
+     ```text
+     Updating 'Series' with information about 'Supernatural (3)'...
+     Record updated with 'info' attributes:
+     rating: 9.0
+     release_date: 2005-09-13
+     series_info: Supernatural is an American television series created by Eric Kripke
+     Table updated.
+     ```
 
 {% endlist %}
 
 ## Conditional update {#update-with-cond}
 
-To update a record in the `Series` table when the condition is satisfied:
+To update a record in the `Series` table when the condition is met:
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps05` project:
+  1. Create the `SeriesItemOps05` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -1134,15 +1134,15 @@ To update a record in the `Series` table when the condition is satisfied:
         -DartifactId=SeriesItemOps05
       ```
 
-      As a result of running the command, the `SeriesItemOps05` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesItemOps05` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps05
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -1161,68 +1161,68 @@ To update a record in the `Series` table when the condition is satisfied:
         <name>SeriesItemOps05</name>
         <url>http://maven.apache.org</url>
         <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-jar-plugin</artifactId>
-              <configuration>
-                <archive>
-                  <manifest>
-                    <addClasspath>true</addClasspath>
-                    <classpathPrefix>lib/</classpathPrefix>
-                    <mainClass>com.mycompany.app.SeriesItemOps05</mainClass>
-                  </manifest>
-                  <manifestEntries>
-                    <Class-Path>.</Class-Path>
-                  </manifestEntries>
-                </archive>
-                <finalName>release/SeriesItemOps05</finalName>
-              </configuration>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>copy-dependencies</id>
-                  <phase>prepare-package</phase>
-                  <goals>
-                    <goal>copy-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>false</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>com.mycompany.app.SeriesItemOps05</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps05</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
         </build>
         <dependencies>
           <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
-           <scope>test</scope>
+            <scope>test</scope>
           </dependency>
-        <dependency>
-          <groupId>com.amazonaws</groupId>
-          <artifactId>aws-java-sdk-dynamodb</artifactId>
-          <version>1.11.1012</version>
-        </dependency>
+          <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.1012</version>
+          </dependency>
         </dependencies>
         <properties>
           <maven.compiler.source>1.8</maven.compiler.source>
           <maven.compiler.target>1.8</maven.compiler.target>
-         </properties>
+        </properties>
       </project>
       ```
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps05.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps05.java
@@ -1232,7 +1232,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1252,27 +1252,27 @@ To update a record in the `Series` table when the condition is satisfied:
 
       public class SeriesItemOps05 {
 
-        public static void main(String[] args) throws Exception {
+          public static void main(String[] args) throws Exception {
 
-          AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
-            .build();
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
+                  .build();
 
-          DynamoDB dynamoDB = new DynamoDB(client);
+              DynamoDB dynamoDB = new DynamoDB(client);
 
-          Table table = dynamoDB.getTable("Series");
+              Table table = dynamoDB.getTable("Series");
 
-          int series_id = 3;
-          String title = "Supernatural";
+              int series_id = 3;
+              String title = "Supernatural";
 
-          UpdateItemSpec updateItemSpec = new UpdateItemSpec()
-            .withPrimaryKey(new PrimaryKey("series_id", series_id, "title", title))
-            .withUpdateExpression("set info.recommend=:d").withValueMap(new ValueMap().withString(":d", "Recommended for viewing"))
-            .withConditionExpression("info.rating > :num").withValueMap(new ValueMap().withString(":d", "Recommended for viewing").withNumber(":num", 9))
-            .withReturnValues(ReturnValue.UPDATED_NEW);
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec()
+                  .withPrimaryKey(new PrimaryKey("series_id", series_id, "title", title))
+                  .withUpdateExpression("set info.recommend=:d").withValueMap(new ValueMap().withString(":d", "Recommended for viewing"))
+                  .withConditionExpression("info.rating > :num").withValueMap(new ValueMap().withString(":d", "Recommended for viewing").withNumber(":num", 9))
+                  .withReturnValues(ReturnValue.UPDATED_NEW);
 
               try {
-                  System.out.println("Trying a conditional update...");
+                  System.out.println("Attempting to perform conditional update...");
                   UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
                   System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
               }
@@ -1281,7 +1281,7 @@ To update a record in the `Series` table when the condition is satisfied:
                   System.err.println(e.getMessage());
               }
 
-        }
+          }
       }
       ```
 
@@ -1289,15 +1289,15 @@ To update a record in the `Series` table when the condition is satisfied:
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps05.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesItemOps05.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps05.jar
@@ -1342,7 +1342,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps05.py` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps05.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps05.py
@@ -1352,7 +1352,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1362,46 +1362,46 @@ To update a record in the `Series` table when the condition is satisfied:
       from botocore.exceptions import ClientError
 
       def add_recommend(title, series_id, rating_val):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
-        table = ydb_docapi_client.Table('Series')
-        rec = "Recommended for viewing"
+          table = ydb_docapi_client.Table('Series')
+          rec = "Recommended for viewing"
 
-        try:
-          response = table.update_item(
-            Key = {
-              'series_id': series_id,
-              'title': title
-            },
-            UpdateExpression = "set info.recommend = :d ",
-            ConditionExpression = "info.rating > :num",
-            ExpressionAttributeValues = {
-              ':num': rating_val,
-              ':d': rec
-            },
-            ReturnValues = "UPDATED_NEW"
-          )
+          try:
+              response = table.update_item(
+                  Key = {
+                  'series_id': series_id,
+                  'title': title
+              },
+                  UpdateExpression = "set info.recommend = :d ",
+                  ConditionExpression = "info.rating > :num",
+                  ExpressionAttributeValues = {
+                      ':num': rating_val,
+                      ':d': rec
+              },
+                  ReturnValues = "UPDATED_NEW"
+              )
           except ClientError as e:
-            if e.response['Error']['Code'] == "ConditionalCheckFailedException":
-              print(e.response['Error']['Message'])
-            else:
-              raise
+              if e.response['Error']['Code'] == "ConditionalCheckFailedException":
+                  print(e.response['Error']['Message'])
+              else:
+                  raise
           else:
-            return response
+              return response
 
       if __name__ == '__main__':
-        print("Attempting to perform conditional update...")
-        update_response = add_recommend("Supernatural", 3, 9)
-        if update_response:
-          print("Series data updated:")
-          pprint(update_response, sort_dicts = False)
+          print("Attempting conditional update...")
+          update_response = add_recommend("Supernatural", 3, 9)
+          if update_response:
+              print("Series data updated:")
+              pprint(update_response, sort_dicts = False)
       ```
 
       This code shows an example of using the `update_item` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps05.py
@@ -1409,44 +1409,44 @@ To update a record in the `Series` table when the condition is satisfied:
 
       Result:
 
-      ```bash
+      ```text
       Attempting to perform conditional update...
       Condition not satisfied
       ```
 
       The update failed because the series rating is 9 and the condition for update is a rating value higher than 9.
 
-   1. Modify the code so that the condition for the update is a rating of 9 or higher. In this case, the `ConditionExpression` parameter will look like as follows:
+  1. Modify the code so that the condition for the update is a rating of 9 or higher. In this case, the `ConditionExpression` parameter will look like as follows:
 
       ```python
       ConditionExpression = "info.rating >= :num",
       ```
 
-   1. Run the program again. The update operation should now be successful.
+  1. Run the program again. The update operation should now be successful.
 
       Result:
 
-      ```bash
+      ```text
       Attempting to perform conditional update...
       Series data updated:
       {'Attributes': {'info': {'release_date': '2005-09-13',
-                               'series_info': 'Supernatural is an American '
-                                               'television series created by Eric '
-                                               'Kripke',
-                               'recommend': 'Recommended for viewing',
-                               'rating': Decimal('9')}},
+                              'series_info': 'Supernatural is an American '
+                                              'television series created by Eric '
+                                              'Kripke',
+                              'recommend': 'Recommended for viewing',
+                              'rating': Decimal('9')}},
       'ResponseMetadata': {'HTTPStatusCode': 200,
-                             'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
-                                             'x-amz-crc32': '1812512314',
-                                             'x-request-id': 'dcf97598-51f3-419a-b7ba-0b3ad0f5067e',
-                                             'date': 'Wed, 13 Jan 2021 10:26:53 GMT',
-                                             'content-length': '219'},
-                             'RetryAttempts': 0}}
+                            'HTTPHeaders': {'content-type': 'application/x-amz-json-1.0',
+                                            'x-amz-crc32': '1812512314',
+                                            'x-request-id': 'dcf97598-51f3-419a-b7ba-0b3ad0f5067e',
+                                            'date': 'Wed, 13 Jan 2021 10:26:53 GMT',
+                                            'content-length': '219'},
+                            'RetryAttempts': 0}}
       ```
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps05.php` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps05.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps05.php
@@ -1456,7 +1456,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1471,9 +1471,9 @@ To update a record in the `Series` table when the condition is satisfied:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document_API_endpoint>',
-        'region'   => '{{ region-id }}',
-        'version'  => 'latest'
+          'endpoint' => '<Document_API_endpoint>',
+          'region'   => '{{ region-id }}',
+          'version'  => 'latest'
       ]);
 
       $dynamodb = $sdk->createDynamoDb();
@@ -1485,36 +1485,36 @@ To update a record in the `Series` table when the condition is satisfied:
       $title = 'Supernatural';
 
       $key = $marshaler->marshalJson('
-        {
-          "series_id": ' . $series_id . ',
-          "title": "' . $title . '"
-        }
+          {
+              "series_id": ' . $series_id . ',
+              "title": "' . $title . '"
+          }
       ');
 
       $eav = $marshaler->marshalJson('
-        {
-          ":d": "Recommended for viewing",
-          ":num": 9
-        }
+          {
+            ":d": "Recommended for viewing",
+            ":num": 9
+          }
       ');
 
       $params = [
-        'TableName' => $tableName,
-        'Key' => $key,
-        'UpdateExpression' => 'set info.recommend=:d',
-        'ConditionExpression' => 'info.rating > :num',
-        'ExpressionAttributeValues'=> $eav,
-        'ReturnValues' => 'UPDATED_NEW'
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' => 'set info.recommend=:d',
+          'ConditionExpression' => 'info.rating > :num',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
       ];
 
       try {
-        $result = $dynamodb->updateItem($params);
-        echo "Record updated:\n";
-        echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+          $result = $dynamodb->updateItem($params);
+          echo "Record updated:\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update record:\n";
-        echo $e->getMessage() . "\n";
+          echo "Couldn't update record:\n";
+          echo $e->getMessage() . "\n";
       }
 
       ?>
@@ -1524,7 +1524,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps05.php
@@ -1552,28 +1552,28 @@ To update a record in the `Series` table when the condition is satisfied:
       ```text
       Record updated:
       {
-        "info": {
-          "M": {
-            "series_info": {
-              "S": "Supernatural is an American television series created by Eric Kripke"
-            },
-            "recommend": {
-              "S": "Recommended for viewing"
-            },
-            "rating": {
-              "N": "9"
-            },
-            "release_date": {
-              "S": "2005-09-13"
-            }
+          "info": {
+              "M": {
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  },
+                  "recommend": {
+                      "S": "Recommended for viewing"
+                  },
+                  "rating": {
+                      "N": "9"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  }
+              }
           }
-        }
       }
       ```
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps05.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps05.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps05.js
@@ -1583,7 +1583,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1603,24 +1603,24 @@ To update a record in the `Series` table when the condition is satisfied:
       var title = "Supernatural";
 
       var params = {
-        TableName:table,
-        Key:{
-          "series_id": series_id,
-          "title": title
-        },
-        UpdateExpression: "set info.recommend = :d",
-        ConditionExpression: "info.rating > :num",
-        ExpressionAttributeValues:{
-          ":num": 9,
-          ":d": "Recommended for viewing"
-        },
-        ReturnValues:"UPDATED_NEW"
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          UpdateExpression: "set info.recommend = :d",
+          ConditionExpression: "info.rating > :num",
+          ExpressionAttributeValues:{
+              ":num": 9,
+              ":d": "Recommended for watching"
+          },
+          ReturnValues:"UPDATED_NEW"
       };
 
       console.log("Updating records with specified condition...");
       docClient.update(params, function(err, data) {
-        if (err) {
-          console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
+          if (err) {
+              console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
               console.log("Update successful:", JSON.stringify(data, null, 2));
@@ -1632,7 +1632,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesItemOps05.js
@@ -1670,7 +1670,7 @@ To update a record in the `Series` table when the condition is satisfied:
             "rating": 9,
             "release_date": "2005-09-13",
             "series_info": "Supernatural is an American television series created by Eric Kripke",
-            "recommend": "Recommended for viewing"
+            "recommend": "Recommended for watching"
           }
         }
       }
@@ -1678,7 +1678,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps05.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps05.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesItemOps05.rb
@@ -1688,7 +1688,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1734,7 +1734,7 @@ To update a record in the `Series` table when the condition is satisfied:
           condition_expression: 'info.rating > :num',
           expression_attribute_values: {
             ':num': 9,
-            ':d': 'Recommended for viewing'
+            ':d': 'Recommended for watching'
           },
           return_values: 'UPDATED_NEW'
         }
@@ -1756,7 +1756,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesItemOps05.rb
@@ -1786,7 +1786,7 @@ To update a record in the `Series` table when the condition is satisfied:
       rating: 9.0
       release_date: 2005-09-13
       series_info: Supernatural is an American television series created by Eric Kripke
-      recommend: Recommended for viewing
+      recommend: Recommended for watching
       Table updated.
       ```
 

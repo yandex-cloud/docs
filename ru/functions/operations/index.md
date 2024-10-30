@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ sf-full-name }}"
-description: "Из статьи вы узнаете как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }})."
+title: Инструкции по работе с {{ sf-full-name }}
+description: Из статьи вы узнаете как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
 ---
 
 # Пошаговые инструкции для {{ sf-name }}
@@ -46,6 +46,7 @@ description: "Из статьи вы узнаете как работать с {
 * [{#T}](function/lockbox-secret-transmit.md)
 * [Выделить память для директории /tmp](function/allocate-memory-tmp.md)
 * [Смонтировать бакеты](function/mount-bucket.md)
+* [Смонтировать эфемерный диск](function/mount-ephemeral-disk.md)
 * [Добавить тег](function/tag-add.md)
 * [Удалить тег](function/tag-delete.md)
 * [Добавить метку](function/label-add.md)

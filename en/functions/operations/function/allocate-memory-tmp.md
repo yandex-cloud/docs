@@ -1,6 +1,6 @@
 ---
-title: "Allocating memory for the /tmp directory"
-description: "In this tutorial, you will learn how to allocate some RAM within a function for the /tmp directory."
+title: Allocating memory for the /tmp directory
+description: In this tutorial, you will learn how to allocate some RAM within a function for the /tmp directory.
 ---
 
 # Allocating memory for the /tmp directory
@@ -105,7 +105,7 @@ description: "In this tutorial, you will learn how to allocate some RAM within a
 
 - API {#api}
 
-   To allocate some RAM for the `/tmp` directory, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
+   To allocate some RAM for the `/tmp` directory, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}
 

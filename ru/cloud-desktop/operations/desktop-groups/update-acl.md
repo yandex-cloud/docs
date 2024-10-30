@@ -1,9 +1,11 @@
 ---
-title: "Инструкция по изменению прав доступа к группе рабочих столов в {{ cloud-desktop-full-name }}"
-description: "Из статьи вы узнаете, как изменить права доступа к группе рабочих столов в {{ cloud-desktop-full-name }}."
+title: Инструкция по изменению прав доступа к группе рабочих столов в {{ cloud-desktop-full-name }}
+description: Из статьи вы узнаете, как изменить права доступа к группе рабочих столов в {{ cloud-desktop-full-name }}.
 ---
 
 # Изменить права доступа к группе рабочих столов
+
+{% include [access-options](../../../_includes/cloud-desktop/access-options.md) %}
 
 {% list tabs group=instructions %}
 

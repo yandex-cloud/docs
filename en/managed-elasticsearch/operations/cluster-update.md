@@ -1,6 +1,6 @@
 ---
-title: "Changing Elasticsearch cluster settings"
-description: "After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster."
+title: Changing Elasticsearch cluster settings
+description: After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster.
 keywords:
   - Elasticsearch settings
   - Elasticsearch cluster settings
@@ -92,7 +92,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -190,7 +190,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -303,7 +303,7 @@ Learn more about other cluster updates:
 
 - API {#api}
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -370,7 +370,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -465,7 +465,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -581,7 +581,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API {#api}
 
-   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 

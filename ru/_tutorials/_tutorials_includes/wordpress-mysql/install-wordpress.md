@@ -36,7 +36,7 @@
 1. Получите ключи безопасности WordPress:
 
    ```bash
-   curl -s https://api.wordpress.org/secret-key/1.1/salt/
+   curl --silent https://api.wordpress.org/secret-key/1.1/salt/
    ```
 
    Сохраните вывод команды — полученные ключи будут нужны на следующем шаге.
@@ -112,7 +112,7 @@
        yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
        ```
 
-       
+
        ```text
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |

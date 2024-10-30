@@ -1,6 +1,6 @@
 ---
-title: "Creating and editing parameters of a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}"
-description: "This tutorial describes properties of the `yandex_ydb_database_dedicated` resource for creating a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}."
+title: Creating and editing parameters of a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}
+description: This tutorial describes properties of the `yandex_ydb_database_dedicated` resource for creating a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}.
 ---
 
 
@@ -50,7 +50,7 @@ Properties of the `scale_policy` section fields:
 * `fixed_scale.size`: Number of VMs the database will use. The minimum recommended number of VMs is two (for the production environment).
 
 Properties of the `storage_config` section fields:
-* `group_count`: Number of [storage groups](https://ydb.tech/ru/docs/concepts/databases#storage-groups) which define the total storage size. One storage group is a multiple of 100 GB of disk space. You can only set integer values for storage groups.
+* `group_count`: Number of [storage groups]({{ ydb.docs }}/concepts/databases#storage-groups) which define the total storage size. One storage group is a multiple of 100 GB of disk space. You can only set integer values for storage groups.
 * `storage_type_id`: Storage type, either `ssd` or `hdd`.
 
 Once you have filled out all the fields of the `yandex_ydb_database_dedicated` resource and nested sections, run `terraform validate` to make sure the configuration file is error-free. Then run `terraform plan` to reconcile the changes contained in the configuration file with the current infrastructure configuration. Finally, run `terraform apply` to deploy the created resource in the cloud.

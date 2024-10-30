@@ -1,6 +1,6 @@
 ---
-title: "{{ ES }} settings"
-description: "For {{ mes-name }} clusters, you can configure {{ ES }} settings."
+title: '{{ ES }} settings'
+description: For {{ mes-name }} clusters, you can configure {{ ES }} settings.
 ---
 
 # {{ ES }} settings

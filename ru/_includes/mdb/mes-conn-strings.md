@@ -2,7 +2,7 @@
 
 - Kibana {#kibana}
 
-  
+
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
   1. Перед подключением установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:

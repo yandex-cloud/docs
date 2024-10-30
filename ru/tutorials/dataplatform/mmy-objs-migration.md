@@ -1,6 +1,6 @@
 ---
-title: "Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }}"
-description: "С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-name }}."
+title: Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }}
+description: С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-name }}.
 ---
 
 # Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }}

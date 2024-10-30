@@ -1,6 +1,6 @@
 ---
-title: "Asymmetric encryption in {{ kms-short-name }}"
-description: "This guide describes the features of asymmetric encryption in {{ kms-short-name }}."
+title: Asymmetric encryption in {{ kms-short-name }}
+description: This guide describes the features of asymmetric encryption in {{ kms-short-name }}.
 ---
 
 # Asymmetric encryption in {{ kms-short-name }}
@@ -11,7 +11,7 @@ One of the available encryption modes in {{ kms-short-name }} is _asymmetric enc
 
 ## Obtaining a key pair public key {#acquire-public-key}
 
-To encrypt a message, you need to get a public key in {{ kms-short-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) or [API](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey).
+To encrypt a message, you need to get a public key in {{ kms-short-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
 
 To obtain the public key of encryption key pair, the user or service account must be [assigned the `kms.asymmetricEncryptionKeys.publicKeyViewer` role](../operations/key-access.md) for the key pair.
 
@@ -57,6 +57,6 @@ Where:
 
 ## Data decryption {#decryption}
 
-You can decrypt data using a private key of the key pair in {{ kms-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/decrypt.md) or [API](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt).
+You can decrypt data using a private key of the key pair in {{ kms-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/decrypt.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
 
 To decrypt data, the user or service account must be [assigned the `kms.asymmetricEncryptionKeys.decrypter` role](../operations/key-access.md) for the encryption key pair.

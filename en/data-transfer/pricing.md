@@ -6,7 +6,11 @@ editable: false
 
 
 
-{{ data-transfer-name }} cost depends on the amount of computing resources you use and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage:
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{{ data-transfer-name }} cost depends on the amount of computing resources you use and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage: 
 
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md)
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)

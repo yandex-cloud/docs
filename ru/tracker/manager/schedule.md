@@ -1,6 +1,6 @@
 ---
-title: "Как настроить графики работы"
-description: "Следуя данной инструкции, вы сможете настроить графики работы."
+title: Как настроить графики работы
+description: Следуя данной инструкции, вы сможете настроить графики работы.
 ---
 
 # Графики работы
@@ -24,7 +24,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Выберите **Правила SLA**.
 
@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Выберите **Правила SLA**.
 

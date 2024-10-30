@@ -42,7 +42,7 @@ links:
     href: concepts/
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
-    href: api-ref/
+    href: managed-kubernetes/api-ref/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

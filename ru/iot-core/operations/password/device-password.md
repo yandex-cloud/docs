@@ -132,7 +132,7 @@
 
 - API {#api}
 
-  Чтобы добавить пароль устройству, воспользуйтесь методом REST API [addPassword](../../api-ref/Device/addPassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/AddPassword](../../api-ref/grpc/device_service.md#AddPassword).
+  Чтобы добавить пароль устройству, воспользуйтесь методом REST API [addPassword](../../api-ref/Device/addPassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/AddPassword](../../api-ref/grpc/Device/addPassword.md).
 
 {% endlist %}
 
@@ -185,7 +185,7 @@
 
 - API {#api}
 
-  Чтобы задать пароль устройству при создании, воспользуйтесь методом REST API [create](../../api-ref/Device/create.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../api-ref/grpc/device_service.md#Create).
+  Чтобы задать пароль устройству при создании, воспользуйтесь методом REST API [create](../../api-ref/Device/create.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../api-ref/grpc/Device/create.md).
 
 {% endlist %}
 
@@ -246,7 +246,7 @@
 
 - API {#api}
 
-  Чтобы получить список паролей устройства, воспользуйтесь методом REST API [listPasswords](../../api-ref/Device/listPasswords.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/ListPasswords](../../api-ref/grpc/device_service.md#ListPasswords).
+  Чтобы получить список паролей устройства, воспользуйтесь методом REST API [listPasswords](../../api-ref/Device/listPasswords.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/ListPasswords](../../api-ref/grpc/Device/listPasswords.md).
 
 {% endlist %}
    
@@ -367,6 +367,6 @@
 
 - API {#api}
 
-  Чтобы удалить пароль устройства, воспользуйтесь методом REST API [deletePassword](../../api-ref/Device/deletePassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/DeletePassword](../../api-ref/grpc/device_service.md#DeletePassword).
+  Чтобы удалить пароль устройства, воспользуйтесь методом REST API [deletePassword](../../api-ref/Device/deletePassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/DeletePassword](../../api-ref/grpc/Device/deletePassword.md).
 
 {% endlist %}

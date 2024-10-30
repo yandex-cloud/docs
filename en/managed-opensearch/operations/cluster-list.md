@@ -1,6 +1,6 @@
 ---
-title: "Information about existing {{ OS }} clusters"
-description: "You can request detailed information about each {{ OS }} cluster you created."
+title: Information about existing {{ OS }} clusters
+description: You can request detailed information about each {{ OS }} cluster you created.
 keywords:
   - Information about OpenSearch hosts
   - OpenSearch hosts
@@ -42,7 +42,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - API {#api}
 
-   To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
+   To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/Cluster/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    The response will contain cluster names and IDs.
 
@@ -73,7 +73,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - API {#api}
 
-   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
@@ -92,7 +92,7 @@ The operation list shows operations with clusters and related resources (for exa
 
 - API {#api}
 
-   To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 

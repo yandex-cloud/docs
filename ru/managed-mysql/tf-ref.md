@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ mmy-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mmy-name }}."
+title: Справочник {{ TF }} для {{ mmy-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mmy-name }}.
 ---
 
 # Справочник {{ TF }} для {{ mmy-full-name }}
@@ -23,5 +23,5 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_cluster) | Информация о [кластере](./concepts/index.md) |
-| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_user) | Информация о пользователе базы данных |
+| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/mdb_mysql_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/mdb_mysql_user) | Информация о пользователе базы данных |

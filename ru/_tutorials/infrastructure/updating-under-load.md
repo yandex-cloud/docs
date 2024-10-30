@@ -32,7 +32,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-load`.
      1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `editor`.
@@ -68,9 +68,9 @@
    - API {#api}
 
      1. Создайте сервисный аккаунт `for-load`:
-         Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+         Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
      1. Назначьте сервисному аккаунту в текущем каталоге роль `editor`:
-         Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
+         Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
    {% endlist %}
 
@@ -143,9 +143,9 @@
    - API {#api}
 
      1. Создайте сеть:
-         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
      1. Создайте подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b`:
-         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
+         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
    {% endlist %}
 
@@ -155,7 +155,7 @@
 
    {% list tabs group=instructions %}
 
-   
+
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
@@ -174,7 +174,7 @@
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
           * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-          * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.instances.create.column_disk-size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+          * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.disk-form.field_size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `for-load`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
@@ -246,12 +246,12 @@
    - API {#api}
 
      1. Получите идентификатор последней версии образа `container-optimized-image` в семействе `standard-images`:
-         Воспользуйтесь методом REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызовом gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
+         Воспользуйтесь методом REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызовом gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md).
      1. Создайте группу ВМ по следующей спецификации:
 
          {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
-         Воспользуйтесь методом REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
+         Воспользуйтесь методом REST API [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md).
      
    {% endlist %}
    
@@ -286,7 +286,7 @@
 
    - API {#api}
 
-     Чтобы посмотреть список созданных групп ВМ, воспользуйтесь методом REST API [list](../../compute/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List).
+     Чтобы посмотреть список созданных групп ВМ, воспользуйтесь методом REST API [list](../../compute/instancegroup/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../compute/instancegroup/api-ref/grpc/InstanceGroup/list.md).
 
    {% endlist %}
 
@@ -354,10 +354,10 @@
 
    - API {#api}
 
-     1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create).
-     1. Добавьте обработчик к балансировщику с помощью метода REST API [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener).
-     1. Подключите целевую группу к балансировщику с помощью метода REST API [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup).
-     1. Подключите балансировщик к группе ВМ с помощью метода REST API [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызова gRPC API [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#AddTargets).
+     1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/create.md).
+     1. Добавьте обработчик к балансировщику с помощью метода REST API [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/addListener.md).
+     1. Подключите целевую группу к балансировщику с помощью метода REST API [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md).
+     1. Подключите балансировщик к группе ВМ с помощью метода REST API [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызова gRPC API [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/addTargets.md).
 
    {% endlist %}
 
@@ -379,7 +379,7 @@
 
      Результат выполнения команды:
      
-     
+
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
@@ -392,7 +392,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#List).
+     Воспользуйтесь методом REST API [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/list.md).
 
    {% endlist %}
 
@@ -422,7 +422,7 @@
      
    - API {#api}
    
-     Воспользуйтесь методом REST API [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Get](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Get).
+     Воспользуйтесь методом REST API [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Get](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/get.md).
      
    {% endlist %}
      
@@ -498,7 +498,7 @@
      ...
      ```
   
-  1. Чтобы обновить группу ВМ `load-generator` по новой спецификации, воспользуйтесь методом REST API [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#UpdateFromYaml).
+  1. Чтобы обновить группу ВМ `load-generator` по новой спецификации, воспользуйтесь методом REST API [updateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md).
 
 {% endlist %}
 
@@ -540,8 +540,9 @@ Transfer/sec:     206.94B
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Удалите сервисный аккаунт:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сервисный аккаунт.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-      1. Справа в строке аккаунта `yc-auto-sa` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. В открывшемся списке в строке с сервисным аккаунтом `yc-auto-sa` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Удалите сеть и подсети:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть и подсети.
@@ -568,10 +569,10 @@ Transfer/sec:     206.94B
   
 - API {#api}
 
-  1. Удалите балансировщик `load-generator`: воспользуйтесь методом REST API [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Delete).
-  1. Удалите группу ВМ `load-generator`: воспользуйтесь методом REST API [delete](../../compute/api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete).
-  1. Удалите сервисный аккаунт `yc-auto-sa`: воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete).
-  1. Удалите подсети `yc-auto-subnet-1` и `yc-auto-subnet-2`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete).
-  1. Удалите сеть `yc-auto-network`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Network/delete.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete).
+  1. Удалите балансировщик `load-generator`: воспользуйтесь методом REST API [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/delete.md).
+  1. Удалите группу ВМ `load-generator`: воспользуйтесь методом REST API [delete](../../compute/instancegroup/api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../compute/instancegroup/api-ref/grpc/InstanceGroup/delete.md).
+  1. Удалите сервисный аккаунт `yc-auto-sa`: воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/ServiceAccount/delete.md).
+  1. Удалите подсети `yc-auto-subnet-1` и `yc-auto-subnet-2`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../../vpc/api-ref/grpc/Subnet/delete.md).
+  1. Удалите сеть `yc-auto-network`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Network/delete.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../../vpc/api-ref/grpc/Network/delete.md).
 
 {% endlist %}

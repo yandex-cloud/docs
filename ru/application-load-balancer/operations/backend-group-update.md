@@ -1,6 +1,6 @@
 ---
-title: "Как изменить группу бэкендов в {{ alb-full-name }}"
-description: "Пошаговая инструкция по изменению группы бэкендов."
+title: Как изменить группу бэкендов в {{ alb-full-name }}
+description: Пошаговая инструкция по изменению группы бэкендов.
 ---
 
 # Изменить группу бэкендов
@@ -154,7 +154,7 @@ description: "Пошаговая инструкция по изменению г
 
 - API {#api}
 
-  Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
+  Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/BackendGroup/update.md).
 
 {% endlist %}
 
@@ -250,7 +250,7 @@ description: "Пошаговая инструкция по изменению г
               text: <данные_к_эндпоинту>
             receive:
               text: <данные_от_эндпоинта>
-      enable_proxy_protocol: true    
+      enable_proxy_protocol: true
   created_at: "2022-04-06T09:17:57.104324513Z"
   ```
 
@@ -285,7 +285,7 @@ description: "Пошаговая инструкция по изменению г
 
 - API {#api}
 
-  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/backend_group_service.md#AddBackend).
+  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/BackendGroup/addBackend.md).
 
 {% endlist %}
 
@@ -448,7 +448,7 @@ description: "Пошаговая инструкция по изменению г
 
 - API {#api}
 
-  Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend).
+  Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/updateBackend.md).
 
 {% endlist %}
 
@@ -488,7 +488,7 @@ description: "Пошаговая инструкция по изменению г
          --name=<имя_удаляемого_бэкенда>
        ```
 
-     * gRPC-бэкенд
+     * gRPC-бэкенд:
 
        ```bash
        yc alb backend-group delete-grpc-backend \
@@ -534,12 +534,12 @@ description: "Пошаговая инструкция по изменению г
          target_group_ids       = ["<идентификатор_целевой_группы>"]
          load_balancing_config {
            panic_threshold      = 90
-         }    
+         }
          healthcheck {
            timeout              = "10s"
            interval             = "2s"
            healthy_threshold    = 10
-           unhealthy_threshold  = 15 
+           unhealthy_threshold  = 15
            http_healthcheck {
              path               = "/"
            }
@@ -561,7 +561,7 @@ description: "Пошаговая инструкция по изменению г
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend).
+  Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/BackendGroup/removeBackend.md).
 
 {% endlist %}
 

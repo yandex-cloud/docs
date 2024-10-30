@@ -34,7 +34,7 @@
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-         --set <name_of_parameter_1>=<value_1>,...
+         --set <parameter_1_name>=<value_1>,...
       ```
 
 - {{ TF }} {#tf}
@@ -43,7 +43,7 @@
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](../../../managed-clickhouse/operations/cluster-create.md).
+      For more information about creating this file, see [Creating clusters](../../../managed-clickhouse/operations/cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, under `clickhouse.config`, change the values of the following parameters:
 
@@ -73,7 +73,7 @@
             }
 
             rabbit_mq {
-              # Settings to get data from {{ RMQ }}
+              # Settings for getting data from {{ RMQ }}
               username = "<username>"
               password = "<password>"
             }
@@ -86,7 +86,7 @@
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for decimation, aggregation, and averaging (rollup) of Graphite data.
+              # GraphiteMergeTree engine settings for thinning, aggregating, and averaging (rollup) Graphite data.
               ...
             }
           }
@@ -115,7 +115,7 @@
 
 - API {#api}
 
-   To configure {{ CH }}, use the [update](../../../managed-clickhouse/api-ref/Cluster/update.md) REST API method for the [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To configure {{ CH }}, use the [update](../../../managed-clickhouse/api-ref/Cluster/update.md) REST API method for the [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.

@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}"
-description: "Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}."
+title: Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}
+description: Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}.
 ---
 
 # Выгрузить логи в {{ objstorage-name }}
@@ -30,6 +30,6 @@ description: "Из статьи вы узнаете, как выгружать �
 
 - API {#api}
 
-    Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/export_service.md#Run).
+    Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/Export/run.md).
 
 {% endlist %}

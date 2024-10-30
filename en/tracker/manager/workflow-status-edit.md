@@ -12,9 +12,9 @@ You can set up statuses within a workflow using the workflow visual editor. To o
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you want to edit statuses in.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you want to edit statuses in.
 
 The workflow visual editor will open. You can use it to edit existing statuses. To do this, just click the appropriate status in the diagram to open its settings page. You can also [add new statuses](#add-status) to the diagram.
 
@@ -116,9 +116,9 @@ You can also create a status on the workflows page. The created status will be i
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add the new status to and click its name. The workflow visual editor will open.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. It shows the list of workflows in the queue. Select the workflow to add the new status to and click its name. The workflow visual editor will open.
 
 1. In the top panel of the workflow visual editor, click **Add status**. Start typing the name of the new status and click the **Create** button.
 
@@ -137,15 +137,15 @@ To add a status to a workflow:
 
 1. Go to the queue page.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you need. The workflow visual editor will open.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you need. The workflow visual editor will open.
 
 1. In the top panel of the workflow visual editor, click **Add status**. Start typing the name of the new status and click the **Create** button.
 
 1. In the suggested list of statuses, select the one to add to the workflow.
 
-   
+
    The most popular statuses are available in {{ tracker-name }} by default. If you do not see the status you need, the admin can [create one](#create-status).
 
 
@@ -161,8 +161,8 @@ When a status is deleted, all the related status transitions are deleted, too. I
 
 To delete a status from a workflow:
 
-1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. In the editor, open the workflow to delete the status from.
+1. Go to the **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. In the editor, open the workflow to delete the status from.
 
 1. Click the status to be deleted and then press **Delete** on the keyboard or go to the status settings and click ![](../../_assets/tracker/svg/actions.svg) → **Remove from workflow**.

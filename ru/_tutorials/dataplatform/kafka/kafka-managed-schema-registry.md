@@ -4,6 +4,8 @@
 1. [Проверьте правильность работы {{ mkf-msr }}](#check-schema-registry).
 1. [Удалите созданные ресурсы](#clear-out).
 
+В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, см. в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **{{ ui-key.yacloud.kafka.field_schema-registry }}** и **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.

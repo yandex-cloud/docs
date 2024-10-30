@@ -3,42 +3,53 @@ editable: false
 sourcePath: en/_api-ref/ai/tts/v3/tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
 ---
 
-# SpeechKit Synthesis Service API v3, REST: Synthesizer.utteranceSynthesis
-Synthesizing text into speech.
- 
+# SpeechKit Synthesis Service API v3, REST: Synthesizer.UtteranceSynthesis {#UtteranceSynthesis}
 
- 
-## HTTP request {#https-request}
+Synthesizing text into speech.
+
+## HTTP request
+
 ```
 POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#speechkit.tts.v3.UtteranceSynthesisRequest}
+
+```json
 {
   "model": "string",
+  // Includes only one of the fields `text`, `textTemplate`
+  "text": "string",
+  "textTemplate": {
+    "textTemplate": "string",
+    "variables": [
+      {
+        "variableName": "string",
+        "variableValue": "string"
+      }
+    ]
+  },
+  // end of the list of possible fields
   "hints": [
     {
-
-      // `hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`
+      // Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`
       "voice": "string",
       "audioTemplate": {
         "audio": {
+          // Includes only one of the fields `content`
+          "content": "string",
+          // end of the list of possible fields
           "audioSpec": {
-
-            // `hints[].audioTemplate.audio.audioSpec` includes only one of the fields `rawAudio`, `containerAudio`
+            // Includes only one of the fields `rawAudio`, `containerAudio`
             "rawAudio": {
               "audioEncoding": "string",
               "sampleRateHertz": "string"
             },
             "containerAudio": {
               "containerAudioType": "string"
-            },
-            // end of the list of possible fields`hints[].audioTemplate.audio.audioSpec`
-
-          },
-          "content": "string"
+            }
+            // end of the list of possible fields
+          }
         },
         "textTemplate": {
           "textTemplate": "string",
@@ -57,100 +68,268 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
           }
         ]
       },
-      "speed": "number",
-      "volume": "number",
+      "speed": "string",
+      "volume": "string",
       "role": "string",
-      "pitchShift": "number",
+      "pitchShift": "string",
       "duration": {
         "policy": "string",
         "durationMs": "string"
-      },
-      // end of the list of possible fields`hints[]`
-
+      }
+      // end of the list of possible fields
     }
   ],
   "outputAudioSpec": {
-
-    // `outputAudioSpec` includes only one of the fields `rawAudio`, `containerAudio`
+    // Includes only one of the fields `rawAudio`, `containerAudio`
     "rawAudio": {
       "audioEncoding": "string",
       "sampleRateHertz": "string"
     },
     "containerAudio": {
       "containerAudioType": "string"
-    },
-    // end of the list of possible fields`outputAudioSpec`
-
+    }
+    // end of the list of possible fields
   },
   "loudnessNormalizationType": "string",
-  "unsafeMode": true,
-
-  //  includes only one of the fields `text`, `textTemplate`
-  "text": "string",
-  "textTemplate": {
-    "textTemplate": "string",
-    "variables": [
-      {
-        "variableName": "string",
-        "variableValue": "string"
-      }
-    ]
-  },
-  // end of the list of possible fields
-
+  "unsafeMode": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-model | **string**<br><p>The name of the model. Specifies basic synthesis functionality. Currently should be empty. Do not use it.</p> 
-hints[] | **object**<br><p>Optional hints for synthesis.</p> 
-hints[].<br>voice | **string** <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Name of speaker to use.</p> 
-hints[].<br>audioTemplate | **object**<br>Template for synthesizing. <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br>
-hints[].<br>audioTemplate.<br>audio | **object**<br><p>Audio file.</p> 
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec | **object**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio | **object**<br>The audio format specified in request parameters. <br>`hints[].audioTemplate.audio.audioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio.<br>audioEncoding | **string**<br><p>Encoding type.</p> <ul> <li>LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> </ul> 
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio.<br>sampleRateHertz | **string** (int64)<br><p>Sampling frequency of the signal.</p> 
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>containerAudio | **object**<br>The audio format specified inside the container metadata. <br>`hints[].audioTemplate.audio.audioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>containerAudio.<br>containerAudioType | **string**<br><ul> <li>WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> <li>OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.</li> <li>MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.</li> </ul> 
-hints[].<br>audioTemplate.<br>audio.<br>content | **string** (byte)<br><p>Bytes with audio data.</p> 
-hints[].<br>audioTemplate.<br>textTemplate | **object**<br><p>Template and description of its variables.</p> 
-hints[].<br>audioTemplate.<br>textTemplate.<br>textTemplate | **string**<br><p>Template text.</p> <p>Sample:``The {animal} goes to the {place}.``</p> 
-hints[].<br>audioTemplate.<br>textTemplate.<br>variables[] | **object**<br><p>Defining variables in template text.</p> <p>Sample: ``{animal: cat, place: forest}``</p> 
-hints[].<br>audioTemplate.<br>textTemplate.<br>variables[].<br>variableName | **string**<br><p>The name of the variable.</p> 
-hints[].<br>audioTemplate.<br>textTemplate.<br>variables[].<br>variableValue | **string**<br><p>The text of the variable.</p> 
-hints[].<br>audioTemplate.<br>variables[] | **object**<br><p>Describing variables in audio.</p> 
-hints[].<br>audioTemplate.<br>variables[].<br>variableName | **string**<br><p>The name of the variable.</p> 
-hints[].<br>audioTemplate.<br>variables[].<br>variableStartMs | **string** (int64)<br><p>Start time of the variable in milliseconds.</p> 
-hints[].<br>audioTemplate.<br>variables[].<br>variableLengthMs | **string** (int64)<br><p>Length of the variable in milliseconds.</p> 
-hints[].<br>speed | **number** (double) <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Hint to change speed.</p> 
-hints[].<br>volume | **number** (double) <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Hint to regulate normalization level.</p> <ul> <li>For ``MAX_PEAK`` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.</li> <li>For ``LUFS`` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.</li> </ul> 
-hints[].<br>role | **string** <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Hint to specify pronunciation character for the speaker.</p> 
-hints[].<br>pitchShift | **number** (double) <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.</p> 
-hints[].<br>duration | **object**<br>Hint to limit both minimum and maximum audio duration. <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br>
-hints[].<br>duration.<br>policy | **string**<br><p>Type of duration constraint.</p> <ul> <li>EXACT_DURATION: Limit audio duration to exact value.</li> <li>MIN_DURATION: Limit the minimum audio duration.</li> <li>MAX_DURATION: Limit the maximum audio duration.</li> </ul> 
-hints[].<br>duration.<br>durationMs | **string** (int64)<br><p>Constraint on audio duration in milliseconds.</p> 
-outputAudioSpec | **object**<br>Description of the audio format.
-outputAudioSpec.<br>rawAudio | **object**<br>The audio format specified in request parameters. <br>`outputAudioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
-outputAudioSpec.<br>rawAudio.<br>audioEncoding | **string**<br><p>Encoding type.</p> <ul> <li>LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> </ul> 
-outputAudioSpec.<br>rawAudio.<br>sampleRateHertz | **string** (int64)<br><p>Sampling frequency of the signal.</p> 
-outputAudioSpec.<br>containerAudio | **object**<br>The audio format specified inside the container metadata. <br>`outputAudioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
-outputAudioSpec.<br>containerAudio.<br>containerAudioType | **string**<br><ul> <li>WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> <li>OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.</li> <li>MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.</li> </ul> 
-loudnessNormalizationType | **string**<br>Specifies type of loudness normalization. Optional. Default: `LUFS`.<br><ul> <li>MAX_PEAK: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.</li> <li>LUFS: The type of normalization based on EBU R 128 recommendation.</li> </ul> 
-unsafeMode | **boolean** (boolean)<br><p>Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible.</p> 
-text | **string** <br> includes only one of the fields `text`, `textTemplate`<br><br><p>Raw text (e.g. "Hello, Alice").</p> 
-textTemplate | **object**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. <br> includes only one of the fields `text`, `textTemplate`<br>
-textTemplate.<br>textTemplate | **string** <br> includes only one of the fields `text`, `textTemplate`<br><br><p>Template text.</p> <p>Sample:``The {animal} goes to the {place}.``</p> 
-textTemplate.<br>variables[] | **object**<br><p>Defining variables in template text.</p> <p>Sample: ``{animal: cat, place: forest}``</p> 
-textTemplate.<br>variables[].<br>variableName | **string**<br><p>The name of the variable.</p> 
-textTemplate.<br>variables[].<br>variableValue | **string**<br><p>The text of the variable.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| model | **string**
+
+The name of the model.
+Specifies basic synthesis functionality. Currently should be empty. Do not use it. ||
+|| text | **string**
+
+Raw text (e.g. "Hello, Alice").
+
+Includes only one of the fields `text`, `textTemplate`.
+
+Text to synthesis, one of text synthesis markups. ||
+|| textTemplate | **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
+
+Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`.
+
+Includes only one of the fields `text`, `textTemplate`.
+
+Text to synthesis, one of text synthesis markups. ||
+|| hints[] | **[Hints](#speechkit.tts.v3.Hints)**
+
+Optional hints for synthesis. ||
+|| outputAudioSpec | **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
+
+Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header ||
+|| loudnessNormalizationType | **enum** (LoudnessNormalizationType)
+
+Specifies type of loudness normalization.
+Optional. Default: `LUFS`.
+
+- `LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED`
+- `MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
+- `LUFS`: The type of normalization based on EBU R 128 recommendation. ||
+|| unsafeMode | **boolean**
+
+Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible. ||
+|#
+
+## TextTemplate {#speechkit.tts.v3.TextTemplate}
+
+#|
+||Field | Description ||
+|| textTemplate | **string**
+
+Template text.
+
+Sample:`The {animal} goes to the {place}.` ||
+|| variables[] | **[TextVariable](#speechkit.tts.v3.TextVariable)**
+
+Defining variables in template text.
+
+Sample: `{animal: cat, place: forest}` ||
+|#
+
+## TextVariable {#speechkit.tts.v3.TextVariable}
+
+#|
+||Field | Description ||
+|| variableName | **string**
+
+The name of the variable. ||
+|| variableValue | **string**
+
+The text of the variable. ||
+|#
+
+## Hints {#speechkit.tts.v3.Hints}
+
+#|
+||Field | Description ||
+|| voice | **string**
+
+Name of speaker to use.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| audioTemplate | **[AudioTemplate](#speechkit.tts.v3.AudioTemplate)**
+
+Template for synthesizing.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| speed | **string**
+
+Hint to change speed.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| volume | **string**
+
+Hint to regulate normalization level.
+* For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
+* For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| role | **string**
+
+Hint to specify pronunciation character for the speaker.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| pitchShift | **string**
+
+Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|| duration | **[DurationHint](#speechkit.tts.v3.DurationHint)**
+
+Hint to limit both minimum and maximum audio duration.
+
+Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+
+The hint for TTS engine to specify synthesised audio characteristics. ||
+|#
+
+## AudioTemplate {#speechkit.tts.v3.AudioTemplate}
+
+#|
+||Field | Description ||
+|| audio | **[AudioContent](#speechkit.tts.v3.AudioContent)**
+
+Audio file. ||
+|| textTemplate | **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
+
+Template and description of its variables. ||
+|| variables[] | **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
+
+Describing variables in audio. ||
+|#
+
+## AudioContent {#speechkit.tts.v3.AudioContent}
+
+#|
+||Field | Description ||
+|| content | **string** (bytes)
+
+Bytes with audio data.
+
+Includes only one of the fields `content`.
+
+The audio source to read the data from. ||
+|| audioSpec | **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
+
+Description of the audio format. ||
+|#
+
+## AudioFormatOptions {#speechkit.tts.v3.AudioFormatOptions}
+
+#|
+||Field | Description ||
+|| rawAudio | **[RawAudio](#speechkit.tts.v3.RawAudio)**
+
+The audio format specified in request parameters.
+
+Includes only one of the fields `rawAudio`, `containerAudio`. ||
+|| containerAudio | **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
+
+The audio format specified inside the container metadata.
+
+Includes only one of the fields `rawAudio`, `containerAudio`. ||
+|#
+
+## RawAudio {#speechkit.tts.v3.RawAudio}
+
+#|
+||Field | Description ||
+|| audioEncoding | **enum** (AudioEncoding)
+
+Encoding type.
+
+- `AUDIO_ENCODING_UNSPECIFIED`
+- `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
+|| sampleRateHertz | **string** (int64)
+
+Sampling frequency of the signal. ||
+|#
+
+## ContainerAudio {#speechkit.tts.v3.ContainerAudio}
+
+#|
+||Field | Description ||
+|| containerAudioType | **enum** (ContainerAudioType)
+
+- `CONTAINER_AUDIO_TYPE_UNSPECIFIED`
+- `WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).
+- `OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+- `MP3`: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format. ||
+|#
+
+## AudioVariable {#speechkit.tts.v3.AudioVariable}
+
+#|
+||Field | Description ||
+|| variableName | **string**
+
+The name of the variable. ||
+|| variableStartMs | **string** (int64)
+
+Start time of the variable in milliseconds. ||
+|| variableLengthMs | **string** (int64)
+
+Length of the variable in milliseconds. ||
+|#
+
+## DurationHint {#speechkit.tts.v3.DurationHint}
+
+#|
+||Field | Description ||
+|| policy | **enum** (DurationHintPolicy)
+
+Type of duration constraint.
+
+- `DURATION_HINT_POLICY_UNSPECIFIED`
+- `EXACT_DURATION`: Limit audio duration to exact value.
+- `MIN_DURATION`: Limit the minimum audio duration.
+- `MAX_DURATION`: Limit the maximum audio duration. ||
+|| durationMs | **string** (int64)
+
+Constraint on audio duration in milliseconds. ||
+|#
+
+## Response {#speechkit.tts.v3.UtteranceSynthesisResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "audioChunk": {
     "data": "string"
@@ -163,12 +342,36 @@ textTemplate.<br>variables[].<br>variableValue | **string**<br><p>The text of th
 }
 ```
 
- 
-Field | Description
---- | ---
-audioChunk | **object**<br><p>Part of synthesized audio.</p> 
-audioChunk.<br>data | **string** (byte)<br><p>Sequence of bytes of the synthesized audio in format specified in output_audio_spec.</p> 
-textChunk | **object**<br><p>Part of synthesized text.</p> 
-textChunk.<br>text | **string**<br><p>Synthesized text.</p> 
-startMs | **string** (int64)<br><p>Start time of the audio chunk in milliseconds.</p> 
-lengthMs | **string** (int64)<br><p>Length of the audio chunk in milliseconds.</p> 
+#|
+||Field | Description ||
+|| audioChunk | **[AudioChunk](#speechkit.tts.v3.AudioChunk)**
+
+Part of synthesized audio. ||
+|| textChunk | **[TextChunk](#speechkit.tts.v3.TextChunk)**
+
+Part of synthesized text. ||
+|| startMs | **string** (int64)
+
+Start time of the audio chunk in milliseconds. ||
+|| lengthMs | **string** (int64)
+
+Length of the audio chunk in milliseconds. ||
+|#
+
+## AudioChunk {#speechkit.tts.v3.AudioChunk}
+
+#|
+||Field | Description ||
+|| data | **string** (bytes)
+
+Sequence of bytes of the synthesized audio in format specified in output_audio_spec. ||
+|#
+
+## TextChunk {#speechkit.tts.v3.TextChunk}
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Synthesized text. ||
+|#

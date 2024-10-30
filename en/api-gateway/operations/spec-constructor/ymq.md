@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ message-queue-full-name }} extension"
-description: "Follow this guide to add the {{ message-queue-full-name }} extension using the specification constructor."
+title: Adding the {{ message-queue-full-name }} extension
+description: Follow this guide to add the {{ message-queue-full-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:cloud_ymq extension

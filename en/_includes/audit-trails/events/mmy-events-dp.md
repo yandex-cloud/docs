@@ -1,9 +1,10 @@
-| Event name | Description |
+Event name | Description
 --- | ---
-| `CreateDatabase` | Creating a database |
-| `CreateUser` | Creating a database user |
-| `DeleteDatabase` | Deleting a database |
-| `DeleteUser` | Deleting a database user |
-| `GrantUserPermission` | Assigning permissions to a database user |
-| `RevokeUserPermission` | Revoking permissions from a database user |
-| `UpdateUser` | Updating a database user |
+`CreateDatabase` | Creating a database
+`CreateUser` | Creating a database user
+`DatabaseUserSQLRequest` | User SQL query to a database
+`DeleteDatabase` | Deleting a database
+`DeleteUser` | Deleting a database user
+`GrantUserPermission` | Assigning privileges to a database user
+`RevokeUserPermission` | Revoking a database user's privileges
+`UpdateUser` | Editing a database user

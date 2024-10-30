@@ -1,6 +1,6 @@
 ---
-title: "Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic"
-description: "Create a trigger for an {{ iot-name }} device or registry topic to process message copies in a {{ serverless-containers-name }} container."
+title: Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic
+description: Create a trigger for an {{ iot-name }} device or registry topic to process message copies in a {{ serverless-containers-name }} container.
 ---
 
 # Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic
@@ -190,7 +190,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
 - API {#api}
 
-   To create a trigger for {{ iot-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ iot-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 

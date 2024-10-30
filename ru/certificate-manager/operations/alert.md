@@ -27,7 +27,7 @@
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
-        
+
         Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
@@ -61,7 +61,7 @@
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
-        
+
         Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition). 
 
 

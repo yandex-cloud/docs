@@ -64,7 +64,7 @@
      * [Node.js](https://nodejs.org/ru/) не ниже версии `16.9.1`:
 
        ```bash
-       curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash
+       curl --silent --location https://deb.nodesource.com/setup_16.x | sudo -E bash
        sudo apt-get install nodejs
        node -v
        npm -v
@@ -87,7 +87,7 @@
      * [AWS CLI](https://aws.amazon.com/ru/cli/):
 
        ```bash
-       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --output "awscliv2.zip"
        unzip awscliv2.zip
        sudo ./aws/install
        ```
@@ -97,7 +97,7 @@
        ```bash
        sudo apt-get update
        sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
-       curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+       curl --fail --silent --show-error --location https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
        sudo apt-get update
@@ -106,7 +106,7 @@
        ```
 
 
-  
+
   1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
@@ -127,7 +127,7 @@
      * [Homebrew](https://brew.sh):
 
        ```bash
-       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+       /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
        ```
 
      * [Curl](https://curl.se/) и [Git](https://git-scm.com/):
@@ -167,7 +167,7 @@
      * [AWS CLI](https://aws.amazon.com/ru/cli/):
 
        ```bash
-       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
@@ -178,7 +178,7 @@
        ```
 
 
-  
+
   1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 

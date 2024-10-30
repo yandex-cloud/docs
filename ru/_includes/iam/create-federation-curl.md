@@ -1,12 +1,13 @@
-Чтобы создать федерацию, воспользуйтесь методом REST API [create](../../organization/api-ref/Federation/create.md) для ресурса [Federation](../../organization/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Create](../../organization/api-ref/grpc/federation_service#Create) и передайте в запросе файл с параметрами запроса.
+Чтобы создать федерацию, воспользуйтесь методом REST API [create](../../organization/saml/api-ref/Federation/create.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) и передайте в запросе файл с параметрами запроса.
 
 Пример запроса:
 
 ```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer <IAM-токен>" \
-  -d '@body.json' \
+curl \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer <IAM-токен>" \
+  --data '@body.json' \
   https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 ```
 

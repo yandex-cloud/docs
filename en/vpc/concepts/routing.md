@@ -1,6 +1,6 @@
 ---
-title: "Routing"
-description: "With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes."
+title: Routing
+description: With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes.
 keywords:
   - static routing
   - route table
@@ -20,7 +20,7 @@ When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set
 
 In {{ yandex-cloud }}, VM instances are typically created with a single network interface. When being created, a VM will have a route table with only one route: the one to the default gateway with the `0.0.0.0/0` prefix. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM network interface is connected.
 
-Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address on the subnet. The route table for the VM will appear as follows:
+Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address in this subnet. The route table for the VM will appear as follows:
 
 ```bash
 ip route
@@ -57,51 +57,52 @@ Each {{ vpc-short-name }} route table entry must include:
 
 * `Destination prefix`: Prefix of the destination IPv4 route in CIDR notation, e.g., `10.20.30.0/24`.
 * `Next hop`: Type of the gateway that will handle outgoing traffic for the specified destination prefix. Allowed values include:
-   * `IP address`: IP address of the destination gateway, e.g., the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
-   * `Gateway`, to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this gateway type, specify the name of an already existing NAT gateway on the cloud network.
+    * `IP address`: IP address of the destination gateway, e.g., the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
+    * `Gateway`, to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this gateway type, specify the name of an already existing NAT gateway on the cloud network.
 
 If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with the `172.16.0.0/20` and `172.16.0.0/24` destination prefixes, the entry with the `172.16.0.0/24` prefix will be used for sending traffic, as it has higher priority.
 
 When creating a static route with an `IP address` as the `next hop`, you can specify an internal IP address previously unused in this cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
 
-Static routes can use the default route prefix, `0.0.0.0/0`. This means that all traffic not directed through more specific routes will be sent through the gateway IP address specified for this prefix.
+Static routes can use the default route prefix: `0.0.0.0/0`. This means that all traffic not directed through more specific routes will be sent through the gateway IP address specified for this prefix.
 
-When creating a static route with a `Gateway` as the `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
+When creating a static route with a `Gateway` as `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
 
 
 ### Route priority in complex scenarios {#priority}
 
 In complex routing scenarios with multiple default routes in the VPC network (subnets), outgoing traffic will follow this routing order:
 
-* Priority 1: If you set up a default static route of `0.0.0.0/0`, it will have the highest priority.
+* Priority 1: If you set up the default static route of `0.0.0.0/0`, it will have the highest priority.
 
 * Priority 2: If a VM has a public IP address configured and there is no default static route (priority 1) in the subnet, traffic will be routed through that public IP address.
 
-* Priority 3: If you set up a default static route of `0.0.0.0/0` through a [NAT gateway](./gateways.md#nat-gateway), it will have the lowest priority compared to priorities 1 and 2.
+* Priority 3: If you set up the default static route of `0.0.0.0/0` through a [NAT gateway](./gateways.md#nat-gateway), it will have a lower priority than priorities 1 and 2.
 
-* Priority 4: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having the lowest priority relative to routes with priorities 1, 2, and 3.
+* Priority 4: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having a lower priority than routes with priorities 1, 2, and 3.
+
 
 ## Limitations {#restrictions}
 
-1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the default route prefix, `0.0.0.0/0`.
+1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the `0.0.0.0/0` default route prefix.
 1. A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default static route in its subnet. If a virtual machine is behind a NAT instance, you can connect to it via an internal IP address, using the NAT instance as a jump host:
 
    ```bash
-   ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
+   ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
      <VM_user_name>@<VM_internal_IP_address>
    ```
 
-1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, including `169.254.0.0/16` and more specific prefixes, as they are reserved for internal use by {{ vpc-name }}.
-1. You cannot use the IP address of a load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md) as the `next hop`.
-1. When using {{ vpc-short-name }} route tables to route reverse traffic from internal load balancer [target resources](../../network-load-balancer/concepts/target-resources.md), consider the [traffic routing specifics](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
-1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as the `next hop`.
+1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, such as `169.254.0.0/16` and more specific ones, as they are reserved for {{ vpc-name }} internal use.
+1. You cannot use the IP address of a load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md) as `next hop`.
+1. When using {{ vpc-short-name }} route tables to route reverse traffic from [target resources](../../network-load-balancer/concepts/target-resources.md) of an internal load balancer, consider the [traffic routing specifics](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
+1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as `next hop`.
 1. A {{ yandex-cloud }} virtual network does not allow transmitting traffic through itself. In other words, only [private IP address ranges in {{ vpc-name }}](../../vpc/concepts/network.md#subnet) can be used as destination prefixes and gateways for static routes in {{ vpc-short-name }} route tables. Traffic to public destination prefixes or gateways with public IP addresses in the {{ vpc-short-name }} route table will be discarded.
 1. To learn more about the quota-related restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
 
 ## Static route use cases {#refs}
 
 1. [Creating and setting up a NAT gateway](../operations/create-nat-gateway.md).
-1. [Routing through a NAT instance](../../tutorials/routing/nat-instance.md).
+1. [Routing through a NAT instance](../../tutorials/routing/nat-instance/index.md).
 1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec/index.md).
 1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
 1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall](../../tutorials/routing/high-accessible-dmz.md).

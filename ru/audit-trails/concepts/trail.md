@@ -50,7 +50,7 @@
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.
     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
-        *  **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
+        * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи уровня конфигурации. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
@@ -58,7 +58,13 @@
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
 * Блок **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня сервисов.
-    * Список [сервисов](../../audit-trails/concepts/events-data-plane.md#services), для каждого из которых отдельно настраивается [область](../../audit-trails/concepts/trail.md#collecting-area) и объекты сбора аудитных логов уровня сервисов.
+    * Список [сервисов](events-data-plane.md#services), для каждого из которых отдельно настраивается:
+        * [Область](trail.md#collecting-area) сбора аудитных логов уровня сервисов.
+        * Тип фильтра событий:
+            * `Получать все` — для получения всех событий сервиса.
+            * `Выбранные` — для получения только выбранных событий.
+            * `Исключить` — для получения всех событий, кроме выбранных.
+        * Список [событий](events-data-plane.md#dns), если выбран тип фильтра `Выбранные` или `Исключить`.
 
 ## Что дальше {#whats-next}
 

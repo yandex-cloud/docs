@@ -40,39 +40,46 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя виртуальной машины: `sftp-server`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
 
-     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-     1. В списке публичных образов найдите и выберите [CentOS 7](/marketplace/products/yc/centos-7).
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их на странице создания виртуальной машины.
-  
-  1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
-  
-  1. Укажите данные для доступа к виртуальной машине:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
 
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
-       
-     {% note alert %}
-     
-     IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к виртуальной машине из интернета.
-    
-     {% endnote %}
-  
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  
+              * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+      {% note alert %}
+
+      IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к виртуальной машине из интернета.
+
+      {% endnote %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `sftp-server`.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 {% endlist %}
 
 Создание виртуальной машины может занять несколько минут. 
@@ -269,7 +276,7 @@
 
 Процесс создания виртуальной машины для SFTP-клиента полностью совпадает с созданием виртуальной машины для SFTP-сервера. 
 
-1. Выполните пункты 1-9 из раздела о [создании виртуальной машины для SFTP-сервера](#create-vm-sftp-server) (в качестве имени машины укажите `sftp-client`).
+1. Выполните пункты 1-11 из раздела о [создании виртуальной машины для SFTP-сервера](#create-vm-sftp-server) (в качестве имени машины укажите `sftp-client`).
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-клиента.
 1. Создайте пару SSH-ключей на SFTP-клиенте. Процесс аналогичен описанному для пользователя `fuser` в [предыдущем разделе](#create-sftp-user):
@@ -390,7 +397,10 @@
 1. Перешлите полученный архив на SFTP-сервер:
 
    ```bash
-   curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   curl \
+     --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz \
+     --insecure \
+     --user $SFTP_USER:
    ```
 
    Где:
@@ -414,7 +424,7 @@
 Все действия для создания резервной копии можно выполнить одной командой в терминале SFTP-клиента:
 
 ```bash
-sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
 ## Проверьте работоспособность резервного копирования {#check-backup}
@@ -424,7 +434,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-клиента и запустите команду для резервного копирования:
 
    ```bash
-   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-сервера и убедитесь, что файл вида `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
@@ -449,7 +459,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
    SFTP_SERVER=<IP_адрес_SFTP_сервера>
    SFTP_USER='fuser'
 
-   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
    * На виртуальной машине по умолчанию время UTC. Учитывайте разницу с вашим локальным временем при настройке расписания.

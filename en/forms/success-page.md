@@ -1,6 +1,6 @@
 ---
-title: "How to customize the results page in {{ forms-full-name }}"
-description: "Follow this guide to customize the results page."
+title: How to customize the results page in {{ forms-full-name }}
+description: Follow this guide to customize the results page.
 ---
 
 # Customizing the results page

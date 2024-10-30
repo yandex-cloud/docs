@@ -3,26 +3,32 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostType/get.md
 ---
 
-# Compute Cloud API, REST: HostType.get
-Returns information about specified host type.
- 
+# Compute Cloud API, REST: HostType.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns information about specified host type.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-hostTypeId | <p>Required. ID of the host type to return.</p> <p>To get a host type ID make a <a href="/docs/compute/api-ref/HostType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| hostTypeId | **string**
+
+Required field. ID of the host type to return.
+
+To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.compute.v1.HostType}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "cores": "string",
@@ -31,14 +37,26 @@ hostTypeId | <p>Required. ID of the host type to return.</p> <p>To get a host ty
   "diskSize": "string"
 }
 ```
+
 Represents host resources.
 Note: Platform can use hosts with different number of memory and cores.
 TODO: Do we need sockets here?
- 
-Field | Description
---- | ---
-id | **string**<br><p>Unique type identifier.</p> 
-cores | **string** (int64)<br><p>Total number of cores available for instances.</p> 
-memory | **string** (int64)<br><p>Ammount of memory available for instances.</p> 
-disks | **string** (int64)<br><p>Number of local disks available for instances</p> 
-diskSize | **string** (int64)<br><p>Size of each local disk</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Unique type identifier. ||
+|| cores | **string** (int64)
+
+Total number of cores available for instances. ||
+|| memory | **string** (int64)
+
+Ammount of memory available for instances. ||
+|| disks | **string** (int64)
+
+Number of local disks available for instances ||
+|| diskSize | **string** (int64)
+
+Size of each local disk ||
+|#

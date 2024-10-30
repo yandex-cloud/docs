@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к группе размещения нереплицируемых дисков {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к группе размещения нереплицируемых дисков."
+title: Настроить права доступа к группе размещения нереплицируемых дисков {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к группе размещения нереплицируемых дисков.
 ---
 
 # Настроить права доступа к группе размещения нереплицируемых дисков
@@ -29,7 +29,7 @@ description: "Следуя данной инструкции, вы настро�
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для назначения роли на группу размещения дисков:
 
      ```bash
@@ -114,7 +114,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DiskPlacementGroup/updateAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/disk_placement_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DiskPlacementGroup/updateAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/DiskPlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -225,7 +225,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/DiskPlacementGroup/setAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/SetAccessBindings](../../api-ref/grpc/disk_placement_group_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/DiskPlacementGroup/setAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/SetAccessBindings](../../api-ref/grpc/DiskPlacementGroup/setAccessBindings.md).
 
   {% note alert %}
 
@@ -319,6 +319,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DiskPlacementGroup/updateAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/disk_placement_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DiskPlacementGroup/updateAccessBindings.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/DiskPlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

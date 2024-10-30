@@ -1,13 +1,13 @@
 ---
-title: "Configuring public access to operations with a {{ objstorage-full-name }} bucket"
-description: "Follow this guide to configure public access to operations with a bucket."
+title: How to configure public access to bucket operations in {{ objstorage-full-name }}
+description: Follow this guide to configure public access to a bucket in {{ objstorage-name }}.
 ---
 
 # Configuring public access to a bucket
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
-By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can enable public access:
+By default, [buckets](../../concepts/bucket.md) are created with restricted [access](../../concepts/bucket.md#bucket-access). You can enable public access:
 
 {% include [storage-public-operations](../../_includes_service/storage-public-operations.md) %}
 
@@ -19,26 +19,26 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the bucket name.
-   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
-   1. Enable public access for the operation types you need.
-   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. Select **{{ objstorage-name }}**.
+  1. Click the bucket name.
+  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. Enable public access for the operation types you need.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
       ```
 
-   1. Get a list of buckets in the default folder:
+  1. Get a list of buckets in the default folder:
 
       ```bash
       yc storage bucket list
@@ -54,7 +54,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Using the `NAME` column, save the name of the bucket to enable public access to.
+   1. Using the `NAME` column, save the name of the bucket to which you need to enable public access.
    1. Allow public access to operations with the bucket:
 
       ```bash
@@ -66,7 +66,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       ```
 
       Where:
-      * `--name`: Name of the bucket to enable public access to.
+      * `--name`: Name of the bucket to which you need to enable public access.
       * `--public-read`: Flag to enable public access to read bucket objects.
       * `--public-list`: Flag to enable public access to view the list of bucket objects.
       * `--public-config-read`: Flag to enable public access to read the bucket configuration.
@@ -75,7 +75,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       Result:
 
-      ```yaml
+      ```text
       name: first-bucket
       folder_id: b1gmit33ngp6********
       anonymous_access_flags:
@@ -91,69 +91,69 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To enable public access to bucket operations:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add a section called `anonymous_access_flags` to the bucket description fragment.
 
-      ```hcl
-      resource "yandex_storage_bucket" "log_bucket" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "<bucket_name>"
+  To enable public access to bucket operations:
 
-        anonymous_access_flags {
-          read        = true
-          list        = true
-          config_read = true
-        }
-      }
-      ```
+  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description fragment.
 
-      Where:
-      * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
-      * `secret_key`: Value of the secret access key.
-      * `bucket`: Name of the bucket to enable public access to.
-      * `anonymous_access_flags`: Public access parameters:
-         * `read`: Public access to read bucket objects.
-         * `list`: Public access to the list of bucket objects.
-         * `config_read`: Public access to read bucket configuration.
+     ```hcl
+     resource "yandex_storage_bucket" "log_bucket" {
+       access_key = "<static_key_ID>"
+       secret_key = "<secret_key>"
+       bucket     = "<bucket_name>"
 
-      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
+       anonymous_access_flags {
+         read        = true
+         list        = true
+         config_read = true
+       }
+     }
+     ```
 
-   1. Make sure the configuration files are correct.
+     Where:
+     * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
+     * `secret_key`: Secret access key value.
+     * `bucket`: Name of the bucket to which you need to enable public access.
+     * `anonymous_access_flags`: Public access parameters:
+       * `read`: Public access to read bucket objects.
+       * `list`: Public access to the list of bucket objects.
+       * `config_read`: Public access to read bucket configuration.
 
-      1. In the command line, go to the folder where you created the configuration file.
-      1. Run a check using this command:
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-         ```
-         terraform plan
-         ```
+  1. Make sure the configuration files are correct.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     1. In the command line, go to the folder where you created the configuration file.
+     1. Run a check using this command:
 
-   1. Deploy cloud resources.
+        ```
+        terraform plan
+        ```
 
-      1. If the configuration does not contain any errors, run this command:
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-         ```
-         terraform apply
-         ```
+  1. Deploy cloud resources.
 
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. If the configuration does not contain any errors, run this command:
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        ```
+        terraform apply
+        ```
+
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -169,26 +169,26 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the bucket name.
-   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
-   1. Enable restricted access for the operation types you need.
-   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. Select **{{ objstorage-name }}**.
+  1. Click the bucket name.
+  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. Enable restricted access for the operation types you need.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
       ```
 
-   1. Get a list of buckets in the default folder:
+  1. Get a list of buckets in the default folder:
 
       ```bash
       yc storage bucket list
@@ -204,7 +204,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Using the `NAME` column, save the name of the bucket to disable public access to.
+   1. Using the `NAME` column, save the name of the bucket to which you want to disable public access.
    1. Disable public access to operations with the bucket.
 
       ```bash
@@ -216,16 +216,16 @@ If your bucket has access policies, you will also need to [configure](./policy.m
       ```
 
       Where:
-      * `--name`: Name of the bucket to disable public access to.
-      * `--public-read`: Flag to manage public access to read bucket objects. To disable public access, set to `false`.
-      * `--public-list`: Flag to manage public access to view the list of bucket objects. To disable public access, set to `false`.
-      * `--public-config-read`: Flag to manage public access to read bucket configuration. To disable public access, set to `false`.
+      * `--name`: Name of the bucket to which you need to disable public access.
+      * `--public-read`: Flag to manage public access to read bucket objects. To disable public access, set it to `false`.
+      * `--public-list`: Flag to manage public access to view the list of bucket objects. To disable public access, set it to `false`.
+      * `--public-config-read`: Flag to manage public access to read bucket configuration. To disable public access, set it to `false`.
 
       `name`: Required parameter. Other parameters are optional. By default, no public access to buckets is allowed.
 
       Result:
 
-      ```yaml
+      ```text
       name: first-bucket
       folder_id: b1gmit33ngp6********
       anonymous_access_flags:
@@ -241,68 +241,68 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To disable public access to bucket operations:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add a section called `anonymous_access_flags` to the bucket description fragment.
 
-      ```hcl
-      resource "yandex_storage_bucket" "log_bucket" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "<bucket_name>"
+  To disable public access to bucket operations:
 
-        anonymous_access_flags {
-          read        = false
-          list        = false
-          config_read = false
-        }
-      }
-      ```
+  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description fragment.
 
-      Where:
-      * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
-      * `secret_key`: Value of the secret access key.
-      * `bucket`: Name of the bucket to disable public access to.
-      * `anonymous_access_flags`: Public access parameters:
-         * `read`: Public access to read bucket objects.
-         * `list`: Public access to the list of bucket objects.
-         * `config_read`: Public access to read bucket configuration.
+     ```hcl
+     resource "yandex_storage_bucket" "log_bucket" {
+       access_key = "<static_key_ID>"
+       secret_key = "<secret_key>"
+       bucket     = "<bucket_name>"
 
-      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
+       anonymous_access_flags {
+         read        = false
+         list        = false
+         config_read = false
+       }
+     }
+     ```
 
-   1. Make sure the configuration files are correct.
+     Where:
+     * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
+     * `secret_key`: Secret access key value.
+     * `bucket`: Name of the bucket to which you need to disable public access.
+     * `anonymous_access_flags`: Public access parameters:
+       * `read`: Public access to read bucket objects.
+       * `list`: Public access to the list of bucket objects.
+       * `config_read`: Public access to read bucket configuration.
 
-      1. In the command line, go to the folder where you created the configuration file.
-      1. Run a check using this command:
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-         ```
-         terraform plan
-         ```
+  1. Make sure the configuration files are correct.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     1. In the command line, go to the folder where you created the configuration file.
+     1. Run a check using this command:
 
-   1. Deploy cloud resources.
+        ```
+        terraform plan
+        ```
 
-      1. If the configuration does not contain any errors, run this command:
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-         ```
-         terraform apply
-         ```
+  1. Deploy cloud resources.
 
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. If the configuration does not contain any errors, run this command:
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        ```
+        terraform apply
+        ```
+
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   To disable public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To disable public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
-When disabling public access to the bucket, make sure the `All users` [public group](../../../iam/concepts/access-control/public-group.md) has no `viewer`, `storage.viewer`, or [higher](../../security/index.md#service-roles) roles assigned for the folder or bucket. Otherwise, the bucket will still be publically accessible.
+When disabling public access to the bucket, make sure the `All users` [public group](../../../iam/concepts/access-control/public-group.md) has no `viewer`, `storage.viewer`, or higher [role](../../security/index.md#service-roles) assigned for the folder or bucket. Otherwise, the bucket will still be publicly accessible.

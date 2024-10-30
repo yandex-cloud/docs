@@ -1,6 +1,6 @@
 ---
-title: "Asymmetric encryption key pair in {{ kms-short-name }}"
-description: "This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}."
+title: Asymmetric encryption key pair in {{ kms-short-name }}
+description: This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}.
 ---
 
 # Asymmetric encryption key pair in {{ kms-short-name }}
@@ -26,7 +26,7 @@ A {{ kms-short-name }} encryption key pair may have the following parameters:
    * `Active`: Key pair can be used for encryption and decryption.
    * `Inactive`: Key pair cannot be used.
 
-   You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update) gRPC API call.
+   You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md) gRPC API call.
 
 ## Using encryption key pairs {#use}
 

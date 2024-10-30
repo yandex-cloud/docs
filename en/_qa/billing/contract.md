@@ -11,7 +11,7 @@
 
 - Residents of Russia {#russia}
 
-   Residents of Russia as well as tax residents of the Republic of Belarus can learn more about the terms of the agreement in [Legal documents]({{ billing-oferta-url }}/?lang=en).
+   Residents of Russia as well as tax residents of the Republic of Belarus can learn more about the terms of the agreement in [Legal documents]({{ billing-oferta-url }}).
 
 
 - Residents of Kazakhstan {#kazakhstan}
@@ -20,7 +20,7 @@
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
+   Depending on which company you signed the contract with, you can review its terms in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
 
 {% endlist %}
 
@@ -30,7 +30,9 @@ Businesses may conclude a bilateral agreement. To do this, submit a request usin
 
 #### How do I refer to the signed agreement? {#refer-to-contract}
 
-The agreement is represented by the [offer]({{ billing-oferta-url }}). Specify the agreement number and a link to the offer or enclose its printed copy.
+
+The agreement is represented by the «Yandex Legal documents». Depending on which company you signed the contract with, you can find more details in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/). Specify the agreement number and a link to the «Yandex Legal documents» or enclose their printed copy.
+
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 

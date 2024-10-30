@@ -65,7 +65,7 @@
 
 ## Настройте профиль CLI {#setup-profile}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизируйтесь от имени пользователя.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
    {% list tabs group=instructions %}
@@ -73,7 +73,8 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -100,7 +101,7 @@
 
    - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+      Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
    {% endlist %}
 
@@ -128,7 +129,7 @@
 
    - API {#api}
 
-      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
    {% endlist %}
 
@@ -387,7 +388,7 @@
 
    - API {#api}
 
-      Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop).
+      Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/Instance/stop.md).
 
    {% endlist %}
 
@@ -429,7 +430,7 @@
 
    - API {#api}
 
-      Воспользуйтесь методом REST API [start](../../compute/api-ref/Instance/start.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../compute/api-ref/grpc/instance_service.md#Start).
+      Воспользуйтесь методом REST API [start](../../compute/api-ref/Instance/start.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../compute/api-ref/grpc/Instance/start.md).
 
    {% endlist %}
 

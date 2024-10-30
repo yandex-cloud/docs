@@ -36,7 +36,7 @@
    
    {% endnote %}
 
-1. Введите название и описание для формы и нажмите **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+1. Введите название и описание для формы и нажмите **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 
 1. Добавьте поля на форму.
 
@@ -91,10 +91,10 @@
 
 1. Чтобы изменить порядок расположения форм на странице создания задачи, нажмите на значок ![](../../_assets/tracker/svg/range.svg) и перетащите форму.
 
-1. Чтобы настроить возможность создавать задачи без формы или только с помощью формы, в правом верхнем углу выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}**:
-   * **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.always }}** — все пользователи смогут создавать задачи без формы;
-   * **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** — создание задач будет доступно только через форму;
-   * **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.team }}** — только участники [команды очереди](../manager/queue-team.md) смогут создавать задачи без формы.
+1. Чтобы настроить возможность создавать задачи без формы или только с помощью формы, в правом верхнем углу выберите опцию **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}**:
+   * **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.always }}** — все пользователи смогут создавать задачи без формы;
+   * **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}** — создание задач будет доступно только через форму;
+   * **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.team }}** — только участники [команды очереди](../manager/queue-team.md) смогут создавать задачи без формы.
 
 ## Управлять формами {#manage-template}
 
@@ -124,15 +124,15 @@
 
 1. Выберите форму и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.change-title-and-description }}**. 
+1. Выберите **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-title-and-description }}**. 
 
-1. Введите новые название и описание формы и нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-main_QueueAdminTabMain.save }}**.
+1. Введите новые название и описание формы и нажмите **Сохранить**.
 
 ### Изменить форму {#edit-template}
 
 1. Выберите форму и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
+1. Выберите **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.change-template }}**.
 
 1. Отредактируйте вопросы формы во встроенном конструкторе {{ forms-full-name }} и настройте интеграции с {{ tracker-name }}, как при [создании формы](#create-template).
 

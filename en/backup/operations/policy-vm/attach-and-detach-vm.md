@@ -1,6 +1,6 @@
 ---
-title: "How to link or unlink a VM to/from a backup policy"
-description: "In this article, you will learn how to link a {{ compute-name }} VM to or unlink it from a backup policy."
+title: How to link or unlink a VM to/from a backup policy
+description: In this article, you will learn how to link a {{ compute-name }} VM to or unlink it from a backup policy.
 ---
 
 # Linking a VM to a backup policy
@@ -50,7 +50,7 @@ You can only link a VM to a policy if it is connected to {{ backup-full-name }}.
 
 - API {#api}
 
-   Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/policy_service.md#Apply) gRPC API call.
+   Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/Policy/apply.md) gRPC API call.
 
 {% endlist %}
 

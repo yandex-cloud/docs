@@ -1,6 +1,6 @@
 ---
-title: "Публичные материалы о {{ dataproc-name }}"
-description: "Видеозаписи конференций и вебинаров, посвященных {{ dataproc-name }}."
+title: Публичные материалы о {{ dataproc-name }}
+description: Видеозаписи конференций и вебинаров, посвященных {{ dataproc-name }}.
 ---
 
 # Публичные материалы о {{ dataproc-name }}

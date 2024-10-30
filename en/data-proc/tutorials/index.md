@@ -1,23 +1,15 @@
 ---
-title: "{{ dataproc-full-name }} use cases"
-description: "Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ dataproc-full-name }} tutorials'
+description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
-# All tutorials
+# Tutorials for {{ dataproc-name }}
+
+## Network settings and cluster maintenance {#network-settings}
 
 * [{#T}](./configure-network.md)
 * [{#T}](./hdfs-cluster-migration.md)
 * [{#T}](./reconnect-network.md)
-* [{#T}](./copy-files-from-object-storage.md)
-* [{#T}](./exchange-data-with-mch.md)
-* [{#T}](./sqoop-mmy.md)
-* [{#T}](./sqoop-mpg.md)
-* [{#T}](./geesefs-init-actions.md)
-* [{#T}](./kafka.md)
-* [{#T}](./s3-dataproc-ch.md)
-* [{#T}](./airflow-automation.md)
-* [{#T}](./dataproc-to-dataproc.md)
-* [{#T}](./metastore-import.md)
 
 ## Working with jobs {#jobs}
 
@@ -33,3 +25,17 @@ description: "Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](./how-to-use-hive.md)
 * [{#T}](./run-spark-job.md)
 * [{#T}](./remote-run-job.md)
+
+## Integrating {{ dataproc-name }} with other services {#integration}
+
+* [{#T}](./copy-files-from-object-storage.md)
+* [{#T}](./s3-dataproc-ch.md)
+* [{#T}](./geesefs-init-actions.md)
+* [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./metastore-import.md)
+* [{#T}](./exchange-data-with-mch.md)
+* [{#T}](./sqoop-mmy.md)
+* [{#T}](./sqoop-mpg.md)
+* [{#T}](./datasphere-integration.md)
+* [{#T}](./kafka.md)
+* [{#T}](./airflow-automation.md)

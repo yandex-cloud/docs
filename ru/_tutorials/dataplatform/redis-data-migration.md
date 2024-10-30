@@ -36,14 +36,14 @@
 
     1. (Опционально) [Создайте промежуточную виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md) в {{ compute-full-name }} в той же сети, что и кластер {{ mrd-name }} в следующей конфигурации:
 
-        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
             * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
 
-    
+
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
 

@@ -1,10 +1,30 @@
+---
+title: '{{ metadata-hub-full-name }} release notes'
+description: This section contains {{ metadata-hub-name }} release notes.
+---
+
 # {{ metadata-hub-full-name }} release notes: 2024
+
+## September {#september}
+
+### New features {#new-features-september}
+
+* [{{ metastore-full-name }}](../concepts/metastore.md) clusters are now part of {{ metadata-hub-name }}.
+* [{{ schema-registry-name }}](../quickstart/schema-registry.md) is available in [Preview](../../overview/concepts/launch-stages.md).
+* {{ data-transfer-full-name }} users can now specify a {{ connection-manager-name }} connection ID to [configure the {{ mpg-short-name }} endpoint](../../data-transfer/operations/endpoint/source/postgresql.md).
+* In {{ datalens-full-name }}, you can now use {{ connection-manager-name }} to create [{{ PG }}](../../datalens/operations/connection/create-postgresql.md#conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md#conn-man), and [{{ MY }}](../../datalens/operations/connection/create-mysql.md#conn-man) connections.
+
+## August {#august}
+
+### New features {#new-features-august}
+
+Added support for custom {{ RD }} DB installation and [{{ mrd-name }}](../../managed-redis/concepts/index.md) cluster connections.
 
 ## July {#july}
 
-### New features {#new-features-june}
+### New features {#new-features-july}
 
-1. Added [{{ connection-manager-name }}](../concepts/connection-manager.md) integration with [{{ mch-short-name }}](../../managed-clickhouse). Connections for {{ mch-short-name }} clusters [will be created automatically](../quickstart/connection-manager.md).
+Added [{{ connection-manager-name }}](../concepts/connection-manager.md) integration with [{{ mch-short-name }}](../../managed-clickhouse). Connections for {{ mch-short-name }} clusters [will be created automatically](../quickstart/connection-manager.md).
 
 ## June {#june}
 

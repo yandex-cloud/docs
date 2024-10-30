@@ -1,5 +1,5 @@
 ---
-title: "OpenVPN. Создание VPN-соединения"
+title: OpenVPN. Создание VPN-соединения
 keywords:
   - openvpn
   - openvpn настроить

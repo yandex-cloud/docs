@@ -10,9 +10,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса, переходы которого вы хотите редактировать.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса, переходы которого вы хотите редактировать.
 
 Откроется визуальный редактор рабочих процессов. Здесь можно редактировать уже добавленные переходы — для этого достаточно нажать на переход на схеме, и откроется страница с его настройками. Кроме того, на схему можно [добавлять новые переходы](#add-action).
 
@@ -22,21 +22,21 @@
 
 Чтобы добавить автоматическое действие:
 
-1. В настройках перехода откройте раздел **Автоматизация** и нажмите **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
+1. В настройках перехода откройте раздел **Автоматизация** и нажмите **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
 
 1. Выберите из списка необходимые автоматизации и настройте их. Если подходящей автоматизации не нашлось, настройте [триггер](../user/trigger.md).
 
 Доступные автоматизации при смене статуса задачи:
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SendEmailFunction }}** — отправлять письма конкретным сотрудникам или пользователям, выполняющим роли в задаче (например, автору или исполнителю задачи).
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddCommentFunction }}** — оставлять в задаче комментарий от отпределенного пользователя (сотрудника или робота).
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetActiveSprintFunction }}** — добавить задачу в активный спринт на выбранной доске.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetCurrentTimeFunction }}** — записать время выполнения перехода в выбранное поле.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-CalculateFieldFunction }}** — просуммировать содержимое нескольких полей и записать результат в другое поле.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-MoveUsersFunction }}** — переместить или скопировать пользователей из одного поля в другое.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveUsersFromCcFunction }}** — убрать пользователя из наблюдателей задачи, например, если от него была получена нужная информация и дальнейшее участие в задаче не требуется. 
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddTextToFieldFunction }}** — заполнить поле в задаче. При настройке этого вида автоматизации вам поможет фильтр по типу заполняемого в поле значения.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveFieldValueFunction }}** — убрать содержимое любого поля в задаче.
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-UnsetResolutionFunction }}** — если задача была завершена с некоторой резолюцией, эта резолюция будет отменена.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SendEmailFunction }}** — отправлять письма конкретным сотрудникам или пользователям, выполняющим роли в задаче (например, автору или исполнителю задачи).
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-AddCommentFunction }}** — оставлять в задаче комментарий от отпределенного пользователя (сотрудника или робота).
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SetActiveSprintFunction }}** — добавить задачу в активный спринт на выбранной доске.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-SetCurrentTimeFunction }}** — записать время выполнения перехода в выбранное поле.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-CalculateFieldFunction }}** — просуммировать содержимое нескольких полей и записать результат в другое поле.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-MoveUsersFunction }}** — переместить или скопировать пользователей из одного поля в другое.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-RemoveUsersFromCcFunction }}** — убрать пользователя из наблюдателей задачи, например, если от него была получена нужная информация и дальнейшее участие в задаче не требуется. 
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-AddTextToFieldFunction }}** — заполнить поле в задаче. При настройке этого вида автоматизации вам поможет фильтр по типу заполняемого в поле значения.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-RemoveFieldValueFunction }}** — убрать содержимое любого поля в задаче.
+* **{{ ui-key.startrek.ui_Queues_smart-components_workflow-functions.type-UnsetResolutionFunction }}** — если задача была завершена с некоторой резолюцией, эта резолюция будет отменена.
 
 ### Условия перехода {#conditions}
 
@@ -55,9 +55,9 @@
 
 Чтобы добавить условия перехода:
 
-1. В настройках перехода откройте раздел **Условия перехода** и нажмите **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
+1. В настройках перехода откройте раздел **Условия перехода** и нажмите **{{ ui-key.startrek.ui_Queues_smart-components_workflow-conditions_ConditionsMenu.add-condition }}**.
 
-1. Выберите из списка подходящие условия и настройте их. Чтобы настроить группу условий с помощью операций **И** и **ИЛИ**, нажмите **{{ ui-key.startrek.ui_components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
+1. Выберите из списка подходящие условия и настройте их. Чтобы настроить группу условий с помощью операций **И** и **ИЛИ**, нажмите **{{ ui-key.startrek.ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
 
 ### Экран перехода {#screen}
 
@@ -89,9 +89,9 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
 
 1. На верхней панели визуального редактора процессов нажмите **Добавить переход**. Заполните поля **Исходный статус** и **Новый статус** значениями из списков. Если вы хотите добавить переход для статусов, которых еще нет в рабочем процессе, сначала [добавьте их](./workflow-status-edit.md#add-status).
 

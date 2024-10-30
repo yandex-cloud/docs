@@ -113,7 +113,7 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -166,11 +166,12 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
 
   1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
       ```
 
@@ -191,7 +192,8 @@
       ```
   1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
@@ -209,10 +211,11 @@
   1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
         "accessBindingDeltas": [{
             "action": "ADD",
             "accessBinding": {
@@ -289,7 +292,7 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -350,10 +353,11 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
     "accessBindingDeltas": [{
         "action": "ADD",
         "accessBinding": {
@@ -374,7 +378,7 @@
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
   ```
 
-  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings).
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/Folder/setAccessBindings.md).
 
   {% note alert %}
 
@@ -384,10 +388,11 @@
 
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
     "accessBindings": [{
         "roleId": "editor",
         "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }

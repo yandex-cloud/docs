@@ -1,6 +1,6 @@
 ---
-title: "Как создать версию функции"
-description: "Следуя данной инструкции, вы сможете создать версию функции."
+title: Как создать версию функции
+description: Следуя данной инструкции, вы сможете создать версию функции.
 ---
 
 # Создать версию функции
@@ -171,7 +171,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-    Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
+    Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
 
     **Пример запроса**
 
@@ -211,9 +211,10 @@ description: "Следуя данной инструкции, вы сможет�
 
         ```bash
         export IAM_TOKEN=<IAM-токен>
-        curl -X POST \
-            -H "Authorization: Bearer ${IAM_TOKEN}" \
-            -d "@<путь_к_файлу_body.json>" \
+        curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --data "@<путь_к_файлу_body.json>" \
             https://serverless-functions.{{ api-host }}/functions/v1/versions
         ```
         

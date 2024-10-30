@@ -1,10 +1,5 @@
 title: Yandex DataLens
 href: index.yaml
-label:
-  title: Скоро
-  description: Сервис в ближайшее время будет доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Знакомство с сервисом
     items:
@@ -124,8 +119,6 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
       - name: Файлы и сервисы
@@ -147,9 +140,15 @@ items:
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
           - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
+            items:
+              - name: Обзор
+                href: concepts/datalens-usage-analytics.md
+              - name: Подключение
+                href: operations/connection/create-usage-tracking.md
       - name: Партнерские подключения
         items:
+          - name: Создание подключения к Экстрактору 1С
+            href: operations/connection/create-extractor1c.md
           - name: Создание подключения к Битрикс24
             href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
@@ -758,6 +757,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+  - name: Отчеты
+    items:
+      - name: Обзор
+        href: reports/index.md
+      - name: Работа с отчетами
+        href: reports/report-operations.md
   - name: Управление доступом
     items:
       - name: Обзор
@@ -820,18 +825,20 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
-      - name: Август 2024
+      - name: Сентябрь 2024
         href: release-notes/index.md
+      - name: Август 2024
+        href: release-notes/2408.md
+      - name: Июль 2024
+        href: release-notes/2407.md
+      - name: Июнь 2024
+        href: release-notes/2406.md
+      - name: Май 2024
+        href: release-notes/2405.md
+      - name: Апрель 2024
+        href: release-notes/2404.md
       - name: Архив
         items:
-          - name: Июль 2024
-            href: release-notes/2407.md
-          - name: Июнь 2024
-            href: release-notes/2406.md
-          - name: Май 2024
-            href: release-notes/2405.md
-          - name: Апрель 2024
-            href: release-notes/2404.md
           - name: Март 2024
             href: release-notes/2403.md
           - name: Февраль 2024
@@ -884,6 +891,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
+      - name: Cannot parse
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -1028,6 +1038,9 @@ items:
       - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Неверный формат файла
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
       - name: Невозможно обновить данные
         hidden: true
         href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
@@ -1050,3 +1063,4 @@ items:
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
 base: ru/datalens
+deepBase: 2

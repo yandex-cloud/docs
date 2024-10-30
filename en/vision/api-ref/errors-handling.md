@@ -1,6 +1,6 @@
 ---
-title: "Handling errors in {{ vision-short-name }}"
-description: "{{ vision-short-name }} returns request errors, file processing errors, and analysis errors for specific type of analysis."
+title: Handling errors in {{ vision-short-name }}
+description: '{{ vision-short-name }} returns request errors, file processing errors, and analysis errors for specific type of analysis.'
 ---
 
 # Handling errors in {{ vision-short-name }}

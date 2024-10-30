@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ ES }} extensions"
-description: "This guide describes how you can manage {{ ES }} extensions."
+title: How to manage {{ ES }} extensions
+description: This guide describes how you can manage {{ ES }} extensions.
 ---
 
 # Managing {{ ES }} extensions
@@ -29,7 +29,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API {#api}
 
-   To get a list of installed user extensions, use the [list](../api-ref/Extension/list.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/List](../api-ref/grpc/extension_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of installed user extensions, use the [list](../api-ref/Extension/list.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/List](../api-ref/grpc/Extension/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -68,7 +68,7 @@ All extensions must be in TXT format and added to a ZIP archive.
       * The extension version number is increased by one.
       * A new extension version is uploaded via the link in the `--uri` parameter and a new ID is assigned to it.
 
-   
+
    * `--uri`: [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with {{ objstorage-full-name }} extension files. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 
@@ -76,7 +76,7 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 - API {#api}
 
-   To add or update a user extension, use the [create](../api-ref/Extension/create.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Create](../api-ref/grpc/extension_service.md#Create) gRPC API call and provide the following in the request:
+   To add or update a user extension, use the [create](../api-ref/Extension/create.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Create](../api-ref/grpc/Extension/create.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
 
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
@@ -86,7 +86,7 @@ All extensions must be in TXT format and added to a ZIP archive.
       * The extension version number is increased by one.
       * A new extension version is uploaded via the link in the `uri` parameter and a new ID is assigned to it.
 
-   
+
    * [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with extension files in {{ objstorage-full-name }}, in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 
@@ -118,7 +118,7 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 - API {#api}
 
-   To enable or disable a user extension, use the [update](../api-ref/Extension/update.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Update](../api-ref/grpc/extension_service.md#Update) gRPC API call and provide the following in the request:
+   To enable or disable a user extension, use the [update](../api-ref/Extension/update.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Update](../api-ref/grpc/Extension/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 
@@ -150,7 +150,7 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 - API {#api}
 
-   To delete a user extension, use the [delete](../api-ref/Extension/delete.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Delete](../api-ref/grpc/extension_service.md#Delete) gRPC API call and provide the following in the request:
+   To delete a user extension, use the [delete](../api-ref/Extension/delete.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Delete](../api-ref/grpc/Extension/delete.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 

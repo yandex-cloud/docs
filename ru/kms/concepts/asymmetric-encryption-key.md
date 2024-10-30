@@ -1,6 +1,6 @@
 ---
-title: "Асимметричная ключевая пара шифрования в {{ kms-short-name }}"
-description: "В данной инструкции описаны особенности использования асимметричной ключевой пары шифрования в {{ kms-short-name }}."
+title: Асимметричная ключевая пара шифрования в {{ kms-short-name }}
+description: В данной инструкции описаны особенности использования асимметричной ключевой пары шифрования в {{ kms-short-name }}.
 ---
 
 # Асимметричная ключевая пара шифрования в {{ kms-short-name }}
@@ -26,7 +26,7 @@ description: "В данной инструкции описаны особенн
     * `Active` — ключевая пара может использоваться для шифрования и расшифрования.
     * `Inactive` — ключевая пара не может использоваться.
     
-    Изменить статус ключевой пары с `Active` на `Inactive` и обратно можно вызовом gRPC API [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update).
+    Изменить статус ключевой пары с `Active` на `Inactive` и обратно можно вызовом gRPC API [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md).
 
 ## Использование ключевой пары шифрования {#use}
 

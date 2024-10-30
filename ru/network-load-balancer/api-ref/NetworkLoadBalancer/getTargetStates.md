@@ -3,32 +3,39 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.getTargetStates
-Gets states of target resources in the attached target group.
- 
+# Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates {#GetTargetStates}
 
- 
-## HTTP request {#https-request}
+Gets states of target resources in the attached target group.
+
+## HTTP request
+
 ```
 GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-networkLoadBalancerId | <p>ID of the NetworkLoadBalancer resource with an attached target group.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-targetGroupId | <p>ID of the target group to get states of resources from.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| networkLoadBalancerId | **string**
+
+Required field. ID of the NetworkLoadBalancer resource with an attached target group. ||
+|#
+
+## Query parameters {#yandex.cloud.loadbalancer.v1.GetTargetStatesRequest}
+
+#|
+||Field | Description ||
+|| targetGroupId | **string**
+
+ID of the target group to get states of resources from. ||
+|#
+
+## Response {#yandex.cloud.loadbalancer.v1.GetTargetStatesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "targetStates": [
     {
@@ -40,10 +47,33 @@ targetGroupId | <p>ID of the target group to get states of resources from.</p> <
 }
 ```
 
- 
-Field | Description
---- | ---
-targetStates[] | **object**<br><p>List of states of targets within the target group that is specified in the ``GetTargetStatesRequest`` message.</p> 
-targetStates[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
-targetStates[].<br>address | **string**<br><p>IP address of the target.</p> 
-targetStates[].<br>status | **string**<br><p>Status of the target.</p> <p>Status of the target.</p> <ul> <li>INITIAL: The network load balancer is setting up health checks for this target.</li> <li>HEALTHY: Health check passed and the target is ready to receive traffic.</li> <li>UNHEALTHY: Health check failed and the target is not receiving traffic.</li> <li>DRAINING: Target is being deleted and the network load balancer is no longer sending traffic to this target.</li> <li>INACTIVE: The network load balancer is stopped and not performing health checks on this target.</li> </ul> 
+#|
+||Field | Description ||
+|| targetStates[] | **[TargetState](#yandex.cloud.loadbalancer.v1.TargetState)**
+
+List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#yandex.cloud.loadbalancer.v1.GetTargetStatesRequest) message. ||
+|#
+
+## TargetState {#yandex.cloud.loadbalancer.v1.TargetState}
+
+State of the target that was returned after the last health check.
+
+#|
+||Field | Description ||
+|| subnetId | **string**
+
+ID of the subnet that the target is connected to. ||
+|| address | **string**
+
+IP address of the target. ||
+|| status | **enum** (Status)
+
+Status of the target.
+
+- `STATUS_UNSPECIFIED`
+- `INITIAL`: The network load balancer is setting up health checks for this target.
+- `HEALTHY`: Health check passed and the target is ready to receive traffic.
+- `UNHEALTHY`: Health check failed and the target is not receiving traffic.
+- `DRAINING`: Target is being deleted and the network load balancer is no longer sending traffic to this target.
+- `INACTIVE`: The network load balancer is stopped and not performing health checks on this target. ||
+|#

@@ -16,7 +16,7 @@
    * Выберите страну плательщика.
    * Укажите имя платежного аккаунта, которое будет отображаться в списке платежных аккаунтов.
 1. Если в блоке **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_persons }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
-1. Для добавления нового плательщика выберите **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}** — `{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}`.
+1. Для добавления нового плательщика выберите **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}** — `Юридическое лицо или ИП`.
    
    * Выберите способ оплаты: `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}` или `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
    * Укажите юридическую информацию о вашей организации.
@@ -35,4 +35,4 @@
    
    * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   Если вы выбрали способ оплаты `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`, вы получите письмо с описанием дальнейших действий на почту, указанную в пользовательском аккаунте. В этом случае активация платежного аккаунта может занять до трех рабочих дней.
+   Если вы выбрали способ оплаты `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`, вы получите письмо с описанием дальнейших действий на почту, указанную в пользовательском аккаунте. После проверки документов ваш платежный аккаунт может быть активирован, и вы сможете начать пользоваться {{ yandex-cloud }}.

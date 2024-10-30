@@ -1,13 +1,13 @@
 ---
-title: "Как создать подключение к {{ yq-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать подключение к {{ yq-full-name }}."
+title: Как создать подключение к {{ yq-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к {{ yq-full-name }}.
 ---
 
 # Создание подключения к {{ yq-full-name }}
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-editor }}` на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}. 
+Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-editor }}` на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ objstorage-full-name }}"
-description: "На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ objstorage-name }}."
+title: Справочник {{ TF }} для {{ objstorage-full-name }}
+description: На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ objstorage-name }}.
 ---
 
 # Справочник {{ TF }} для {{ objstorage-full-name }}

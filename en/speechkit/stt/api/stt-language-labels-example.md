@@ -6,7 +6,7 @@ The example uses the following parameters:
 
 * [Recognition language](../models#languages): `Auto` (automatic language detection).
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
+* [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1 (default).
 * Other parameters left by default.
 
 ## Automatic language detection {#language-labels}

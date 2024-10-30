@@ -1,10 +1,5 @@
 title: '{{ ydb-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -33,8 +28,8 @@ items:
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
       - name: >-
-          Connecting to {{ ydb-short-name }} from {{ sf-full-name }} function in
-          Python
+          Connecting to {{ ydb-short-name }} from a {{ sf-full-name }} function
+          in Python
         href: tutorials/connect-from-cf.md
       - name: >-
           Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name
@@ -74,6 +69,20 @@ items:
         href: tutorials/opensearch-to-ydb.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them using {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} to {{ yds-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-yds-stream.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-ydb-stream.md
+      - name: Locking {{ TF }} states using {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
   - name: Concepts
     items:
       - name: Overview
@@ -132,7 +141,7 @@ items:
                 href: docapi/tools/aws-cli/update-item.md
               - name: Data selections
                 href: docapi/tools/aws-cli/query.md
-              - name: Deleting the resources you created
+              - name: Deletе the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
           - name: Working with the AWS SDK
             items:
@@ -198,7 +207,7 @@ items:
                 href: docapi/api-ref/actions/updateTable.md
       - name: Common errors when working with the Document API
         href: docapi/common-errors.md
-  - name: '{{ yandex-cloud }} API Reference: {{ ydb-name }}'
+  - name: '{{ yandex-cloud }} API reference for {{ ydb-name }}'
     items:
       - name: Overview
         href: api-ref/overview.md
@@ -208,18 +217,86 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: BackupService
-            href: api-ref/grpc/backup_service.md
-          - name: DatabaseService
-            href: api-ref/grpc/database_service.md
-          - name: LocationService
-            href: api-ref/grpc/location_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: StorageTypeService
-            href: api-ref/grpc/storage_type_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/grpc/Backup/index.md
+              - name: Get
+                href: api-ref/grpc/Backup/get.md
+              - name: ListPaths
+                href: api-ref/grpc/Backup/listPaths.md
+              - name: List
+                href: api-ref/grpc/Backup/list.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Backup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Backup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Backup/updateAccessBindings.md
+              - name: Delete
+                href: api-ref/grpc/Backup/delete.md
+          - name: Database
+            items:
+              - name: Overview
+                href: api-ref/grpc/Database/index.md
+              - name: Get
+                href: api-ref/grpc/Database/get.md
+              - name: List
+                href: api-ref/grpc/Database/list.md
+              - name: Create
+                href: api-ref/grpc/Database/create.md
+              - name: Update
+                href: api-ref/grpc/Database/update.md
+              - name: Start
+                href: api-ref/grpc/Database/start.md
+              - name: Stop
+                href: api-ref/grpc/Database/stop.md
+              - name: Move
+                href: api-ref/grpc/Database/move.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Database/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Database/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Database/updateAccessBindings.md
+              - name: Delete
+                href: api-ref/grpc/Database/delete.md
+              - name: Restore
+                href: api-ref/grpc/Database/restore.md
+              - name: Backup
+                href: api-ref/grpc/Database/backup.md
+          - name: Location
+            items:
+              - name: Overview
+                href: api-ref/grpc/Location/index.md
+              - name: Get
+                href: api-ref/grpc/Location/get.md
+              - name: List
+                href: api-ref/grpc/Location/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
+          - name: StorageType
+            items:
+              - name: Overview
+                href: api-ref/grpc/StorageType/index.md
+              - name: Get
+                href: api-ref/grpc/StorageType/get.md
+              - name: List
+                href: api-ref/grpc/StorageType/list.md
       - name: REST
         items:
           - name: Overview
@@ -228,65 +305,73 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
-              - name: delete
-                href: api-ref/Backup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Backup/get.md
-              - name: list
-                href: api-ref/Backup/list.md
-              - name: listPaths
+              - name: ListPaths
                 href: api-ref/Backup/listPaths.md
+              - name: List
+                href: api-ref/Backup/list.md
+              - name: Delete
+                href: api-ref/Backup/delete.md
           - name: Database
             items:
               - name: Overview
                 href: api-ref/Database/index.md
-              - name: backup
-                href: api-ref/Database/backup.md
-              - name: create
-                href: api-ref/Database/create.md
-              - name: delete
-                href: api-ref/Database/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Database/get.md
-              - name: list
+              - name: List
                 href: api-ref/Database/list.md
-              - name: move
-                href: api-ref/Database/move.md
-              - name: restore
-                href: api-ref/Database/restore.md
-              - name: start
-                href: api-ref/Database/start.md
-              - name: stop
-                href: api-ref/Database/stop.md
-              - name: update
+              - name: Create
+                href: api-ref/Database/create.md
+              - name: Update
                 href: api-ref/Database/update.md
+              - name: Start
+                href: api-ref/Database/start.md
+              - name: Stop
+                href: api-ref/Database/stop.md
+              - name: Move
+                href: api-ref/Database/move.md
+              - name: Delete
+                href: api-ref/Database/delete.md
+              - name: Restore
+                href: api-ref/Database/restore.md
+              - name: Backup
+                href: api-ref/Database/backup.md
           - name: Location
             items:
               - name: Overview
                 href: api-ref/Location/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Location/get.md
-              - name: list
+              - name: List
                 href: api-ref/Location/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: ResourcePreset
             items:
               - name: Overview
                 href: api-ref/ResourcePreset/index.md
-              - name: get
+              - name: Get
                 href: api-ref/ResourcePreset/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourcePreset/list.md
           - name: StorageType
             items:
               - name: Overview
                 href: api-ref/StorageType/index.md
-              - name: get
+              - name: Get
                 href: api-ref/StorageType/get.md
-              - name: list
+              - name: List
                 href: api-ref/StorageType/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Working with YDB via {{ TF }}
     items:
@@ -294,9 +379,7 @@ items:
         href: ./terraform/intro.md
       - name: Getting authentication credentials
         href: ./terraform/credentials.md
-      - name: >-
-          Installing and configuring {{ TF }} and a provider for connection to
-          YDB
+      - name: Installing and configuring {{ TF }} and a provider to connect to YDB
         href: ./terraform/install.md
       - name: Creating configuration files and connecting to YDB
         href: ./terraform/configure.md
@@ -317,5 +400,6 @@ items:
   - name: FAQ
     href: faq.md
   - name: Public materials
-    href: https://ydb.tech/en/docs/public-talks
+    href: https://ydb.tech/docs/en/public-talks
 base: en/ydb
+deepBase: 2

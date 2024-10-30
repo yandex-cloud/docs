@@ -27,11 +27,51 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/user_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.UserService.List
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse).
 
 {% endlist %}
 
@@ -120,18 +160,119 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать пользователя, воспользуйтесь методом REST API [create](../api-ref/User/create.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../api-ref/grpc/user_service.md#Create) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера, в котором вы хотите создать пользователя, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя пользователя в параметре `userSpec.name`.
-  * Пароль пользователя в параметре `userSpec.password`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-  * Имена баз данных, к которым пользователь должен иметь доступ, в необходимом количестве параметров `userSpec.permissions.databaseName`.
-  * [Привилегии пользователя](../concepts/user-rights.md#db-privileges) для каждой из выбранных баз данных в одном или нескольких параметрах `userSpec.permissions.roles`.
+      ```json
+      {
+          "userSpec": {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                  {
+                      "databaseName": "<имя_БД>",
+                      "roles": [
+                          "<привилегия_1>", "<привилегия_2>", ..., "<привилегия_N>"
+                      ]
+                  }
+              ]
+          }
+      }'
+      ```
+
+      Где `userSpec` — настройки нового пользователя БД:
+
+      * `name` — имя пользователя.
+      * `password` — пароль пользователя.
+
+          {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+      * `permissions` — настройки разрешений пользователя:
+
+          * `databaseName` — имя базы данных, к которой пользователь получает доступ.
+          * `roles` — массив привилегий пользователя. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [{#T}](../concepts/user-rights.md#db-privileges).
+
+          Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users' \
+          --data "@body.json"
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+          "cluster_id": "<идентификатор_кластера>",
+          "user_spec": {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                  {
+                      "database_name": "<имя_БД>",
+                      "roles": [
+                          "<привилегия_1>", "<привилегия_2>", ..., "<привилегия_N>"
+                      ]
+                  }
+              ]
+          }
+      }
+      ```
+
+      Где `user_spec` — настройки нового пользователя БД:
+
+      * `name` — имя пользователя.
+      * `password` — пароль пользователя.
+
+          {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+      * `permissions` — настройки разрешений пользователя:
+
+          * `database_name` — имя базы данных, к которой пользователь получает доступ.
+          * `roles` — массив привилегий пользователя. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [{#T}](../concepts/user-rights.md#db-privileges).
+
+          Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.UserService.Create \
+          < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -197,19 +338,87 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить пароль пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера, в котором находится пользователь, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя пользователя в параметре `userName`. Чтобы узнать имя пользователя, [получите список пользователей в кластере](#list-users).
-  * Новый пароль пользователя в параметре `password`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-  * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+          --data '{
+                    "updateMask": "password",
+                    "password": "<новый_пароль>"
+                  }'
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+          В данном случае передается только один параметр.
+
+      * `password` — новый пароль.
+
+          {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "user_name": "<имя_пользователя>",
+                "update_mask": {
+                  "paths": [
+                    "password"
+                  ]
+                },
+                "password": "<новый_пароль>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.UserService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+          В данном случае передается только один параметр.
+
+      * `password` — новый пароль.
+
+          {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -309,16 +518,123 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить настройки пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера, в котором находится пользователь, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя пользователя в параметре `userName`. Чтобы узнать имя пользователя, [получите список пользователей в кластере](#list-users).
-  * Новые значения настроек пользователя.
-  * Список полей конфигурации пользователя, которые необходимо изменить, в параметре `updateMask`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+          --data '{
+                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin",
+                    "globalPermissions": [
+                      "<административная_привилегия_1>",
+                      "<административная_привилегия_2>",
+                      ...,
+                      "<административная_привилегия_N>"
+                    ],
+                    "connectionLimits": {
+                      "maxQuestionsPerHour": "<максимум_запросов>",
+                      "maxUpdatesPerHour": "<максимум_запросов_UPDATE>",
+                      "maxConnectionsPerHour": "<максимум_соединений>",
+                      "maxUserConnections": "<максимум_одновременных_соединений>"
+                    },
+                    "authenticationPlugin": "<плагин_аутентификации>"
+                  }'
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+      * `globalPermissions` — массив административных привилегий. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в [описании метода](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `connectionLimits` — настройки подключений для пользователя:
+
+          * `maxQuestionsPerHour` — максимальное количество запросов в час;
+          * `maxUpdatesPerHour` — максимальное количество запросов `UPDATE` в час;
+          * `maxConnectionsPerHour` — максимальное количество соединений в час;
+          * `maxUserConnections` — максимальное количество одновременных соединений.
+
+          Минимальное значение для каждой настройки подключений — `0`.
+
+      * `authenticationPlugin` — плагин аутентификации пользователя. Список доступных плагинов см. в [описании метода](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "user_name": "<имя_пользователя>",
+                "update_mask": {
+                  "paths": [
+                    "global_permissions",
+                    "connection_limits",
+                    "authentication_plugin"
+                  ]
+                },
+                "global_permissions": [
+                  "<административная_привилегия_1>",
+                  "<административная_привилегия_2>",
+                  ...,
+                  "<административная_привилегия_N>"
+                ],
+                "connection_limits": {
+                  "max_questions_per_hour": "<максимум_запросов>",
+                  "max_updates_per_hour": "<максимум_запросов_UPDATE>",
+                  "max_connections_per_hour": "<максимум_соединений>",
+                  "max_user_connections": "<максимум_одновременных_соединений>"
+                },
+                "authentication_plugin": "<плагин_аутентификации>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.UserService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+      * `global_permissions` — массив административных привилегий. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в [описании метода](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `connection_limits` — настройки подключений для пользователя:
+
+          * `max_questions_per_hour` — максимальное количество запросов в час;
+          * `max_updates_per_hour` — максимальное количество запросов `UPDATE` в час;
+          * `max_connections_per_hour` — максимальное количество соединений в час;
+          * `max_user_connections` — максимальное количество одновременных соединений.
+
+          Минимальное значение для каждой настройки подключений — `0`.
+
+      * `authentication_plugin` — плагин аутентификации пользователя. Список доступных плагинов см. в [описании метода](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -364,12 +680,52 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы удалить пользователя, воспользуйтесь методом REST API [delete](../api-ref/User/delete.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../api-ref/grpc/user_service.md#Delete) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера, в котором находится пользователь, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя пользователя в параметре `userName`. Чтобы узнать имя пользователя, [получите список пользователей в кластере](#list-users).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "user_name": "<имя_пользователя>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.UserService.Delete
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

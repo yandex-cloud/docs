@@ -86,7 +86,7 @@
 
 - API {#api}
 
-  1. Получите список дисков с помощью метода REST API [list](../../compute/api-ref/Disk/list.md) для ресурса [Disk](../../compute/api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../compute/api-ref/grpc/disk_service.md#List).
-  1. Создайте снимок с помощью метода REST API [create](../../compute/api-ref/Snapshot/create.md) для ресурса [Snapshot](../../compute/api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/Create](../../compute/api-ref/grpc/snapshot_service.md#Create).
+  1. Получите список дисков с помощью метода REST API [list](../../compute/api-ref/Disk/list.md) для ресурса [Disk](../../compute/api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../compute/api-ref/grpc/Disk/list.md).
+  1. Создайте снимок с помощью метода REST API [create](../../compute/api-ref/Snapshot/create.md) для ресурса [Snapshot](../../compute/api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/Create](../../compute/api-ref/grpc/Snapshot/create.md).
 
 {% endlist %}

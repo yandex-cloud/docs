@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} role reference"
-description: "The article provides a full reference and description of roles for {{ yandex-cloud }} services."
+title: '{{ yandex-cloud }} role reference'
+description: The article provides a full reference and description of roles for {{ yandex-cloud }} services.
 ---
 
 # {{ yandex-cloud }} role reference
@@ -367,6 +367,7 @@ For more information, see [{#T}](../logging/security/index.md).
 
 {% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
 
+For more information, see [{#T}](../marketplace/security/partners.md).
 
 
 ### User roles {#marketplace-user-roles}
@@ -576,6 +577,38 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 ## {{ datalens-full-name }} {#datalens-roles}
 
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
+
+{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
+
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
+
+{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
+
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
+
+{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
+
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
+
+{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
+
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
+
+{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
+
+#### datalens.collections.viewer {#datalens-collections-viewer}
+
+{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.editor {#datalens-collections-editor}
+
+{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
+
+#### datalens.collections.admin {#datalens-collections-admin}
+
+{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}
@@ -780,6 +813,7 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 #### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
 
 {% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
 
 #### iam.auditor {#iam-auditor}
 
@@ -1401,7 +1435,9 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
 
+
 For more information, see [{#T}](../search-api/security/index.md).
+
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -1614,6 +1650,14 @@ For more information, see [{#T}](../vision/security/index.md).
 
 ## {{ websql-full-name }} {#websql-roles}
 
+#### websql.executedQueries.auditor {#websql-executedQueries-auditor}
+
+{% include [websql.executedQueries.auditor](../_roles/websql/executedQueries/auditor.md) %}
+
+#### websql.savedQueries.auditor {#websql-savedQueries-auditor}
+
+{% include [websql.savedQueries.auditor](../_roles/websql/savedQueries/auditor.md) %}
+
 #### websql.executedQueries.viewer {#websql-executedQueries-viewer}
 
 {% include [websql.executedQueries.viewer](../_roles/websql/executedQueries/viewer.md) %}
@@ -1637,6 +1681,10 @@ For more information, see [{#T}](../vision/security/index.md).
 #### websql.savedQueries.admin {#websql-savedQueries-admin}
 
 {% include [websql.savedQueries.admin](../_roles/websql/savedQueries/admin.md) %}
+
+#### websql.auditor {#websql-auditor}
+
+{% include [websql.auditor](../_roles/websql/auditor.md) %}
 
 #### websql.viewer {#websql-viewer}
 

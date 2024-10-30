@@ -10,7 +10,7 @@
 
 Кроме этого, в организации могут быть активированы [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), экземпляр [{{ datalens-full-name }}]({{ link-datalens-main }}) и сервисы [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}). Все они самостоятельно хранят свои ресурсы, но могут обмениваться информацией с другими сервисами в рамках одной организации. Организации не взаимодействуют друг с другом.
 
-В [интерфейсе {{ org-full-name }}]({{ link-org-main }}) можно [посмотреть](../organization/concepts/manage-services.md), какие облака и сервисы существуют в вашей организации. 
+В [интерфейсе {{ cloud-center }}]({{ cloud-center-link }}) можно [посмотреть](../organization/concepts/manage-services.md), какие сервисы существуют в вашей организации. 
 
 [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../resource-manager/concepts/resources-hierarchy.md).
 

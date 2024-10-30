@@ -22,13 +22,13 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
+  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Нажмите кнопку ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
   1. Задайте имя федерации. Имя должно быть уникальным в каталоге.
 
@@ -116,7 +116,7 @@
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -254,74 +254,74 @@
 
 1. Добавьте сертификат в федерацию:
 
-{% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
+      1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Нажмите на имя федерации, для которой нужно добавить сертификат.
+      1. Нажмите на строку с федерацией, для которой нужно добавить сертификат.
 
-  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+      1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
-  1. Введите название и описание сертификата.
+      1. Введите название и описание сертификата.
 
-  1. Выберите способ добавления сертификата:
+      1. Выберите способ добавления сертификата:
 
-      * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** и укажите путь к нему.
-      * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}**.
+          * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** и укажите путь к нему.
+          * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI {#cli}
+    - CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды добавления сертификата:
+      1. Посмотрите описание команды добавления сертификата:
+
+          ```bash
+          yc organization-manager federation saml certificate create --help
+          ```
+
+      1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
+
+          ```bash
+          yc organization-manager federation saml certificate create --federation-name <имя_федерации> \
+            --name "<имя_сертификата>" \
+            --certificate-file <путь_к_файлу_сертификата>
+          ```
+
+    - API {#api}
+
+      1. Сформируйте файл с телом запроса `body.json`, указав содержимое сертификата в свойстве `data`:
+
+          ```json
+          {
+            "federationId": "<идентификатор_федерации>",
+            "description": "<описание_сертификата>",
+            "name": "<имя_сертификата>",
+            "data": "<содержимое_сертификата>"
+          }
+          ```
+
+      1. Воспользуйтесь методом REST API [create](../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../saml/api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../../grpc/certificate_service#Create) и передайте в запросе файл с параметрами запроса.
+
+      Пример cURL-запроса:
 
       ```bash
-      yc organization-manager federation saml certificate create --help
+      export IAM_TOKEN=CggaATEVAgA...
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
-
-  1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
-
-      ```bash
-      yc organization-manager federation saml certificate create --federation-name <имя_федерации> \
-        --name "<имя_сертификата>" \
-        --certificate-file <путь_к_файлу_сертификата>
-      ```
-
-- API {#api}
-
-  1. Сформируйте файл с телом запроса `body.json`, указав содержимое сертификата в свойстве `data`:
-
-      ```json
-      {
-        "federationId": "<идентификатор_федерации>",
-        "description": "<описание_сертификата>",
-        "name": "<имя_сертификата>",
-        "data": "<содержимое_сертификата>"
-      }
-      ```
-
-  1. Воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../../grpc/certificate_service#Create) и передайте в запросе файл с параметрами запроса.
-
-  Пример cURL-запроса:
-
-  ```bash
-  $ export IAM_TOKEN=CggaATEVAgA...
-  $ curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '@body.json' \
-      "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
-  ```
-
-{% endlist %}
+  {% endlist %}
 
 {% note tip %}
 
@@ -333,10 +333,20 @@
 
 Если при создании федерации вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Чтобы IdP-сервер мог проверить эту подпись, добавьте сертификат {{ yandex-cloud }} на IdP-сервер:
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
-1. Нажмите на имя федерации, для которой нужно добавить сертификат.
-1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+1. Скачайте сертификат {{ yandex-cloud }}:
+
+    {% list tabs group=instructions %}
+
+    - Интерфейс {{ cloud-center }} {#cloud-center}
+
+      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+      1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+      1. Нажмите на строку с нужной федерацией и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+
+    {% endlist %}
+
 1. Передайте сертификат на IdP-сервер. Чтобы узнать, как это сделать, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
 ## Настроить SAML-приложение на стороне IdP-сервера {#configure-sso}
@@ -419,7 +429,7 @@
 
   {% endcut %}
 
-  
+
   {% cut "Как получить ACS URL федерации" %}
 
   {% include [get-acs-url](../../_includes/organization/get-acs-url.md) %}

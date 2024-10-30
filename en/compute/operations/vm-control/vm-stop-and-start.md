@@ -1,6 +1,6 @@
 ---
-title: "How to stop, start, or restart a VM"
-description: "The Stop command shuts down the VM. After the VM is shut down, its status changes to STOPPED. You can enable the VM at any time to continue working with it. The Start command starts a previously stopped VM. After the VM is started, its status changes to RUNNING and the operating system starts loading."
+title: How to stop, start, or restart a VM
+description: The Stop command shuts down the VM. After the VM is shut down, its status changes to STOPPED. You can enable the VM at any time to continue working with it. The Start command starts a previously stopped VM. After the VM is started, its status changes to RUNNING and the operating system starts loading.
 ---
 
 # Stopping, starting, or restarting a VM
@@ -51,7 +51,7 @@ To stop a VM:
 
 - API {#api}
 
-   Use the [stop](../../api-ref/Instance/stop.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) gRPC API call.
+   Use the [stop](../../api-ref/Instance/stop.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Stop](../../api-ref/grpc/Instance/stop.md) gRPC API call.
 
 {% endlist %}
 
@@ -99,7 +99,7 @@ To start a VM:
 
 - API {#api}
 
-   Use the [start](../../api-ref/Instance/start.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start) gRPC API call.
+   Use the [start](../../api-ref/Instance/start.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Start](../../api-ref/grpc/Instance/start.md) gRPC API call.
 
 {% endlist %}
 
@@ -145,6 +145,6 @@ To restart a VM:
 
 - API {#api}
 
-   Use the [restart](../../api-ref/Instance/restart.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Restart](../../api-ref/grpc/instance_service.md#Restart) gRPC API call.
+   Use the [restart](../../api-ref/Instance/restart.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Restart](../../api-ref/grpc/Instance/restart.md) gRPC API call.
 
 {% endlist %}

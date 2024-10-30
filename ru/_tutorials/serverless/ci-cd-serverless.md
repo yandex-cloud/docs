@@ -185,7 +185,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
    # Установка инструментов.
        - apk add -q --no-cache bash curl jq gettext
        - apk add yq --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail -silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
     # Аутентификация с помощью ключа сервисного аккаунта.
@@ -230,7 +230,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
      image: alpine:3.15
      script:
        - apk add -q --no-cache bash curl jq gettext yq
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
        - echo "$SA_TESTING_DEPLOYER_PRIVATE_KEY" > key.json
@@ -244,7 +244,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
      image: alpine:3.15
      script:
        - apk add -q --no-cache bash curl jq gettext
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail --silent --location -remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
        - echo "$SA_PROD_DEPLOYER_PRIVATE_KEY" > key.json

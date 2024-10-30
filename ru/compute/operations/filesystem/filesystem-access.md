@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к файловому хранилищу {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к файловому хранилищу."
+title: Настроить права доступа к файловому хранилищу {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к файловому хранилищу.
 ---
 
 # Настроить права доступа к файловому хранилищу
@@ -112,7 +112,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/filesystem_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -223,7 +223,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Filesystem/setAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/SetAccessBindings](../../api-ref/grpc/filesystem_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Filesystem/setAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/SetAccessBindings](../../api-ref/grpc/Filesystem/setAccessBindings.md).
 
 {% endlist %}
 
@@ -241,7 +241,7 @@ description: "Следуя данной инструкции, вы настро�
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -311,6 +311,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роли на файловое хранилище, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/filesystem_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на файловое хранилище, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

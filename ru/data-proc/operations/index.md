@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ dataproc-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ dataproc-name }}."
+title: Пошаговые инструкции для {{ dataproc-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ dataproc-name }}.
 ---
 
 # Пошаговые инструкции для {{ dataproc-name }}
@@ -39,13 +39,6 @@ description: "На странице представлен список поша
 * [{#T}](jobs-pyspark.md)
 * [{#T}](jobs-hive.md)
 * [{#T}](jobs-mapreduce.md)
-
-## Кластеры {{ metastore-full-name }}
-
-* [{#T}](./metastore/cluster-create.md)
-* [{#T}](./metastore/dataproc-connect.md)
-* [{#T}](./metastore/export-and-import.md)
-* [{#T}](./metastore/cluster-delete.md)
 
 ## Логи и мониторинг
 

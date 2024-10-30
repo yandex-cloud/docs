@@ -1,6 +1,6 @@
 ---
-title: "How to edit or delete a board in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to edit or delete a board in {{ tracker-name }}."
+title: How to edit or delete a board in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to edit or delete a board in {{ tracker-name }}.
 ---
 
 # Editing or deleting a board
@@ -23,7 +23,7 @@ description: "In this tutorial, you will learn how to edit or delete a board in 
 
 1. Use the **Columns** tab to customize the settings and appearance of your board's columns:
 
-   - Creating columns: Click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardAddColumnButton.new-column-button }}** to the right of the board's column list.
+   - Creating columns: Click **Add column** to the right of the board's column list.
 
    - Renaming columns: click the ![](../../_assets/tracker/button-edit.png) button to the right of the column name. To save your changes, click ![](../../_assets/tracker/approve-checkmark.png).
 

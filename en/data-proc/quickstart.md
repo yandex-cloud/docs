@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ dataproc-full-name }}"
-description: "Follow this guide to create and set up a {{ dataproc-name }} cluster."
+title: Getting started with {{ dataproc-full-name }}
+description: Follow this guide to create and set up a {{ dataproc-name }} cluster.
 ---
 
 # Getting started with {{ dataproc-name }}
@@ -14,7 +14,7 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -24,9 +24,9 @@ To get started with the service:
 
 1. If you use security groups, [configure them](operations/cluster-create.md#change-security-groups).
 
-1. You can connect to an {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
+1. You can connect to a {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
 
    * To be able to connect to the cluster from the internet, request public access to subclusters when creating the cluster.
 

@@ -1,6 +1,6 @@
 ---
-title: "List of SSML supported phonemes"
-description: "SSML phonemes are only supported for Russian."
+title: List of SSML supported phonemes
+description: SSML phonemes are only supported for Russian.
 ---
 
 # List of SSML supported phonemes

@@ -177,7 +177,7 @@
 
 - API {#api}
 
-   To write to the function execution log, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/LogOptions](../../functions/api-ref/grpc/function_service.md#LogOptions) gRPC API call.
+   To write to the function execution log, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions) gRPC API call.
 
 {% endlist %}
 

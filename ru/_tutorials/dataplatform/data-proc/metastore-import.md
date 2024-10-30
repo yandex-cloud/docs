@@ -1,6 +1,6 @@
 # Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{ metastore-name }}
 
-Вы можете перенести метаданные между кластерами {{ dataproc-name }} с СУБД Hive. Сначала метаданные экспортируются из одного кластера, затем импортируются в другой с помощью [{{ metastore-name }}](../../../data-proc/concepts/metastore.md).
+Вы можете перенести метаданные между [кластерами {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) с СУБД Hive. Сначала метаданные экспортируются из одного кластера, затем импортируются в другой с помощью [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
 Чтобы перенести метаданные между кластерами {{ dataproc-name }}:
 
@@ -154,6 +154,12 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
+
+{% endnote %}
+
 ## Создайте тестовую таблицу {#create-table}
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
@@ -229,7 +235,7 @@
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
 1. Для сервисного аккаунта `dataproc-s3-sa` [создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md). Сохраните его идентификатор и секретный ключ.
-1. [Создайте кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
@@ -279,7 +285,7 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-1. [Удалите кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}

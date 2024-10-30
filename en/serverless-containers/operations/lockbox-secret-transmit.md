@@ -1,6 +1,6 @@
 ---
-title: "How to transmit {{ lockbox-full-name }} secrets to a container"
-description: "Use this guide to transmit {{ lockbox-full-name }} secrets to a container."
+title: How to transmit {{ lockbox-full-name }} secrets to a container
+description: Use this guide to transmit {{ lockbox-full-name }} secrets to a container.
 ---
 
 # Transmitting {{ lockbox-full-name }} secrets to a container

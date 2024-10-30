@@ -1,6 +1,6 @@
 ---
-title: "How to send requests to fine-tuned models in {{ yagpt-full-name }}"
-description: "Follow this guide to learn how to send requests to fine-tuned models."
+title: How to send requests to fine-tuned models in {{ yagpt-full-name }}
+description: Follow this guide to learn how to send requests to fine-tuned models.
 ---
 
 # Sending requests to fine-tuned models

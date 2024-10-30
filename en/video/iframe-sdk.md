@@ -1,6 +1,6 @@
-# Reference guide on Cloud Video Player SDK for IFrame
+# Video player SDK for IFrame reference
 
-You can embed a [video player](./concepts/player.md) with content from {{ video-name }} to an HTML page using Cloud Video Player SDK for IFrame.
+You can embed a [video player](./concepts/player.md) with content from {{ video-name }} in an HTML page using the video player SDK for IFrame.
 
 Add an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) container to the page code:
 
@@ -10,19 +10,19 @@ Add an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) container to 
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=1"
+    src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=1"
 ></iframe>
 ```
 
-Where `{video_content_id}` is the video content ID. For more information, see [{#T}](./operations/video/get-link.md) and [{#T}](./operations/streams/get-link.md).
+{% include [video-content-id-desc](../_includes/video/video-content-id-desc.md) %}
 
 The embed code contains an iframe container that shows the player with the specified video.
 
-You can also set up the [video size](#size) and [playback parameters](#parameters).
+You can also set up [video size](#size) and the player [startup options](#parameters).
 
-## Setting up the video size {#size}
+## Setting up video size {#size}
 
-To specify your video size, set the following parameters in the `iframe` tag: `height` for the height and `width` for the width.
+To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width.
 
 Example:
 
@@ -32,7 +32,7 @@ Example:
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}"
+    src="https://runtime.video.cloud.yandex.net/player/..."
 ></iframe>
 ```
 
@@ -46,20 +46,20 @@ To adjust the video to the container width, change the embed code as follows:
         scrolling="no"
         allowfullscreen
         allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-        src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=true"
+        src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=true"
     ></iframe>
   </div>
 </div>
 ```
 
-## Setting up the playback parameters {#parameters}
+## Setting up the player startup options {#parameters}
 
 Customize your player appearance and video playback using special parameters.
 
-To the embed code URL, after `?`, add `parameter=value` pairs separated by `&`:
+Add `parameter=value` pairs separated by `&` to the embed code URL after `?`:
 
 ```http
-https://https://runtime.video.cloud.yandex.net/player/{video_content_id}?{param1=value1}&...&{paramN=valueN}
+https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=valueN}
 ```
 
 You can see the list of parameters and their possible values in the table below. If you do not specify the parameters, the player will start with default parameters.
@@ -68,25 +68,25 @@ You can see the list of parameters and their possible values in the table below.
 
 || **Parameter:** | **Description:** ||
 || `allow_muted`  |
-Automatically play video in mute mode once the player loads:
+Auto video playback in mute mode at startup:
 
-* `false`: Muted autoplay is prohibited.
-* `true`: Muted autoplay is allowed.
+* `false`: Muted autoplay not allowed.
+* `true`: Muted autoplay allowed.
 
-The `allow_muted` parameter has priority over `autoplay`. When using `allow_muted=false`, autoplay will occur only in case it is possible in unmuted mode.
+The `allow_muted` parameter has priority over `autoplay`. If `allow_muted=false`, autoplay will take place only if it is possible with sound.
 ||
 || `autoplay` |
-Automatically play video once the player loads:
+Auto video playback at startup:
 
-* `0`: Auto playback is off.
-* `1`: Auto playback is on.
+* `0`: Auto playback off.
+* `1`: Auto playback on.
 
 The default value is `0`.
 
-For the autoplay option to work correctly in all browsers, use the `autoplay=1` parameter along with the `mute=1` parameter.
+For the autoplay option to work correctly in all browsers, use the `autoplay=1` parameter together with `mute=1`.
 ||
 || `hidden` |
-Using this parameter, you can hide the player interface elements. All of them are shown by default.
+With this parameter, you can hide the player's interface elements. All of them are shown by default.
 
 {% cut "List of interface elements" %}
 
@@ -101,18 +101,18 @@ Using this parameter, you can hide the player interface elements. All of them ar
 * `preloader`: Load indicator.
 * `settings`: Settings button.
 * `startScreen`: Start screen.
-* `startScreenPlay`: Play button on the start screen.
-* `subtitlesToggle`: Button to toggle subtitles.
+* `startScreenPlay`: Play button on start screen.
+* `subtitlesToggle`: Subtitles toggle button.
 * `timeline`: Timeline. It turns off rewinding and fast forwarding from the keyboard or by touching the sensor screen.
 * `timelinePreview`: Preview on the timeline.
 * `time`: Current playback time.
-* `title`: Video name.
+* `title`: Video title.
 * `sound`: Mute button.
 * `volumeSlider`: Volume slider.
 
 {% endcut %}
 
-To hide several interface elements, provide a string with comma-separated values, e.g., `hidden=startScreenPlay,play`.
+To hide several interface elements, provide a string of comma-separated values, e.g., `hidden=startScreenPlay,play`.
 ||
 || `lang` |
 Player interface language.
@@ -131,55 +131,55 @@ Player interface language.
 
 {% endcut %}
 
-If you do not specify the parameters or provide an unsupported value, the player interface language will be defined based on user data.
+If you do not specify the parameters or provide an unsupported value, the player interface language will be based on user data.
 ||
 || `loop` |
-Video looping:
+Playback looping:
 
-* `false`: Video looping is off.
-* `true`: Video looping is on.
+* `false`: Playback looping off.
+* `true`: Playback looping on.
 
 The default value is `false`.
 ||
 || `mute` |
-Mute the video once the player loads:
+Mute at startup:
 
-* `false`: Sound is on.
-* `true`: Sound is off.
+* `false`: Sound on.
+* `true`: Sound off.
 
 The default value is `false`.
 ||
 ||  `play_on_visible` |
-Stop the video when the player is not visible on the screen and play the video when it is visible. The parameter affects both video content and ad videos. It can take the following values:
+Stopping playback if the player leaves the visible area and starting playback if the player is in it. The parameter affects both video content and ads. It can take the following values:
 
-* `false`: Video plays when the player is not visible on the screen.
-* `true`: Video does not play when the player is not visible on the screen.
-* Player visibility ratio that is sufficient for playing. You must specify the value of this parameter as a decimal fraction with the full stop (`.`) as a delimiter.
+* `false`: Video is played back if the player leaves the visible area.
+* `true`: Video is not played back if the player leaves the visible area.
+* Player visibility ratio sufficient for playback. Specify this value as a decimal fraction with a period (`.`) for a delimiter.
 
-The default value is `false`. When `true`, the visibility ratio is `0.5`.
+The default value is `false`. When set to `true`, the visibility ratio is `0.5`.
 
 {% note info %}
 
-When `play_on_visible=true`, the `autoplay` parameter is ignored. The parameter works only in the browsers that can define the player's precise visibility.
+When set to `play_on_visible=true`, the `autoplay` parameter is ignored. The parameter only works in browsers that can accurately calculate player visibility.
 
 {% endnote %}
 ||
 ||  `preload` |
-Preload the video:
+Video preload:
 
-* `false`: Preload the video.
-* `true`: Do not preload the video.
+* `false`: Video preload off.
+* `true`: Video preload on.
 
 The default value is `false`.
 
-When `autoplay=1`, the `preload` parameter is ignored.
+When set to `autoplay=1`, the `preload` parameter is ignored.
 ||
 ||  `volume`  |
-Volume at the player startup.
+Volume at startup.
 
-It may take values from `0` to `1` inclusive, e.g., `volume=0.5`.
+The values range from `0` to `1` inclusive, e.g., `volume=0.5`.
 
-If `mute=1`, the parameter value is ignored.
+If set to `mute=1`, the parameter is ignored.
 ||
 |#
 

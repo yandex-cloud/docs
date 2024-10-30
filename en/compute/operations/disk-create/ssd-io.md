@@ -23,7 +23,7 @@ The disk size must be a multiple of 93 GB.
    1. Select the required block size.
    1. Specify the required disk size.
 
-   
+
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 
@@ -66,6 +66,6 @@ The disk size must be a multiple of 93 GB.
 
 - API {#api}
 
-   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/Disk/create.md) gRPC API call.
 
 {% endlist %}

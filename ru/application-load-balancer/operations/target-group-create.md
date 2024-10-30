@@ -1,6 +1,6 @@
 ---
-title: "Создать целевую группу {{ alb-full-name }}"
-description: "Для создания целевой группы {{ alb-full-name }} необходимо в консоли управления выбрать каталог, в котором будет создаваться целевая группа. В списке сервисов выберите {{ alb-name }}. В меню слева выберите Целевые группы. Нажмите кнопку Создать целевую группу. Введите имя целевой группы. Выберите ВМ. Нажмите кнопку Создать."
+title: Создать целевую группу {{ alb-full-name }}
+description: Для создания целевой группы {{ alb-full-name }} необходимо в консоли управления выбрать каталог, в котором будет создаваться целевая группа. В списке сервисов выберите {{ alb-name }}. В меню слева выберите Целевые группы. Нажмите кнопку Создать целевую группу. Введите имя целевой группы. Выберите ВМ. Нажмите кнопку Создать.
 ---
 
 # Создать целевую группу {{ alb-name }}
@@ -173,6 +173,12 @@ description: "Для создания целевой группы {{ alb-full-na
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)

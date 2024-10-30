@@ -1,11 +1,17 @@
 ---
-title: "{{ yandex-cloud }} {{ support-center-name }}"
-description: "Эта инструкция поможет начать работу с {{ yandex-cloud }} {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план."
+title: '{{ yandex-cloud }} {{ support-center-name }}'
+description: Эта инструкция поможет начать работу с {{ yandex-cloud }} {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план.
 ---
 
 # Работа с {{ support-center-name }}
 
 Сервис {{ support-center-name }} поможет вам найти решение возникших в {{ yandex-cloud }} проблем, создать обращения в поддержку и просмотреть их. Также в {{ support-center-name }} вы можете изменить тарифный план.
+
+{% note info %}
+
+Создать запрос в центре поддержки может только [пользователь](../overview/roles-and-resources.md#users) {{ yandex-cloud }}. Подробнее см. [{#T}](./overview.md).
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 

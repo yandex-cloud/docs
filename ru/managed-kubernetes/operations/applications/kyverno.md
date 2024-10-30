@@ -45,9 +45,8 @@
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 
-   
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_kyverno.helmChart.tag }} \
      --untar && \
@@ -59,6 +58,8 @@
 
 
    Выберите пространство имен, в котором нет каких-либо приложений или объектов, иначе Kyverno будет работать некорректно.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Версии приложения {#versions}
 

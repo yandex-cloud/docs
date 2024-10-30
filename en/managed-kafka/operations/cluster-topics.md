@@ -1,6 +1,6 @@
 ---
-title: "How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}"
-description: "Follow this guide to manage topics and partitions."
+title: How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}
+description: Follow this guide to manage topics and partitions.
 ---
 
 # Managing {{ KF }} topics
@@ -101,7 +101,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - API {#api}
 
-   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/topic_service.md#Create) gRPC API call and provide the following in the request:
+   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/Topic/create.md) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic settings in the `topicSpec` parameter.
 
@@ -192,7 +192,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
+   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/Topic/update.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
@@ -228,7 +228,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/topic_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/Topic/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -261,7 +261,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - API {#api}
 
-   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
+   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/Topic/get.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
@@ -344,7 +344,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 - API {#api}
 
-   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
+   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 

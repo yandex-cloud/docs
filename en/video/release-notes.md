@@ -1,4 +1,24 @@
+---
+title: '{{ video-full-name }} release notes'
+description: This section contains {{ video-name }} release notes.
+---
+
 # {{ video-full-name }} release notes
+
+## September 2024 {#sep-2024}
+
+* Added support for [video](./concepts/videos.md#subtitles) [subtitle](./concepts/videos.md) uploading.
+* Published [Video player SDK for JavaScript](./sdk/javascript/index.md)
+* Added support for [REST API methods](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) for {{ video-name }}; published a [reference](./api-ref/).
+
+## August 2024 {#aug-2024}
+
+* Implemented the [playlists](./concepts/playlists.md) functionality.
+* The service is publicly available at the [Preview stage](../overview/concepts/launch-stages.md).
+
+## July 2024 {#jul-2024}
+
+* Added the ability to [upload](./operations/video/upload.md#multiple) multiple videos at the same time.
 
 ## April 2024 {#apr-2024}
 

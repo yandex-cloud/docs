@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера {{ OS }}"
-description: "Кластер управляемого сервиса {{ OS }} — это группа из нескольких связанных друг с другом хостов {{ OS }}."
+title: Создание кластера {{ OS }}
+description: Кластер управляемого сервиса {{ OS }} — это группа из нескольких связанных друг с другом хостов {{ OS }}.
 keywords:
   - создание кластера OpenSearch
   - кластер OpenSearch
@@ -43,7 +43,7 @@ keywords:
       1. Выберите версию {{ OS }}.
       1. Выберите [плагины](plugins.md#supported-plugins), которые нужно установить в кластер.
 
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
@@ -63,11 +63,15 @@ keywords:
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+      1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+
+          {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
+
       1. Укажите расположение хостов по [зонам доступности](../../overview/concepts/geo-scope.md) и подсетям.
 
       1. Выберите количество создаваемых хостов.
 
-      
+
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% note tip %}
@@ -90,7 +94,7 @@ keywords:
       1. Укажите расположение хостов по зонам доступности и подсетям.
       1. Выберите количество создаваемых хостов.
         
-      
+
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
@@ -135,7 +139,7 @@ keywords:
          --network-name <имя_сети> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --service-account-name <имя_сервисного_аккаунта> \
-         --delete-protection <защита_от_удаления:_true_или_false> \
+         --delete-protection \
          --maintenance schedule=<тип_технического_обслуживания>,`
                       `weekday=<день_недели>,`
                       `hour=<час_дня> \
@@ -174,7 +178,7 @@ keywords:
 
       * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
+      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
 
       * `--maintenance` — настройки времени технического обслуживания:
 
@@ -309,7 +313,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы создать кластер {{ mos-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+  Чтобы создать кластер {{ mos-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   * Имя кластера в параметре `name`.
@@ -321,7 +325,7 @@ keywords:
   * Настройки доступа из других сервисов в параметре `configSpec.access`.
   * Идентификатор сети в параметре `networkId`.
 
-  
+
   * Идентификаторы групп безопасности в параметре `securityGroupIds`. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
   * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
 
@@ -466,7 +470,7 @@ keywords:
        --network-name {{ network-name }} \
        --security-group-ids {{ security-group }} \
        --service-account-name os-account \
-       --delete-protection=false \
+       --delete-protection \
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \

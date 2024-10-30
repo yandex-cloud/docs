@@ -62,7 +62,6 @@
    - URL без подписи разрешены
 
      ```bash
-     export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
        --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
@@ -76,10 +75,11 @@
       thumbor ./thumbor
      ```
 
+     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
    - URL без подписи запрещены
 
      ```bash
-     export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
        --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
@@ -93,6 +93,8 @@
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
+
+     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
-title: "Спецификация группы виртуальных машин {{ compute-full-name }} в формате YAML"
-description: "Из статьи вы узнаете, что такое спецификация группы виртуальных машин в формате YAML и как она выглядит." 
+title: Спецификация группы виртуальных машин {{ compute-full-name }} в формате YAML
+description: Из статьи вы узнаете, что такое спецификация группы виртуальных машин в формате YAML и как она выглядит.
 ---
 
 # Спецификация группы виртуальных машин в формате YAML
@@ -96,7 +96,7 @@ service_account_id: ajefnb8427bh********
 
 * в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории [API](../../../glossary/rest-api.md) на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
 * в описании метода [create](../../api-ref/InstanceGroup/create) ресурса `InstanceGroup` REST API (формат [JSON](https://ru.wikipedia.org/wiki/JSON));
-* в описании вызова [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
+* в описании вызова [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API.
 
 Справочники API генерируются из спецификаций, размещенных на GitHub.
 

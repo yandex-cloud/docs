@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a security group in {{ vpc-full-name }}"
+title: How to get information about a security group in {{ vpc-full-name }}
 ---
 
 # Getting information about a security group
@@ -105,7 +105,7 @@ title: "How to get information about a security group in {{ vpc-full-name }}"
 
 - API {#api}
 
-   To get detailed information about a [security group](../concepts/security-groups.md), use the [get](../api-ref/SecurityGroup/get) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Get](../api-ref/grpc/security_group_service.md#Get) gRPC API call.
+   To get detailed information about a [security group](../concepts/security-groups.md), use the [get](../api-ref/SecurityGroup/get) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md) gRPC API call.
 
 {% endlist %}
 

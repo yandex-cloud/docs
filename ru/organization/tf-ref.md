@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ org-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ org-name }}."
+title: Справочник {{ TF }} для {{ org-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ org-name }}.
 ---
 
 # Справочник {{ TF }} для {{ org-full-name }}
@@ -27,8 +27,8 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/datasource_organizationmanager_group) | Информация о [группе пользователей](./concepts/groups.md) |
-| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/datasource_organizationmanager_os_login_settings) | Информация о настройках доступа по [OS Login](./concepts/os-login.md) |
-| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation) | Информация о [SAML-совместимой федерации удостоверений](./concepts/add-federation.md) |
-| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation_user_account) | Информация о [федеративном пользователе](./concepts/add-federation.md#saml-authentication) |
-| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/datasource_organizationmanager_user_ssh_key) | Информация об [SSH-ключе](../glossary/ssh-keygen.md) пользователя |
+| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/organizationmanager_group) | Информация о [группе пользователей](./concepts/groups.md) |
+| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/organizationmanager_os_login_settings) | Информация о настройках доступа по [OS Login](./concepts/os-login.md) |
+| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation) | Информация о [SAML-совместимой федерации удостоверений](./concepts/add-federation.md) |
+| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation_user_account) | Информация о [федеративном пользователе](./concepts/add-federation.md#saml-authentication) |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/organizationmanager_user_ssh_key) | Информация об [SSH-ключе](../glossary/ssh-keygen.md) пользователя |

@@ -1,6 +1,6 @@
 ---
-title: "Maintenance in {{ mpg-full-name }}"
-description: "Maintenance in {{ mpg-name }} means automatic installation of DBMS updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+title: Maintenance in {{ mpg-full-name }}
+description: Maintenance in {{ mpg-name }} means automatic installation of DBMS updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mpg-name }}

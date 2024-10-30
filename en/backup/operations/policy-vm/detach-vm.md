@@ -43,7 +43,7 @@
 
 - API {#api}
 
-  Use the [revoke](../../backup/api-ref/Policy/revoke.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Revoke](../../backup/api-ref/grpc/policy_service.md#Revoke) gRPC API call.
+  Use the [revoke](../../backup/api-ref/Policy/revoke.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Revoke](../../backup/api-ref/grpc/Policy/revoke.md) gRPC API call.
 
 {% endlist %}
 

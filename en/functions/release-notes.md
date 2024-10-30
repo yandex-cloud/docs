@@ -1,6 +1,17 @@
+---
+title: '{{ sf-full-name }} release notes'
+description: This section contains {{ sf-name }} release notes.
+---
+
 # {{ sf-full-name }} release notes
 
-## May–June 2024 {#may-june-2024}
+## August 2024 {#august-2024}
+
+### Updates {#updates}
+
+* Added support for the [Kotlin](lang/kotlin/index.md) runtime environment.
+
+## May – June 2024 {#may-june-2024}
 
 ### Updates {#updates}
 
@@ -19,20 +30,20 @@
 ### Fixes and improvements {#fixes-improvements}
 
 * Fixed the `yandex_function_scaling_policy` import error in {{ TF }}.
-* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone as [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
 
 ## March 2024 {#march-2024}
 
 ### Updates {#updates}
 
 * Added support for editing all trigger parameters in {{ TF }}.
-* Released [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function for [general availability](../overview/concepts/launch-stages.md).
+* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function is now at the [general availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Increased the maximum batch size in a [{{ message-queue-full-name }} trigger](concepts/trigger/ymq-trigger.md) to 1,000 messages.
+* Increased the maximum batch size in a [{{ message-queue-full-name }}](concepts/trigger/ymq-trigger.md) trigger to 1,000 messages.
 
-## January–February 2024 {#jan-feb-2024}
+## January – February 2024 {#jan-feb-2024}
 
 ### Updates {#updates}
 

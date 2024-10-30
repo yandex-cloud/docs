@@ -93,7 +93,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}
@@ -109,7 +110,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта. Требования к имени:
 

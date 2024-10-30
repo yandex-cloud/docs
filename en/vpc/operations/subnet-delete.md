@@ -1,6 +1,6 @@
 ---
-title: "How to delete a subnet"
-description: "Follow this guide to delete a subnet."
+title: How to delete a subnet
+description: Follow this guide to delete a subnet.
 ---
 
 # Deleting a subnet
@@ -123,7 +123,7 @@ You cannot restore a subnet after it is deleted.
 
 - API {#api}
 
-   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) gRPC API call and provide the ID of the subnet to be deleted in the `subnetId` request parameter.
+   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/Subnet/delete.md) gRPC API call and provide the ID of the subnet to be deleted in the `subnetId` request parameter.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

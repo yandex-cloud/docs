@@ -1,6 +1,6 @@
 ---
-title: "Audio file streaming recognition using the API v3 in {{ speechkit-full-name }}"
-description: "Follow this guide to use streaming recognition of your audio files in the API v3."
+title: Audio file streaming recognition using the API v3 in {{ speechkit-full-name }}
+description: Follow this guide to use streaming recognition of your audio files in the API v3.
 ---
 
 # Audio file streaming recognition using the API v3
@@ -9,8 +9,8 @@ Below, we provide an example of streaming recognition of speech from an audio fi
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
-* [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
+* [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1 (default).
+* [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions) enabled.
 * Other parameters left by default.
 
 Authentication is performed under a service account using an [API key](../../../iam/concepts/authorization/api-key.md) or [IAM token](../../../iam/concepts/authorization/iam-token.md). Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
@@ -151,8 +151,8 @@ To implement an example from this section:
          * `audio_encoding`: [Format](../../formats.md) of the audio stream.
          * `sample_rate_hertz`: Sampling rate of the audio stream.
          * `audio_channel_count`: Number of audio channels.
-         * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-         * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
+         * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `language_code`: [Recognition language](../index.md#langs).
 
       1. Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account:

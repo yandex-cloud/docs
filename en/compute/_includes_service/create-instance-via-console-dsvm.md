@@ -19,7 +19,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure a boot disk:
       * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the required disk size.
-            1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../concepts/filesystem.md). [Create](../operations/filesystem/create.md) the storages first.
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../concepts/filesystem.md). [Create](../operations/filesystem/create.md) the storages first.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs as well as the amount of RAM.

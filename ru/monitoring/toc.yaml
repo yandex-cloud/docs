@@ -1,10 +1,5 @@
 title: Yandex Monitoring
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -78,6 +73,8 @@ items:
             href: concepts/data-collection/unified-agent/services.md
       - name: Рекомендации по использованию агента
         href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Возможные ошибки
+        href: concepts/data-collection/unified-agent/errors.md
       - name: Удаление
         href: concepts/data-collection/unified-agent/delete.md
   - name: Концепции
@@ -140,6 +137,8 @@ items:
             href: operations/prometheus/querying/grafana.md
       - name: Правила записи
         href: operations/prometheus/recording-rules.md
+      - name: Правила алертинга
+        href: operations/prometheus/alerting-rules.md
       - name: Чтение и запись метрик кластера {{ k8s }}
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
@@ -208,6 +207,8 @@ items:
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'
         href: metrics-ref/functions-ref.md
+      - name: '{{ cloud-logging-name }}'
+        href: metrics-ref/logging-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
@@ -216,6 +217,8 @@ items:
         href: metrics-ref/data-proc-ref.md
       - name: '{{ data-transfer-name }}'
         href: metrics-ref/data-transfer-ref.md
+      - name: '{{ dns-name }}'
+        href: metrics-ref/dns-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
       - name: '{{ iot-name }}'
@@ -248,11 +251,13 @@ items:
         href: metrics-ref/ydb-ref.md
       - name: '{{ message-queue-name }}'
         href: metrics-ref/message-queue-ref.md
-      - name: '{{ monitoring-name}}'
+      - name: '{{ monitoring-name }}'
         href: metrics-ref/monitoring-ref.md
+      - name: '{{ network-load-balancer-name}}'
+        href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
-      - name: '{{ captcha-name}}'
+      - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
@@ -277,3 +282,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/monitoring
+deepBase: 2

@@ -88,7 +88,7 @@
 
 - API {#api}
 
-  Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/address_service.md#Move) и передайте в запросе:
+  Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/Address/move.md) и передайте в запросе:
 
     * Идентификатор адреса, который нужно перенести, в параметре `addressId`.
 

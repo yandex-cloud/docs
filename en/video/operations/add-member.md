@@ -1,6 +1,6 @@
 ---
-title: "How to add a member to {{ video-full-name }}"
-description: "Follow this guide to add a member to {{ video-full-name }}."
+title: How to add a member to {{ video-full-name }}
+description: Follow this guide to add a member to {{ video-full-name }}.
 ---
 
 # Adding a member

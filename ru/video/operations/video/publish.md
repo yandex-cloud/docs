@@ -1,6 +1,6 @@
 ---
-title: "Как опубликовать видео в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете опубликовать и проверить доступность видео, загруженного в сервис {{ video-full-name }}."
+title: Как опубликовать видео в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете опубликовать и проверить доступность видео, загруженного в сервис {{ video-full-name }}.
 ---
 
 # Опубликовать видео
@@ -20,7 +20,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [VideoService/Create](../../api-ref/grpc/video_service.md#Create).
+  Воспользуйтесь методом REST API [performAction](../../api-ref/Video/create.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/PerformAction](../../api-ref/grpc/Video/performAction.md).
 
 {% endlist %}
 
@@ -40,7 +40,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [VideoService/GetPlayerURL](../../api-ref/grpc/video_service.md#GetPlayerURL).
+  Воспользуйтесь методом REST API [getPlayerURL](../../api-ref/Video/getPlayerURL.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md).
 
 {% endlist %}
 

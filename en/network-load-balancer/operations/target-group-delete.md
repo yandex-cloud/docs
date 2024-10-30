@@ -1,6 +1,6 @@
 ---
-title: "Deleting a target group in the load balancer"
-description: "Before deleting a target group, detach it from the network load balancer. You cannot restore a target group after it is deleted. Open the Load Balancer section in the folder you want to delete the target group from. In the menu that opens, click Delete."
+title: Deleting a target group in the load balancer
+description: Before deleting a target group, detach it from the network load balancer. You cannot restore a target group after it is deleted. Open the Load Balancer section in the folder you want to delete the target group from. In the menu that opens, click Delete.
 ---
 
 # Deleting a {{ network-load-balancer-name }} target group
@@ -76,7 +76,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
 - API {#api}
 
-   To delete a target group, use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
+   To delete a target group, use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/TargetGroup/delete.md) gRPC API call.
 
    You can get the target group ID with a [list of target groups in the folder](target-group-list.md#list).
 

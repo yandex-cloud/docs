@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM with OS Login"
-description: "Follow this guide to create a VM that can be accessed via OS Login."
+title: How to create a VM with OS Login
+description: Follow this guide to create a VM that can be accessed via OS Login.
 ---
 
 # Creating a VM with OS Login
@@ -23,9 +23,9 @@ To create a VM with OS Login:
 
    1. [Create a VM](../images-with-pre-installed-software/create.md) from the prepared image supporting access via OS Login. These images are available on [{{ marketplace-full-name }}](/marketplace) and contain `OS Login` in their names.
 
-      Enable **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** when creating a VM.
+      Enable **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** when creating a VM.
 
-      To be able to [connect](./ssh.md#vm-connect) to the VM over SSH without using OS Login, [update](../vm-control/vm-update.md) the VM settings by disabling **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+      To be able to [connect](./ssh.md#vm-connect) to the VM over SSH without using OS Login, [update](../vm-control/vm-update.md) the VM settings by disabling **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
 
 - CLI {#cli}
 

@@ -53,7 +53,8 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-live-debug`.
 
           Требования к формату имени:
@@ -130,7 +131,7 @@
 
     - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
     {% endlist %}
 
@@ -203,7 +204,7 @@
 
     - API {#api}
 
-      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
     {% endlist %}
 
@@ -354,6 +355,6 @@
 
 - API {#api}
 
-  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../resource-manager/api-ref/Folder/delete.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../resource-manager/api-ref/grpc/folder_service.md#Delete).
+  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../resource-manager/api-ref/Folder/delete.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../resource-manager/api-ref/grpc/Folder/delete.md).
 
 {% endlist %}

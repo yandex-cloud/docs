@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions to a {{ objstorage-full-name }} bucket"
-description: "Follow this guide to assign a role for a bucket."
+title: Configuring access permissions to a {{ objstorage-full-name }} bucket
+description: Follow this guide to assign a role for a bucket.
 ---
 
 # Configuring access permissions to a bucket using {{ iam-name }}
@@ -13,15 +13,16 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the name of the bucket you want to grant access to.
-   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select a user from the list or search by user.
-   1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-   1. Select a role for the user.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. Select **{{ objstorage-name }}**.
+  1. Click the name of the bucket you want to grant access to.
+  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Select a user from the list or search by user.
+  1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
+  1. Select a role for the user.
+  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 {% endlist %}
 

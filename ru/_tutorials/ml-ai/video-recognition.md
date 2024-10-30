@@ -58,7 +58,8 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-project`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `storage.viewer` — для чтения данных из бакета {{ objstorage-name }}.
@@ -76,8 +77,10 @@
 
 - Консоль управления {#console}
 
-  1. В каталоге `data-folder` перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт `sa-for-project` и нажмите на строку с его именем.
+  1. Перейдите в каталог `data-folder`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В открывшемся списке выберите сервисный аккаунт `sa-for-project`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
   1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.

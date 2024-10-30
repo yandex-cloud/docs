@@ -1,0 +1,1 @@
+For information about using the service via the API, see [{#T}](../../video/api-ref/quickstart.md).

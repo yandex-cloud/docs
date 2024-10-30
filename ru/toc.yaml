@@ -9,6 +9,8 @@ items:
     href: application-load-balancer/index.yaml
   - name: Audit Trails
     href: audit-trails/index.yaml
+  - name: BareMetal
+    href: baremetal/index.yaml
   - name: Yandex Cloud Billing
     href: billing/index.yaml
   - name: Cloud CDN
@@ -27,6 +29,8 @@ items:
     href: interconnect/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
+  - name: Cloud Notification Service
+    href: notifications/index.yaml
   - name: Cloud Video
     href: video/index.yaml
   - name: Code Assistant
@@ -35,6 +39,8 @@ items:
     href: compute/index.yaml
   - name: Container Registry
     href: container-registry/index.yaml
+  - name: Cloud Registry
+    href: cloud-registry/index.yaml
   - name: Container Solution
     href: cos/index.yaml
   - name: Yandex Data Proc
@@ -93,6 +99,9 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
+  - name: Managed Service for Trino
+    href: managed-trino/index.yaml
+    hidden: true
   - name: Yandex Cloud Marketplace
     href: marketplace/index.yaml
   - name: Message Queue
@@ -119,6 +128,8 @@ items:
     href: search-api/index.yaml
   - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
+  - name: Security Deck
+    href: security-deck/index.yaml
   - name: SmartCaptcha
     href: smartcaptcha/index.yaml
   - name: Smart Web Security
@@ -131,6 +142,8 @@ items:
     href: storage/index.yaml
   - name: Техническая поддержка {{ yandex-cloud }}
     href: support/index.yaml
+  - name: Serverless Integrations
+    href: serverless-integrations/index.yaml
   - name: Serverless Containers
     href: serverless-containers/index.yaml
   - name: Tracker
@@ -160,3 +173,4 @@ items:
     href: troubleshooting/index.yaml
     hidden: true
 base: ru
+deepBase: 1

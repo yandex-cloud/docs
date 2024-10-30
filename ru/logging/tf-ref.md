@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ cloud-logging-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cloud-logging-name }}."
+title: Справочник {{ TF }} для {{ cloud-logging-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cloud-logging-name }}.
 ---
 
 # Справочник {{ TF }} для {{ cloud-logging-full-name }}
@@ -21,4 +21,4 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_logging_group]({{ tf-provider-datasources-link }}/datasource_logging_group) | Информация о [лог-группе](./concepts/log-group.md) |
+| [yandex_logging_group]({{ tf-provider-datasources-link }}/logging_group) | Информация о [лог-группе](./concepts/log-group.md) |

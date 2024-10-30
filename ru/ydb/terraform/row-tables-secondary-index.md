@@ -1,11 +1,11 @@
 ---
-title: "Создание вторичных индексов в строковых таблицах {{ ydb-short-name }}"
-description: "В инструкции описаны свойства ресурса yandex_ydb_table_index для создания вторичных индексов строковых таблиц {{ ydb-short-name }}."
+title: Создание вторичных индексов в строковых таблицах {{ ydb-short-name }}
+description: В инструкции описаны свойства ресурса yandex_ydb_table_index для создания вторичных индексов строковых таблиц {{ ydb-short-name }}.
 ---
 
 # Создание вторичных индексов строковых таблиц
 
-Для работы с [индексом таблицы](https://ydb.tech/docs/ru/concepts/secondary_indexes) используется ресурс `yandex_ydb_table_index`.
+Для работы с [индексом таблицы]({{ ydb.docs }}/concepts/secondary_indexes) используется ресурс `yandex_ydb_table_index`.
 
 {% note info %}
 
@@ -35,6 +35,6 @@ resource "yandex_ydb_table_index" "ydb_table_index" {
 |`connection_string`|`string`|Строка соединения с базой данных. Указывается, если не задан `table_id`|
 |`table_id`|`string`|{{ TF }}-идентификатор таблицы. Указывается, если не задан `table_path` или `connection_string`|
 |`name`|`string`<br>`required`|Имя индекса|
-|`type`|`string`<br>`required`|Тип индекса [global_sync / global_async](https://ydb.tech/docs/ru/yql/reference/syntax/create_table#secondary_index)|
+|`type`|`string`<br>`required`|Тип индекса [global_sync / global_async]({{ ydb.docs }}/yql/reference/syntax/create_table#secondary_index)|
 |`columns`|`list(string)`<br>`required`|Упорядоченный список имен колонок, участвующих в индексе|
 |`cover`|`list(string)`<br>`required`|Список дополнительных колонок для покрывающего индекса|

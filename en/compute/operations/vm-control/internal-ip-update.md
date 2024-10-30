@@ -99,6 +99,6 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
 
 - API {#api}
 
-   To change the internal IP address of a VM's network interface, use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/PrimaryAddress](../../api-ref/grpc/instance_service.md#PrimaryAddress) gRPC API call.
+   To change the internal IP address of a VM's network interface, use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/PrimaryAddress](../../api-ref/grpc/Instance/get.md#yandex.cloud.compute.v1.PrimaryAddress) gRPC API call.
 
 {% endlist %}

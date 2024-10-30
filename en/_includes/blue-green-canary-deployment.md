@@ -234,8 +234,8 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - API {#api}
 
-   1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the API [create](../vpc/api-ref/Network/create.md) REST API method.
-   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets in three availability zones by using the [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../vpc/api-ref/Subnet/create.md) REST API method.
+   1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/Network/create.md) gRPC API call or the API [create](../vpc/api-ref/Network/create.md) REST API method.
+   1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets in three availability zones by using the [SubnetService/Create](../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -623,9 +623,9 @@ To create security groups:
 
 - API {#api}
 
-   Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
+   Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
-   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) field for the REST API.
 
 {% endlist %}
 
@@ -662,7 +662,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/BackendGroup/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -877,8 +877,8 @@ To create security groups:
 
 - API {#api}
 
-   1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+   1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+   1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -1100,7 +1100,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/LoadBalancer/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -1316,7 +1316,7 @@ To create security groups:
 
 - API {#api}
 
-   Use the [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../cdn/api-ref/grpc/Resource/create.md) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1465,8 +1465,8 @@ To configure DNS:
 
    - API {#api}
 
-      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
+      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -1542,8 +1542,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1567,8 +1567,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1629,8 +1629,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1709,7 +1709,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1736,8 +1736,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1759,8 +1759,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 
@@ -1821,8 +1821,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
 
    {% endlist %}
 
@@ -1899,7 +1899,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
+      Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
    {% endlist %}
 
@@ -1921,8 +1921,8 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API {#api}
 
-      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
-      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
+      1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
+      1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
 
    {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
-title: "Как удалить расписание, по которому создаются снимки дисков в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить расписание, по которому создаются снимки дисков."
+title: Как удалить расписание, по которому создаются снимки дисков в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете удалить расписание, по которому создаются снимки дисков.
 ---
 
 # Удалить расписание, по которому создаются снимки дисков
@@ -104,8 +104,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
-  1. Удалите расписание снимков с помощью метода REST API [delete](../../api-ref/SnapshotSchedule/delete.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Delete](../../api-ref/grpc/snapshot_schedule_service.md#Delete).
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md).
+  1. Удалите расписание снимков с помощью метода REST API [delete](../../api-ref/SnapshotSchedule/delete.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Delete](../../api-ref/grpc/SnapshotSchedule/delete.md).
 
 {% endlist %}
 

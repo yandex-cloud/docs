@@ -89,7 +89,8 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -105,7 +106,8 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Alice",
                "age" : "30"
@@ -114,7 +116,8 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Robert",
                "age" : "32"

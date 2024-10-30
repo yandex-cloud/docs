@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ mpg-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mpg-name }}."
+title: Справочник {{ TF }} для {{ mpg-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mpg-name }}.
 ---
 
 # Справочник {{ TF }} для {{ mpg-full-name }}
@@ -23,6 +23,6 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_cluster) | Информация о [кластере {{ PG }}](./concepts/index.md) |
-| [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_database) | Информация о базе данных {{ PG }} |
-| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_user) | Информация о пользователе {{ PG }} |
+| [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/mdb_postgresql_cluster) | Информация о [кластере {{ PG }}](./concepts/index.md) |
+| [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/mdb_postgresql_database) | Информация о базе данных {{ PG }} |
+| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | Информация о пользователе {{ PG }} |

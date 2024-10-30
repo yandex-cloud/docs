@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mongodb-migration-with-data-transfer"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mongodb-migration-with-data-transfer'
 ---
 
 # Migrating collections from {{ MG }} to {{ mmg-name }}

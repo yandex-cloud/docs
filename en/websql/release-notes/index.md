@@ -1,22 +1,64 @@
 ---
-title: "{{ websql-full-name }} Release notes"
-description: "This section contains {{ websql-name }} release notes."
+title: '{{ websql-full-name }} release notes'
+description: This section contains {{ websql-name }} release notes.
 ---
 
 # {{ websql-full-name }} release notes: 2024
+
+## September {#september}
+
+### New features {#new-features-september}
+
+1. Now you can [connect](../quickstart.md) to unsharded {{ RD }} clusters.
+
+1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles for viewing metadata requests and permissions to access them.
+
+### Improvements {#improvements-september}
+
+1. Added the experiment of displaying connections as database users.
+
+1. {{ PG }} tables are now displayed as database objects even if the user does not have access to these tables.
+
+1. Added the display of empty {{ PG }} schemas to the list of database objects.
+
+### Fixed issues {#fixes-september}
+
+Configured the backend request timeout as 25 seconds.
+
+## August {#august}
+
+### Improvements {#improvements-august}
+
+1. Added interfaces for [managing access permissions](../security/index.md) for completed and saved requests.
+
+1. Integrated cloud-based time settings.
+
+1. Added the modal window interface for contacting technical support.
+
+1. Now only the tables the user has access to are displayed in {{ PG }} databases.
+
+1. Added completed request statistics.
+
+### Fixed issues {#fixes-august}
+
+Fixed the filter workflow on the completed requests page.
 
 ## July {#july}
 
 ### Improvements {#improvements-july}
 
 1. Query history displays users who ran the queries.
+
 1. Enabled running queries without exporting the connection structure.
+
 1. Added support for long-running database queries.
+
 1. Added information about databases and certificates to the connection card.
 
 ### Fixed issues {#fixes-july}
 
 1. Fixed the error when running all DML queries in a {{ CH }} cluster.
+
 1. Fixed the query editor issue for Safari version 15.
 
 ## June {#june}
@@ -39,17 +81,17 @@ Improved user query storage mechanism: queries are now linked to the user's acco
 
 ### Improvements {#improvements-may}
 
-1. Updated the service favicon: ![](../../_assets/websql/favicon.svg).
+Updated the service favicon ![](../../_assets/websql/favicon.svg).
 
 ### Fixed issues {#fixes-may}
 
-1. Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
+Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
 
 ## April {#april}
 
 ### Fixed issues {#fixes-april}
 
-1. Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
+Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
 
 ## March {#mar}
 
@@ -57,7 +99,7 @@ Improved user query storage mechanism: queries are now linked to the user's acco
 
 1. Added viewing sequence information in {{ PG }} database [schemas](../operations/view-db-objects-info.md#view-schema).
 
-1. In the [query editor](../operations/query-executor.md), added role tips for {{ PG }} databases.
+1. In the [query editor](../operations/query-executor.md), added role tips for [{{ PG }}](https://www.postgresql.org/) databases.
 
 ## February {#feb}
 

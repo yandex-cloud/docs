@@ -1,6 +1,6 @@
 ---
-title: "Managing access to {{ mes-name }}"
-description: "In this section, you will learn about the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Managing access to {{ mes-name }}
+description: In this section, you will learn about the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Managing access to {{ mes-name }}

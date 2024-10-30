@@ -588,7 +588,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - API {#api}
 
-   Use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/index.md) resource:
+   Use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
    1. Generate the request body. In the `data` property, specify the contents of the certificate:
 
       ```json
@@ -657,7 +657,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
          {% endcut %}
 
-         
+
          {% cut "How to get the federation ACS URL" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -681,7 +681,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
          {% endcut %}
 
-         
+
          {% cut "How to get the federation ACS URL" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -715,7 +715,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       {% endlist %}
 
-      
+
       {% cut "How to get the federation ACS URL" %}
 
       {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}

@@ -1,6 +1,6 @@
 ---
-title: "Как получить IAM-токен для сервисного аккаунта в {{ iam-full-name }}"
-description: "Следуя данной инструкции, вы сможете получить IAM-токен для сервисного аккаунта." 
+title: Как получить IAM-токен для сервисного аккаунта в {{ iam-full-name }}
+description: Следуя данной инструкции, вы сможете получить IAM-токен для сервисного аккаунта.
 ---
 
 # Получение IAM-токена для сервисного аккаунта
@@ -651,14 +651,15 @@ yc iam create-token
 
 - API {#api}
 
-  Чтобы получить IAM-токен, воспользуйтесь методом REST API [create](../../api-ref/IamToken/create.md) для ресурса [IamToken](../../api-ref/IamToken/index.md) или вызовом gRPC API [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount).
+  Чтобы получить IAM-токен, воспользуйтесь методом REST API [create](../../api-ref/IamToken/create.md) для ресурса [IamToken](../../api-ref/IamToken/index.md) или вызовом gRPC API [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md).
 
   Пример запроса с помощью cURL для метода REST API `create`:
 
   ```curl
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"jwt": "<JWT-токен>"}' \
+  curl \
+      --request POST \
+      --header 'Content-Type: application/json' \
+      --data '{"jwt": "<JWT-токен>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
@@ -713,3 +714,4 @@ yc iam create-token
 
 * [{#T}](../sa/set-access-bindings.md).
 * [{#T}](../sa/assign-role-for-sa.md).
+* [{#T}](./revoke-iam-token.md).

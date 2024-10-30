@@ -29,6 +29,8 @@ items:
     href: logging/index.yaml
   - name: Cloud Video
     href: video/index.yaml
+  - name: Code Assistant
+    href: code-assistant/index.yaml
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry
@@ -90,6 +92,9 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
+  - name: Managed Service for Trino
+    href: managed-trino/index.yaml
+    hidden: true
   - name: Marketplace partner interface
     href: marketplace/index.yaml
   - name: Message Queue
@@ -116,6 +121,8 @@ items:
     href: search-api/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
+  - name: Security Deck
+    href: security-deck/index.yaml
   - name: SmartCaptcha
     href: smartcaptcha/index.yaml
   - name: Smart Web Security
@@ -152,3 +159,4 @@ items:
   - name: Management console
     href: console/index.yaml
 base: en
+deepBase: 1

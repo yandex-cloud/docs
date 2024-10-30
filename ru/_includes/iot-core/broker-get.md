@@ -59,7 +59,7 @@
       * `output "broker_params"` — выходная переменная, которая содержит информацию о временной метке создания брокера:
         * `value` — возвращаемое значение.
 
-      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_broker` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_iot_core_broker).
+      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_broker` см. в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_broker).
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -78,6 +78,6 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о брокере, воспользуйтесь методом REST API [get](../../iot-core/broker/api-ref/Broker/get.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Get](../../iot-core/broker/api-ref/grpc/broker_service.md#Get).
+  Чтобы получить подробную информацию о брокере, воспользуйтесь методом REST API [get](../../iot-core/broker/api-ref/Broker/get.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Get](../../iot-core/broker/api-ref/grpc/Broker/get.md).
 
 {% endlist %}

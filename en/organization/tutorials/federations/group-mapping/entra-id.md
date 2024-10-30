@@ -1,6 +1,6 @@
 ---
-title: "User group mapping in {{ microsoft-idp.entra-id-full }}"
-description: "How to configure user group mapping when authenticating users in an organization."
+title: User group mapping in {{ microsoft-idp.entra-id-full }}
+description: How to configure user group mapping when authenticating users in an organization.
 ---
 
 # User group mapping in {{ microsoft-idp.entra-id-full }}
@@ -28,47 +28,47 @@ Make sure you have access to the following services on the [Azure portal](https:
 
 The identity provider's (IdP) role is played by Microsoft Azure with Single Sign-On (SSO) configured. To create an application and begin configuring it:
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. [Go to the Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Enterprise applications**.
 1. On the left-hand panel, select **Enterprise applications** → **All applications**.
 1. Click **New application**.
 1. On the **Browse {{ microsoft-idp.entra-full }} gallery** page, click **Create your own application**.
 1. In the window that opens:
-   1. Name your app, e.g., `yandex-cloud-saml`.
-   1. Select **Integrate any other application you don't find in the gallery**.
-   1. Click **Create**.
+    1. Name your app, e.g., `yandex-cloud-saml`.
+    1. Select **Integrate any other application you don't find in the gallery**.
+    1. Click **Create**.
 
-   You will be taken to your new app's page.
+    You will be taken to your new app's page.
 
 1. In the left-hand panel, select **Single sign-on**.
 1. Select the **SAML** single sign-on.
 
-   The **SAML-based sign-on** page will open.
+    The **SAML-based sign-on** page will open.
 
 1. Download the application's SAML certificate used to sign messages from {{ microsoft-idp.entra-id-short }}:
 
-   1. Find **SAML certificates** → **Assertion signing certificate**.
-   1. Use the link in the **Certificate (Base64)** field to download the certificate.
+    1. Find **SAML certificates** → **Assertion signing certificate**.
+    1. Use the link in the **Certificate (Base64)** field to download the certificate.
 
 1. Save the credentials you will need later to configure your identity federation:
 
-   1. Find the **yandex-cloud-saml configuration** section.
+    1. Find the **yandex-cloud-saml configuration** section.
 
-      If you have chosen a different application name, the section name will be different from the one provided.
+        If you have chosen a different application name, the section name will be different from the one provided.
 
-   1. Save the following credentials:
+    1. Save the following credentials:
 
-      * **Login page URL** in the following format:
+        * **Login page URL** in the following format:
 
-         ```text
-         https://login.microsoftonline.com/<tenant_ID>/saml2
-         ```
+            ```text
+            https://login.microsoftonline.com/<tenant_ID>/saml2
+            ```
 
-      * **{{ microsoft-idp.entra-full }} ID** in the following format:
+        * **{{ microsoft-idp.entra-full }} ID** in the following format:
 
-         ```text
-         https://sts.windows.net/<tenant_ID>/
-         ```
+            ```text
+            https://sts.windows.net/<tenant_ID>/
+            ```
 
 {% note info %}
 
@@ -96,11 +96,11 @@ Do not close the configuration tab in your browser.
 
 1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the login page URL you got when configuring the Azure app.
 
-1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
+1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. Otherwise, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
 
-   {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. (Optional) For all {{ yandex-cloud }} authentication requests to contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option.
+1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
 1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
@@ -108,7 +108,7 @@ Do not close the configuration tab in your browser.
 
 1. Use the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field to download the certificate (if the option was enabled earlier).
 
-   You will need this certificate later when configuring SAML-based sign-on for the Azure app.
+    You will need this certificate later when configuring SAML-based sign-on for the Azure app.
 
 ## Add the Azure app's SAML certificate to the federation {#add-certificate}
 
@@ -116,7 +116,7 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-1. In the panel on the left, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to (`demo-federation`).
+1. In the left-hand panel, navigate to [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to: `demo-federation`.
 
 1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
@@ -126,34 +126,34 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 
 ## Complete the Azure app configuration {#azure-settings-end}
 
-1. Navigate to the browser tab where you were configuring SAML-based sign-on for the `yandex-cloud-saml` application.
+1. Navigate to the browser tab on which you were configuring SAML-based sign-on for the `yandex-cloud-saml` application.
 1. Specify the redirect URL:
 
-   1. Find the **Basic SAML configuration** section.
-   1. In the section, click **Edit**.
-   1. Specify the same redirect URL in both the **ID (entity)** and **Response URL (assertion consumer service URL)** fields.
+    1. Find the **Basic SAML configuration** section.
+    1. In the section, click **Edit**.
+    1. Specify the same redirect URL in both the **ID (entity)** and **Response URL (assertion consumer service URL)** fields.
 
-      The redirect URL must be in the following format:
+        The redirect URL must be in the following format:
 
-      ```text
-      https://{{ auth-host }}/federations/<federation_ID>
-      ```
+        ```text
+        https://{{ auth-host }}/federations/<federation_ID>
+        ```
 
-      {% cut "How to get the federation ID" %}
+        {% cut "How to get the federation ID" %}
 
-      {% include [get-federation-id](../../../../_includes/organization/get-federation-id.md) %}
+        {% include [get-federation-id](../../../../_includes/organization/get-federation-id.md) %}
 
-      {% endcut %}
+        {% endcut %}
 
-   1. Click **Save** in the right-hand panel.
+    1. Click **Save** in the right-hand panel.
 
 1. (Optional) If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating a federation](#create-federation) in {{ org-full-name }}, add the federation certificate to the application:
 
-   1. Find **SAML certificates** → **Verification certificates (optional)** and click **Edit**.
-   1. Enable **Require verification certificates**.
-   1. Click **Send certificate**.
-   1. Upload the certificate in PEM format.
-   1. Click **Save** in the right-hand panel.
+    1. Find **SAML certificates** → **Verification certificates (optional)** and click **Edit**.
+    1. Enable **Require verification certificates**.
+    1. Click **Send certificate**.
+    1. Upload the certificate in PEM format.
+    1. Click **Save** in the right-hand panel.
 
 1. Click **Save**.
 
@@ -161,7 +161,7 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 
 ### Create a user {#create-user}
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. [Go to the Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **{{ microsoft-idp.entra-id-full }}**.
 1. In the left-hand panel, select **Users** → **All users**.
 1. Click **New user**. Select **Create new user** from the drop-down menu.
@@ -169,50 +169,50 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 1. In the **User principal name** field, enter a name for the user (e.g., `az_demo_user`) in combination with the domain (e.g., `example.com`).
 1. In the **Mail nickname** field, specify an email address. By default, the nickname matches the username.
 
-   You may specify a different nickname:
+    You may specify a different nickname:
 
-   1. Uncheck **Derive from user principal name**.
-   1. Enter the mail nickname you prefer.
+    1. Uncheck **Derive from user principal name**.
+    1. Enter the mail nickname you prefer.
 
-   For example, you may use `ivan_ivanov` for the `az_demo_user@example.com` user.
+    For example, you can use `ivan_ivanov` for the `az_demo_user@example.com` user.
 
-1. In the **Display name** field, enter the user's name to appear in the interface, e.g., `Ivan Ivanov`.
+1. In the **Display name** field, enter a display name for the user that will appear in the interface, e.g., `Ivan Ivanov`.
 1. In the **Password** field, provide the user password to be used for the first log in. By default, the password is generated automatically.
 
-   You can specify the password manually:
+    You can specify the password manually:
 
-   1. Uncheck **Auto-generate password**.
-   1. Enter the password you prefer.
+    1. Uncheck **Auto-generate password**.
+    1. Enter the password you prefer.
 
 1. Make sure the **Account enabled** option is checked on the **Basics** tab.
 1. Click **Review and create**.
 
 ### Create a group and add a user to it {#create-group}
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. [Go to the Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **{{ microsoft-idp.entra-id-full }}**.
 1. Create a group:
 
-   1. In the left-hand panel, select **Groups** → **All groups**.
-   1. Click **Create group**.
-   1. From the **Group type** drop-down list, select `Security group`.
-   1. In the **Group name** field, specify a name for your group, e.g., `az_demo_group`.
-   1. Under **Members**, click the **No members selected** link.
-   1. In the window that opens, check the `az_demo_user@example.com` user and click **Select**.
-   1. Click **Create**.
+    1. In the left-hand panel, select **Groups** → **All groups**.
+    1. Click **Create group**.
+    1. From the **Group type** drop-down list, select `Security group`.
+    1. In the **Group name** field, enter a name for your group, e.g., `az_demo_group`.
+    1. Under **Members**, click the **No members selected** link.
+    1. In the window that opens, check the `az_demo_user@example.com` user and click **Select**.
+    1. Click **Create**.
 
 1. Get the ID of the group you created:
 
-   1. In the left-hand panel, select **Groups** → **All groups**.
-   1. Find `az_demo_group` in the list and copy its ID from the **Object ID** column.
+    1. In the left-hand panel, select **Groups** → **All groups**.
+    1. Find `az_demo_group` in the list and copy its ID from the **Object ID** column.
 
-      The ID must be in the following format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.
+        The ID has the following format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.
 
 ### Configure access permissions for your group {#configure-azure-group-access}
 
 Configure the application for the new group to have access it.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. [Go to the Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Enterprise applications**.
 1. On the left-hand panel, select **Enterprise applications** → **All applications**.
 1. Select the `yandex-cloud-saml` application you created earlier.
@@ -225,7 +225,7 @@ Configure the application for the new group to have access it.
 
 ### Configure group mapping {#map-azure-group}
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. [Go to the Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Enterprise applications**.
 1. On the left-hand panel, select **Enterprise applications** → **All applications**.
 1. Select the `yandex-cloud-saml` application you created earlier.
@@ -236,8 +236,8 @@ Configure the application for the new group to have access it.
 1. Select `Group ID` from the **Source attribute** drop-down list.
 1. Expand the **Advanced options** section and make the following changes:
 
-   1. Enable **Change the name of the group claim**.
-   1. In the **Name (optional)** field, enter `member`.
+    1. Enable **Change the name of the group claim**.
+    1. In the **Name (optional)** field, enter `member`.
 
 1. Click **Save** in the right-hand panel.
 1. Click **Save**.
@@ -245,43 +245,43 @@ Configure the application for the new group to have access it.
 ## Configure group mapping on the federation side {#org-mapping}
 
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. [Create a user group](../../../operations/manage-groups.md#create-group) named `yc-demo-group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/manage-groups.md#access) to view resources in the cloud or a separate folder (the `viewer` role).
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
-1. Select the previously created `demo-federation` federation and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
+1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
+1. Select `demo-federation` you created previously and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
 1. Enable group mapping in the **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}** field.
 1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the `az_demo_group` ID [you got in {{ microsoft-idp.entra-id-short }} earlier](#create-group).
 
-   {% note warning %}
+    {% note warning %}
 
-   You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
+    You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
 
-   Therefore, enter the group ID, not its name.
+    Therefore, enter the group ID, not its name.
 
-   {% endnote %}
+    {% endnote %}
 
-1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select this group name in {{ org-full-name }} from the list: `yc-demo-group`.
+1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc-demo-group` group you created in {{ org-full-name }} from the list.
 1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
-## Test the authentication process {#test-auth}
+## Test authentication {#test-auth}
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the URL to log in to the management console:
+1. Use this URL to log in to the management console:
 
-   ```text
-   https://{{ console-host }}/federations/<federation_ID>
-   ```
+    ```text
+    https://{{ console-host }}/federations/<federation_ID>
+    ```
 
-   {% cut "How to get the federation ID" %}
+    {% cut "How to get the federation ID" %}
 
-   {% include [get-federation-id](../../../../_includes/organization/get-federation-id.md) %}
+    {% include [get-federation-id](../../../../_includes/organization/get-federation-id.md) %}
 
-   {% endcut %}
+    {% endcut %}
 
-   If you have set up everything correctly, the browser will redirect you to the authentication page in {{ microsoft-idp.entra-id-short }}.
+    If you have set up everything correctly, the browser will redirect you to the authentication page in {{ microsoft-idp.entra-id-short }}.
 
 1. Enter the credentials of the `az_demo_user@example.com` user [you created earlier in {{ microsoft-idp.entra-id-short }}](#create-user) and click **Sign in**.
 
-   On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL you specified in the SAML settings for the Azure app, and then, to the [management console]({{ link-console-main }}) home page.
+    On successful authentication, the IdP server will redirect you to the URL (`https://{{ auth-host }}/federations/<federation_ID>`) you specified in the SAML settings for the Azure app, and then to the [management console]({{ link-console-main }}) home page.
 
-1. Make sure the signed in user belongs to `yc-demo-group` and has the viewer permissions for the resources based on the role assigned to the group.
+1. Make sure the signed in user belongs to `yc-demo-group` and has the viewer permissions for resources according to the role assigned to the group.

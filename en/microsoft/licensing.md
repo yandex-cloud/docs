@@ -1,6 +1,6 @@
 ---
-title: "Microsoft licenses in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to manage Microsoft licenses in {{ yandex-cloud }}."
+title: Microsoft licenses in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to manage Microsoft licenses in {{ yandex-cloud }}.
 ---
 
 # Microsoft licenses in {{ yandex-cloud }}

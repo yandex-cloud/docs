@@ -1,10 +1,10 @@
-# Report filtering
+# Filtering in the report
 
 You can use filtering to select the dialogs to include in your report. To do this, use the following settings:
 
-* Period: Period of time for which the report is generated.
-* Filters: Use the same fields as for the parameters.
-* Grouping: Choose how to group data in your report. You can only group by metadata fields, e.g.:
+* **Period**: Time period of the report.
+* **Filters**: Use the same fields as for the parameters. You can also use [neuroparameters](../../../speechsense/concepts/reports/neuro-parameters.md) in filters.
+* **Grouping**: Choose how to group data in your report. You can only group by metadata fields, for example:
 
    * By agent, to analyze the performance of each one.
    * By product, to learn which products agents make fewer mistakes presenting in dialogs.

@@ -1,11 +1,5 @@
 title: Yandex Foundation Models
 href: index.yaml
-stage: preview
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -17,18 +11,16 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Отключить логирование запросов
+        href: operations/disable-logging.md
       - name: '{{ yagpt-full-name }}'
         items:
           - name: Отправить запрос в промт-режиме
             href: operations/yandexgpt/create-prompt.md
           - name: Отправить серию запросов в режиме чата
             href: operations/yandexgpt/create-chat.md
-          - name: Отправить запрос к дообученной модели
-            href: operations/yandexgpt/finetune.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
-          - name: Отключить логирование запросов
-            href: operations/yandexgpt/disable-logging.md
       - name: Классификаторы на базе {{ yagpt-name }}
         items:
           - name: Использовать классификаторы по промту
@@ -87,38 +79,68 @@ items:
             items:
               - name: Overview
                 href: text-generation/api-ref/index.md
-              - name: TextGeneration
+              - name: Operation
                 items:
                   - name: Overview
-                    href: text-generation/api-ref/TextGeneration/index.md
-                  - name: completion
-                    href: text-generation/api-ref/TextGeneration/completion.md
+                    href: text-generation/api-ref/Operation/index.md
+                  - name: Get
+                    href: text-generation/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: text-generation/api-ref/Operation/cancel.md
               - name: TextGenerationAsync
                 items:
                   - name: Overview
                     href: text-generation/api-ref/TextGenerationAsync/index.md
-                  - name: completion
+                  - name: Completion
                     href: text-generation/api-ref/TextGenerationAsync/completion.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGeneration/index.md
+                  - name: Completion
+                    href: text-generation/api-ref/TextGeneration/completion.md
               - name: Tokenizer
                 items:
                   - name: Overview
                     href: text-generation/api-ref/Tokenizer/index.md
-                  - name: tokenize
+                  - name: Tokenize
                     href: text-generation/api-ref/Tokenizer/tokenize.md
-                  - name: tokenizeCompletion
+                  - name: TokenizeCompletion
                     href: text-generation/api-ref/Tokenizer/tokenizeCompletion.md
           - name: gRPC
             items:
               - name: Overview
                 href: text-generation/api-ref/grpc/index.md
-              - name: TextGenerationService
-                href: text-generation/api-ref/grpc/text_generation_service.md
-              - name: TextGenerationAsyncService
-                href: text-generation/api-ref/grpc/TextGenerationAsyncService.md
-              - name: TokenizerService
-                href: text-generation/api-ref/grpc/TokenizerService.md
-              - name: OperationService
-                href: text-generation/api-ref/grpc/operation_service.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: text-generation/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: text-generation/api-ref/grpc/Operation/cancel.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/TextGenerationAsync/index.md
+                  - name: Completion
+                    href: >-
+                      text-generation/api-ref/grpc/TextGenerationAsync/completion.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/TextGeneration/index.md
+                  - name: Completion
+                    href: text-generation/api-ref/grpc/TextGeneration/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/Tokenizer/index.md
+                  - name: Tokenize
+                    href: text-generation/api-ref/grpc/Tokenizer/tokenize.md
+                  - name: TokenizeCompletion
+                    href: >-
+                      text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
       - name: Embeddings API (англ.)
         items:
           - name: REST
@@ -129,14 +151,18 @@ items:
                 items:
                   - name: Overview
                     href: embeddings/api-ref/Embeddings/index.md
-                  - name: textEmbedding
+                  - name: TextEmbedding
                     href: embeddings/api-ref/Embeddings/textEmbedding.md
           - name: gRPC
             items:
               - name: Overview
                 href: embeddings/api-ref/grpc/index.md
-              - name: EmbeddingsService
-                href: embeddings/api-ref/grpc/embedding_service.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/grpc/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: Text Classification API (англ.)
         items:
           - name: REST
@@ -147,18 +173,26 @@ items:
                 items:
                   - name: Overview
                     href: text-classification/api-ref/TextClassification/index.md
-                  - name: classify
+                  - name: Classify
                     href: text-classification/api-ref/TextClassification/classify.md
-                  - name: fewShotClassify
+                  - name: FewShotClassify
                     href: >-
                       text-classification/api-ref/TextClassification/fewShotClassify.md
           - name: gRPC
             items:
               - name: Overview
                 href: text-classification/api-ref/grpc/index.md
-              - name: TextClassificationService
-                href: >-
-                  text-classification/api-ref/grpc/text_classification_service.md
+              - name: TextClassification
+                items:
+                  - name: Overview
+                    href: >-
+                      text-classification/api-ref/grpc/TextClassification/index.md
+                  - name: Classify
+                    href: >-
+                      text-classification/api-ref/grpc/TextClassification/classify.md
+                  - name: FewShotClassify
+                    href: >-
+                      text-classification/api-ref/grpc/TextClassification/fewShotClassify.md
       - name: ' {{ yandexart-name }} (англ.)'
         items:
           - name: REST
@@ -169,62 +203,116 @@ items:
                 items:
                   - name: Overview
                     href: image-generation/api-ref/ImageGenerationAsync/index.md
-                  - name: generate
+                  - name: Generate
                     href: image-generation/api-ref/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/Operation/cancel.md
           - name: gRPC
             items:
               - name: Overview
                 href: image-generation/api-ref/grpc/index.md
-              - name: ImageGenerationAsyncService
-                href: image-generation/api-ref/grpc/image_generation_service.md
-              - name: OperationService
-                href: image-generation/api-ref/grpc/operation_service.md
+              - name: ImageGenerationAsync
+                items:
+                  - name: Overview
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/index.md
+                  - name: Generate
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/grpc/Operation/cancel.md
       - name: API v1alpha (DEPRECATED)
         items:
           - name: REST (англ.)
             items:
               - name: Overview
                 href: api-ref/v1alpha/index.md
-              - name: TextGeneration
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/TextGeneration/index.md
-                  - name: chat
-                    href: api-ref/v1alpha/TextGeneration/chat.md
-                  - name: instruct
-                    href: api-ref/v1alpha/TextGeneration/instruct.md
-              - name: Tokenizer
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/Tokenizer/index.md
-                  - name: tokenize
-                    href: api-ref/v1alpha/Tokenizer/tokenize.md
               - name: Embeddings
                 items:
                   - name: Overview
                     href: api-ref/v1alpha/Embeddings/index.md
-                  - name: embedding
+                  - name: Embedding
                     href: api-ref/v1alpha/Embeddings/embedding.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Operation/index.md
+                  - name: Get
+                    href: api-ref/v1alpha/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/v1alpha/Operation/cancel.md
               - name: TextGenerationAsync
                 items:
                   - name: Overview
                     href: api-ref/v1alpha/TextGenerationAsync/index.md
-                  - name: instruct
+                  - name: Instruct
                     href: api-ref/v1alpha/TextGenerationAsync/instruct.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGeneration/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/TextGeneration/instruct.md
+                  - name: Chat
+                    href: api-ref/v1alpha/TextGeneration/chat.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Tokenizer/index.md
+                  - name: Tokenize
+                    href: api-ref/v1alpha/Tokenizer/tokenize.md
           - name: gRPC (англ.)
             items:
               - name: Overview
                 href: api-ref/v1alpha/grpc/index.md
-              - name: TextGenerationService
-                href: api-ref/v1alpha/grpc/llm_service.md
-              - name: TokenizerService
-                href: api-ref/v1alpha/grpc/TokenizerService.md
-              - name: EmbeddingsService
-                href: api-ref/v1alpha/grpc/EmbeddingsService.md
-              - name: TextGenerationAsyncService
-                href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
-              - name: OperationService
-                href: api-ref/v1alpha/grpc/operation_service.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Embeddings/index.md
+                  - name: Embedding
+                    href: api-ref/v1alpha/grpc/Embeddings/embedding.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/v1alpha/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/v1alpha/grpc/Operation/cancel.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/TextGenerationAsync/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/grpc/TextGenerationAsync/instruct.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/TextGeneration/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/grpc/TextGeneration/instruct.md
+                  - name: Chat
+                    href: api-ref/v1alpha/grpc/TextGeneration/chat.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Tokenizer/index.md
+                  - name: Tokenize
+                    href: api-ref/v1alpha/grpc/Tokenizer/tokenize.md
+  - name: '{{ ml-sdk-full-name }}'
+    href: sdk/index.md
   - name: Как создавать промты
     items:
       - name: Обзор
@@ -309,36 +397,46 @@ items:
         href: prompts/yandexart/index.md
       - name: Маркетинг
         items:
-          - name: Реклама сумки
-            href: prompts/yandexart/marketing-accessory.md
-          - name: Реклама еды для собак
-            href: prompts/yandexart/marketing-food.md
-          - name: Идеи дизайна чайника
-            href: prompts/yandexart/marketing-pot.md
-      - name: Иллюстрации для книг и презентаций
+          - name: Изображение для подарочных сертификатов
+            href: prompts/yandexart/marketing-gift-certificate.md
+          - name: Продвижение в социальных сетях
+            href: prompts/yandexart/marketing-social.md
+          - name: Иллюстрация для материалов
+            href: prompts/yandexart/marketing-statue.md
+          - name: Визуальный образ компании
+            href: prompts/yandexart/marketing-visual-key.md
+      - name: Контент
         items:
-          - name: Город будущего
-            href: prompts/yandexart/illustrations-city.md
-          - name: Изображение интерьера
-            href: prompts/yandexart/illustrations-interior.md
-          - name: Изображение природы
-            href: prompts/yandexart/illustrations-nature.md
-      - name: Изображения для социальных сетей
+          - name: Замена стоковых фотографий
+            href: prompts/yandexart/illustration-photo-stock.md
+          - name: Иллюстрация для статьи
+            href: prompts/yandexart/illustrations-article.md
+          - name: Иллюстрация для книги
+            href: prompts/yandexart/illustrations-book.md
+      - name: Бренд-дизайн
         items:
-          - name: Иллюстрация для детей
-            href: prompts/yandexart/social-network-animation.md
-          - name: Изображение мыши-путешественницы
-            href: prompts/yandexart/social-network-cheese.md
-          - name: Изображение электроники
-            href: prompts/yandexart/social-network-electronics.md
-          - name: Обложка для поста
-            href: prompts/yandexart/social-network-spring.md
-      - name: Логотипы и иконки
+          - name: Иконки в фирменном стиле
+            href: prompts/yandexart/brand-design-branded-icons.md
+          - name: Корпоративный мерч
+            href: prompts/yandexart/brand-design-corporate-merch.md
+          - name: Маскот компании
+            href: prompts/yandexart/brand-design-mascot.md
+      - name: Генерация идей
         items:
-          - name: Логотип с птицей
-            href: prompts/yandexart/logo-bird.md
-          - name: Иконка с банком
-            href: prompts/yandexart/logo-bank.md
+          - name: Дизайн кольца
+            href: prompts/yandexart/ideas-ring.md
+          - name: Вымышленные предметы
+            href: prompts/yandexart/ideas-samovar.md
+          - name: Персонаж для игры
+            href: prompts/yandexart/ideas-character.md
+      - name: Интерьерный и архитектурный дизайн
+        items:
+          - name: Предметы декора
+            href: prompts/yandexart/architectural-design-decor.md
+          - name: Концепция экстерьера здания
+            href: prompts/yandexart/architectural-design-exterior.md
+          - name: Дизайн-проект офиса
+            href: prompts/yandexart/architectural-design-office.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -352,3 +450,4 @@ items:
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
 base: ru/foundation-models
+deepBase: 2

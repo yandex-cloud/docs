@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a resource in {{ cdn-full-name }}"
+title: How to get information about a resource in {{ cdn-full-name }}
 ---
 
 # Getting information about a resource
@@ -8,24 +8,24 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your [resource](../../concepts/resource.md).
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. Select a CDN resource.
-   1. The **{{ ui-key.yacloud.common.overview }}** page will show the resource details.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your [resource](../../concepts/resource.md).
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Select a CDN resource.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the resource details.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get information about a [resource](../../concepts/resource.md):
+  1. See the description of the CLI command to get information about a [resource](../../concepts/resource.md):
 
       ```bash
       yc cdn resource get --help
       ```
 
-   1. Get information about the resource by specifying its ID or name:
+  1. Get information about the resource by specifying its ID or name:
 
       ```bash
       yc cdn resource get <resource_ID>
@@ -33,7 +33,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
       Result:
 
-      ```bash
+      ```text
       id: bc8v43fzihmv********
       folder_id: b1ggmp8es27t********
       cname: cdn-res-group.test.com
@@ -63,13 +63,13 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To get information about a [resource](../../concepts/resource.md) using {{ TF }}:
+  To get information about a [resource](../../concepts/resource.md) using {{ TF }}:
 
-   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_cdn_resource" "my_resource" {
@@ -88,9 +88,9 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
       * `output "resource_active"`: Output variable that contains information about the activity status of the CDN resource:
          * `value`: Returned value.
 
-      You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+     You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -102,13 +102,13 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
       Result:
 
-      ```bash
+      ```text
       resource_active = true
       ```
 
 - API {#api}
 
-   To get detailed information about a [resource](../../concepts/resource.md), use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get) gRPC API call.
+  To get detailed information about a [resource](../../concepts/resource.md), use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/Resource/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -118,24 +118,24 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. Select the created CDN resource.
-   1. The **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** section on the **{{ ui-key.yacloud.common.overview }}** page will show a `.edgecdn.ru` domain name generated by the service.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Select the created CDN resource.
+  1. The **{{ ui-key.yacloud.common.overview }}** section on the **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** page will show the `.edgecdn.ru` domain name generated by the service.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get information about a resource:
+  1. See the description of the CLI command to get information about a resource:
 
       ```bash
       yc cdn resource get-provider-cname --help
       ```
 
-   1. Get information about the resource by specifying its ID or name:
+  1. Get information about the resource by specifying its ID or name:
 
       ```bash
       yc cdn resource get-provider-cname
@@ -143,20 +143,20 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
       Result:
 
-      ```bash
+      ```text
       cname: cl-54b75255.edgecdn.ru
       folder_id: b1geoelk7fld*******
       ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To get information about a resource using {{ TF }}:
+  To get information about a resource using {{ TF }}:
 
-   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_cdn_resource" "my_resource" {
@@ -175,9 +175,9 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
       * `output "resource_cname"`: Output variable that contains information about the domain name:
          * `value`: Returned value.
 
-      You can replace `cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+     You can replace `cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -189,7 +189,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
       Result:
 
-      ```bash
+      ```text
       resource_cname = "cl-54b75255.edgecdn.ru"
       ```
 

@@ -5,4 +5,4 @@
 Превышено время выполнения запроса в источнике данных.
 
 
-На уровне сервиса {{ datalens-short-name }} ограничение времени выполнения запроса составляет 90 секунд.
+{% include [datalens-dataset-timeout-note](../../../_includes/datalens/datalens-dataset-timeout-note.md) %}

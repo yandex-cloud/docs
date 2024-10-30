@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ mmg-full-name }}"
-description: "Follow this guide to create and set up a {{ MG }} cluster."
+title: Getting started with {{ mmg-full-name }}
+description: Follow this guide to create and set up a {{ MG }} cluster.
 ---
 
 # Getting started with {{ mmg-name }}
@@ -18,7 +18,7 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mmg.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
    * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
@@ -53,7 +53,7 @@ To get started with the service:
 ## Connect to the DB {#connect}
 
 
-1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Get an SSL certificate:
@@ -63,6 +63,8 @@ To get started with the service:
 1. Connect to the cluster using the {{ MG }} CLI:
 
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
+
+    To learn how to get a host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
 
 ## What's next {#whats-next}
 

@@ -1,5 +1,5 @@
 ---
-title: "How to get information about an origin in {{ cdn-full-name }}"
+title: How to get information about an origin in {{ cdn-full-name }}
 ---
 
 # Getting information about origins
@@ -14,25 +14,25 @@ To get the URL and other details of an origin:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your origin.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
-   1. Select the origin group containing your origin.
-   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin details.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your origin.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+  1. Select the origin group containing your origin.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin details.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get information about an origin:
+  1. See the description of the CLI command to get information about an origin:
 
       ```bash
       yc cdn origin get --help
       ```
 
-   1. Get information about the origin by specifying its ID or name:
+  1. Get information about the origin by specifying its ID or name:
 
       ```bash
       yc cdn origin get <origin_ID>
@@ -52,7 +52,7 @@ To get the URL and other details of an origin:
 
 - API {#api}
 
-   To get detailed information about an origin, use the [get](../../api-ref/Origin/get.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Get](../../api-ref/grpc/origin_service.md#Get) gRPC API call.
+  To get detailed information about an origin, use the [get](../../api-ref/Origin/get.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Get](../../api-ref/grpc/Origin/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -64,25 +64,25 @@ To get the name, set of origins, and other details of an origin group:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your origin group.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
-   1. Select an origin group.
-   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin group details.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your origin group.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+  1. Select an origin group.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin group details.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get information about an origin group:
+  1. See the description of the CLI command to get information about an origin group:
 
       ```bash
       yc cdn origin-group get --help
       ```
 
-   1. Get information about the origin group by specifying its ID or name:
+  1. Get information about the origin group by specifying its ID or name:
 
       ```bash
       yc cdn origin-group get <origin_group_ID>
@@ -90,7 +90,7 @@ To get the name, set of origins, and other details of an origin group:
 
       Result:
 
-      ```bash
+      ```text
       id: "2149********"
       folder_id: b1ggmp8es27t********
       name: test-cdn-group
@@ -115,11 +115,11 @@ To get the name, set of origins, and other details of an origin group:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_cdn_origin_group" "my_group" {
@@ -134,13 +134,13 @@ To get the name, set of origins, and other details of an origin group:
       Where:
 
       * `data "yandex_cdn_origin_group"`: Description of the origin group as a data source:
-         * `origin_group_id`: ID of the origin group.
+        * `origin_group_id`: Origin group ID.
       * `output "my_group_origin"`: Output variable that contains information about the origin group:
-         * `value`: Returned value.
+        * `value`: Returned value.
 
-      You can replace `origin` with any other parameter to get the required information. For more information about the `yandex_cdn_origin_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group).
+      You can replace `origin` with any other parameter to get the information you need. For more information about the `yandex_cdn_origin_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -171,6 +171,6 @@ To get the name, set of origins, and other details of an origin group:
 
 - API {#api}
 
-   To get detailed information about an origin group, use the [get](../../api-ref/OriginGroup/get.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Get](../../api-ref/grpc/origin_group_service.md#Get) gRPC API call.
+  To get detailed information about an origin group, use the [get](../../api-ref/OriginGroup/get.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Get](../../api-ref/grpc/OriginGroup/get.md) gRPC API call.
 
 {% endlist %}

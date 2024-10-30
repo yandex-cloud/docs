@@ -1,6 +1,6 @@
 ---
-title: "What performance analysis tools are available in {{ MG }}"
-description: "In this tutorial, you will learn about performance analysis tools available in {{ MG }}."
+title: What performance analysis tools are available in {{ MG }}
+description: In this tutorial, you will learn about performance analysis tools available in {{ MG }}.
 ---
 
 # Performance analysis tools
@@ -89,7 +89,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 
 - API {#api}
 
-   To view logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To view logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 

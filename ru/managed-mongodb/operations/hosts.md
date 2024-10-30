@@ -40,7 +40,7 @@
 
 - API {#api}
 
-  Чтобы получить список хостов кластера {{ mmg-name }}, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список хостов кластера {{ mmg-name }}, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -199,7 +199,7 @@
 
 - API {#api}
 
-  Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
+  Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
 
@@ -271,7 +271,7 @@
 
 - API {#api}
 
-  Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
+  Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя или массив имен удаляемых хостов в параметре `hostNames`.
 
@@ -285,7 +285,7 @@
 1. Хост перестает принимать запросы на запись. Если хост был первичной репликой (`PRIMARY`), {{ mmg-name }} попытается [сделать его вторичной репликой](https://docs.mongodb.com/manual/reference/method/rs.stepDown/#rs.stepDown) (`SECONDARY`). В случае неудачи операция прерывается.
 1. Инстанс {{ MG }} на хосте останавливается, и все данные удаляются.
 1. Инстанс {{ MG }} снова запускается и заново скачивает данные с хостов-реплик.
-1. После того как хост синхронизировался другими репликами в кластере {{ mmg-name }}, он становится вторичной репликой.
+1. После синхронизации с другими репликами в кластере {{ mmg-name }} хост становится вторичной репликой.
 
    {% note info %}
 
@@ -320,7 +320,7 @@
 
 - API {#api}
 
-  Чтобы запустить ресинхронизацию хоста, воспользуйтесь методом REST API [resetupHosts](../api-ref/Cluster/resetupHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ResetupHosts](../api-ref/grpc/cluster_service.md#ResetupHosts) и передайте в запросе:
+  Чтобы запустить ресинхронизацию хоста, воспользуйтесь методом REST API [resetupHosts](../api-ref/Cluster/resetupHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ResetupHosts](../api-ref/grpc/Cluster/resetupHosts.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
   * Имя хоста в параметре `hostNames`. Чтобы узнать имя, [получите список хостов в кластере](#list-hosts).
 
@@ -344,6 +344,14 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  Чтобы перезагрузить хост:
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+  1. Подтвердите перезагрузку хоста.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -359,7 +367,7 @@
 
 - API {#api}
 
-  Чтобы перезагрузить хост, воспользуйтесь методом REST API [restartHosts](../api-ref/Cluster/restartHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/RestartHosts](../api-ref/grpc/cluster_service.md#RestartHosts) и передайте в запросе:
+  Чтобы перезагрузить хост, воспользуйтесь методом REST API [restartHosts](../api-ref/Cluster/restartHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и передайте в запросе:
   * Идентификатор кластера {{ mmg-name }} в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
   * Имя хоста в параметре `hostNames`. Чтобы узнать имя, [получите список хостов в кластере](#list-hosts).
 

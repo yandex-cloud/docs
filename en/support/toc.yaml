@@ -1,16 +1,11 @@
 title: About technical support
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
-  - name: Technical support procedure
+  - name: Technical support terms
     href: overview.md
   - name: Support Center
     href: support-center.md
-  - name: '{{ yandex-cloud }} notifications'
+  - name: Notifications from {{ yandex-cloud }}
     href: notify.md
   - name: Telegram chat
     href: tg-chat.md
@@ -21,13 +16,8 @@ items:
   - name: Saving browser and server interactions to a HAR file
     href: create-har.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before October 1, 2023
-            href: pricing-archive/pricing01102023.md
+    href: pricing.md
   - name: FAQ
     href: qa.md
 base: en/support
+deepBase: 2

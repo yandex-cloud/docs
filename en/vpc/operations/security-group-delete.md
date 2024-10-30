@@ -1,6 +1,6 @@
 ---
-title: "How to delete a security group"
-description: "Follow this guide to delete a security group."
+title: How to delete a security group
+description: Follow this guide to delete a security group.
 ---
 
 # Delete a security group
@@ -135,7 +135,7 @@ To delete a security group:
 
 - API {#api}
 
-   Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) gRPC API call, and provide the ID of the security group you want to to delete in the `securityGroupId` request parameter.
+   Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/SecurityGroup/delete.md) gRPC API call, and provide the ID of the security group you want to to delete in the `securityGroupId` request parameter.
 
    {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 

@@ -17,13 +17,13 @@
 
     To get a list of container revisions, run this command:
 
-    ```
+    ```bash
     yc serverless container revision list --container-name <container_name>
     ```
 
     Result:
 
-    ```
+    ```text
     +----------------------+----------------------+--------------------------------------------+---------------------+
     |          ID          |     CONTAINER ID     |                   IMAGE                    |     CREATED AT      |
     +----------------------+----------------------+--------------------------------------------+---------------------+
@@ -34,6 +34,6 @@
 
 - API {#api}
 
-   To get a list of container revisions, use the [listRevisions](../../serverless-containers/containers/api-ref/Container/listRevisions.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/ListRevisions](../../serverless-containers/containers/api-ref/grpc/container_service.md#ListRevisions) gRPC API call.
+  To get a list of container revisions, use the [listRevisions](../../serverless-containers/containers/api-ref/Container/listRevisions.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/ListRevisions](../../serverless-containers/containers/api-ref/grpc/Container/listRevisions.md) gRPC API call.
 
 {% endlist %}

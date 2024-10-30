@@ -1,6 +1,6 @@
 ---
-title: "Instructions for businesses on how to create a billing account in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to create a billing account for a business in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
+title: Instructions for businesses on how to create a billing account in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to create a billing account for a business in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents.
 ---
 
 # Getting started for businesses
@@ -11,6 +11,7 @@ description: "In this tutorial, you will learn how to create a billing account f
 
 A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
 
+![quickstart](../../_assets/overview/legal-entity-trial-period.svg)
 
 Provide details to create a billing account.
 

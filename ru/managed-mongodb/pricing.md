@@ -38,7 +38,7 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
-    
+
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя или более хостами, с шагом 93 ГБ.
 
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
@@ -62,7 +62,7 @@ editable: false
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM в редакции `Community Edition`.
+* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
 
 Расчет стоимости для хостов {{ MG }}:
@@ -105,7 +105,7 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-Все цены указаны с включением НДС.
+Все цены включают НДС.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

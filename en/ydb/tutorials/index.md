@@ -1,6 +1,6 @@
 ---
-title: "{{ ydb-full-name }} use cases"
-description: "Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ ydb-full-name }} use cases'
+description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ ydb-name }} tutorials
@@ -19,3 +19,7 @@ description: "Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)
+* [Transmitting {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
+* [{#T}](mkf-yds-stream.md)
+* [{#T}](mkf-ydb-stream.md)
+* [{#T}](terraform-state-lock.md)

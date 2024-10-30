@@ -48,7 +48,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -58,7 +58,7 @@
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/ListHosts](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#ListHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -76,6 +76,6 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#ListClusterHostsResponse).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse).
 
 {% endlist %}

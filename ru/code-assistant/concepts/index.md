@@ -8,6 +8,8 @@
 
 LLM, которые применяются в {{ ca-name }}, дообучены на корпусе общедоступного кода.
 
+Плагин {{ ca-name }} доступен для [Visual Studio Code](https://code.visualstudio.com/) и [IDE от JetBrains](https://www.jetbrains.com/ides/) версий 2024.1 и 2024.2.
+
 {% note info %}
 
 Для работы {{ ca-name }} требуется постоянный доступ в интернет.
@@ -27,4 +29,5 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 ## См. также {#see-also}
 
 * [{#T}](../quickstart.md)
+* [Условия использования сервиса {{ ca-full-name }}](https://yandex.ru/legal/cloud_terms_code_assistant/)
 

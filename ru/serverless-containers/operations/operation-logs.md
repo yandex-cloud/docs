@@ -77,7 +77,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для контейнера воспользуйтесь методом REST API [listOperations](../containers/api-ref/Container/listOperations.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListOperations](../containers/api-ref/grpc/container_service.md#ListOperations).
+  Например, для контейнера воспользуйтесь методом REST API [listOperations](../containers/api-ref/Container/listOperations.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListOperations](../containers/api-ref/grpc/Container/listOperations.md).
 
 {% endlist %}
 
@@ -125,7 +125,7 @@
 
    - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../containers/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../containers/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

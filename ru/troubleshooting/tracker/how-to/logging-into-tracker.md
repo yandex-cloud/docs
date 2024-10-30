@@ -23,7 +23,7 @@
 
     1. Перейдите на главную страницу Яндекса.
     1. Нажмите на свой аватар справа вверху. 
-    1. Выберите **{{ ui-key.startrek.ui_components_navigation.invite-user }}**. 
+    1. Выберите **Добавить пользователя**. 
     1. В открывшемся окне введите ваш логин и пароль.
     1. Перейдите на [страницу {{ tracker-name }}]({{ link-tracker }}).
 
@@ -31,7 +31,7 @@
     
     1. Перейдите по этой [ссылке](https://tracker.yandex.ru/connect/clear_organization?retpath=https://tracker.yandex.ru/hi-there).
     1. Нажмите на свой аватар справа вверху.
-    1. Нажмите на кнопку **{{ ui-key.startrek.ui_components_Gantt.exit }}**. 
+    1. Нажмите на кнопку **Выйти**. 
     1. Перейдите на [страницу {{ tracker-name }}](https://yandex.cloud/ru/services/tracker).
     1. Выберите **Открыть сервис**.
     1. Авторизуйтесь заново.

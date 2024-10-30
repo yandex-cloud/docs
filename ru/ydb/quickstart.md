@@ -1,11 +1,11 @@
 # Как начать работать с {{ ydb-name }}
 
 
-В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/ru) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
+В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с БД в {{ ydb-full-name }} также доступны:
-* [{{ ydb-short-name }} SDK](https://ydb.tech/ru/docs/reference/ydb-sdk/).
-* [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/reference/ydb-cli/).
+* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
+* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
@@ -124,11 +124,11 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
         1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-        1. В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.
-        1. (Опционально) Введите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** подсети.
-        1. Выберите из списка **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** нужную зону.
-        1. Задайте адрес подсети в формате [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-        1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+        1. В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
+        1. (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
+        1. Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
+        1. Задайте адрес подсети в формате [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
      Настойки блока **{{ ui-key.yacloud.ydb.forms.label_section-network }}** нельзя изменить после создания БД.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -257,7 +257,7 @@
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. Чтобы управлять вашими БД из командной строки, [установите](https://ydb.tech/ru/docs/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
+  1. Чтобы управлять вашими БД из командной строки, [установите](https://{{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
   1. Для аутентификации {{ ydb-short-name }} CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
      ```bash
@@ -305,4 +305,4 @@
 
 * Узнайте подробнее о [работе с БД](operations/index.md).
 * Изучите [концепции сервиса](concepts/index.md).
-* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
+* Ознакомьтесь с языком запросов [YQL]({{ ydb.docs }}/yql/reference/).

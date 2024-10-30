@@ -1,6 +1,6 @@
 ---
-title: "{{ api-gw-full-name }} use cases"
-description: "Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}"
+title: '{{ api-gw-full-name }} use cases'
+description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ api-gw-name }} tutorials
@@ -17,3 +17,4 @@ description: "Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}"
 * [{#T}](serverless-live-debug.md)
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)

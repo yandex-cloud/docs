@@ -1,6 +1,6 @@
 ---
-title: "Как управлять заданиями PySpark в {{ dataproc-full-name }}"
-description: "Из статьи вы узнаете, как управлять заданиями PySpark в {{ dataproc-full-name }}."
+title: Как управлять заданиями PySpark в {{ dataproc-full-name }}
+description: Из статьи вы узнаете, как управлять заданиями PySpark в {{ dataproc-full-name }}.
 ---
 
 # Управление заданиями PySpark
@@ -9,7 +9,7 @@ description: "Из статьи вы узнаете, как управлять �
 
 {% note info %}
 
-Если кластер {{ dataproc-name }} [подключен к кластеру {{ metastore-name }}](metastore/dataproc-connect.md), добавьте свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud` в кластер {{ dataproc-name }}. Тогда задания PySpark будут успешно выполнены. Задать свойство можно при [создании](cluster-create.md) или [изменении](cluster-update.md) кластера {{ dataproc-name }}.
+Если кластер {{ dataproc-name }} [подключен к кластеру {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md), добавьте свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud` в кластер {{ dataproc-name }}. Тогда задания PySpark будут успешно выполнены. Задать свойство можно при [создании](cluster-create.md) или [изменении](cluster-update.md) кластера {{ dataproc-name }}.
 
 {% endnote %}
 

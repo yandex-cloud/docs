@@ -48,14 +48,18 @@
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-       
+
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
      * Выберите объем хранилища, который будет использоваться для данных.
 
-  
+
+  1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
+
+     {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
+     
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить брокеры {{ KF }}. Если создать кластер {{ mkf-name }} с одной зоной доступности, в дальнейшем увеличить количество зон и брокеров будет невозможно.
      1. Выберите [сеть](../../vpc/concepts/network.md#network).
@@ -77,14 +81,14 @@
         При выборе количества хостов учтите следующие особенности:
         * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
 
-        
+
         * Если в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выбран тип `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mkf-name }}.
 
 
         * Для отказоустойчивости кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/index.md#fault-tolerance).
         * Добавление в кластер {{ mkf-name }} более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
-     
+
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер {{ mkf-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -115,7 +119,7 @@
 
   1. Укажите параметры кластера {{ mkf-name }} в команде создания (в примере приведены не все параметры):
 
-     
+
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <имя_кластера> \
@@ -129,7 +133,7 @@
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection <защита_от_удаления>
+        --deletion-protection
      ```
 
 
@@ -181,7 +185,7 @@
      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-  
+
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
      ```bash
@@ -209,8 +213,8 @@
 
      Пример структуры конфигурационного файла:
 
-     
-     
+
+
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
        environment         = "<окружение>"
@@ -285,12 +289,12 @@
 
 - API {#api}
 
-  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
   * Имя кластера {{ mkf-name }} в параметре `name`.
   * Версию {{ KF }}: {{ versions.cli.str-without-latest }} — в параметре `configSpec.version`.
 
-  
+
   * Идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в параметре `securityGroupIds`.
 
 
@@ -302,7 +306,7 @@
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
 
 
-  
+
   Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -360,7 +364,7 @@
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection <защита_от_удаления>
+        --deletion-protection
      ```
 
      Где:
@@ -416,7 +420,7 @@
      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-  
+
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
      ```bash
@@ -517,7 +521,7 @@
 
 * API {#api}
 
-  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
 
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
   * Имя кластера {{ mkf-name }} в параметре `name`.
@@ -526,7 +530,7 @@
   * Зоны доступности в параметре `configSpec.zoneId`. Можно указать одну или три зоны доступности.
   * Количество хостов-брокеров в параметре `configSpec.brokersCount`. Если указана одна зона доступности, передайте количество брокеров 3. В случае трех зон доступности укажите количество брокеров 1.
 
-  
+
   * Идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в параметре `securityGroupIds`.
 
 
@@ -538,7 +542,7 @@
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
 
 
-  
+
   Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -652,7 +656,7 @@
 
   Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
 
-  
+
   * С именем `mykf`.
   * В окружении `production`.
   * С {{ KF }} версии 3.5.
@@ -668,7 +672,7 @@
 
   Выполните следующую команду:
 
-  
+
   ```bash
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
@@ -683,7 +687,7 @@
      --disk-type {{ disk-type-example }} \
      --assign-public-ip \
      --security-group-ids {{ security-group }} \
-     --deletion-protection true
+     --deletion-protection
   ```
 
 
@@ -697,7 +701,7 @@
   * С {{ KF }} версии 3.5.
   * В новой сети `mynet` с подсетью `mysubnet`.
 
-  
+
   * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру {{ mkf-name }} из интернета по порту `9091`.
 
 
@@ -709,14 +713,14 @@
 
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
 
-  
-  
+
+
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
     name                = "mykf"
     network_id          = yandex_vpc_network.mynet.id
-    subnet_ids          = yandex_vpc_subnet.mysubnet.id
+    subnet_ids          = [ yandex_vpc_subnet.mysubnet.id ]
     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
     deletion_protection = true
 

@@ -3,26 +3,33 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskType/get.md
 ---
 
-# Compute Cloud API, REST: DiskType.get
+# Compute Cloud API, REST: DiskType.Get {#Get}
+
 Returns the information about specified disk type.
- 
-To get the list of available disk types, make a [list](/docs/compute/api-ref/DiskType/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available disk types, make a [List](/docs/compute/api-ref/DiskType/list#List) request.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-diskTypeId | <p>Required. ID of the disk type to return information about. To get the disk type ID use a <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| diskTypeId | **string**
+
+Required field. ID of the disk type to return information about.
+To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.compute.v1.DiskType}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
@@ -32,9 +39,15 @@ diskTypeId | <p>Required. ID of the disk type to return information about. To ge
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the disk type.</p> 
-description | **string**<br><p>Description of the disk type. 0-256 characters long.</p> 
-zoneIds[] | **string**<br><p>Array of availability zones where the disk type is available.</p> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the disk type. ||
+|| description | **string**
+
+Description of the disk type. 0-256 characters long. ||
+|| zoneIds[] | **string**
+
+Array of availability zones where the disk type is available. ||
+|#

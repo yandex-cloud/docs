@@ -1,9 +1,9 @@
 ---
-title: "Working with {{ AF }} interfaces"
-description: "To work with {{ AF }}, you can use the web interface or the {{ AF }} REST API"
+title: Working with {{ AF }} interfaces
+description: To work with {{ AF }}, you can use the web interface or the {{ AF }} REST API
 keywords:
-  - "Working with {{ AF }} interfaces"
-  - "{{ AF }}"
+  - Working with {{ AF }} interfaces
+  - '{{ AF }}'
   - Airflow
 ---
 

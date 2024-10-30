@@ -3,7 +3,9 @@
 ```bash
 export FOLDER_ID=b1gvmob95yys********
 export IAM_TOKEN=CggaATEVAgA...
-curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
+curl \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
 ```
 
 Результат:

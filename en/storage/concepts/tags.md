@@ -21,13 +21,13 @@ Bucket label operation limits:
 
 * Maximum number of labels per resource: 64.
 * Label key parameters:
-   * It may be up to 63 characters long.
-   * It may contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * It must start with a letter.
+  * It may be up to 63 characters long.
+  * It may contain lowercase Latin letters, numbers, hyphens, and underscores.
+  * Use a letter for the first character.
 * Label value parameters:
-   * It may be up to 63 characters long.
-   * It may contain lowercase Latin letters, numbers, hyphens, and underscores.
-* Labels prefixed with `aws:` in a key are reserved for {{ objstorage-name }}. These labels are not counted in the total number of bucket labels. You cannot delete or modify them.
+  * It may be up to 63 characters long.
+  * It may contain lowercase Latin letters, numbers, hyphens, and underscores.
+* Labels prefixed with `aws:` in the key are reserved for {{ objstorage-name }}. These labels are not counted in the total number of bucket labels. You cannot delete or modify them.
 
 ## Object labels {#object-tags}
 
@@ -35,12 +35,12 @@ Object label operation limits:
 
 * Maximum number of labels per object: 10.
 * Label key parameters:
-   * It may be up to 128 characters long.
-   * It may contain Latin letters, numbers, spaces, and the following characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.
+  * Up to 128 characters long.
+  * May contain Latin letters, numbers, spaces, and these characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.
 * Label value parameters:
-   * It may be up to 256 characters long.
-   * It may contain Latin letters, numbers, spaces, and the following characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.
-* Labels prefixed with `aws:` in a key are reserved for {{ objstorage-name }}. These labels are not counted in the total number of object labels. You cannot delete or modify them.
+  * Up to 256 characters long.
+  * May contain Latin letters, numbers, spaces, and these characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.
+* Labels prefixed with `aws:` in the key are reserved for {{ objstorage-name }}. These labels are not counted in the total number of object labels. You cannot delete or modify them.
 
 #### See also {#see-also}
 

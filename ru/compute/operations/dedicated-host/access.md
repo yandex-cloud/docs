@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к группе выделенных хостов"
-description: "Для группы выделенных хостов {{ compute-name }} вы можете назначить или отозвать права доступа."
+title: Настроить права доступа к группе выделенных хостов
+description: Для группы выделенных хостов {{ compute-name }} вы можете назначить или отозвать права доступа.
 ---
 
 # Настроить права доступа к группе выделенных хостов
@@ -29,7 +29,7 @@ description: "Для группы выделенных хостов {{ compute-n
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для назначения роли на группу выделенных хостов:
 
      ```bash
@@ -78,7 +78,7 @@ description: "Для группы выделенных хостов {{ compute-n
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/host_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -147,7 +147,7 @@ description: "Для группы выделенных хостов {{ compute-n
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/SetAccessBindings](../../api-ref/grpc/host_group_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md).
 
   {% note alert %}
 
@@ -213,6 +213,6 @@ description: "Для группы выделенных хостов {{ compute-n
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/host_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

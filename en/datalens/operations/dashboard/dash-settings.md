@@ -1,6 +1,6 @@
 ---
-title: "How to change the {{ datalens-full-name }} dashboard settings"
-description: "Follow this guide to change the dashboard settings."
+title: How to change the {{ datalens-full-name }} dashboard settings
+description: Follow this guide to change the dashboard settings.
 ---
 
 # Changing dashboard settings

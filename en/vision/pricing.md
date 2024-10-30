@@ -1,12 +1,16 @@
 ---
-title: "Pricing for {{ vision-name }}"
-description: "This article describes {{ vision-short-name }} pricing."
+title: '{{ vision-name }} pricing policy'
+description: This article describes {{ vision-short-name }} pricing.
 editable: false
 ---
 
-# {{ vision-name }} pricing
+# {{ vision-name }} pricing policy
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ vision-short-name }} {#rules}
 

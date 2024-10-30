@@ -30,7 +30,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - API {#api}
 
-   To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/Database/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -110,7 +110,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - API {#api}
 
-   To create a database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+   To create a database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
    * ID of the cluster in which you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -164,7 +164,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - API {#api}
 
-   To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
+   To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and provide the following in the request:
 
    * ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Database name in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
@@ -243,7 +243,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 - API {#api}
 
-   To set the SQL modes you need, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To set the SQL modes you need, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * An array with new {{ MY }} settings in the following parameter:

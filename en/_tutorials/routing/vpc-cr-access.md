@@ -13,20 +13,20 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `cr-nlb` | Internal network load balancer accepts traffic to {{ container-registry-name }}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
 | `nat-group` | Load balancer target group with VMs that have the NAT function enabled. |
 | `s3-nlb` | Internal network load balancer accepts traffic to {{ objstorage-name }}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
-| `nat-a1-vm`, `nat-b1-vm` | VMs with NAT in the `{{ region-id }}-a` and `{{ region-id }}-b` zones for routing traffic to {{ container-registry-name }} and {{ objstorage-name }} with translation of IP addresses of traffic sources and targets, as well as for routing the return traffic. |
-| `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses to which the VPC cloud network translates their internal IP addresses. |
-| `DNS zones and A records` | `{{ s3-storage-host }}.` and `{{ registry }}.` private DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers. |
+| `nat-a1-vm`, `nat-b1-vm` | VMs with NAT in the `{{ region-id }}-a` and `{{ region-id }}-b` zones for routing traffic to {{ container-registry-name }} and {{ objstorage-name }} with translation of IP addresses of traffic sources and targets, as well as for routing the return traffic. | 
+| `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses to which the VPC cloud network translates their internal IP addresses. | 
+| `DNS zones and A records` | The `{{ s3-storage-host }}.` and `{{ registry }}.` internal DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers. |
 | `test-registry` | Registry in {{ container-registry-name }}. |
-| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` is the registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
+| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` stands for registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
 | `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones. |
 | `test-cr-vm` | Test VM to verify access to {{ container-registry-name }}. |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM. |
 
-`*` *When deploying, you can specify an existing cloud network as well*.
+`*` *When deploying, you can also specify an existing cloud network.*
 
 Internal DNS zones are created for the cloud network with hosted resources in [{{ dns-name }}](../../dns/concepts/):
-* `{{ registry }}.` and a type A resource record mapping the `{{ registry }}` domain name of {{ container-registry-name }} to the IP address of the `cr-nlb` [internal network load balancer](../../network-load-balancer/concepts/nlb-types).
-* `{{ s3-storage-host }}.` and a type A resource record mapping the `{{ s3-storage-host }}` domain name of {{ objstorage-short-name }} to the IP address of the `s3-nlb` internal network load balancer.
+* `{{registry}}.` and an A resource record that maps the `{{ registry }}` domain name of {{ container-registry-name }} to the IP address of the `cr-nlb` [internal network load balancer](../../network-load-balancer/concepts/nlb-types). 
+* `{{ s3-storage-host }}.` and an A resource record that maps the `{{ s3-storage-host }}` domain name of {{ objstorage-short-name }} to the IP address of the `s3-nlb` internal network load balancer. 
 
 With these records, traffic from cloud resources to {{ container-registry-short-name }} and {{ objstorage-short-name }} will be routed to internal load balancers that will distribute the load across the NAT instances.
 
@@ -36,7 +36,7 @@ By placing the NAT instances in multiple [availability zones](../../overview/con
 
 Only the cloud resources that use this solution can access the registry. The [registry access policy](../../container-registry/operations/registry/registry-access.md) allows registry actions only from public IP addresses of NAT instances. You cannot access the registry from other IP addresses. You can disable this limitation by specifying a parameter in {{ TF }}, if required.
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint).
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint). 
 
 To deploy a cloud infrastructure to provide access to {{ container-registry-short-name }} for resources located in the {{ vpc-short-name }} cloud network:
 
@@ -86,7 +86,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | Security groups | 1 |
 | DNS zone | 2 |
 | Registry | 1 |
-| Service account | 1 |
+| Service accounts | 1 |
 
 `*` *If you do not specify the ID of an existing network in `terraform.tfvars`.*
 
@@ -101,7 +101,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -116,10 +116,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       yc iam service-account create --name sa-terraform
       ```
 
-      In this command, replace `name` with the name of the service account.
+      Where `name` is the service account name.
 
       Result:
-      ```yaml
+      ```text
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-06-20T09:03:11.665153755Z"
@@ -128,21 +128,20 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - API {#api}
 
-      To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
+      To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
 
    {% endlist %}
 
-1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder:
+1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder: 
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
+      1. In the [management console]({{ link-console-main }}), select the folder where the service account is located.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
+      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog that opens and select the `admin` role.
 
    - CLI {#cli}
 
@@ -155,7 +154,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - API {#api}
 
-      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -172,10 +171,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          --folder-id <ID_of_folder_with_service_account> \
          --output key.json
          ```
-
          Where:
-
-         * `service-account-id`: ID of your service account.
+         * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
@@ -198,7 +195,6 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          ```
 
       1. Set the profile configuration:
-
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
@@ -206,8 +202,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          ```
 
          Where:
-
-         * `service-account-key`: File with the authorized key of the service account.
+         * `service-account-key`: File with the service account authorized key.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
@@ -232,8 +227,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint/) and go to the `yc-cr-private-endpoint` directory:
-
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint/) and go to the `yc-cr-private-endpoint` script folder:
+   
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-cr-private-endpoint.git
    cd yc-cr-private-endpoint
@@ -255,18 +250,18 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Parameter<br>name | Change<br>required | Description | Type | Example |
+   | Parameter<br>name | Needs<br>editing | Description | Type | Example |
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `b1gentmqf1ve9uc54nfh` |
-   | `vpc_id` | - | ID of the cloud network for which access to {{ container-registry-short-name }} is set up. If not specified, such a network will be created. | `string` | `enp48c1ndilt42veuw4x` |
-   | `yc_availability_zones` | - | List of [availability zones](../../overview/concepts/geo-scope) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
+   | `vpc_id` | - | ID of the cloud network for which access to {{ container-registry-short-name }} is set up. If not specified, such network will be created. | `string` | `enp48c1ndilt42veuw4x` |
+   | `yc_availability_zones` | - | List of [availability zones](../../overview/concepts/geo-scope) for deploying NAT instances  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order) | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `2` |
-   | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. If `true`, access is limited. To remove the limit, set `false`. | `bool` | `true` |
-   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ container-registry-short-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
+   | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. `true` means the access is limited. To remove the limit, set `false`. | `bool` | `true` |
+   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ container-registry-short-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | NAT instance and test VM user names | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |
-   | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` |
+   | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` | 
    | `s3_ip` | - | {{ objstorage-short-name }} public IP address | `string` | `213.180.193.243` |
    | `s3_fqdn` | - | {{ objstorage-short-name }} domain name | `string` | `{{ s3-storage-host }}` |
 
@@ -286,7 +281,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform validate
       ```
 
-   1. Check the list of created cloud resources:
+   1. Check the list of cloud resources you are about to create:
 
       ```bash
       terraform plan
@@ -298,11 +293,11 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform apply
       ```
 
-1. Once the `terraform apply` process is completed, the command line will output information required to connect to the test VM and test operations with {{ container-registry-short-name }}. Afterwards, you can view this information by running the `terraform output` command.
+1. Once the `terraform apply` process is completed, the command line will output information required for connecting to the test VM and running test operations with {{ container-registry-short-name }}. Later on, you can view this information by running the `terraform output` command:
 
    {% cut "Viewing information on deployed resources" %}
 
-   | Name | Description | Sample value |
+   | Parameter | Description | Sample value |
    | ----------- | ----------- | ----------- |
    | `cr_nlb_ip_address` | IP address of the internal load balancer for {{ container-registry-short-name }} | `10.10.1.100` |
    | `cr_registry_id` | Registry ID in {{ container-registry-short-name }} | `crp1r4h00mj*********` |
@@ -319,9 +314,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Select **{{ compute-name }}**.
 
-1. Select `test-cr-vm` from the list of VMs.
+1. Select `test-cr-vm` from the list of VM instances.
 
-1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. In the left-hand menu, select ![image](../../_assets/console-icons/terminal.svg)**{{ ui-key.yacloud.compute.instance.switch_console }}**.
 
 1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
 
@@ -333,7 +328,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    dig {{registry}} {{ s3-storage-host }}
    ```
 
-1. Make sure {{ objstorage-name }} and {{ container-registry-name }} domain names in the DNS server response match the IP addresses of the internal load balancers. The output of the type `A` resource records is:
+1. Make sure {{ objstorage-name }} and {{ container-registry-name }} domain names in the DNS server response match the IP addresses of the internal load balancers. The output of the type `A` resource records is as follows:
 
    ```text
    ;; ANSWER SECTION:
@@ -343,7 +338,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    {{ s3-storage-host }}. 300    IN      A       10.10.1.200
    ```
 
-1. View the list of available Docker images:
+1. View the list of available Docker images: 
 
    ```bash
    docker image list
@@ -356,7 +351,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    hello-world   latest    9c7*********   9 months ago   13.3kB
    ```
 
-1. Assign to the Docker image a URL in `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>` format. The registry ID will be obtained from the test VM environment variable:
+1. Assign to the Docker image a URL in this format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>`. The registry ID will be obtained from the test VM environment variable:
 
    ```bash
    docker tag hello-world {{registry}}/$REGISTRY_ID/hello-world:demo
@@ -374,10 +369,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% note info %}
 
-   You can only push Docker images to {{ container-registry-short-name }} if they have a URL in `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>` format.
+   You can only push Docker images to {{ container-registry-short-name }} if they have a URL in this format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>`.
 
    {% endnote %}
-
 
 1. Push the required Docker image to the registry:
 
@@ -388,7 +382,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    Result:
    ```text
    The push refers to repository [{{registry}}/crp1r4h00mj*********/hello-world]
-   01bb4*******: Pushed
+   01bb4*******: Pushed 
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
 
@@ -396,32 +390,32 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Select **{{ container-registry-name }}**.
 
-1. Select `test-registry`.
+1. Select the `test-registry` registry.
 
 1. Make sure the `hello-world` repository with the Docker image appears in the registry.
 
-## Recommendations for solution deployment in the production environment {#deployment-requirements}
+## Tips for deployment in the production environment {#deployment-requirements}
 
 * When deploying NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
-* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter in the pre-scheduled period of time only. While applying changes, traffic handling may be interrupted.
-* If you see a high `CPU steal time` metric value inside a NAT instance as the {{ container-registry-name }} load grows, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
-* If you are using your own DNS server, create `A` resource records in its settings in the following format:
+* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only in the pre-scheduled period of time. While applying changes, traffic handling may be interrupted.
+* If the `CPU steal time` metric of a NAT instance shows a high value as the {{ container-registry-name }} load goes up, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
+* If you are using your own DNS server, create type `A` resource records in its settings in the following format:
 
    | Name | Type | Value |
    | ----------- | ----------- | ----------- |
-   | `{{registry}}.` | `A` | `<IP address of the internal load balancer for {{ container-registry-name }} from the terraform output cr_nlb_ip_address> command output` |
-   | `{{ s3-storage-host }}.` | `A` | `<IP address of the internal load balancer for {{ objstorage-name }} from the terraform output s3_nlb_ip_address> command output` |
+   | `{{registry}}.` | `A` | `<IP address of the internal load balancer for {{ container-registry-name }} from the `terraform output cr_nlb_ip_address` command output>` |
+   | `{{ s3-storage-host }}.` | `A` | `<IP address of the internal load balancer for {{ objstorage-name }} from the `terraform output s3_nlb_ip_address` command output>` |
 
 * Save the `pt_key.pem` private SSH key used to connect to the NAT instances to a secure location or recreate it separately from {{ TF }}.
-* Once the solution is deployed, SSH access to the NAT instances will be denied. To enable access to the NAT instances over SSH, add a rule for incoming SSH traffic (`TCP/22`) in the `cr-nat-sg` [security group](../../vpc/concepts/security-groups.md) to allow access only from certain IP addresses of admin workstations.
-* After performance check, delete the test VM and its subnet.
+* Once the solution is deployed, SSH access to the NAT instances will be denied. To enable access to the NAT instances over SSH, add a rule for incoming SSH traffic (`TCP/22`) in the `cr-nat-sg` [security group](../../vpc/concepts/security-groups.md) to enable access only from certain IP addresses of admin workstations.
+* After a performance check, delete the test VM and its subnet.
 
 ## Delete the resources you created {#clear-out}
 
 1. In the [management console]({{ link-console-main }}), go to the folder where the resources were created.
 1. Select **{{ container-registry-name }}**.
-1. Select `test-registry`.
+1. Select the `test-registry` registry.
 1. Select the `hello-world` repository.
 1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.

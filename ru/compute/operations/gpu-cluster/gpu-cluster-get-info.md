@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о кластере GPU в {{ compute-full-name }}"
+title: Как получить информацию о кластере GPU в {{ compute-full-name }}
 ---
 
 # Получить информацию о кластере GPU
@@ -26,9 +26,9 @@ title: "Как получить информацию о кластере GPU в 
       ```bash
       yc compute gpu-cluster get --help
       ```
-      
+
   1. Получите информацию о кластере GPU, указав его имя или идентификатор:
-      
+
       ```bash
       yc compute gpu-cluster get <имя_кластера_GPU>
       ```
@@ -72,7 +72,7 @@ title: "Как получить информацию о кластере GPU в 
       * `output "gpu_cluster"` — выходная переменная, которая содержит информацию о зоне доступности кластера GPU:
         * `value` — возвращаемое значение.
 
-     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_gpu_cluster` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_gpu_cluster).
+     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_gpu_cluster` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_gpu_cluster).
 
   1. Создайте ресурсы:
 
@@ -92,6 +92,6 @@ title: "Как получить информацию о кластере GPU в 
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [кластере GPU](../../concepts/gpus.md#gpu-clusters), воспользуйтесь методом REST API [get](../../api-ref/GpuCluster/get.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md), или вызовом gRPC API [GpuClusterService/Get](../../api-ref/grpc/gpu_cluster_service.md#Get).
+  Чтобы получить подробную информацию о [кластере GPU](../../concepts/gpus.md#gpu-clusters), воспользуйтесь методом REST API [get](../../api-ref/GpuCluster/get.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md), или вызовом gRPC API [GpuClusterService/Get](../../api-ref/grpc/GpuCluster/get.md).
 
 {% endlist %}

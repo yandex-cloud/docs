@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства для построения Data Platform на базе {{ yandex-cloud }}"
-description: "На странице представлен список практических руководств для построения Data Platform на базе {{ yandex-cloud }} с применением различных СУБД."
+title: Практические руководства для построения Data Platform на базе {{ yandex-cloud }}
+description: На странице представлен список практических руководств для построения Data Platform на базе {{ yandex-cloud }} с применением различных СУБД.
 ---
 
 # Построение Data Platform на базе {{ yandex-cloud }}
@@ -106,6 +106,7 @@ description: "На странице представлен список прак
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
+* [{#T}](opensearch-saml-keycloak.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -157,6 +158,7 @@ description: "На странице представлен список прак
 * [{#T}](data-proc-init-actions-geesefs.md)
 * [{#T}](data-proc-and-kafka.md)
 * [{#T}](data-proc-and-airflow.md)
+* [{#T}](dataproc-to-dataproc.md)
 * [{#T}](metastore-import.md)
 
 

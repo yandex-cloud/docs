@@ -13,7 +13,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
-  
+
   1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 
 
@@ -224,7 +224,7 @@
 
 - API {#api}
 
-  Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
+  Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster).
 
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
@@ -238,7 +238,7 @@
 
 ### Создание зонального кластера {{ managed-k8s-name }} {#example-zonal-cluster}
 
-  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+ Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-zonal`.
   * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `{{ tf-folder-id }}`.
@@ -253,7 +253,7 @@
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * [Группа безопасности](../../../vpc/concepts/security-groups.md) — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
 
-  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
 {% list tabs group=instructions %}
 
@@ -389,7 +389,7 @@
 
 ### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
 
-  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-regional`.
   * Идентификатор каталога — `{{ tf-folder-id }}`.
@@ -414,7 +414,7 @@
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * Группа безопасности — `regional-k8s-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
-  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
 {% list tabs group=instructions %}
 

@@ -14,18 +14,18 @@
    * Select the [disk type](../concepts/disk.md#disks_types).
    * Specify the required disk size.
 
-   
+
    * {% include [encryption-section-boot](../../_includes/compute/encryption-section-boot.md) %}
 
 
      If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../operations/vm-create/create-from-disks.md):
-     * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+     * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * Enter the disk name.
      * Select the [disk type](../concepts/disk.md#disks_types).
      * Specify the required block size.
      * Specify the required disk size.
 
-     
+
      * {% include [encryption-section-secondary](../../_includes/compute/encryption-section-secondary.md) %}
 
 

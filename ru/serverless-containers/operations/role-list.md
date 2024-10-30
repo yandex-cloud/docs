@@ -1,6 +1,6 @@
 ---
-title: "Как посмотреть роли, назначенные на контейнер"
-description: "Следуя данной инструкции, вы сможете посмотреть роли, назначенные на контейнер."
+title: Как посмотреть роли, назначенные на контейнер
+description: Следуя данной инструкции, вы сможете посмотреть роли, назначенные на контейнер.
 ---
 
 # Посмотреть роли, назначенные на контейнер
@@ -33,6 +33,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы посмотреть роли, назначенные на контейнер, воспользуйтесь методом REST API [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListAccessBindings](../containers/api-ref/grpc/container_service.md#ListAccessBindings).
+  Чтобы посмотреть роли, назначенные на контейнер, воспользуйтесь методом REST API [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListAccessBindings](../containers/api-ref/grpc/Container/listAccessBindings.md).
 
 {% endlist %}

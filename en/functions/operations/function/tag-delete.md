@@ -1,6 +1,6 @@
 ---
-title: "Removing a function version tag"
-description: "Follow this guide to remove a function version tag."
+title: Removing a function version tag
+description: Follow this guide to remove a function version tag.
 ---
 
 # Removing a function version tag
@@ -103,7 +103,7 @@ description: "Follow this guide to remove a function version tag."
 
 - API {#api}
 
-   To remove a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/function_service.md#RemoveTag) gRPC API call.
+   To remove a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

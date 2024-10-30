@@ -1,7 +1,6 @@
 # How to restrict access to a bucket for a user
 
 
-
 ## Scenario description {#case-description}
 
 You need to restrict access to the bucket for another user or a service account.

@@ -11,8 +11,7 @@
 * У вас есть право доступа `{{ permission-admin }}` на публикуемые чарты, дашборды и связанные с ними объекты.
 * Ваши чарты и дашборды не содержат персональных данных или коммерческой тайны. Доступ к опубликованным данным неограничен.
 * Подключение, поверх которого построены объекты, поддерживает публикацию данных. Нельзя публиковать данные из следующих подключений:
-
-  * [Google BigQuery](../operations/connection/create-big-query.md)
+  
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)

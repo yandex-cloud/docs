@@ -1,8 +1,8 @@
 * Чтобы выбрать поля, которые вы хотите видеть в таблице списка задач слева от диаграммы, нажмите значок ![](../../_assets/tracker/svg/settings-old.svg). Отметьте нужные пункты и нажмите **Применить**.
 
-* Чтобы найти задачи в списке, в поле **{{ ui-key.startrek.ui_components_filter-pane.search-placeholder }}** введите текст.
+* Чтобы найти задачи в списке, в поле **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.search-placeholder }}** введите текст.
 
-* Чтобы настроить порядок отображения в списке, нажмите ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_SortButton.default-title }}**, укажите параметр и нажмите ![](../../_assets/tracker/svg/new-first.svg). В этом случае ручное перемещение задач станет недоступно.
+* Чтобы настроить порядок отображения в списке, нажмите ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_Common_smart-components_SortButton.default-title }}**, укажите параметр и нажмите ![](../../_assets/tracker/svg/new-first.svg). В этом случае ручное перемещение задач станет недоступно.
 
 * Чтобы сгруппировать задачи по статусу, исполнителю или другим параметрам, нажмите кнопку ![](../../_assets/tracker/svg/group.svg)&nbsp;**Без группировки** и выберите подходящий вариант из списка.
 
@@ -14,7 +14,7 @@
 
 * Чтобы скрыть блок со списком задач, нажмите на значок ![](../../_assets/tracker/svg/close-block.svg).
 
-* Чтобы изменить вид списка задач, выберите ![](../../_assets/tracker/svg/flat-list.svg)&nbsp;**{{ ui-key.startrek.ui_components_filter-pane.list-mode-flat }}** или ![](../../_assets/tracker/svg/tree-list.svg)&nbsp;**{{ ui-key.startrek.ui_components_filter-pane.list-mode-tree }}**.{#trees}
+* Чтобы изменить вид списка задач, выберите ![](../../_assets/tracker/svg/flat-list.svg)&nbsp;**{{ ui-key.startrek.ui_Common_smart-components_filter-pane.list-mode-flat }}** или ![](../../_assets/tracker/svg/tree-list.svg)&nbsp;**{{ ui-key.startrek.ui_Common_smart-components_filter-pane.list-mode-tree }}**.{#trees}
 
      {% note info %}
 
@@ -26,7 +26,7 @@
 
    В режиме древовидного списка можно создавать новые подзадачи или изменять связи для подзадач:
 
-   * Чтобы создать подзадачу, напротив задачи нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.ui_components_projects_Table.add-sub-issue }}**:
+   * Чтобы создать подзадачу, напротив задачи нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **Добавить подзадачу**:
 
       * Чтобы создать новую задачу, перейдите на вкладку **Новая задача**. Введите название и нажмите клавишу **Enter**.
       * Если задача уже существует, перейдите на вкладку **Существующая задача** и укажите ее ключ или название, затем выберите задачу из списка. Найти ключ можно на странице задачи над ее названием (например, `TEST-1234`).
@@ -37,6 +37,6 @@
 
    {% note info %}
 
-   Ручное перемещение задач доступно, если в поле **{{ ui-key.startrek.ui_components_SortButton.default-title }}** не выбран параметр сортировки. По умолчанию для списка задач выбран ручной режим сортировки: вы можете перетаскивать задачи в списке. 
+   Ручное перемещение задач доступно, если в поле **{{ ui-key.startrek.ui_Common_smart-components_SortButton.default-title }}** не выбран параметр сортировки. По умолчанию для списка задач выбран ручной режим сортировки: вы можете перетаскивать задачи в списке. 
 
    {% endnote %}

@@ -1,7 +1,7 @@
-The auto replacement rules are as follows:
+The autocorrect rules are as follows:
 
-* Empty keys or keys that consist of spaces and periods are replaced with underscores: `""`, `" "`, `"."` → `"_"`.
-* Periods at the beginning and end of a key are removed: `"somekey."`, `".somekey"` → `"somekey"`.
-* If there are two periods in a row or there is a space between them, the entire fragment is replaced with a period: `" some . . key"` → `" some . key"`.
+* Empty keys or keys consisting of spaces and periods will be replaced with underscores: `""`, `" "`, `"."` → `"_"`.
+* Leading and trailing periods will be removed: `"somekey."`, `".somekey"` → `"somekey"`.
+* If there are two periods in a row or there is nothing but spaces between them, the entire fragment will be replaced with a period: `" some . . key"` → `" some . key"`.
 
-E.g., `". s o m e  ..incorrect....key.    . . "` → `" s o m e  .incorrect.key"`.
+Here is an example of how the autocorrect works: `". s o m e  ..incorrect....key.    . . "` → `" s o m e  .incorrect.key"`.

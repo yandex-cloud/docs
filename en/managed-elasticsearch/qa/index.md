@@ -1,6 +1,6 @@
 ---
-title: "{{ mes-name }}. Questions and answers"
-description: "How do I get the logs of my activity in Yandex Managed Service for Elasticsearch? Find the answer to this and other questions in this article."
+title: '{{ mes-name }}. Questions and answers'
+description: How do I get the logs of my activity in Yandex Managed Service for Elasticsearch? Find the answer to this and other questions in this article.
 ---
 
 # Questions and answers about {{ mes-short-name }}

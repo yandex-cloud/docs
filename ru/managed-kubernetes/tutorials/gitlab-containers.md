@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/gitlab-containers"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/gitlab-containers'
 ---
 
 # Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}

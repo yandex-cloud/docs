@@ -1,6 +1,6 @@
 ---
-title: "Updating an API gateway"
-description: "Follow this guide to update an API gateway."
+title: Updating an API gateway
+description: Follow this guide to update an API gateway.
 ---
 
 # Updating an API gateway
@@ -136,7 +136,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
 - API {#api}
 
-   To change the API gateway name, description, or specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+   To change the API gateway name, description, or specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

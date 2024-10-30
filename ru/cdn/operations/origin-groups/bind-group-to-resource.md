@@ -143,7 +143,7 @@
 
      Пример структуры конфигурационного файла:
 
-     
+
      ```
      provider "yandex" {
        token     = "<OAuth-токен>"
@@ -174,7 +174,7 @@
 
 - API {#api}
 
-  Чтобы подключить группу источников при создании ресурса, воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+  Чтобы подключить группу источников при создании ресурса, воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/Resource/create.md).
 
 {% endlist %}
 
@@ -361,7 +361,7 @@
 
 - API {#api}
 
-  Чтобы подключить группу источников при изменении настроек ресурса, воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update).
+  Чтобы подключить группу источников при изменении настроек ресурса, воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/Resource/update.md).
 
 {% endlist %}
 

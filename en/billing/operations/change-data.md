@@ -42,11 +42,12 @@ You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's conta
 ## Changing a business or TIN {#change-legal-entity}
 
 You cannot change a business or TIN in the billing account settings. If these details have changed:
-1. [Create](create-new-account.md) a billing account with new details by selecting **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}** as the payer type.
+1. [Create](create-new-account.md) a billing account with new details by selecting **Legal entity or individual entrepreneur** as the payer type.
 1. Wait until the billing account is activated to avoid downtime of resources.
 1. Transfer all clouds from the old billing account to the new one. All you have to do is [link](pin-cloud.md) them to the new billing account.
 
 ##### See also
 
+* [Linking a different bank card](pin-card.md)
 * [Changing the payment method](change-payment-method.md)
 * [Configuring notifications](budgets.md)

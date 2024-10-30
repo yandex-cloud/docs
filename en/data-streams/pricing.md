@@ -1,12 +1,16 @@
 ---
-title: "{{ yds-full-name }} pricing policy"
-description: "This article describes the {{ yds-name }} pricing policy."
+title: '{{ yds-full-name }} pricing policy'
+description: This article describes the {{ yds-name }} pricing policy.
 editable: false
 ---
 
 # {{ yds-full-name }} pricing policy
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {{ yds-name }} supports two pricing modes:
 
@@ -57,7 +61,7 @@ The price is specified for one hour of using allocated resources:
 
 
 
-#### Data storage price with segment throughput limit of up to 1 MB/s {#up-to-1}
+#### Data storage with throughput limit per segment of up to 1 MB/s {#up-to-1}
 
 
 

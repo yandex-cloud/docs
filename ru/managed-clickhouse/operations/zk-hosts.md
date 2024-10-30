@@ -38,6 +38,7 @@
   1. Укажите [класс хостов](../concepts/instance-types.md).
   1. Задайте настройки хранилища.
   1. При необходимости измените настройки хостов {{ ZK }}. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
+  1. Для преобразования нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables) включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -63,6 +64,8 @@
      ```
 
      Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям.
+
+     Для преобразования нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables) добавьте в команду параметр `--convert-tables-to-replicated`.
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -184,7 +187,11 @@
 
 - API {#api}
 
-  Чтобы включить отказоустойчивость для кластера, воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddZookeeper](../api-ref/grpc/cluster_service.md#AddZookeeper). При добавлении укажите настройки для трех хостов {{ ZK }}, перечислив их в параметре `hostSpecs`.
+  Чтобы включить отказоустойчивость для кластера, воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и передайте в запросе:
+
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Настройки для трех хостов {{ ZK }} в параметре `hostSpecs`.
+  * Необходимость преобразования нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables) в параметре `convertTablesToReplicated`.
 
 {% endlist %}
 
@@ -222,7 +229,7 @@
        yc vpc subnet list
        ```
 
-       
+
        Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 
@@ -274,7 +281,7 @@
 
 - API {#api}
 
-  Чтобы добавить хост {{ ZK }}, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
+  Чтобы добавить хост {{ ZK }}, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
   * Идентификатор кластера, в котором нужно разместить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки для хоста в параметре `hostSpecs` (в том числе укажите тип `ZOOKEEPER` в параметре `hostSpecs.type`). Не указывайте настройки для нескольких хостов в этом параметре — хосты {{ ZK }} добавляются в кластер по одному, в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
 
@@ -330,7 +337,7 @@
 
 - API {#api}
 
-  Чтобы удалить хост {{ ZK }}, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
+  Чтобы удалить хост {{ ZK }}, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
   * Идентификатор кластера, в котором находится хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя хоста в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list-hosts).
 

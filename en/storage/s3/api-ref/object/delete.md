@@ -2,35 +2,36 @@
 
 Deletes an object.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}/{key} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. |
+`bucket` | Bucket name.
+`key` | Object key.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `versionId` | Link to a specific version of the object. |
+`versionId` | Link to a specific version of the object.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 Moreover, if a [lock](../../../concepts/object-lock.md) with governance-mode retention is set for an object version in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
 
-| Header | Description |
+Header | Description
 --- | ---
-| `X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Enter `true`. |
+`X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Set it to `true`.
 
 
 ## Response {#response}

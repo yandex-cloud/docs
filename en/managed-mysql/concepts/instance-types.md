@@ -1,6 +1,6 @@
 ---
-title: "{{ mmy-name }} host classes"
-description: "The host class determines the computing power allocated for each host in a MySQL cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
+title: '{{ mmy-name }} host classes'
+description: The host class determines the computing power allocated for each host in a MySQL cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
 ---
 
 # {{ MY }} host classes

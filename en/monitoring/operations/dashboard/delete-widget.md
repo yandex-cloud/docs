@@ -1,6 +1,6 @@
 ---
-title: "How to delete widgets from dashboards in {{ monitoring-full-name }}"
-description: "Follow this guide to delete a widget from a dashboard."
+title: How to delete widgets from dashboards in {{ monitoring-full-name }}
+description: Follow this guide to delete a widget from a dashboard.
 ---
 
 # Deleting widgets from a dashboard

@@ -1,6 +1,6 @@
 ---
-title: "Departments"
-description: "In this block, you can specify an organization's department in {{ org-full-name }}. Department names will be suggested to you as you type. For example, you can use this block in a form requesting a vacancy to be opened in a specific department."
+title: Departments
+description: In this block, you can specify an organization's department in {{ org-full-name }}. Department names will be suggested to you as you type. For example, you can use this block in a form requesting a vacancy to be opened in a specific department.
 ---
 
 # Departments

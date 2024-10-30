@@ -1,6 +1,6 @@
 ---
-title: "Deleting an ARL profile"
-description: "Follow this guide to delete an ARL profile."
+title: Deleting an ARL profile
+description: Follow this guide to delete an ARL profile.
 ---
 
 # Deleting an ARL profile

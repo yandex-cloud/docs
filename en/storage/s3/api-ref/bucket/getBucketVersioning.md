@@ -2,23 +2,25 @@
 
 Returns the bucket versioning status.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
-```
+```http
 GET /{bucket}?versioning HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `versioning` | Required parameter that indicates the type of operation. |
+`versioning` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 Use [common request headers](../common-request-headers.md) in your requests.
@@ -43,9 +45,9 @@ A successful response contains additional data in XML format with the schema des
 </VersioningConfiguration>
 ```
 
-| Element | Description |
+Element | Description
 ----- | -----
-| `VersioningConfiguration` | Root element. |
-| `Status` | Status of the bucket versioning option.<br/><br/>Path:`/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended` |
+`VersioningConfiguration` | Root element.
+`Status` | Bucket versioning status.<br/><br/>Path: `/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended`
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

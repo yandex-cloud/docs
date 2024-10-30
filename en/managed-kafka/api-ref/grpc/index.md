@@ -1,16 +1,20 @@
 ---
-sourcePath: en/_api-ref-grpc/managed-kafka/api-ref/grpc/index.md
+editable: false
+sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/index.md
 ---
+
 # Managed Service for Apache Kafka® API: gRPC reference
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
---- | ---
-[ClusterService](./cluster_service.md) | A set of methods for managing Apache Kafka® clusters.
-[ConnectorService](./connector_service.md) | A set of methods for managing Apache Kafka® connectors.
-[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing Kafka resource presets.
-[TopicService](./topic_service.md) | A set of methods for managing Kafka topics.
-[UserService](./user_service.md) | A set of methods for managing Kafka users.
-[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
+#|
+||Service | Description ||
+|| [Cluster](Cluster/index.md) | A set of methods for managing Apache Kafka® clusters. ||
+|| [Connector](Connector/index.md) | A set of methods for managing Apache Kafka® connectors. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing Kafka resource presets. ||
+|| [Topic](Topic/index.md) | A set of methods for managing Kafka topics. ||
+|| [User](User/index.md) | A set of methods for managing Kafka users. ||
+|#

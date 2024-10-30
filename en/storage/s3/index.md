@@ -1,6 +1,6 @@
 ---
-title: "How do I use the S3 API? {{ objstorage-name }}"
-description: "In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests."
+title: How do I use the {{ objstorage-name }} S3 API?
+description: In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
 keywords:
   - s3
   - s3 storage
@@ -21,7 +21,9 @@ To use the API:
 
 To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
 
+
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
@@ -57,7 +59,7 @@ Host: <bucket_name>.{{ s3-storage-host }}
 
 The set of headers depends on the specific request and is described in the documentation for the corresponding request.
 
-If you use the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for authenticating requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+When using the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
 {% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
 
@@ -70,7 +72,7 @@ URLs can take one of the following forms:
 
 {% note info %}
 
-For buckets that have full stops in their names, e.g., `example.ru`, HTTPS is available only with a URL in the `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL in `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 
@@ -82,6 +84,6 @@ The URL contains the bucket name, object key, and query parameters. See an examp
 
 [Cross-domain requests](../concepts/cors.md) are available for all API methods used for object management.
 
-To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to a resource. {{ objstorage-name }} allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.
+To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to the resource. {{ objstorage-name }} allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.
 
 {% include [the-s3-api-see-also-include](../../_includes/storage/the-s3-api-see-also-include.md) %}

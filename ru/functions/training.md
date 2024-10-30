@@ -1,6 +1,6 @@
 ---
-title: "Обучающие курсы по {{ sf-full-name }}"
-description: "В этом разделе собраны обучающие курсы по {{ sf-full-name }}."
+title: Обучающие курсы по {{ sf-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ sf-full-name }}.
 ---
 
 # Обучающие курсы по {{ sf-full-name }}

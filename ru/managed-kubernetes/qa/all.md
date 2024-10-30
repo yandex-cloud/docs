@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ managed-k8s-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ managed-k8s-name }}."
+title: Вопросы и ответы про {{ managed-k8s-full-name }}
+description: На странице представлены вопросы и ответы про {{ managed-k8s-name }}.
 ---
 
 # Вопросы и ответы про {{ managed-k8s-name }}

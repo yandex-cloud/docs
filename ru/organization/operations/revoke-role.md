@@ -6,21 +6,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
-  
-  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-  
-  1. Нажмите значок ![cross](../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
@@ -84,7 +72,9 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
@@ -125,10 +115,12 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \ 
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

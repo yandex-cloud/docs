@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ container-registry-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ container-registry-name }}."
+title: Вопросы и ответы про {{ container-registry-full-name }}
+description: На странице представлены вопросы и ответы про {{ container-registry-name }}.
 ---
 
 # Вопросы и ответы про {{ container-registry-name }}

@@ -1,6 +1,6 @@
 ---
-name: "How to copy objects from {{ objstorage-full-name }} buckets"
-description: "In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}."
+name: How to copy objects from a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}.
 ---
 
 # Copying objects
@@ -25,8 +25,8 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run this command:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -44,7 +44,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 {% endlist %}
 
@@ -54,8 +54,8 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run this command:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -68,15 +68,16 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       * `s3 cp`: Copy object command.
       * `--recursive`: Parameter for copying all objects from the source bucket.
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
-   All objects from the source bucket will be copied to the target bucket.
+  All objects from the source bucket will be copied to the target bucket.
 
-   {% note info %}
+  {% note info %}
 
-   You can copy objects between buckets either within a single cloud or between different clouds. To do this, make sure your [service account](../../../iam/concepts/users/service-accounts.md) has write permissions for both buckets.
+  You can copy objects between buckets either within a single cloud or between different clouds. To do this, make sure your [service account](../../../iam/concepts/users/service-accounts.md) has write permissions for both buckets.
 
-   {% endnote %}
+  {% endnote %}
+
 
 {% endlist %}
 
@@ -88,9 +89,9 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 
 - AWS CLI {#cli}
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md) for each organization.
-   1. Make sure that the profiles for the source and target service accounts are listed in the `~/.aws/credentials` file.
-   1. Set the target bucket's [access control list (ACL)](../../concepts/acl.md) with full access permissions granted to the source bucket's service account:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md) for each organization.
+  1. Make sure the profiles for the source and target service accounts are listed in the `~/.aws/credentials` file.
+  1. Set the target bucket's [access control list (ACL)](../../concepts/acl.md) with full access permissions granted to the source bucket's service account:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -104,9 +105,9 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--profile`: Name of the profile in the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the target bucket.
       * `--bucket`: Target bucket name.
-      * `--grant-full-control`: Parameter for granting the source bucket's service account access to the target bucket. Specify the service account ID of the organization from which the objects are copied.
+      * `--grant-full-control`: Grants the source bucket service account access to the target bucket. Specify the service account ID of the organization from which the objects are copied.
 
-   1. Copy the objects:
+  1. Copy the objects:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -129,6 +130,6 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 {% endlist %}

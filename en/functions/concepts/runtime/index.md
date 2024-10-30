@@ -1,6 +1,6 @@
 ---
-title: "Runtime environment. Overview"
-description: "You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration."
+title: Runtime environment. Overview
+description: You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
 ---
 
 # Runtime environment. Overview
@@ -24,7 +24,7 @@ The runtime environment is updated while relevant language version updates are r
 
 Runtime environments available in {{ sf-name }}.
 
-| Name | ID | Preloaded | Supported by the service |
+| First name | ID | Preloaded | Supported by |
 | ---- | ---- | ---- | ---- |
 | **Node.js** |  |  |
 | Node.js 10 | `nodejs10` | No | No |
@@ -69,8 +69,10 @@ Runtime environments available in {{ sf-name }}.
 
 Each function instance is allocated CPU and RAM resources based on the following ratios:
 
-| RAM | CPU |
+RAM | CPU
 --- | ---
-| 128 MB to less than 2 GB | 1 vCPU core with a guaranteed vCPU share of up to 100%, proportional to RAM |
-| 2 GB to less than 4 GB | 1 vCPU core with a guaranteed vCPU share of 100% |
-| 4 GB | 2 vCPU cores with a guaranteed vCPU share of 100% |
+128 MB to less than 2 GB | 1 vCPU core with a guaranteed vCPU share of up to 100%, proportional to RAM
+2 GB to less than 4 GB | 1 vCPU core with a guaranteed vCPU share of 100%
+4 GB to less than 6 GB | 2 vCPU cores with a guaranteed vCPU share of 100%
+6 GB to less than 8 GB | 3 vCPU cores with a guaranteed vCPU share of 100%
+8 GB | 4 vCPU cores with a guaranteed vCPU share of 100%

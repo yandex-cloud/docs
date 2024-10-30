@@ -50,7 +50,7 @@
     * `output "resource_active"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
         * `value` — возвращаемое значение.
 
-    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_image).
+    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_image).
 
 1. Создайте ресурсы:
 

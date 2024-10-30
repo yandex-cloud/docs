@@ -1,12 +1,12 @@
 ---
-title: "Access to {{ mgp-name }}"
-description: "To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources."
+title: Access to {{ mgp-name }}
+description: To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 keywords:
   - access
   - configuring access
-  - "access to {{ GP }}"
+  - '{{ GP }} access'
   - green plum
-  - "{{ GP }}"
+  - '{{ GP }}'
 ---
 
 # Access management in {{ mgp-name }}
@@ -20,7 +20,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-greenplum.admin`, or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 

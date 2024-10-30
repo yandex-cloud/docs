@@ -14,88 +14,88 @@ To push a Helm chart:
 
 - CLI {#cli}
 
-   1. [Install](https://helm.sh/docs/intro/install/) Helm 3.7.1 or higher.
+  1. [Install](https://helm.sh/docs/intro/install/) the Helm client version 3.8.0 or higher.
 
-      {% note info %}
+     {% note info %}
 
-      When installing Helm, environment variables are not updated automatically. To execute `helm` commands, run them in the installation directory or manually add Helm to environment variables.
+     When installing Helm, environment variables are not updated automatically. To run `helm` commands, use the installation directory or manually add Helm to environment variables.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
+  1. If you are using a Helm version below 3.8.0, enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
 
-      ```bash
-      export HELM_EXPERIMENTAL_OCI=1
-      ```
-
-   
-   1. Authenticate your Helm client in the {{ container-registry-name }} [registry](../../concepts/registry.md) using one of the available methods.
-      * With an OAuth token:
-         1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-         1. Run this command:
-
-            ```bash
-            helm registry login {{ registry }} -u oauth
-            Password: <OAuth token>
-            ```
-
-      * Using an {{ iam-full-name }} token:
-         1. [Get an {{ iam-name }} token](../../../iam/operations/iam-token/create.md).
-         1. Run this command:
-
-            ```bash
-            helm registry login {{ registry }} -u iam
-            Password: <IAM token>
-            ```
-
-      Result:
-
-      ```text
-      Login succeeded
-      ```
+     ```bash
+     export HELM_EXPERIMENTAL_OCI=1
+     ```
 
 
+  1. Authenticate your Helm client in the {{ container-registry-name }} [registry](../../concepts/registry.md) using one of the available methods.
+     * With an OAuth token:
+       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
+       1. Run this command:
 
-   1. Create a Helm chart:
+          ```bash
+          helm registry login {{ registry }} -u oauth
+          Password: <OAuth_token>
+          ```
 
-      ```bash
-      helm create <Helm_chart_name>
-      ```
+     * Using an {{ iam-full-name }} token:
+       1. [Get an {{ iam-name }} token](../../../iam/operations/iam-token/create.md).
+       1. Run this command:
 
-      The name must meet the following requirements:
+          ```bash
+          helm registry login {{ registry }} -u iam
+          Password: <IAM_token>
+          ```
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+     Result:
 
-      Result:
+     ```text
+     Login succeeded
+     ```
 
-      ```text
-      Creating <Helm_chart_name>
-      ```
 
-   1. Build a Helm chart to upload:
 
-      ```bash
-      helm package <Helm_chart_name>/. --version <Helm_chart_version>
-      ```
+  1. Create a Helm chart:
 
-      Result:
+     ```bash
+     helm create <Helm_chart_name>
+     ```
 
-      ```text
-      Successfully packaged chart and saved it to: <path>/<Helm_chart_name>-<version>.tgz
-      ```
+     The name must meet the following requirements:
 
-   1. Push the Helm chart to {{ container-registry-name }}:
+     {% include [name-format](../../../_includes/name-format.md) %}
 
-      ```bash
-      helm push <Helm_chart_name>-<version>.tgz oci://{{ registry }}/<registry_ID>
-      ```
+     Result:
 
-      Result:
+     ```text
+     Creating <Helm_chart_name>
+     ```
 
-      ```text
-      Pushed: {{ registry }}/crp3h07fgv9b********/<Helm_chart_name>:<version>
-      Digest: <SHA256...>
-      ```
+  1. Build a Helm chart to upload:
+
+     ```bash
+     helm package <Helm_chart_name>/. --version <Helm_chart_version>
+     ```
+
+     Result:
+
+     ```text
+     Successfully packaged chart and saved it to: <path>/<Helm_chart_name>-<version>.tgz
+     ```
+
+  1. Push the Helm chart to {{ container-registry-name }}:
+
+     ```bash
+     helm push <Helm_chart_name>-<version>.tgz oci://{{ registry }}/<registry_ID>
+     ```
+
+     Result:
+
+     ```text
+     Pushed: {{ registry }}/crp3h07fgv9b********/<Helm_chart_name>:<version>
+     Digest: <SHA256...>
+     ```
 
 {% endlist %}
 
@@ -105,41 +105,41 @@ To push a Helm chart:
 
 - CLI {#cli}
 
-   1. Create a Helm chart:
+  1. Create a Helm chart:
 
-      ```bash
-      helm create my-chart
-      ```
+     ```bash
+     helm create my-chart
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Creating my-chart
-      ```
+     ```text
+     Creating my-chart
+     ```
 
-   1. Build a Helm chart to upload:
+  1. Build a Helm chart to upload:
 
-      ```bash
-      helm package my-chart/. --version 3.11.2
-      ```
+     ```bash
+     helm package my-chart/. --version 3.11.2
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Successfully packaged chart and saved it to: C:/my-chart-3.11.2.tgz
-      ```
+     ```text
+     Successfully packaged chart and saved it to: C:/my-chart-3.11.2.tgz
+     ```
 
-   1. Push the Helm chart to {{ container-registry-name }}:
+  1. Push the Helm chart to {{ container-registry-name }}:
 
-      ```bash
-      helm push my-chart-3.11.2.tgz oci://{{ registry }}/<registry_ID>
-      ```
+     ```bash
+     helm push my-chart-3.11.2.tgz oci://{{ registry }}/<registry_ID>
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Pushed: {{ registry }}/crp3h07fgv9b********/my-chart:3.11.2
-      Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0********
-      ```
+     ```text
+     Pushed: {{ registry }}/crp3h07fgv9b********/my-chart:3.11.2
+     Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0********
+     ```
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on working with {{ certificate-manager-full-name }} (TLS certificates)"
-description: "In this tutorial, you will learn how to work with {{ certificate-manager-full-name }} in {{ yandex-cloud }}. We will tell you about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and assign TLS certificates to it."
+title: Tutorial on working with {{ certificate-manager-full-name }} (TLS certificates)
+description: In this tutorial, you will learn how to work with {{ certificate-manager-full-name }} in {{ yandex-cloud }}. We will tell you about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and assign TLS certificates to it.
 ---
 
 # Step-by-step guide for {{ certificate-manager-name }}

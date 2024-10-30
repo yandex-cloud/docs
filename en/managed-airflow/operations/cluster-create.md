@@ -1,10 +1,10 @@
 ---
-title: "Creating an {{ AF }} cluster"
-description: "Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones."
+title: Creating an {{ AF }} cluster
+description: Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
 keywords:
-  - "{{ AF }} cluster creation"
-  - "{{ AF }} cluster"
-  - "{{ AF}}"
+  - creating an {{ AF }} cluster
+  - '{{ AF }} cluster'
+  - '{{ AF }}'
   - Airflow
 ---
 
@@ -15,7 +15,6 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 ## Before creating a cluster {#before-creating}
 
 1. In the folder where you want to create a cluster, [create a service account](../../iam/operations/sa/create.md) with the `managed-airflow.integrationProvider` role.
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) to store [DAG files](../concepts/index.md#about-the-service).
 1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](../security/index.md#roles-list) for creating a cluster.
 
@@ -26,58 +25,61 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 - Management console {#console}
 
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-   1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      1. Enter a name for the cluster. The name must be unique within the folder.
-      1. (Optional) Enter a cluster description.
-      1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
-         1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-         1. Enter a label in `key: value` format.
-         1. Click **Enter**.
+        1. Enter a name for the cluster. The name must be unique within the folder.
+        1. (Optional) Enter a cluster description.
+        1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
+            1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Enter a label in `key: value` format.
+            1. Click **Enter**.
 
-   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**:
+  1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**:
 
-      * Set a password for the admin user. The password must be not less than 8 characters long and contain at least:
-         * One uppercase letter
-         * One lowercase letter
-         * One digit
-         * One special character
+        * Set a password for the admin user. The password must be not less than 8 characters long and contain at least:
+            * One uppercase letter
+            * One lowercase letter
+            * One digit
+            * One special character
 
-         {% note info %}
+           {% note info %}
 
-         Save the password locally or memorize it. The service does not show passwords after the registry is created.
+           Save the password locally or memorize it. The service does not show passwords after the registry is created.
 
-         {% endnote %}
+           {% endnote %}
 
-      * Select the [previously created](#before-creating) service account with the `managed-airflow.integrationProvider` role.
+        * Select the [previously created](#before-creating) service account with the `managed-airflow.integrationProvider` role.
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
       * [Availability zones](../../overview/concepts/geo-scope) for the cluster
       * Cloud network
       * Subnet in each of the selected availability zones
+
+        {{ yandex-cloud }} manages {{ maf-name }} cluster components in the auxiliary subnet. Make sure the IP address range of the subnets you selected does not overlap with the `{{ airflow-service-address }}` auxiliary subnet address range. Otherwise, you will get an error when creating a cluster.
+
       * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic
 
-         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
+        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-   1. Set the number of instances and resources for the {{ maf-name }} [components](../concepts/index.md#components):
+  1. Set the number of instances and resources for the {{ maf-name }} [components](../concepts/index.md#components):
 
       * Web server
       * Scheduler
       * Workers
 
-         {% note info %}
+        {% note info %}
 
-         If the issue queue is empty, the number of workers will be the minimum value. When issues appear, the number of workers will increase up to the maximum value.
+        If the issue queue is empty, the number of workers will be the minimum value. When issues appear, the number of workers will increase up to the maximum value.
 
-         {% endnote %}
+        {% endnote %}
 
       * (Optional) Triggerer services
 
-   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
+  1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
       To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
 
@@ -93,19 +95,24 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
       {% note warning %}
 
-      To install pip and deb packages from public repositories, specify a network with configured [egress NAT](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
+      To install pip and deb packages from public repositories, specify a network with configured [egress NAT under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**](../../vpc/operations/create-nat-gateway.md).
 
       {% endnote %}
 
-   1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, specify:
+  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, specify a name for the previously created bucket that will store DAG files.
 
-      * Name of the previously created bucket that will store DAG files.
-      * Parameters of a static access key for the service account.
+  1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
 
-   1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
+  1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
+  
+      * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
-   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `api.maximum_page_limit` as a key and `150` as its value. Fill out the fields manually or import the settings from a configuration file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+        Fill out the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+      * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) for [storing {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
+
+        {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
+
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

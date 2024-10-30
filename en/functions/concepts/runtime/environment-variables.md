@@ -1,6 +1,6 @@
 ---
-title: "What function environments in {{ sf-full-name }} include"
-description: "In this tutorial, you will learn what a function environment in {{ sf-name }} includes."
+title: What function environments in {{ sf-full-name }} include
+description: In this tutorial, you will learn what a function environment in {{ sf-name }} includes.
 ---
 
 # Environment
@@ -45,3 +45,4 @@ If your functions require dynamic libraries to run, you can [add them to a ZIP a
 
 
 You must build the dynamic libraries on Ubuntu 18.04 LTS and link them using `libc` version 2.27.
+

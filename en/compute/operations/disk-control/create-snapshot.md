@@ -1,6 +1,6 @@
 ---
-title: "How to create a disk snapshot"
-description: "Follow this guide to create a disk snapshot."
+title: How to create a disk snapshot
+description: Follow this guide to create a disk snapshot.
 ---
 
 # Creating a disk snapshot
@@ -9,12 +9,6 @@ description: "Follow this guide to create a disk snapshot."
 A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
-
-{% note alert %}
-
-When creating a snapshot of the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` type, all write operations will be temporarily suspended, and the disk will be read-only. All suspended writes requested on the guest OS side will be completed after the snapshot is created. During the snapshot generation, the guest OS will be waiting for I/O operations to be completed (`iowait` status).
-
-{% endnote %}
 
 ## Setup {#prepare}
 
@@ -26,9 +20,9 @@ To create a disk snapshot:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}
 
-An HDD or SSD snapshot is created asynchronously. The snapshot is created with the `Creating` status immediately after the create command is run. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
+An HDD or SSD snapshot is created asynchronously. The snapshot is created as soon as you run the create command and gets the `Creating` status. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
 
-Once the snapshot has been created, its status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
+Once the snapshot creation is completed, its status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
 
 {% note alert %}
 

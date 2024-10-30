@@ -8,13 +8,13 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-                   
+
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
- 
+
 
       1. При необходимости ограничьте максимальный размер бакета.
 
@@ -31,7 +31,7 @@
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
 
-          Более <q>холодные</q> классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем <q>холоднее</q> хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
+          Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
 
       1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
           1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -59,10 +59,10 @@
       ```
 
       Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
- 
-      
+
+
       По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
-        
+
 
       Результат:
 
@@ -135,7 +135,7 @@
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета.
 
-  
+
   {% note info %}
 
   По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
@@ -189,9 +189,9 @@
   Где:
   * Возможные типы разрешений ACL:
     * `--grant-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
-    * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется  только совместно с `--grant-read`.
+    * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `--grant-read`.
     * `--grant-full-control` — полный доступ к бакету и объектам в нем.
-          
+
     Вы можете задать несколько разрешений в одной команде.
   * Возможные получатели разрешений:
     * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
@@ -207,10 +207,10 @@
 - {{ TF }} {#tf}
 
   {% include [terraform-role](terraform-role.md) %}
-  
+
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -279,9 +279,9 @@
         * `name` — имя сервисного аккаунта.
         * `bucket` — имя бакета.
 
-                   
+
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
- 
+
 
         * `max_size` — максимальный размер бакета в байтах.
         * `default_storage_class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
@@ -312,6 +312,6 @@
 
 - API {#api}
 
-  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}

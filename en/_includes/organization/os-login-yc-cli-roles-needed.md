@@ -1,0 +1,1 @@
+To access a VM using OS Login via the YC CLI, [assign](../../iam/operations/roles/grant.md) the `compute.osLogin` or `compute.osAdminLogin` role, as well as the `compute.operator` role to the user or service account under which you are running the YC CLI command.

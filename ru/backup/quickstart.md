@@ -15,6 +15,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -103,8 +105,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
-  1. В верхней части страницы перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../iam/concepts/users/service-accounts.md). Требования к формату имени:
 
       {% include [name-format](../_includes/name-format.md) %}
@@ -138,19 +140,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-
-      1. Введите имя ВМ. Требования к имени:
-
-          {% include [name-format](../_includes/name-format.md) %}
-
-      1. Выберите [зону доступности](../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите одну из [поддерживаемых операционных систем](./concepts/vm-connection.md#os), например [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
-
+  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../compute/concepts/image.md) c [поддерживаемой операционной системой](./concepts/vm-connection.md#os), например [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоках **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** и **{{ ui-key.yacloud.compute.instances.create.section_platform }}** задайте желаемые параметры ВМ.
 
       {% include [vm-requirements](../_includes/backup/vm-requirements.md) %}
@@ -159,24 +154,23 @@
 
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть, [подготовленную ранее](#network-setup).
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-          
+
           Вместо назначения ВМ публичного IP-адреса вы можете привязать к подсети с ВМ [таблицу маршрутизации](../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 
-      1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности, [настоенную ранее](#sg-setup).
+      1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности, [настроенную ранее](#sg-setup).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+  1. {% include [section-access](../_includes/compute/create/section-access.md) %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
-      1. Выберите сервисный аккаунт, [созданный ранее](#prepare-service-account).
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
-
-          Пару ключей для подключения по [SSH](../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      {% include [name-format](../_includes/name-format.md) %}
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      {% include [backup-enable](../_includes/compute/backup-enable.md) %}
+      1. Выберите сервисный аккаунт, [созданный ранее](#prepare-service-account).
+      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. (Опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](operations/policy-vm/create.md) новую политику.
 
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
@@ -237,7 +231,7 @@
 Чтобы перестать платить за созданные ресурсы:
 1. [Удалите](./operations/delete-vm.md) ВМ из {{ backup-name }}.
 1. [Удалите](../compute/operations/vm-control/vm-delete.md) ВМ из {{ compute-name }}.
-1. Если для ВМ были созданы резервные копии, [удалите](./operations/backup-vm/delete.md) их. 
+1. Если для ВМ были созданы резервные копии, [удалите](./operations/backup-vm/delete.md) их.
 
 ## Что дальше {#what-is-next}
 

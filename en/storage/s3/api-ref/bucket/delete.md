@@ -1,19 +1,20 @@
 # deleteBucket method
 
-Deletes an empty bucket. If the bucket isn't empty, first delete all the objects inside the bucket.
+Deletes an empty bucket. If the bucket is not empty, first delete all objects inside the bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Headers {#request-headers}

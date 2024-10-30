@@ -138,7 +138,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
    * ID of the folder to host the database in the `folderId` parameter.
    * Database name in the `name` parameter.
@@ -251,7 +251,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+   To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/Database/update.md) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -306,11 +306,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
          * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
          * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
-         * (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
-         * Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
-         * Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-         * Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
+         * (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
+         * Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+         * Specify the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+         * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.
@@ -452,7 +452,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
    * ID of the folder to host the database in the `folderId` parameter.
    * Database name in the `name` parameter.
@@ -542,7 +542,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - API {#api}
 
-   To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+   To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/Database/update.md) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -575,7 +575,7 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 - API {#api}
 
-   To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
+   To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/Database/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -656,7 +656,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - API {#api}
 
-   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/database_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
@@ -757,7 +757,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.
@@ -829,7 +829,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - API {#api}
 
-   To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
+   To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
 
    {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

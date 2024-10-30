@@ -1,6 +1,6 @@
 ---
-title: "Как получить список поддерживаемых языков в {{ translate-full-name }}"
-description: "Из статьи вы узнаете, как получить список поддерживаемых языков в {{ translate-name }}."
+title: Как получить список поддерживаемых языков в {{ translate-full-name }}
+description: Из статьи вы узнаете, как получить список поддерживаемых языков в {{ translate-name }}.
 ---
 
 # Получение списка поддерживаемых языков
@@ -15,7 +15,7 @@ description: "Из статьи вы узнаете, как получить с�
 
 ## Получить список поддерживаемых языков {#get-languages}
 
-Получите список поддерживаемых языков с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
+Получите список [поддерживаемых языков](../concepts/supported-languages.md) с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
 {% list tabs group=programming_language %}
 
@@ -24,11 +24,12 @@ description: "Из статьи вы узнаете, как получить с�
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-        "https://translate.{{ api-host }}/translate/v2/languages"
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "{\"folderId\": \"${FOLDER_ID}\"}" \
+      "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Где:

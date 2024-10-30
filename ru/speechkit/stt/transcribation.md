@@ -1,6 +1,6 @@
 ---
-title: "Асинхронное распознавание {{ speechkit-full-name }}"
-description: "Асинхронное распознавание позволяет преобразовывать в текст многоканальные аудиофайлы. Результаты распознавания хранятся на сервере {{ stt-long-resultsStorageTime }}, после чего вы не сможете их получить."
+title: Асинхронное распознавание {{ speechkit-full-name }}
+description: Асинхронное распознавание позволяет преобразовывать в текст многоканальные аудиофайлы. Результаты распознавания хранятся на сервере {{ stt-long-resultsStorageTime }}, после чего вы не сможете их получить.
 ---
 
 # Асинхронное распознавание
@@ -55,7 +55,7 @@ description: "Асинхронное распознавание позволяе
    * при помощи [API v2](api/transcribation-api.md#get-result);
    * при помощи [API v3](../stt-v3/api-ref/AsyncRecognizer/getRecognition.md):
        * [REST](../stt-v3/api-ref/AsyncRecognizer/getRecognition.md);
-       * [gRPC](../stt-v3/api-ref/grpc/AsyncRecognizer.md#GetRecognition).
+       * [gRPC](../stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md).
 
    В HTTP-заголовке укажите те же данные аутентификации.
 

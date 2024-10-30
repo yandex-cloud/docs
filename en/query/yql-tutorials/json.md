@@ -49,8 +49,8 @@ We recommend using a `raw string` and `\"` as the escape method, since it is mor
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [JSON_EXISTS](https://ydb.tech/en/docs/yql/reference/builtins/json#json_exists).
-* [JSON_VALUE](https://ydb.tech/en/docs/yql/reference/builtins/json#json_value).
-* [JSON_QUERY](https://ydb.tech/en/docs/yql/reference/builtins/json#json_query).
-* [Functions for JSON](https://ydb.tech/en/docs/yql/reference/builtins/json).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select).
+* [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists).
+* [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value).
+* [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query).
+* [Functions for JSON]({{ ydb.docs }}/yql/reference/builtins/json).

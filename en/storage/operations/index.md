@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ objstorage-full-name }} (S3)"
-description: "In this article, you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS)."
+title: Guides on using {{ objstorage-full-name }} (S3)
+description: In this article, you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS).
 ---
 
 # Step-by-step guides for {{ objstorage-name }}
@@ -14,9 +14,10 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](buckets/encrypt.md)
 * [{#T}](buckets/lifecycles.md)
 * [{#T}](buckets/cors.md)
-* [{#T}](buckets/policy.md)
 * [{#T}](buckets/versioning.md)
 * [{#T}](buckets/edit-acl.md)
+* [{#T}](buckets/policy.md)
+* [{#T}](buckets/access-via-vpc.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/tagging.md)

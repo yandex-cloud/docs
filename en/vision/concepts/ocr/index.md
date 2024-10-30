@@ -1,5 +1,5 @@
 ---
-description: "OCR stands for optical character recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages."
+description: 'OCR stands for optical character recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages.'
 ---
 
 # About {{ vision-full-name }}

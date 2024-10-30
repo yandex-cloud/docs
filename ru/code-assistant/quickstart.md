@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с {{ ca-full-name }}"
-description: "Установите плагин {{ ca-name }} для Visual Studio Code."
+title: Начало работы с {{ ca-full-name }}
+description: Установите плагин {{ ca-name }} для Visual Studio Code и IDE от JetBrains.
 ---
 
 # Как начать работать с {{ ca-full-name }}
@@ -33,7 +33,7 @@ description: "Установите плагин {{ ca-name }} для Visual Stud
 
   1. Скачайте [плагин {{ ca-name }}]({{ link-ca-vscode }}) для [Visual Studio Code](https://code.visualstudio.com/).
 
-      Если по какой-то причине скачивание невозможно, обратитесь к системному администратору для открытия сетевых доступов к ресурсам {{ yandex-cloud }}.
+      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
 
   1. Установите плагин:
       1. Откройте Visual Studio Code.
@@ -50,11 +50,60 @@ description: "Установите плагин {{ ca-name }} для Visual Stud
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **No active session found. Log in please** нажмите кнопку **Go to browser**.
+      
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в строке поиска в верхней части экрана введите `>Yandex Code Assistant`. В открывшемся списке выберите **Yandex Code Assistant: Login**.
       1. Разрешите Visual Studio Code открыть в браузере страницу аутентификации.
-      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-      1. Вернитесь в Visual Studio Code. 
+      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и во всплывающем окне нажмите **Открыть приложение**.
+      1. Вернитесь обратно в Visual Studio Code.
 
-  Плагин включен, готов к работе и отображается на нижней панели редактора в виде кнопки ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  Если плагин включен и готов к работе, то на нижней панели редактора отобразится значок ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  
+  Нажмите на этот значок, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в списке в строке **Logged in as <имя_пользователя>**. Если пользователь не аутентифицирован, в списке такой строки не будет.
+
+- IDE от JetBrains {#jb}
+
+  {% note warning %}
+
+  Поддерживается работа с IDE версий 2024.1 и 2024.2.
+
+  {% endnote %}
+
+  1. Скачайте плагин {{ ca-name }} для своей версии [IDE от JetBrains](https://www.jetbrains.com/ides/):
+      * [2024.1]({{ link-ca-jb-2024-1 }})
+      * [2024.2]({{ link-ca-jb-2024-2 }})
+
+      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
+
+      {% note info %}
+
+      {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
+
+      {% endnote %}
+
+  1. Установите плагин:
+      1. Откройте IDE.
+      1. Откройте настройки, для этого используйте сочетание клавиш **Ctrl** + **Alt** + **S** в Windows/Linux или **Command** + **,** в macOS.
+      1. Перейдите в раздел **Plugins**.
+      1. Нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Install Plugin from Disk...**
+      1. Выберите файл плагина, скачанный ранее.
+      1. Подтвердите, что вы согласны использовать плагин от стороннего разработчика и нажмите **OK**.
+
+  1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
+      1. Во всплывающем окне **Yandex Code Assistant OAuth** нажмите **Yandex Code Assist: Login**.
+
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Login**.
+      1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+      1. Вернитесь обратно в IDE.
+
+  Если плагин включен и готов к работе, то на нижней панели редактора отобразится кнопка **Yandex CA**.
+  
+  Нажмите эту кнопку, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в сообщении в строке **Logged in as: <имя_пользователя>**. Если пользователь не аутентифицирован, в сообщении будет указано **No Auth data**.
+
+  {% note tip %}
+
+  Если плагин не запустился, или не появляются предложения от {{ ca-name }}, попробуйте перезапустить IDE.
+
+  {% endnote %}
 
 {% endlist %}
 
@@ -72,61 +121,68 @@ description: "Установите плагин {{ ca-name }} для Visual Stud
 
 Пример работы с плагином:
 
-{% list tabs group=ide %}
+1. Откройте IDE и создайте тестовый файл `server.cpp` со следующим содержимым:
 
-- Visual Studio Code {#vscode}
+    ```cpp
+    // simple web-server to work with sockets
 
-  1. Откройте Visual Studio Code и создайте тестовый файл `server.cpp` со следующим содержимым:
+    #include <iostream>
+    #include <string>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <unistd.h>
 
-      ```cpp
-      // simple web-server to work with sockets
+    using namespace std;
 
-      #include <iostream>
-      #include <string>
-      #include <sys/socket.h>
-      #include <netinet/in.h>
-      #include <unistd.h>
+    int main() {
 
-      using namespace std;
+    }
+    ```
 
-      int main() {
+1. В блоке `int main()` начните вводить текст, например комментарий `//create socket`. Посмотрите предложение от {{ ca-name }}:
 
-      }
-      ```
+    ```cpp
+    ...
+    int main() {
 
-  1. В блоке `int main()` начните вводить текст, например комментарий `//create socket`. Посмотрите предложение от {{ ca-name }}:
+    //create socket
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-      ```cpp
-      ...
-      int main() {
+    }
+    ```
 
-      //create socket
-      int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+1. Выберите, что делать с предложением:
 
-      }
-      ```
+    {% list tabs group=ide %}
 
-      Чтобы принять предложение, нажмите клавишу **Tab**.
+    - Visual Studio Code {#vscode}
 
-      Чтобы принять часть предложения по одному слову, используйте сочетание клавиш **Ctrl** + **→** в Windows/Linux или **Command** + **→** в macOS.
+      * Чтобы принять предложение, нажмите клавишу **Tab**.
+      * Чтобы принять часть предложения по одному слову, используйте сочетание клавиш **Ctrl** + **→** в Windows/Linux или **Command** + **→** в macOS.
+      * Чтобы отменить предложение, нажмите клавишу **Esc**.
+      * Если предложений несколько, вы можете переключаться между ними с помощью сочетаний клавиш **Alt** + **[** и **Alt** + **]** в Windows/Linux или **Option** + **[** и **Option** + **]** в macOS.
 
-      Чтобы отменить предложение, нажмите клавишу **Esc**. 
+    - IDE от JetBrains {#jb}
 
-      Если предложений несколько, вы можете переключаться между с помощью сочетаний клавиш **Alt** + **[** и **Alt** + **]** в Windows/Linux или **Option** + **[** и **Option** + **]** в macOS.
+      * Чтобы принять предложение, нажмите клавишу **Tab**.
+      * Чтобы отменить предложение, нажмите клавишу **Esc**. 
 
-{% endlist %}
+    {% endlist %}
 
 Видео с демонстрацией работы плагина см. на [странице {{ ca-name }}](https://cloud.yandex.ru/services/code-assistant).
 
 ## Управляйте плагином {#manage-plugin}
 
-### Включите или отключите плагин {#enable-disable-plugin}
+### Включите или отключите автоматическую выдачу подсказок {#enable-disable-plugin}
+
+Включение и отключение автоматической выдачи подсказок доступно только в Visual Studio Code.
 
 {% list tabs group=ide %}
 
 - Visual Studio Code {#vscode}
 
-  Чтобы включить или отключить плагин {{ ca-name }}, на нижней панели Visual Studio Code нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  1. На нижней панели Visual Studio Code нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  1. В открывшемся списке выберите ![image](../_assets/console-icons/triangle-right.svg) **Enable autotrigger** или ![image](../_assets/console-icons/stop.svg) **Disable autotrigger**.
 
 {% endlist %}
 
@@ -138,7 +194,36 @@ description: "Установите плагин {{ ca-name }} для Visual Stud
 
   Скачайте [актуальную версию плагина {{ ca-name }}]({{ link-ca-vscode }}) для Visual Studio Code и [установите ее](#install-plugin).
 
+- IDE от JetBrains {#jb}
+
+  1. Скачайте актуальный плагин {{ ca-name }} для своей версии IDE от JetBrains:
+      * [2024.1]({{ link-ca-jb-2024-1 }})
+      * [2024.2]({{ link-ca-jb-2024-2 }})
+  1. [Установите плагин](#install-plugin).
+
 {% endlist %}
+
+### Выйдите из профиля {{ yandex-cloud }} {#logout}
+
+Чтобы выйти из профиля {{ yandex-cloud }} в плагине {{ ca-name }}:
+
+{% list tabs group=ide %}
+
+- Visual Studio Code {#vscode}
+
+  В Visual Studio Code доступны два способа выхода из профиля:
+
+  * На нижней панели редактора нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg) и в открывшемся списке выберите **Logout**.
+
+  * В строке поиска в верхней части экрана введите `>Yandex Code Assistant` и в открывшемся списке выберите **Yandex Code Assistant: Logout**.
+
+- IDE от JetBrains {#jb}
+
+  В правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Logout**.
+
+{% endlist %}
+
+Чтобы повторно аутентифицироваться в плагине, выполните шаги, описанные в п. 3 раздела [{#T}](#install-plugin).
 
 ### Удалите плагин {#remove-plugin}
 
@@ -148,6 +233,13 @@ description: "Установите плагин {{ ca-name }} для Visual Stud
 
   1. Откройте список установленных плагинов, для этого используйте сочетание клавиш **Ctrl** + **Shift** + **X** в Windows/Linux или **Command** + **Shift** + **X** в macOS.
   1. Напротив плагина {{ ca-full-name }} нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Удалить** (**Uninstall**).
+
+- IDE от JetBrains {#jb}
+
+  1. Откройте настройки, для этого используйте сочетание клавиш **Ctrl** + **Alt** + **S** в Windows/Linux или **Command** + **,** в macOS.
+  1. Перейдите в раздел **Plugins** и выберите плагин {{ ca-full-name }}.
+  1. В блоке с описанием плагина нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите **Uninstall**.
+  1. Подтвердите удаление и нажмите **OK**.
 
 {% endlist %}
 

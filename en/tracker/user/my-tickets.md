@@ -1,6 +1,6 @@
 ---
-title: "How to view a list of my issues in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to view a list of your issues."
+title: How to view a list of my issues in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to view a list of your issues.
 ---
 
 # My issues
@@ -30,11 +30,11 @@ Use filters to narrow down your issue list and display only those issues that ma
    * **Assigned to me**.
    * **Followed by me**.
    * **Waiting for response**.
-   * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset-deadline }}**.
+   * **{{ ui-key.startrek.ui_Issues_smart-components_IssuesPresetSelect.preset-deadline }}**.
 
 * To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
-* To use [advanced search parameters](./default-filters.md#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
+* To use [advanced search parameters](./default-filters.md#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 
 ## Searching for issues by name {#search-name}
 
@@ -42,7 +42,7 @@ If you want to find an issue using its name:
 
 1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or follow the [link]({{ link-tracker }}issues/).
 
-1. In the **{{ ui-key.startrek.ui_components_filter-pane.search-placeholder }}** field, enter the text to search for.
+1. In the **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.search-placeholder }}** field, enter the text to search for.
 
 The system will search for issues that match all the selected filters.
 

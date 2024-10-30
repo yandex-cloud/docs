@@ -1,6 +1,6 @@
 ---
-title: "How to delete a resource record in {{ dns-full-name }}"
-description: "Follow this guide to delete a resource record."
+title: How to delete a resource record in {{ dns-full-name }}
+description: Follow this guide to delete a resource record.
 ---
 
 # Deleting a resource record
@@ -101,6 +101,6 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - API {#api}
 
-   To delete a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
+   To delete a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 
 {% endlist %}

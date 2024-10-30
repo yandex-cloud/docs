@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о расписании, по которому создаются снимки дисков в {{ compute-full-name }}"
+title: Как получить информацию о расписании, по которому создаются снимки дисков в {{ compute-full-name }}
 ---
 
 # Получить информацию о расписании, по которому создаются снимки дисков
@@ -75,7 +75,7 @@ title: "Как получить информацию о расписании, п
       * `output "snapshot_schedule"` — выходная переменная, которая содержит информацию о расписании снимков дисков:
         * `value` — возвращаемое значение.
 
-      Вместо `status` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_snapshot_schedule` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_snapshot_schedule).
+      Вместо `status` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_snapshot_schedule` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_snapshot_schedule).
 
   1. Создайте ресурсы:
 
@@ -95,6 +95,6 @@ title: "Как получить информацию о расписании, п
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [расписании снимков дисков](../../concepts/snapshot-schedule.md), воспользуйтесь методом REST API [get](../../api-ref/SnapshotSchedule/get.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md), или вызовом gRPC API [SnapshotScheduleService/Get](../../api-ref/grpc/snapshot_schedule_service.md#Get).
+  Чтобы получить подробную информацию о [расписании снимков дисков](../../concepts/snapshot-schedule.md), воспользуйтесь методом REST API [get](../../api-ref/SnapshotSchedule/get.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md), или вызовом gRPC API [SnapshotScheduleService/Get](../../api-ref/grpc/SnapshotSchedule/get.md).
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "How to view my projects in {{ tracker-full-name }}"
-description: "Follow this guide to view a list of your projects."
+title: How to view my projects in {{ tracker-full-name }}
+description: Follow this guide to view a list of your projects.
 ---
 
 # My projects
@@ -34,7 +34,7 @@ You can use filters to perform a search in any of these tabs:
 
 * To find a portfolio or project by name, enter it in the **Search** field. If your current tab is **Structure**, you will automatically switch to the **List** tab.
 
-* To select a search parameter by a portfolio or project field, click its name above the list. To select advanced search parameters, click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
+* To select a search parameter by a portfolio or project field, click its name above the list. To select advanced search parameters, click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 
    {% note info %}
 
@@ -42,7 +42,7 @@ You can use filters to perform a search in any of these tabs:
 
    {% endnote %}
 
-* To set up the display order, click ![](../../_assets/tracker/svg/sorting.svg) **{{ ui-key.startrek.ui_components_SortButton.default-title }}** and select a parameter.
+* To set up the display order, click ![](../../_assets/tracker/svg/sorting.svg) **{{ ui-key.startrek.ui_Common_smart-components_SortButton.default-title }}** and select a parameter.
 
    {% note info %}
 

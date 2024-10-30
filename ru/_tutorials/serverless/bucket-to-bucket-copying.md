@@ -40,7 +40,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта: `s3-copy-fn`.
      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}`.
@@ -93,7 +93,7 @@
 
    - {{ TF }} {#tf}
 
-     
+
      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -161,9 +161,9 @@
 
    - API {#api}
 
-     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-     Чтобы назначить сервисному аккаунту роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+     Чтобы назначить сервисному аккаунту роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
    {% endlist %}
 
@@ -179,8 +179,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится сервисный аккаунт.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт и нажмите на строку с его именем.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
   1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -253,7 +253,7 @@
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md).
 
 {% endlist %}
 
@@ -339,6 +339,8 @@
      * `key` — название ключа.
      * `text_value` — значение ключа.
 
+     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret);
@@ -367,7 +369,7 @@
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
 
 {% endlist %}
 
@@ -456,7 +458,7 @@
 
 - API {#api}
 
-  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/s3/api-ref/bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create).
+  Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/s3/api-ref/bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md).
 
 {% endlist %}
 
@@ -672,9 +674,9 @@
 
 - API {#api}
 
-  Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create).
+  Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md).
 
-  Чтобы создать версию функцию, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion).
+  Чтобы создать версию функцию, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md).
 
 {% endlist %}
 
@@ -801,7 +803,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a Windows VM via RDP"
-description: "This guide describes how you can connect to a Windows VM via RDP."
+title: How to connect to a Windows VM via RDP
+description: This guide describes how you can connect to a Windows VM via RDP.
 ---
 
 # Connecting to a Windows VM via RDP

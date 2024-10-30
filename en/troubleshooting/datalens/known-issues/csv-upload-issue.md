@@ -1,7 +1,6 @@
 # Resolving issues when loading a CSV file into a dataset as a data source
 
 
-
 ## Issue description {#issue-description}
 
 * When trying to upload a CSV file as a data source for the dataset, you see the "Failed to upload file" message or the `ERR.FILE.PARSE_FAILED` error.

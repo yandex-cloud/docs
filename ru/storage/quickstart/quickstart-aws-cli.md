@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с помощью AWS CLI"
-description: "Следуя данной инструкции, вы сможете создать бакета и загрузить в него объект с помощью AWS CLI."
+title: Начало работы с помощью AWS CLI
+description: Следуя данной инструкции, вы сможете создать бакета и загрузить в него объект с помощью AWS CLI.
 ---
 
 # Как начать работать с AWS CLI в {{ objstorage-full-name }}
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
 - Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-  1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
   1. На странице [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) убедитесь, что у вас следующие _минимальные_ роли:
       * для создания [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и получения на него ключей доступа — [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Если вы хотите использовать существующий сервисный аккаунт, достаточно роли `iam.serviceAccounts.admin` на этот сервисный аккаунт.
       * для назначения сервисному аккаунту нужной роли — [storage.admin](../../storage/security/index.md#storage-admin) на каталог.
@@ -57,14 +57,15 @@ description: "Следуя данной инструкции, вы сможет�
       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       Подробнее см. в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
-    
-      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %} 
+
+      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
   1. Создайте статический ключ доступа {#create-keys}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-      1. Выберите сервисный аккаунт и нажмите на строку с его именем.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. В открывшемся списке выберите нужный сервисный аккаунт.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
       1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -89,9 +90,9 @@ description: "Следуя данной инструкции, вы сможет�
     - Linux {#linux}
 
       1. В терминале выполните команду:
-    
+
           ```bash
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --output "awscliv2.zip"
           unzip awscliv2.zip
           sudo ./aws/install
           ```
@@ -101,9 +102,9 @@ description: "Следуя данной инструкции, вы сможет�
     - macOS {#macos}
 
       1. В терминале выполните команду:
-    
+
           ```bash
-          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
           sudo installer -pkg AWSCLIV2.pkg -target /
           ```
 
@@ -138,11 +139,10 @@ description: "Следуя данной инструкции, вы сможет�
 
             Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
-     
 
           Значения остальных параметров оставьте без изменений.
 
-          
+
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
@@ -156,7 +156,7 @@ description: "Следуя данной инструкции, вы сможет�
 
           * `~/.aws/config`:
 
-            
+
             ```text
             [default]
             region = {{ region-id }}

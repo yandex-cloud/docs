@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting in {{ container-registry-full-name }}"
-description: "This page contains a list of common issues and their fixes."
+title: Troubleshooting in {{ container-registry-full-name }}
+description: This page contains a list of common issues and their fixes.
 ---
 
 # Troubleshooting in {{ container-registry-name }}
@@ -8,7 +8,7 @@ description: "This page contains a list of common issues and their fixes."
 See below for a list of common issues and their fixes:
 * `docker login is not supported with yc credential helper`
 
-  **Why you got this error**: If you use a [Docker credential helper](../operations/authentication.md#cred-helper), you cannot [get authenticated](../operations/authentication.md) in {{ container-registry-name }} using your `docker login`. You can also see the same error in [{{ coi }}](../../cos/concepts/index.md) where a credential helper is used to authenticate as a [service account](../../iam/concepts/users/service-accounts.md) linked to a [VM](../../compute/concepts/vm.md).
+  **Why you got this error**: If you are using a [Docker credential helper](../operations/authentication.md#cred-helper), you cannot [get authenticated](../operations/authentication.md) in {{ container-registry-name }} with `docker login`. You may also see the same error in [{{ coi }}](../../cos/concepts/index.md) where a credential helper is used for authentication as a [service account](../../iam/concepts/users/service-accounts.md) linked to a [VM](../../compute/concepts/vm.md).
 
   **How to fix it**: Get authenticated in the [registry](../concepts/registry.md) using a Docker credential helper or [disable the Docker credential helper](../operations/authentication.md#ch-not-use).
 * `Got permission denied while trying to connect to the Docker daemon socket`
@@ -26,3 +26,10 @@ See below for a list of common issues and their fixes:
   **Why you got this error**: [IP address](../../vpc/concepts/address.md) sending the pull Docker image request has no PULL permissions.
 
   **How to fix it**: [Add](../operations/registry/registry-access.md) rules that allow pulling images from this IP address in the registry settings or delete all rules and try again.
+* `Error response from daemon: unauthorized: Authentication problem ; requestId = <request_ID>`
+  
+  `unauthorized: Authentication problem ; requestId = <request_ID>`
+
+  **Why you got this error**: You are trying to pull or push a Docker image to {{ container-registry-name }}, but you are not authenticated. To perform operations with images in {{ container-registry-name }}, you need to get authenticated first.
+
+  **How to fix it**: [Get authenticated](../operations/authentication.md) in {{ container-registry-name }}.

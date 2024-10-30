@@ -32,7 +32,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) — `backup-sa`.
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
@@ -86,9 +86,9 @@
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту роль `backup.editor` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+  Чтобы назначить сервисному аккаунту роль `backup.editor` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
 {% endlist %}
 
@@ -153,8 +153,8 @@
 
 - API {#api}
 
-  1. Создайте сеть `cloud-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
-  1. Создайте подсеть `cloud-network-{{ region-id }}-d` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
+  1. Создайте сеть `cloud-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
+  1. Создайте подсеть `cloud-network-{{ region-id }}-d` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
 {% endlist %}
 
@@ -254,7 +254,7 @@
 
 - API {#api}
 
-  Чтобы создать группу безопасности, воспользуйтесь методом REST API [create](../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create).
+  Чтобы создать группу безопасности, воспользуйтесь методом REST API [create](../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md).
 
 {% endlist %}
 
@@ -424,7 +424,7 @@
 
 - API {#api}
 
-  Чтобы создать [политику резервного копирования](../../backup/concepts/policy.md), воспользуйтесь методом REST API [create](../../backup/backup/api-ref/Policy/create.md) для ресурса [Policy](../../backup/backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Create](../../backup/backup/api-ref/grpc/policy_service.md#Create).
+  Чтобы создать [политику резервного копирования](../../backup/concepts/policy.md), воспользуйтесь методом REST API [create](../../backup/backup/api-ref/Policy/create.md) для ресурса [Policy](../../backup/backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Create](../../backup/backup/api-ref/grpc/Policy/create.md).
 
 {% endlist %}
 
@@ -439,7 +439,7 @@
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Введите имя ВМ: `backup-instance`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** выберите операционную систему `Ubuntu 22.04`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Выберите подсеть `cloud-network-{{ region-id }}-d`.
@@ -507,7 +507,7 @@
 
 - API {#api}
 
-  Чтобы создать ВМ, воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
+  Чтобы создать ВМ, воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md).
 
   В теле запроса передайте:
 
@@ -529,7 +529,7 @@
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh-authorized-keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<идентификатор_политики>\"]}"
     },
     "bootDiskSpec": {

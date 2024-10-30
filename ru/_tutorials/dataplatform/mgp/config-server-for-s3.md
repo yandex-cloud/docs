@@ -19,11 +19,11 @@
 
     1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }} любой подходящей конфигурации.
 
-    
+
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
-    
+
     1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ mgp-name }}.
 
 
@@ -33,7 +33,7 @@
         10,2010
         ```
 
-    
+
     1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
 
 
@@ -95,7 +95,7 @@
 
         Команда сохраняет в файл `static-key.txt` идентификатор статического ключа и статический ключ, они потребуются далее.
 
-    
+
     1. Перейдите в [консоль управления]({{ link-console-main }}) и [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер.
 
 
@@ -207,7 +207,7 @@
 
 - Вручную {#manual}
 
-    
+
     1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../../vpc/operations/address-delete.md).
     1. [Удалите бакет в {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).

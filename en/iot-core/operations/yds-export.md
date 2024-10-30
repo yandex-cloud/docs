@@ -1,6 +1,6 @@
 ---
-title: "Exporting messages to {{ yds-name }}"
-description: "Follow this guide to export messages to {{ yds-name }}."
+title: Exporting messages to {{ yds-name }}
+description: Follow this guide to export messages to {{ yds-name }}.
 ---
 
 # Exporting messages to {{ yds-name }}
@@ -63,7 +63,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
 
       * `--registry-name`: Name of the registry.
       * `--name`: Name of the export.
-      * `--database`: Location of the [database](https://ydb.tech/en/docs/concepts/connect#database) where the stream data is stored. Specify the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`). For example, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
+      * `--database`: Location of the [database]({{ ydb.docs }}/concepts/connect#database) where the stream data is stored. Specify the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`). For example, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
       * `--stream`: Name of the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) where messages from MQTT topics will be sent to.
       * `--mqtt-topic-filter`: Topic from which messages will be exported or filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If this parameter is not specified, messages will be exported from all topics within the registry, including topics from all devices within the registry.
       * `--stream-service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `yds-writer` role.
@@ -82,7 +82,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
 
 - API {#api}
 
-   To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/registry_service.md#AddDataStreamExport) gRPC API call.
+   To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md) gRPC API call.
 
 {% endlist %}
 

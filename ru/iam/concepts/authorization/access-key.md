@@ -56,6 +56,7 @@
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
+* [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
 
 #### См. также {#see-also}
 

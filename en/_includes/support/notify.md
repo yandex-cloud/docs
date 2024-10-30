@@ -48,7 +48,9 @@ Some {{ yandex-cloud }} maintenance operations may affect the performance or ava
 
 ### Infrastructure failure {#infra}
 
-If there is a {{ yandex-cloud }} failure that can potentially affect the security or availability of your data, technical support will notify you by email as soon as the scope and impact of the problem are identified. Failure notifications will be sent to the subscribers of the folder hosting the affected resource.
+If there is a {{ yandex-cloud }} failure that can potentially affect the security or availability of your data, our support team will notify you by email as soon as the scope and impact of the problem are identified. Failure notifications will be sent to the subscribers of the folder hosting the affected resource.
+
+Our support team does not send notifications about platform incidents. You can check the availability of services on the platform component status [page](https://status.cloud.yandex.ru/dashboard) or follow the announcements in our [Telegram channel](https://t.me/yandexcloudalerts).
 
 ### Information security incident {#security}
 
@@ -58,10 +60,11 @@ If there is an event in the {{ yandex-cloud }} infrastructure that has resulted 
 
 To configure notification methods:
 
-1. Click ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_components.settings.section_transports }}** in the bottom-left corner of the management console.
-1. Go to the notification settings section. Check which notification channels are set under **{{ ui-key.yacloud_components.settings.section_transports }}**.
-1. Add an email address and a phone number for notifications. You can also set up notifications to a Telegram bot.
-1. Under **{{ ui-key.yacloud_components.settings.section_settings }}**, choose notification channels for different types of notifications:
-   * ![image](../../_assets/console-icons/at.svg): By email
-   * ![image](../../_assets/console-icons/smartphone.svg): By SMS
-   * ![image](../../_assets/console-icons/paper-plane.svg): By Telegram bot message
+1. In the bottom left corner of the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
+1. Under **{{ ui-key.yacloud_components.settings.section_transports }}**, configure notification channels.
+
+    You can receive notifications via email, text messages, or Telegram bot.
+1. Under **{{ ui-key.yacloud_components.settings.section_settings }}**, select the types of notifications to send and channels for receiving them:
+    * ![image](../../_assets/console-icons/at.svg): Email
+    * ![image](../../_assets/console-icons/smartphone.svg): Text message
+    * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message

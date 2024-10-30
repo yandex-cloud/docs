@@ -234,8 +234,8 @@
 
 - API {#api}
 
-  1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../vpc/api-ref/Network/create.md).
-  1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../vpc/api-ref/Subnet/create.md).
+  1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../vpc/api-ref/Network/create.md).
+  1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../vpc/api-ref/Subnet/create.md).
 
 {% endlist %}
 
@@ -623,9 +623,9 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
+  Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/SecurityGroup/create.md) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
 
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) для REST API.
+  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API.
 
 {% endlist %}
 
@@ -662,7 +662,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/BackendGroup/create.md).
+  Используйте вызов gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/BackendGroup/create.md) или метод REST API [create](../application-load-balancer/api-ref/BackendGroup/create.md).
 
 {% endlist %} 
 
@@ -877,8 +877,8 @@
 
 - API {#api}
 
-  1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
-  1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
+  1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/HttpRouter/create.md) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
+  1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/VirtualHost/create.md) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
 
 {% endlist %}
 
@@ -1100,7 +1100,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
+  Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/LoadBalancer/create.md) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
 
 {% endlist %}
 
@@ -1316,7 +1316,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../cdn/api-ref/Resource/create.md).
+  Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/Resource/create.md) или метод REST API [create](../cdn/api-ref/Resource/create.md).
 
 {% endlist %}
 
@@ -1465,8 +1465,8 @@
 
    - API {#api}
 
-     1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/DnsZone/create.md) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
+     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
 
    {% endlist %}
 
@@ -1542,8 +1542,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 
@@ -1567,8 +1567,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
 
    {% endlist %}
 
@@ -1629,8 +1629,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 
@@ -1709,7 +1709,7 @@
 
    - API {#api}
 
-     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).
+     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).
 
    {% endlist %}
 
@@ -1736,8 +1736,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) или метода REST API [list](../cdn/api-ref/Resource/update.md).
 
    {% endlist %}
 
@@ -1759,8 +1759,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
 
    {% endlist %}
 
@@ -1821,8 +1821,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 
@@ -1899,7 +1899,7 @@
 
    - API {#api}
 
-     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).   
+     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/BackendGroup/updateBackend.md) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).   
 
    {% endlist %}
 
@@ -1921,8 +1921,8 @@
 
    - API {#api}
 
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
+     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/Resource/update.md) или метода REST API [list](../cdn/api-ref/Resource/update.md).
 
    {% endlist %}
 

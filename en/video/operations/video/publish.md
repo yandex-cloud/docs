@@ -1,6 +1,6 @@
 ---
-title: "How to publish a video in {{ video-full-name }}"
-description: "Follow this guide to publish a video uploaded to {{ video-full-name }} and check its availability."
+title: How to publish a video in {{ video-full-name }}
+description: Follow this guide to publish a video uploaded to {{ video-full-name }} and check its availability.
 ---
 
 # Publishing a video
@@ -13,15 +13,14 @@ You can publish a video and check its availability.
 
 - {{ video-name }} interface {#console}
 
-   1. [Upload](upload.md) a video.
-   1. Wait until the video is completely uploaded, processed, and gets the `Ready` status.
-   1. Enable **{{ ui-key.yacloud_video.videos.label_allow-access }}**.
+  1. [Upload](upload.md) a video.
+  1. Wait until the video is completely uploaded, processed, and gets the `{{ ui-key.yacloud_video.videos.status_ready }}` status.
 
-      The video will get the `Published` status.
+  {% include [default-visibility-status](../../../_includes/video/default-visibility-status.md) %}
 
 - API {#api}
 
-   Use the [VideoService/Create](../../api-ref/grpc/video_service.md#Create) gRPC API call.
+  Use the [performAction](../../api-ref/Video/create.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/PerformAction](../../api-ref/grpc/Video/performAction.md) gRPC API call.
 
 {% endlist %}
 
@@ -31,17 +30,17 @@ You can publish a video and check its availability.
 
 - {{ video-name }} interface {#console}
 
-   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-   1. Select a channel.
-   1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, select the video.
-   1. On the video settings page that opens, select the `link` tab under **{{ ui-key.yacloud_video.videos.title_past-code }}**.
-   1. Click ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
-   1. Open a new browser page and paste the obtained URL to the address bar.
-   1. Click the Play button.
+  1. Open the {{ video-name }} [home page]({{ link-video-main }}).
+  1. Select a channel.
+  1. In the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, select your video.
+  1. On the opened page with video parameters, select the `link` tab under **{{ ui-key.yacloud_video.videos.title_past-code }}**.
+  1. Click ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
+  1. Open a new browser page and paste the obtained URL to the address bar.
+  1. Click the Play button.
 
 - API {#api}
 
-   Use the [VideoService/GetPlayerURL](../../api-ref/grpc/video_service.md#GetPlayerURL) gRPC API call.
+  Use the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call.
 
 {% endlist %}
 

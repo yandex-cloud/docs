@@ -8,7 +8,7 @@ An IAM token is a unique sequence of characters issued to a user after authentic
 
 To work with {{ TF }}, [add an IAM token to environment variables](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
-```
+```hcl
 provider "yandex" {
   token = "<IAM_token>"
 }
@@ -22,11 +22,17 @@ IAM tokens are valid for a maximum of {{ iam-token-lifetime }}. A token's lifeti
 
 To avoid situations when your token has expired and you do not have a new token yet, request it beforehand.
 
-If you generate a new {{ iam-short-name }} token, the previous one continues to be valid until its lifetime expires.
+If you generate a new {{ iam-short-name }} token, the previous one continues to be valid until its lifetime ends or you [revoke](../../operations/iam-token/revoke-iam-token.md) it.
 
 If a token is created using cookies (for example, under [federated authentication](../../../cli/operations/authentication/federated-user.md)), its lifetime is limited to that of the cookies. If the cookies are revoked (for example, when the user logs out), all the tokens generated for the cookies are canceled.
 
 The {{ iam-short-name }} API may return the same token in response to different requests if it is still a long time before it expires.
+
+## IAM token revocation {#revoke}
+
+If your IAM token has been [compromised](../../operations/compromised-credentials.md), or you want to terminate your old IAM token when issuing a new one for security reasons, you can [revoke](../../operations/iam-token/revoke-iam-token.md) the token before its lifetime expires.
+
+Any authenticated user can revoke an IAM token using the [YC CLI](../../../cli/quickstart.md) or [API](../../api-ref/authentication.md).
 
 ## Services that support this authentication method {#supported-services}
 
@@ -62,3 +68,4 @@ t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)
 * [{#T}](../../../functions/operations/function-sa.md)
 * [{#T}](./index.md)
+* [{#T}](../../operations/iam-token/revoke-iam-token.md)

@@ -1,6 +1,6 @@
 ---
-title: "How to delete an instance group"
-description: "Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks. To delete an instance group, open the folder page in the management console. Select the {{ compute-full-name }} service. On the Virtual machines page, go to the Instance groups tab. Select Delete."
+title: How to delete an instance group
+description: Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks. To delete an instance group, open the folder page in the management console. Select the {{ compute-full-name }} service. On the Virtual machines page, go to the Instance groups tab. Select Delete.
 ---
 
 # Delete an instance group
@@ -70,8 +70,8 @@ To delete an instance group:
 
 - API {#api}
 
-   Use the [delete](../../api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
+   Use the [delete](../../instancegroup/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../instancegroup/api-ref/grpc/InstanceGroup/delete.md) gRPC API call.
 
-   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
+   To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

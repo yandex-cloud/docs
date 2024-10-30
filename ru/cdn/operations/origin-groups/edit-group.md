@@ -1,6 +1,6 @@
 ---
-title: "Как изменить группу источников {{ cdn-full-name }}"
-description: "Из статьи вы узнаете, как изменить группу источников {{ cdn-name }}."
+title: Как изменить группу источников {{ cdn-full-name }}
+description: Из статьи вы узнаете, как изменить группу источников {{ cdn-name }}.
 ---
 
 # Изменение группы источников
@@ -81,7 +81,7 @@ description: "Из статьи вы узнаете, как изменить г�
 
 - API {#api}
 
-  Чтобы изменить группу источников, воспользуйтесь методом REST API [update](../../api-ref/OriginGroup/update.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update).
+  Чтобы изменить группу источников, воспользуйтесь методом REST API [update](../../api-ref/OriginGroup/update.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Update](../../api-ref/grpc/OriginGroup/update.md).
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ description: "Из статьи вы узнаете, как изменить г�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/Origin/delete.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Delete](../../api-ref/grpc/origin_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/Origin/delete.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Delete](../../api-ref/grpc/Origin/delete.md).
 
 {% endlist %}
 

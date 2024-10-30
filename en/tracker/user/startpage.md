@@ -1,12 +1,12 @@
 ---
-title: "{{ tracker-full-name }} homepage"
-description: "Learn how to customize the {{ tracker-name }} homepage for your needs."
+title: '{{ tracker-full-name }} homepage'
+description: Learn how to customize the {{ tracker-name }} homepage for your needs.
 ---
 
 # Start page
 
 
-The home page opens on clicking the {{ tracker-name }} logo. You can [select](#change-start-page) which page to use as a homepage. By default, [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](https://tracker.yandex.ru/pages/my) is selected as the homepage: this is the user's personal page that includes the following widgets:
+The home page opens on clicking the {{ tracker-name }} logo. You can [select](#change-start-page) which page to use as a homepage. By default, [**{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}**](https://tracker.yandex.ru/pages/my) is selected as the homepage: this is the user's personal page that includes the following widgets:
 
 * [Information for employees](#staff-widget): This widget is set up by the administrator for every employee in the organization.
 * [Useful information about {{ tracker-name }}](#tracker-info).
@@ -31,8 +31,8 @@ The widget is positioned in the upper part of the page and the shown similarly f
 The widget with information for employees is published by the organization administrator, and only the administrator can edit or delete it.
 
 To publish a widget:
-1. On the **{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}** page, click **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-settings-button }}** → **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-add-button }}** → **{{ ui-key.startrek.ui_components_dashboard_DashboardHeader.dashboard-header-add-orgAdmin }}**.
-1. Enable **{{ ui-key.startrek.ui_components_dashboard_OrgAdminEditor.editor-published-field-label }}**.
+1. On the **{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}** page, click **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-settings-button }}** → **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-add-button }}** → **{{ ui-key.startrek.ui_Dashboards_smart-components_DashboardHeader.dashboard-header-add-orgAdmin }}**.
+1. Enable **{{ ui-key.startrek.ui_Dashboards_smart-components_OrgAdminEditor.editor-published-field-label }}**.
 
    {% note tip %}
 
@@ -41,7 +41,7 @@ To publish a widget:
    {% endnote %}
 
 1. Fill out the contents of the widget.
-1. Click **{{ ui-key.startrek.ui_components_dashboard_OrgAdminEditor.editor-save-button }}**.
+1. Click **{{ ui-key.startrek.ui_Dashboards_smart-components_OrgAdminEditor.editor-save-button }}**.
 
 ### Widgets with useful information about {{ tracker-name }} {#tracker-info}
 
@@ -76,7 +76,7 @@ By editing or adding a new widget with issues, you can set up:
 
 
 
-As a home page, you can use any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md).If you do so, you can still access **{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}** at the direct link: [https://tracker.yandex.ru/pages/my](https://tracker.yandex.ru/pages/my) or by clicking the home icon in the {{ tracker-name }} header.
+As a home page, you can use any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md).If you do so, you can still access **{{ ui-key.startrek.ui_Common_pages_page-my_PageMy.page-title }}** at the direct link: [https://tracker.yandex.ru/pages/my](https://tracker.yandex.ru/pages/my) or by clicking the home icon in the {{ tracker-name }} header.
 
 For now, you can only change the home page in the old interface:
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}

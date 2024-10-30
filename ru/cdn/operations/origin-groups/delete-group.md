@@ -1,6 +1,6 @@
 ---
-title: "Как удалить группу источников {{ cdn-full-name }}"
-description: "Из статьи вы узнаете, как удалить группу источников {{ cdn-name }}."
+title: Как удалить группу источников {{ cdn-full-name }}
+description: Из статьи вы узнаете, как удалить группу источников {{ cdn-name }}.
 ---
 
 # Удаление группы источников
@@ -74,7 +74,7 @@ description: "Из статьи вы узнаете, как удалить гр�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/OriginGroup/delete.md).
 
 {% endlist %}
 

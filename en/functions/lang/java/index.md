@@ -1,6 +1,6 @@
 ---
-title: "Developing in Java in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04."
+title: Developing in Java in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04.
 ---
 
 # Developing in Java. Overview

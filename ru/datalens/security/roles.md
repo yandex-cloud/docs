@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в сервисе по визуализации и анализу данных — {{ datalens-full-name }}"
-description: "В разделе описано, какие роли необходимы для того или иного действия, на какие ресурсы можно назначить роль, какие роли действуют в сервисе."
+title: Управление доступом в сервисе по визуализации и анализу данных — {{ datalens-full-name }}
+description: В разделе описано, какие роли необходимы для того или иного действия, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
 ---
 
 # Роли в {{ datalens-short-name }}
@@ -13,7 +13,6 @@ description: "В разделе описано, какие роли необхо
 ## Роли для доступа к сервису {#service-roles}
 
 Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
-
 
 {% list tabs %}
 
@@ -33,8 +32,6 @@ description: "В разделе описано, какие роли необхо
 
 {% endlist %}
 
-
-
 ## Роли на воркбуки и коллекции {#workbooks-collections-roles}
 
 Эти роли действуют для пользователей, которые перешли на новый подход к организации объектов {{ datalens-short-name }} — в [воркбуках и коллекциях](../workbooks-collections/index.md). Роли позволяют определить уровень доступа для пользователя или группы пользователей к каждому воркбуку или коллекции.
@@ -43,25 +40,25 @@ description: "В разделе описано, какие роли необхо
 
 Вы можете [назначить](../workbooks-collections/security.md#wb-coll-grant) пользователю роли на воркбуки.
 
-#### Ограниченный просмотр {#workbooks-limitedViewer}
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
 
-Роль `Ограниченный просмотр` позволяет просматривать все [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md) внутри воркбука без возможности редактирования.
+{% include [datalens.workbooks.limitedViewer](../../_roles/datalens/workbooks/limitedViewer.md) %}
 
-#### Просмотр {#workbooks-viewer}
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
 
-Роль `Просмотр` позволяет без возможности редактирования просматривать содержимое воркбука.
+{% include [datalens.workbooks.viewer](../../_roles/datalens/workbooks/viewer.md) %}
 
-#### Редактирование {#workbooks-editor}
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
 
-Роль `Редактирование` позволяет редактировать содержимое воркбука и копировать его.
+{% include [datalens.workbooks.editor](../../_roles/datalens/workbooks/editor.md) %}
 
-#### Администрирование {#workbooks-admin}
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
 
-Роль `Администрирование` позволяет просматривать и редактировать содержимое воркбука, а также перемещать, копировать, удалять воркбук и управлять доступом к нему.
+{% include [datalens.workbooks.admin](../../_roles/datalens/workbooks/admin.md) %}
 
 {% note info %}
 
-При создании воркбука автору автоматически назначается роль `Администрирование` на этот воркбук.
+При создании воркбука автору автоматически назначается роль `datalens.workbooks.admin` (`Администрирование`) на этот воркбук.
 
 {% endnote %}
 
@@ -69,24 +66,24 @@ description: "В разделе описано, какие роли необхо
 
 Вы можете [назначить](../workbooks-collections/security.md#wb-coll-grant) пользователю роли на коллекцию.
 
-#### Ограниченный просмотр {#collections-limitedViewer}
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
-Роль `Ограниченный просмотр` позволяет без возможности редактирования просматривать коллекции и воркбуки внутри коллекции. Внутри воркбуков для просмотра будут доступны только [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md).
+{% include [datalens.collections.limitedViewer](../../_roles/datalens/collections/limitedViewer.md) %}
 
-#### Просмотр {#collections-viewer}
+#### datalens.collections.viewer {#datalens-collections-viewer}
 
-Роль `Просмотр` позволяет без возможности редактирования просматривать содержимое коллекции.
+{% include [datalens.collections.viewer](../../_roles/datalens/collections/viewer.md) %}
 
-#### Редактирование {#collections-editor}
+#### datalens.collections.editor {#datalens-collections-editor}
 
-Роль `Редактирование` позволяет редактировать коллекцию: создавать и редактировать коллекции и воркбуки внутри нее.
+{% include [datalens.collections.editor](../../_roles/datalens/collections/editor.md) %}
 
-#### Администрирование {#collections-admin}
+#### datalens.collections.admin {#datalens-collections-admin}
 
-Роль `Администрирование` предоставляет полный доступ к коллекции и ее содержимому, в том числе управлять доступом и перемещать коллекцию и ее содержимое.
+{% include [datalens.collections.admin](../../_roles/datalens/collections/admin.md) %}
 
 {% note info %}
 
-Роль, выданная на коллекцию, распространяется на все коллекции и воркбуки внутри нее. При создании коллекции автору автоматически назначается роль `Администрирование` на эту коллекцию.
+Роль, выданная на коллекцию, распространяется на все коллекции и воркбуки внутри нее. При создании коллекции автору автоматически назначается роль `datalens.collections.admin` (`Администрирование`) на эту коллекцию.
 
 {% endnote %}

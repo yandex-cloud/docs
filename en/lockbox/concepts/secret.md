@@ -1,6 +1,6 @@
 ---
-title: "What secrets in {{ lockbox-full-name }} are"
-description: "In this tutorial, you will learn what secrets in {{ lockbox-full-name }} are and what they consist of."
+title: What secrets in {{ lockbox-full-name }} are
+description: In this tutorial, you will learn what secrets in {{ lockbox-full-name }} are and what they consist of.
 ---
 
 # Secrets in {{ lockbox-full-name }}

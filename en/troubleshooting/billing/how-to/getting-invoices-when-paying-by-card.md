@@ -1,7 +1,6 @@
 # Receiving receipts for bank card payments
 
 
-
 ## Scenario description {#case-description}
 
 You need to get a payment receipt after making a payment.
@@ -25,6 +24,6 @@ The option to get a receipt depends on the country of residence of your billing 
 
 - Non-residents of Russia and Kazakhstan
 
-       According to the [offer agreement](https://yandex.com/legal/cloud_customer_agreement/) clause 6.4, Yandex Cloud provides a usage invoice for such accounts. A payment receipt is not generated in this case.
+       According to the offer agreement for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/) clause 6.4, Yandex Cloud provides a usage invoice for such accounts. A payment receipt is not generated in this case.
 
 {% endlist %}

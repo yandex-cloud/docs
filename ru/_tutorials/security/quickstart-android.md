@@ -7,9 +7,11 @@
 
 ## Перед началом работы {#before-begin}
 
-1. [Разместите HTML-код](../../smartcaptcha/tutorials/mobile-app/website.md) для работы {{ captcha-name }} (или воспользуйтесь готовым `{{ captcha-mobile-site }}`).
-1. Создайте капчу по [инструкции](../../smartcaptcha/operations/create-captcha.md).
-1. [Получите ключи](../../smartcaptcha/operations/get-keys.md) капчи. Скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** на вкладке **{{ ui-key.yacloud.common.overview }}** созданной вами капчи. **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** понадобится для загрузки страницы с капчей, **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для получения результата прохождения капчи.
+1. [Разместите HTML-страницу](../../smartcaptcha/tutorials/mobile-app/website.md) на своем сервере или воспользуйтесь страницей на сервере {{ yandex-cloud }} — `{{ captcha-mobile-site }}`).
+1. [Создайте капчу](../../smartcaptcha/operations/create-captcha.md).
+1. На вкладке **{{ ui-key.yacloud.common.overview }}** [получите ключи капчи](../../smartcaptcha/operations/get-keys.md):
+   * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для загрузки страницы с капчей;
+   * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для получения результата прохождения капчи.
 
 ## Создайте JavaScript Interface {#create-js-interface}
 
@@ -47,7 +49,7 @@
 ## Получите результат прохождения капчи {#get-result}
 
 1. Сохраните токен прохождения капчи. Он вернется в методе `onGetToken(token: String)`, когда сервис обработает попытку.
-1. Для проверки токена отправьте GET-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate` со следующими параметрами:
+1. Для проверки токена отправьте POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 

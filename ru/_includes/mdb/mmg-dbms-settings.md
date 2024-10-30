@@ -1,24 +1,4 @@
-- **Audit log**{#setting-audit-log} {{ tag-all }}
 
-  Настройки [логов системы аудита](https://www.mongodb.com/docs/manual/core/auditing/). Доступны только для Enterprise-версии кластера {{ mmg-name }}.
-
-  - **Filter**{#setting-filter}
-
-    Настройка определяет, какие события аудита будут записаны в лог. Входным параметром служит любое поле из [сообщения аудита](https://www.mongodb.com/docs/manual/reference/audit-message/) в формате JSON-строки.
-
-    Например, чтобы логировать только события аудита, связанные с пользователем `example-user`, укажите:
-
-    ```json
-    {"user": "example-user"}
-    ```
-
-    Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/#filter-configuration-at-system-startup).
-
-  - **Runtime configuration**{#setting-runtime-configuration}
-
-    Настройка позволяет изменять конфигурацию фильтра во время работы сервера.
-
-    Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/#filter-configuration-at-runtime).
 
 - **Net**{#setting-net} {{ tag-all }}
 
@@ -76,65 +56,6 @@
 
     Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
-- **Security**{#setting-security} {{ tag-all }}
-
-  Настройки шифрования данных в хранилище (Encryption at rest). Доступны только для Enterprise-версии кластера {{ mmg-name }}.
-  
-  Для шифрования используется протокол совместного управления ключами (KMIP).
-
-  Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/core/security-encryption-at-rest/).
-
-  - **Enable encryption**{#enabling-encryption}
-  
-    Настройка включает шифрование данных в хранилище.
-
-    Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--enableEncryption).
-
-  - **Kmip**{#setting-kmip}
-
-    Настройки подключения к KMIP-серверу.
-
-    Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/tutorial/configure-encryption/).
-
-    - **Client certificate**{#setting-client-certificate}
-
-      Путь к клиентскому сертификату, который {{ MG }} использует для аутентификации на KMIP-сервере.
-
-      Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipClientCertificateFile).
-
-    - **Key identifier**{#setting-key-identifier}
-
-      Уникальный идентификатор ключа шифрования на KMIP-сервере.
-
-      Если не указан, то {{ MG }} запросит у KMIP-сервера создание нового ключа и будет использовать его.
-
-      Если на KMIP-сервере нет ключа с указанным идентификатором или данные уже зашифрованы другим ключом, {{ MG }} выдаст ошибку.
-
-      Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipKeyIdentifier).
-
-    - **Port**{#setting-port}
-
-      Номер порта, используемый для связи с KMIP-сервером.
-
-      Если в поле [**Server name**](#setting-server-name) указано несколько серверов, то при попытке подключения к каждому из них {{ MG }} будет использовать указанный порт.
-
-      Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipPort).
-
-    - **Server ca**{#setting-server-ca-file}
-
-      Путь к файлу сертификата удостоверяющего центра (CA).
-
-      Сертификат подтверждает безопасность подключения клиента к KMIP-серверу.
-
-      Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipServerCAFile).
-
-    - **Server name**{#setting-server-name}
-
-      Доменное имя или IP-адрес KMIP-сервера, к которому подключается {{ MG }}.
-
-      Вы можете указать несколько KMIP-серверов через запятую без пробела, например: `server1.example.com,server2.example.com`. В этом случае {{ MG }} последовательно попытается подключиться к каждому серверу в указанном порядке и установит соединение с первым доступным сервером.
-
-      Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipServerName).
 
 - **Set parameter**{#setting-set-parameter}
 
@@ -146,7 +67,7 @@
 
     Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
 
-  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
     {% note info %}
 

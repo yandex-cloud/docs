@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к снимку диска {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к снимку диска."
+title: Настроить права доступа к снимку диска {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к снимку диска.
 ---
 
 # Настроить права доступа к снимку диска
@@ -111,7 +111,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -124,7 +124,7 @@ description: "Следуя данной инструкции, вы настро�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит снимок диска.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-  1. Выберите снимок диска из списка.  
+  1. Выберите снимок диска из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к снимку диска.
@@ -219,7 +219,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/SetAccessBindings](../../api-ref/grpc/snapshot_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/SetAccessBindings](../../api-ref/grpc/Snapshot/setAccessBindings.md).
 
 {% endlist %}
 
@@ -232,12 +232,12 @@ description: "Следуя данной инструкции, вы настро�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит снимок диска.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-  1. Выберите снимок диска из списка.  
+  1. Выберите снимок диска из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -305,6 +305,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роли на снимок диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на снимок диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

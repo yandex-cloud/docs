@@ -48,7 +48,7 @@ noIndex: true
     ```
 
     Где:
-    
+
     * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
     * `analyze_specs: content` – изображение, [кодированное в Base64](../base64-encode.md).
 
@@ -65,7 +65,7 @@ noIndex: true
 
     ```bash
     vision_face_detection() {
-        curl -H "Authorization: Bearer `yc iam create-token`" \
+        curl --header "Authorization: Bearer `yc iam create-token`" \
         "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {

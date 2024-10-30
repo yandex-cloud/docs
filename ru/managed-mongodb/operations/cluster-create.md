@@ -1,6 +1,6 @@
 # Создание кластера {{ MG }}
 
-[Кластер](../../glossary/cluster.md) {{ MG }} — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста (первичный хост принимает запросы на запись и асинхронно дублирует изменения на вторичных хостах).
+[Кластер](../../glossary/cluster.md) {{ MG }} — это один или несколько хостов базы данных, между которыми можно настроить [репликацию](../concepts/replication.md). Репликация работает по умолчанию в любом кластере из более чем 1 хоста (первичный хост принимает запросы на запись и асинхронно дублирует изменения на вторичных хостах).
 
 
 {% note info %}
@@ -16,7 +16,7 @@
 
 ## Создать кластер {#create-cluster}
 
-Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -32,7 +32,7 @@
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Введите название в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
+      * Введите название в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках облака.
       * (Опционально) Введите **{{ ui-key.yacloud.mdb.forms.base_field_description }}** кластера.
       * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
 
@@ -49,11 +49,11 @@
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-        
+
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
+      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. в разделе [Резервные копии](../concepts/backup.md).
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
 
@@ -64,7 +64,7 @@
       * Имя пользователя.
       * Пароль пользователя. Минимум 8 символов.
 
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
       * Облачную сеть для размещения кластера.
@@ -73,14 +73,14 @@
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хосты БД, создаваемые вместе с кластером:
 
-     
+
      * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
      * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
      * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Эту настройку нельзя изменить после создания хоста.
 
 
-          
+     
      Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
 
@@ -104,7 +104,7 @@
 
   Чтобы создать кластер {{ mmg-name }}:
 
-  
+
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```bash
@@ -122,7 +122,7 @@
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
-      
+
       ```bash
       {{ yc-mdb-mg }} cluster create \
         --name <имя_кластера> \
@@ -137,7 +137,7 @@
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <размер_хранилища_ГБ> \
         --performance-diagnostics=<включить_диагностику> \
-        --deletion-protection=<защита_от_удаления>
+        --deletion-protection
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -147,7 +147,7 @@
 
       * `--environment` — окружение: `prestable` или `production`.
 
-      
+
       * `--host` — параметры хоста:
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
@@ -159,7 +159,7 @@
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
-      * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
+      * `--deletion-protection` — защита от удаления кластера.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -189,8 +189,8 @@
 
      Пример структуры конфигурационного файла:
 
-     
-     
+
+
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -251,7 +251,7 @@
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
 
-     
+
      * `host` — параметры хоста:
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
@@ -283,7 +283,7 @@
 
 - API {#api}
 
-    Чтобы создать кластер {{ mmg-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+    Чтобы создать кластер {{ mmg-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
 
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.
@@ -292,7 +292,7 @@
     * Конфигурацию кластера в параметре `configSpec`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
 
-    
+
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
 
@@ -403,7 +403,7 @@
 
   Создайте кластер {{ mmg-name }} с тестовыми характеристиками:
 
-  
+
   * С именем `mymg`.
   * В окружении `production`.
   * В сети `{{ network-name }}`.
@@ -417,7 +417,7 @@
 
   Выполните следующую команду:
 
-  
+
   ```bash
   {{ yc-mdb-mg }} cluster create \
     --name mymg \
@@ -430,7 +430,7 @@
     --mongod-disk-type {{ disk-type-example }} \
     --user name=user1,password=user1user1 \
     --database name=db1 \
-    --deletion-protection=true
+    --deletion-protection
   ```
 
 
@@ -451,7 +451,7 @@
     * Зона доступности — `{{ region-id }}-a`.
     * Диапазон — `10.5.0.0/24`.
 
-  
+
   * Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
 
 
@@ -464,8 +464,8 @@
 
   Конфигурационный файл для кластера с одним хостом:
 
-  
-  
+
+
   ```hcl
   resource "yandex_mdb_mongodb_cluster" "mymg" {
     name                = "mymg"
@@ -580,7 +580,7 @@
   {{ yc-mdb-mg }} cluster create \
      --name mymg \
      --environment production \
-     --deletion-protection=true \
+     --deletion-protection \
      --mongodb-version {{ versions.cli.latest }} \
      --database name=db1 \
      --user name=user1,password=user1user1 \
@@ -740,7 +740,7 @@
   {{ yc-mdb-mg }} cluster create \
     --name mymg \
     --environment production \
-    --deletion-protection=true \
+    --deletion-protection \
     --mongodb-version {{ versions.cli.latest }} \
     --database name=db1 \
     --user name=user1,password=user1user1 \

@@ -1,6 +1,6 @@
 ---
-title: "{{ search-api-name }} image search"
-description: "On this page, you will learn how to use {{ search-api-name }} to send image search queries and receive search results in XML format."
+title: '{{ search-api-name }} image search'
+description: On this page, you will learn how to use {{ search-api-name }} to send image search queries and receive search results in XML format.
 ---
 
 # GET requests

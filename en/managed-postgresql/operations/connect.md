@@ -1,6 +1,6 @@
 ---
-title: "Connecting to a {{ PG }} cluster in {{ mos-full-name }}"
-description: "You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network."
+title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
+description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network.
 ---
 
 # Connecting to a database in a {{ PG }} cluster
@@ -26,41 +26,41 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-   [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
+  [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-   1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+  1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` value (`Self`). Otherwise, specify the VM security group.
 
-   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+  1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
 
-      For example, you can set the following rules for a VM:
+     For example, you can set the following rules for a VM:
 
-      * For incoming traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+     * For incoming traffic:
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
+       This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
 
-      * For outgoing traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+     * For outgoing traffic:
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
+       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
@@ -109,7 +109,7 @@ If, when the [master host is changed automatically](../concepts/replication.md#r
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -156,14 +156,14 @@ To guarantee a connection to the master host:
 
 1. In the `host` argument, provide one of the following:
 
-   * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * [FQDNs](#fqdn) of all cluster hosts.
+    * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
+    * [FQDNs](#fqdn) of all cluster hosts.
 
-1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting from [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
-* For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
+* For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (e.g., using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 * For operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
 
 ## Connecting from graphical IDEs {#connection-ide}
@@ -178,45 +178,45 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
 
 - DataGrip {#datagrip}
 
-   1. Create a data source:
-      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
-      1. Specify the connection parameters on the **General** tab:
-         * **User**, **Password**: DB user's name and password.
-         * **URL**: Connection string:
+  1. Create a data source:
+     1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
+     1. Specify the connection parameters on the **General** tab:
+        * **User**, **Password**: DB user's name and password.
+        * **URL**: Connection string:
 
-            ```http
-            jdbc:postgresql://<special_FQDN>:{{ port-mpg }}>/<DB_name>
-            ```
+          ```http
+          jdbc:postgresql://<special_FQDN>:{{ port-mpg }}>/<DB_name>
+          ```
 
-            You can also use a list of all the cluster host [FQDNs](#fqdn) in the connection string:
+          You can also use a list of all the cluster host [FQDNs](#fqdn) in the connection string:
 
-            ```http
-            jdbc:postgresql://<{{ PG }}_host_1:{{ port-mpg }}>,...,<{{ PG }}_host_N:{{ port-mpg }}>/<DB_name>
-            ```
+          ```http
+          jdbc:postgresql://<{{ PG }}_host_1: {{ port-mpg }}>,...,<{{ PG }}_host_N: {{ port-mpg }}>/<DB_name>
+          ```
 
-         * Click **Download** to download the connection driver.
-      1. On the **SSH/SSL** tab:
+        * Click **Download** to download the connection driver.
+     1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-   1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-   1. Click **OK** to save the data source.
+  1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
 
-   1. Create a new DB connection:
-      1. In the **Database** menu, select **New connection**.
-      1. Select **{{ PG }}** from the DB list.
-      1. Click **Next**.
-      1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special master host FQDN](#fqdn-master) or [regular host FQDN](#fqdn).
-         * **Port**: `{{ port-mpg }}`.
-         * **Database**: DB to connect to.
-         * Under **Authentication**, specify the DB user's name and password.
-      1. On the **SSL** tab:
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select **{{ PG }}** from the DB list.
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Host**: [Special master host FQDN](#fqdn-master) or [regular host FQDN](#fqdn).
+        * **Port**: `{{ port-mpg }}`.
+        * **Database**: DB to connect to.
+        * Under **Authentication**, specify the DB user's name and password.
+     1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-   1. Click **Ready** to save the database connection settings.
+  1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
@@ -239,16 +239,16 @@ Create a new server connection:
 1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
 1. In the **Connection** tab, specify the connection parameters:
 
-   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
-   * **Port**: `{{ port-mpg }}`.
-   * **Maintenance database**: DB you want to connect to.
-   * **Username**: Username for connection.
-   * **Password**: User password.
+    * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
+    * **Port**: `{{ port-mpg }}`.
+    * **Maintenance database**: DB you want to connect to.
+    * **Username**: Username for connection.
+    * **Password**: User password.
 
 1. In the **Parameters** tab:
 
-   * Set the **SSL mode** parameter to `verify-full`.
-   * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
+    * Set the **SSL mode** parameter to `verify-full`.
+    * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
 
 1. Click **Save** to save the server connection settings.
 
@@ -261,30 +261,30 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
 1. In the same directory, generate a client certificate with a private key:
 
-   ```bash
-   openssl req -newkey rsa:2048 -nodes -keyout private.pem -out cert.pem
-   ```
+    ```bash
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -out cert.pem
+    ```
 
-   When creating a certificate, you will be prompted to change some settings. Press **Enter** to use their default values.
+    When creating a certificate, you will be prompted to change some settings. Press **Enter** to use their default values.
 
-   You will see two files in your local directory: `cert.pem` and `private.pem`.
+    You will see two files in your local directory: `cert.pem` and `private.pem`.
 
 1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
-1. Choose {{ PG }}.
+1. Select {{ PG }}.
 1. Fill in the fields as follows:
 
-   * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
-   * **Port**: `{{ port-mpg }}`.
-   * **Database**: DB to connect to.
-   * **Username**: Username for connection.
-   * **Password**: User password.
+    * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
+    * **Port**: `{{ port-mpg }}`.
+    * **Database**: DB to connect to.
+    * **Username**: Username for connection.
+    * **Password**: User password.
 
 1. Select **Enable SSL** and **Enable client authentication**.
 1. Specify the certificate files and the client private key in the respective fields:
 
-   * **Server certificate**: Select the `CA.pem` file.
-   * **Client certificate**: Select the `cert.pem` file.
-   * **Client private key**: Select the `private.pem` file.
+    * **Server certificate**: Select the `CA.pem` file.
+    * **Client certificate**: Select the `cert.pem` file.
+    * **Client private key**: Select the `private.pem` file.
 
 1. Click **Authenticate**.
 
@@ -297,23 +297,23 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 
 - Connecting without SSL {#without-ssl}
 
-   ```bash
-   RUN apt-get update && \
-       apt-get install postgresql-client --yes
-   ```
+    ```bash
+    RUN apt-get update && \
+        apt-get install postgresql-client --yes
+    ```
 
-   You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
+    You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
 
 - Connecting via SSL {#with-ssl}
 
-   ```bash
-   RUN apt-get update && \
-       apt-get install wget postgresql-client --yes && \
-       mkdir --parents ~/.postgresql && \
-       wget "{{ crt-web-path }}" \
-            --output-document ~/.postgresql/root.crt && \
-       chmod 0600 ~/.postgresql/root.crt
-   ```
+    ```bash
+    RUN apt-get update && \
+        apt-get install wget postgresql-client --yes && \
+        mkdir --parents ~/.postgresql && \
+        wget "{{ crt-web-path }}" \
+             --output-document ~/.postgresql/root.crt && \
+        chmod 0655 ~/.postgresql/root.crt
+    ```
 
 {% endlist %}
 
@@ -324,12 +324,12 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 
 You can only connect to public {{ PG }} hosts using an SSL certificate. Prior to connecting to such hosts, [generate a certificate](#get-ssl-cert).
 
-The examples below assume that the `root.crt` SSL certificate is located in the directory:
+The examples below assume that the `root.crt` SSL certificate is located in the following directory:
 
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
+Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal cloud network traffic will not be encrypted when connecting to a database.
 
 You can connect to a cluster using both regular host [FQDNs](../concepts/network.md#hostname) (you can send a comma-separated list consisting of several such FQDNs) and [special FQDNs](#special-fqdns). The examples use a special FQDN of the current master host.
 
@@ -337,6 +337,6 @@ You can connect to a cluster using both regular host [FQDNs](../concepts/network
 
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-If the connection to the cluster and the test query are successful, the {{ PG }} version will be shown. The [userver framework example](#cpp-userver) is one exception, where the `SELECT 1 as ping` test query will be executed from time to time to check the {{ PG }} cluster for availability.
+If the connection to the cluster and the test query are successful, the {{ PG }} version will be shown. The [userver framework example](#cpp-userver) is one exception, where the `SELECT 1 as ping` test query will be made from time to time to check the {{ PG }} cluster for availability.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

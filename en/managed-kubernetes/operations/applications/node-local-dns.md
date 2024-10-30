@@ -11,12 +11,12 @@
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) tab.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
    * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
-   * **Internal IP address of the kube-dns service**: Address for accessing NodeLocal DNS Cache. Requests sent from application pods to the address in the field are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) using the `iptables` rules.
+   * **Internal IP address of the kube-dns service**: Address for accessing NodeLocal DNS Cache. Requests sent from application pods to the address in the field are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) based on the iptables rules.
 
       The field contains the `ClusterIP` address of `kube-dns` in the `kube-system` namespace. You can get the value of the field using the following command:
 
@@ -46,15 +46,14 @@ After installing NodeLocal DNS, use the following values:
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-   The command dsplays the `ClusterIP` address of the `kube-dns` service in the `kube-system` namespace. `kube-dns` is installed automatically during cluster creation, so its IP address is pre-defined.
+   The command contains the `ClusterIP` address of `kube-dns` in the `kube-system` namespace. `kube-dns` is installed automatically during cluster creation, so its IP address is pre-defined.
 
    Requests sent from application pods to the address you get are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) based on the iptables rules.
 
 1. To install a Helm chart from NodeLocal DNS, run this command:
 
-   
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
      --untar && \
@@ -65,4 +64,6 @@ After installing NodeLocal DNS, use the following values:
    ```
 
 
-For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+For more information on how to set up local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

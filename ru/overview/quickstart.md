@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с {{ yandex-cloud }}"
-description: "С помощью этой статьи вы научитесь работать с облачной платформой {{ yandex-cloud }}. Более подробно расскажем, как создать виртуальные машины Linux и Windows, использовать сервисы для хранения данных {{ objstorage-name }} (S3), настраивать сеть и балансировщики нагрузки, управлять доступом к ресурсам и создавать кластера различных баз данных."
+title: Начало работы с {{ yandex-cloud }}
+description: С помощью этой статьи вы научитесь работать с облачной платформой {{ yandex-cloud }}. Более подробно расскажем, как создать виртуальные машины Linux и Windows, использовать сервисы для хранения данных {{ objstorage-name }} (S3), настраивать сеть и балансировщики нагрузки, управлять доступом к ресурсам и создавать кластера различных баз данных.
 ---
 
 # Начало работы с {{ yandex-cloud }}
@@ -14,14 +14,14 @@ description: "С помощью этой статьи вы научитесь р
 
  {% list tabs group=customers %}
 
+   - Юридические лица, ИП или нерезидент РФ и РК {#businesses-entrepreneurs}
+
+      {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
+
    - Физические лица {#individuals}
 
       {% include [start-for-individuals](../_includes/billing/billing-account-create-individual.md) %}
 
-   - Юридические лица, ИП или нерезидент РФ и РК {#businesses-entrepreneurs}
-
-      {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
-      
    {% endlist %}
 
 ## Частые вопросы {#qa}

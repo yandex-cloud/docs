@@ -57,8 +57,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `sa-win-disk-connect`.
   1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `storage.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -95,8 +95,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт `sa-win-disk-connect`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В открывшемся списке выберите сервисный аккаунт `sa-win-disk-connect`.
   1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -127,7 +128,7 @@
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом [create](../../iam/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/api-ref/AccessKey/index.md).
+  Чтобы создать ключ доступа, воспользуйтесь методом [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md).
 
 {% endlist %}
 
@@ -205,7 +206,7 @@
 
 - API {#api}
 
-  Используйте метод REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызов gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или метод S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+  Используйте метод REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызов gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или метод S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}
 
@@ -297,7 +298,7 @@
 
 1. Откройте панель управления службами Windows и убедитесь в наличии службы `rclone-s3-disk`:
 
-   1. Нажмите сочетание клавиш **Win**+**R**.
+   1. Нажмите сочетание клавиш **Win** + **R**.
    1. В открывшемся окне введите `services.msc` и нажмите **ОК**.
    1. В списке служб найдите `rclone-s3-disk`.
    

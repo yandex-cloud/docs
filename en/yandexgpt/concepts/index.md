@@ -1,6 +1,6 @@
 ---
-title: "About {{ yagpt-full-name }}"
-description: "{{ yagpt-full-name }} is the API of a neural network geared to address various needs related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect."
+title: About {{ yagpt-full-name }}
+description: '{{ yagpt-full-name }} is the API of a neural network geared to address various needs related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network''s response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect.'
 ---
 
 # About {{ yagpt-full-name }}

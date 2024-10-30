@@ -63,12 +63,12 @@
      stage: build
      script:
        - >
-         export IAM_TOKEN_JSON=`curl -s -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
+         export IAM_TOKEN_JSON=`curl --silent --header "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
        - export TOKEN=`echo $IAM_TOKEN_JSON | jq -rMc '.access_token'`
        - >
-         curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
+         curl --silent -header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
        - >
-         export SECRET_JSON=`curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
+         export SECRET_JSON=`curl --silent --header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
        - export VALUE_OF_MY_SECRET=`echo $SECRET_JSON | jq -rMc '.entries[] | select(.key | contains("MY_SECRET")) | .textValue'`
        - echo $VALUE_OF_MY_SECRET
    ```

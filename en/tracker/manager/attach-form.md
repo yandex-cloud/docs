@@ -1,6 +1,6 @@
 ---
-title: "How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface"
-description: "Follow this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface."
+title: How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface
+description: Follow this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface.
 ---
 
 # Using a form as a template for creating issues
@@ -33,7 +33,7 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
 1. Under **Forms integration**, click **Add form**.
 

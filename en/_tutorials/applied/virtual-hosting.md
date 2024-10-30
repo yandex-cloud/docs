@@ -1,6 +1,6 @@
 ---
-title: "Virtual hosting: how to build it?"
-description: "In this guide, you will learn how to build a virtual hosting of several websites having different domain names, on a single IP."
+title: 'Virtual hosting: how to build it?'
+description: In this guide, you will learn how to build a virtual hosting of several websites having different domain names, on a single IP.
 ---
 
 # Setting up virtual hosting

@@ -1,6 +1,6 @@
 ---
-title: "Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}"
-description: "Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}." 
+title: Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}
+description: Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}.
 ---
 
 # Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}
@@ -120,7 +120,7 @@ description: "Создайте триггер для топика брокера
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 

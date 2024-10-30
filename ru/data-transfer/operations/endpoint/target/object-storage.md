@@ -12,8 +12,7 @@
 ## Сценарии передачи данных в {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    
-    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
+    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
     
@@ -40,6 +39,12 @@
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+
+{% note warning %}
+
+{{ objstorage-name }} поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, он не должен использоваться для поставки данных в {{ objstorage-name }}, иначе трансфер завершится с [ошибкой](#update-not-supported).
+
+{% endnote %}
 
 ## Настройка эндпоинта-приемника {{ objstorage-name }} {#endpoint-settings}
 
@@ -70,3 +75,9 @@
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_column.title }}** — имя колонки для указания логического времени для данных. Значение по умолчанию — системное время записи. Время при записи данных в приемник преобразуется в UTC. Это поведение нельзя изменить.
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
+
+## Решение проблем, возникающих при переносе данных {#troubleshooting}
+
+См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+
+{% include [update-not-supported](../../../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}

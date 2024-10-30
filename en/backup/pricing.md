@@ -6,7 +6,9 @@ editable: false
 
 
 
-To calculate the cost of using {{ backup-name }}, see the prices on this page.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
@@ -16,7 +18,7 @@ The cost of {{ backup-name }} depends on the number of protected VMs and the tot
 
 You start paying for a VM in {{ backup-name }} as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the VM status, you will be charged for the VM until you unlink it from the policy.
 
-If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
+If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
 
 The minimum billing unit is 1 VM per hour.
 
@@ -70,4 +72,5 @@ Here is an example of calculating the cost of {{ backup-name }} for one month fo
 
 
 {% include [usd-backup](../_pricing_examples/backup/usd.md) %}
+
 

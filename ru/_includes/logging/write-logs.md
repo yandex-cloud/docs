@@ -8,7 +8,7 @@
 
     Чтобы добавить записи в лог-группу, выполните команду:
 
-    
+
     * Linux, MacOS:
         ```bash
         yc logging write \
@@ -50,6 +50,6 @@
 
 - API {#api}
 
-  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
+  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md).
 
 {% endlist %}

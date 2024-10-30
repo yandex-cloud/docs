@@ -1,6 +1,6 @@
 ---
-title: "Отозвать роли, назначенные на контейнер"
-description: "Следуя данной инструкции, вы сможете отозвать роли, назначенные на контейнер."
+title: Отозвать роли, назначенные на контейнер
+description: Следуя данной инструкции, вы сможете отозвать роли, назначенные на контейнер.
 ---
 
 # Отозвать роли, назначенные на контейнер
@@ -47,6 +47,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на контейнер, воспользуйтесь методом REST API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/container_service.md#UpdateAccessBindings).
+  Чтобы отозвать роли, назначенные на контейнер, воспользуйтесь методом REST API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md).
 
 {% endlist %}

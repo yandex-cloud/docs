@@ -1,10 +1,5 @@
 title: Yandex Query
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -82,6 +77,8 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
+      - name: Работа с базами данных {{ mgp-name }}
+        href: sources-and-sinks/greenplum.md
       - name: Работа с базами данных {{ mmy-name }}
         href: sources-and-sinks/mysql.md
       - name: Работа с базами данных {{ mpg-name }}
@@ -167,3 +164,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/query
+deepBase: 2

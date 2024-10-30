@@ -260,7 +260,7 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-     1. Отключите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+     1. Отключите опцию **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

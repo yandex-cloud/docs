@@ -1,6 +1,6 @@
 ---
-title: "{{ container-registry-full-name }} use cases"
-description: "Various {{ container-registry-full-name }} use cases in {{ yandex-cloud }}. Running a Docker image on a VM."
+title: '{{ container-registry-full-name }} use cases'
+description: Various {{ container-registry-full-name }} use cases in {{ yandex-cloud }}. Running a Docker image on a VM.
 ---
 
 # {{ container-registry-name }} tutorials
@@ -12,4 +12,5 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](image-storage.md)
 * [{#T}](vpc-cr-access.md)
+* [{#T}](fault-tolerance.md)
 * [{#T}](loadtesting-external-agent.md)

@@ -41,7 +41,7 @@
   Где:
 
   * `<категория_ресурса>` — `cloud`, чтобы назначить роль на облако, или `folder`, чтобы назначить роль на каталог.
-  * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначется роль.
+  * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
   * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
   * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
 
@@ -113,25 +113,23 @@
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  
-  1. На панели слева выберите ![icon-acl](../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
   1. В фильтре **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** выберите `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
 
-  1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь поиском. В строке аккаунта нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, в строке с этим аккаунтом нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-     Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}** и выберите аккаунт из списка или воспользуйтесь поиском.
-  
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
-  
-     Описание доступных ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). 
-  
-  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}** и выберите аккаунт из списка или воспользуйтесь поиском.
+
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить сервисному аккаунту. Вы можете назначить несколько ролей.
+
+      Описание доступных ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -148,7 +146,7 @@
   ```
 
   Где:
-  * `<имя_или_идентификатор_организации>` — техническое название или идентификатор организации.
+  * `<имя_или_идентификатор_организации>` — техническое название или [идентификатор](../../organization/operations/organization-get-id.md) организации.
   * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
   * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
 
@@ -171,7 +169,7 @@
       | bpf1smsil5q0********            | hdt5j5uw********                | MyOrg                |
       +---------------------------------+---------------------------------+----------------------+
       ```
-  
+
       Техническое название организации находится в столбце `NAME`, идентификатор организации — в столбце `ID`.
 
   1. Узнайте идентификатор сервисного аккаунта по его имени:
@@ -196,7 +194,7 @@
       ```
 
       Результат:
-      
+
       ```bash
       +----------------------+------------------+-----------------+
       |          ID          |       NAME       |   DESCRIPTION   |
@@ -215,7 +213,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-install](../../_includes/terraform-install.md) %} 
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -232,7 +230,7 @@
      ```
 
      Где:
-     * `organization_id` — [идентификатор организации](../../organization/operations/org-profile.md). Обязательный параметр.
+     * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. Обязательный параметр.
      * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
      * `members` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
@@ -247,7 +245,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
  
   1. Разверните облачные ресурсы.
   
@@ -277,7 +275,8 @@
       ```bash
       export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
       ```
 
@@ -302,8 +301,10 @@
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA... 
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-	    -X GET "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --request GET \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations"
       ```
 
       Результат:
@@ -345,10 +346,12 @@
       ```bash
       export ORGANIZATION_ID=bpfaidqca8vd********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        -X POST "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        --request POST \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

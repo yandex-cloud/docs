@@ -1,6 +1,6 @@
 ---
-title: "How to change the Python version for a project in {{ ml-platform-full-name }}"
-description: "Follow this guide to change the Python version for your project."
+title: How to change the Python version for a project in {{ ml-platform-full-name }}
+description: Follow this guide to change the Python version for your project.
 ---
 
 # Selecting a Python version

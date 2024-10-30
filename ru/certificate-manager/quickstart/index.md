@@ -1,6 +1,6 @@
 # Как начать работать с {{ certificate-manager-name }}
 
-В этой инструкции вы добавите в {{ certificate-manager-name }} свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
+В этой инструкции вы добавите в {{ certificate-manager-name }} свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -9,7 +9,7 @@
 1. Каталог в {{ yandex-cloud }}. Если каталога еще нет, создайте новый каталог:
 
     {% include [create-folder](../../_includes/create-folder.md) %}
-  
+
 1. Домен не ниже третьего уровня, для которого будет выпущен сертификат от Let's Encrypt.
 
     {% note info %}
@@ -25,15 +25,15 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
+        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Введите имя бакета в точности совпадающее с именем домена.
         1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
-     
+
     {% endlist %}
-    
+
 1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
 
     {% list tabs group=instructions %}
@@ -42,8 +42,9 @@
 
         1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
-        1. В панели слева выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-        1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** и укажите главную страницу сайта.
+        1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+        1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+        1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`. и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
 
     {% endlist %}
@@ -63,7 +64,7 @@
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-    
+
     1. Перейдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
@@ -123,7 +124,7 @@
 
   1. Дождитесь изменения статуса сертификата на `Issued`.
   1. Удалите созданный файл из бакета:
-    
+
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
          s3 rm s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
@@ -142,14 +143,15 @@
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-    
+
     1. Войдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
+    1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-    1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+    1. Справа вверху нажмите **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
-    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** выберите сертификат в появившемся списке. 
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** выберите сертификат в появившемся списке.
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 {% endlist %}

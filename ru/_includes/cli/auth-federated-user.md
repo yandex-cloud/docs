@@ -3,13 +3,13 @@
 1. Узнайте идентификатор федерации у вашего администратора.
 1. Запустите интерактивное создание профиля:
 
+
    
-      
     ```bash
     yc init --federation-id=<идентификатор_федерации>
     ```
 
-   
+
 
 
 
@@ -50,24 +50,24 @@
 
    ```bash
    Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
-   ```  
+   ```
 
    Если вы ввели `Y`, выберите зону доступности:
 
-   
+
    {% include [include](choose-zone.md) %}
 
 
 
 1. Проверьте настройки вашего профиля CLI:
-   
+
    ```bash
    yc config list
    ```
 
    Результат:
 
-   
+
    ```bash
    federation-id: aje1f0hs6oja********
    cloud-id: b1g159pa15cd********

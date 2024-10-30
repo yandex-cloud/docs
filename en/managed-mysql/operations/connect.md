@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a database in a {{ MY }} cluster in {{ mmy-full-name }}"
-description: "Follow this guide to connect to a database in a {{ MY }} cluster."
+title: How to connect to a database in a {{ MY }} cluster in {{ mmy-full-name }}
+description: Follow this guide to connect to a database in a {{ MY }} cluster.
 ---
 
 # Connecting to a database in a {{ MY }} cluster

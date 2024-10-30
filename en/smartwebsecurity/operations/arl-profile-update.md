@@ -1,6 +1,6 @@
 ---
-title: "Updating basic ARL profile settings"
-description: "Follow this guide to update basic ARL profile settings."
+title: Updating basic ARL profile settings
+description: Follow this guide to update basic ARL profile settings.
 ---
 
 # Updating basic ARL profile settings

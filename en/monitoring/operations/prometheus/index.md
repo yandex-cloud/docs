@@ -1,6 +1,6 @@
 ---
-title: "{{ managed-prometheus-full-name }}"
-description: "{{ managed-prometheus-full-name }} is a monitoring system compatible with {{ prometheus-name }}. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the {{ promql-name }} query language. Thus, you can work with dashboards existing in {{ grafana-name }}."
+title: '{{ managed-prometheus-full-name }}'
+description: '{{ managed-prometheus-full-name }} is a monitoring system compatible with {{ prometheus-name }}. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the {{ promql-name }} query language. This allows you to work with dashboards existing in {{ grafana-name }}.'
 ---
 
 # {{ managed-prometheus-full-name }} overview
@@ -16,7 +16,7 @@ description: "{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 To start working with {{ managed-prometheus-full-name }} in the current folder, you need to create a workspace. To do this:
 
-1. Open the [service home page]({{ link-monitoring }}){{ monitoring-full-name }}.
+1. Open the {{ monitoring-full-name }} [home page]({{ link-monitoring }}).
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. Click **Create a workspace**.
 1. On the page that opens, you will see links to the endpoints to be used for the current folder.
@@ -32,23 +32,23 @@ The system functionality will be enhanced in upcoming releases.
 {% endnote %}
 
 
-| Feature | {{ prometheus-name }} | {{ managed-prometheus-full-name }} |
+Feature | {{ prometheus-name }} | {{ managed-prometheus-full-name }}
 --- | --- | ---
-| Collecting metrics | [Scrape](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config), [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/), [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Metric writes via the [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) protocol are supported. To deliver metrics to {{ managed-prometheus-full-name }}, you can use any compatible metric collection agent, including {{ prometheus-name }} itself. |
-| Long-term metric storage | Not intended for long-term metric storage. [Third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) are used for that. | Long-term metric storage is supported. If [decimation](../../concepts/decimation.md) is used, metrics can be stored for an unlimited amount of time. |
-| Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions). |
-| Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported. |
-| Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API. |
-| Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, `alerting rules` can be calculated from short-term data on local {{ prometheus-name }} instances. |
-| Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used. |
+Collecting metrics | [Scrape](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config), [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/), [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Metric writes via the [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) protocol are supported. To deliver metrics to {{ managed-prometheus-full-name }}, you can use any compatible metric collection agent, including {{ prometheus-name }} itself.
+Long-term metric storage | Not intended for long-term metric storage. [Third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) are used for that. | Long-term metric storage is supported. If [decimation](../../concepts/decimation.md) is used, metrics can be stored for an unlimited amount of time.
+Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions).
+Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported.
+Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) (`recording rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
+Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, you can calculate `alerting rules` from short-term data on local {{ prometheus-name }} instances.
+Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used.
 
 
 ## Current limitations {#restrictions}
 
 * The `NaN` value is not supported and is treated as a missing point.
-* The `+Inf`/`-Inf` value may be processed incorrectly.
-* No support for `alerting rules`.
-* No support for `staleness markers`, `exemplars`, and `native histograms`.
+* The `+Inf`/`-Inf` values may be processed incorrectly.
+* `Alerting rules` are not supported.
+* `Staleness markers`, `exemplars`, and `native histograms` are not supported.
 
 ## Quotas and limits {#limits}
 
@@ -56,18 +56,18 @@ The system functionality will be enhanced in upcoming releases.
 
 {% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
 
-If you need more resources, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}) and tell us which quotas you want increased and by how much.
+If you need more resources, contact support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}) and tell us which quotas you want increased and by how much.
 
 ### Quotas per endpoint {#quotas-per-endpoint}
 
-| Type of limit | Value |
+Type of limit | Value
 ----- | -----
-| Maximum data write speed in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format | 1,000 requests/s and 80 MB/s |
-| Number of metrics per write request | 10,000 |
-| Number of [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) read requests per second | 200 |
-| Number of [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) read requests per second | 200 |
-| Number of unique metrics | 20,000,000 |
-| Maximum retention period for [expired metrics](../../concepts/ttl.md) ^1^ | 60 days |
+Maximum data write speed in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format | 1,000 requests/s and 80 MB/s
+Number of metrics per write request | 10,000
+Number of [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) read requests per second | 200
+Number of [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) read requests per second | 200
+Number of unique metrics | 20,000,000
+Maximum retention period for [expired metrics](../../concepts/ttl.md) ^1^ | 60 days
 
 ^1^ A metric expires and is removed if not getting new values for 60 days. Metrics that keep getting new values are stored indefinitely.
 
@@ -78,8 +78,8 @@ In the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.titl
 
 ### Limits per endpoint {#limits-per-endpoint}
 
-| Type of limit | Value |
+Type of limit | Value
 ----- | -----
-| Number of unique labels per metric | 29 |
+Number of unique labels per metric | 29
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

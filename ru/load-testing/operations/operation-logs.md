@@ -13,7 +13,7 @@
   1. На панели слева выберите ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
   В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
-  
+
 {% endlist %}
 
 ## Получить подробную информацию об операции {#get-operations-info}
@@ -55,7 +55,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../user/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../user/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

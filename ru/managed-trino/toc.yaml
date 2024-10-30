@@ -1,0 +1,9 @@
+title: '{{ mtr-full-name }}'
+href: index.yaml
+stage: preview
+noIndex: true
+items:
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/managed-trino
+deepBase: 2

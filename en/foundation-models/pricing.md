@@ -6,7 +6,9 @@ editable: false
 
 
 
-{{ foundation-models-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 In the [management console]({{ link-console-main }}), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
 
@@ -15,13 +17,13 @@ In the [management console]({{ link-console-main }}), new users without a [billi
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-### Pricing unit {#unit}
+### Billing unit {#unit}
 
-{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text generation and vectorization.
+{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
@@ -32,11 +34,11 @@ The total number of billing units is based on the overall number of prompt and r
 
 #### Tokenization {#rules-tokens}
 
-The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/TokenizerService.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
+The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
+The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text classification {#rules-text-classifier}
 
@@ -44,11 +46,19 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classi
 
 ### Text vectorization {#rules-embedding}
 
-The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
 ### Image generation {#rules-image-generation}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
+
+{% note warning %}
+
+The pricing below will apply starting November 1, 2024.
+
+{% endnote %}
+
+You are charged for each generation query in {{ yandexart-name }}. The queries are not idempotent, which means two queries with different settings and generation prompts are two separate queries.
 
 ### Internal server errors {#error-request}
 
@@ -70,6 +80,13 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
+
+
+### Image generation {#pricing-image-generation}
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
 ## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}

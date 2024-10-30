@@ -1,6 +1,6 @@
 ---
-title: "How to delete a record in {{ ydb-full-name }}"
-description: "Follow this guide to delete a record."
+title: How to delete a record in {{ ydb-full-name }}
+description: Follow this guide to delete a record.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 ---
 # Deleting a record

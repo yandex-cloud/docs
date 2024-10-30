@@ -1,6 +1,6 @@
 ---
-title: "Managing portfolios in {{ tracker-full-name }}"
-description: "This tutorial explains how to manage {{ tracker-full-name }} portfolios."
+title: Managing portfolios in {{ tracker-full-name }}
+description: This tutorial explains how to manage {{ tracker-full-name }} portfolios.
 ---
 
 # Managing portfolios
@@ -24,7 +24,7 @@ To create a project portfolio:
 
 1. Enter a name for the portfolio, set its end date, and click **Create**.
 
-1. In the **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab, add the following information:
+1. In the **About the portfolio** tab, add the following information:
 
    * Portfolio description: What you are working on and what goals you want to achieve.
    * Attachments: Working materials of the portfolio.
@@ -32,7 +32,7 @@ To create a project portfolio:
    * **Status**: Specify the current stage of the portfolio.
    * **Start date** and **End date**.
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
-   * **Tags**: Add or select the tags that would make it easier to find the portfolio.
+   * **Tags**: Add or select the tags that would make it easier to find the portfolio.   
 
 
 ## Setting up a hierarchy {#add-portfolios-projects}
@@ -142,4 +142,4 @@ To delete a portfolio:
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
 
-1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_portfolios_PortfolioMenu.remove-portfolio }}**.
+1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete portfolio**.

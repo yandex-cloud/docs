@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ cdn-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ cdn-full-name }}."
+title: Правила тарификации для {{ cdn-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ cdn-full-name }}.
 editable: false
 ---
 

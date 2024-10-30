@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse'
 ---
 
 # Loading data from {{ PG }} to a {{ CH }} data mart

@@ -1,6 +1,6 @@
 ---
-title: "Как создать L7-балансировщик в {{ alb-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать L7-балансировщик."
+title: Как создать L7-балансировщик в {{ alb-full-name }}
+description: Следуя данной инструкции, вы сможете создать L7-балансировщик.
 ---
 
 # Создать L7-балансировщик
@@ -338,6 +338,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/LoadBalancer/create.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Create](../api-ref/grpc/load_balancer_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/LoadBalancer/create.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Create](../api-ref/grpc/LoadBalancer/create.md).
 
 {% endlist %}

@@ -122,7 +122,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - {{ TF }} {#tf}
 
-   
+
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
@@ -178,9 +178,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - API {#api}
 
-   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-   To assign the service account the `logging.reader` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+   To assign the service account the `logging.reader` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -273,7 +273,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - API {#api}
 
-   To create an access key, use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create) gRPC API call.
+   To create an access key, use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/Key/create.md) gRPC API call.
 
    Sample request using cURL for the `create` REST API method:
 
@@ -407,7 +407,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - API {#api}
 
-   To create a log group, use the [create](../../logging/api-ref/LogGroup/create.md) REST API method for the [LogGroup](../../logging/api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../../logging/api-ref/grpc/log_group_service.md#Create) gRPC API call.
+   To create a log group, use the [create](../../logging/api-ref/LogGroup/create.md) REST API method for the [LogGroup](../../logging/api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../../logging/api-ref/grpc/LogGroup/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -460,7 +460,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - API {#api}
 
-   To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
+   To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md) gRPC API call.
 
 {% endlist %}
 

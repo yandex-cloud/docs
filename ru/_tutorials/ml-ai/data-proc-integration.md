@@ -82,7 +82,8 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-data-proc`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `dataproc.agent` — для создания и использования кластеров {{ dataproc-name }}.
@@ -225,7 +226,7 @@
    ```python
    #!spark --cluster <имя_кластера>
    import random
-   
+
    def inside(p):
        x, y = random.random(), random.random()
        return x*x + y*y < 1

@@ -48,6 +48,7 @@ Aliases:
 	- [yc managed-kubernetes node-group delete](node-group/delete.md) — Delete a node group.
 	- [yc managed-kubernetes node-group list-operations](node-group/list-operations.md) — List operations for the specified node group.
 	- [yc managed-kubernetes node-group list-nodes](node-group/list-nodes.md) — List nodes for the specified node group.
+- [yc managed-kubernetes marketplace](marketplace/index.md) — Manage Marketplace products.
 
 #### Global Flags
 
@@ -66,4 +67,5 @@ Aliases:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

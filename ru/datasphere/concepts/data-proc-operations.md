@@ -33,7 +33,7 @@
 
 При работе с Python Spark через {{ ml-platform-name }} нет необходимости вручную переносить виртуальное окружение. В кластере {{ dataproc-name }} есть возможность изменить базовый состав PyPI пакетов с помощью виртуального окружения:
 
-1. Установите библиотеку `catboost `:
+1. Установите библиотеку `catboost`:
 
    ```python
    %pip install catboost
@@ -95,13 +95,13 @@
    ```python
    #!spark --cluster my-new-cluster --session ses1
    import random
-   
+
    def inside(p):
        x, y = random.random(), random.random()
        return x*x + y*y < 1
-   
+
    NUM_SAMPLES = 1_000_000
-   
+
    count = sc.parallelize(range(0, NUM_SAMPLES)) \
        .filter(inside).count()
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
@@ -130,5 +130,5 @@ df
 
 ## См. также {#see-also}
 
-* [{#T}](../tutorials/data-proc-integration.md).
-* [{#T}](spark-connector.md).
+* [{#T}](../tutorials/data-proc-integration.md)
+* [{#T}](spark-connector.md)

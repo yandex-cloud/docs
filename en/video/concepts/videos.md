@@ -43,18 +43,27 @@ For each video, you can [look up the viewing statistics](../operations/video/get
 The following viewing statistics are currently available:
 
 * Number of views: Integer.
-* Share of content viewed: Percentage ratio of average viewing time to video duration.
+* Share of viewed content: Percentage ratio of average viewing time to video duration.
 * Total viewing time: Total viewing time in hours and minutes.
 * Average viewing time: Average viewing time in hours and minutes.
 * Linear chart with distribution of the number of views per unit of time with the following discretization levels:
 
-   * `5 minutes`
-   * `1 hour`
-   * `1 day`
+    * `5 minutes`
+    * `1 hour`
+    * `1 day`
 * Pie chart with distribution of views by device OS type.
 * Pie chart with distribution of views by device type.
 * [Heat map](https://en.wikipedia.org/wiki/Heat_map) with data on video fragment views.
 
-   Each point on the heat map corresponds to a 30-second video fragment.
+    Each point on the heat map corresponds to a 30-second video fragment.
 
-   On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
+    On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
+
+## Subtitles {#subtitles}
+
+Supported subtitle formats: SRT and VTT. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video. View the list of supported languages in [{{ video-name }} interface]({{ link-video-main }}).
+
+## See also {#see-also}
+
+* [Getting started with video hosting](../hosting.md)
+* [Getting started with API](../api-ref/quickstart.md)

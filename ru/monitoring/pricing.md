@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ monitoring-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ monitoring-name }}."
+title: Правила тарификации для {{ monitoring-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ monitoring-name }}.
 editable: false
 ---
 
@@ -61,7 +61,7 @@ editable: false
 
   Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки.
 
-  Например, стоимость записи первых 86 400 значений составит `(86 400 значений / 1 млн) × 9,8 ₽ = 0,8467 ₽` и будет округлена до `0,85 ₽`. При этом стоимость записи 87 000 значений составит `(87 000 значений / 1 млн) × 9,8 ₽ = 0,8526 ₽` и будет округлена до `0,85 ₽`. Где `9,80 ₽` — цена за 1 млн значений (при записи до 50 млн значений).
+  Например, стоимость записи первых 86 400 значений составит `(86 400 значений / 1 млн) × {{ sku|RUB|monitoring.point.write|string }} = {% calc [currency=RUB] 86400 / 1000000 × {{ sku|RUB|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=RUB] round((86400 / 1000000 × {{ sku|RUB|monitoring.point.write|number }}) × 100 ) / 100 %}`. При этом стоимость записи 87 000 значений составит `(87 000 значений / 1 млн) × {{ sku|RUB|monitoring.point.write|string }} = {% calc [currency=RUB] 87000 / 1000000 × {{ sku|RUB|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=RUB] round((87000 / 1000000 × {{ sku|RUB|monitoring.point.write|number }}) × 100 ) / 100 %}`. Где `{{ sku|RUB|monitoring.point.write|string }}` — цена за 1 млн значений (при записи до 50 млн значений).
 
   {% include [rub.md](../_pricing/monitoring/rub.md) %}
 
@@ -69,7 +69,7 @@ editable: false
 
   Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до тиына.
 
-  Например, стоимость записи первых 86 500 значений составит `(86 500 значений / 1 млн) × 49,00 ₸ = 4,2385 ₸` и будет округлена до `4,24 ₸`. При этом стоимость записи 86 600 значений составит `(86 600 значений / 1 млн) × 49,00 ₸ = 4,2434 ₸` и будет округлена до `4,24 ₸`. Где `49,00 ₸` — цена за 1 млн значений (при записи до 50 млн значений).
+  Например, стоимость записи первых 86 500 значений составит `(86 500 значений / 1 млн) × {{ sku|KZT|monitoring.point.write|string }} = {% calc [currency=KZT] 86500 / 1000000 × {{ sku|KZT|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=KZT] round((86500 / 1000000 × {{ sku|KZT|monitoring.point.write|number }}) × 100 ) / 100 %}`. При этом стоимость записи 86 600 значений составит `(86 600 значений / 1 млн) × {{ sku|KZT|monitoring.point.write|string }} = {% calc [currency=KZT] 86600 / 1000000 × {{ sku|KZT|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=KZT] round((86600 / 1000000 × {{ sku|KZT|monitoring.point.write|number }}) × 100 ) / 100 %}`. Где `{{ sku|KZT|monitoring.point.write|string }}` — цена за 1 млн значений (при записи до 50 млн значений).
 
   {% include [kzt.md](../_pricing/monitoring/kzt.md) %}
 

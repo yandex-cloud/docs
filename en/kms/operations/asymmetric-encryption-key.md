@@ -1,6 +1,6 @@
 ---
-title: "How to create, update, and destroy encryption key pairs"
-description: "This guide describes how you can create, update, and destroy encryption key pairs."
+title: How to create, update, and destroy encryption key pairs
+description: This guide describes how you can create, update, and destroy encryption key pairs.
 ---
 
 # Managing encryption key pairs
@@ -29,7 +29,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create an encryption key pair:
+  1. See the description of the CLI command to create an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key create --help
@@ -57,7 +57,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"
@@ -68,7 +68,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 - API {#api}
 
-  To create an encryption key pair, use the [AsymmetricEncryptionKeyService/Create](../api-ref/grpc/asymmetric_encryption_key_service.md#Create) gRPC API call.
+  To create an encryption key pair, use the [AsymmetricEncryptionKeyService/Create](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -84,7 +84,7 @@ After creating an encryption key pair, you can change its name, description, and
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       1. Change the required key pair attributes.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -94,7 +94,7 @@ After creating an encryption key pair, you can change its name, description, and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update an encryption key pair:
+  1. See the description of the CLI command to update an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key update --help
@@ -109,18 +109,18 @@ After creating an encryption key pair, you can change its name, description, and
       ```bash
       yc kms asymmetric-encryption-key update \
         --id <key_pair_ID> \
-        --new-name <key_pair_new_name> \
+        --new-name <new_key_pair_name> \
         --deletion-protection
       ```
 
       Where:
       * `--id`: ID of the encryption key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair's deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"
@@ -134,7 +134,7 @@ After creating an encryption key pair, you can change its name, description, and
 
 - API {#api}
 
-  To update an encryption key pair, use the [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update) gRPC API call.
+  To update an encryption key pair, use the [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -148,7 +148,7 @@ After creating an encryption key pair, you can change its name, description, and
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -157,7 +157,7 @@ After creating an encryption key pair, you can change its name, description, and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to delete an encryption key pair:
+  1. See the description of the CLI command to delete an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key delete --help
@@ -176,7 +176,7 @@ After creating an encryption key pair, you can change its name, description, and
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"
@@ -186,6 +186,6 @@ After creating an encryption key pair, you can change its name, description, and
 
 - API {#api}
 
-  To delete an encryption key pair, use the [AsymmetricEncryptionKeyService/Delete](../api-ref/grpc/asymmetric_encryption_key_service.md#Delete) gRPC API call.
+  To delete an encryption key pair, use the [AsymmetricEncryptionKeyService/Delete](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/delete.md) gRPC API call.
 
 {% endlist %}

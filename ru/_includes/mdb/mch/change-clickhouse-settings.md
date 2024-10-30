@@ -115,7 +115,7 @@
 
 - API {#api}
 
-   Чтобы задать настройки {{ CH }}, воспользуйтесь методом REST API [update](../../../managed-clickhouse/api-ref/Cluster/update.md) для ресурса [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+   Чтобы задать настройки {{ CH }}, воспользуйтесь методом REST API [update](../../../managed-clickhouse/api-ref/Cluster/update.md) для ресурса [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
    * Нужные значения в параметре `configSpec.clickhouse.config`.

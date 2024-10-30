@@ -14,11 +14,11 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 ### Create a form
 
 1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
-1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
+1. Under **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Vacation request`.
    * Add a description, e.g., `Form for vacation requests`.
-   * Click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
+   * Click **{{ ui-key.startrek.ui_Issues_pages_PageCreateIssueForm.continue }}**.
 1. Wait for the page to load and click **{{ forms-full-name }} full version**.
 1. Create a request form, e.g., with the following fields:
    * `Full name` (short text, required field).
@@ -43,7 +43,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 1. Click **Save** to save the form.
 1. Return to the form builder by clicking **To builder** at the top of the page.
 1. Click **Publish** and copy the link to the form in the dialog box that opens.
-1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-forms }}**.
+1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-forms }}**.
 1. Click **Add form** and fill out the form that opens pasting the link you copied earlier into the **Link to form** field.
 1. Click **Save** to save the form integration.
 
@@ -51,7 +51,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 {{ tracker-name }} has the [auto actions](user/autoactions.md) feature to perform regular actions in a queue. Use an auto action to set up regular checks of the `Vacations Queue` for requests that work is not started on yet. To avoid overloading the employees responsible for registration of vacations with reminders, configure them to be sent once a day and not earlier than two weeks prior to the vacation start date specified in the request.
 
-1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-autoactions }}**.
+1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-autoactions }}**.
 1. Wait for the page to load and click **Create auto action**.
 1. In the **Auto action type** field, enable **Issue update**.
 1. In the **Name** field, enter a name, such as `vacation_warning`.
@@ -72,7 +72,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 ## Test the auto action
 
-1. On the issue creation page, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
+1. On the issue creation page, select **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_Queues_smart-components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
 1. Click the `Vacation` widget.
 1. Fill out the form. In the **Start** field, specify a date that is a week from now.
 1. Submit the form.

@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a symmetric encryption key"
-description: "Follow this guide to assign roles for a symmetric encryption key."
+title: Configuring access permissions for a symmetric encryption key
+description: Follow this guide to assign roles for a symmetric encryption key.
 ---
 
 # Configuring access permissions for a symmetric encryption key
@@ -83,7 +83,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
 - API {#api}
 
-   Use the [updateAccessBindings](../api-ref/SymmetricKey/updateAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/UpdateAccessBindings](../api-ref/grpc/symmetric_key_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [updateAccessBindings](../api-ref/SymmetricKey/updateAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/UpdateAccessBindings](../api-ref/grpc/SymmetricKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
@@ -185,7 +185,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [setAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/symmetric_key_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [setAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `accessBindings[].roleId` parameter.
    * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

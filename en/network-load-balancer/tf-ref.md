@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ network-load-balancer-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ network-load-balancer-name }}.
+---
+
 # {{ TF }} reference for {{ network-load-balancer-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

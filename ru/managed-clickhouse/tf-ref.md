@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ mch-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mch-name }}."
+title: Справочник {{ TF }} для {{ mch-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mch-name }}.
 ---
 
 # Справочник {{ TF }} для {{ mch-full-name }}
@@ -21,6 +21,6 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_clickhouse_cluster) | Информация о [кластере](concepts/index.md) |
+| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/mdb_clickhouse_cluster) | Информация о [кластере](concepts/index.md) |
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

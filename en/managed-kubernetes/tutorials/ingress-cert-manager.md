@@ -1,6 +1,6 @@
 ---
-title: "How to create an NGINX Ingress controller and protect it with a {{ lets-encrypt }} certificate in {{ managed-k8s-full-name }}"
-description: "Follow this tutorial to create an NGINX Ingress controller and protect it with a {{ lets-encrypt }} certificate."
+title: How to create an NGINX Ingress controller and protect it with a {{ lets-encrypt }} certificate in {{ managed-k8s-full-name }}
+description: Follow this tutorial to create an NGINX Ingress controller and protect it with a {{ lets-encrypt }} certificate.
 ---
 
 # Installing an NGINX Ingress controller with a {{ lets-encrypt }} certificate manager

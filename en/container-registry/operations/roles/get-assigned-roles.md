@@ -1,6 +1,6 @@
 ---
-title: "How to view resource roles in {{ container-registry-full-name }}"
-description: "Follow this guide to view roles assigned for resources."
+title: How to view resource roles in {{ container-registry-full-name }}
+description: Follow this guide to view roles assigned for resources.
 ---
 
 # Viewing roles assigned for a resource
@@ -17,42 +17,42 @@ description: "Follow this guide to view roles assigned for resources."
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   Run this command:
+  Run this command:
 
-   ```bash
-   yc container <resource> list-access-bindings <resource_name_or_ID>
-   ```
+  ```bash
+  yc container <resource> list-access-bindings <resource_name_or_ID>
+  ```
 
-   Where:
-   * `<resource>`: Resource type (`registry` or `repository`).
-   * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
+  Where:
+  * `<resource>`: `registry` or `repository` resource type.
+  * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
 
-   **Example**
+  **Example**
+  
+  ```bash
+  yc container registry list-access-bindings my-first-registry
+  ```
 
-   ```bash
-   yc container registry list-access-bindings my-first-registry
-   ```
-
-   Result:
-
-   ```bash
-   +--------------------------+---------------+----------------------+
-   |         ROLE ID          | SUBJECT TYPE  |      SUBJECT ID      |
-   +--------------------------+---------------+----------------------+
-   | container-registry.admin | federatedUser | ajekv7lpqpgu******** |
-   +--------------------------+---------------+----------------------+
-   ```
+  Result:
+  
+  ```bash
+  +--------------------------+---------------+----------------------+
+  |         ROLE ID          | SUBJECT TYPE  |      SUBJECT ID      |
+  +--------------------------+---------------+----------------------+
+  | container-registry.admin | federatedUser | ajekv7lpqpgu******** |
+  +--------------------------+---------------+----------------------+
+  ```
 
 - API {#api}
 
-  Use the [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/listAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/listAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-  Use the [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/listAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/listAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
-Read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).
+You can read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).

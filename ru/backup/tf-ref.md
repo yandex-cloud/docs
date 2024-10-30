@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ backup-full-name }}"
-description: "На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ backup-name }}."
+title: Справочник {{ TF }} для {{ backup-full-name }}
+description: На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ backup-name }}.
 ---
 
 # Справочник {{ TF }} для {{ backup-full-name }}
@@ -22,4 +22,4 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_backup_policy]({{ tf-provider-datasources-link }}/datasource_backup_policy) | Информация о политике резервного копирования |
+| [yandex_backup_policy]({{ tf-provider-datasources-link }}/backup_policy) | Информация о политике резервного копирования |

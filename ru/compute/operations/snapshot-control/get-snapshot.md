@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о снимке диска в {{ compute-full-name }}"
+title: Как получить информацию о снимке диска в {{ compute-full-name }}
 ---
 
 # Получить информацию о снимке диска
@@ -69,7 +69,7 @@ title: "Как получить информацию о снимке диска 
      * `output "snapshot"` — выходная переменная, которая содержит информацию о размере снимка диска:
        * `value` — возвращаемое значение.
 
-     Вместо `storage_size` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_snapshot).
+     Вместо `storage_size` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_snapshot).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -88,6 +88,6 @@ title: "Как получить информацию о снимке диска 
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [снимке диска](../../concepts/snapshot.md), воспользуйтесь методом REST API [get](../../api-ref/Snapshot/get.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md), или вызовом gRPC API [SnapshotService/Get](../../api-ref/grpc/snapshot_service.md#Get).
+  Чтобы получить подробную информацию о [снимке диска](../../concepts/snapshot.md), воспользуйтесь методом REST API [get](../../api-ref/Snapshot/get.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md), или вызовом gRPC API [SnapshotService/Get](../../api-ref/grpc/Snapshot/get.md).
 
 {% endlist %}

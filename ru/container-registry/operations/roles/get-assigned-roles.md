@@ -1,6 +1,6 @@
 ---
-title: "Как просмотреть роли на ресурс в {{ container-registry-full-name }}"
-description: "Следуя данной инструкции, вы сможете просмотреть роли на ресурс." 
+title: Как просмотреть роли на ресурс в {{ container-registry-full-name }}
+description: Следуя данной инструкции, вы сможете просмотреть роли на ресурс.
 ---
 
 # Просмотреть роли на ресурс
@@ -49,9 +49,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/listAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings).
+  Воспользуйтесь методом REST API [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/listAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
 
-  Воспользуйтесь методом REST API [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) для ресурса [Repository](../../api-ref/Repository/index.md) или вызовом gRPC API [RepositoryService/listAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings).
+  Воспользуйтесь методом REST API [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) для ресурса [Repository](../../api-ref/Repository/index.md) или вызовом gRPC API [RepositoryService/listAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md).
 
 {% endlist %}
 

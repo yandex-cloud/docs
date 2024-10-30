@@ -1,6 +1,6 @@
 ---
-title: "Как создать ресурс в {{ cdn-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать ресурс."
+title: Как создать ресурс в {{ cdn-full-name }}
+description: Следуя данной инструкции, вы сможете создать ресурс.
 ---
 
 # Создание ресурса
@@ -55,6 +55,17 @@ description: "Следуя данной инструкции, вы сможет�
 
          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
      1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
+     1. Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе:
+
+         1. Включите опцию **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
+         1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** задайте правило. Например: `/(.*) /new-folder/$1`.
+
+             {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+
+         1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
+
+             {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
      1. Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
 
           {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
@@ -135,6 +146,16 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
+     Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе, используйте параметры:
+
+     * `--rewrite-body` – правило Rewrite. Например: `--rewrite-body '/(.*) /new-folder/$1'`.
+
+         {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+
+     * `--rewrite-flag` – [флаг](../../concepts/http-rewrite.md#flag). Возможные значения:
+
+         {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
@@ -202,13 +223,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Если вы создаете первый ресурс, подключитесь к провайдеру CDN. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate).
-  1. Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+  Если вы создаете первый ресурс, подключитесь к провайдеру CDN. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/Provider/activate.md).
+  1. Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/Resource/create.md).
 
      Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
   1. Создайте [CNAME-запись](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса в [{{ dns-full-name }}](../../../dns):
-     * Чтобы получить значение CNAME-записи для CDN-ресурса, воспользуйтесь методом REST API [getProviderCName](../../api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName).
-     * Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+     * Чтобы получить значение CNAME-записи для CDN-ресурса, воспользуйтесь методом REST API [getProviderCName](../../api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../api-ref/grpc/Resource/getProviderCName.md).
+     * Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/DnsZone/updateRecordSets.md).
 
 {% endlist %}
 

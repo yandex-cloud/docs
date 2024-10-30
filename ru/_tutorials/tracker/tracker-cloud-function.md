@@ -56,8 +56,8 @@
 
 1. Перейдите в [{{ tracker-name }}](https://tracker.yandex.ru/). Нажмите кнопку **Войти в Tracker**.
 1. На правой панели нажмите кнопку **Администрирование**.
-1. В разделе **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.access-and-payment }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
-1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** скопируйте и сохраните идентификатор организации — он понадобится при создании функции.
+1. В разделе **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.access-and-payment }}** нажмите **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-orgs }}**.
+1. В блоке **{{ ui-key.startrek.ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** скопируйте и сохраните идентификатор организации — он понадобится при создании функции.
 
 ## Создайте функцию {{ sf-name }} {#create-function}
 
@@ -87,17 +87,17 @@
 
 ### Создайте очередь
 
-1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Создать очередь**.
 1. Выберите шаблон очереди, например **Базовая разработка**.
 1. Задайте имя, например `Function Test`.
 1. Нажмите кнопку **Создать**.
 
 ### Создайте триггер
 
-1. На странице очереди в правом верхнем углу нажмите ![](../../_assets/console-icons/gear.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди в правом верхнем углу нажмите ![](../../_assets/console-icons/gear.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
 1. В поле **Название** введите название триггера, например `timeupdater`.
-1. В блоке **Условия срабатывания** выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Затрачено времени**.
+1. В блоке **Условия срабатывания** выберите **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Затрачено времени**.
 1. В блоке **Действия триггера** выберите **HTTP-запрос**.
 1. В открывшейся форме в поле **Адрес** введите:
 	```
@@ -119,14 +119,14 @@
 	1. В открывшейся форме в поле **Название задачи** введите название задачи, например `Parent Task`.
 	1. Нажмите кнопку **Создать**.
 1. Создайте подзадачи:
-	1. На странице задачи `Parent Task` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
+	1. На странице задачи `Parent Task` в правом верхнем углу в меню **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.create-subissue }}**.
 	1. В открывшейся форме в поле **Название задачи** введите название подзадачи, например `Subtask-1`.
 	1. Аналогичным образом создайте еще одну или несколько подзадач с названиями `Subtask-2`, `Subtask-3` и т. д.
 
 ### Внесите данные о затраченном времени в подзадачах
 
-1. На странице подзадачи `Subtask-1` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
-1. В открывшемся диалоге в поле **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** укажите любое время, например `1h25m`.
+1. На странице подзадачи `Subtask-1` в правом верхнем углу в меню **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.add-worklog }}**.
+1. В открывшемся диалоге в поле **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.duration-label }}** укажите любое время, например `1h25m`.
 1. Аналогичным образом добавьте затраченное время в других подзадачах.
 
 ### Убедитесь в корректной работе функции 

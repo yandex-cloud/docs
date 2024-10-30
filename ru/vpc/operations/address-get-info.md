@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию об IP-адресе в {{ vpc-full-name }}"
+title: Как получить информацию об IP-адресе в {{ vpc-full-name }}
 ---
 
 # Получить информацию об IP-адресе
@@ -71,7 +71,7 @@ title: "Как получить информацию об IP-адресе в {{ 
      * `output "addr"` — выходная переменная, которая содержит информацию об IP-адресе:
        * `value` — возвращаемое значение.
 
-     Вместо `external_ipv4_address` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_address` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_address).
+     Вместо `external_ipv4_address` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_address` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_address).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -97,6 +97,6 @@ title: "Как получить информацию об IP-адресе в {{ 
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [адресе](../concepts/address.md), воспользуйтесь методом REST API [get](../api-ref/Address/get.md) для ресурса [Address](../api-ref/Address/index.md), или вызовом gRPC API [AddressService/Get](../api-ref/grpc/address_service.md#Get).
+  Чтобы получить подробную информацию о [адресе](../concepts/address.md), воспользуйтесь методом REST API [get](../api-ref/Address/get.md) для ресурса [Address](../api-ref/Address/index.md), или вызовом gRPC API [AddressService/Get](../api-ref/grpc/Address/get.md).
 
 {% endlist %}

@@ -1,21 +1,30 @@
 ---
-title: "История изменений в {{ metadata-hub-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ metadata-hub-name }}."
+title: История изменений в {{ metadata-hub-full-name }}
+description: В разделе представлена история изменений сервиса {{ metadata-hub-name }}.
 ---
 
 # История изменений {{ metadata-hub-full-name }} в 2024 году
+
+## Сентябрь {#september}
+
+### Новые возможности {#new-features-september}
+
+* [Кластеры {{ metastore-full-name }}](../concepts/metastore.md) стали частью сервиса {{ metadata-hub-name }}.
+* [{{ schema-registry-name }}](../quickstart/schema-registry.md) доступен в [Preview](../../overview/concepts/launch-stages.md).
+* Пользователи сервиса {{ data-transfer-full-name }} могут указывать идентификатор подключения {{ connection-manager-name }} для [настройки эндпоинта {{ mpg-short-name }}](../../data-transfer/operations/endpoint/source/postgresql.md).
+* Пользователи сервиса {{ datalens-full-name }} могут использовать {{ connection-manager-name }} для создания подключений к [{{ PG }}](../../datalens/operations/connection/create-postgresql.md#conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md#conn-man) и [{{ MY }}](../../datalens/operations/connection/create-mysql.md#conn-man).
 
 ## Август {#august}
 
 ### Новые возможности {#new-features-august}
 
-1. Поддержаны соединения для пользовательских инсталляций БД {{ RD }} и кластеров [{{ mrd-name }}](../../managed-redis/concepts/index.md).
+Поддержаны соединения для пользовательских инсталляций БД {{ RD }} и кластеров [{{ mrd-name }}](../../managed-redis/concepts/index.md).
 
 ## Июль {#july}
 
 ### Новые возможности {#new-features-july}
 
-1. Добавлена интеграция [{{ connection-manager-name }}](../concepts/connection-manager.md) с [{{ mch-short-name }}](../../managed-clickhouse). Подключения для кластеров {{ mch-short-name }} [будут создаваться автоматически](../quickstart/connection-manager.md).
+Добавлена интеграция [{{ connection-manager-name }}](../concepts/connection-manager.md) с [{{ mch-short-name }}](../../managed-clickhouse). Подключения для кластеров {{ mch-short-name }} [будут создаваться автоматически](../quickstart/connection-manager.md).
 
 ## Июнь {#june}
 

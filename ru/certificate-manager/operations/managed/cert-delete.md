@@ -1,6 +1,6 @@
 ---
-title: "Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt."
+title: Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
+description: Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt.
 ---
 
 # Удалить сертификат от Let's Encrypt
@@ -105,6 +105,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы удалить сертификат, воспользуйтесь методом REST API [delete](../../api-ref/Certificate/delete.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Delete](../../api-ref/grpc/certificate_service.md#Delete).
+  Чтобы удалить сертификат, воспользуйтесь методом REST API [delete](../../api-ref/Certificate/delete.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Delete](../../api-ref/grpc/Certificate/delete.md).
 
 {% endlist %}

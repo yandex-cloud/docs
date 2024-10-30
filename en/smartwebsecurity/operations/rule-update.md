@@ -1,6 +1,6 @@
 ---
-title: "How to update a rule in a {{ sws-full-name }} security profile"
-description: "Follow this guide to update a rule in a {{ sws-full-name }} security profile."
+title: How to update a rule in a {{ sws-full-name }} security profile
+description: Follow this guide to update a rule in a {{ sws-full-name }} security profile.
 ---
 
 # Editing a rule in a security profile

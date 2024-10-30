@@ -1,6 +1,6 @@
 ---
-title: "Перенос группы виртуальных машин с сетевым балансировщиком в другую зону доступности"
-description: "Из статьи вы узнаете, как можно перенести группу ВМ {{ compute-full-name }} с сетевым балансировщиком нагрузки из одной зоны доступности в другую."
+title: Перенос группы виртуальных машин с сетевым балансировщиком в другую зону доступности
+description: Из статьи вы узнаете, как можно перенести группу ВМ {{ compute-full-name }} с сетевым балансировщиком нагрузки из одной зоны доступности в другую.
 ---
 
 # Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности
@@ -183,12 +183,12 @@ description: "Из статьи вы узнаете, как можно пере�
 
         - API {#api}
 
-          1. Чтобы удалить обработчик сетевого балансировщика, воспользуйтесь методом REST API [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) для ресурса [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#RemoveListener) и передайте в запросе:
+          1. Чтобы удалить обработчик сетевого балансировщика, воспользуйтесь методом REST API [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) для ресурса [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/removeListener.md) и передайте в запросе:
              * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
              * Имя обработчика в параметре `listenerName`.
 
              Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](../../../network-load-balancer/operations/load-balancer-list.md#list), имя обработчика — с [детальной информацией о сетевом балансировщике](../../../network-load-balancer/operations/load-balancer-list.md#get).
-          1. Чтобы добавить обработчик сетевого балансировщика, воспользуйтесь методом API [addListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener) и передайте в запросе:
+          1. Чтобы добавить обработчик сетевого балансировщика, воспользуйтесь методом API [addListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/addListener.md) и передайте в запросе:
 
              ```json
              {

@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства {{ objstorage-full-name }}"
-description: "На странице представлен список практических руководств {{ objstorage-name }}."
+title: Практические руководства {{ objstorage-full-name }}
+description: На странице представлен список практических руководств {{ objstorage-name }}.
 ---
 
 # Практические руководства {{ objstorage-name }}
@@ -16,6 +16,7 @@ description: "На странице представлен список прак
 * [Автоматическое копирование объектов из бакета в бакет](./bucket-to-bucket.md)
 * [Регулярное распознавание аудиофайлов в бакете](./batch-recognition-stt.md)
 * [Формирование отчета по ресурсной детализации расходов с использованием S3 Select](./billing-resource-detailing.md)
+* [{#T}](./clickhouse-hybrid-storage.md)
 * [Миграция данных из {{ yds-full-name }} с помощью {{ data-transfer-full-name }}](./yds-obj-migration.md)
 * [Шифрование на стороне сервера](./server-side-encryption.md)
 * [Обучение модели в {{ ml-platform-full-name }} на данных из {{ objstorage-name }}](./s3-to-datasphere.md)
@@ -33,11 +34,18 @@ description: "На странице представлен список прак
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)
+* [{#T}](./dp-mch-data-exchange.md)
+* [{#T}](./data-transfer-direct-to-mch.md)
 * [{#T}](./elasticsearch-to-opensearch.md)
 * [{#T}](./gatsby-static-website.md)
-* [{#T}](./static-key-in-lockbox.md)
+* [{#T}](./objs-mmy-migration.md)
+* [{#T}](./sqoop-mmy.md)
+* [{#T}](./sqoop-mpg.md)
 * [{#T}](./opensearch-to-object-storage.md)
 * [{#T}](./ydb-to-object-storage.md)
+* [{#T}](./mpg-to-objstorage.md)
+* [{#T}](./mmy-objs-migration.md)
+* [{#T}](./greenplum-yezzey.md)
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)

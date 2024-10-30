@@ -1,6 +1,6 @@
 ---
-title: "Как создать группу размещения дисков в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать группу размещения дисков."
+title: Как создать группу размещения дисков в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете создать группу размещения дисков.
 ---
 
 # Создать группу размещения дисков
@@ -108,6 +108,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/DiskPlacementGroup/create.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/Create](../../api-ref/grpc/disk_placement_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/DiskPlacementGroup/create.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/Create](../../api-ref/grpc/DiskPlacementGroup/create.md).
 
 {% endlist %}

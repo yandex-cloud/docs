@@ -1,6 +1,6 @@
 ---
-title: "{{ tracker-full-name }} notification settings. Overview"
-description: "By default, {{ tracker-name }} sends you notifications about changes to issues if you have one of the required roles. You can configure the contents of notifications to only receive messages about the events you're interested in. You can choose how to display usernames and event types in notification messages."
+title: '{{ tracker-full-name }} notification settings. Overview'
+description: By default, {{ tracker-name }} sends you notifications about changes to issues if you have one of the required roles. You can configure the contents of notifications to only receive messages about the events you're interested in. You can choose how to display usernames and event types in notification messages.
 ---
 
 # Setting up notifications in {{ tracker-name }}

@@ -1,6 +1,6 @@
 ---
-title: "{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}"
-description: "This page contains a reference of {{ alb-name }} tools for {{ managed-k8s-name }}."
+title: '{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}'
+description: This page contains a reference of {{ alb-name }} tools for {{ managed-k8s-name }}.
 noIndex: true
 ---
 

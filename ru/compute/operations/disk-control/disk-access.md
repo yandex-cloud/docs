@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к диску {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к диску."
+title: Настроить права доступа к диску {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к диску.
 ---
 
 # Настроить права доступа к диску
@@ -111,7 +111,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/UpdateAccessBindings](../../api-ref/grpc/disk_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/UpdateAccessBindings](../../api-ref/grpc/Disk/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -221,7 +221,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Disk/setAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/SetAccessBindings](../../api-ref/grpc/disk_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Disk/setAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/SetAccessBindings](../../api-ref/grpc/Disk/setAccessBindings.md).
 
 {% endlist %}
 
@@ -310,6 +310,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роли на диск, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/UpdateAccessBindings](../../api-ref/grpc/disk_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на диск, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) для ресурса [Disk](../../api-ref/Disk/) или вызовом gRPC API [DiskService/UpdateAccessBindings](../../api-ref/grpc/Disk/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

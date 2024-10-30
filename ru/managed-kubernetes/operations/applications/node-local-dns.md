@@ -52,9 +52,8 @@
 
 1. Для установки Helm-чарта с NodeLocal DNS выполните команду:
 
-   
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
      --untar && \
@@ -64,5 +63,7 @@
      node-local-dns ./node-local-dns/
    ```
 
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 Подробнее о настройке локального кеширования DNS см. в разделе [{#T}](../../tutorials/node-local-dns.md).

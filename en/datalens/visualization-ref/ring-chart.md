@@ -6,25 +6,25 @@ This chart shows the proportion of different categories using ring segments. The
 
 {% cut "Source table" %}
 
-| Year | Sales |
------|---------|
-| 2022 | 6M |
-| 2021 | 28M |
-| 2020 | 18M |
-| 2019 | 9M |
-| 2018 | 1M |
+Year |	Sales|	
+-----|---------| 
+2022 |	6М |	
+2021 |	28М |	
+2020 |	18М |	
+2019 |	9М | 
+2018 |	1М |
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| Color | Dimension. You can only specify one field here. |
-| Measures | Affects the size of ring segments. You can only specify one field here. The total value of a measure is displayed in the center of a ring. Сalculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not presented in the total value. |
-| Sorting | Measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
-| Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
-| Filters | Dimension or measure. Used as a filter. |
+Color | Dimension. You can only specify one field here.
+Measures | Affects the size of ring segments. You can only specify one field here. The total value of a measure is displayed in the center of a ring. Сalculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not presented in the total value.
+Sorting | Measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Filters | Dimension or measure. Used as a filter.
 
 ## Creating a donut chart {#create-diagram}
 

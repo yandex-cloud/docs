@@ -11,28 +11,28 @@ Labels are subject to the following limitations:
 * The key:
    * Must be from 1 to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * Must start with a letter.
+   * Use a letter for the first character.
 * The value:
-   * It may be up to 63 characters long.
+   * May be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
 
 ## Label usage examples {#examples}
 
 * [Viewing service usage details by labels](../../billing/operations/check-charges.md#labels_1).
 
-   For example, you can [view the {{ ml-platform-name }} spending details](../../datasphere/operations/community/billing-details.md).
+    For example, you can [view the {{ ml-platform-name }} spending details](../../datasphere/operations/community/billing-details.md).
 
 * Searching for resources belonging to the same project, owner, environment, etc.
 
-   For example, you can use the `project:app` label to find the {{ yandex-cloud }} resources used in the `app` project.
+    For example, you can use the `project:app` label to find the {{ yandex-cloud }} resources used in the `app` project.
 
 * Grouping resources by various criteria, such as project, team, environment, application, etc.
 
-   For example, you can use the `environment:production` and `environment:test` labels to mark {{ yandex-cloud }} resources as belong to the production and test environments.
+    For example, you can use the `environment:production` and `environment:test` labels to mark {{ yandex-cloud }} resources as belonging to the production and test environments.
 
 * Automating actions with a resource group, such as launching, stopping, or deleting the labeled resources.
 
-   For example, you can [manage a resource group using {{ sf-full-name }}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md).
+    For example, you can [manage a resource group using {{ sf-full-name }}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md).
 
 ## Services that support labels {#services}
 

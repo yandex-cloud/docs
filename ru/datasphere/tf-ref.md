@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ ml-platform-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ ml-platform-name }}."
+title: Справочник {{ TF }} для {{ ml-platform-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ ml-platform-name }}.
 ---
 
 # Справочник {{ TF }} для {{ ml-platform-full-name }}
@@ -24,5 +24,5 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_datasphere_community]({{ tf-provider-datasources-link }}/datasource_datasphere_community) | Информация о [сообществе](concepts/community.md) |
-| [yandex_datasphere_project]({{ tf-provider-datasources-link }}/datasource_datasphere_project) | Информация о [проекте](concepts/project.md) |
+| [yandex_datasphere_community]({{ tf-provider-datasources-link }}/datasphere_community) | Информация о [сообществе](concepts/community.md) |
+| [yandex_datasphere_project]({{ tf-provider-datasources-link }}/datasphere_project) | Информация о [проекте](concepts/project.md) |

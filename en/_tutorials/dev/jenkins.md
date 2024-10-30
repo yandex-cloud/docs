@@ -35,7 +35,7 @@ The infrastructure support costs include:
 
 Set up the software:
 * [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface.
-* [Install](https://www.terraform.io/downloads) {{ TF }}: See also [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Install](https://www.terraform.io/downloads) {{ TF }}. See also [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the jq utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
 * [Create](https://github.com/yandex-cloud/examples) a repository branch with examples in your GitHub account.
@@ -54,7 +54,7 @@ Jenkins uses [service accounts](../../iam/concepts/users/service-accounts.md) to
    ```
 
    This will create a JSON file containing login credentials in the current folder.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the service account the `admin` [role](../../iam/concepts/access-control/roles.md) for the folder where operations will be performed:
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the service account the `admin` [role](../../iam/concepts/access-control/roles.md) for the folder the operations will be performed in:
 
    ```bash
    yc resource-manager folder add-access-binding <folder_name> --role admin --subject serviceAccount:$SERVICE_ACCOUNT_ID
@@ -76,16 +76,16 @@ To create a VM with Jenkins:
 
    {% endnote %}
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` for your boot [disk](../../compute/concepts/disk.md) size.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Select the [platform](../../compute/concepts/vm-platforms.md): `Intel Ice Lake`.
+   * Choose a [platform](../../compute/concepts/vm-platforms.md): `Intel Ice Lake`.
    * Specify the required number of vCPUs and the amount of RAM:
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and choose the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, assign a public IP to the VM automatically or select a reserved IP.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+   * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -103,10 +103,10 @@ Packer enables you to create VM disk images with parameters specified in a confi
 1. Upload Packer to the VM you created:
 
    ```bash
-   scp packer_<Packer_version>_linux_amd64.zip <username>@<VM_public_IP_address>:~/
+   scp packer_<Packer_version>_linux_amd64.zip <login>@<VM_public_IP_address>:~/
    ```
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH. You can use the `ssh` utility in Linux or macOS, or `PuTTY` in Windows.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH. To do this, use `ssh` in Linux or macOS, or `PuTTY` in Windows.
 1. Create a new folder, move the Packer executables there, and unpack the archive:
 
    ```bash
@@ -117,32 +117,32 @@ Packer enables you to create VM disk images with parameters specified in a confi
 
 1. Configure the [Yandex Compute Builder plugin](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
-   1. Create a `config.pkr.hcl` file in the `/opt/yandex-packer/` directory with the following contents:
-
-      ```hcl
-      packer {
-        required_plugins {
-          yandex = {
-            version = ">= 1.1.2"
-            source  = "{{ packer-source-link }}"
+    1. Create a file named `config.pkr.hcl` in the `/opt/yandex-packer/` directory with the following contents:
+        
+        ```hcl
+        packer {
+          required_plugins {
+            yandex = {
+              version = ">= 1.1.2"
+              source  = "{{ packer-source-link }}"
+            }
           }
         }
-      }
-      ```
+        ```
 
-   1. Install the plugin:
+    1. Install the plugin:
 
-      ```bash
-      packer init <config.pkr.hcl_file_path>
-      ```
+        ```bash
+        packer init <path_to_config.pkr.hcl>
+        ```
 
-      Result:
+        Result:
 
-      ```text
-      Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
-      ```
+        ```text
+        Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+        ```
 
-1. All Jenkins system activity is performed on behalf of the `jenkins` user. Grant this user rights to launch Packer:
+1. All Jenkins system activities will be performed on behalf of the`jenkins` user. Grant this user rights to launch Packer:
 
    ```bash
    sudo chmod u+x /opt/yandex-packer/packer*
@@ -152,24 +152,24 @@ Packer enables you to create VM disk images with parameters specified in a confi
 ## Configure Jenkins {#configure-jenkins}
 
 To build images based on configurations from GitHub, configure Jenkins:
-1. Connect to the VM via SSH. You can use the `ssh` utility in Linux or macOS, or `PuTTY` in Windows.
+1. Connect to the VM via SSH. To do this, use `ssh` in Linux or macOS, or `PuTTY` in Windows.
 1. Open the password file needed to launch the configuration and copy the password:
 
    ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-1. In your browser, open `http://<public_IP_address_of_VM_with_Jenkins>`. Open the Jenkins management console.
+1. In your browser, go to `https://<public_IP_address_of_VM_with_Jenkins>`. Open the Jenkins management console.
 1. Enter the copied password in the **Administrator password** field and click **Continue**.
 1. Choose **Select plugins to install**.
 
    You will need the following plugins:
-   * `Pipeline`: Plugin for retrieving source code from the version control system to then build, test, and deploy the code.
+   * `Pipeline`: Plugin that retrieves source code from the version control system to build, test, and deploy the code.
    * `Git`: Plugin for working with git repositories.
-   * `Credentials Binding`: Plugin for creating environment variables with authentication data.
+   * `Credentials Binding`: Plugin for creating environment variables containing authentication data.
 1. Click **Install**. This will start the installation of the selected components.
 1. When the installation is complete, you will be prompted to create an administrator account. Fill in the form and click **Save and Continue**.
-1. You will be prompted to create a URL for Jenkins. Leave the URL as `http://<VM_public_IP_address>/`. Click **Save and finish**.
+1. You will be prompted to create a URL for Jenkins. Leave this URL format: `http://<VM_public_IP_address>/`. Click **Save and finish**.
 1. Click **Start using Jenkins** to complete the installation and go to the Jenkins administration panel.
 
 ## Set up a Jenkins task {#jenkins-job}
@@ -179,12 +179,12 @@ Enter your {{ yandex-cloud }} authorization data and create a task to download c
 1. In the top-right corner, click the username.
 1. Select **Credentials**.
 1. Under **Stores scoped to Jenkins**, click the `Global` link.
-1. Get the ID of the subnet where images will be built by running the `yc vpc subnet list` command.
+1. Get the ID of the subnet the images will be built in by running the `yc vpc subnet list` command.
 1. Click **Add credentials**. Specify the following parameters:
    1. In the **Kind** list, select `Secret text`.
    1. In the **Scope** list, leave `Global`.
    1. In the **Secret** field, enter the ID of your folder.
-   1. In the **Id** field, enter `YC_FOLDER_ID`. Click **OK**.
+   1. In the **Id** field, specify `YC_FOLDER_ID`. Click **OK**.
 1. Create another secret with the following parameters:
    1. **Kind**: `Secret text`.
    1. **Scope**: `Global`.
@@ -193,7 +193,7 @@ Enter your {{ yandex-cloud }} authorization data and create a task to download c
 1. Create another secret with the following parameters:
    1. **Kind**: `Secret file`.
    1. **Scope**: `Global`.
-   1. **File**: File named`<usrname>.json` from [step 1](#create-service-account).
+   1. **File**: File named `<username>.json` from [Step 1](#create-service-account).
    1. **ID**: `YC_ACCOUNT_KEY_FILE`.
 1. Go back to the main page of the administration panel and select **New item**.
 1. Enter a name for the task: `jenkins-tutorial` and select **Pipeline** as the task type. Click **OK**.
@@ -227,15 +227,15 @@ In the GitHub repository settings, enable a webhook to initiate a Jenkins build 
 
 ## Create an image using Jenkins {#create-image}
 
-Jenkins launches an image build automatically after you `push` to the `master` branch of your GitHub repository.
+Jenkins launches an image build automatically after you run `push` in the `master` branch of your GitHub repository.
 1. Clone the [examples](https://github.com/yandex-cloud/examples) repository fork you created while [getting started](#before-you-begin), to your computer:
 
    ```bash
    git clone https://github.com/<GitHub_login>/examples.git
    ```
 
-1. Make changes to the Packer templates hosted in the `jenkins-packer/packer/` folder. You can find Packer template documentation on the developer's [website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [families of images](../../compute/concepts/image#family) to be built by Jenkins.
-1. Make changes to the Jenkinsfile Pipeline description file for `Jenkins` located in the root of the repository. For the Pipeline documentation, see the developer's [website](https://jenkins.io/doc/book/pipeline/syntax/).
+1. Make changes to the Packer templates in the `jenkins-packer/packer/` folder. You can find Packer template documentation on the developer's [website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [families of images](../../compute/concepts/image#family) to be built by Jenkins.
+1. Make changes to the Pipeline for Jenkins description file `Jenkinsfile` located in the repository root folder. For the Pipeline documentation, see the developer's [website](https://jenkins.io/doc/book/pipeline/syntax/).
 1. Upload the changes to Github:
 
    ```bash
@@ -255,7 +255,7 @@ When configuring a Jenkins task under **GitHub Hook log**, you may encounter a `
 
 As a result, three new images will appear in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** under **{{ ui-key.yacloud.compute.switch_images }}**:
 * `Debian`: Basic image with the latest updates.
-* `Nginx`: `Debian`-based image with nginx web server.
+* `Nginx`: `Debian`-based image with an nginx web server.
 * `Django`: `Debian`-based image with the Django framework.
 
 ## Deploy the images {#deploy-image}
@@ -275,8 +275,8 @@ Once the images are created, you can use them to create your VMs. Create a test 
 
 1. Provide the required values in the file's fields. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider]({{ tf-provider-link }}) documentation.
 1. Initialize the {{ TF }} provider by running `terraform init`.
-1. Run `terraform plan -var-file="terraform.tfvars"`. Check the created configuration.
-1. Run `terraform apply` and confirm you want to create the infrastructure by typing `yes` into the terminal prompt.
+1. Run the `terraform plan -var-file="terraform.tfvars"` command. Check the created configuration.
+1. Run `terraform apply` and confirm that you want to create the infrastructure by typing `yes` into the terminal prompt.
 
 This will create:
 1. [Cloud network](../../vpc/concepts/network.md#network).
@@ -288,7 +288,7 @@ This will create:
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 * [Delete the created VMs](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the created images](../../compute/operations/image-control/delete.md).
-* [Delete the service account](../../iam/operations/sa/delete.md) and the `<username.json>` file.
+* [Delete the service account](../../iam/operations/sa/delete.md) and the file named `<username.json>`.
 * [Delete the network and the subnets](../../vpc/operations/network-delete.md).
 
 To delete the resources created with {{ TF }}, run `terraform destroy`.

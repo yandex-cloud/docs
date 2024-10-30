@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/console"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/console'
 ---
 
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API

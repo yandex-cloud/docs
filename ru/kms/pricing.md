@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ kms-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ kms-name }}."
+title: Правила тарификации для {{ kms-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ kms-name }}.
 editable: false
 ---
 

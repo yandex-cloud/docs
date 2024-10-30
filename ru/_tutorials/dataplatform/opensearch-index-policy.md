@@ -20,13 +20,13 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичный доступом к группе хостов с ролью `DATA`.
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -250,11 +250,11 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `opensearch-index-policy.tf`.

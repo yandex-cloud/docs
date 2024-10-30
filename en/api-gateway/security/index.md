@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ api-gw-full-name }}"
-description: "Access management in {{ api-gw-full-name }}, an API gateway service with OpenAPI 3.0 support. To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud)."
+title: Access management in {{ api-gw-full-name }}
+description: Access management in {{ api-gw-full-name }}, an API gateway service with OpenAPI 3.0 support. To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud).
 ---
 
 # Access management in {{ api-gw-name }}

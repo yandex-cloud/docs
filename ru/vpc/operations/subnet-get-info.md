@@ -1,5 +1,5 @@
 ---
-title: "Как получить информацию о подсети в {{ vpc-full-name }}"
+title: Как получить информацию о подсети в {{ vpc-full-name }}
 ---
 
 # Получить информацию о подсети
@@ -72,7 +72,7 @@ title: "Как получить информацию о подсети в {{ vpc
      * `output "subnet"` — выходная переменная, которая содержит название зоны доступности подсети:
        * `value` — возвращаемое значение.
 
-     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_subnet` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_subnet).
+     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_subnet` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_subnet).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -91,7 +91,7 @@ title: "Как получить информацию о подсети в {{ vpc
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get) для ресурса [Subnet](../api-ref/Subnet/index.md), или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/subnet_service.md#Get).
+  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get) для ресурса [Subnet](../api-ref/Subnet/index.md), или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/Subnet/get.md).
 
 {% endlist %}
 

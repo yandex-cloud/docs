@@ -1,6 +1,6 @@
 ---
-title: "How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}"
-description: "Follow this guide to create a pod with a statically provisioned volume."
+title: How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}
+description: Follow this guide to create a pod with a statically provisioned volume.
 ---
 
 # Static volume provisioning
@@ -13,7 +13,7 @@ Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volum
 
 {% note tip %}
 
-You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
+You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) as storage for your pod. For more information, see [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
@@ -21,7 +21,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Look up the unique ID of the [disk](../../../compute/concepts/disk.md) to be used to create a `PersistentVolume`:
+1. Find out the unique ID of the [disk](../../../compute/concepts/disk.md) you are going to use to create a `PersistentVolume`:
    1. If you do not have a disk yet, [create one](../../../compute/operations/disk-create/empty.md).
 
       {% note warning %}
@@ -54,7 +54,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    Result:
 
-   
+
    ```text
    NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
    yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
@@ -73,15 +73,15 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 ## Create a PersistentVolume object {#create-pv}
 
-1. Save the specification you used to create your `PersistentVolume` to a YAML file named `test-pv.yaml`.
+1. Save the `PersistentVolume` creation specification to a YAML file named `test-pv.yaml`.
 
    For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
-   When setting the `spec.capacity.storage` parameter, make sure you specified the exact size of the disk. {{ CSI }} doesn't validate the disk size for statically prepared volumes.
+   When providing the `spec.capacity.storage` parameter, make sure the exact disk size is specified. {{ CSI }} does not verify disk size for statically provisioned volumes.
 
    To create a `PersistentVolume` from an existing cloud drive, enter its unique disk ID in the `volumeHandle` parameter.
 
-   
+
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
@@ -92,7 +92,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
+
    ```yaml
    apiVersion: v1
    kind: PersistentVolume
@@ -103,7 +103,6 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
        storage: <PersistentVolume_size>
      accessModes:
        - ReadWriteOnce
-     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
@@ -113,7 +112,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f test-pv.yaml
@@ -125,7 +124,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    persistentvolume/<PersistentVolume_name> created
    ```
 
-1. View information about the created `PersistentVolume`:
+1. View the information about the new `PersistentVolume` object:
 
    ```bash
    kubectl describe persistentvolume <PersistentVolume_name>
@@ -170,7 +169,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% endnote %}
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f test-claim.yaml
@@ -182,7 +181,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    persistentvolumeclaim/<PersistentVolumeClaim_name> created
    ```
 
-1. View information about the `PersistentVolumeClaim` created:
+1. View the information about the new `PersistentVolumeClaim`:
 
    ```bash
    kubectl describe persistentvolumeclaim <PersistentVolumeClaim_name>
@@ -201,7 +200,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 ## Create a pod with a statically provisioned volume {#create-pod}
 
-1. Create a file named `test-pod.yaml` with a manifest of a pod that uses `PersistentVolumeClaim`:
+1. Create a file named `test-pod.yaml` with a manifest for the pod using `PersistentVolumeClaim`:
 
    ```yaml
    apiVersion: v1
@@ -224,7 +223,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ```
 
    For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f test-pod.yaml
@@ -236,7 +235,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    pod/test-pod created
    ```
 
-1. View information about the pod created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod test-pod
@@ -258,7 +257,7 @@ In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management co
 
 ## How to delete a volume {#delete-volume}
 
-Disks aren't deleted automatically from {{ compute-name }} when you delete `PersistentVolume`. To delete the volume completely:
+Disks are not deleted automatically from {{ compute-name }} when you delete `PersistentVolume`. To delete the volume completely:
 1. Delete the `PersistentVolumeClaim` object:
 
    ```bash
@@ -271,4 +270,4 @@ Disks aren't deleted automatically from {{ compute-name }} when you delete `Pers
    kubectl delete pv <PersistentVolume_object_ID>
    ```
 
-1. [Delete the disk](../../../compute/operations/disk-control/delete.md) in {{ compute-name }} that is linked to the `PersistentVolume` object.
+1. In {{ compute-name }}, [delete the disk](../../../compute/operations/disk-control/delete.md)  linked to the `PersistentVolume` object.

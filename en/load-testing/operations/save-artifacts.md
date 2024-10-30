@@ -1,6 +1,6 @@
 ---
-title: "Saving test artifacts to {{ objstorage-name }}"
-description: "Follow this guide to save test artifacts to {{ objstorage-name }}."
+title: Saving test artifacts to {{ objstorage-name }}
+description: Follow this guide to save test artifacts to {{ objstorage-name }}.
 ---
 
 # Saving test artifacts to {{ objstorage-name }}

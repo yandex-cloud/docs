@@ -1,6 +1,6 @@
 ---
-title: "How to add a domain"
-description: "Follow this guide to add a domain."
+title: How to add a domain
+description: Follow this guide to add a domain.
 ---
 
 # Adding a domain

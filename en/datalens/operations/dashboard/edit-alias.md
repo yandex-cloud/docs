@@ -1,6 +1,6 @@
 ---
-title: "How to delete an alias in {{ datalens-full-name }}"
-description: "Follow this guide to delete an alias."
+title: How to delete an alias in {{ datalens-full-name }}
+description: Follow this guide to delete an alias.
 ---
 
 # Deleting an alias

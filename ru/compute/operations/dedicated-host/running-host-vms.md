@@ -79,7 +79,7 @@
       * `--network-interface` — описание сетевого интерфейса ВМ:
 
         * `subnet-name` — имя подсети в зоне доступности.
-      
+
       * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
 
       Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
@@ -103,9 +103,9 @@
 
 - API {#api}
 
-  1. Узнайте идентификатор группы выделенных хостов с помощью метода REST API [list](../../api-ref/HostGroup/list.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List).
-  1. Узнайте идентификаторы выделенных хостов в группе с помощью метода REST API [listHosts](../../api-ref/HostGroup/listHosts.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts).
-  1. Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
+  1. Узнайте идентификатор группы выделенных хостов с помощью метода REST API [list](../../api-ref/HostGroup/list.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/List](../../api-ref/grpc/HostGroup/list.md).
+  1. Узнайте идентификаторы выделенных хостов в группе с помощью метода REST API [listHosts](../../api-ref/HostGroup/listHosts.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/ListHosts](../../api-ref/grpc/HostGroup/listHosts.md).
+  1. Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md).
 
 {% endlist %}
 

@@ -23,14 +23,16 @@ editable: false
 
 **Тарифный план**  | **Community** | **Business**
 ------------------ |---------------|---------------
-Интерактивные дашборды | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Конструктор чартов | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Модель данных и вычисления | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Ролевая модель прав доступа | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Аутентификация | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
+Создание [чартов](./concepts/chart/index.md) и [дашбордов](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Описание модели данных](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Аутентификация](./security/add-new-user.md) | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
+[Конструктор отчетов](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Статистика использования сервиса {{ datalens-name }}](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Безопасное встраивание непубличных объектов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Контроль публикаций](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Расширенная ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../support/pricing.md#business) или [Премиум](../support/pricing.md#premium)) | [Тариф Бизнес](../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
@@ -50,7 +52,66 @@ editable: false
 
 {% endnote %}
 
-Пользователь считается активным и учитывается при тарификации, если его действия привели к запросу данных из источника: например, он открыл или редактировал дашборд, чарт или датасет. Публичные ссылки на дашборды и чарты работают без аутентификации и при подсчете активных пользователей не учитываются. Узнать количество пользователей можно в [статистике использования {{ datalens-name }}](./operations/connection/create-usage-tracking.md).
+Пользователь считается активным и учитывается при тарификации, если его действия привели к запросу данных из источника: например, он открыл или редактировал дашборд, чарт или датасет.
+
+Подсчет пользователей для тарификации ведется в рамках месяца — каждый месяц активные пользователи считаются заново, по факту активности. Публичные ссылки на дашборды и чарты работают без аутентификации и при подсчете активных пользователей не учитываются. Узнать количество пользователей можно в [статистике использования {{ datalens-name }}](./operations/connection/create-usage-tracking.md).
+
+{% cut "Пример расчета стоимости" %}
+
+В организации 5 пользователей, которые в течение трех месяцев по-разному пользовались сервисом {{ datalens-name }} с подключенным тарифом Business:
+
+* В июне активными были `пользователь_1`, `пользователь_2` и `пользователь_3`. Плата за июнь составит:
+  
+
+  {% list tabs group=pricing %}
+
+  - Расчет в рублях {#prices-rub}
+
+    {% include [rub-example](../_pricing_examples/datalens/rub-users-1.md) %}
+
+  - Расчет в тенге {#prices-kzt}
+
+    {% include [kzt-example](../_pricing_examples/datalens/kzt-users-1.md) %}
+  
+  {% endlist %}
+
+
+
+* В июле активными были `пользователь_2` и `пользователь_3`. Плата за июль составит:
+
+
+  {% list tabs group=pricing %}
+
+  - Расчет в рублях {#prices-rub}
+
+    {% include [rub-example](../_pricing_examples/datalens/rub-users-2.md) %}
+
+  - Расчет в тенге {#prices-kzt}
+
+    {% include [kzt-example](../_pricing_examples/datalens/kzt-users-2.md) %}
+  
+  {% endlist %}
+
+
+
+* В августе активными были `пользователь_1`, `пользователь_2`, `пользователь_3`, `пользователь_4` и `пользователь_5`. Плата за август составит:
+
+
+  {% list tabs group=pricing %}
+
+  - Расчет в рублях {#prices-rub}
+
+    {% include [rub-example](../_pricing_examples/datalens/rub-users-3.md) %}
+
+  - Расчет в тенге {#prices-kzt}
+
+    {% include [kzt-example](../_pricing_examples/datalens/kzt-users-3.md) %}
+  
+  {% endlist %}
+
+
+
+{% endcut %}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -66,5 +127,6 @@ editable: false
   {% include notitle [kzt.md](../_pricing/datalens/kzt.md) %}
 
 {% endlist %}
+
 
 

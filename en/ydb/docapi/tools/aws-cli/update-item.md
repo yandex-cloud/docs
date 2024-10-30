@@ -1,6 +1,6 @@
 ---
-title: "How to update data in a {{ ydb-full-name }} table"
-description: "Follow this guide to update data in a table."
+title: How to update data in a {{ ydb-full-name }} table
+description: Follow this guide to update data in a table.
 ---
 
 # Updating data

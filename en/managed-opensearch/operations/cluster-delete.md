@@ -1,6 +1,6 @@
 ---
-title: "Deleting an {{ OS }} cluster"
-description: "You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from."
+title: Deleting an {{ OS }} cluster
+description: You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
 keywords:
   - Creating an OpenSearch cluster
   - OpenSearch cluster
@@ -51,7 +51,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
 
 - API {#api}
 
-   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 

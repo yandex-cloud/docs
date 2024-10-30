@@ -1,0 +1,37 @@
+title: Yandex Cloud Registry
+description:
+  - >-
+    <em>Yandex Cloud Registry is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Yandex Cloud Registry is a secure storage service for software <a
+    href="/docs/cloud-registry/concepts/artifacts">artifacts</a> used in app
+    development and deployment. Store, manage, and protect your artifacts.
+    Artifacts are software packages and other files used in app development and
+    deployment.
+  - >-
+    <ul> <li>Create a secure storage for your artifacts in just a few minutes.
+    Manage access and operations  via roles and permissions provided with <a
+    href="/docs/iam/security">Identity and Access Management<a/>.</li>
+    <li>Stored encrypted, all your artifacts will be securely protected from
+    unauthorized access and threats.</li> <li>You can scale Cloud Registry to
+    your tasks at hand without connecting new hardware or suffering any
+    performance loss.</li> <li>With Cloud Registry, you can create a registry to
+    store your artifacts in and manage it either via the API or Yandex Cloud
+    management console.</li> <li>We take full care of your registry
+    infrastructure and guarantee its security according to industry best
+    practices. You only pay for the actual space used to store your
+    artifacts.</li> </ul>
+  - "Yandex Cloud infrastructure is <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">protected</a> in compliance with Federal Law No. 152-FZ \"On Personal Data\" of the Russian Federation and complies with the following international and Russian standards ISO, GDPR, PCI DSS, and GOST R\_57580."
+meta:
+  title: Yandex Cloud Registry
+  description: >-
+    Yandex Cloud Registry is a service to store and manage your development
+    artifacts.
+links:
+  - title: Concepts
+    description: Learn more about Container Registry's concepts and resources
+    href: concepts/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

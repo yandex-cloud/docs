@@ -1,6 +1,6 @@
 ---
-title: "Creating a function"
-description: "Follow this guide to create a function."
+title: Creating a function
+description: Follow this guide to create a function.
 ---
 
 # Creating a function
@@ -77,7 +77,7 @@ description: "Follow this guide to create a function."
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
           token     = "<service_account_OAuth_token_or_static_key>"
@@ -144,7 +144,7 @@ description: "Follow this guide to create a function."
 
 - API {#api}
 
-   To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create) gRPC API call.
+   To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/Function/create.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

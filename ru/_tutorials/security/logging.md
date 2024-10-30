@@ -63,7 +63,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** введите `alb-logging-service-account`.
   1. Добавьте роли: `{{ roles-functions-invoker }}` и `editor`.
@@ -564,7 +564,7 @@
   
 - API {#api}
 
-  Используйте вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) или метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md).
+  Используйте вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) или метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md).
   
 {% endlist %}
   

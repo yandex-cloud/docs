@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/debezium-mpg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-mpg'
 ---
 
 # Поставка данных из {{ mpg-full-name }} с помощью Debezium

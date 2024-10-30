@@ -30,7 +30,7 @@
 
         Где:
         * `--role` — назначаемая роль.
-        * `--id` — идентификатор организации, со всех ресурсов которой будут собираться аудитные логи.
+        * `--id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, со всех ресурсов которой будут собираться аудитные логи.
         * `--service-account-id` — идентификатор сервисного аккаунта.
 
       * `logging.writer` на каталог, в котором будет находиться трейл:
@@ -353,7 +353,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/trail_service.md#Create).
+  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 

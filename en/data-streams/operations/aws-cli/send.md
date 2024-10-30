@@ -1,6 +1,6 @@
 ---
-title: "How to send data from {{ ydb-full-name }} to an AWS CLI stream"
-description: "In this tutorial, you will learn how to send data from {{ ydb-full-name }} to an AWS CLI stream."
+title: How to send data from {{ ydb-full-name }} to an AWS CLI stream
+description: In this tutorial, you will learn how to send data from {{ ydb-full-name }} to an AWS CLI stream.
 ---
 
 # Sending data to a stream in the AWS CLI

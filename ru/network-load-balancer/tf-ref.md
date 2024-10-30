@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ network-load-balancer-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ network-load-balancer-name }}."
+title: Справочник {{ TF }} для {{ network-load-balancer-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ network-load-balancer-name }}.
 ---
 
 # Справочник {{ TF }} для {{ network-load-balancer-full-name }}
@@ -22,5 +22,5 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/datasource_lb_network_load_balancer) | Информация о [сетевом балансировщике нагрузки](./concepts/index.md) |
-| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/datasource_lb_target_group) | Информация о [целевой группе](./concepts/target-resources.md) |
+| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/lb_network_load_balancer) | Информация о [сетевом балансировщике нагрузки](./concepts/index.md) |
+| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/lb_target_group) | Информация о [целевой группе](./concepts/target-resources.md) |

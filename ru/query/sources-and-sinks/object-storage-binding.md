@@ -32,10 +32,12 @@ WHERE
    1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к данным внутри бакета](object-storage.md#path_format). Поддерживается указание частей имен файлов через `/*`, например, `yellow/*.csv`.
    1. В поле **{{ ui-key.yql.yq-binding-info.compression.label-text }}** укажите способ [сжатия данных](formats.md#compression).
    1. В поле **{{ ui-key.yql.yq-binding-info.format.label-text }}** укажите [формат хранения данных](formats.md#formats).
-   1. Укажите список колонок данных и их типы.
    1. Выберите режим партицирования и укажите список [колонок партицирования](../concepts/partitioning.md) и их типы.
 
       При использовании режима **{{ ui-key.yql.yq-binding-form.projection-radio.enabled.label }}** укажите колонки [расширенного партицирования](../concepts/partition-projection.md).
+   1. Укажите список колонок данных и их типы.
+   
+      Альтернативно можно нажать кнопку **Автоопределить колонки**, чтобы сделать это автоматически.
 
 1. Для проверки данных нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
 1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.

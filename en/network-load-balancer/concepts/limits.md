@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ network-load-balancer-full-name }}"
-description: "{{ network-load-balancer-full-name }} has limits and quotas on the number of load balancers and target groups per cloud. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ network-load-balancer-full-name }}
+description: '{{ network-load-balancer-full-name }} has limits and quotas on the number of load balancers and target groups per cloud. For more information about the service restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ network-load-balancer-name }}

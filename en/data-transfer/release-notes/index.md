@@ -1,5 +1,12 @@
+---
+title: '{{ data-transfer-full-name }} release notes'
+description: This section contains {{ data-transfer-name }} release notes.
+---
+
 # {{ data-transfer-name }} release notes
 
+- [September 2024](2409.md)
+- [August 2024](2408.md)
 - [July 2024](2407.md)
 - [June 2024](2406.md)
 - [May 2024](2405.md)

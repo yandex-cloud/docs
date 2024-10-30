@@ -10,20 +10,20 @@ The issue pages are updated in real time. If someone edits or comments on the is
 
 ## Changing issue names {#edit-name}
 
-Tap the issue name. Edit the text and tap **{{ ui-key.startrek.ui_components_settings_IssueUpdatesSettings.save }}**.
+Tap the issue name. Edit the text and tap **Save**.
 
 ## Editing issue descriptions {#edit-description}
 
-To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](../user/markup.md) to format text. To save your changes, tap **{{ ui-key.startrek.ui_components_settings_IssueUpdatesSettings.save }}**.
+To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](../user/markup.md) to format text. To save your changes, tap **Save**.
 
-You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. You will see the linked issue in the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab.
+You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. You will see the linked issue in the **Links** tab.
 
 
 You can also [attach images or files](attach-file.md) to issue descriptions.
 
 ## Editing issue fields {#edit-fields}
 
-The [issue details](../user/create-param.md#default-fields) are shown in the **{{ ui-key.startrek.ui_components_IssueTabs.fields-tab }}** tab. To change a parameter value, tap ![](../../_assets/tracker/mobile-params-open.png). Enter a new value and click **{{ ui-key.startrek.ui_components_settings_IssueUpdatesSettings.save }}**.
+The [issue details](../user/create-param.md#default-fields) are shown in the **Parameters** tab. To change a parameter value, tap ![](../../_assets/tracker/mobile-params-open.png). Enter a new value and click **Save**.
 
 {% note info %}
 
@@ -31,7 +31,7 @@ If you do not see the required parameters, go to the web version and add them in
 
 {% endnote %}
 
-The **{{ ui-key.startrek-backend.fields.issue.priority-key-value }}**, **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**, **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}**, and **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** fields are also available in the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab. To edit their values, tap the parameter name, enter a new value, and tap **{{ ui-key.startrek.ui_components_settings_IssueUpdatesSettings.save }}**.
+The **{{ ui-key.startrek-backend.fields.issue.priority-key-value }}**, **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**, **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}**, and **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** fields are also available in the **Description** tab. To edit their values, tap the parameter name, enter a new value, and tap **Save**.
 
 ## Changing issue status {#edit-status}
 

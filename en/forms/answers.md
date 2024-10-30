@@ -58,7 +58,7 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
    - Saving to Yandex Disk {#ya-disk}
 
-      
+
       {% note warning %}
 
       If you logged in to [{{ forms-full-name }} for business](forms-for-org.md) via an [identity federation](login.md), saving responses to Yandex&#160;Disk is unavailable.
@@ -108,7 +108,7 @@ You can view files attached to the form by users in the response list on the **T
 
       Find the response you need on the **Timeline** tab and click the name of the relevant attached file. The file will open for viewing in your browser or will be downloaded to your computer.
 
-      
+
       If you send a file link to another user, they will need to [log in to their Yandex account]({{ link-passport }}) to view the file.
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Настроить переменные для спецификации API-шлюза"
-description: "Следуя данной инструкции, вы сможете настроить переменные для спецификации API-шлюза."
+title: Настроить переменные для спецификации API-шлюза
+description: Следуя данной инструкции, вы сможете настроить переменные для спецификации API-шлюза.
 ---
 
 # Настроить переменные
@@ -139,7 +139,7 @@ paths:
 
 - API {#api}
 
-  Чтобы настроить переменные для спецификации API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
+  Чтобы настроить переменные для спецификации API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md).
 
 {% endlist %}
 

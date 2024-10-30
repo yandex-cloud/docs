@@ -1,6 +1,6 @@
 ---
-title: "Grant terms of use"
-description: "At the beginning of the trial period, your billing account is credited with a grant that expires after 60 days. The amount and currency of the grant depend on your country of residence."
+title: Grant terms of use
+description: At the beginning of the trial period, your billing account is credited with a grant that expires after 60 days. The amount and currency of the grant depend on your country of residence.
 ---
 
 # Grant terms of use

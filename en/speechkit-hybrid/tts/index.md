@@ -1,6 +1,6 @@
 ---
-title: "How to get started with speech synthesis in {{ speechkit-full-name }}"
-description: "In this tutorial, you will learn how to get started with speech synthesis in {{ speechkit-name }}."
+title: How to get started with speech synthesis in {{ speechkit-full-name }}
+description: In this tutorial, you will learn how to get started with speech synthesis in {{ speechkit-name }}.
 ---
 
 # Speech synthesis

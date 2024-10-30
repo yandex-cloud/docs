@@ -3,49 +3,60 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.move
-Moves the specified Apache Kafka® cluster to the specified folder.
- 
+# Managed Service for Apache Kafka® API, REST: Cluster.Move {#Move}
 
- 
-## HTTP request {#https-request}
+Moves the specified Apache Kafka® cluster to the specified folder.
+
+## HTTP request
+
 ```
 POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:move
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the Apache Kafka® cluster to move.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the Apache Kafka® cluster to move.
+
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+|#
+
+## Body parameters {#yandex.cloud.mdb.kafka.v1.MoveClusterRequest}
+
+```json
 {
   "destinationFolderId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| destinationFolderId | **string**
+
+Required field. ID of the destination folder. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "clusterId": "string",
+    "sourceFolderId": "string",
+    "destinationFolderId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -53,24 +64,723 @@ destinationFolderId | **string**<br><p>Required. ID of the destination folder.</
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "folderId": "string",
+    "createdAt": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "string",
+    "environment": "string",
+    "monitoring": [
+      {
+        "name": "string",
+        "description": "string",
+        "link": "string"
+      }
+    ],
+    "config": {
+      "version": "string",
+      "kafka": {
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        },
+        // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`
+        "kafkaConfig_2_8": {
+          "compressionType": "string",
+          "logFlushIntervalMessages": "string",
+          "logFlushIntervalMs": "string",
+          "logFlushSchedulerIntervalMs": "string",
+          "logRetentionBytes": "string",
+          "logRetentionHours": "string",
+          "logRetentionMinutes": "string",
+          "logRetentionMs": "string",
+          "logSegmentBytes": "string",
+          "logPreallocate": "boolean",
+          "socketSendBufferBytes": "string",
+          "socketReceiveBufferBytes": "string",
+          "autoCreateTopicsEnable": "boolean",
+          "numPartitions": "string",
+          "defaultReplicationFactor": "string",
+          "messageMaxBytes": "string",
+          "replicaFetchMaxBytes": "string",
+          "sslCipherSuites": [
+            "string"
+          ],
+          "offsetsRetentionMinutes": "string",
+          "saslEnabledMechanisms": [
+            "string"
+          ]
+        },
+        "kafkaConfig_3": {
+          "compressionType": "string",
+          "logFlushIntervalMessages": "string",
+          "logFlushIntervalMs": "string",
+          "logFlushSchedulerIntervalMs": "string",
+          "logRetentionBytes": "string",
+          "logRetentionHours": "string",
+          "logRetentionMinutes": "string",
+          "logRetentionMs": "string",
+          "logSegmentBytes": "string",
+          "logPreallocate": "boolean",
+          "socketSendBufferBytes": "string",
+          "socketReceiveBufferBytes": "string",
+          "autoCreateTopicsEnable": "boolean",
+          "numPartitions": "string",
+          "defaultReplicationFactor": "string",
+          "messageMaxBytes": "string",
+          "replicaFetchMaxBytes": "string",
+          "sslCipherSuites": [
+            "string"
+          ],
+          "offsetsRetentionMinutes": "string",
+          "saslEnabledMechanisms": [
+            "string"
+          ]
+        }
+        // end of the list of possible fields
+      },
+      "zookeeper": {
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      },
+      "zoneId": [
+        "string"
+      ],
+      "brokersCount": "string",
+      "assignPublicIp": "boolean",
+      "unmanagedTopics": "boolean",
+      "schemaRegistry": "boolean",
+      "access": {
+        "dataTransfer": "boolean"
+      },
+      "restApiConfig": {
+        "enabled": "boolean"
+      },
+      "diskSizeAutoscaling": {
+        "plannedUsageThreshold": "string",
+        "emergencyUsageThreshold": "string",
+        "diskSizeLimit": "string"
+      },
+      "kraft": {
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      }
+    },
+    "networkId": "string",
+    "health": "string",
+    "status": "string",
+    "securityGroupIds": [
+      "string"
+    ],
+    "hostGroupIds": [
+      "string"
+    ],
+    "deletionProtection": "boolean",
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string"
+    }
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[MoveClusterMetadata](#yandex.cloud.mdb.kafka.v1.MoveClusterMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[Cluster](#yandex.cloud.mdb.kafka.v1.Cluster)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## MoveClusterMetadata {#yandex.cloud.mdb.kafka.v1.MoveClusterMetadata}
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+ID of the Apache Kafka® cluster being moved. ||
+|| sourceFolderId | **string**
+
+ID of the source folder. ||
+|| destinationFolderId | **string**
+
+ID of the destnation folder. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## Cluster {#yandex.cloud.mdb.kafka.v1.Cluster}
+
+An Apache Kafka® cluster resource.
+For more information, see the [Concepts](/docs/managed-kafka/concepts) section of the documentation.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the Apache Kafka® cluster.
+This ID is assigned at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the Apache Kafka® cluster belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the Apache Kafka® cluster.
+The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. ||
+|| description | **string**
+
+Description of the Apache Kafka® cluster. 0-256 characters long. ||
+|| labels | **string**
+
+Custom labels for the Apache Kafka® cluster as `key:value` pairs.
+A maximum of 64 labels per resource is allowed. ||
+|| environment | **enum** (Environment)
+
+Deployment environment of the Apache Kafka® cluster.
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`: Stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+- `PRESTABLE`: Environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility. ||
+|| monitoring[] | **[Monitoring](#yandex.cloud.mdb.kafka.v1.Monitoring)**
+
+Description of monitoring systems relevant to the Apache Kafka® cluster.
+* The field is ignored for response of List method. ||
+|| config | **[ConfigSpec](#yandex.cloud.mdb.kafka.v1.ConfigSpec)**
+
+Configuration of the Apache Kafka® cluster.
+* The field is ignored for response of List method. ||
+|| networkId | **string**
+
+ID of the network that the cluster belongs to. ||
+|| health | **enum** (Health)
+
+Aggregated cluster health.
+
+- `HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](/docs/managed-kafka/api-ref/Cluster/listHosts#yandex.cloud.mdb.kafka.v1.Host) of all hosts in the cluster is `UNKNOWN`).
+- `ALIVE`: Cluster is alive and well ([Host.health](/docs/managed-kafka/api-ref/Cluster/listHosts#yandex.cloud.mdb.kafka.v1.Host) of all hosts in the cluster is `ALIVE`).
+- `DEAD`: Cluster is inoperable ([Host.health](/docs/managed-kafka/api-ref/Cluster/listHosts#yandex.cloud.mdb.kafka.v1.Host) of all hosts in the cluster is `DEAD`).
+- `DEGRADED`: Cluster is in degraded state ([Host.health](/docs/managed-kafka/api-ref/Cluster/listHosts#yandex.cloud.mdb.kafka.v1.Host) of at least one of the hosts in the cluster is not `ALIVE`). ||
+|| status | **enum** (Status)
+
+Current state of the cluster.
+
+- `STATUS_UNKNOWN`: Cluster state is unknown.
+- `CREATING`: Cluster is being created.
+- `RUNNING`: Cluster is running normally.
+- `ERROR`: Cluster encountered a problem and cannot operate.
+- `UPDATING`: Cluster is being updated.
+- `STOPPING`: Cluster is stopping.
+- `STOPPED`: Cluster stopped.
+- `STARTING`: Cluster is starting. ||
+|| securityGroupIds[] | **string**
+
+User security groups ||
+|| hostGroupIds[] | **string**
+
+Host groups hosting VMs of the cluster. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the cluster ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
+
+Scheduled maintenance operation. ||
+|#
+
+## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
+
+Metadata of monitoring system.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the monitoring system. ||
+|| description | **string**
+
+Description of the monitoring system. ||
+|| link | **string**
+
+Link to the monitoring system charts for the Apache Kafka® cluster. ||
+|#
+
+## ConfigSpec {#yandex.cloud.mdb.kafka.v1.ConfigSpec}
+
+#|
+||Field | Description ||
+|| version | **string**
+
+Version of Apache Kafka® used in the cluster. Possible values: `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`. ||
+|| kafka | **[Kafka](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
+
+Configuration and resource allocation for Kafka brokers. ||
+|| zookeeper | **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
+
+Configuration and resource allocation for ZooKeeper hosts. ||
+|| zoneId[] | **string**
+
+IDs of availability zones where Kafka brokers reside. ||
+|| brokersCount | **string** (int64)
+
+The number of Kafka brokers deployed in each availability zone. ||
+|| assignPublicIp | **boolean**
+
+The flag that defines whether a public IP address is assigned to the cluster.
+If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. ||
+|| unmanagedTopics | **boolean**
+
+Allows to manage topics via AdminAPI
+Deprecated. Feature enabled permanently. ||
+|| schemaRegistry | **boolean**
+
+Enables managed schema registry on cluster ||
+|| access | **[Access](#yandex.cloud.mdb.kafka.v1.Access)**
+
+Access policy for external services. ||
+|| restApiConfig | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
+
+Configuration of REST API. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+
+DiskSizeAutoscaling settings ||
+|| kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
+
+Configuration and resource allocation for KRaft-controller hosts. ||
+|#
+
+## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+
+Resources allocated to Kafka brokers. ||
+|| kafkaConfig_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+
+Kafka broker configuration. ||
+|| kafkaConfig_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+
+Kafka broker configuration. ||
+|#
+
+## Resources {#yandex.cloud.mdb.kafka.v1.Resources}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources available to a host (CPU, memory, etc.).
+All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). ||
+|| diskSize | **string** (int64)
+
+Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. ||
+|| diskTypeId | **string**
+
+Type of the storage environment for the host. ||
+|#
+
+## KafkaConfig2_8 {#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8}
+
+Kafka version 2.8 broker configuration.
+
+#|
+||Field | Description ||
+|| compressionType | **enum** (CompressionType)
+
+Cluster topics compression type.
+
+- `COMPRESSION_TYPE_UNSPECIFIED`
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| logFlushIntervalMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| logFlushIntervalMs | **string** (int64)
+
+The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| logFlushSchedulerIntervalMs | **string** (int64)
+
+The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+This check is done by the log flusher. ||
+|| logRetentionBytes | **string** (int64)
+
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+This setting is helpful if you need to control the size of a log due to limited disk space.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| logRetentionHours | **string** (int64)
+
+The number of hours to keep a log segment file before deleting it. ||
+|| logRetentionMinutes | **string** (int64)
+
+The number of minutes to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionHours` is used. ||
+|| logRetentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionMinutes` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| logSegmentBytes | **string** (int64)
+
+The maximum size of a single log file.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| logPreallocate | **boolean**
+
+Should pre allocate file when create new segment?
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| socketSendBufferBytes | **string** (int64)
+
+The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| socketReceiveBufferBytes | **string** (int64)
+
+The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| autoCreateTopicsEnable | **boolean**
+
+Enable auto creation of topic on the server ||
+|| numPartitions | **string** (int64)
+
+Default number of partitions per topic on the whole cluster ||
+|| defaultReplicationFactor | **string** (int64)
+
+Default replication factor of the topic on the whole cluster ||
+|| messageMaxBytes | **string** (int64)
+
+The largest record batch size allowed by Kafka. Default value: 1048588. ||
+|| replicaFetchMaxBytes | **string** (int64)
+
+The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
+|| sslCipherSuites[] | **string**
+
+A list of cipher suites. ||
+|| offsetsRetentionMinutes | **string** (int64)
+
+Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
+|| saslEnabledMechanisms[] | **enum** (SaslMechanism)
+
+The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+
+- `SASL_MECHANISM_UNSPECIFIED`
+- `SASL_MECHANISM_SCRAM_SHA_256`
+- `SASL_MECHANISM_SCRAM_SHA_512` ||
+|#
+
+## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
+
+Kafka version 3.x broker configuration.
+
+#|
+||Field | Description ||
+|| compressionType | **enum** (CompressionType)
+
+Cluster topics compression type.
+
+- `COMPRESSION_TYPE_UNSPECIFIED`
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| logFlushIntervalMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logFlushIntervalMs | **string** (int64)
+
+The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logFlushSchedulerIntervalMs | **string** (int64)
+
+The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+This check is done by the log flusher. ||
+|| logRetentionBytes | **string** (int64)
+
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
+This setting is helpful if you need to control the size of a log due to limited disk space.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logRetentionHours | **string** (int64)
+
+The number of hours to keep a log segment file before deleting it. ||
+|| logRetentionMinutes | **string** (int64)
+
+The number of minutes to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionHours` is used. ||
+|| logRetentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionMinutes` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logSegmentBytes | **string** (int64)
+
+The maximum size of a single log file.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logPreallocate | **boolean**
+
+Should pre allocate file when create new segment?
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| socketSendBufferBytes | **string** (int64)
+
+The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| socketReceiveBufferBytes | **string** (int64)
+
+The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| autoCreateTopicsEnable | **boolean**
+
+Enable auto creation of topic on the server ||
+|| numPartitions | **string** (int64)
+
+Default number of partitions per topic on the whole cluster ||
+|| defaultReplicationFactor | **string** (int64)
+
+Default replication factor of the topic on the whole cluster ||
+|| messageMaxBytes | **string** (int64)
+
+The largest record batch size allowed by Kafka. Default value: 1048588. ||
+|| replicaFetchMaxBytes | **string** (int64)
+
+The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
+|| sslCipherSuites[] | **string**
+
+A list of cipher suites. ||
+|| offsetsRetentionMinutes | **string** (int64)
+
+Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
+|| saslEnabledMechanisms[] | **enum** (SaslMechanism)
+
+The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+
+- `SASL_MECHANISM_UNSPECIFIED`
+- `SASL_MECHANISM_SCRAM_SHA_256`
+- `SASL_MECHANISM_SCRAM_SHA_512` ||
+|#
+
+## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+
+Resources allocated to ZooKeeper hosts. ||
+|#
+
+## Access {#yandex.cloud.mdb.kafka.v1.Access}
+
+#|
+||Field | Description ||
+|| dataTransfer | **boolean**
+
+Allow access for DataTransfer. ||
+|#
+
+## RestAPIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Is REST API enabled for this cluster. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+|| diskSizeLimit | **string** (int64)
+
+New storage size (in bytes) that is set when one of the thresholds is achieved. ||
+|#
+
+## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+
+Resources allocated to KRaft controller hosts. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.kafka.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.mdb.kafka.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayedUntil | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

@@ -1,6 +1,6 @@
 ---
-title: "Как подключиться к провайдеру {{ cdn-full-name }}"
-description: "Следуя данной инструкции, вы сможете подключиться к провайдеру {{ cdn-full-name }}." 
+title: Как подключиться к провайдеру {{ cdn-full-name }}
+description: Следуя данной инструкции, вы сможете подключиться к провайдеру {{ cdn-full-name }}.
 ---
 
 # Подключение к провайдеру {{ cdn-name }}
@@ -50,8 +50,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы подключиться к провайдеру, воспользуйтесь методом REST API [activate](../../cdn/api-ref/Provider/activate.md) для ресурса [Provider](../../cdn/api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../cdn/api-ref/grpc/provider_service.md#Activate).
+  Чтобы подключиться к провайдеру, воспользуйтесь методом REST API [activate](../../cdn/api-ref/Provider/activate.md) для ресурса [Provider](../../cdn/api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../cdn/api-ref/grpc/Provider/activate.md).
 
-  Чтобы получить значение `cname` для каталога, воспользуйтесь методом REST API [getProviderCName](../../cdn/api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../cdn/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../cdn/api-ref/grpc/resource_service.md#GetProviderCName).
+  Чтобы получить значение `cname` для каталога, воспользуйтесь методом REST API [getProviderCName](../../cdn/api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../cdn/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../cdn/api-ref/grpc/Resource/getProviderCName.md).
 
 {% endlist %}

@@ -1,6 +1,9 @@
-# {{ mgl-full-name }} release notes
+---
+title: '{{ mgl-full-name }} release notes'
+description: This section contains {{ mgl-name }} release notes.
+---
 
-This section contains {{ mgl-name }} release notes.
+# {{ mgl-full-name }} release notes
 
 ## July 2024 {#jul-2024}
 
@@ -9,7 +12,7 @@ On July 1, 2024, the [approval rules](concepts/approval-rules.md) feature entere
 
 ## March 2024 {#mar-2024}
 
-Instances residing in the `ru-central1-с` availability zone can now be [migrated to a different zone](operations/instance/zone-migration.md).
+Instances residing in the `ru-central1-c` availability zone can now be [migrated to a different zone](operations/instance/zone-migration.md).
 
 
 ## January 2024 {#jan-2024}

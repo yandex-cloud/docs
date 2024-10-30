@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on collecting and delivering data to {{ ydb-full-name }} using Fluentd"
-description: "In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Fluentd."
+title: Tutorial on collecting and delivering {{ ydb-full-name }} data using Fluentd
+description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using Fluentd.
 ---
 
 # Fluentd
@@ -18,9 +18,9 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
 1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **Fluentd** tab.
-1. Copy a sample configuration file and paste it into the `/etc/td-agent/td-agent.conf` file.
+1. Copy the configuration file example and paste it into the `/etc/td-agent/td-agent.conf` file.
 
-   Sample configuration file:
+   Example of the configuration file:
 
    ```xml
    <system>
@@ -62,7 +62,10 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
 1. Send the test data to Fluentd:
 
    ```bash
-   curl -X POST -d 'json={"user_id":"user1", "score": 100}'  http://localhost:8888/kinesis
+   curl \
+    --request POST \
+    --data 'json={"user_id":"user1", "score": 100}' \
+    http://localhost:8888/kinesis
    ```
 
    If the setup is successful, the Fluentd `/var/log/td-agent/td-agent.log` operation log will include a message about receiving the data and sending it to {{ yds-full-name }} over the AWS Kinesis Data Streams protocol:

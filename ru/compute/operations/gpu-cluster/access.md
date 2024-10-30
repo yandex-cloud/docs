@@ -1,6 +1,6 @@
 ---
-title: "Настроить права доступа к кластеру GPU {{ compute-name }}"
-description: "Следуя данной инструкции, вы настроите права доступа к кластеру GPU."
+title: Настроить права доступа к кластеру GPU {{ compute-name }}
+description: Следуя данной инструкции, вы настроите права доступа к кластеру GPU.
 ---
 
 # Настроить права доступа к кластеру GPU
@@ -115,7 +115,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -227,7 +227,7 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/GpuCluster/setAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/SetAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/GpuCluster/setAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/SetAccessBindings](../../api-ref/grpc/GpuCluster/setAccessBindings.md).
 
   {% note alert %}
 
@@ -321,6 +321,6 @@ description: "Следуя данной инструкции, вы настро�
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

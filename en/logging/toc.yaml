@@ -1,10 +1,5 @@
 title: Yandex Cloud Logging
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -24,7 +19,7 @@ items:
             href: operations/list.md
           - name: Getting information about a log group
             href: operations/get-group.md
-      - name: Managing log groups
+      - name: Managing a log group
         items:
           - name: Creating a log group
             href: operations/create-group.md
@@ -60,6 +55,10 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
+      - name: >-
+          Transferring logs through {{ unified-agent-short-name }} HTTP input to
+          {{ cloud-logging-name }}
+        href: tutorials/ua-http-logging.md
       - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
@@ -94,18 +93,98 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ExportService
-            href: api-ref/grpc/export_service.md
-          - name: LogGroupService
-            href: api-ref/grpc/log_group_service.md
-          - name: LogIngestionService
-            href: api-ref/grpc/log_ingestion_service.md
-          - name: LogReadingService
-            href: api-ref/grpc/log_reading_service.md
-          - name: SinkService
-            href: api-ref/grpc/sink_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Export
+            items:
+              - name: Overview
+                href: api-ref/grpc/Export/index.md
+              - name: Run
+                href: api-ref/grpc/Export/run.md
+              - name: Get
+                href: api-ref/grpc/Export/get.md
+              - name: List
+                href: api-ref/grpc/Export/list.md
+              - name: Create
+                href: api-ref/grpc/Export/create.md
+              - name: Update
+                href: api-ref/grpc/Export/update.md
+              - name: Delete
+                href: api-ref/grpc/Export/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Export/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Export/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Export/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Export/updateAccessBindings.md
+          - name: LogGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/LogGroup/index.md
+              - name: Get
+                href: api-ref/grpc/LogGroup/get.md
+              - name: Stats
+                href: api-ref/grpc/LogGroup/stats.md
+              - name: List
+                href: api-ref/grpc/LogGroup/list.md
+              - name: Create
+                href: api-ref/grpc/LogGroup/create.md
+              - name: Update
+                href: api-ref/grpc/LogGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/LogGroup/delete.md
+              - name: ListResources
+                href: api-ref/grpc/LogGroup/listResources.md
+              - name: ListOperations
+                href: api-ref/grpc/LogGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/LogGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/LogGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/LogGroup/updateAccessBindings.md
+          - name: LogIngestion
+            items:
+              - name: Overview
+                href: api-ref/grpc/LogIngestion/index.md
+              - name: Write
+                href: api-ref/grpc/LogIngestion/write.md
+          - name: LogReading
+            items:
+              - name: Overview
+                href: api-ref/grpc/LogReading/index.md
+              - name: Read
+                href: api-ref/grpc/LogReading/read.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Sink
+            items:
+              - name: Overview
+                href: api-ref/grpc/Sink/index.md
+              - name: Get
+                href: api-ref/grpc/Sink/get.md
+              - name: List
+                href: api-ref/grpc/Sink/list.md
+              - name: Create
+                href: api-ref/grpc/Sink/create.md
+              - name: Update
+                href: api-ref/grpc/Sink/update.md
+              - name: Delete
+                href: api-ref/grpc/Sink/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/Sink/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Sink/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Sink/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Sink/updateAccessBindings.md
       - name: REST
         items:
           - name: Overview
@@ -114,76 +193,87 @@ items:
             items:
               - name: Overview
                 href: api-ref/Export/index.md
-              - name: create
-                href: api-ref/Export/create.md
-              - name: delete
-                href: api-ref/Export/delete.md
-              - name: get
-                href: api-ref/Export/get.md
-              - name: list
-                href: api-ref/Export/list.md
-              - name: listAccessBindings
-                href: api-ref/Export/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Export/listOperations.md
-              - name: run
+              - name: Run
                 href: api-ref/Export/run.md
-              - name: setAccessBindings
-                href: api-ref/Export/setAccessBindings.md
-              - name: update
+              - name: Get
+                href: api-ref/Export/get.md
+              - name: List
+                href: api-ref/Export/list.md
+              - name: Create
+                href: api-ref/Export/create.md
+              - name: Update
                 href: api-ref/Export/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Export/delete.md
+              - name: ListOperations
+                href: api-ref/Export/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Export/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Export/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Export/updateAccessBindings.md
           - name: LogGroup
             items:
               - name: Overview
                 href: api-ref/LogGroup/index.md
-              - name: create
-                href: api-ref/LogGroup/create.md
-              - name: delete
-                href: api-ref/LogGroup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/LogGroup/get.md
-              - name: list
-                href: api-ref/LogGroup/list.md
-              - name: listAccessBindings
-                href: api-ref/LogGroup/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/LogGroup/listOperations.md
-              - name: listResources
-                href: api-ref/LogGroup/listResources.md
-              - name: setAccessBindings
-                href: api-ref/LogGroup/setAccessBindings.md
-              - name: stats
+              - name: Stats
                 href: api-ref/LogGroup/stats.md
-              - name: update
+              - name: List
+                href: api-ref/LogGroup/list.md
+              - name: Create
+                href: api-ref/LogGroup/create.md
+              - name: Update
                 href: api-ref/LogGroup/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/LogGroup/delete.md
+              - name: ListResources
+                href: api-ref/LogGroup/listResources.md
+              - name: ListOperations
+                href: api-ref/LogGroup/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/LogGroup/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/LogGroup/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/LogGroup/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Sink
             items:
               - name: Overview
                 href: api-ref/Sink/index.md
-              - name: create
-                href: api-ref/Sink/create.md
-              - name: delete
-                href: api-ref/Sink/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Sink/get.md
-              - name: list
+              - name: List
                 href: api-ref/Sink/list.md
-              - name: listAccessBindings
-                href: api-ref/Sink/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Sink/listOperations.md
-              - name: setAccessBindings
-                href: api-ref/Sink/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Sink/create.md
+              - name: Update
                 href: api-ref/Sink/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Sink/delete.md
+              - name: ListOperations
+                href: api-ref/Sink/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Sink/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Sink/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Sink/updateAccessBindings.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/logging
+deepBase: 2

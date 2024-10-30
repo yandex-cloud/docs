@@ -1,6 +1,6 @@
 ---
-title: "Редактирование ACL бакета в {{ objstorage-full-name }}"
-description: "Для управления доступом к бакету {{ objstorage-name }}, помимо {{ iam-short-name }}, можно использовать список управления доступом (ACL)."
+title: Редактирование ACL бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете редактировать список управления доступом (ACL) бакета в {{ objstorage-name }}.
 ---
 
 # Редактирование ACL бакета
@@ -16,21 +16,17 @@ description: "Для управления доступом к бакету {{ ob
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени бакета и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-    
-     Также можно нажать на имя бакета и на открывшейся странице нажать кнопку **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
-  1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+  1. В окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
       {% note info %}
-  
+
       {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
-  
+
       {% endnote %}
-  
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -82,12 +78,12 @@ description: "Для управления доступом к бакету {{ ob
   Настройка отдельных разрешений
 
   : 1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
-  
-        
+
+
         * [Пользователь](../../../iam/operations/users/get.md).
         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
     1. Выполните команду:
 
@@ -106,7 +102,6 @@ description: "Для управления доступом к бакету {{ ob
          * `permission-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
          * `permission-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `permission-read`.
          * `permission-full-control` — полный доступ к бакету и объектам в нем.
-         
          Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
 
        Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
@@ -120,7 +115,7 @@ description: "Для управления доступом к бакету {{ ob
 - AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
-  
+
   {% note info %}
 
   Чтобы управлять ACL бакета, назначьте сервисному аккаунту, через который работает AWS CLI, [роль](../../security/index.md#storage-admin) `storage.admin`.
@@ -158,16 +153,16 @@ description: "Для управления доступом к бакету {{ ob
     * `--endpoint` — эндпоинт {{ objstorage-name }}.
     * `--bucket` — имя бакета.
     * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
-  
+
   Настройка отдельных разрешений
 
   : 1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
-  
-        
+
+
         * [Пользователь](../../../iam/operations/users/get.md).
         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
     1. Выполните команду:
 
@@ -187,7 +182,7 @@ description: "Для управления доступом к бакету {{ ob
           * `--grant-full-control` — полный доступ к бакету и объектам в нем.
 
           Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
-          
+
         * Возможные получатели разрешений:
           * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
           * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
@@ -251,12 +246,12 @@ description: "Для управления доступом к бакету {{ ob
 
        * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей. Используется с типом получателя разрешений `CanonicalUser`.
 
-                  
+
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.
@@ -275,7 +270,7 @@ description: "Для управления доступом к бакету {{ ob
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -291,6 +286,6 @@ description: "Для управления доступом к бакету {{ ob
 
 - API {#api}
 
-  Чтобы редактировать ACL бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [bucketPutAcl](../../s3/api-ref/acl/bucketput.md).
+  Чтобы редактировать ACL бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [bucketPutAcl](../../s3/api-ref/acl/bucketput.md).
 
 {% endlist %}

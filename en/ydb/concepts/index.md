@@ -16,19 +16,19 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 {{ ydb-short-name }} enables online transaction and online analytical processing (OLTP and OLAP).
 
-To work with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/) and the [SDKs](https://ydb.tech/en/docs/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL](https://ydb.tech/en/docs/yql/reference/), an SQL dialect. To learn about using the {{ ydb-short-name }} tools for application development, see the [Recommendations](https://ydb.tech/en/docs/best_practices/) section.
+To work with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/) and the [SDKs]({{ ydb.docs }}/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL]({{ ydb.docs }}/yql/reference/), an SQL dialect. To learn about using the {{ ydb-short-name }} tools for application development, see the [Recommendations]({{ ydb.docs }}/best_practices/) section.
 
 To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
-* [Terms and definitions](https://ydb.tech/en/docs/concepts/databases)
-* [Data model and schema](https://ydb.tech/en/docs/concepts/datamodel)
-* [Transactions](https://ydb.tech/en/docs/concepts/transactions)
-* [Secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes)
-* [Change Data Capture (CDC)](https://ydb.tech/en/docs/concepts/cdc)
-* [Time to Live (TTL)](https://ydb.tech/en/docs/concepts/ttl)
-* [Scan queries](https://ydb.tech/en/docs/concepts/scan_query)
-* [Database limits](https://ydb.tech/en/docs/concepts/limits-ydb)
-* [{{ ydb-short-name }} cluster](https://ydb.tech/en/docs/concepts/cluster/)
+* [Terms and definitions]({{ ydb.docs }}/concepts/databases)
+* [Data model and schema]({{ ydb.docs }}/concepts/datamodel)
+* [Transactions]({{ ydb.docs }}/concepts/transactions)
+* [Secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes)
+* [Change Data Capture (CDC)]({{ ydb.docs }}/concepts/cdc)
+* [Time to Live (TTL)]({{ ydb.docs }}/concepts/ttl)
+* [Scan queries]({{ ydb.docs }}/concepts/scan_query)
+* [Database limits]({{ ydb.docs }}/concepts/limits-ydb)
+* [{{ ydb-short-name }} cluster]({{ ydb.docs }}/concepts/cluster/)
 
 
 ## Service Level Agreement {#sla}

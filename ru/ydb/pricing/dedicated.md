@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для режима {{ ydb-full-name }} с выделенными инстансами"
-description: "Из статьи вы узнаете о правилах тарификации для режима {{ ydb-full-name }} с выделенными инстансами."
+title: Правила тарификации для режима {{ ydb-full-name }} с выделенными инстансами
+description: Из статьи вы узнаете о правилах тарификации для режима {{ ydb-full-name }} с выделенными инстансами.
 editable: false
 ---
 
@@ -111,7 +111,7 @@ editable: false
 - Цены в рублях {#prices-rub}
 
   {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
-  
+
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}

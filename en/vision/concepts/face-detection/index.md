@@ -1,5 +1,6 @@
 ---
-description: "Face detection is a tool that allows you to find human faces in an image. For example, you can use it to tag people in a photo or find all photos with portraits. {{ vision-full-name }} searches for human faces in the image and marks them with rectangles. The supported file formats are JPEG, PNG, and PDF."
+description: Face detection is a tool that allows you to find human faces in an image. For example, you can use it to tag people in a photo or find all photos with portraits. {{ vision-full-name }} searches for human faces in the image and marks them with rectangles. The supported file formats are JPEG, PNG, and PDF.
+noIndex: true
 keywords:
   - face detection
   - detect face

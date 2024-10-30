@@ -1,6 +1,6 @@
 ---
-title: "Configuring access to a secret"
-description: "Follow this guide to configure access to a secret."
+title: Configuring access to a secret
+description: Follow this guide to configure access to a secret.
 ---
 
 # Configuring access to a secret
@@ -94,7 +94,7 @@ description: "Follow this guide to configure access to a secret."
 
 - API {#api}
 
-   To configure access to a secret, use the [setAccessBindings](../api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../api-ref/grpc/secret_service.md#SetAccessBindings) gRPC API call.
+   To configure access to a secret, use the [setAccessBindings](../api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../api-ref/grpc/Secret/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 

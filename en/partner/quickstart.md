@@ -32,7 +32,7 @@ In your [partnership application]({{ link-cloud-partners }}onboarding-new), prov
 1. Make sure to select the {{ yandex-cloud }} organization you plan to work with under the partner program from the drop-down list at the top of the page.
 
    * If your organization has a billing account that meets [these requirements](#restrictions), you can use it to submit company information.
-   * If there is no billing account, you will see a warning in the **Company information** section and will be able to create one in [Step 4](#step-4).
+   * If there is no billing account, you will see a warning in the **Company information** section and will be able to create one at [Step 5](#step-5).
 
 1. Supply the company info: your **Contact details** and **Company information**. Completing the **Company information** section depends on whether you have a billing account:
 
@@ -59,14 +59,14 @@ In your [partnership application]({{ link-cloud-partners }}onboarding-new), prov
 1. Provide the **Company's taxation type ** info and click **Continue**.
 1. Fill out the questionnaire about your company’s profile. Click **Send**.
 
-## Step 4. Select a billing account {#step-4}
+## Step 5. Select a billing account {#step-5}
 
-If you have already provided a billing account at [Step 2](#step-2), proceed to the next step. If no payment account was specified, you can create one at this step.
+If you have already provided a billing account at [Step 3](#step-3), proceed to the next step. If no payment account was specified, you can create one at this step.
 
 Billing account requirements: {#restrictions}
 
 * Billing account type: [Business account](../billing/concepts/billing-account.md#ba-types).
-* The business account must be issued to a business residing in the Russian Federation.
+* A business account issued to a business residing in the Russian Federation.
 * Payment method: **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 1. Click **Create billing account**.
@@ -83,7 +83,7 @@ Billing account requirements: {#restrictions}
 
 1. Fill out the **Company information** section: make sure the automatically populated fields contain accurate information and complete all required fields. Click **Next**.
 
-1. The **Contacts** page will show the contacts from [Step 2](#step-2). If you need to specify a different payer in the billing account, update the information on this page. Click **Create**.
+1. The **Contacts** page will show the contacts from [Step 3](#step-3). If you need to specify a different payer in the billing account, update the information on this page. Click **Create**.
 
 1. Fill out the [form](https://forms.yandex.ru/surveys/10033352.3c456c5feb5c56ed6c3112834db3233af1434edc/?language=ru&resident_ru=ru_ru) to verify your newly created billing account.
 
@@ -95,13 +95,13 @@ Billing account requirements: {#restrictions}
 
    {% endnote %}
 
-## Step 6. Get {{ yandex-cloud }} confirmation {#step-6}
+## Step 6. Get a confirmation from {{ yandex-cloud }} {#step-6}
 
 On the application confirmation page, you can view your application's details and follow its status. Please wait for the manager's feedback and approval of your application: this may take up to seven business days.
 
-## Step 7. Get your partner status {#step-7}
+## Step 7. Get a partner status {#step-7}
 
-If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become the {{ yandex-cloud }} partner program member after you complete the above steps.
+If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become a {{ yandex-cloud }} partner program member after you complete the above steps.
 
 ## What's next {#whats-next}
 

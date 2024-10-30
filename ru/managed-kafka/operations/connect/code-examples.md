@@ -1,6 +1,6 @@
 ---
-title: "Примеры кода для подключения к кластеру {{ KF }} в {{ mkf-full-name }}"
-description: "Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ KF }} из кода вашего приложения."
+title: Примеры кода для подключения к кластеру {{ KF }} в {{ mkf-full-name }}
+description: Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ KF }} из кода вашего приложения.
 ---
 
 # Примеры кода для подключения к кластеру {{ KF }}
@@ -593,7 +593,8 @@ description: "Следуя этим примерам, вы сможете под
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
-              conf.Net.TLS.Config = &tls.Config{                
+
+              conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
 
@@ -667,7 +668,8 @@ description: "Следуя этим примерам, вы сможете под
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
-              conf.Net.TLS.Config = &tls.Config{                        
+
+              conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
 
@@ -759,7 +761,7 @@ description: "Следуя этим примерам, вы сможете под
    cd ~/project
    ```
 
-1. Создайте конфигурационный файл для Maven:    
+1. Создайте конфигурационный файл для Maven:
 
    {% cut "pom.xml" %}
    ```xml
@@ -845,7 +847,7 @@ description: "Следуя этим примерам, вы сможете под
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind);
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
- 1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
+1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
 
     ```bash
     cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml

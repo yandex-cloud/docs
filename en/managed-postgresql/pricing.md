@@ -1,15 +1,16 @@
 ---
-title: "Pricing for {{mpg-name }}"
-description: "The cost of {{ mpg-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, the settings and number of backups, and the amount of outgoing traffic from {{ yandex-cloud }} to the internet."
-
+title: '{{ mpg-name }} pricing policy'
+description: The cost of {{ mpg-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, settings and number of backups, and amount of outgoing traffic from {{ yandex-cloud }} to the internet.
 editable: false
 ---
 
-# {{ mpg-name }} pricing
+# {{ mpg-name }} pricing policy
 
-In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
+In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -29,7 +30,7 @@ The {{ mpg-name }} usage cost is based on:
 
 Host operation cost is charged per hour based on host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ PG }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -37,25 +38,25 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
-            * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
-   * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   {% note info %}
+    {% note info %}
 
-   The cluster's storage size is equal to the total storage size of all of its hosts.
+    The cluster's storage size is equal to the total storage size of all of its hosts.
 
-   {% endnote %}
+    {% endnote %}
 
-   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mpg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+    * When performing automatic backups, {{ mpg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
+    * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -64,7 +65,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mpg-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -114,8 +115,8 @@ Pricing for backup storage has the following specifics:
 
 * To reduce expenses for storing backups beyond the storage size:
 
-   * Reduce the retention period of automatic backups in the [advanced settings](./operations/update#change-additional-settings).
-   * [Delete backups](./operations/cluster-backups.md#delete) created manually.
+    * Reduce the retention period of automatic backups in the [advanced settings](./operations/update#change-additional-settings).
+    * [Delete backups](./operations/cluster-backups.md#delete) created manually.
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 

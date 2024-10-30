@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ sf-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ sf-name }}."
+title: Справочник {{ TF }} для {{ sf-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ sf-name }}.
 ---
 
 # Справочник {{ TF }} для {{ sf-full-name }}
@@ -24,6 +24,6 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_function]({{ tf-provider-datasources-link }}/datasource_function) | Информация о [функции](./concepts/function.md) |
-| [yandex_function_scaling_policy]({{ tf-provider-datasources-link }}/datasource_function_scaling_policy) | Информация о [настройках масштабирования функции](./concepts/function.md#scaling) |
-| [yandex_function_trigger]({{ tf-provider-datasources-link }}/datasource_function_trigger) | Информация о [триггере](./concepts/trigger/index.md) |
+| [yandex_function]({{ tf-provider-datasources-link }}/function) | Информация о [функции](./concepts/function.md) |
+| [yandex_function_scaling_policy]({{ tf-provider-datasources-link }}/function_scaling_policy) | Информация о [настройках масштабирования функции](./concepts/function.md#scaling) |
+| [yandex_function_trigger]({{ tf-provider-datasources-link }}/function_trigger) | Информация о [триггере](./concepts/trigger/index.md) |

@@ -11,6 +11,21 @@
 {% endnote %}
 
 
+{% list tabs %}
+
+- VK
+
+  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239454&hash=525f019554ae17fd" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+- YouTube
+
+  @[youtube](https://youtu.be/TvLdfcPCOHw)
+
+{% endlist %}
+
+
+
+
 ## Создайте новый дашборд {#create-dashboard}
 
 1. На [главной странице]({{ link-monitoring }}) сервиса нажмите **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.

@@ -1,6 +1,6 @@
 ---
-title: "How to create a broker"
-description: "Follow this guide to create a broker."
+title: How to create a broker
+description: Follow this guide to create a broker.
 ---
 
 # Creating a broker
@@ -189,6 +189,6 @@ description: "Follow this guide to create a broker."
 
 - API {#api}
 
-   To create a broker, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create) gRPC API call.
+   To create a broker, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md) gRPC API call.
 
 {% endlist %}

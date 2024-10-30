@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как удалить лог-группу в {{ cloud-logging-name }}"
-description: "Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}."
+title: Инструкция о том, как удалить лог-группу в {{ cloud-logging-name }}
+description: Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}.
 ---
 
 # Удалить лог-группу
@@ -106,9 +106,9 @@ description: "Из статьи вы узнаете, как удалить ло�
 
 - API {#api}
 
-  Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete).
+  Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/LogGroup/delete.md).
 
-  
+
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}

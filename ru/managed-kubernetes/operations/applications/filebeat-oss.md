@@ -19,9 +19,11 @@
 
    ```bash
    wget "{{ crt-web-path }}" && \
-   curl --user <имя_пользователя>:<пароль> --cacert CA.pem \
+   curl \
+   --user <имя_пользователя>:<пароль> --cacert CA.pem \
    --request PUT https://<имя_хоста_с_ролью_DATA>:{{ port-mos }}/_cluster/settings \
-   -H "Content-Type: application/json" -d \
+   --header "Content-Type: application/json" \
+   --data \
    '{
    "persistent": {
      "compatibility": {
@@ -73,7 +75,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Filebeat OSS выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_filebeat-oss.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_filebeat-oss.helmChart.tag }} \
      --untar && \
@@ -87,6 +88,9 @@
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы Filebeat OSS.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 1. Убедитесь, что под Filebeat OSS перешел в состояние `Running`:
 
    ```bash

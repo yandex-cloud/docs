@@ -67,12 +67,12 @@
 
 Для распознавания речи приложение сначала должно отправить сообщение с настройками распознавания:
 
-* для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) с типом `session_options`.
+* для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) с типом `session_options`.
 * для API v2 — сообщение `StreamingRecognitionRequest` с типом [RecognitionConfig](api/streaming-api#specification-msg).
 
 
 
-После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
+После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
 
 * Не отправляйте аудиофрагменты слишком часто или редко. Время между отправкой сообщений в сервис должно примерно совпадать с длительностью отправляемых аудиофрагментов, но не должно превышать 5 секунд. Например, каждые 400 мс отправляйте на распознавание 400 мс аудио.
 * Максимальная длительность переданного аудио за всю сессию — {{ stt-streaming-audioLength }}.
@@ -84,7 +84,7 @@
 
 ### Результат распознавания {#results}
 
-В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service#StreamingResponse) или [StreamingRecognitionResponse](api/streaming-api.md#response)) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`).
+В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingResponse) или [StreamingRecognitionResponse](api/streaming-api.md#response)) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`).
 
 Сервер {{ speechkit-name }} возвращает результаты распознавания с указанием их типа:
 
@@ -99,7 +99,7 @@
 Распознавание речи завершается, и приходят окончательные результаты, когда наступает [EOU (End-of-Utterance)](eou.md). Он является признаком конца фразы. EOU происходит в следующих случаях:
 
 * Завершилась gRPC-сессия.
-* Была распознана тишина в последнем фрагменте речи. Тишину можно передать с помощью одного из [двух параметров](../stt-v3/api-ref/grpc/stt_service.md#StreamingRequest):
+* Была распознана тишина в последнем фрагменте речи. Тишину можно передать с помощью одного из [двух параметров](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingRequest):
 
    * `chunk` — звук, который распознается как тишина.
    * `silence_chunk` — длительность тишины в миллисекундах. Параметр позволяет уменьшить размер пакета с аудио и не передавать в нем тишину, которую не нужно распознавать.

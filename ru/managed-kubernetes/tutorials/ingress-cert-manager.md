@@ -1,6 +1,6 @@
 ---
-title: "Как создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }} в {{ managed-k8s-full-name }}"
-description: "Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }}." 
+title: Как создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }} в {{ managed-k8s-full-name }}
+description: Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом {{ lets-encrypt }}.
 ---
 
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов {{ lets-encrypt }}

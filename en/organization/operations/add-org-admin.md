@@ -1,6 +1,6 @@
 ---
-title: "How to assign a user as an organization administrator in {{ org-full-name }}"
-description: "By following this guide, you can assign a user as an organization administrator."
+title: How to assign a user as an organization administrator in {{ org-full-name }}
+description: By following this guide, you can assign a user as an organization administrator.
 ---
 
 # Making a user an organization administrator
@@ -85,7 +85,7 @@ description: "By following this guide, you can assign a user as an organization 
 
 - API {#api}
 
-  Use the REST API method [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) for the [Organization](../api-ref/Organization/index.md) resource or the gRPC API call [OrganizationService/UpdateAccessBindings](../api-ref/grpc/organization_service.md#UpdateAccessBindings) and provide the following in the request:
+  Use the REST API method [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) for the [Organization](../api-ref/Organization/index.md) resource or the gRPC API call [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) and provide the following in the request:
 
   * `organization-manager.admin` or `organization-manager.organizations.owner` [role](../../iam/concepts/access-control/roles.md) ID in the `roleId` parameter for the REST API or `role_id` for the gRPC API.
   * User ID and type in the `subject` block.

@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a trigger in {{ api-gw-full-name }}"
-description: "In this tutorial, you will learn how to get a list of triggers and trigger details in {{ api-gw-full-name }}."
+title: How to get information about a trigger in {{ api-gw-full-name }}
+description: In this tutorial, you will learn how to get a list of triggers and trigger details in {{ api-gw-full-name }}.
 ---
 
 # Getting information about a trigger in {{ api-gw-name }}
@@ -45,6 +45,6 @@ description: "In this tutorial, you will learn how to get a list of triggers and
 
 - API {#api}
 
-   To get information about a trigger, use the [get](../../triggers/api-ref/Trigger/get.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Get](../../triggers/api-ref/grpc/trigger_service.md#Get) gRPC API call.
+   To get information about a trigger, use the [get](../../triggers/api-ref/Trigger/get.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Get](../../triggers/api-ref/grpc/Trigger/get.md) gRPC API call.
 
 {% endlist %}

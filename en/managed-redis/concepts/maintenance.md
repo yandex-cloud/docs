@@ -1,6 +1,6 @@
 ---
-title: "Maintenance in {{ mrd-full-name }}"
-description: "Maintenance in {{ mrd-name }} means automatic installation of updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+title: Maintenance in {{ mrd-full-name }}
+description: Maintenance in {{ mrd-name }} means automatic installation of updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mrd-name }}

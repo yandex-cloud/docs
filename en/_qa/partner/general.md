@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} partner program. FAQ"
-description: "I cannot log in to the partner portal. What should I do? How do I contact the {{ yandex-cloud }} partner program team? Find the answers to these and other questions in this article."
+title: '{{ yandex-cloud }} partner program. FAQ'
+description: I cannot log in to the partner portal. What should I do? How do I contact the {{ yandex-cloud }} partner program team? Find the answers to these and other questions in this article.
 ---
 
 # General questions

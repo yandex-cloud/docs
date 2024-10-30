@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/getDryRunResult.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.getDryRunResult
-Returns the dry run result of the specified lifecycle policy.
- 
+# Container Registry API, REST: LifecyclePolicy.GetDryRunResult {#GetDryRunResult}
 
- 
-## HTTP request {#https-request}
+Returns the dry run result of the specified lifecycle policy.
+
+## HTTP request
+
 ```
 GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-dryRunLifecyclePolicyResultId | <p>Required. ID of the dry run result of the lifecycle policy.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| dryRunLifecyclePolicyResultId | **string**
+
+Required field. ID of the dry run result of the lifecycle policy. ||
+|#
+
+## Response {#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "dryRunLifecyclePolicyResultId": "string",
   "lifecyclePolicyId": "string",
@@ -31,10 +35,25 @@ dryRunLifecyclePolicyResultId | <p>Required. ID of the dry run result of the lif
 }
 ```
 
- 
-Field | Description
---- | ---
-dryRunLifecyclePolicyResultId | **string**<br><p>ID of the dry run result of the lifecycle policy.</p> 
-lifecyclePolicyId | **string**<br><p>ID of the lifecycle policy.</p> 
-runAt | **string** (date-time)<br><p>Time of the getting result.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-affectedImagesCount | **string** (int64)<br><p>Count of affected images.</p> 
+#|
+||Field | Description ||
+|| dryRunLifecyclePolicyResultId | **string**
+
+ID of the dry run result of the lifecycle policy. ||
+|| lifecyclePolicyId | **string**
+
+ID of the lifecycle policy. ||
+|| runAt | **string** (date-time)
+
+Time of the getting result.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| affectedImagesCount | **string** (int64)
+
+Count of affected images. ||
+|#

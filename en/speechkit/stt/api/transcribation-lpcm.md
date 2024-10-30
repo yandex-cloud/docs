@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous LPCM audio file recognition in {{ speechkit-full-name }}"
-description: "Follow this guide to use asynchronous LPCM audio file recognition."
+title: Asynchronous LPCM audio file recognition in {{ speechkit-full-name }}
+description: Follow this guide to use asynchronous LPCM audio file recognition.
 ---
 
 # Asynchronous recognition of LPCM audio files using the API v2

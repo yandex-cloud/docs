@@ -1,6 +1,6 @@
 ---
-title: "Как удалить канал в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить канал {{ video-full-name }}."
+title: Как удалить канал в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете удалить канал {{ video-full-name }}.
 ---
 
 # Удалить канал
@@ -15,6 +15,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [ChannelService/Delete](../../api-ref/grpc/channel_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/Channel/delete.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Delete](../../api-ref/grpc/Channel/delete.md).
 
 {% endlist %}

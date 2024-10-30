@@ -1,6 +1,6 @@
 ---
-title: "Specifics of working with a boot disk in {{ cos-full-name }}"
-description: "Please note that, when creating a VM from a {{ coi }}, you cannot create a boot disk from a disk snapshot and the size of a disk created by default is the same as that of the image."
+title: Specifics of working with a boot disk in {{ cos-full-name }}
+description: Please note that, when creating a VM from a {{ coi }}, you cannot create a boot disk from a disk snapshot and the size of a disk created by default is the same as that of the image.
 ---
 
 # Specifics of working with a boot disk

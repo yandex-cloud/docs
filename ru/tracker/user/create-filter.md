@@ -26,12 +26,11 @@
 
     Добавьте параметры задачи и укажите их возможные значения:
 
-    1. Над списком задач нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.
+    1. Над списком задач нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_Common_smart-components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}**.
 
     1. Выберите параметр задачи, затем задайте его значение. 
 
         В списке останутся только те задачи, параметры которых удовлетворяют заданному условию.
-    	
     1. Если нужно уточнить условия поиска, добавьте еще несколько параметров.
 
     Например, вы можете искать задачи по названию или описанию: 
@@ -47,11 +46,11 @@
 
     {% endnote %}
 
-- **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**
+- **Язык запросов**
 
     Язык запросов позволяет задать условия, которые невозможно настроить с помощью параметров. Например, найти задачи, которые были открыты в течение последней недели. Подробнее о языке запросов читайте в разделе [{#T}](query-filter.md).
 
-    1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**. Все параметры поиска, которые вы задали с помощью быстрых фильтров и условий, отобразятся в строке запроса.
+    1. В правом верхнем углу страницы нажмите ![](../../_assets/tracker/svg/query-language.svg) **Язык запросов**. Все параметры поиска, которые вы задали с помощью быстрых фильтров и условий, отобразятся в строке запроса.
 
     1. Добавьте в строку условия с помощью [языка запросов](query-filter.md).
 
@@ -59,7 +58,7 @@
 
 ### Шаг 3. Настройте внешний вид списка задач
 
-- Чтобы отобразить или скрыть параметры задач, справа над списком нажмите ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, выберите параметры и нажмите кнопку **Применить**.
+- Чтобы отобразить или скрыть параметры задач, справа над списком нажмите ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader.settings }}**, выберите параметры и нажмите кнопку **Применить**.
 
 - Чтобы сгруппировать задачи по определенному параметру, над списком нажмите ![](../../_assets/tracker/svg/group.svg) **Без группировки** и выберите параметр.
 
@@ -67,7 +66,7 @@
 
 ### Шаг 4. Сохраните фильтр
 
-Если вам часто приходится пользоваться одним и тем же фильтром, сохраните его. Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_components_filter-pane.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
+Если вам часто приходится пользоваться одним и тем же фильтром, сохраните его. Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
 
 1. Над списком задач нажмите кнопку **Сохранить**.
 
@@ -75,29 +74,29 @@
 
 1. Нажмите кнопку **Сохранить**.
 
-Чтобы сохранить список задач, найденных с помощью фильтра, в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
+Чтобы сохранить список задач, найденных с помощью фильтра, в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Выгрузить** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
 
 ## Редактировать фильтр {#edit}
 
 #### Изменить условия фильтра
 
-1. В верхней части окна в поле **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}** выберите ваш фильтр.
+1. В верхней части окна в поле **{{ ui-key.startrek.ui_Issues_pages_page-issues_touch.all-issues-filter-title }}** выберите ваш фильтр.
 
 1. [Измените условия поиска задач](#set-conditions) с помощью быстрых фильтров, параметров или языка запросов.
 
 1. Над списком задач нажмите кнопку **Сохранить**:
 
-    * Чтобы сохранить фильтр под текущим именем, нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.action-title-save }}**.
+    * Чтобы сохранить фильтр под текущим именем, нажмите кнопку **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.action-title-save }}**.
 
-    * Чтобы сохранить фильтр под другим именем, нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Затем задайте имя фильтра, выберите категорю и нажмите кнопку **Сохранить**.
+    * Чтобы сохранить фильтр под другим именем, нажмите кнопку **{{ ui-key.startrek.ui_Common_smart-components_filter-pane.action-title-save-as }}**. Затем задайте имя фильтра, выберите категорю и нажмите кнопку **Сохранить**.
 
 
 #### Удалить фильтр
 
-1. В верхней части окна в поле **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}** выберите ваш фильтр.
+1. В верхней части окна в поле **{{ ui-key.startrek.ui_Issues_pages_page-issues_touch.all-issues-filter-title }}** выберите ваш фильтр.
 
 1. Удалите фильтр одним из спообов:
 
     * Справа от названия фильтра нажмите значок ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Удалить**. 
 
-    * В верхнем правом углу страницы нажмите значок ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}** и выберите ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Удалить**.
+    * В верхнем правом углу страницы нажмите значок ![](../../_assets/tracker/svg/actions.svg) **Действия над фильтром** и выберите ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Удалить**.

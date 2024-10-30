@@ -1,11 +1,13 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите [группу](../../organization/concepts/groups.md) или воспользуйтесь поиском по названию группы.
 
      Вы также можете назначить роль одной из [системных](../../iam/concepts/access-control/system-group.md) групп:
@@ -13,7 +15,8 @@
      * `All users in organization X` — в группу входят все пользователи организации `X`.
      * `All users in federation N` — в группу входят все пользователи федерации `N`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите [роль](../../iam/concepts/access-control/roles.md) в организации. Вы можете назначить больше одной роли.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на организацию. Вы можете назначить несколько ролей.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -24,12 +27,13 @@
 
      ```bash
      yc organization-manager organization add-access-binding \
-       --subject=group:<идентификатор_группы> \
-       --role=<идентификатор_роли> \
-        <идентификатор_организации>
+       --subject group:<идентификатор_группы> \
+       --role <идентификатор_роли> \
+       --organization-users <идентификатор_организации> \
+       --federation-users <идентификатор_федерации>
      ```
 
-     Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`, передав в нем соответственно идентификатор [организации](../../organization/quickstart.md) или [федерации удостоверений](../../organization/concepts/add-federation.md), всем пользователям которых вы хотите назначить роль.
+     Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`. Передайте в нем соответственно идентификатор [организации](../../organization/quickstart.md) или [федерации удостоверений](../../organization/concepts/add-federation.md), всем пользователям, которым вы хотите назначить роль.
          
      Вы также можете назначить роль системной группе с помощью параметра `--subject`. Для этого передайте в нем идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), соответствующий выбранной системной группе.
 
@@ -67,6 +71,7 @@
      ```
 
      Где:
+     
      * `organization_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
      * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.

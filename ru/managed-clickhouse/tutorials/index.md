@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ mch-full-name }}"
-description: "Различные сценарии использования {{ mch-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ mch-full-name }}
+description: Различные сценарии использования {{ mch-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ mch-name }}
@@ -25,6 +25,8 @@ description: "Различные сценарии использования {{ 
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](greenplum-to-clickhouse.md)
+
 
 О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).
 

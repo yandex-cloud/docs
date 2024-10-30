@@ -15,6 +15,6 @@
 
 По умолчанию записи в истории расположены в хронологическом порядке. 
 
-Чтобы изменить порядок записей, справа от блока **{{ ui-key.startrek.ui_components_entity-page_ActivitySection.activity }}** нажмите кнопку ![](../../_assets/tracker/svg/new-first.svg) **{{ ui-key.startrek.ui_components_entity-page_ActivitySection.new-activity-on-top }}**.
+Чтобы изменить порядок записей, справа от блока **Активность** нажмите кнопку ![](../../_assets/tracker/svg/new-first.svg) **Сначала новые**.
 
 Порядок отображения также изменится и для комментариев к проекту или портфелю.

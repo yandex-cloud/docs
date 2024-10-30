@@ -1,6 +1,6 @@
 ---
-title: "Как использовать расширение uuid-cb в {{ mgp-full-name }}"
-description: "Следуя данной инструкции, вы сможете использовать расширение uuid-cb в {{ mgp-name }}." 
+title: Как использовать расширение uuid-cb в {{ mgp-full-name }}
+description: Следуя данной инструкции, вы сможете использовать расширение uuid-cb в {{ mgp-name }}.
 ---
 
 # Использование uuid-cb в {{ mgp-name }}

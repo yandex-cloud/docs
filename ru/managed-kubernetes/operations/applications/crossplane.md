@@ -27,7 +27,7 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Crossplane или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **Ключ сервисной учетной записи** — вставьте содержимое файла [ключа сервисной учетной записи](../../../iam/concepts/authorization/access-key.md), [полученного ранее](#before-you-begin), или создайте новый.
+   * **Ключ сервисного аккаунта** — вставьте содержимое файла [ключа сервисного аккаунта](../../../iam/concepts/authorization/access-key.md), [полученного ранее](#before-you-begin), или создайте новый.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -37,9 +37,8 @@
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
-   
+
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \
      --untar && \
@@ -50,6 +49,8 @@
      crossplane ./crossplane/
    ```
 
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Установка с помощью GitHub-репозитория Helm {#helm-repo-install}
 
@@ -84,7 +85,7 @@
 1. Установите Crossplane CLI:
 
    ```bash
-   curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh && \
+   curl --silent --location https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh && \
    sudo mv kubectl-crossplane $(dirname $(which kubectl))
    ```
 

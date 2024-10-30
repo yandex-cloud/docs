@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Logstash"
-description: "Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Logstash."
+title: Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Logstash
+description: Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Logstash.
 ---
 
 # Logstash
@@ -61,7 +61,10 @@ description: "Из статьи вы узнаете, как собирать и 
 1. Отправьте тестовые данные в Logstash:
 
    ```bash
-   curl -H "content-type: application/json" -XPUT 'http://127.0.0.1:8888/kinesis' -d '{"user_id":"user1", "score": 100}'
+   curl \
+     --request PUT 'http://127.0.0.1:8888/kinesis' \
+     --header "content-type: application/json" \
+     --data '{"user_id":"user1", "score": 100}'
    ```
 
    Если настройка выполнена успешно, в консоли работы Logstash появится сообщение о получении данных и отправке их в {{ yds-name }} по протоколу AWS Kinesis Data Streams:

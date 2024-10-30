@@ -1,6 +1,6 @@
 ---
-title: "Installing Ingress NGINX"
-description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} cluster."
+title: Installing Ingress NGINX
+description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} cluster.
 ---
 
 # Installing Ingress NGINX
@@ -21,7 +21,7 @@ description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clu
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of the cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Ingress NGINX](/marketplace/products/yc/ingress-nginx) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
@@ -37,10 +37,10 @@ description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clu
 
    * **Traffic management policy**: Select a policy for external traffic management. It matches the `externalTrafficPolicy` parameter in the {{ k8s }} specifications. The possible values are:
 
-      * **Cluster**: Traffic is routed to different {{ k8s }} nodes (default). As the result, traffic is distributed evenly; however, such an approach has some disadvantages:
+      * **Cluster**: Traffic is routed to different {{ k8s }} nodes (default). As a result, traffic is distributed evenly; however, such an approach has some disadvantages:
 
          * The package may come to one node's proxy and get rerouted to another node. Such behavior leads to delays in performing operations and sending packages.
-         * The pod that receives the package sees the IP address of the proxying node rather than the one of the client. As the result, the original IP address of the client is not preserved.
+         * The pod that receives the package sees the IP address of the proxying node rather than the one of the client. As a result, the original IP address of the client is not preserved.
 
       * **Local**: Traffic is proxied and distributed between pods on the same node. The traffic is routed to the node via the port specified in the {{ k8s }} `Service` object of the [LoadBalancer or NodePort type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
@@ -67,6 +67,8 @@ description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clu
       ingress-nginx ./ingress-nginx/
    ```
 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 ## Use cases {#examples}
 
 * [{#T}](../create-load-balancer-with-ingress-nginx.md)
@@ -75,7 +77,7 @@ description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clu
 
 ## See also {#see-also}
 
-* [Ingress NGINX documentation](https://docs.nginx.com/nginx-ingress-controller/)
+* [NGINX Ingress controller documentation](https://docs.nginx.com/nginx-ingress-controller/)
 * [GitHub documentation](https://github.com/kubernetes/ingress-nginx)
-* [Ingress NGINX use cases](https://github.com/kubernetes/ingress-nginx/tree/main/docs/examples)
+* [NGINX Ingress controller use cases](https://github.com/kubernetes/ingress-nginx/tree/main/docs/examples)
 * [Known issues](https://github.com/kubernetes/ingress-nginx/issues)

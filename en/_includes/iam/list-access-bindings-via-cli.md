@@ -7,18 +7,18 @@ yc <service_name> <resource_category> list-access-bindings <resource_name_or_ID>
 Where:
 
 * `<service_name>`: Name of the service the resource belongs to, e.g., `resource-manager`.
-* `<resource_category`: Resource category, e.g., `folder`.
-* `<resource_name_or_ID>`: Name or ID of the resource. You can specify a resource by its name or ID.
+* `<resource_category>`: Resource category, e.g., `folder`.
+* `<resource_name_or_ID>`: Resource name or ID. You can specify a resource by its name or ID.
 
-For example, you can view what roles were assigned for the `default` folder and to whom:
+For example, you can view the roles and the assignees for the `default` folder:
 
 ```bash
 yc resource-manager folder list-access-bindings default
 ```
 
-Output:
+Result:
 
-```
+```text
 +---------------------+----------------+----------------------+
 |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
 +---------------------+----------------+----------------------+
@@ -26,3 +26,4 @@ Output:
 | viewer              | userAccount    | aje6o61dvog2******** |
 +---------------------+----------------+----------------------+
 ```
+

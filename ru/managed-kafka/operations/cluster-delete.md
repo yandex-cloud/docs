@@ -1,6 +1,6 @@
 ---
-title: "Удаление кластера Apache Kafka"
-description: "Вы можете удалить кластер Apache Kafka®, если он вам больше не нужен. Все данные в кластере будут удалены. В консоли управления выберите каталог, из которого нужно удалить кластер."
+title: Удаление кластера Apache Kafka
+description: Вы можете удалить кластер Apache Kafka®, если он вам больше не нужен. Все данные в кластере будут удалены. В консоли управления выберите каталог, из которого нужно удалить кластер.
 ---
 
 # Удаление кластера {{ KF }}
@@ -44,7 +44,7 @@ description: "Вы можете удалить кластер Apache Kafka®, е
 
 - API {#api}
 
-  Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   

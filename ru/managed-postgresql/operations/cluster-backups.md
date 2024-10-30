@@ -1,6 +1,6 @@
 ---
-title: "Управление резервными копиями PostgreSQL"
-description: "Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий PostgreSQL. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии."
+title: Управление резервными копиями PostgreSQL
+description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий PostgreSQL. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
 ---
 
 # Управление резервными копиями в {{ mpg-name }}
@@ -8,7 +8,7 @@ description: "Вы можете создавать резервные копии
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mpg-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](update.md#change-additional-settings) для нее.
+Также {{ mpg-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](#set-backup-retain) для нее.
 
 ## Восстановить кластер из резервной копии {#restore}
 
@@ -89,7 +89,7 @@ description: "Вы можете создавать резервные копии
 
   1. Запросите создание кластера из резервной копии:
 
-      
+
       ```bash
       {{ yc-mdb-pg }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
@@ -121,7 +121,7 @@ description: "Вы можете создавать резервные копии
 
           * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
-          
+
           * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
           * `assign-public-ip` — флаг, который указывается, если требуется [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
 
@@ -130,7 +130,7 @@ description: "Вы можете создавать резервные копии
       * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
 
-          
+
           * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
@@ -235,15 +235,143 @@ description: "Вы можете создавать резервные копии
 
   {{ TF }} создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор требуемой резервной копии в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
-    * Момент времени, на который должен быть восстановлен кластер, в параметре `time`.
-    * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия. Чтобы восстановить кластер в другом каталоге, укажите идентификатор этого каталога в параметре `folderId`.
+  1. Воспользуйтесь методом [Cluster.restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
+        --data '{
+                  "backupId": "<идентификатор_резервной_копии>",
+                  "time": "<время>",
+                  "folderId": "<идентификатор_каталога>",
+                  "name": "<имя_кластера>",
+                  "environment": "<окружение>",
+                  "networkId": "<идентификатор_сети>",
+                  "configSpec": {
+                    "version": "<версия_{{ PG }}>",
+                    "resources": {
+                      "resourcePresetId": "<класс_хостов>",
+                      "diskSize": "<размер_хранилища_в_байтах>",
+                      "diskTypeId": "<тип_диска>"
+                    }
+                  },
+                  "hostSpecs": [
+                    {
+                      "zoneId": "<зона_доступности>",
+                      "subnetId": "<идентификатор_подсети>",
+                      "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+                    }
+                  ]
+                }'
+     ```
+
+     Где:
+
+     * `backupId` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
+     * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
+     * `folderId` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+     * `name` — имя кластера.
+     * `environment` — окружение:
+
+       * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+       * `PRODUCTION` — для стабильных версий ваших приложений.
+
+     * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network).
+     * `configSpec` — настройки кластера:
+
+       * `version` — версия {{ PG }}.
+       * `resources` — ресурсы кластера:
+
+         * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+         * `diskSize` — размер диска в байтах;
+         * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+     * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+       * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
+       * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "backup_id": "<идентификатор_резервной_копии>",
+             "time": "<время>",
+             "folder_id": "<идентификатор_каталога>",
+             "name": "<имя_кластера>",
+             "environment": "<окружение>",
+             "network_id": "<идентификатор_сети>",
+             "config_spec": {
+               "version": "<версия_{{ PG }}>",
+               "resources": {
+                 "resource_preset_id": "<класс_хостов>",
+                 "disk_size": "<размер_хранилища_в_байтах>",
+                 "disk_type_id": "<тип_диска>"
+               }
+             },
+             "host_specs": [
+               {
+                 "zone_id": "<зона_доступности>",
+                 "subnet_id": "<идентификатор_подсети>",
+                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+               }
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
+     ```
+
+     * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
+     * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
+     * `folder_id` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+     * `name` — имя кластера.
+     * `environment` — окружение:
+
+       * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+       * `PRODUCTION` — для стабильных версий ваших приложений.
+
+     * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network).
+     * `config_spec` — настройки кластера:
+
+       * `version` — версия {{ PG }}.
+       * `resources` — ресурсы кластера:
+
+         * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+         * `disk_size` — размер диска в байтах;
+         * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+     * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+       * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
+       * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -280,11 +408,52 @@ description: "Вы можете создавать резервные копии
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать резервную копию кластера, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:backup'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Backup) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Backup
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -323,16 +492,98 @@ description: "Вы можете создавать резервные копии
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Чтобы получить список резервных копий всех кластеров {{ mpg-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/backup_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  1. Чтобы получить список резервных копий кластера:
+
+     1. Воспользуйтесь методом [Cluster.listBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+           --request GET \
+           --header "Authorization: Bearer $IAM_TOKEN" \
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/backups'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse).
+
+  1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+     1. Воспользуйтесь методом [Backup.list](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+           --request GET \
+           --header "Authorization: Bearer $IAM_TOKEN" \
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups?folderId=<идентификатор_каталога>'
+        ```
+
+
+        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Чтобы получить список резервных копий кластера:
+
+     1. Воспользуйтесь вызовом [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.postgresql.v1.ClusterService.ListBackups
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse).
+
+  1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+     1. Воспользуйтесь вызовом [BackupService/List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/backup_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "folder_id": "<идентификатор_каталога>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.postgresql.v1.BackupService.List
+        ```
+
+
+        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse).
 
 {% endlist %}
-
 
 ## Получить информацию о резервной копии {#get-backup}
 
@@ -362,11 +613,51 @@ description: "Вы можете создавать резервные копии
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить данные о резервной копии кластера, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Backup.get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
+     ```
+
+     Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [BackupService/Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/backup_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "backup_id": "<идентификатор_резервной_копии>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.BackupService.Get
+     ```
+
+     Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup).
 
 {% endlist %}
 
@@ -444,15 +735,260 @@ description: "Вы можете создавать резервные копии
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
-    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.backupWindowStart`), в параметре `updateMask`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data '{
+                 "updateMask": "configSpec.backupWindowStart",
+                 "configSpec": {
+                   "backupWindowStart": {
+                     "hours": "<часы>",
+                     "minutes": "<минуты>",
+                     "seconds": "<секунды>",
+                     "nanos": "<наносекунды>"
+                   }
+                 }
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `configSpec.backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
+
+       В параметре укажите время, когда начинать резервное копирование. Возможные значения параметров:
+
+       * `hours` — от `0` до `23` часов;
+       * `minutes` — от `0` до `59` минут;
+       * `seconds` — от `0` до `59` секунд;
+       * `nanos` — от `0` до `999999999` наносекунд.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.backup_window_start"
+               ]
+             },
+             "config_spec": {
+               "backup_window_start": {
+                 "hours": "<часы>",
+                 "minutes": "<минуты>",
+                 "seconds": "<секунды>",
+                 "nanos": "<наносекунды>"
+               }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `config_spec.backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
+
+       В параметре укажите время, когда начинать резервное копирование. Возможные значения параметров:
+
+       * `hours` — от `0` до `23` часов;
+       * `minutes` — от `0` до `59` минут;
+       * `seconds` — от `0` до `59` секунд;
+       * `nanos` — от `0` до `999999999` наносекунд.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+
+{% endlist %}
+
+## Задать срок хранения автоматических резервных копий {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в аргументе `--backup-retain-period-days` команды изменения кластера:
+
+    ```bash
+    {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+       --backup-retain-period-days=<срок_хранения_в_днях>
+    ```
+
+  Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
+
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    1. Добавьте к описанию кластера {{ mpg-name }} блок `backup_retain_period_days` в секции `config`:
+
+        ```hcl
+          resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+            ...
+            config {
+              ...
+              backup_retain_period_days = <срок_хранения_в_днях>
+              }
+              ...
+            }
+            ...
+        ```
+
+       Где `backup_retain_period_days` — срок хранения автоматических резервных копий. 
+       
+       Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
+
+  1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1.  Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+       ```bash
+       curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+         --data '{
+                   "updateMask": "configSpec.backupRetainPeriodDays",
+                   "configSpec": {
+                     "backupRetainPeriodDays": <срок_хранения_в_днях>
+                   }
+                 }'
+       ```
+
+       Где:
+
+       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+         В данном случае передается только один параметр.
+
+       * `configSpec.backupRetainPeriodDays` — срок хранения автоматических резервных копий.
+ 
+         Допустимые значения — от `7` до `60`. Значение по умолчанию — `7`.
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_mask": {
+                "paths": [
+                    "config_spec.backup_retain_period_days"
+                ]
+                },
+                "config_spec": {
+                "backup_retain_period_days": <срок_хранения_в_днях>
+                }
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+        ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `config_spec.backup_retain_period_days` — срок хранения автоматических резервных копий.
+
+       Допустимые значения — от `7` до `60`. Значение по умолчанию — `7`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
 
@@ -493,10 +1029,50 @@ description: "Вы можете создавать резервные копии
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../api-ref/Backup/delete.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../api-ref/grpc/backup_service.md#Delete) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Backup.delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
+     ```
+
+     Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [BackupService/Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/backup_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "backup_id": "<идентификатор_резервной_копии>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.BackupService.Delete
+     ```
+
+     Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

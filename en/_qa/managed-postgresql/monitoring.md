@@ -2,13 +2,13 @@
 
 You can track your disk space:
 * In the management console using [cluster status monitoring tools](../../managed-postgresql/operations/monitoring.md#monitoring-cluster).
-   * In [{{ monitoring-full-name }}]({{ link-monitoring }}) that allows you to [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
+* In [{{ monitoring-full-name }}]({{ link-monitoring }}) that allows you to [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
 
 #### Are logs stored on the same disk as {{ PG }} data? How are they charged? {#logs-storage}
 
 Logs are stored on different disks than data and rotated automatically. You can view log information using the [CLI](../../cli/) command below:
 
-```
+```bash
 yc managed-postgresql cluster list-logs <cluster_ID>
 ```
 
@@ -18,7 +18,7 @@ Cluster log storage is free of charge.
 
 #### What are WALs and what are they used for? {#wal}
 
-[Write-Ahead Logs](https://postgrespro.com/docs/postgresql/12/wal-intro) are required for data writes to disk and for data replication. These are created by write requests and take up disk space until log data is written out to host disks, making DBMS's reliable and failure-tolerant.
+[Write-Ahead Logs](https://postgrespro.com/docs/postgresql/12/wal-intro) are used for writing data to the disk and for data replication. They are created with write requests and take up disk space until log data is written out to host disks to ensure DBMS reliability and fault tolerance.
 
 For more information about {{ PG }}, see the [official documentation](https://postgrespro.com/docs/postgresql/12).
 
@@ -47,5 +47,5 @@ For `disk.used_bytes`, use notification thresholds. The recommended values are a
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)

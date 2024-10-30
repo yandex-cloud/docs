@@ -1,6 +1,6 @@
 ---
-title: "How to delete a public zone in {{ dns-full-name }}"
-description: "Follow this guide to delete a public DNS zone."
+title: How to delete a public zone in {{ dns-full-name }}
+description: Follow this guide to delete a public DNS zone.
 ---
 
 # Deleting a DNS zone
@@ -102,6 +102,6 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
 - API {#api}
 
-   To delete a DNS zone, use the [delete](../api-ref/DnsZone/delete.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Delete](../api-ref/grpc/dns_zone_service.md#Delete) gRPC API call.
+   To delete a DNS zone, use the [delete](../api-ref/DnsZone/delete.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Delete](../api-ref/grpc/DnsZone/delete.md) gRPC API call.
 
 {% endlist %}

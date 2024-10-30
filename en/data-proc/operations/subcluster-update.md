@@ -1,6 +1,6 @@
 ---
-title: "How to update a subcluster in {{ dataproc-full-name }}"
-description: "Follow this guide to update a subcluster."
+title: How to update a subcluster in {{ dataproc-full-name }}
+description: Follow this guide to update a subcluster.
 ---
 
 # Updating subclusters

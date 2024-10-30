@@ -6,6 +6,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
@@ -56,11 +58,11 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
-```
+```text
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-^2^ The first 1 GB of data stored in standard storage per month is free of charge.
+^2^ The first 1 GB of data in standard storage per month is free of charge.
 
 
 

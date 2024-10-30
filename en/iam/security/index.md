@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ iam-full-name }} ({{ iam-short-name }})"
-description: "Accesses in {{ iam-full-name }} ({{ iam-short-name }}), a service for identity and access management. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
+description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ iam-name }}
@@ -36,7 +36,7 @@ Roles for a resource can be assigned by users who have the `iam.admin` role or o
 
 {% include [iam.serviceAccounts.admin](../../_roles/iam/serviceAccounts/admin.md) %}
 
-For some services, you need a service account to perform operations, such as in [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) or [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you specified a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account.
+For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) or [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes), you need a service account to perform operations. If you specified a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account.
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -57,6 +57,34 @@ For some services, you need a service account to perform operations, such as in 
 #### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
 
 {% include [iam.serviceAccounts.tokenCreator](../../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
+#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
+
+{% include [iam.serviceAccounts.federatedCredentialViewer](../../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
+
+#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
+
+{% include [iam.serviceAccounts.federatedCredentialEditor](../../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
+
+#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
+
+{% include [iam.workloadIdentityFederations.auditor](../../_roles/iam/workloadIdentityFederations/auditor.md) %}
+
+#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
+
+{% include [iam.workloadIdentityFederations.viewer](../../_roles/iam/workloadIdentityFederations/viewer.md) %}
+
+#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
+
+{% include [iam.workloadIdentityFederations.user](../../_roles/iam/workloadIdentityFederations/user.md) %}
+
+#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
+
+{% include [iam.workloadIdentityFederations.editor](../../_roles/iam/workloadIdentityFederations/editor.md) %}
+
+#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
+
+{% include [iam.workloadIdentityFederations.admin](../../_roles/iam/workloadIdentityFederations/admin.md) %}
 
 #### iam.auditor {#iam-auditor}
 
@@ -83,29 +111,29 @@ For some services, you need a service account to perform operations, such as in 
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For instance, you can assign `editor` instead of `viewer`.
 
-| Action | Methods | Required roles |
+Action | Methods | Required roles
 ----- | ----- | -----
-| **View data** | |
-| [Get an IAM token](../operations/iam-token/create.md) | `create` | no roles needed, only authentication |
-| [View user data](../operations/users/get.md) | `get`, `getByLogin` | no roles needed, only authentication |
-| [View service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account |
-| View information about a folder or cloud | `get`, `list` | `iam.auditor` for the folder or cloud |
-| View information about any resource | `get`, `list` | `viewer` for this resource |
-| **Manage resources** | |
-| [Create](../operations/sa/create.md) service accounts in the folder | `create` | `iam.serviceAccounts.admin` for the folder |
-| [Update](../operations/sa/update.md) and [delete](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account |
-| Create and delete keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, and `iam.serviceAccounts.keyAdmin`<br/> for the service account |
-| **Manage resource access** | |
-| [Add a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud |
-| [Make a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
-| [Grant a role](../operations/roles/grant.md), [revoke a role](../operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
-| Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account |
+**Viewing data** | |
+[Getting an IAM token](../operations/iam-token/create.md) | `create` | no roles needed, only authentication
+[Viewing user data](../operations/users/get.md) | `get`, `getByLogin` | no roles needed, only authentication
+[Viewing service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account
+Viewing information about a folder or cloud | `get`, `list` | `iam.auditor` for the folder or cloud
+Viewing information about any resource | `get`, `list` | `viewer` for the resource
+**Managing resources** | |
+[Creating](../operations/sa/create.md) service accounts in the folder | `create` | `iam.serviceAccounts.admin` for the folder
+[Updating](../operations/sa/update.md) and [deleting](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account
+Creating and deleting keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> for the service account
+**Resource access management** | |
+[Adding a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud
+[Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud
+[Granting a role](../operations/roles/grant.md), [revoking a role](../operations/roles/revoke.md), and viewing roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account
 
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
-* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* See [how to revoke a role](../../iam/operations/roles/revoke.md) for more info.
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

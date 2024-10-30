@@ -14,7 +14,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
+   mkdir $HOME\.opensearch; curl --output $HOME\.opensearch\root.crt {{ crt-web-path }}
    ```
 
    Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.

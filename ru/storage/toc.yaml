@@ -1,10 +1,5 @@
 title: Yandex Object Storage
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -42,6 +37,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: >-
+              Доступ в бакет с помощью сервисного подключения из {{
+              vpc-short-name }}
+            href: operations/buckets/access-via-vpc.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
           - name: Включение механизма логирования
@@ -132,6 +131,8 @@ items:
           Миграция данных из {{ yds-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
+        href: tutorials/clickhouse-hybrid-storage.md
       - name: >-
           Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с
           помощью {{ data-transfer-full-name }}
@@ -174,6 +175,35 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
+        href: tutorials/mpg-to-objstorage.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
+          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
+          помощью Sqoop
+        href: tutorials/sqoop-mpg.md
+      - name: >-
+          Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
+          помощью Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: >-
+          Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/objs-mmy-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }}
+        href: tutorials/mmy-objs-migration.md
+      - name: >-
+          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
+          }}
+        href: tutorials/greenplum-yezzey.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
         href: tutorials/elasticsearch-to-opensearch.md
       - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
@@ -518,10 +548,36 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: BucketService
-                href: api-ref/grpc/bucket_service.md
-              - name: OperationService
-                href: api-ref/grpc/operation_service.md
+              - name: Bucket
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Bucket/index.md
+                  - name: List
+                    href: api-ref/grpc/Bucket/list.md
+                  - name: Get
+                    href: api-ref/grpc/Bucket/get.md
+                  - name: Create
+                    href: api-ref/grpc/Bucket/create.md
+                  - name: Update
+                    href: api-ref/grpc/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/grpc/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/grpc/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/grpc/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
           - name: REST (англ.)
             items:
               - name: Overview
@@ -530,24 +586,32 @@ items:
                 items:
                   - name: Overview
                     href: api-ref/Bucket/index.md
-                  - name: create
-                    href: api-ref/Bucket/create.md
-                  - name: delete
-                    href: api-ref/Bucket/delete.md
-                  - name: deleteHTTPSConfig
-                    href: api-ref/Bucket/deleteHTTPSConfig.md
-                  - name: get
-                    href: api-ref/Bucket/get.md
-                  - name: getHTTPSConfig
-                    href: api-ref/Bucket/getHTTPSConfig.md
-                  - name: getStats
-                    href: api-ref/Bucket/getStats.md
-                  - name: list
+                  - name: List
                     href: api-ref/Bucket/list.md
-                  - name: setHTTPSConfig
-                    href: api-ref/Bucket/setHTTPSConfig.md
-                  - name: update
+                  - name: Get
+                    href: api-ref/Bucket/get.md
+                  - name: Create
+                    href: api-ref/Bucket/create.md
+                  - name: Update
                     href: api-ref/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
@@ -561,3 +625,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/storage
+deepBase: 2

@@ -1,11 +1,11 @@
 ---
-title: "Getting started with the management console"
-description: "Follow this guide to create a bucket and upload an object to it using the management console."
+title: Getting started with the management console
+description: Follow this guide to create a bucket and upload an object to it using the management console.
 ---
 
 # Getting started with {{ objstorage-full-name }}
 
-In this section, you will learn how to use the service via the {{ yandex-cloud }} management console. For guidelines on using the AWS CLI, see [{#T}](./quickstart/quickstart-aws-cli.md).
+In this section, you will learn how to use {{ objstorage-full-name }} via the {{ yandex-cloud }} management console. For instructions on how to use the AWS CLI, see [{#T}](./quickstart/quickstart-aws-cli.md).
 
 To get started with {{ objstorage-name }}:
 
@@ -25,26 +25,26 @@ To get started with {{ objstorage-name }}:
 
 To create your first bucket in {{ objstorage-name }}:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
+1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![bucket](../_assets/storage/bucket.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
 1. Enter the name of the bucket.
 
-   The bucket name must be unique across {{ objstorage-name }}. It is used as part of the data access URL and is visible to your data users.
+    The bucket name must be unique across {{ objstorage-name }}. It is used as part of the data access URL and is visible to your data users.
 1. Limit the maximum bucket size, if required.
 
-   {% include [storage-no-max-limit](_includes_service/storage-no-max-limit.md) %}
+    {% include [storage-no-max-limit](_includes_service/storage-no-max-limit.md) %}
 
-1. For the files you upload to be always accessible from outside of {{ yandex-cloud }}, select the public [access type](concepts/bucket.md#bucket-access).
+1. If you want the files you upload to be always accessible from outside of {{ yandex-cloud }}, configure public [access](concepts/bucket.md#bucket-access).
 
-   {% include [public-access-warning](../_includes/storage/security/public-access-warning.md) %}
+    {% include [public-access-warning](../_includes/storage/security/public-access-warning.md) %}
 
-   In a bucket with restricted access, you can also make the uploaded files accessible with the help of [temporary links](./concepts/pre-signed-urls.md).
+    In a bucket with restricted access, you can also make the uploaded files accessible with the help of [temporary links](./concepts/pre-signed-urls.md).
 
 1. Choose the default [storage class](concepts/storage-class.md) to be used when uploading objects:
-   * _Standard storage_ is designed for storing frequently used objects.
-   * _Cold storage_ is designed for long-term storage of objects that are rarely read.
-   * _Ice storage_ is designed for storing objects that are very rarely read for one year and longer.
-1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}** to complete the operation.
+    * _Standard storage_ is designed for storing frequently used objects.
+    * _Cold storage_ is designed for long-term storage of objects that are rarely read.
+    * _Ice storage_ is designed for objects you need to store for at least one year and which rarely get read requests.
+1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
 
 ## Uploading files to a bucket {#upload-files}
 
@@ -53,7 +53,7 @@ To upload an object to a bucket:
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
-1. To upload files to the bucket, drag them to the bucket screen or click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+1. To upload files to the bucket, drag them to the bucket screen or click ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and confirm the upload of the files.
 
 ## Getting a file download link {#get-link}
 

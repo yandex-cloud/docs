@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ speechsense-full-name }}"
-description: "Access management in the {{ speechsense-full-name }} speech analytics service. To grant access to {{ speechsense-name }} resources, assign relevant roles from the list to the user."
+title: Access management in {{ speechsense-full-name }}
+description: Access management in the {{ speechsense-full-name }} speech analytics service. To grant access to {{ speechsense-name }} resources, assign relevant roles from the list to the user.
 ---
 
 # Access management in {{ speechsense-name }}

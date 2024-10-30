@@ -1,6 +1,6 @@
 ---
-title: "How to create, update, and destroy digital signature key pairs"
-description: "This guide describes how you can create, update, and destroy digital signature key pairs."
+title: How to create, update, and destroy digital signature key pairs
+description: This guide describes how you can create, update, and destroy digital signature key pairs.
 ---
 
 # Managing digital signature key pairs
@@ -31,7 +31,7 @@ To create a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create a digital signature key pair:
+  1. See the description of the CLI command to create a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key create --help
@@ -69,7 +69,7 @@ To create a digital signature key pair:
 
       Result:
 
-      ```bash
+      ```text
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T09:06:57Z"
@@ -94,7 +94,7 @@ To update a digital signature key pair:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       1. Change the required key pair attributes.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -104,7 +104,7 @@ To update a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a digital signature key pair:
+  1. See the description of the CLI command to update a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key update --help
@@ -119,18 +119,18 @@ To update a digital signature key pair:
       ```bash
       yc kms asymmetric-signature-key update \
         --id <key_pair_ID> \
-        --new-name <key_pair_new_name> \
+        --new-name <new_key_pair_name> \
         --deletion-protection
       ```
 
       Where:
       * `--id`: ID of the digital signature key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair's deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
-      ```bash
+      ```text
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T09:06:57Z"
@@ -156,7 +156,7 @@ To delete a digital signature key pair:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -165,7 +165,7 @@ To delete a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to delete a signature key pair:
+  1. See the description of the CLI command to delete a signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key delete --help
@@ -184,7 +184,7 @@ To delete a digital signature key pair:
 
       Result:
 
-      ```bash
+      ```text
       done (1s)
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********

@@ -1,3 +1,8 @@
+---
+title: Management event reference {{ at-full-name }}
+description: This section provides descriptions of management events collected in {{ yandex-cloud }} services.
+---
+
 # Management event reference
 
 The value of the `event_type` field in a management event audit log is determined by the event source service.
@@ -22,6 +27,7 @@ On this page, you will find events for the following services:
 * [{{ cloud-logging-full-name }}](#cloud-logging)
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -32,6 +38,7 @@ On this page, you will find events for the following services:
 * [{{ kms-full-name }}](#kms)
 * [{{ load-testing-full-name }}](#loadtesting)
 * [{{ lockbox-full-name }}](#lockbox)
+* [{{ maf-full-name }}](#managed-service-for-airflow)
 * [{{ mkf-full-name }}](#managed-service-for-kafka)
 * [{{ mch-full-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
@@ -71,13 +78,13 @@ Service name: `apploadbalancer`.
 
 Service name: `audittrails`.
 
-| Event name | Description |
+Event name | Description
 --- | ---
-| `CreateTrail` | Creating a trail |
-| `DeleteTrail` | Deleting a trail |
-| `SetTrailAccessBindings` | Setting access bindings for a trail |
-| `UpdateTrail` | Editing a trail |
-| `UpdateTrailAccessBindings` | Updating access bindings for a trail |
+`CreateTrail` | Creating a trail
+`DeleteTrail` | Deleting a trail
+`SetTrailAccessBindings` | Assigning access permissions for a trail
+`UpdateTrail` | Editing a trail
+`UpdateTrailAccessBindings` | Updating access permissions for a trail
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -89,13 +96,13 @@ Service name: `certificatemanager`.
 
 Service name: `cloudapps`.
 
-| Event name | Description |
+Event name | Description
 --- | ---
-| `CreateCloudApplication` | Creating an application |
-| `DeleteCloudApplication` | Deleting an application |
-| `SetApplicationAccessBindings` | Setting application access bindings |
-| `UpdateApplicationAccessBindings` | Updating application access bindings |
-| `UpdateCloudApplication` | Updating an application |
+`CreateCloudApplication` | Creating an application
+`DeleteCloudApplication` | Deleting an application
+`SetApplicationAccessBindings` | Assigning access permissions for an application
+`UpdateApplicationAccessBindings` | Updating access permissions for an application
+`UpdateCloudApplication` | Updating an application
 
 ## {{ backup-full-name }} {#backup}
 
@@ -135,9 +142,15 @@ Service name: `marketplace.licensemanager`.
 
 ## {{ org-full-name }} {#organization}
 
-The name of the service is `organizationmanager`.
+Service name: `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+Service name: `postbox`.
+
+{% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 
@@ -198,6 +211,12 @@ Service name: `loadtesting`.
 Service name: `lockbox`.
 
 {% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
+
+## {{ maf-full-name }} {#managed-service-for-airflow}
+
+Service name: `airflow`.
+
+{% include [airflow-events](../../_includes/audit-trails/events/managed-airflow-events.md) %}
 
 ## {{ mkf-full-name }} {#managed-service-for-kafka}
 

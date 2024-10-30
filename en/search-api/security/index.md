@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ search-api-full-name }}"
-description: "Access management in the {{ search-api-full-name }} search service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ search-api-full-name }}
+description: Access management in the {{ search-api-full-name }} search service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ search-api-name }}
@@ -22,6 +22,7 @@ In this section, you will learn:
 #### search-api.executor {#search-api-executor}
 
 {% include [searchapi-executor](../../_roles/search-api/executor.md) %}
+
 
 ### Primitive roles {#primitive-roles}
 

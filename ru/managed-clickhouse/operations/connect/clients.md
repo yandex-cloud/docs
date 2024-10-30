@@ -1,6 +1,6 @@
 ---
-title: "Подключение к кластеру {{ CH }} в {{ mch-full-name }}"
-description: "Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ CH }} с помощью инструментов командной строки, из браузера, графических IDE и Docker-контейнера."
+title: Подключение к кластеру {{ CH }} в {{ mch-full-name }}
+description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ CH }} с помощью инструментов командной строки, из браузера, графических IDE и Docker-контейнера.
 ---
 
 # Подключение к кластеру {{ CH }} из приложений
@@ -117,8 +117,8 @@ description: "Следуя этой инструкции, вы сможете п
 
     ```powershell
     curl.exe `
-        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
-        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
+        --header "X-ClickHouse-User: <имя_пользователя_БД>" `
+        --header "X-ClickHouse-Key: <пароль_пользователя_БД>" `
         'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT+version()'
     ```
 
@@ -127,8 +127,8 @@ description: "Следуя этой инструкции, вы сможете п
 
     ```powershell
     curl.exe `
-        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
-        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
+        --header "X-ClickHouse-User: <имя_пользователя_БД>" `
+        --header "X-ClickHouse-Key: <пароль_пользователя_БД>" `
         'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT+version()'
     ```
 
@@ -186,7 +186,6 @@ description: "Следуя этой инструкции, вы сможете п
 
 Для выполнения SQL-запросов из браузера используйте:
 
-* [Консоль управления {{ yandex-cloud }}](#console).
 
 * [Встроенный SQL-редактор {{ CH }}](#inline-editor).
 
@@ -194,17 +193,7 @@ description: "Следуя этой инструкции, вы сможете п
 * [Сервис {{ websql-full-name }}](#websql).
 
 
-При подключении из браузера SQL-запросы выполняются отдельно, без создания единой сессии с сервером {{ CH }}. Поэтому запросы, которые действуют в пределах сессии (например, `USE` или `SET`), не имеют эффекта.
 
-### Консоль управления {{ yandex-cloud }} {#console}
-
-{% include [web-sql-warning](../../../_includes/mdb/mch/note-web-sql-console.md) %}
-
-Чтобы подключиться к кластеру {{ mch-name }}, войдите в [консоль управления]({{ link-console-main }}), откройте страницу нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}**.
-
-Для разрешения подключения включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** при [создании кластера](../cluster-create.md) или [изменении его настроек](../update.md#change-additional-settings).
-
-Подробнее см. в разделе [SQL-запросы](../web-sql-query.md).
 
 ### Встроенный SQL-редактор {{ CH }} {#inline-editor}
 
@@ -224,11 +213,15 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 Для выполнения запросов к базе данных укажите имя пользователя и пароль в правом верхнем углу страницы.
 
 
+При подключении из встроенного редактора SQL-запросы выполняются отдельно, без создания единой сессии с сервером {{ CH }}. Поэтому запросы, которые действуют в пределах сессии (например, `USE` или `SET`), не имеют эффекта.
+
+
+
 ### Сервис {{ websql-full-name }} {#websql}
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}
 
-Используйте сервис [{{ websql-full-name }}](../../websql) для подключения к кластеру {{ CH }} в {{ yandex-cloud }}.
+Используйте сервис [{{ websql-full-name }}](../../../websql) для подключения к кластеру {{ CH }} в {{ yandex-cloud }}.
 
 {% include notitle [connect-to-cluster](../../../_includes/websql/connect-to-cluster.md) %}
 
@@ -263,7 +256,7 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 
 - Подключение с SSL {#with-ssl}
 
-  
+
    ```bash
    # Подключить DEB-репозиторий.
    RUN apt-get update && \

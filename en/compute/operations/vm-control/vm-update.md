@@ -42,7 +42,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
 - API {#api}
 
-   To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -95,7 +95,7 @@ To change the name and description of a VM, follow these steps:
 
 - API {#api}
 
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -152,7 +152,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [OS Lo
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM you need.
    1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable the **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
@@ -182,7 +182,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [OS Lo
 
 - API {#api}
 
-   In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

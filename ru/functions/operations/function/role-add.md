@@ -1,6 +1,6 @@
 ---
-title: "Назначить роли на функцию"
-description: "Следуя данной инструкции, вы сможете назначить роли на функцию."
+title: Назначить роли на функцию
+description: Следуя данной инструкции, вы сможете назначить роли на функцию.
 ---
 
 # Назначить роли на функцию
@@ -51,6 +51,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Чтобы назначить роли на функцию, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings).
+  Чтобы назначить роли на функцию, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/Function/setAccessBindings.md).
 
 {% endlist %}

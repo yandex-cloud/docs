@@ -10,7 +10,7 @@ To create an issue:
 
 1. Select the queue to create your issue in.
 
-   
+
    {% note info %}
 
    The default queue selected for new issues is the one that is created automatically when you register your company in {{ tracker-name }}. To see a list of all available queues, delete the queue name in the issue creation window.
@@ -24,11 +24,11 @@ To create an issue:
 
 1. [Edit](edit-ticket.md) the issue details:
 
-   * Go to the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [YFM markup](../user/markup.md) to format text.
+   * Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [YFM markup](../user/markup.md) to format text.
 
-   * In the **{{ ui-key.startrek.ui_components_IssueTabs.fields-tab }}** tab, specify [additional parameters](../user/create-param.md#default-fields) for the issue.
+   * In the **Parameters** tab, specify [additional parameters](../user/create-param.md#default-fields) for the issue.
 
-   * If your issue is related to other issues, go to the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab and [create sub-issues](#subtask). To change the issue [link type](../user/links.md), tap ![](../../_assets/tracker/dots.png) next to the sub-issue name and choose a new type.
+   * If your issue is related to other issues, go to the **Links** tab and [create sub-issues](#subtask). To change the issue [link type](../user/links.md), tap ![](../../_assets/tracker/dots.png) next to the sub-issue name and choose a new type.
 
 1. To [attach files or images to the issue](attach-file.md), open the screen for editing the issue description ![](../../_assets/tracker/icon-edit.png
    ). Then click ![](../../_assets/tracker/pin.png) and select the apps.
@@ -51,11 +51,11 @@ To create a sub-issue:
 
 1. Open the issue to create a sub-issue for.
 
-1. In the top-right corner, click ![](../../_assets/tracker/dots.png) and select **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/dots.png) and select **Create sub-issue**.
 
 1. Fill in the fields the same way as when [creating a new issue](#create-task).
 
-1. Click **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
+1. Click **Create sub-issue**.
 
 
 

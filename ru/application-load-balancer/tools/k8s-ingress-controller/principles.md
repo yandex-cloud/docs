@@ -1,6 +1,6 @@
 ---
-title: "Принципы работы Ingress-контроллера {{ alb-full-name }}"
-description: "Узнайте, как работает Ingress-контроллер {{ alb-name }}, а также связь ресурсов {{ alb-name }} и {{ k8s }}." 
+title: Принципы работы Ingress-контроллера {{ alb-full-name }}
+description: Узнайте, как работает Ingress-контроллер {{ alb-name }}, а также связь ресурсов {{ alb-name }} и {{ k8s }}.
 ---
 
 # Принципы работы Ingress-контроллера {{ alb-name }}
@@ -21,10 +21,10 @@ description: "Узнайте, как работает Ingress-контролле
 
 * Балансировщики и HTTP-роутеры для приема трафика и его распределения между группами бэкендов создаются по ресурсам [Ingress](../../k8s-ref/ingress.md). 
   
-  Если у нескольких `Ingress` одинаковые значения аннотации `ingress.alb.yc.io/group-name`, они объединяются в один балансировщик.  
+  Если у нескольких `Ingress` одинаковые значения аннотации `ingress.alb.yc.io/group-name`, они объединяются в один балансировщик.
 
   * Чтобы балансировщик принимал HTTPS-трафик, в поле `spec.tls` описания `Ingress` должны быть указаны доменные имена и идентификаторы сертификатов из {{ certificate-manager-name }}:
-  
+
     ```yaml
     spec:
       tls:
@@ -36,11 +36,11 @@ description: "Узнайте, как работает Ingress-контролле
     Где `secretName` — указание на сертификат из {{ certificate-manager-full-name }}.
 
     В этом случае для балансировщика будут созданы обработчики двух видов: одни будут принимать HTTPS-трафик на порте `443`, а другие — перенаправлять запросы с HTTP (порт `80`) на HTTPS с кодом состояния `301 Moved Permanently`. При этом правила распределения трафика для тех же доменных имен, явно указанные в других `Ingress`, без поля `spec.tls`, будут иметь приоритет над перенаправлением с HTTP на HTTPS.
-  
+
     {% include [k8s-ingress-controller-secret-name](../../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}
     
   * Если в описании `Ingress` нет поля `spec.tls`, для балансировщика будут созданы только обработчики для приема HTTP-трафика на порте `80`.
-  
+
 * Группы бэкендов, обрабатывающие полученный трафик, могут создаваться:
 
   * По сервисам {{ k8s }}, указанным в [правилах](../../../application-load-balancer/k8s-ref/ingress.md#rule) `Ingress` напрямую. Этот способ полезен, если к маршруту нужно привязать простую группу бэкендов, состоящую из одного сервиса.
@@ -48,13 +48,13 @@ description: "Узнайте, как работает Ingress-контролле
     В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType` в правилах `Ingress`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service`. Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
 
   * По ресурсам [HttpBackendGroup](../../k8s-ref/http-backend-group.md), позволяющим явно описывать группы бэкендов. Это [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `alb.yc.io`, предоставляемой Ingress-контроллером.
-    
+
     Указывать на `HttpBackendGroup`, как и на сервисы, нужно в правилах `Ingress` (`spec.rules[*].http.paths[*].backend.resource`). 
-  
+
     {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
-    
+
 * На бэкендах развертываются сервисы, указанные в `Ingress` или `HttpBackendGroup`. Они настраиваются с помощью ресурсов [Service](../../k8s-ref/service-for-ingress.md).
-  
+
   {% include [k8s-ingress-controller-nodeport-note](../../../_includes/application-load-balancer/k8s-ingress-controller-nodeport-note.md) %}
 
 ## Соответствие ресурсов {{ alb-name }} и {{ k8s }} {#mapping}

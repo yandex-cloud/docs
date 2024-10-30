@@ -1,6 +1,6 @@
 ---
-title: "System requirements"
-description: "This article describes system and software requirements for servers."
+title: System requirements
+description: This article describes system and software requirements for servers.
 ---
 
 # System requirements

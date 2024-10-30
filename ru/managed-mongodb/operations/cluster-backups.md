@@ -1,6 +1,6 @@
 ---
-title: "Управление резервными копиями MongoDB"
-description: "Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий MongoDB. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии."
+title: Управление резервными копиями MongoDB
+description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий MongoDB. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
 ---
 
 # Управление резервными копиями в {{ mmg-name }}
@@ -11,7 +11,7 @@ description: "Вы можете создавать резервные копии
 
 ## Восстановить кластер из резервной копии {#restore}
 
-Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени в интервале от создания самой старой резервной копии до архивации самой свежей коллекции oplog. Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени в интервале от создания самой старой резервной копии до архивации самой свежей коллекции [oplog](https://www.mongodb.com/docs/manual/core/replica-set-oplog/). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
 
 Например, если операция создания резервной копии завершилась 10.08.2020 в 12:00:00 UTC, текущая дата — 15.08.2020 19:00:00 UTC, а последняя коллекция oplog была сохранена 15.08.2020 в 18:50:00 UTC, кластер может быть восстановлен в любое свое состояние в промежутке времени с 10.08.2020 12:00:01 UTC до 15.08.2020 18:50:00 UTC включительно.
 
@@ -104,8 +104,8 @@ PITR не поддерживается для кластеров с включе
      Время завершения создания резервной копии указано в столбце `CREATED AT` списка доступных резервных копий в формате `yyyy-mm-dd hh:mm:ss` (`2020-08-10 12:00:00` в примере выше). Вы можете восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
 
   1. Выполните команду создания нового кластера из резервной копии (в примере приведены только некоторые параметры):
-     
-     
+
+
      ```bash
       {{ yc-mdb-mg }} cluster restore \
          --backup-id <идентификатор_резервной_копии> \
@@ -128,15 +128,15 @@ PITR не поддерживается для кластеров с включе
       * `--recovery-target-timestamp` — момент времени, на который нужно восстановить состояние кластера {{ MG }}, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если параметр не задан, восстановится состояние кластера на момент завершения создания резервной копии.
       * `--environment` — окружение: `PRESTABLE` или `PRODUCTION`.
 
-      
+
       * `--mongod-disk-type` — тип диска: `network-hdd` или `network-ssd`.
-      
+
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
 
 - API {#api}
 
-    Чтобы восстановить из резервной копии существующий кластер, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
+    Чтобы восстановить из резервной копии существующий кластер, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
 
     * Идентификатор требуемой резервной копии в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
     * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
@@ -181,7 +181,7 @@ PITR не поддерживается для кластеров с включе
 
 - API {#api}
 
-    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -210,7 +210,7 @@ PITR не поддерживается для кластеров с включе
   * Имя резервной копии.
   * Шард-источник.
   * Размер резервной копии.
-  * Тип резервной копии: автоматическая (`Automated`) или ручная (`Manual`).  
+  * Тип резервной копии: автоматическая (`Automated`) или ручная (`Manual`).
   * Время начала создания резервной копии по UTC (Coordinated Universal Time).
   * Время окончания создания резервной копии по UTC.
 
@@ -247,11 +247,11 @@ PITR не поддерживается для кластеров с включе
 
 - API {#api}
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
-    
+    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
+
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Чтобы получить список резервных копий всех кластеров {{ mmg-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/backup_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    Чтобы получить список резервных копий всех кластеров {{ mmg-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -285,11 +285,160 @@ PITR не поддерживается для кластеров с включе
 
 - API {#api}
 
-    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
     Чтобы узнать идентификатор, [получите список резервных копий](#list-backups).
 
 {% endlist %}
+
+## Задать срок хранения автоматических резервных копий {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в аргументе `--backup-retain-period-days` команды изменения кластера:
+
+    ```bash
+    {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+       --backup-retain-period-days=<срок_хранения_в_днях>
+    ```
+
+  Допустимые значения: от `7` до `35`. Значение по умолчанию — `7`.
+
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ MG }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+
+    1. Добавьте к описанию кластера {{ MG }} блок `backup_retain_period_days` в секции `cluster_config`:
+
+        ```hcl
+          resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+            ...
+            cluster_config {
+              ...
+              backup_retain_period_days = <срок_хранения_в_днях>
+              }
+              ...
+            }
+            ...
+        ```
+
+       Где `backup_retain_period_days` — срок хранения автоматических резервных копий. 
+       
+       Допустимые значения: от `7` до `35`. Значение по умолчанию — `7`.
+
+  1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --data '{
+                    "updateMask": "configSpec.backupRetainPeriodDays",
+                    "configSpec": {
+                      "backupRetainPeriodDays": <срок_хранения_в_днях>
+                    }
+                  }'
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+          В данном случае передается только один параметр.
+
+      * `configSpec.backupRetainPeriodDays` — срок хранения автоматических резервных копий.
+
+          Допустимые значения — от `7` до `35`. Значение по умолчанию — `7`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.backup_retain_period_days"
+                  ]
+                },
+                "config_spec": {
+                  "backup_retain_period_days": <срок_хранения_в_днях>
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+          В данном случае передается только один параметр.
+
+      * `config_spec.backup_retain_period_days` — срок хранения автоматических резервных копий.
+
+          Допустимые значения — от `7` до `35`. Значение по умолчанию — `7`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mongodb.v1.Cluster).
+
+{% endlist %}         
 
 ## Примеры {#examples}
 
@@ -297,7 +446,7 @@ PITR не поддерживается для кластеров с включе
 
 
 * Резервная копия для восстановления: `c9qlk4v13uq7********:...`.
-* Момент времени, на который нужно восстановить: `1597060810` (`2020-08-10 12:00:10`).     
+* Момент времени, на который нужно восстановить: `1597060810` (`2020-08-10 12:00:10`).
 * Версия: `5.0`.
 * Имя нового кластера: `mynewmg`.
 * Окружение: `PRODUCTION`.
@@ -305,7 +454,7 @@ PITR не поддерживается для кластеров с включе
 * Один хост класса `{{ host-class }}` в зоне доступности `{{ region-id }}-a` и в подсети `b0rcctk2rvtr********`.
 * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.     
 * С базами данных и пользователями, которые существовали в кластере на момент восстановления.
-     
+
 
 {% list tabs group=instructions %}
 
@@ -313,7 +462,7 @@ PITR не поддерживается для кластеров с включе
 
   Выполните следующую команду:
 
-  
+
   ```bash
   {{ yc-mdb-mg }} cluster restore \
      --backup-id c9qlk4v13uq7********:... \

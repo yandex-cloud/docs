@@ -6,8 +6,11 @@ To work with data stored in external databases, you simply need to create a [con
 
 Read more about working with different data sources in these sections:
 * [{{ CH }}](../sources-and-sinks/clickhouse.md).
+* [{{ GP }}](../sources-and-sinks/greenplum.md).
+* [{{ MY }}](../sources-and-sinks/mysql.md).
 * [{{ PG }}](../sources-and-sinks/postgresql.md).
 * [S3](../sources-and-sinks/object-storage-binding.md).
+* [{{ ydb-short-name }}](../sources-and-sinks/ydb.md).
 
 Example of how to use federated queries in {{ yq-full-name }}:
 

@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ container-registry-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ container-registry-name }}."
+title: Справочник {{ TF }} для {{ container-registry-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ container-registry-name }}.
 ---
 
 # Справочник {{ TF }} для {{ container-registry-full-name }}
@@ -26,5 +26,5 @@ description: "На этой странице приведен справочни
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_container_registry]({{ tf-provider-datasources-link }}/datasource_container_registry) | Информация о [реестре](./concepts/registry.md) |
-| [yandex_container_registry_ip_permission]({{ tf-provider-datasources-link }}/datasource_container_registry_ip_permission) | Информация о [доступе к реестру](./operations/registry/registry-access.md) |
+| [yandex_container_registry]({{ tf-provider-datasources-link }}/container_registry) | Информация о [реестре](./concepts/registry.md) |
+| [yandex_container_registry_ip_permission]({{ tf-provider-datasources-link }}/container_registry_ip_permission) | Информация о [доступе к реестру](./operations/registry/registry-access.md) |

@@ -1,6 +1,6 @@
 ---
-title: "How to edit an issue field name in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to edit an issue field name in {{ tracker-name }}."
+title: How to edit an issue field name in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to edit an issue field name in {{ tracker-name }}.
 sourcePath: en/tracker/api-ref/concepts/issues/patch-issue-field-name.md
 ---
 

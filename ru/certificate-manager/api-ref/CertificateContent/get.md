@@ -3,33 +3,46 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/CertificateContent/get.md
 ---
 
-# Certificate Manager API, REST: CertificateContent.get
-Returns chain and private key of the specified certificate.
- 
+# Certificate Manager API, REST: CertificateContent.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns chain and private key of the specified certificate.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-certificateId | <p>ID of the certificate to download content.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-versionId | <p>Optional ID of the version.</p> 
-privateKeyFormat | <p>Desired format of private key</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| certificateId | **string**
+
+Required field. ID of the certificate to download content. ||
+|#
+
+## Query parameters {#yandex.cloud.certificatemanager.v1.GetCertificateContentRequest}
+
+#|
+||Field | Description ||
+|| versionId | **string**
+
+Optional ID of the version. ||
+|| privateKeyFormat | **enum** (PrivateKeyFormat)
+
+Desired format of private key
+
+- `PRIVATE_KEY_FORMAT_UNSPECIFIED`
+- `PKCS1`
+- `PKCS8` ||
+|#
+
+## Response {#yandex.cloud.certificatemanager.v1.GetCertificateContentResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "certificateId": "string",
   "certificateChain": [
@@ -39,9 +52,15 @@ privateKeyFormat | <p>Desired format of private key</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-certificateId | **string**<br><p>ID of the certificate.</p> 
-certificateChain[] | **string**<br><p>PEM-encoded certificate chain content of the certificate.</p> 
-privateKey | **string**<br><p>PEM-encoded private key content of the certificate.</p> 
+#|
+||Field | Description ||
+|| certificateId | **string**
+
+ID of the certificate. ||
+|| certificateChain[] | **string**
+
+PEM-encoded certificate chain content of the certificate. ||
+|| privateKey | **string**
+
+PEM-encoded private key content of the certificate. ||
+|#

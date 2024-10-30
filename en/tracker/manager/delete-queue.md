@@ -1,6 +1,6 @@
 ---
-title: "How to delete a queue in {{ tracker-name }}"
-description: "Follow this guide to delete a queue in {{ tracker-name }}."
+title: How to delete a queue in {{ tracker-name }}
+description: Follow this guide to delete a queue in {{ tracker-name }}.
 ---
 
 # Deleting a queue in {{ tracker-name }}
@@ -23,9 +23,9 @@ To delete a queue and all the issues in it:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 
-1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
+1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
 1. Confirm the deletion.
 

@@ -1,6 +1,6 @@
 ---
-title: "How to send notifications to mailboxes in your domain"
-description: "Use this guide to send notifications to mailboxes in your domain"
+title: How to send notifications to mailboxes in your domain
+description: Use this guide to send notifications to mailboxes in your domain
 ---
 
 # Sending notifications to mailboxes in your domain

@@ -1,6 +1,6 @@
 ---
-title: "Как подключиться к узлу кластера {{ k8s }} через {{ oslogin }} в {{ managed-k8s-full-name }}"
-description: "Следуя данной инструкции, вы сможете подключиться к узлу через {{ oslogin }}."
+title: Как подключиться к узлу кластера {{ k8s }} через {{ oslogin }} в {{ managed-k8s-full-name }}
+description: Следуя данной инструкции, вы сможете подключиться к узлу через {{ oslogin }}.
 ---
 
 # Подключение к узлу через {{ oslogin }}
@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
         1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
         1. Выберите нужную группу узлов.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-        1. Выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+        1. Выберите опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
             {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
@@ -123,7 +123,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Воспользуйтесь методом API [update](../api-ref/NodeGroup/update.md) и передайте в запросе:
+      1. Воспользуйтесь методом API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
 
           * Идентификатор группы узлов в параметре `nodeGroupId`.
 

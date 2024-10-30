@@ -4,8 +4,8 @@
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/en) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
-* [{{ ydb-short-name }} SDK](https://ydb.tech/en/docs/reference/ydb-sdk/).
-* [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/).
+* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
+* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
@@ -124,11 +124,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
         1. Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-        1. In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
-        1. (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
-        1. Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
-        1. Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-        1. Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+        1. In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
+        1. (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
+        1. Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+        1. Specify the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+        1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
      You cannot change the settings of the **{{ ui-key.yacloud.ydb.forms.label_section-network }}** section after the database is created.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -257,7 +257,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. To manage your DBs from the command line, [install](https://ydb.tech/en/docs/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
+  1. To manage your DBs from the command line, [install]({{ ydb.docs }}/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
   1. To authenticate the {{ ydb-short-name }} CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
      ```bash
@@ -305,4 +305,4 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 * Learn more about [working with DBs](operations/index.md).
 * Read about [service concepts](concepts/index.md).
-* Read about the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
+* Read about the [YQL]({{ ydb.docs }}/yql/reference/) query language.

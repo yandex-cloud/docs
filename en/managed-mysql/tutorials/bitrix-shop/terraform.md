@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/bitrix-shop/terraform"
+canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/terraform'
 ---
 
 # Creating an online store with 1C-Bitrix: Site Management using {{ TF }}

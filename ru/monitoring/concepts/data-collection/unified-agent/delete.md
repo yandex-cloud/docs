@@ -1,6 +1,6 @@
 ---
-title: "Как удалить {{ unified-agent-full-name }}"
-description: "Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}."
+title: Как удалить {{ unified-agent-full-name }}
+description: Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}.
 ---
 
 # Удаление {{ unified-agent-full-name }}
@@ -104,7 +104,11 @@ description: "Из статьи вы узнаете, как удалить {{ un
   1. Отправьте запрос через API для обновления метаданных:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" https://compute.api.cloud.yandex.net/compute/v1/instances/<идентификатор_ВМ> -X PATCH -d '{"updateMask": "metadata", "metadata": {"install-unified-agent": "0" },}'
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{"updateMask": "metadata", "metadata": {"install-unified-agent": "0" },}' \
+        https://compute.api.cloud.yandex.net/compute/v1/instances/<идентификатор_ВМ>
       ```
 
   1. Посмотрите метаданные:

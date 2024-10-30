@@ -1,1 +1,1 @@
-Working with {{ speechkit-name }} is performed via APIs. For more information about working with the {{ yandex-cloud }} API, see [API concepts](../../api-design-guide/).
+To work with {{ speechkit-name }}, you can access it via the API or [Playground](../../speechkit/quickstart/index.md#tts-playground). For more information about working with the {{ yandex-cloud }} API, see [API concepts](../../api-design-guide/).

@@ -34,7 +34,7 @@ To create a budget:
       1. Enter the budget name.
       1. Select **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
       1. Set the **Budget amount**: 
-         
+
          * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
          * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** type, specify the account balance.
 
@@ -59,7 +59,7 @@ To create a budget:
 
 - API {#api}
 
-   To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/budget_service.md#Create) gRPC API call.
+   To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/Budget/create.md) gRPC API call.
 
 {% endlist %}
 

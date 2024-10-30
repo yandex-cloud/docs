@@ -1,7 +1,6 @@
 # How to recover deleted objects
 
 
-
 ## Scenario description {#case-description}
 
 You need to recover deleted objects: charts, selectors, data sets, or custom fields.

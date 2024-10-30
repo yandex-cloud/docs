@@ -37,8 +37,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `vm-scale-scheduled-sa`.
   1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md):
      * `compute.admin` — для управления группой ВМ.
@@ -101,13 +101,13 @@
 
 - API {#api}
 
-  1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
   1. Назначьте сервисному аккаунту в текущем каталоге [роли](../../iam/concepts/access-control/roles.md):
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
      * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
 
-     Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
+     Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
 - {{ TF }} {#tf}
 
@@ -200,8 +200,8 @@
 
 - API {#api}
 
-  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
-  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне доступности `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
+  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
+  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне доступности `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
 {% endlist %}
 
@@ -222,7 +222,7 @@
      * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `vm-scale-scheduled-sa`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-a` и `{{ region-id }}-b`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** выберите [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите следующие настройки:
        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
@@ -348,15 +348,15 @@
 - API {#api}
 
   1. Получите идентификаторы ресурсов, созданных ранее:
-     * Идентификатор сервисного аккаунта `vm-scale-scheduled-sa` — с помощью метода REST API [get](../../iam/api-ref/ServiceAccount/get.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызова gRPC API [ServiceAccountService/Get](../../iam/api-ref/grpc/service_account_service.md#Get).
-     * Идентификатор сети `vm-scale-scheduled-network` — с помощью метода REST API [get](../../vpc/api-ref/Network/get.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Get](../../vpc/api-ref/grpc/network_service.md#Get).
-     * Идентификаторы подсетей `vm-scale-scheduled-subnet-a` и `vm-scale-scheduled-subnet-b` — с помощью метода REST API [get](../../vpc/api-ref/Subnet/get.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Get](../../vpc/api-ref/grpc/subnet_service.md#Get).
-  1. Получите идентификатор последней версии публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) в семействе `standard-images` с помощью метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
+     * Идентификатор сервисного аккаунта `vm-scale-scheduled-sa` — с помощью метода REST API [get](../../iam/api-ref/ServiceAccount/get.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызова gRPC API [ServiceAccountService/Get](../../iam/api-ref/grpc/ServiceAccount/get.md).
+     * Идентификатор сети `vm-scale-scheduled-network` — с помощью метода REST API [get](../../vpc/api-ref/Network/get.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Get](../../vpc/api-ref/grpc/Network/get.md).
+     * Идентификаторы подсетей `vm-scale-scheduled-subnet-a` и `vm-scale-scheduled-subnet-b` — с помощью метода REST API [get](../../vpc/api-ref/Subnet/get.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Get](../../vpc/api-ref/grpc/Subnet/get.md).
+  1. Получите идентификатор последней версии публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) в семействе `standard-images` с помощью метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md).
   1. Вставьте полученные идентификаторы в файл `specification.yaml` со спецификацией группы ВМ:
 
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
 
-  1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
+  1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md).
 
 - {{ TF }} {#tf}
 
@@ -455,8 +455,8 @@
 
 - API {#api}
 
-  1. Создайте функцию `vm-scale-scheduled-function` с помощью метода REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create). Из ответных данных получите идентификатор созданной функции.
-  1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion). Версия функции должна иметь следующий код:
+  1. Создайте функцию `vm-scale-scheduled-function` с помощью метода REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md). Из ответных данных получите идентификатор созданной функции.
+  1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md). Версия функции должна иметь следующий код:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
@@ -521,7 +521,7 @@
 
 - API {#api}
 
-  Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
+  Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
 {% endlist %}
 
@@ -563,7 +563,7 @@
 
 - API {#api}
 
-  Несколько раз получите информацию о группе ВМ `vm-scale-scheduled-ig` с помощью метода REST API [get](../../compute/api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get). Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
+  Несколько раз получите информацию о группе ВМ `vm-scale-scheduled-ig` с помощью метода REST API [get](../../compute/instancegroup/api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Get](../../compute/instancegroup/api-ref/grpc/InstanceGroup/get.md). Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
 
 {% endlist %}
 

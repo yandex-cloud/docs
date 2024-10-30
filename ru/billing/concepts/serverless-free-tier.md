@@ -1,7 +1,7 @@
 #  Уровень нетарифицируемого использования (free tier)
 
 
-На некоторые сервисы {{ yandex-cloud }} действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение.
+На некоторые сервисы {{ yandex-cloud }} действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение, или попробовать возможности сервиса.
 
 {% note info %}
 
@@ -19,13 +19,14 @@ Free tier распространяется на сервисы:
 * [{{ dns-full-name }}](#dns)
 * [{{ sf-full-name }}](#sf)
 * [{{ cloud-logging-full-name }}](#logging)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#cr)
 * [{{ dataproc-full-name }}](#dataproc)
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ ml-platform-full-name }}](#datasphere)
+* [{{ foundation-models-full-name }}](#foundation-models)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -80,6 +81,16 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+## {{ postbox-full-name }} {#postbox}
+
+[{{ postbox-full-name }}](../../postbox/quickstart.md) — сервис отправки транзакционных почтовых сообщений.
+
+{% include [not-charged-postbox.md](../../_includes/pricing/price-formula/not-charged-postbox.md) %}
+
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../postbox/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Сервис [{{ compute-full-name }}](../../compute/quickstart/) предоставляет масштабируемые вычислительные мощности для создания виртуальных машин и управления ими. Сервис поддерживает [прерываемые](../../compute/concepts/preemptible-vm.md) виртуальные машины, а также отказоустойчивые [группы виртуальных машин](../../compute/concepts/instance-groups/index.md).
@@ -128,15 +139,11 @@ Free tier распространяется на сервисы:
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
 
-## {{ ml-platform-full-name }} {#datasphere}
+## {{ foundation-models-full-name }} {#foundation-models}
 
-[{{ ml-platform-full-name }}](../../datasphere/quickstart.md) — это сервис для ML-разработки полного цикла, который позволяет использовать все преимущества облачных технологий, сочетая в себе простой и понятный веб-интерфейс, привычные IDE и возможность бесшовного использования разных конфигураций вычислительных ресурсов {{ yandex-cloud }}.
+[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) — это сервис больших генеративных моделей для бизнеса. {{ yandex-cloud }} предоставляет доступ к нейросетям {{ yagpt-name }} и {{ yandexart-name }} и позволяет применять их в ваших бизнес-приложениях и веб-сервисах.
 
-{% include [not-charged-datasphere.md](../../_includes/pricing/price-formula/not-charged-datasphere.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../datasphere/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+{% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
@@ -240,7 +247,7 @@ Free tier распространяется на сервисы:
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart/index.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
@@ -285,3 +292,4 @@ Free tier распространяется на сервисы:
 ### Расчет стоимости использования {{ iot-full-name }} {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
+

@@ -115,7 +115,7 @@
                 - name: my-user
                   sudo: ALL=(ALL) NOPASSWD:ALL
                   shell: /bin/bash
-                  ssh-authorized-keys:
+                  ssh_authorized_keys:
                   - <публичный_SSH-ключ>
                 runcmd:
                 - apt-get install fuse
@@ -224,7 +224,7 @@
               }
 
               metadata = {
-                user-data = "#cloud-config\n      datasource:\n       Ec2:\n        strict_id: false\n      ssh_pwauth: no\n      users:\n      - name: <имя_пользователя_ВМ>\n        sudo: ALL=(ALL) NOPASSWD:ALL\n        shell: /bin/bash\n        ssh-authorized-keys:\n        - <публичный_SSH-ключ>\n      runcmd:\n      - apt-get install fuse\n      - wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64\n      - chmod a+x geesefs-linux-amd64\n      - cp geesefs-linux-amd64 /usr/bin/geesefs\n      - mkdir <точка_монтирования_на_ВМ>\n      - echo \"user_allow_other\" | tee -a /etc/fuse.conf\n      - echo \"<имя_бакета>    <точка_монтирования_на_ВМ>    fuse.geesefs    _netdev,allow_other,--iam    0   0\" | tee -a /etc/fstab\n      - mount -a"
+                user-data = "#cloud-config\n      datasource:\n       Ec2:\n        strict_id: false\n      ssh_pwauth: no\n      users:\n      - name: <имя_пользователя_ВМ>\n        sudo: ALL=(ALL) NOPASSWD:ALL\n        shell: /bin/bash\n        ssh_authorized_keys:\n        - <публичный_SSH-ключ>\n      runcmd:\n      - apt-get install fuse\n      - wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64\n      - chmod a+x geesefs-linux-amd64\n      - cp geesefs-linux-amd64 /usr/bin/geesefs\n      - mkdir <точка_монтирования_на_ВМ>\n      - echo \"user_allow_other\" | tee -a /etc/fuse.conf\n      - echo \"<имя_бакета>    <точка_монтирования_на_ВМ>    fuse.geesefs    _netdev,allow_other,--iam    0   0\" | tee -a /etc/fstab\n      - mount -a"
               }
             }
 
@@ -308,7 +308,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
+      Воспользуйтесь методом REST API [create](../../instancegroup/api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md).
 
     {% endlist %}
 

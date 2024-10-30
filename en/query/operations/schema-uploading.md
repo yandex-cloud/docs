@@ -1,6 +1,6 @@
 ---
-title: "How to upload a data schema to {{ yq-full-name }}"
-description: "Follow this guide to upload a data schema."
+title: How to upload a data schema to {{ yq-full-name }}
+description: Follow this guide to upload a data schema.
 ---
 
 # Uploading a data schema

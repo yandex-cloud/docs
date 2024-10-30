@@ -3,64 +3,28 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/index.md
 ---
 
-# IoT Core Service, REST: Registry methods
+# IoT Core Service, REST: Registry
+
 A set of methods for managing registry.
-## JSON Representation {#representation}
-```json 
-{
-  "id": "string",
-  "folderId": "string",
-  "createdAt": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "status": "string",
-  "logGroupId": "string",
-  "logOptions": {
-    "disabled": true,
-    "minLevel": "string",
 
-    // `logOptions` includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
-    // end of the list of possible fields`logOptions`
+## Methods
 
-  }
-}
-```
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the registry.</p> 
-folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
-description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
-status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> <li>DISABLED: Registry is disabled.</li> </ul> 
-logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 
-logOptions | **object**<br><p>Options for logging registry events</p> 
-logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from registry disabled.</p> 
-logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
-logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-
-## Methods {#methods}
-Method | Description
---- | ---
-[addCertificate](addCertificate.md) | Adds a certificate.
-[addPassword](addPassword.md) | Adds password for the specified registry.
-[create](create.md) | Creates a registry in the specified folder.
-[delete](delete.md) | Deletes the specified registry.
-[deleteCertificate](deleteCertificate.md) | Deletes the specified registry certificate.
-[deletePassword](deletePassword.md) | Deletes the specified password.
-[disable](disable.md) | Disables the specified registry.
-[enable](enable.md) | Enables the specified registry.
-[get](get.md) | Returns the specified registry.
-[getByName](getByName.md) | 
-[list](list.md) | Retrieves the list of registries in the specified folder.
-[listCertificates](listCertificates.md) | Retrieves the list of registry certificates for the specified registry.
-[listDeviceTopicAliases](listDeviceTopicAliases.md) | Retrieves the list of device topic aliases for the specified registry.
-[listOperations](listOperations.md) | Lists operations for the specified registry.
-[listPasswords](listPasswords.md) | Retrieves the list of passwords for the specified registry.
-[update](update.md) | Updates the specified registry.
+#|
+||Method | Description ||
+|| [Get](get.md) | Returns the specified registry. ||
+|| [GetByName](getByName.md) |  ||
+|| [List](list.md) | Retrieves the list of registries in the specified folder. ||
+|| [Create](create.md) | Creates a registry in the specified folder. ||
+|| [Update](update.md) | Updates the specified registry. ||
+|| [Delete](delete.md) | Deletes the specified registry. ||
+|| [ListCertificates](listCertificates.md) | Retrieves the list of registry certificates for the specified registry. ||
+|| [AddCertificate](addCertificate.md) | Adds a certificate. ||
+|| [DeleteCertificate](deleteCertificate.md) | Deletes the specified registry certificate. ||
+|| [ListPasswords](listPasswords.md) | Retrieves the list of passwords for the specified registry. ||
+|| [AddPassword](addPassword.md) | Adds password for the specified registry. ||
+|| [DeletePassword](deletePassword.md) | Deletes the specified password. ||
+|| [ListDeviceTopicAliases](listDeviceTopicAliases.md) | Retrieves the list of device topic aliases for the specified registry. ||
+|| [ListOperations](listOperations.md) | Lists operations for the specified registry. ||
+|| [Disable](disable.md) | Disables the specified registry. ||
+|| [Enable](enable.md) | Enables the specified registry. ||
+|#

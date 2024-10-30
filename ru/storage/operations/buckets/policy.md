@@ -1,8 +1,21 @@
+---
+title: Управление политикой доступа к бакету {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы научитесь управлять политикой доступа к бакету в {{ objstorage-name }}.
+---
+
 # Управление политикой доступа (bucket policy)
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
+
+
+{% note warning %}
+
+Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md), не назначайте на бакет политику доступа. Иначе кластер не сможет записывать данные в бакет.
+
+{% endnote %}
+
 
 ## Применить или изменить политику {#apply-policy}
 
@@ -20,11 +33,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет в списке.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** в меню слева.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в котором нужно настроить политику доступа.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Введите идентификатор политики доступа.
   1. Настройте правило:
@@ -35,19 +45,19 @@
         * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей. Чтобы задать набор конкретных пользователей или сервисных аккаунтов, выберите их имена в выпадающем списке.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
- 
-          {% note info %}
-         
-          {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
- 
-          {% endnote %}
+
+            {% note info %}
+
+            {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
+
+            {% endnote %}
 
      1. При необходимости добавьте [условие](../../s3/api-ref/policy/conditions.md) для правила:
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** из списка.
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
-
+        
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
@@ -65,8 +75,8 @@
 
      ```bash
      yc storage bucket update --help
-     ```  
-  
+     ```
+
   1. Опишите конфигурацию политики доступа в виде [схемы данных](../../s3/api-ref/policy/scheme.md) в формате JSON:
 
      ```json
@@ -92,13 +102,13 @@
      * `Statement` — правила политики доступа:
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
        * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
-       
-                  
+
+
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -174,12 +184,12 @@
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
        * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
 
-                  
+
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -265,7 +275,7 @@
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета. Обязательный параметр.
      * `policy` — имя политики. Обязательный параметр.
-     
+
      Настройки политики:
 
      * `Version` — версия описания политик доступа. Необязательный параметр.
@@ -273,12 +283,12 @@
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
        * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
 
-                  
+
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
-  
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -311,7 +321,7 @@
 
 - API {#api}
 
-  Чтобы управлять политикой доступа, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [PutBucketPolicy](../../s3/api-ref/policy/put.md). Если ранее для бакета уже была установлена политика доступа, то после применения новой политики она будет полностью перезаписана.
+  Чтобы управлять политикой доступа, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [PutBucketPolicy](../../s3/api-ref/policy/put.md). Если ранее для бакета уже была установлена политика доступа, то после применения новой политики она будет полностью перезаписана.
 
 {% endlist %}
 
@@ -327,10 +337,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно просмотреть политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
+  1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -368,10 +377,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
+  1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

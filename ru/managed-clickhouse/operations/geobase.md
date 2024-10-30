@@ -38,14 +38,11 @@
 {{ mch-short-name }} работает только с геобазами, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
 
 
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 1. [Загрузите](../../storage/operations/objects/upload.md) архив с геобазой в {{ objstorage-full-name }}.
-
-1. Настройте доступ к архиву геобазы, используя [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
-
-    1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
-    1. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
-    1. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
-
+1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к архиву геобазы.
+1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
+1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
 1. [Получите ссылку](s3-access.md#get-link-to-object) на архив с геобазой.
 
 
@@ -119,7 +116,7 @@
 
 - API {#api}
 
-    Чтобы подключить геобазу к кластеру {{ CH }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе ссылку на архив с геобазой в {{ objstorage-name }} в параметре `geobaseUri`.
+    Чтобы подключить геобазу к кластеру {{ CH }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе ссылку на архив с геобазой в {{ objstorage-name }} в параметре `geobaseUri`.
 
     {% note warning %}
 

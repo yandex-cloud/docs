@@ -1,6 +1,6 @@
 ---
-title: "How to grant access to a partner account"
-description: "In this guide, you will learn how to grant access to a partner account"
+title: How to grant access to a partner account
+description: In this guide, you will learn how to grant access to a partner account
 ---
 
 # Granting access to a partner account

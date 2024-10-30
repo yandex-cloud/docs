@@ -1,10 +1,5 @@
 title: Yandex Data Transfer
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Available transfers
     href: transfer-matrix.md
@@ -132,7 +127,7 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
             href: tutorials/managed-mongodb.md
-          - name: Migrating a {{ MG }} cluster from 4.4 to 6.0
+          - name: Migrating {{ MG }} cluster from 4.4 to 6.0
             href: tutorials/mongodb-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
@@ -164,6 +159,8 @@ items:
             href: tutorials/mes-to-mos.md
           - name: '{{ OS }} to {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
+          - name: '{{ PG }} to {{ OS }}'
+            href: tutorials/postgresql-to-opensearch.md
       - name: Change data capture and delivery to the queue
         items:
           - name: '{{ MY }} to {{ KF }}'
@@ -252,7 +249,7 @@ items:
         href: concepts/regular-incremental-copy.md
       - name: Parallel copy
         href: concepts/sharded.md
-      - name: Data transformations
+      - name: Data transformation
         href: concepts/data-transformation.md
       - name: Serialization
         href: concepts/serializer.md
@@ -262,7 +259,7 @@ items:
         href: concepts/delivery-configuration.md
       - name: Operations on transfers
         href: concepts/operations.md
-      - name: Network in {{ data-transfer-full-name }}
+      - name: Networking in {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Speed for copying data in {{ data-transfer-full-name }}
         href: concepts/copy-speed.md
@@ -302,12 +299,46 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: EndpointService
-            href: api-ref/grpc/endpoint_service.md
-          - name: TransferService
-            href: api-ref/grpc/transfer_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Endpoint
+            items:
+              - name: Overview
+                href: api-ref/grpc/Endpoint/index.md
+              - name: Get
+                href: api-ref/grpc/Endpoint/get.md
+              - name: List
+                href: api-ref/grpc/Endpoint/list.md
+              - name: Create
+                href: api-ref/grpc/Endpoint/create.md
+              - name: Update
+                href: api-ref/grpc/Endpoint/update.md
+              - name: Delete
+                href: api-ref/grpc/Endpoint/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Transfer
+            items:
+              - name: Overview
+                href: api-ref/grpc/Transfer/index.md
+              - name: Create
+                href: api-ref/grpc/Transfer/create.md
+              - name: Update
+                href: api-ref/grpc/Transfer/update.md
+              - name: Delete
+                href: api-ref/grpc/Transfer/delete.md
+              - name: List
+                href: api-ref/grpc/Transfer/list.md
+              - name: Get
+                href: api-ref/grpc/Transfer/get.md
+              - name: Deactivate
+                href: api-ref/grpc/Transfer/deactivate.md
+              - name: Activate
+                href: api-ref/grpc/Transfer/activate.md
       - name: REST
         items:
           - name: Overview
@@ -316,40 +347,42 @@ items:
             items:
               - name: Overview
                 href: api-ref/Endpoint/index.md
-              - name: create
-                href: api-ref/Endpoint/create.md
-              - name: delete
-                href: api-ref/Endpoint/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Endpoint/get.md
-              - name: list
+              - name: List
                 href: api-ref/Endpoint/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Endpoint/create.md
+              - name: Update
                 href: api-ref/Endpoint/update.md
-          - name: Transfer
-            items:
-              - name: Overview
-                href: api-ref/Transfer/index.md
-              - name: activate
-                href: api-ref/Transfer/activate.md
-              - name: create
-                href: api-ref/Transfer/create.md
-              - name: deactivate
-                href: api-ref/Transfer/deactivate.md
-              - name: delete
-                href: api-ref/Transfer/delete.md
-              - name: get
-                href: api-ref/Transfer/get.md
-              - name: list
-                href: api-ref/Transfer/list.md
-              - name: update
-                href: api-ref/Transfer/update.md
+              - name: Delete
+                href: api-ref/Endpoint/delete.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Transfer
+            items:
+              - name: Overview
+                href: api-ref/Transfer/index.md
+              - name: Create
+                href: api-ref/Transfer/create.md
+              - name: Update
+                href: api-ref/Transfer/update.md
+              - name: Delete
+                href: api-ref/Transfer/delete.md
+              - name: List
+                href: api-ref/Transfer/list.md
+              - name: Get
+                href: api-ref/Transfer/get.md
+              - name: Deactivate
+                href: api-ref/Transfer/deactivate.md
+              - name: Activate
+                href: api-ref/Transfer/activate.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -360,6 +393,10 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: September 2024
+        href: release-notes/2409.md
+      - name: August 2024
+        href: release-notes/2408.md
       - name: July 2024
         href: release-notes/2407.md
       - name: June 2024
@@ -387,3 +424,4 @@ items:
           - name: August 2023
             href: release-notes/2308.md
 base: en/data-transfer
+deepBase: 2

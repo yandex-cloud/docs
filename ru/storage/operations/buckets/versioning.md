@@ -1,6 +1,6 @@
 ---
-title: "Управление версионированием бакета в {{ objstorage-full-name }}"
-description: "Версионирование бакета — это возможность хранить историю объекта с помощью версий. Из этой статьи вы узнаете, как управлять версионированием в {{ objstorage-name }}."
+title: Управление версионированием бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы научитесь управлять версионированием бакета в {{ objstorage-name }}.
 ---
 
 # Управление версионированием бакета
@@ -17,6 +17,15 @@ description: "Версионирование бакета — это возмо�
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите на имя нужного бакета.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
+  1. Чтобы включить или выключить версионирование, используйте опцию **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -32,9 +41,9 @@ description: "Версионирование бакета — это возмо�
   1. Выполните следующую команду:
 
      ```bash
-     yc storage bucket update --name <имя_бакета> --versioning versioning-enabled 
-     ```  
-     
+     yc storage bucket update --name <имя_бакета> --versioning versioning-enabled
+     ```
+
      Результат:
 
      ```text
@@ -65,7 +74,7 @@ description: "Версионирование бакета — это возмо�
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
+
   Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
@@ -111,6 +120,6 @@ description: "Версионирование бакета — это возмо�
 
 - API {#api}
 
-  Чтобы управлять версионированием бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md).
+  Чтобы управлять версионированием бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md).
 
 {% endlist %}
