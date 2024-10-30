@@ -14,14 +14,14 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
      {% note info %}
 
-     If you do not know which network the route table belongs to, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}** on the left-hand panel. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
+     If you do not know which network the route table belongs to, in the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
 
      {% endnote %}
 
   1. In the list of subnets, find the subnet associated with the route table.
   1. Disassociate the route table from the subnet using any of these methods:
-     * In the line with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * In the line with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * In the row with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
+     * In the row with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
      * Open the subnet information and click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
      * Open the subnet information and click **Edit** in the top right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
 

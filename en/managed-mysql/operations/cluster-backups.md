@@ -52,7 +52,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   To get a list of backups for all the {{ mmy-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
 
-   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+  {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -130,7 +130,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Backup) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
 
-   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+  {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -342,7 +342,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {{ TF }} will create the new cluster. The databases and users are deployed from the backup.
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -350,7 +350,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
-  * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+  * Backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
   * Time point to which you want to restore the cluster, in the `time` parameter.
   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
@@ -412,7 +412,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

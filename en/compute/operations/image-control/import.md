@@ -26,7 +26,7 @@ To import an image from another cloud or folder:
         {{ yc-compute }} image create --help
         ```
 
-     1. To get a list of available images in the source cloud or folder, run the following command: `{{ yc-compute }} image list --folder-name <source_folder_name>`. For example:
+     1. To get a list of available images in the source cloud or folder, run the following command: `{{ yc-compute }} image list --folder-name <source_folder_name>`. Here is an example:
 
         ```bash
         {{ yc-compute }} image list --folder-name my-source-folder
@@ -44,7 +44,7 @@ To import an image from another cloud or folder:
 
      1. Select `ID` or `NAME` of the image you are importing.
 
-     1. To import an image, run the following command: `{{ yc-compute }} image create --source-image-id=<source_image_ID>`. For example:
+     1. To import an image, run the following command: `{{ yc-compute }} image create --source-image-id=<source_image_ID>`. Here is an example:
 
         ```bash
         {{ yc-compute }} image create --source-image-id=fd8o0pt9qfbt********
@@ -66,7 +66,7 @@ To import an image from another cloud or folder:
           type: LINUX
         ```
 
-   1. Check the result by running the following command: `{{ yc-compute }} image list --folder-name <target_folder_name>`. For example:
+   1. Check the result by running the following command: `{{ yc-compute }} image list --folder-name <target_folder_name>`. Here is an example:
 
       ```bash
       {{ yc-compute }} image list --folder-name my-destination-folder

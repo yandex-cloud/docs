@@ -75,6 +75,14 @@ items:
         href: tutorials/updating-under-load.md
       - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
         href: tutorials/dns-integration.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
       - name: Развертывание Microsoft Exchange
         href: tutorials/exchange.md
       - name: >-

@@ -5,6 +5,7 @@ description: При работе с {{ TF }} в облаке важно искл
 
 # Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
 
+
 {% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
 Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

@@ -70,7 +70,7 @@ description: Follow this guide to get information about a disk.
 
       Where:
 
-      * `data "yandex_compute_image"`: Describes the [disk](../../concepts/disk.md) as a data source:
+      * `data "yandex_compute_disk"`: Description of the [disk](../../concepts/disk.md) as a data source:
          * `disk_id`: Disk ID.
       * `output "my_disk_size"`: Output variable that contains information about the disk size:
          * `value`: Returned value.

@@ -100,7 +100,7 @@ items:
             href: operations/security-group-delete.md
       - name: Enabling a software-accelerated network
         href: operations/enable-software-accelerated-network.md
-      - name: Protection against DDoS attacks
+      - name: DDoS protection
         items:
           - name: Enabling DDoS protection
             href: operations/enable-ddos-protection.md

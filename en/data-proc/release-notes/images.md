@@ -189,7 +189,7 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
     * Tez to 0.10.0
     * Zeppelin to 0.9.0
 
-* Deprecated components were removed:
+* Deprecated components have been removed:
 
     * Flume
     * Sqoop

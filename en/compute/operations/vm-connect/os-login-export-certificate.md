@@ -1,15 +1,15 @@
 ---
-title: How to export an OS Login certificate
-description: Follow this guide to locally export an OS Login certificate so it can be used to connect over SSH to VMs with OS Login access configured.
+title: How to export an SSH certificate
+description: Follow this guide to locally export an SSH certificate so you can use it to connect over OS Login to VMs with configured OS Login access.
 ---
 
-# Exporting an OS Login certificate
+# Exporting an SSH certificate
 
-You can use a certificate to enable a user or a third-party tool, such as [Terraform](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to a VM with OS Login access enabled. To do this, locally export an OS Login certificate and use it to access a VM using a standard SSH client. The exported certificate is valid for one hour.
+You can use an SSH certificate of an [organization user](../../../organization/concepts/membership.md) or service account to enable a user or a third-party tool, such as [Terraform](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to a VM with enabled OS Login access. To do this, locally export an SSH certificate and use it to access the VM via a standard SSH client. The exported certificate is valid for one hour.
 
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 
-You can use the exported OS Login certificate to [connect](./os-login.md#connect-via-exported-certificate) to a VM with OS Login access [configured](../vm-control/vm-update.md#enable-oslogin-access).
+You can use the exported SSH certificate to [connect](./os-login.md#connect-with-ssh-client) to a VM with [configured](../vm-control/vm-update.md#enable-oslogin-access) OS Login access.
 
 #### See also {#see-also}
 
@@ -17,3 +17,4 @@ You can use the exported OS Login certificate to [connect](./os-login.md#connect
 * [{#T}](../../../organization/operations/add-ssh.md)
 * [{#T}](./os-login.md)
 * [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

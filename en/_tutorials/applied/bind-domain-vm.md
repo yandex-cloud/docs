@@ -30,7 +30,7 @@ You can also assign a domain name to a VM with a web server via {{ TF }} using a
 The support cost includes:
 
 * Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for VM computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a public DNS zone and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
 
@@ -231,17 +231,18 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * In the **{{ ui-key.yacloud.common.name }}** field, specify the name: `mywebserver`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
+      * In the list of public images, select [LAMP](/marketplace/products/yc/lamp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-  1. In the window that opens, find and select [LAMP](/marketplace/products/yc/lamp).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
+
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
@@ -250,9 +251,10 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `yc-user` username.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mywebserver`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -327,7 +329,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
 {% endlist %}
 
-This will create the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the VM's public IP address. If you plan to use the created web server over a long period of time, [make](../../vpc/operations/set-static-ip.md) the VM public IP address static.
+This will create the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the VM’s public IP address. If you plan to use the created web server over a long period of time, [make](../../vpc/operations/set-static-ip.md) this VM's public IP address static.
 
 
 ## Create a public DNS zone {#configure-dns}
@@ -341,9 +343,9 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify the [DNS zone](../../dns/concepts/dns-zone.md) settings consistent with your domain:
 
-      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a dot. For example, the `example.com.` zone name corresponds to the `example.com` domain. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
-      1. **{{ ui-key.yacloud.common.name }}**: Zone name
+      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a period. For example, the `example.com.` zone name corresponds to the `example.com` domain. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
+      1. **{{ ui-key.yacloud.common.name }}**: Zone name.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -361,7 +363,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
   Where:
 
   * `--name`: [DNS zone](../../dns/concepts/dns-zone.md) name.
-  * `--zone`: Domain zone. The zone name must end with a dot. For example, the `example.com.` zone name corresponds to the `example.com` domain. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+  * `--zone`: Domain zone. The zone name must end with a period. For example, the `example.com.` zone name corresponds to the `example.com` domain. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
 
   Result:
 
@@ -389,7 +391,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
 ## Delegate your domain to {{ dns-name }} {#delegate-domain}
 
-To delegate your domain to {{ dns-name }}, in your domain name registrar account, specify these DNS server addresses in the domain settings:
+To delegate a domain to {{ dns-name }}, in your account on your domain registrar's website, specify the DNS server addresses in the domain settings:
 
 * `ns1.{{ dns-ns-host-sld }}`
 * `ns2.{{ dns-ns-host-sld }}`
@@ -448,7 +450,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 
   * `--name`: Name of the public DNS zone you created earler.
   * `--record`: Parameters of the new resource record:
-      * `<domain_name>`: Domain name must end with a dot. For example, for the `example.com` domain, the correct value is `example.com.`.
+      * `<domain_name>`: Domain name that must end with a period. For example, for the `example.com` domain, the correct value is `example.com.`.
       * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the web server.
 
           You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page in the [management console]({{ link-console-main }}) or using this CLI command: `yc compute instance get <VM_name>`.
@@ -506,13 +508,13 @@ To create an infrastructure for assigning a domain name to a VM with a web serve
 
     - Ready-made archive
 
-      1. Create a directory for the file with the infrastructure description.
+      1. Create a folder for the file with the infrastructure description.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/???) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `bind-domain-to-vm.tf` configuration file and the `bind-domain-to-vm.auto.tfvars` user data file.
 
     - Creating files manually
 
-      1. Create a directory for the file with the infrastructure description.
+      1. Create a folder for the file with the infrastructure description.
       1. In the directory, create a configuration file named `bind-domain-to-vm.tf`:
 
           {% cut "bind-domain-to-vm.tf" %}

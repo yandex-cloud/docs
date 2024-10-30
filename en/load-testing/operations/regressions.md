@@ -94,7 +94,7 @@ Add a second regression chart:
 
 If you want other users to easily read your dashboard, add a common header for the charts and explanatory text:
 
-1. In the panel at the bottom of the page, click ![image](../../_assets/load-testing/header.svg) **Title**.
+1. In the panel at the bottom of the page, click ![image](../../_assets/load-testing/header.svg) **Text**.
 1. Specify a header and select its size.
 1. Click **Add**.
 1. Drag the header to the position above the charts. If required, change the height and width of the header field.
@@ -119,6 +119,3 @@ In edit mode, you can:
 To add a new dashboard, click **Create dashboard** on the ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** page in the top-right corner of the page.
 
 To delete a dashboard, click ![image](../../_assets/options.svg) on the ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** page in the dashboard list next to the required dashboard and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-
-
-

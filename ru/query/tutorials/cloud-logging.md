@@ -14,11 +14,11 @@
 
 Для выполнения сценария:
 
-1. [{#T}](#create-yds-stream).
-1. [{#T}](#create-log-group).
-1. [{#T}](#send-to-loggroup).
-1. [{#T}](#connect-query).
-1. [{#T}](#query).
+1. [Создайте поток данных {{ yds-name }}](#create-yds-stream).
+1. [Создайте лог-группу {{ cloud-logging-name }}](#create-log-group).
+1. [Запустите отправку данных в лог-группу](#send-to-loggroup).
+1. [Подключите {{ yq-name }} к потоку данных](#connect-query).
+1. [Выполните запрос к данным](#query).
 
 ## Перед началом работы {#before-you-begin}
 

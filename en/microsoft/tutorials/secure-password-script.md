@@ -77,8 +77,8 @@ The infrastructure support cost includes:
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
      1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
-         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
-         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
+         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
          * Leave the other parameters at their default settings.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -190,7 +190,7 @@ The password must:
 
       Where:
       * `--name`: Secret name. This is a required parameter.
-      * `--kms-key-id`: {{ kms-short-name }} key ID.
+      * `--kms-key-id`: ID of the {{ kms-short-name }} key.
       * `--description`: Secret description. This is an optional parameter.
       * `--payload`: Contents of the secret as a YAML or JSON array.
       * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
@@ -338,7 +338,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    "Bootstrap script ended" | Write-Host
    ```
 
-1. In the `init.ps1` file, replace `<secret_id>` with the real ID of the secret where you saved the user accounts.
+1. In the `init.ps1` file, replace the `<secret_id>` placeholder with the real ID of the secret where you saved the user accounts.
 
 1. Create a VM:
 

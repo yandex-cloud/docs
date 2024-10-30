@@ -30,7 +30,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
   In the CLI, you can provide metadata in any of the three parameters:
 
-  * `--metadata-from-file`: As a configuration file formatted as `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
+  * `--metadata-from-file`: As a configuration file in this format: `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
 
       For example, to add several users to a VM at the same time, describe the configuration in a `YAML` file:
 
@@ -72,7 +72,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
     {% endcut %}
 
-  * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` as a separator. For example:
+  * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` as a separator. Here is an example:
 
     ```hcl
     ...

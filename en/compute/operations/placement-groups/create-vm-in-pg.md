@@ -23,7 +23,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
-  1. See the description of the CLI command to create a VM:
+  1. View the description of the CLI command to create a VM:
 
      ```bash
      yc compute instance create --help
@@ -134,7 +134,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check that the VM has been created and added to the placement group using the [management console]({{ link-console-main }}).
 

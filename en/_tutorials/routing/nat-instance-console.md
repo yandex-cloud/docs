@@ -70,33 +70,26 @@ To create a security group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder where you want to create your test VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/concepts/image.md) and a Linux-based OS version.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `private-subnet` subnet is located.
 
-      * In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name, e.g., `test-vm`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the availability zone where `private-subnet` is located.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image and a Linux-based OS version.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the test VM, e.g., `private-subnet`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nat-instance-sg` security group you created earlier.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-          {% note info %}
-
-          Save the keys in the default directory and give them standard names, e.g., `id_ed25519` or `id_rsa`.
-
-          {% endnote %}
-
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Save the username, private SSH key, and internal IP address for the test VM.
@@ -110,32 +103,26 @@ To create a security group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a NAT instance in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * In the **{{ ui-key.yacloud.common.name }}** field, enter a VM name for the NAT instance, e.g., `nat-instance`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the availability zone where `public-subnet` is located.
-
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `public-subnet` subnet is located.
+
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the NAT instance, e.g., `public-subnet`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nat-instance-sg` security group you created earlier.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to create an SSH key pair yourself.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-          {% note info %}
-
-          Save the keys in the default directory and give them standard names, e.g., `id_ed25519` or `id_rsa`.
-
-          {% endnote %}
-
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `nat-instance`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Save the username, private SSH key, and internal and public IP addresses for the NAT instance.

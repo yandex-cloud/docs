@@ -65,28 +65,54 @@ Jenkins uses [service accounts](../../iam/concepts/users/service-accounts.md) to
 Jenkins will get VM image configuration changes from GitHub and then use Packer to create images in the cloud.
 
 To create a VM with Jenkins:
-1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `jenkins-tutorial`.
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. In the window that opens, select a [Jenkins](/marketplace/products/yc/jenkins) image.
 
-   {% note info %}
+1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Jenkins](/marketplace/products/yc/jenkins) image.
 
-   If you are configuring the Jenkins VM manually, follow the [procedure](https://www.jenkins.io/doc/book/installing/linux/).
+    {% note info %}
 
-   {% endnote %}
+    If you are configuring the Jenkins VM manually, follow the [procedure](https://www.jenkins.io/doc/book/installing/linux/).
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Choose a [platform](../../compute/concepts/vm-platforms.md): `Intel Ice Lake`.
-   * Specify the required number of vCPUs and the amount of RAM:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and choose the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, assign a public IP to the VM automatically or select a reserved IP.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-   * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
+    {% endnote %}
+
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+
+        * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+        * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+
+            * In the window that opens, enter the network name and select the folder to host the network.
+            * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+            * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the VM, e.g., `yc-user`.
+
+        {% note alert %}
+
+        Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
+
+        {% endnote %}
+
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `jenkins-tutorial`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ## Install Packer {#install-packer}

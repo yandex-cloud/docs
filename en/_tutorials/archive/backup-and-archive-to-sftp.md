@@ -40,39 +40,46 @@ To create a VM:
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `sftp-server`.
-  1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
-     1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-     1. Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-     1. In the list of public images, find [CentOS 7](/marketplace/products/yc/centos-7) and select it.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_network }}** section, select the network and subnet to connect the VM to. If you do not have a network or subnet yet, you can create them on the VM creation page.
-  
-  1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
-  
-  1. Specify the data required for accessing the VM:
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
-       
-     {% note alert %}
-     
-     Once created, the VM will get an IP address and a host name (FQDN) for connections. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
-    
-     {% endnote %}
-  
+              * In the window that opens, enter the network name and select the folder to host the network.
+              * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+              * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the VM, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+      {% note alert %}
+
+      Once created, the VM will get an IP address and a host name (FQDN) for connections. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
+
+      {% endnote %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `sftp-server`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  
+
 {% endlist %}
 
 It may take a few minutes to create a VM.
@@ -269,7 +276,7 @@ On the SFTP server VM:
 
 The process for creating a VM for the SFTP client is exactly the same as the one for the SFTP server. 
 
-1. Complete steps 1-9 of the [Create a VM for the SFTP server](#create-vm-sftp-server) section; this time, however, name your VM as `sftp-client`.
+1. Complete steps 1-11 of the [Create a VM for the SFTP server](#create-vm-sftp-server) section; this time, however, name your VM as `sftp-client`.
 
 1. [Log in to the SFTP client VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
 1. Create an SSH key pair on the SFTP client. This is done in a similar way to what you did for the `fuser` user in the [previous section](#create-sftp-user):
@@ -307,13 +314,13 @@ The process for creating a VM for the SFTP client is exactly the same as the one
    1. Enter the following command in the SFTP server terminal and provide the appropriate value:
 
       ```bash
-      ping -с 3 <SFTP_client_IP_address>
+      ping -c 3 <SFTP_client_IP_address>
       ```
 
    1. Make sure the packages are sent and received successfully: 
 
       ```bash
-      ping -с 3 84.201.170.171
+      ping -c 3 84.201.170.171
       ```
 
       Result:

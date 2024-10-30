@@ -28,7 +28,7 @@ The infrastructure support cost includes:
 
 ## Create a security group {#create-sg}
 
-Create a [security group](../../vpc/concepts/security-groups.md), with a rule allowing traffic to the `25565` port. This port is set by default in the server configuration file.
+Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing traffic to port `25565`. This port is set by default in the server configuration file.
 
 {% list tabs group=instructions %}
 
@@ -38,14 +38,14 @@ Create a [security group](../../vpc/concepts/security-groups.md), with a rule al
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**, enter `minecraft-sg`.
-   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**, select the `default` network.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `minecraft-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | `any` | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outgoing | `any` | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Outgoing | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -66,47 +66,62 @@ Create a [security group](../../vpc/concepts/security-groups.md), with a rule al
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * In the **Name** field, enter the VM name: `minecraft-server`.
-         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) operating system image.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages}}**, select an 18 GB HDD.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the recommended configuration for the Minecraft server:
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Ice Lake
-         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 100%
-         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
-         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, configure the boot [disk](../../compute/concepts/disk.md):
+
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`
+          * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `18 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the Minecraft server recommended parameters:
+
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-         * Select the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** to which you want to connect the virtual machine. If you do not have the required subnet yet, create it in the same section.
-         * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
-         * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `minecraft-sg` security group created earlier.
+
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+
+              * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+              * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+
+                  * In the window that opens, specify the network name and select the folder to host the network.
+                  * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+                  * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `minecraft-sg` security group you created earlier.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username of the user to be created on the virtual machine, e.g., `ubuntu`.
+
+          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username of the user to be created on the VM, e.g., `ubuntu`.
 
             {% note alert %}
 
-            Do not use `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
 
             {% endnote %}
 
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+          * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `minecraft-server`.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    {% endlist %}
 
    Recommended virtual machine configuration:
 
-   | Configuration | Number of players | vCPU | RAM | Disk size |
+   | Configuration     |   Number of players  |   vCPU  |   RAM  |   Disk size        |
    |------------------|-----------------------|---------|--------|----------------------|
-   | Minimum | 1-4 | 2 | 1GB | minimum 150MB HDD |
-   | Recommended | 5-10 | 2 | 2GB | minimum 200MB HDD |
-   | Ideal | 10+ | 4 | 4GB | minimum 200MB SSD |
+   |   Minimum    |   1-4                 |   2     |   1GB  |   minimum 150MB HDD  |
+   |   Recommended  |   5-10                |   2     |   2GB  |   minimum 200MB HDD  |
+   |   Ideal         |   10+                 |   4     |   4GB  |   minimum 200MB SSD  |
 
    {% note warning %}
 
@@ -138,7 +153,7 @@ Create a [security group](../../vpc/concepts/security-groups.md), with a rule al
    wget -O minecraft_server_1.20.4.jar https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar
    ```
 
-1. Create the `eula.txt` file to automatically agree to the terms of the [EULA](https://aka.ms/MinecraftEULA):
+1. Create the `eula.txt` file to automatically accept the terms of the [EULA](https://aka.ms/MinecraftEULA):
 
    ```bash
    cat << EOF > eula.txt

@@ -93,34 +93,39 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery to {{ yand
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Enter a name, e.g., `hystax-acura-vm`, and description for the VM.
-     * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the configuration with `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-     * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** and create one.
 
-       To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the window that opens. Then click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-     * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the new VM or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-     * Select the `hystax-acura-account` service account you created earlier.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+
+              * In the window that opens, enter the network name and select the folder to host the network.
+              * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+              * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `hystax-acura-vm`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `hystax-acura-account` service account you created earlier.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -195,7 +200,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
   To convert a dynamic public IP address to static:
 
-  1. See the description of the CLI's update address attribute command:
+  1. See the description of the CLI update address attribute command:
 
      ```bash
      yc vpc address update --help
@@ -451,7 +456,7 @@ The DR plan includes a VM description and the network settings. You can have a p
      * `Basic`: Create a plan with standard settings.
      * `Expert`: Create a plan with flexible settings using JSON (see [detailed syntax description](https://hystax.com/documentation/dr/dr_overview.html#id2)).
   1. Add VMs by clicking ![image](../../_assets/options.svg). If required, specify an initialization ordering by using the **Move to another Rank** option.
-  1. If required, modify the parameters of the new VMs. To do this, in the **Flavor name** field, specify the following: `<platform>-<cpu>-<ram>-<core_fraction>`. e.g., `2-8-16-100`.
+  1. If required, modify the parameters of the new VMs. To do this, in the **Flavor name** field, specify the following: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `2-8-16-100`.
   1. Under **Subnets** on the right, specify the parameters of the previously created subnets, i.e., their **Subned ID** and **CIDR**.
   1. Click **Save**.
 

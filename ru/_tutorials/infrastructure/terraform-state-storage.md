@@ -1,5 +1,6 @@
 # Загрузка состояний {{ TF }} в {{ objstorage-full-name }}
 
+
 {% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
 В инструкции описываются шаги загрузки состояния {{ TF }} в [{{ objstorage-name }}](../../storage/).

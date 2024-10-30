@@ -137,7 +137,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    ```
    Where:
    * `resource_id`: Test agent name.
-   * `folderId`: ID of the folder containing the test agent.
+   * `folderId`: ID of the folder containing the test agent. 
 
    This plugin also allows you to configure additional parameters:
 
@@ -145,7 +145,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    panels:
      panel_name:
        ...
-   api_host: monitoring.api.cloud.yandex.net:443
+   api_host: {{ api-host-monitoring-1 }}:443
    token: LOADTESTING_YC_TOKEN
    timeout: 5s
    request_timeout: 10s
@@ -155,7 +155,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    ```
 
    Where:
-   * `api_host`: Address of the {{ monitoring-name }} API used to collect data. The default value is `monitoring.api.cloud.yandex.net:443`.
+   * `api_host`: Address of the {{ monitoring-name }} API used to collect data. The default value is `{{ api-host-monitoring-1 }}:443`.
    * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) file path. The default value is taken from the `LOADTESTING_YC_TOKEN` environment variable.
    * `timeout`: Plugin shutdown timeout after the load test is over. The default value is five seconds.
    * `request_timeout`: {{ monitoring-name }} API request timeout. The default value is ten seconds.

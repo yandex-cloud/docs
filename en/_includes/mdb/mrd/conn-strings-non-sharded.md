@@ -166,7 +166,7 @@
     			Password: "<password>",
     			ReadOnly: false,
     			TLSConfig: &tls.Config{
-   				RootCAs:            rootCertPool,
+    				RootCAs:            rootCertPool,
     			},
     		},
     	)
@@ -284,7 +284,7 @@
         String redisPass = "<cluster_password>";
 
         System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.redis/YATrustStore");
-        System.setProperty("javax.net.ssl.trustStorePassword", "<password_to_secure_certificate_storage>");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<secure_certificate_storage_password>");
 
         SSLParameters sslParameters = new SSLParameters();
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().

@@ -53,7 +53,7 @@ To set up OS Login access to an existing VM:
 
 1. [Enable](../vm-control/vm-update.md#enable-oslogin-access) access via OS Login on the VM.
 
-Now you can connect to your VM via OS Login using an SSH certificate [over the YC CLI](os-login.md#connect-via-cli) or a [standard SSH client](os-login.md#connect-via-exported-certificate), as well as over the YC CLI [using an SSH key](os-login.md#connect-via-key) previously added to the organization user profile in {{ org-full-name }}.
+You can now connect to the VM via OS Login using either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client). For connection, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the OS Login profile of a {{ org-full-name }} user or service account.
 
 ## Disabling access via OS Login {#disable-os-login}
 
@@ -63,7 +63,16 @@ To be able to [connect](ssh.md) to the VM over SSH without using OS Login:
 
 1. Disable access via OS Login.
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
+
+    - Management console {#console}
+
+        1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+        1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
+        1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable **Access via OS Login**.
+        1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
     - CLI {#cli}
 

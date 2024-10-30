@@ -475,6 +475,16 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Сегментация облачной инфраструктуры с помощью решения Check Point
+          Next-Generation Firewall
+        href: tutorials/network-segmentation-checkpoint.md
+      - name: Настройка защищенного туннеля GRE поверх IPsec
+        href: tutorials/gre-over-ipsec.md
       - name: Создание бастионного хоста
         href: tutorials/bastion.md
       - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин

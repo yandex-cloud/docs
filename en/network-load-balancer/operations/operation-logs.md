@@ -8,14 +8,14 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
 
 - Management console {#console}
 
-  To see all operations with the service's resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to a target group.
 
   1. In the [management console]({{ link-console-main }}), open the folder the network load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the appropriate network load balancer.
-  1. Go to ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 
       You will see a list of network load balancer operations.
 
@@ -51,7 +51,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------------+
   ```
 
-  By default, information about operations is provided as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc load-balancer network-load-balancer list-operations enp87akr8sdr******** --format yaml

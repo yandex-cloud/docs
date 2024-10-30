@@ -5,7 +5,7 @@ description: Follow this guide to connect to a VM via OS Login.
 
 # Connecting to a virtual machine via OS Login
 
-[OS Login](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs using {{ iam-short-name }}.
+[OS Login](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs via SSH using {{ iam-short-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -15,27 +15,51 @@ description: Follow this guide to connect to a VM via OS Login.
 
 [Create](./os-login-create-vm.md) a new virtual machine with OS Login support or [set up](./enable-os-login.md) access via OS Login for an existing VM as needed.
 
-## Connecting to a VM via OS Login using an SSH certificate over the YC CLI {#connect-via-cli}
-
-{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
-
-{% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
-
-## Connecting to a VM via OS Login using an SSH certificate over a standard SSH client {#connect-via-exported-certificate}
-
-{% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
-
 {% note info %}
 
-The certificate is valid for one hour. After this time has elapsed, you will need to [export](./os-login-export-certificate.md) a new certificate to connect to the VM.
+Required roles:
+
+{% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
 {% endnote %}
 
-## Connecting to a VM via OS Login using an SSH key over the YC CLI {#connect-via-key}
+## Connecting using a standard SSH client {#connect-with-ssh-client}
 
-{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
+To connect to a VM with OS Login access enabled, you can use a standard SSH client and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account OS Login profile or a short-lived SSH certificate you export for a user or service account.
 
-{% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
+
+  {% include [oslogin-ssh-connect-with-ssh-key](../../../_includes/compute/oslogin-ssh-connect-with-ssh-key.md) %}
+
+- Connecting with an SSH certificate {#ssh-cert}
+
+  {% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
+
+  {% include [os-login-certificate-short-lived](../../../_includes/compute/os-login-certificate-short-lived.md) %}
+
+{% endlist %}
+
+You will connect to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM's operating system.
+
+## Connecting using the YC CLI {#connect-with-yc-cli}
+
+To connect to a VM with OS Login access enabled, you can use the [YC CLI](../../../cli/quickstart.md) and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account OS Login profile or SSH certificate of a user or service account.
+
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
+
+  {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+
+- Connecting with an SSH certificate {#ssh-cert}
+
+  {% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
+
+{% endlist %}
+
+You will connect to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM's operating system.
 
 #### See also {#see-also}
 

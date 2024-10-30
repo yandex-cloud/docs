@@ -25,7 +25,7 @@ We will use a folder named `example-folder` as an example.
 
 ### Required paid resources {#paid-resources}
 
-The cost of the infrastructure includes:
+The infrastructure cost includes:
 
 * Fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outgoing VM traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -45,7 +45,7 @@ The cost of the infrastructure includes:
      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `queue-autoscale-sa`.
-     1. Click ![](../../_assets/console-icons/plus.svg) the **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** icon and select the `editor` role.
+     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
      
   1. Create a [static access key](../../iam/concepts/authorization/access-key.md) to enable the service account to work with {{ message-queue-name }} and save the key to the `access_key` file:
@@ -348,7 +348,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
      - Management console {#console}
      
-       1. In the [management console]({{ link-console-main }}), select `example-folder`.
+       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
        1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
        1. In the list of service accounts, select `queue-autoscale-sa`.
        1. Copy the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}**.
@@ -422,9 +422,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
      - Management console {#console}
      
-       1. In the [management console]({{ link-console-main }}), select `example-folder`.
+       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-       1. Go to ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+       1. Go to the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}** tab.
        1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **{{ ui-key.yacloud.common.id }}**.
             
      - CLI {#cli}
@@ -522,7 +522,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   
      * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `queue-autoscale-ig`.
-     * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
+     * Select the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** : `queue-autoscale-sa`.
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
@@ -629,7 +629,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
         
        - Management console {#console}
         
-         1. In the [management console]({{ link-console-main }}), select `example-folder`.
+         1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
           
@@ -668,7 +668,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
           
        - Management console {#console}
         
-         1. In the [management console]({{ link-console-main }}), select `example-folder`.
+         1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
                
@@ -737,9 +737,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 To shut down the infrastructure and stop paying for the resources you created:
 
-1. [Delete](../../compute/operations/instance-groups/delete.md) `queue-autoscale-ig`.
-1. [Delete](../../compute/operations/image-control/delete.md) `queue-autoscale-image`.
+1. [Delete](../../compute/operations/instance-groups/delete.md) the `queue-autoscale-ig` instance group.
+1. [Delete](../../compute/operations/image-control/delete.md) the image from the `queue-autoscale-image` family.
 1. [Delete](../../message-queue/operations/message-queue-delete-queue.md) the `queue-autoscale-queue` queue.
 1. [Delete](../../vpc/operations/subnet-delete.md) the `queue-autoscale-subnet-a` subnet.
-1. [Delete](../../vpc/operations/network-delete.md) the `queue-autoscale-network`.
+1. [Delete](../../vpc/operations/network-delete.md) the `queue-autoscale-network` network.
 1. [Delete](../../iam/operations/sa/delete.md) the `queue-autoscale-sa` service account.

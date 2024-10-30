@@ -1,41 +1,29 @@
-You can use a custom SSH key to connect to VMs with OS Login access enabled. To do this, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key, [add](../../organization/operations/add-ssh.md) it to the organization user or service account profile in {{ org-full-name }}, and specify the following when connecting:
+To connect to a VM instance via OS Login with an SSH key using the YC CLI:
 
-1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
-
-    To connect to a VM via OS Login using an SSH key over the YC CLI, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
-
-1. Get a list of all VMs in the default folder:
+1. {% include [oslogin-connect-key-enable-in-org](../../_includes/compute/oslogin-connect-key-enable-in-org.md) %}
+1. {% include [oslogin-connect-instr-create-ssh-key](../../_includes/compute/oslogin-connect-instr-create-ssh-key.md) %}
+1. View the description of the CLI command to connect to a VM:
 
     ```bash
-    yc compute instance list
+    yc compute ssh --help
     ```
-
-    Result:
-
-    ```text
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    |          ID          |       NAME      |    ZONE ID    | STATUS  |  EXTERNAL IP  | INTERNAL IP  |
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | 158.160.**.** | 192.168.0.8  |
-    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | 51.250.**.*** | 192.168.0.12 |
-    +----------------------+-----------------+---------------+---------+---------------+--------------+
-    ```
-
+1. {% include [os-login-cli-organization-list](../../_includes/organization/os-login-cli-organization-list.md) %}
+1. {% include [os-login-cli-profile-list](../../_includes/organization/os-login-cli-profile-list.md) %}
+1. {% include [oslogin-connect-instr-list-vms](../../_includes/compute/oslogin-connect-instr-list-vms.md) %}
 1. Connect to the VM:
 
     ```bash
     yc compute ssh \
       --name <VM_name> \
       --identity-file <path_to_private_SSH_key_file> \
-      --login <username> \
+      --login <user_or_service_account_login> \
       --internal-address
     ```
 
     Where:
-
     * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
-    * `--identity-file`: Path to the previously saved private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`.
-    * `--login`: OS Login username.
+    * `--identity-file`: Path to a private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`.
+    * `--login`: Previously obtained user or service account login, as set in the OS Login profile. This is an optional parameter. If this parameter is not specified, the connection will use the SSH certificate of the user or service account currently authorized in the YC CLI profile.
     * (Optional) `--internal-address`: To connect using an internal IP address.
 
-You will connect to the specified virtual machine using your SSH key. If this is your first time connecting to this VM, a new user profile will be created in the VM's operating system.
+    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM you need, under **Connect to VM**, expand the **Connect via the {{ yandex-cloud }} CLI interface** section and select the **SSH key** tab.

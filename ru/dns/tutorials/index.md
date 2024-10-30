@@ -13,3 +13,5 @@ description: Различные сценарии использования {{ d
 * [{#T}](bind-domain-vm.md)
 * [{#T}](prefetch.md)
 * [{#T}](tls-termination/index.md)
+* [{#T}](storage-vpc-access.md)
+* [{#T}](vpc-cr-access.md)

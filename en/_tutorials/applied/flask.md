@@ -135,7 +135,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `webserver-sg`.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter the name: `webserver-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the `webserver-network` network you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
@@ -214,7 +214,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
 ## Create and set up a virtual machine {#create-setup-vm}
 
-A [VM](../../compute/concepts/vm.md) is similar to a server in the cloud infrastructure. In {{ yandex-cloud }}, you can create VMs with different hardware characteristics in terms of [performance](../../compute/concepts/performance-levels.md), RAM and [disk space](../../compute/concepts/disk.md#maximum-disk-size), as well as running different [operating systems](../../compute/concepts/image.md#public).
+A [virtual machine](../../compute/concepts/vm.md) is similar to a server in the cloud infrastructure. In {{ yandex-cloud }}, you can create VMs with different hardware characteristics in terms of [performance](../../compute/concepts/performance-levels.md), RAM, and [disk space](../../compute/concepts/disk.md#maximum-disk-size), as well as running different [operating systems](../../compute/concepts/image.md#public).
 
 This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) Linux VM.
 
@@ -226,28 +226,24 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select your folder.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-
-          * In the **{{ ui-key.yacloud.common.name }}** field, specify the name: `mywebserver`.
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
-
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      1. In the window that opens, find and select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earler.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-          * Enter the `yc-user` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
+          * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
+          * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `sftp-server`.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
     - CLI {#cli}
@@ -319,7 +315,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     {% endlist %}
 
-    This will create the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the VM's [public IP address](../../vpc/concepts/address.md#public-addresses). If you plan to use the created web server over a long period of time, [make](../../vpc/operations/set-static-ip.md) the VM public IP address static.
+    This will create the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the VM’s [public IP address](../../vpc/concepts/address.md#public-addresses). If you plan to use the created web server over a long period of time, [make](../../vpc/operations/set-static-ip.md) this VM's public IP address static.
 
 1. Create and activate the virtual environment.
 
@@ -485,7 +481,7 @@ When you open a new terminal window:
 
 At this point, the application can only display a plain text message in the browser. To display the data and controls that the user needs, you need to add HTML templates to your application.
 
-To render templates, you can use the [`render_template()` helper function](https://flask.palletsprojects.com/en/latest/api/#flask.render_template) enabled by the [Jinja template engine](https://jinja.palletsprojects.com/en/latest/templates/). You will use HTML templates to create the application pages: the main page listing blog posts and the pages for creating, viewing, and editing a post.
+To use templates in the app, you can use [the `render_template()` helper function](https://flask.palletsprojects.com/en/latest/api/#flask.render_template) enabled by the [Jinja template engine](https://jinja.palletsprojects.com/en/latest/templates/). You will use HTML templates to create the application pages: the main page listing blog posts and the pages for creating, viewing, and editing a post.
 
 ### Create the main page HTML template {#create-html-template}
 
@@ -596,7 +592,7 @@ To render templates, you can use the [`render_template()` helper function](https
     }
     ```
 
-    This CSS code changes the formatting of the text wrapped by `<h1>`:
+    This CSS code changes the formatting of the text wrapped by the `<h1>` HTML tags:
     * `border` adds a border.
     * `color` changes the text color.
     * `text-align` sets text alignment.
@@ -610,7 +606,7 @@ To render templates, you can use the [`render_template()` helper function](https
     nano templates/index.html
     ```
 
-1. Add a link to `style.css` inside `<head>`:
+1. Add a link to `style.css` inside the `<head>` section:
 
     ```html
     ...
@@ -683,11 +679,11 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
     </html>
     ```
 
-    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds CSS Bootstrap files, and the `<script>` tag refers to a JavaScript script that enables additional Bootstrap features. For more information, see the [Bootstrap documentation](https://getbootstrap.com/docs/).
+    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds Bootstrap CSS files, and the `<script>` tag refererces a JavaScript script that enables additional Bootstrap features. For more information, see the [Bootstrap documentation](https://getbootstrap.com/docs/).
 
     The following code elements are specific to the Jinja template engine:
 
-    * `{% block title %} {% endblock %}`: Placeholder [block](https://jinja.palletsprojects.com/en/latest/templates/#blocks) for a header. You will use it in other templates to give a custom header for each page in your application without rewriting the section named `<head>`.
+    * `{% block title %} {% endblock %}`: Placeholder [block](https://jinja.palletsprojects.com/en/latest/templates/#blocks) for a header. You will use it in other templates to give a custom header for each page in your application without rewriting the `<head>` section.
     * `{{ url_for('index')}}`: Calls a function that returns the URL for the `index()` view function. This call is different from `url_for()` used previously to bind the CSS file. In this case, you need to provide only one argument, the name of the view function linked to its associated route and not a file.
     * `{% block content %} {% endblock %}`: Block that will contain content specific to each child template.
 
@@ -887,7 +883,7 @@ Update the `index()` view function and the `index.html` template to display a li
 
     * Imports the `sqlite3` module.
     * Creates the `get_db_connection()` function which:
-        * Creates the `conn` object for connecting to `database.db`.
+        * Creates the `conn` object for connecting to the `database.db` database.
         * Assigns database data to the `row_factory` attribute of the `conn` object.
         * Returns the `conn` object which will be used to access the database.
     * The updated `index()` function:
@@ -1017,9 +1013,9 @@ Create a new Flask route with a view function that will process a new HTML templ
 
     Save and close the `post.html` file.
 
-1. Open the `http://<public_IP_address_of_VM>5000/1` and `http://<public_IP_address_of_VM>5000/1` URLs to view the first two posts you created together with the database.
+1. To view the first two posts you created together with the database, open these URLs: `http://<public_IP_address_of_VM>:5000/1` and `http://<public_IP_address_of_VM>:5000/2`.
 
-    If you try to open `http://<public_IP_address_of_VM>5000/3`, you will see an error page stating that the requested blog post is not found.
+    If you try to open `http://<public_IP_address_of_VM>:5000/3`, you will see an error page stating that the requested blog post is not found.
 
 1. Add links from the post titles that open the post view pages to the main page of your application.
 
@@ -1258,7 +1254,7 @@ Create a page where the user can add a new post with a title.
 
     The **New Post** control linked to the `/create` route will appear on the navigation bar.
 
-1. Go to the main page of your application, `http://<public_IP_address_of_VM>:5000`, and make sure you can create a new post using the **New Post** link on the navigation bar.
+1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and make sure you can create a new post using the **New Post** link on the navigation bar.
 
 ### Editing an existing post {#edit-post}
 
@@ -1372,7 +1368,7 @@ Create a page where you can edit an existing post.
 
     Save and close the `index.html` file.
 
-1. Go to the main page of your application, `http://<public_IP_address_of_VM>:5000`, and check that it has **Edit** links to edit posts.
+1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and check that it has **Edit** links to edit posts.
 
 ### Deleting a post {#delete-post}
 
@@ -1397,7 +1393,7 @@ Create a page where you can edit an existing post.
         return redirect(url_for('index'))
     ```
 
-    This function only accepts POST requests. This means that opening `http://public_IP_address_of_VM>:5000/ID/delete` in a browser will return an error, as web browsers use GET requests by default. You can only send a POST request via this route by using a form that provides the ID of the post you want to delete.
+    This function only accepts POST requests. This means that opening `http://<public_IP_address_of_VM>:5000/ID/delete` in a browser will return an error, as web browsers use GET requests by default. You can only send a POST request via this route by using a form that provides the ID of the post you want to delete.
 
     After receiving a POST request, the function opens a connection to the database and executes the `DELETE FROM` SQL command, and then the changes are committed, and the connection is closed. The application redirects the user to the main page and displays a message that the post was successfully deleted.
 
@@ -1411,7 +1407,7 @@ Create a page where you can edit an existing post.
     nano templates/edit.html
     ```
 
-1. Right after the `<hr>` tag and before the `{% endblock %}` line, add `<form>`:
+1. Add the `<form>` tag right after the `<hr>` tag and before the `{% endblock %}` line:
 
     ```html
     ...
@@ -1428,7 +1424,7 @@ Create a page where you can edit an existing post.
 
     Save and close the `edit.html` file.
 
-1. Go to the main page of your application, `http://<public_IP_address_of_VM>:5000`, and check that the post edit page now has the **Delete Post** button.
+1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and check that the post edit page now has the **Delete Post** button.
 
 Your application is now ready. If you did everything correctly, the final source code of your project should match the [code on this page](https://github.com/).
 
