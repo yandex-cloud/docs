@@ -60,7 +60,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify the name: `service-account-for-budget`.
-      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_roles }}** field, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and selec the `editor` role.
+      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_roles }}** field, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI {#cli}
@@ -93,7 +93,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Assign the service account the `editor` role for your folder:
 
           ```bash
-          yc resource-manager folder add-access-binding <folder_name> \
+          yc resource-manager folder add-access-binding <folder_ID> \
             --role editor \
             --subject serviceAccount:<service_account_ID>
           ```
@@ -101,7 +101,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           Where:
 
           * `<folder_name>`: Name of your folder in {{ yandex-cloud }}.
-          * `<service_account_ID>`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the service account.
+          * `<service_account_ID>`: Previously saved service account [ID](../../iam/operations/sa/get-id.md).
 
           Result:
 
@@ -165,7 +165,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       secret: YCPQhHFMx6rnWXQC9ID425gk3V9YnUc********
       ```
 
-      Save the `key_id` ID and the `secret` private key. You will not be able to get this key value again.
+      Save the ID (`key_id`) and secret key (`secret`). You will not be able to get this key value again.
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
 
@@ -342,7 +342,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Create a function:
           1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-          1. Enter the function name, `budget-trigger-handler`.
+          1. Enter the function name: `budget-trigger-handler`.
           1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. Create a function version:
@@ -350,12 +350,12 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_bgt.zip` archive created in the previous step.
           1. Specify the entry point: `budget_trigger_handler.Handler`.
           1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-              * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`.
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
+              * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                   * `FOLDER_ID` : ID of the folder to stop the VMs in.
-                  * `TAG`: `target-for-stop`.
+                  * `TAG`: `target-for-stop`
                   * `AWS_ACCESS_KEY_ID`: Static access key ID value saved previously.
                   * `AWS_ACCESS_KEY_ID`: Private key value of the static access key saved previously.
                   * `BUDGET_QUEUE_URL`: Previously saved value of the `budget-queue` URL .
@@ -546,7 +546,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         Result:
 
         ```text
-        Done! Congratulations on your new bot. You will find it at t.me/YCVMBudgetInformerBot. You can now add a description, `About` section, and profile picture for your bot. See /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+        Done! Congratulations on your new bot. You will find it at t.me/YCVMBudgetInformerBot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
 
         Use this token to access the HTTP API:
         715063****:AAGuj****-0VrIm7j9i****************
@@ -613,9 +613,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_queue.zip` archive created in the previous step.
           1. Specify the entry point: `budget_queue_handler.HandleBudgetQueueMessage`.
           1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-              * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`.
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
+              * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                   * `TELEGRAM_BOT_API_TOKEN`: Previously saved API token of the Telegram bot.
                   * `TELEGRAM_BOT_CHAT_ID`: Previously saved `ChatID` of the Telegram user.
@@ -624,7 +624,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - CLI {#cli}
 
-      1. Create a function named `budget-queue-handler`.
+      1. Create the `budget-queue-handler` function:
 
           ```bash
           yc serverless function create \
@@ -774,31 +774,32 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 {% endlist %}
 
 
-## Create {{ compute-name }} VMs
-
-Before you start creating virtual machines, prepare a [key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) (public and private) to access the VMs via SSH.
+## Create {{ compute-name }} VMs {#create-vms}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * In the **{{ ui-key.yacloud.common.name }}** field, specify the name: `target-instance-1`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
-      * In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter `target-for-stop:true`. Click **Enter** to save the label.
-
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `sample-subnet-{{ region-id }}-b` subnet you created earler.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
+
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `sample-subnet-{{ region-id }}-b` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
-      * Enter the `yc-user` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+
+      * Specify the VM name, `target-instance-1`.
+      * In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter `target-for-stop:true`. Click **Enter** to save the label.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

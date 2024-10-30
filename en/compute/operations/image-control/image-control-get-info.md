@@ -67,12 +67,12 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
       Where:
 
-      * `data "yandex_compute_image"`: Describes the disk image as the data source:
+      * `data "yandex_compute_image"`: Description of the disk image as a data source:
         * `image_id`: Disk image ID.
       * `output "image"`: Output variable that contains information about the minimum disk size:
         * `value`: Returned value.
 
-      You can replace `min_disk_size` with any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
+      Instead of `min_disk_size` you can select any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
 
   1. Create resources:
 

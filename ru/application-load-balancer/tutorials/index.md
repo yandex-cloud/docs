@@ -15,5 +15,6 @@ description: Различные сценарии использования {{ a
 * [{#T}](gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](high-accessible-dmz.md)
 * [{#T}](application-load-balancer-website.md)
 * [{#T}](custom-health-checks.md)

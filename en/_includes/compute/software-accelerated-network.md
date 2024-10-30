@@ -3,6 +3,7 @@
 In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. A *hypervisor* proportionally distributes the computing load across all processor cores allocated to a VM.
 
 The computing load can be logically divided into three parts:
+
 * User load: OS processes and user processes run in the OS of a user VM.
 * Processes maintaining the operation of [network disks](../../compute/concepts/disk.md).
 * Processes for handling the VM's network traffic.
@@ -44,9 +45,9 @@ The [cost](../../compute/pricing.md#software-accelerated-network) of additional 
 
 To enable a software-accelerated network:
 
-* Select the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
+* Select the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
 
-* Enable the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
+* Enable the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
 
 ## Recommendations for using a software-accelerated network {#use-cases}
 

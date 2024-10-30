@@ -1,4 +1,4 @@
-# Creating a VM backup with Hystax Acura Backup
+# Backing up a VM with Hystax Acura Backup
 
 
 You can create VM backups automatically and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
@@ -89,7 +89,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
@@ -114,83 +114,91 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 ## Create a VM with Hystax Acura Backup {#create-acura-vm}
 
-1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You will need them when creating a VM.
-1. To create a VM with recommended configuration and a boot disk from the Hystax Acura Backup image:
+To create a VM with recommended configuration and a boot disk from the Hystax Acura Backup image:
 
-    {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
-    - Management console {#console}
+- Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![img](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-          * Enter a name, e.g., `hystax-acura-vm`, and description for the VM.
-          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-            Save the availability zone ID. You will need it later.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
-          * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-          * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-          * In the list of public images, select [Hystax Acura Backup to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
+      * In the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
-          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`
-          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-          * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-          * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**. Save the subnet ID. You will need it later.
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-          * Select the `hystax-acura-account` service account you [created earlier](#create-sa).
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key.
-      1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      Save the availability zone ID. You will need it later.
 
-    - CLI {#cli}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the `8 vCPU` configuration and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the new VM or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-      Run this command:
+              * In the window that opens, enter the network name and select the folder to host the network.
+              * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+              * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      ```bash
-      yc compute instance create \
-        --name hystax-acura-vm \
-        --zone <availability_zone> \
-        --cores 8 \
-        --memory 16 \
-        --network-interface subnet-id=<subnet_ID>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
-        --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax_Acura_Backup_image_ID> \
-        --service-account-id <service_account_ID> \
-        --ssh-key <path_to_public_SSH_key_file>
-      ```
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
 
-      Where:
-      * `--name`: VM name, e.g., `hystax-acura-vm`.
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`. Save the availability zone ID. You will need it later.
-      * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) the VM has.
-      * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
-      * `--network-interface`: VM network interface description:
-        * `subnet-id`: ID of the subnet to connect your VM to. You can get the list of subnets using the `yc vpc subnet list` CLI command. Save the subnet ID. You will need it later.
-        * `nat-ip-version=ipv4`: Connect a public IP address.
-        * `security-group-ids`: Security group. Use this parameter if the group is previously configured. You can get the list of groups using the `yc vpc security-group list` CLI command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
-      * `--create-boot-disk`: Create a new disk for the VM:
-        * `name`: Disk name, e.g., `hystax-acura-disk`.
-        * `size`: Disk size.
-        * `image-id`: Disk image ID. Use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}.
-      * `--service-account-id`: ID of the [previously created](#create-sa) service account. You can get the list of accounts using the `yc iam service-account list` command.
-      * `--ssh-key`: Path to the public SSH key file. The default username for access over SSH is `yc-user`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-    - API {#api}
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `hystax-acura-vm`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `hystax-acura-account` service account.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-    {% endlist %}
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Run this command:
+
+  ```bash
+  yc compute instance create \
+    --name hystax-acura-vm \
+    --zone <availability_zone> \
+    --cores 8 \
+    --memory 16 \
+    --network-interface subnet-id=<subnet_ID>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
+    --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax_Acura_Backup_image_ID> \
+    --service-account-id <service_account_ID> \
+    --ssh-key <path_to_public_SSH_key_file>
+  ```
+
+  Where:
+  * `--name`: VM name, e.g., `hystax-acura-vm`.
+  * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`. Save the availability zone ID. You will need it later.
+  * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) the VM has.
+  * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
+  * `--network-interface`: VM network interface description:
+    * `subnet-id`: ID of the subnet to connect your VM to. You can get the list of subnets using the `yc vpc subnet list` CLI command. Save the subnet ID. You will need it later.
+    * `nat-ip-version=ipv4`: Connect a public IP address.
+    * `security-group-ids`: Security group. Use this parameter if the group is previously configured. You can get the list of groups using the `yc vpc security-group list` CLI command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+  * `--create-boot-disk`: Create a new disk for the VM:
+    * `name`: Disk name, e.g., `hystax-acura-disk`.
+    * `size`: Disk size.
+    * `image-id`: Disk image ID. Use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}.
+  * `--service-account-id`: ID of the [previously created](#create-sa) service account. You can get the list of accounts using the `yc iam service-account list` command.
+  * `--ssh-key`: Path to the public SSH key file. The default username for access over SSH is `yc-user`.
+
+- API {#api}
+
+  Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
+
+{% endlist %}
 
 ## Make the VM IP address static {#static-ip}
 
@@ -214,7 +222,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's update address attribute command:
+  1. See the description of the CLI update address attribute command:
 
       ```bash
       yc vpc address update --help

@@ -98,7 +98,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_placement_group_id`: Disk placement group ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
@@ -205,11 +205,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       }
       ```
 
-     Where:
+      Where:
 
       * `disk_placement_group_id`: Disk placement group ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
@@ -229,7 +229,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `DiskPlacementGroupService/SetAccessBindings` call completely rewrite the resource access permissions. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `DiskPlacementGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 

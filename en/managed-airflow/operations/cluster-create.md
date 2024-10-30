@@ -12,13 +12,9 @@ keywords:
 
 Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
 
-## Before creating a cluster {#before-creating}
+## Creating a cluster {#create-cluster}
 
-1. In the folder where you want to create a cluster, [create a service account](../../iam/operations/sa/create.md) with the `managed-airflow.integrationProvider` role.
-1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) to store [DAG files](../concepts/index.md#about-the-service).
-1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](../security/index.md#roles-list) for creating a cluster.
-
-## Create a cluster {#create-cluster}
+To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -51,7 +47,9 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
            {% endnote %}
 
-        * Select the [previously created](#before-creating) service account with the `managed-airflow.integrationProvider` role.
+        * Select an existing service account or create a new one.
+
+           Make sure to assign the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md) to the service account:
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
@@ -99,17 +97,19 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
       {% endnote %}
 
-  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, specify a name for the previously created bucket that will store DAG files.
+  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select a bucket or create a new one. This bucket will store DAG files.
+
+      Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
 
   1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
 
-  1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
+  1. Optionally, under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
       * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
-        Fill out the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+        Fill in the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
-      * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) for [storing {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
+      * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
         {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
 

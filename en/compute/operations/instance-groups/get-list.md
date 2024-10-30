@@ -11,7 +11,7 @@ To get a list of instance groups:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the VM group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 
@@ -21,7 +21,7 @@ To get a list of instance groups:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for work with an instance group:
+  1. See the description of the CLI command to use an instance group:
 
       ```bash
       {{ yc-compute-ig }} --help

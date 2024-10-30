@@ -18,13 +18,13 @@ Before connecting, [configure security groups](index.md#configuring-security-gro
 
 Examples were tested in the following environment:
 
-* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
-* Bash: `5.0.16`
-* Python: `3.8.2`, pip3: `20.0.2`
-* Node.JS: `10.19.0`, npm: `6.14.4`
-* OpenJDK: `11.0.8`, Maven: `3.6.3`
-* Go: `1.13.8`
-* mono-complete: `6.8.0.105`
+* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS.
+* Bash: `5.0.16`.
+* Python: `3.8.2`, pip3: `20.0.2`.
+* Node.JS: `10.19.0`, npm: `6.14.4`.
+* OpenJDK: `11.0.8`, Maven: `3.6.3`.
+* Go: `1.13.8`.
+* mono-complete: `6.8.0.105`.
 
 ## C# {#csharp}
 
@@ -60,7 +60,7 @@ Before connecting:
     </Project>
     ```
 
-1. Copy `App.csproj` to the directories of the producer application and consumer application:
+1. Copy `App.csproj` to the producer and consumer application directories:
 
     ```bash
     cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
@@ -593,6 +593,7 @@ Before connecting:
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
@@ -667,6 +668,7 @@ Before connecting:
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
@@ -1121,7 +1123,7 @@ Before connecting:
 
 ## Node.js {#nodejs}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y nodejs npm && \
@@ -1332,7 +1334,7 @@ npm install node-rdkafka
 
 ## Python (kafka-python) {#kafka-python}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
@@ -1455,7 +1457,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 ## Python (confluent-kafka) {#confluent-kafka-python}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 pip install confluent_kafka
@@ -1479,6 +1481,7 @@ pip install confluent_kafka
           'bootstrap.servers': '<broker_host_FQDN>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<producer_name>',
           'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }

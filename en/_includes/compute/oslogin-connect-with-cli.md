@@ -1,52 +1,26 @@
 To connect to a VM via OS Login with an SSH certificate using the YC CLI:
 
-1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
-
-    To connect to a VM via OS Login with an SSH certificate using the YC CLI, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
-
+1. {% include [oslogin-connect-cert-enable-in-org](../../_includes/compute/oslogin-connect-cert-enable-in-org.md) %}
 1. View the description of the CLI command to connect to a VM:
 
     ```bash
     yc compute ssh --help
     ```
-
-1. Get a list of all VMs in the default folder:
-
-    ```bash
-    yc compute instance list
-    ```
-
-    Result:
-
-    ```text
-    +----------------------+-----------------+---------------+---------+----------------------+
-    |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    ```
-
+1. {% include [os-login-cli-organization-list](../../_includes/organization/os-login-cli-organization-list.md) %}
+1. {% include [os-login-cli-profile-list](../../_includes/organization/os-login-cli-profile-list.md) %}
+1. {% include [oslogin-connect-instr-list-vms](../../_includes/compute/oslogin-connect-instr-list-vms.md) %}
 1. Connect to the VM:
 
-      To connect via OS login, use the VM name:
+    ```bash
+    yc compute ssh \
+      --name <VM_name>
+      --login <user_or_service_account_login>
+      --internal-address
+    ```
 
-      ```bash
-      yc compute ssh \
-        --name <VM_name>
-      ```
+    Where:
+    * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
+    * `--login`: Previously obtained user or service account login, as set in the OS Login profile. This is an optional parameter. If this parameter is not specified, the connection will use the SSH certificate of the user or service account currently authorized in the YC CLI profile.
+    * (Optional) `--internal-address`: To connect using an internal IP address.
 
-      When connecting via OS Login, you can specify the VM ID instead of its name:
-
-      ```bash
-      yc compute ssh \
-        --id <VM_ID>
-      ```
-
-      To connect via OS login by an internal IP address, use the `--internal-address` parameter:
-      
-      ```bash
-      yc compute ssh \
-        --name <VM_name> \
-        --internal-address
-      ```
+    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM you need, under **Connect to VM**, expand the **Connect via the {{ yandex-cloud }} CLI interface** section and select the **Certificate** tab.

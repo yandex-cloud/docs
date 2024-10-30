@@ -213,7 +213,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-      Example:
+      Examples:
 
       ```bash
       yc compute instance relocate a7lh48f5jvlk******** \
@@ -288,7 +288,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-  Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property in `network-interface`; for public IP addresses, use `nat-address=<public_IP_address>`. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
+  Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
 
 {% endlist %}
 

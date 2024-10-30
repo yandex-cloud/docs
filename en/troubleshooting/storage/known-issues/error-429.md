@@ -29,4 +29,4 @@ You can also recursively delete all files with an identical prefix. The followin
 aws s3 --endpoint-url=https://storage.yandexcloud.net rm s3://my-bucket/my-folder/ --recursive
 ```
 
-A guide for installing and configuring the AWS CLI is also available in our [documentation](../../../docs/storage/tools/aws-cli).
+A guide for installing and configuring the AWS CLI is also available in our [documentation](../../../storage/tools/aws-cli.md).

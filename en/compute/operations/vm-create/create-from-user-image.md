@@ -20,86 +20,39 @@ Make sure the image you upload has the `READY` status.
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Enter a name and description for the VM. The naming requirements are as follows:
-
-        {% include [name-format](../../../_includes/name-format.md) %}
-
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
-      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image:
-
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and click **{{ ui-key.yacloud.common.select }}**.
-      * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.
-      * Select an image from the list and click **{{ ui-key.yacloud.common.apply }}**.
-
-
-  1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
-
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
-
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_additional }}** option in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
-      * Enter the disk name.
+
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Add a [disk](../../concepts/disk.md).
+
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**
+      * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Create new`.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below.
+      * Specify the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
-      * Specify the required block size.
-      * Specify the required disk size.
+      * Specify the required disk size and block size.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_additional }}** option in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
+  1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+  1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}
+  1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
+  1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
+  1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name:
 
-      * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
-      * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` as content.
-      * Select the image you need.
-      * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-
-
-  1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
-
-     * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-     * In the window that opens, select the file storage.
-     * Enter the device name.
-     * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-
-     * Choose a [platform](../../concepts/vm-platforms.md).
-     * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
-     * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
-     * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-
-     {% include [network-settings](../../../_includes/compute/network-settings.md) %}
-
-
-  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
-
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-
-     * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
-     * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). This option is only available for Linux images.
-     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-
-       {% note alert %}
-
-       Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
-
-       {% endnote %}
-
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
-     * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-
-     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
-
-  1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../concepts/placement-groups.md).
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+  1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
@@ -112,7 +65,7 @@ Make sure the image you upload has the `READY` status.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to create a VM:
+  1. View the description of the CLI command to create a VM:
 
      ```bash
      yc compute instance create --help
@@ -185,7 +138,7 @@ Make sure the image you upload has the `READY` status.
              {% include [name-format](../../../_includes/name-format.md) %}
 
          * `size`: Disk size in GB.
-         * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
+         * `image-id`: ID of the custom image for the VM. Specify the ID of the [uploaded](../image-create/upload.md) image.
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
@@ -259,7 +212,7 @@ Make sure the image you upload has the `READY` status.
 
        resources {
          cores  = <number_of_vCPU_cores>
-         memory = <RAM_GB>
+         memory = <RAM_in_GB>
        }
 
        boot_disk {
@@ -324,7 +277,7 @@ Make sure the image you upload has the `READY` status.
 
      {% endnote %}
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Create resources:
 

@@ -137,7 +137,7 @@ The cost for bucket support includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -155,6 +155,7 @@ The cost for bucket support includes:
      ```
 
      Result:
+     
      ```text
      make_bucket: <bucket_name>
      ```
@@ -312,5 +313,5 @@ You can also configure the service to be run by a system user (for more informat
 
 To stop paying for the resources you created:
 
-* [Delete objects](../../storage/operations/objects/delete-all.md) from the bucket.
+* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
 * [Delete the bucket](../../storage/operations/buckets/delete.md).

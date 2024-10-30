@@ -111,6 +111,10 @@ items:
           Проверка состояния приложений в кластере {{ k8s }} с помощью
           Ingress-контроллера {{ alb-name }}
         href: tutorials/custom-health-checks.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Next-Generation Firewall
+        href: tutorials/high-accessible-dmz.md
   - name: Концепции
     items:
       - name: Обзор

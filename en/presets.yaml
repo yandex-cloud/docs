@@ -6100,7 +6100,6 @@ default:
           switch_logs: Logs
           switch_ml-models: Machine learning
           switch_monitoring: Monitoring
-          switch_operations: Operations
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
@@ -6209,7 +6208,6 @@ default:
         compute:
           network-select:
             field_address: IP address
-            field_advanced: Advanced
             field_external: Public IP
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
@@ -6235,7 +6233,6 @@ default:
             field_platform: Platform
             field_preemptible: Preemptible
             field_sw-accelerated-net: Software network acceleration
-            label_sw-accelerated-net: Software accelerated network
             label_tab-custom: Custom
             label_tab-gpu: GPU
             value_platform-tab-gpu: With GPU
@@ -6485,7 +6482,6 @@ default:
             button_create: Add
             field_name: Name
             field_source: Contents
-            label_title: Add a secondary disk
             value_source-disk: Disk
             value_source-image: Image
             value_source-none: Empty
@@ -6549,12 +6545,10 @@ default:
         landing:
           action_create-resource: Create resource
         nfs:
-          button_attach-filesystem-to-the-instance: Attach file storage
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage
           button_detach-instance-from-the-filesystem: Detach file storage
           label_attached-instances: Virtual machines
-          label_filesystems: File storages
         placement-group:
           disks:
             button_add-disk: Add disk
@@ -7632,7 +7626,6 @@ default:
           switch_hosts: Hosts
           switch_logs: Logs
           switch_monitoring: Monitoring
-          switch_operations: Operations
           switch_shards: Shards
           switch_users: Users
         hosts:
@@ -7650,7 +7643,6 @@ default:
           switch_hosts: Hosts
           switch_logs: Logs
           switch_monitoring: Monitoring
-          switch_operations: Operations
           switch_users: Users
         field_backup_priority: Backup priority
         field_priority: Master priority
@@ -7702,7 +7694,6 @@ default:
           switch_hosts: Hosts
           switch_logs: Logs
           switch_monitoring: Monitoring
-          switch_operations: Operations
           switch_users: Users
         databases:
           dialog:

@@ -61,8 +61,8 @@ The internal load balancer's listener is assigned a random IP address from the r
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The values range from `1` to `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a virtual machine ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks after which no traffic will be routed to a virtual machine.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM ready to receive traffic.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks to stop routing traffic to a VM.
 	    1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -74,7 +74,7 @@ The internal load balancer's listener is assigned a random IP address from the r
   
   1. Before creating a load balancer, [create a target group](target-group-create.md) to attach to it.
 
-  1. View a description of the CLI command to create a network load balancer:
+  1. See the description of the CLI command to create a network load balancer:
 
      ```bash
      yc load-balancer network-load-balancer create --help
@@ -170,7 +170,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Create a network load balancer:
 
@@ -212,7 +212,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
        deletion_protection = "true"
      ```
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -319,7 +319,7 @@ Create an internal network load balancer with a listener and attached target gro
      }
      ```
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

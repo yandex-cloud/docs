@@ -17,6 +17,7 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](video-recognition.md)
 * [{#T}](regular-launch.md)
 * [{#T}](batch-code-execution.md)
+* [{#T}](data-from-ch-geocoder.md)
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
 

@@ -1,6 +1,6 @@
 # Load test regressions
 
-For each test launched through the service, you can determine a number of integral metrics, such as [response time](load-test-results.md#quantiles), [number of service responses with incorrect codes](load-test-results.md#network-codes), RPS disorders, etc. Integral metrics allow the user to quickly assess the quality of the test or the service being tested.
+For each test you run with {{ load-testing-full-name }}, you can specify a certain number of integral metrics, such as [response time](load-test-results.md#quantiles), [number of service responses with incorrect codes](load-test-results.md#network-codes), RPS disorders, etc. Integral metrics allow the user to quickly assess the quality of the test or the service being tested.
 
 Using the visualization tools on the **Regressions** page, you can create graphs of dependencies of integral metrics on time for any performed tests.
 
@@ -34,8 +34,13 @@ A testing thread is a separate instance of a load generator. It is usually equal
 
 This chart displays the dependence of RPS disorder on time.
 
+### Thresholds for regression metrics {#check-regressions}
 
-# See also
+For each metric (line) on the regression dashboard charts, you can add a threshold value the excess of which should be considered abnormal. The chart areas where values exceed the thresholds are highlighted with the same color as the relevant metric line.
 
-[How to create a regression dashboard](../operations/regressions.md)
+For individual tests, you can also use the `check-regressions` [command](../../cli/cli-ref/managed-services/loadtesting/test/check-regression.md) in the {{ yandex-cloud }} CLI to check whether metric thresholds were exceeded. For more information, see [{#T}](../operations/check-regression.md).
 
+## See also {#see-also}
+
+[Creating a regression dashboard](../operations/regressions.md)
+[Checking regression metrics for exceeded thresholds](../operations/check-regression.md)

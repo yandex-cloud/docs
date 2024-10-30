@@ -77,6 +77,10 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

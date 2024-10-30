@@ -11,5 +11,5 @@ Check that you have entered a valid token, then establish a connection following
 
 ## If nothing helped {#if-issue-still-persists}
 
-If these actions did not help you solve the task, write an [email](datalens@htmls.ru)to the MyWarehouse connector technical support.
+If these actions did not help you solve the task, write an [email](mailto:datalens@htmls.ru)to the MyWarehouse connector technical support.
 

@@ -93,17 +93,17 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Migrating databases to {{ mgp-name }}
+      - name: Migrating a database to {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
           Creating an external table from a {{ objstorage-full-name }} bucket
           table using a configuration file
         href: tutorials/config-server-for-s3.md
-      - name: Migrating databases from {{ GP }} to {{ PG }}
+      - name: Migrating a database from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
-      - name: Migrating databases from {{ GP }} to {{ CH }}
+      - name: Migrating a database from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
-      - name: Migrating databases from {{ MY }} to {{ GP }}
+      - name: Migrating a database from {{ MY }} to {{ GP }}
         href: tutorials/mmy-to-mgp.md
       - name: >-
           Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name

@@ -24,27 +24,53 @@ To create a VM:
 
 - Management console
 
-   1. On the [management console]({{ link-console-main }}) [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page, click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter a name for the VM, e.g., `opencart`. The naming requirements are as follows:
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the list of services, select **{{ compute-short-name }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **VMs**.
+  1. Click **Create VM**.  
+  1. Under **Image/boot disk selection**:
 
-      {% include [name-format](../../_includes/name-format.md) %}
+      * Go to the **Marketplace** tab.
+      * Click **Show all Marketplace products**.
+      * In the list of public [images](../../compute/concepts/image.md), select [OpenCart](/marketplace/products/yc/opencart-3) and click **Use**.
 
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [OpenCart](/marketplace/products/yc/opencart-3) as your public [image](../../compute/concepts/image.md).
-   1. Under **Disks**, select a 13 GB [SSD](../../compute/concepts/disk.md).
-   1. Under **Computing resources**, specify the following configuration:
+  1. Under **Location**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **Disks and file storage**, configure a boot [disk](../../compute/concepts/disk.md):
+
+      * Select the [disk type](../../compute/concepts/disk.md#disks_types): `SSD`.
+      * Specify the disk size: `13 GB`.
+
+  1. Under **Computing resources**, go to **Custom** and specify the following configuration:
+
       * **Platform**: `Intel Ice Lake`
       * **Guaranteed vCPU share**: `20%`
       * **vCPU**: `2`
       * **RAM**: `4 GB`
-   1. Under **Network settings**:
-      * Select the [network](../../vpc/concepts/network.md#network) and [subnet](../../vpc/concepts/network.md#subnet) to connect your VM to. If you do not have a network or subnet yet, you can create them on the VM creation page: click **Create new network** or **Create new subnet**.
-      * Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
-   1. Under **Access**, specify the information required to access the VM:
-      * In the **Login** field, enter the preferred username for the user to be created on the VM, e.g., `ubuntu`.
-      * In the **SSH key** field, paste your public SSH key. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
-   1. Click **Create VM**.
-   1. [Get the public IP address of the VM](../../compute/operations/instance-groups/get-info.md): you will need it later to [configure OpenCart](#configure-opencart).
+
+  1. Under **Network settings**:
+
+      * In the **Subnet** field, specify the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Create subnet**.
+          * If you do not have a network, click **Create network** to create one:
+
+              * In the window that opens, specify the network name and select the folder to host the network.
+              * (Optional) Select the **Create subnets** option to automatically create subnets in all availability zones.
+              * Click **Create network**.
+
+      * In the **Public address** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+
+    1. Under **Access**, select **Immutable key** and specify the information required for access to the VM:
+
+        * In the **Login** field, enter the preferred username for the user to be created on the VM, e.g., `ubuntu`.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **General information**, enter the VM name, e.g., `opencart`. The naming requirements are as follows:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+  1. Click **Create VM**.
+  1. Get the [public IP address](../../vpc/concepts/address.md#public-addresses) of the VM: you will use it later to [configure OpenCart](#configure-opencart). You can find out the public IP address in the management console. On the VM's page, go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section and find the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
 
 {% endlist %}
 
@@ -62,24 +88,24 @@ To create a DB cluster:
 
 - Management console
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ MY }} cluster**.
-   1. Specify a name for the cluster, e.g., `opencart`.
-   1. Under **Host class**, select `s2.micro`. These characteristics are enough for the system to run under a normal workload.
-   1. Under **Database**, enter:
-      * **DB name**: Keep the default value, `db1`.
-      * **Username** to connect to the DB: Keep the default value, `user1`.
-      * **Password** for OpenCart to access the {{ MY }} DB.
-   1. Under **Hosts**, change the **Availability zone** for the DB, if needed. To do this, click ![pencil](../../_assets/console-icons/pencil.svg) to the right of the currently selected availability zone, and select the availability zone from the drop-down list.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ MY }} cluster**.
+  1. Specify a name for the cluster, e.g., `opencart`.
+  1. Under **Host class**, select `s2.micro`. These characteristics are enough for the system to run under a normal workload.
+  1. Under **Database**, enter:
+     * **DB name**: Keep the default value, `db1`.
+     * **Username** to connect to the DB: Keep the default value, `user1`.
+     * **Password** for OpenCart to access the {{ MY }} DB.
+  1. Under **Hosts**, change the **Availability zone** for the DB, if needed. To do this, click ![pencil](../../_assets/console-icons/pencil.svg) to the right of the currently selected availability zone and select the availability zone from the drop-down list.
 
-      {% note tip %}
+     {% note tip %}
 
-      We recommend selecting the same availability zone as when you created the VM. This reduces latency between the VM and the DB.
+     We recommend selecting the same availability zone as when you created the VM. This reduces latency between the VM and the DB.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. (Optional) If you want to ensure fault tolerance for the DB, add more hosts to the cluster by clicking **Add host** and specifying the availability zone for the host.
-   1. Leave the other fields unchanged.
-   1. Click **Create cluster**.
+  1. (Optional) If you want to ensure fault tolerance for the DB, add more hosts to the cluster by clicking **Add host** and specifying the availability zone for the host.
+  1. Leave the other fields unchanged.
+  1. Click **Create cluster**.
 
 {% endlist %}
 
@@ -93,8 +119,8 @@ Creating a DB cluster may take a few minutes. After creating, [configure OpenCar
 
 To stop paying for the resources you created:
 
-1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `opencart` VM.
-1. If you used a {{ MY }} database, [delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md) (in the example, the database cluster is created under the `opencart` name).
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) `opencart`.
+1. If you used a {{ MY }} database, [delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md) (in our example, the database cluster is created under the `opencart` name).
 
 If you reserved a static public IP address specifically for this VM:
 1. Select **{{ vpc-short-name }}** in your folder.

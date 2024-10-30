@@ -191,7 +191,7 @@ You can get a public image ID or other information about it.
       * `output "image"`: Output variable containing information about the OS [family](../../concepts/image.md#family):
         * `value`: Returned value.
 
-      Instead of `family` you can select any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
+      Instead of `family` you can select any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
 
   1. Create resources:
 

@@ -31,7 +31,8 @@ You can create an empty disk of the specified size.
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
      When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
-   1. Click **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
+
+  1. Click **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
 
 - CLI {#cli}
 

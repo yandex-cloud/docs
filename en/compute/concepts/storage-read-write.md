@@ -19,7 +19,7 @@ Read and write operations utilize the same disk resource. The more read operatio
 ![image](../../_assets/compute/max-iops.svg)
 
 Where:
-* ![image](../../_assets/compute/alpha.svg): Share of write operations out of the total number of read and write operations per second. The possible values are: &alpha;&isin;[0,1].
+* ![image](../../_assets/compute/alpha.svg) is the share of write operations out of the total number of read and write operations per second. Possible values: &alpha;&isin;[0,1].
 * _WriteIOPS_: IOPS write value obtained using the formula for the actual IOPS value.
 * _ReadIOPS_: IOPS read value obtained using the formula for the actual IOPS value.
 
@@ -47,6 +47,7 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
 1. [Attach](../operations/vm-control/vm-attach-disk.md) a disk to a VM instance.
 1. Install [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) on your VM instance.
+
     Sample command for Ubuntu:
 
     ```bash
@@ -266,7 +267,7 @@ Result:
 
 If a VM exceeds [disk limits](limits.md#compute-limits-disks) at any time, this will trigger throttling.
 
-_Throttling_ is a feature that intentionally limits performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. Since all write and read operations are processed in a single thread (vCPU), overloading system disks may cause network problems. This is true for both VMs and physical servers.
+_Throttling_ is a feature that forcibly limits the performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. Since all write and read operations are processed in a single thread (vCPU), overloading system disks may cause network problems. This is true for both VMs and physical servers.
 
 > For example, let's assume there is a write limit of 300 IPOS. The limit is split into 10 parts and applies once every 100 ms. 300 / 10 = 30 IOPS per write request will be allowed every 100 ms. If you send 30 requests once and then 30 more requests within 100 ms (evenly distributed across the 100 ms interval), this will trigger throttling and only the first 30 requests will be sent. The rest of them will be enqueued and processed within the next 100 ms. If write requests are executed sporadically, throttling may cause significant delays. At times, there will be up to N IOPS of requests within 100 ms.
 
