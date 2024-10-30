@@ -243,7 +243,7 @@
    1. Откройте файл:
 
       ```bash
-      sudo nano /etc/unbound/unbound.conf
+      sudo nano /etc/systemd/resolved.conf
       ```
 
    1. Вставьте в файл после строки `[Resolve]` текст:
