@@ -107,7 +107,7 @@ Create a VM with the following characteristics:
 * Number of vCPUs: 64
 * Amount of RAM: 704 GB
 * Number of local disks: 2
-* Size of a single local disk: 3,198,924,357,632 B (~ 2.91 TB)
+* Size of a single local disk: 3,198,924,357,632 B (~2.91 TB)
 * Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
 
 To do this, follow these steps:

@@ -170,6 +170,18 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Настройка PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Сегментация облачной инфраструктуры с помощью решения Check Point
+          Next-Generation Firewall
+        href: tutorials/network-segmentation-checkpoint.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
       - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
         href: tutorials/terraform-modules.md
       - name: >-

@@ -144,6 +144,16 @@ items:
           Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
+      - name: Дашборд сети магазинов из БД {{ CH }}
+        href: tutorials/data-from-ch-visualization.md
+      - name: >-
+          Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
+          Marketplace
+        href: tutorials/data-from-ch-to-geolayers-visualization.md
+      - name: >-
+          Геокодинг с помощью API Яндекс Карт для визуализации в {{
+          datalens-short-name }}
+        href: tutorials/data-from-ch-geocoder.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

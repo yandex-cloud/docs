@@ -6108,7 +6108,6 @@ default:
           switch_logs: Логи
           switch_ml-models: Машинное обучение
           switch_monitoring: Мониторинг
-          switch_operations: Операции
           switch_shard-groups: Группы шардов
           switch_shards: Шарды
           switch_users: Пользователи
@@ -6217,7 +6216,6 @@ default:
         compute:
           network-select:
             field_address: IP-адрес
-            field_advanced: Дополнительно
             field_external: Публичный адрес
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
@@ -6243,7 +6241,6 @@ default:
             field_platform: Платформа
             field_preemptible: Прерываемая
             field_sw-accelerated-net: Программное ускорение сети
-            label_sw-accelerated-net: Программно-ускоренная сеть
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
             value_platform-tab-gpu: Есть GPU
@@ -6493,7 +6490,6 @@ default:
             button_create: Добавить
             field_name: Имя
             field_source: Наполнение
-            label_title: Добавление дополнительного диска
             value_source-disk: Диск
             value_source-image: Образ
             value_source-none: Пустой
@@ -6559,12 +6555,10 @@ default:
         landing:
           action_create-resource: Создать ресурс
         nfs:
-          button_attach-filesystem-to-the-instance: Подключить файловое хранилище
           button_attach-instance-to-the-filesystem: Подключить к ВМ
           button_create-filesystem: Создать файловое хранилище
           button_detach-instance-from-the-filesystem: Отключить файловое хранилище
           label_attached-instances: Виртуальные машины
-          label_filesystems: Файловые хранилища
         placement-group:
           disks:
             button_add-disk: Добавить диск
@@ -7642,7 +7636,6 @@ default:
           switch_hosts: Хосты
           switch_logs: Логи
           switch_monitoring: Мониторинг
-          switch_operations: Операции
           switch_shards: Шарды
           switch_users: Пользователи
         hosts:
@@ -7660,7 +7653,6 @@ default:
           switch_hosts: Хосты
           switch_logs: Логи
           switch_monitoring: Мониторинг
-          switch_operations: Операции
           switch_users: Пользователи
         field_backup_priority: Приоритет cоздания бэкапа
         field_priority: Приоритет мастера
@@ -7712,7 +7704,6 @@ default:
           switch_hosts: Хосты
           switch_logs: Логи
           switch_monitoring: Мониторинг
-          switch_operations: Операции
           switch_users: Пользователи
         databases:
           dialog:

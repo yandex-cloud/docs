@@ -6,11 +6,11 @@
 
 Для выполнения примера:
 
-1. [{#T}](#before-you-begin).
-1. [{#T}](#create-datastream).
-1. [{#T}](#configure-generation).
-1. [{#T}](#run-query).
-1. [{#T}](#check-result).
+1. [Подготовьтесь к работе](#before-you-begin).
+1. [Создайте поток данных](#create-datastream).
+1. [Настройте генерацию данных](#configure-generation).
+1. [Выполните запрос](#run-query).
+1. [Исследуйте результат](#check-result).
 
 {% note info %}
 

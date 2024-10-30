@@ -91,6 +91,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 ## Restoring clusters from backups {#restore}
 
+
 The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
@@ -203,7 +204,7 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--segment-disk-type`: Segment host [disk type](../concepts/storage.md).
         * `--segment-host-count`: Number of segment hosts.
         * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
-        * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>` and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
 
@@ -215,12 +216,12 @@ If you set the current time as the recovery time, the new cluster will match the
 
     To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
-    * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+    * Backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
     * Time point to which you want to restore the cluster, in the `time` parameter. By default, the cluster will be restored from a backup.
     * Number of segment hosts in the `segmentHostCount` parameter.
     * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.
     * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
-    * (Optional) Comma-separated list of DBs and tables to restore from the backup, in the `restoreOnly` parameter. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>` and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+    * (Optional) Comma-separated list of DBs and tables to restore from the backup, in the `restoreOnly` parameter. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
     By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
 

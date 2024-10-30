@@ -109,7 +109,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Make sure the resource has no roles assigned that you would not want to lose:
 
      ```bash
-     {{ yc-compute-ig }} list-access-bindings <instance_group_name_or_ID>
+     {{ yc-compute-ig }} list-access-bindings <VM_group_name_or_ID>
      ```
 
   1. See the CLI command description for assigning roles for an instance group:

@@ -37,7 +37,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
     Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
-    * `uiProxy` parameter set to `true`.
+    * `true` in the `uiProxy` parameter.
     * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `uiProxy`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

@@ -303,9 +303,9 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
 * One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr********` subnet.
-* Network SSD storage (`{{ disk-type-example }}`): 20 GB.     
+* Network SSD storage (`{{ disk-type-example }}`): 20 GB.
 * With databases and users that existed in the cluster at the time of recovery.
-     
+
 
 {% list tabs group=instructions %}
 

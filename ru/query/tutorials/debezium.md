@@ -17,11 +17,11 @@ description: Следуя данному руководству, вы сможе
 
 Для выполнения сценария:
 
-1. [{#T}](#create-yds-stream).
-1. [{#T}](#credentials).
-1. [{#T}](#debezium-server).
-1. [{#T}](#connect-query).
-1. [{#T}](#query).
+1. [Создайте поток данных {{ yds-name }}](#create-yds-stream).
+1. [Настройте реквизиты подключения к потоку](#credentials).
+1. [Настройте Debezium Server](#debezium-server).
+1. [Подключите {{ yq-name }} к потоку данных](#connect-query).
+1. [Выполните запрос к данным](#query).
 
 ## Перед началом работы {#before-you-begin}
 

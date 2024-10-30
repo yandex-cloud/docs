@@ -11,9 +11,13 @@ You can connect to a cluster:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
+You can assign one or more security groups to a {{ mgp-name }} cluster. To connect to a cluster, security groups must include rules allowing traffic on {{ port-mgp }} port from certain IP addresses or other security groups.
 
-To ensure {{ mgp-name }} cluster functionality and network connectivity between its hosts, you need at least one cluster security group to include rules allowing any incoming and outgoing traffic from any IPs using any protocol.
+{% note info %}
+
+A security group assigned to a cluster controls traffic between the cluster and other cloud or external resources. You do not need to configure interaction between cluster hosts as it is controlled by a separate system security group.
+
+{% endnote %}
 
 Rule settings depend on the connection method you select:
 
@@ -25,17 +29,31 @@ Rule settings depend on the connection method you select:
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
+    1. Add the following rules to the cluster security group:
 
-    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+        1. For incoming traffic:
 
-        For example, you can set the following rules for a VM:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+
+         1. For outgoing traffic:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+            This rule enables {{ mgp-name }} to use external data sources, e.g., PXF or GPFDIST.
+
+    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
         * For incoming traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Range of addresses to connect from.
 
             This rule allows you to connect to a VM over SSH.
 
@@ -163,7 +181,7 @@ Create a new server connection:
 
 1. In the **Parameters** tab:
 
-    * Set **SSL mode** to `verify-full`.
+    * Set the **SSL mode** parameter to `verify-full`.
     * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
 
 1. Click **Save** to save the server connection settings.

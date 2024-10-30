@@ -15,8 +15,8 @@ To create a public [DNS zone](../concepts/dns-zone.md):
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify the zone settings:
-     1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
+     1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
      1. **{{ ui-key.yacloud.common.name }}** of the zone.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -44,7 +44,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
      Where:
 
      * `--name`: Zone name. It must be unique within the folder. This is an optional parameter.
-     * `--zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
+     * `--zone`: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
      * `--public-visibility`: Flag for creating a public zone.
 
      Result:
@@ -85,7 +85,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
      * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
      * `description`: Zone description. This is an optional parameter.
      * `labels`: DNS zone labels. This is an optional parameter.
-     * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
+     * `zone`: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
      * `public`: Zone visibility, public or private. This is an optional parameter.
 
      For more information about the `yandex_dns_zone` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
@@ -106,4 +106,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and the `ns2.{{ dns-ns-host-sld }}` servers in your user area on your registrar's website.
+To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your registrar's website.

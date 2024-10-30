@@ -53,7 +53,7 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Creating a VM backup with Hystax Acura Backup
+      - name: Backing up a VM with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
       - name: >-
           Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
@@ -816,7 +816,7 @@ items:
         href: serverless/deploy-app-container.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: serverless/events-from-postbox-to-yds.md
       - name: >-
           Using {{ api-gw-full-name }} to set up speech synthesis in {{

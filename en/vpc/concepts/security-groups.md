@@ -13,9 +13,9 @@ Currently, you can only use IPv4 in {{ yandex-cloud }} networks. IPv6 is not sup
 
 {% endnote %}
 
-A security group (SG) is a resource that is created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
+A *security group* (SG) is a resource created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
 
-A default security group (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
+A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
 
 * It will allow any network traffic, both egress and ingress, in the new cloud network.
 * It applies to traffic passing through all subnets in the network where the DSG is created.
@@ -56,7 +56,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 
 {% note info %}
 
-For more information about using security groups in a specific {{ yandex-cloud }} service, see the documentation for the service.
+For more information about using security groups in a specific {{ yandex-cloud }} service, see the relevant documentation.
 
 {% endnote %}
 
@@ -77,8 +77,8 @@ Each rule in a security group has a fixed set of fields:
 | **Description** | Brief description of the rule. You can also describe metadata in this field.
 | **Protocol** | Specifies the [network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1) to be used for this rule.<br> You can use the following protocols for security group rules:<ul><li>`TCP`</li><li>`UDP`</li><li>`ICMP`</li><li>`AH` (for IPsec connections)</li><li>`ESP` (for IPsec connections)</li><li>`GRE` (for tunnel connections)</li><li>`Any`: [Any network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1)</li></ul>
 | **Port range** | Range of ports for the network protocol selected in the rule.<br> You can only specify a continuous port range. You cannot list arbitrary comma-separated ports.
-| **Source** <br>For incoming traffic only | Traffic source IP addresses.<br>You can specify traffic source IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
-| **Destination** <br>For outgoing traffic only | Traffic target IP addresses.<br>You can specify traffic target IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing SG.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
+| **Source** <br>For incoming traffic only | Traffic source IP addresses.<br>You can use the following methods to specify traffic source IP adresses:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
+| **Target** <br>For outgoing traffic only | Traffic target IP addresses.<br>You can use the following methods to specify traffic target IP addresses:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
 
 ### Self rule {#self-rule}
 

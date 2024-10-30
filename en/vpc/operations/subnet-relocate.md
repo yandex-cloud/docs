@@ -7,7 +7,7 @@ description: Follow this guide to move a subnet to a different availability zone
 # Moving a subnet to a different availability zone
 
 
-[Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances or other resources.
+[Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VMs or other resources.
 
 Make sure the subnet does not include addresses of target load balancer groups either. They prevent migration. Remove unused [target groups](../../network-load-balancer/operations/target-group-delete.md) or individual addresses.
 
@@ -57,14 +57,14 @@ To move a subnet to a different availability zone:
 
       Where:
       * `--id`: ID of the subnet you need to move.
-      * `--destination-zone-id`: ID of the availability zone to move the subnet to. Possible values:
+      * `--destination-zone-id`: ID of the availability zone to move the subnet to. The possible values are:
 
           * `{{ region-id }}-a`
           * `{{ region-id }}-b`
           * `{{ region-id }}-c`
           * `{{ region-id }}-d`
 
-      Example:
+      Examples:
 
       ```bash
       yc vpc subnet relocate \
@@ -101,7 +101,7 @@ To move a subnet to a different availability zone:
   1. Save the token to a variable.
 
       ```bash
-      export IAM_TOKEN=<received_IAM_token>
+      export IAM_TOKEN=<obtained_IAM_token>
       ```
 
   1. Prepare a `body.json` file with the request body, specifying the ID of the [availability zone](../../overview/concepts/geo-scope.md) to move the subnet to:

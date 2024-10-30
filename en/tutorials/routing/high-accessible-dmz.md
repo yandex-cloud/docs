@@ -14,7 +14,7 @@ The solution has the following basic segments (folders):
 * The **dmz** folder enables you to publish applications with public access from the internet.
 * The **app** and **database** folders can be used to host the business logic of applications (in this tutorial, no VMs are placed there).
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md). 
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
 
 To deploy a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall:
 
@@ -26,7 +26,7 @@ To deploy a secure high-availability network infrastructure with a dedicated DMZ
 1. [Test the solution for performance and fault tolerance](#test-accessibility).
 
 If you no longer need the resources you created, [delete them](#clear-out).
- 
+
 ## Prepare your cloud {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -60,7 +60,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | ----------- | ----------- |
    | Folders | 7 |
    | Instance groups | 1 |
-   | VM instances | 6 |
+   | Virtual machines | 6 |
    | VM instance vCPUs | 18 |
    | VM instance RAM | 30 GB |
    | Disks | 6 |
@@ -88,18 +88,18 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 ## Prepare the environment {#prepare-environment}
 
 The tutorial uses Windows software and the [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/). 
+The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 
 ### Configure WSL {#setup-wsl}
 
 1. Check if WSL is installed on your PC. To do this, run the following command in the CLI terminal:
-  
+
    ```bash
    wsl -l
    ```
 
    If WSL is installed, the terminal will display a list of available distributions, for example:
-   
+
    ```bash
    Windows Subsystem for Linux Distributions:
    docker-desktop (Default)
@@ -111,7 +111,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 1. In addition, you can install on WSL a familiar Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
 
 1. To make the installed distribution the default system, run:
-   
+
    ```bash
    wsl --setdefault ubuntu
    ```
@@ -129,7 +129,7 @@ All the steps described below are completed in the Linux terminal.
 {% endnote %}
 
 ### Create a service account with the admin privileges for the cloud {#create-account}
-   
+
 {% list tabs %}
 
 - Management console
@@ -147,10 +147,10 @@ All the steps described below are completed in the Linux terminal.
    1. Assign the account the admin [role](../../iam/concepts/access-control/roles.md):
 
          1. On the management console [home page]({{ link-console-main }}), select the cloud.
-         1. Click the **Access bindings** tab.
+         1. Click the **Access permissions** tab.
          1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
          1. Click **Edit roles**.
-         1. Click **Add role** in the dialog box that opens and select the `admin` role. 
+         1. Click **Add role** in the dialog box that opens and select the `admin` role.
 
 - CLI
 
@@ -209,14 +209,14 @@ All the steps described below are completed in the Linux terminal.
 
 1. Install {{ TF }}:
 
-   1. Go to the root directory:
+   1. Go to the root folder:
 
       ```bash
       cd ~
       ```
 
    1. Create a folder named `terraform` and open it:
-   
+
       ```bash
       mkdir terraform
       cd terraform
@@ -229,20 +229,20 @@ All the steps described below are completed in the Linux terminal.
       ```
 
    1. Install the `zip` utility and unpack the ZIP archive:
-      
+
       ```bash
       apt install zip
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the folder containing the executable file to the `PATH` variable: 
-      
+   1. Add the path to the folder with the executable file to the `PATH` variable:
+
       ```bash
       export PATH=$PATH:~/terraform
       ```
 
    1. Make sure that {{ TF }} is installed by running this command:
-   
+
       ```bash
       terraform -help
       ```
@@ -274,8 +274,8 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` repository and go to the `yc-dmz-with-high-available-ngfw` folder:
-    
+1. Clone the `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` GitHub repository and go to the `yc-dmz-with-high-available-ngfw` folder:
+
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw.git
     cd yc-dmz-with-high-available-ngfw
@@ -292,7 +292,7 @@ All the steps described below are completed in the Linux terminal.
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
-         
+
          ```bash
          yc iam key create \
            --service-account-id <service_account_ID> \
@@ -301,13 +301,13 @@ All the steps described below are completed in the Linux terminal.
          ```
 
          Where:
-         
+
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
          Result:
-         
+
          ```text
          id: aje8nn871qo4a8bbopvb
          service_account_id: ajehr0to1g8bh0la8c8r
@@ -316,23 +316,23 @@ All the steps described below are completed in the Linux terminal.
          ```
 
       1. Create a CLI profile to run operations on behalf of the service account:
-        
+
          ```bash
          yc config profile create sa-terraform
          ```
 
          Result:
-         
+
          ```text
          Profile 'sa-terraform' created and activated
          ```
 
       1. Set the profile configuration:
-         
+
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
@@ -342,7 +342,7 @@ All the steps described below are completed in the Linux terminal.
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
       1. Add the credentials to the environment variables:
-         
+
          ```bash
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)
@@ -352,13 +352,13 @@ All the steps described below are completed in the Linux terminal.
     {% endlist %}
 
 1. Get your PC's IP address:
-      
+
       ```bash
       curl 2ip.ru
       ```
 
       Result:
-      
+
       ```text
       192.240.24.87
       ```
@@ -366,13 +366,13 @@ All the steps described below are completed in the Linux terminal.
 1. Open the `terraform.tfvars` file in the `nano` editor to edit as follows:
 
    1. The line with the cloud ID:
-      
+
       ```text
       cloud_id = "<cloud_ID>"
       ```
 
    1. The line with a list of allowed public IP addresses for `jump-vm` access:
-      
+
       ```text
       trusted_ip_for_access_jump-vm = ["<PC_external_IP>/32"]
       ```
@@ -380,25 +380,25 @@ All the steps described below are completed in the Linux terminal.
 1. Deploy the resources in the cloud using {{ TF }}:
 
    1. Initialize {{ TF }}:
-       
+
        ```bash
        terraform init
        ```
 
    1. Check the {{ TF }} file configuration:
-       
+
        ```bash
        terraform validate
        ```
 
    1. Check the list of cloud resources you are about to create:
-       
+
        ```bash
        terraform plan
        ```
 
    1. Create resources:
-       
+
        ```bash
        terraform apply
        ```
@@ -409,7 +409,7 @@ As an example, this tutorial describes steps for configuring firewalls named FW-
 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, `app`, and `database` segment subnets.  
+After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, `app`, and `database` segment subnets.
 
 To set up the VPN tunnel:
 
@@ -432,7 +432,7 @@ To set up the VPN tunnel:
 
 1. Click **Activate** to activate the tunnel.
 1. Check network connectivity with the management server via the WireGuard VPN tunnel by running the following command in the terminal:
-   
+
    ```bash
    ping 192.168.1.100
    ```
@@ -448,12 +448,12 @@ To set up the VPN tunnel:
 
 To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point) solution, install and run the SmartConsole GUI client: 
 
-1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser. 
-1. Sign in using the `admin` username and the `admin` password. 
+1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
+1. Sign in using the `admin` username and the `admin` password.
 1. In the Gaia Portal interface that opens, download the SmartConsole GUI client. To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole access password:
-   
+
     ```bash
     terraform output fw_smartconsole_mgmt-server_password
     ```
@@ -467,12 +467,12 @@ Add the FW-A firewall gateway to the management server using the Wizard:
 1. In the **Objects** drop-down list at the top left, select **More object types → Network Object → Gateways and Servers → New Gateway...**.
 1. Click **Wizard Mode**.
 1. In the dialog box that opens, enter the following:
-   * **Gateway name:** `FW-A`
-   * **Gateway platform:** `CloudGuard IaaS`
-   * **IPv4:** `192.168.1.10`
+   * **Gateway name**: `FW-A`
+   * **Gateway platform**: `CloudGuard IaaS`
+   * **IPv4**: `192.168.1.10`
 1. Click **Next**.
 1. Get the firewall access password:
-   
+
     ```bash
     terraform output fw_sic-password
     ```
@@ -481,8 +481,8 @@ Add the FW-A firewall gateway to the management server using the Wizard:
 1. Click **Next** and **Finish**.
 
 In the same way, add the FW-B firewall gateway to the management server using the following values:
-   * **Gateway name:** `FW-B`
-   * **IPv4:** `192.168.2.10`
+   * **Gateway name**: `FW-B`
+   * **IPv4**: `192.168.2.10`
 
 ### Configure the FW-A gateway network interfaces {#setup-gateways-fw-a}
 
@@ -598,7 +598,7 @@ In the same way, set up the static NAT table for the FW-B gateway based on the t
    | 1 | public | FW-a-public-IP | TCP_8080 | FW-a-dmz-IP (Hide) | dmz-web-server | Original | FW-a |
    | 2 | public | FW-b-public-IP | TCP_8080 | FW-b-dmz-IP (Hide) | dmz-web-server | Original | FW-b |
 
-###  Apply the security policy rules {#apply-policies}
+### Apply the security policy rules {#apply-policies}
 
 1. Click **Install Policy** at the top left of the screen.
 1. In the dialog box that opens, click **Push & Install**.
@@ -628,21 +628,21 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
     ```
 
 1. Make sure the network infrastructure can be accessed from the outside by opening the following address in the browser:
-    
+
     ```bash
-    http://<Public_IP_address_of_ALB_load_balancer>
+    http://<public_IP_address_of_ALB_load_balancer>
     ```
     If the system is accessible from the outside, you will see the `Welcome to nginx!` page.
 
 1. Make sure the firewall security policy rules that allow traffic are active. To do this, go to the `yc-dmz-with-high-available-ngfw` folder on your PC and connect to a VM in the DMZ segment over SSH:
-   
+
     ```bash
     cd ~/yc-dmz-with-high-available-ngfw
-    ssh -i pt_key.pem admin@<Internal_IP_address_of_VM_in_DMZ_segment>
+    ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
     ```
 
-1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:    
-   
+1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:
+
     ```bash
     ping ya.ru
     ```
@@ -650,7 +650,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
     The command must run according to the `ping from dmz to internet` rule that allows traffic.
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command: 
+   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
 
    ```bash
    ping 192.168.1.101
@@ -674,13 +674,13 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 1. Enable incoming traffic to the application published in the DMZ segment by making the following request to the ALB public IP:
 
     ```bash
-    httping http://<Public_IP_address_of_ALB_load_balancer>
+    httping http://<public_IP_address_of_ALB_load_balancer>
     ```
 
 1. Open another terminal and connect to a VM in the DMZ segment over SSH:
-    
+
     ```bash
-    ssh -i pt_key.pem admin@<Internal_IP_address_of_VM_in_DMZ_segment>
+    ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
     ```
 
 1. Set a password for the `admin` user:
@@ -693,12 +693,12 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 
     1. In the list of services, select **{{ compute-name }}**.
     1. In the list of VMs, choose the one you need, click ![options](../../_assets/options.svg), and select **Edit**.
-    1. In the **Additional** column, select **Grant access to serial console**. 
-      
+    1. In the **Additional** column, select **Grant access to serial console**.
+
 1. Connect to the VM serial console, enter the `admin` username and the password you set earlier.
 
 1. Enable outgoing traffic from the VM in the DMZ segment to a resource on the internet using `ping`:
-   
+
     ```bash
     ping ya.ru
     ```
@@ -707,7 +707,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 
 1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A fails, there may be a traffic loss for 1 minute on average with subsequent traffic recovery.
 1. Check that the FW-B address is used in the `dmz-rt` route table, the `dmz` folder, for the next hop.
-1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [run](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `fw-a` VM by emulating the recovery of the main firewall. 
+1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [run](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `fw-a` VM by emulating the recovery of the main firewall.
 1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A recovers, there may be a traffic loss for 1 minute on average with subsequent traffic recovery.
 1. Check that the FW-A address is used in the `dmz-rt` route table, the `dmz` folder, for the next hop.
 

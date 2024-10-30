@@ -1,5 +1,5 @@
 ---
-title: Running a VM group with autoscaling if the load limit is exceeded.
+title: Running a VM group with autoscaling if the load limit is exceeded
 description: In this tutorial, you will deploy an instance group with an autoscaling policy to apply if the load limit is exceeded. The VM loading will be balanced using a network load balancer.
 ---
 

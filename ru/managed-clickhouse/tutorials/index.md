@@ -25,6 +25,9 @@ description: Различные сценарии использования {{ m
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](data-from-ch-visualization.md)
+* [{#T}](data-from-ch-to-geolayers-visualization.md)
+* [{#T}](data-from-ch-geocoder.md)
 * [{#T}](greenplum-to-clickhouse.md)
 
 

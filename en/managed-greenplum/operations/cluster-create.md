@@ -1,5 +1,6 @@
 # Creating a {{ GP }} cluster
 
+
 A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
@@ -65,7 +66,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% note info %}
 
-            The names `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+            Such names as `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
             {% endnote %}
 
@@ -79,6 +80,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
+            
 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -182,7 +184,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `PRODUCTION`: For stable versions of your apps.
             * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
-        * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, but must begin with a letter, number, or underscore. It must be from 1 to 32 characters long.
+        * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
         * `--master-config` and `--segment-config`: Master and segment host configuration:
             * `resource-id`: [Host class](../concepts/instance-types.md).
@@ -194,7 +196,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 * `network-ssd-nonreplicated`.
 
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-        * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+        * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You need to specify the ID if the selected availability zone has two or more subnets.
         * `--assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-a-host) to the hosts is required, `true` or `false`.
         * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
         * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
@@ -251,6 +253,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * `--datalens-access`: Access from {{ datalens-full-name }}, `true` or `false`.
 
+        
 
 - {{ TF }} {#tf}
 
@@ -275,7 +278,6 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       ```hcl
       resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
-
       resource "yandex_vpc_subnet" "<subnet_name_in_{{ TF }}>" {
         name           = "<subnet_name>"
         zone           = "<availability_zone>"
@@ -303,7 +305,6 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         master_host_count   = <number_of_master_hosts>
         segment_host_count  = <number_of_segment_hosts>
         segment_in_host     = <number_of_segments_per_host>
-
         master_subcluster {
           resources {
             resource_preset_id = "<host_class>"
@@ -311,7 +312,6 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             disk_type_id       = "<disk_type>"
           }
         }
-
         segment_subcluster {
           resources {
             resource_preset_id = "<host_class>"
@@ -339,7 +339,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
 
-      For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
 
   1. Check that the {{ TF }} configuration files are correct:
 
@@ -355,7 +355,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     To create a {{ mgp-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
 
-    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+    * ID of the folder to host the cluster, in the `folderId` parameter.
     * Cluster name in the `name` parameter.
     * Cluster environment in the `environment` parameter.
     * {{ GP }} version in the `config.version` parameter.
@@ -375,9 +375,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     * Public access settings in the `assignPublicIp` parameter.
     * Backup window settings in the `config.backupWindowStart` parameter.
     * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
+        
+
     * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/) in the `config.access.dataTransfer` parameter.
     * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
-    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in the `configSpec.greenplumConfig_<version>` parameter.
+    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in `configSpec.greenplumConfig_<version>`.
     * [Routine maintenance operations](../concepts/maintenance.md#regular-ops) settings in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -387,7 +389,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ GP }} cluster copy:
 
@@ -469,21 +471,21 @@ To create an {{ GP }} cluster copy:
     Create a {{ mgp-name }} cluster with the following test specifications:
 
 
-    * Name: `gp-cluster`.
-    * Version: `{{ versions.cli.latest }}`.
-    * Environment: `PRODUCTION`.
-    * Network: `default`.
-    * User: `user1`.
-    * Password: `user1user1`.
-    * With master and segment hosts:
+    * Name: `gp-cluster`
+    * Version: `{{ versions.cli.latest }}`
+    * Environment: `PRODUCTION`
+    * Network: `default`
+    * User: `user1`
+    * Password: `user1user1`
+    * Master and segment hosts:
 
         * Class: `s2.medium`
         * With 100 GB local SSD (`local-ssd`) storage
 
-    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.
-    * With public access to hosts.
-    * Security group: `{{ security-group }}`.
-    * With protection against accidental cluster deletion.
+    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`
+    * With public access to hosts
+    * Security group: `{{ security-group }}`
+    * With protection against accidental cluster deletion
 
 
     Run the following command:

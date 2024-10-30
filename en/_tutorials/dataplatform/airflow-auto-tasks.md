@@ -6,9 +6,8 @@ To create an infrastructure for automation of {{ yq-full-name }} tasks using {{ 
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a service account](#create-service-account).
-1. [Create a static access key](#create-static-key).
 1. [Create a cloud network and subnets](#create-network).
-1. [Create a bucket in {{ objstorage-name }}](#create-bucket).
+1. [Prepare a bucket in {{ objstorage-name }}](#bucket).
 1. [Configure an egress NAT](#nat-routing).
 1. [Create a {{ maf-name }} cluster](#create-airflow-cluster).
 1. [Prepare the DAG file and run the graph](#dag).
@@ -35,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
   1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `airflow-sa`.
+  1. Enter a name for the service account: `airflow-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -74,54 +73,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
-
-{% endlist %}
-
-## Create a static access key {#create-static-key}
-
-Create a static access key for the `airflow-sa` service account:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder containing the `airflow-sa` service account.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `airflow-sa` service account.
-  1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the key ID and secret key. You will need them when creating a [cluster](../../managed-airflow/concepts/index.md#cluster).
-
-      {% note alert %}
-
-      After you close the dialog, the private key value will become unavailable.
-
-      {% endnote %}
-
-- {{ yandex-cloud }} CLI {#cli}
-
-  1. Run this command:
-
-      ```bash
-      yc iam access-key create --service-account-name airflow-sa
-      ```
-
-      Result:
-
-      ```text
-      access_key:
-        id: aje6t3vsbj8l********
-        service_account_id: nfersamh4sjq********
-        created_at: "2018-11-22T14:37:51Z"
-        key_id: 0n8X6WY6S24N********
-      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
-      ```
-  1. Save the key ID and secret key. You will need them when creating a [cluster](../../managed-airflow/concepts/index.md#cluster).
-
-- API {#api}
-
-  To create an access key, use the [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) gRPC API call.
+  To assign the `editor` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -212,7 +164,9 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 {% endlist %}
 
-## Create a bucket in {{ objstorage-name }} {#create-bucket}
+## Prepare a bucket in {{ objstorage-name }} {#bucket}
+
+### Create a bucket {#create-bucket}
 
 {% list tabs group=instructions %}
 
@@ -230,7 +184,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
   1. Create a bucket by specifying a [unique name](../../storage/concepts/bucket.md#naming) for it:
-  
+
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3 mb s3://<bucket_name>
@@ -256,6 +210,10 @@ All resources you create in the tutorial will belong to the same [cloud network]
   To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
 {% endlist %}
+
+### Set up the bucket ACL {#configure-acl-bucket}
+
+{% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
 ## Configure an egress NAT {#nat-routing}
 
@@ -344,6 +302,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
   For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/create.md).
 
+
 - API {#api}
 
   To create a route table, use the [create](../../vpc/api-ref/RouteTable/create.md) REST API method for the [RouteTable](../../vpc/api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../../vpc/api-ref/grpc/RouteTable/create.md) gRPC API call.
@@ -409,13 +368,12 @@ Link the route table to a subnet to route subnet traffic via the NAT gateway:
 
 {% include [airflow-auto-tasks-test](../_tutorials_includes/airflow-auto-tasks/airflow-auto-tasks-test.md) %}
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
 To delete the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
-1. [Unlink](../../vpc/operations/subnet-update.md) the route table from the subnet.
-1. Delete the [route table](../../vpc/concepts/routing.md#rt-vm).
-1. Delete the [NAT gateway](../../vpc/concepts/gateways.md).
+1. [Disassociate and delete](../../vpc/operations/delete-route-table.md) the routing table.
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
 1. [Delete](../../managed-airflow/operations/cluster-delete.md) the {{ AF }} cluster.
 1. Delete the [subnets](../../vpc/operations/subnet-delete.md), [network](../../vpc/operations/network-delete.md), and the [service account](../../iam/operations/sa/delete.md), if required.

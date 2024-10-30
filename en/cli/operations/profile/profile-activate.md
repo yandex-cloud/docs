@@ -4,7 +4,7 @@ Multiple profiles let you quickly switch your command execution context.
 
 {% include [profile-name](../../../_includes/cli-profile-name.md) %}
 
-1. Activate the `test` profile: 
+1. Activate the `test` profile:
 
     ```bash
     yc config profile activate test

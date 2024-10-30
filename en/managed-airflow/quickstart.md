@@ -24,7 +24,8 @@ To get started with the service:
 1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. [Create a {{ objstorage-full-name }}](../storage/operations/buckets/create.md) bucket for storing {{ maf-name }} [DAG files](concepts/index.md#about-the-service).
 1. [Create a service account](../iam/operations/sa/create.md).
-1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role for a folder or bucket.
+1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` role for a folder or bucket.
+1. [Grant the `READ` permission](../storage/operations/buckets/edit-acl.md) for the bucket to the service account.
 
 
 ## Create a cluster {#cluster-create}

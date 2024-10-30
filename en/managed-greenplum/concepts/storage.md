@@ -1,6 +1,7 @@
 # Disk types in {{ mgp-name }}
 
 
+
 {{ mgp-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 {% include [storage-type](../../_includes/mdb/mgp/storage-type.md) %}
@@ -25,7 +26,7 @@ If any host storage is more than 95% full, the cluster will switch to read-only 
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
 
-### Monitoring the switch to read-only mode {#read-only-monitor}
+### Monitoring the transition to read-only mode {#read-only-monitor}
 
 To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-full-name }}:
 

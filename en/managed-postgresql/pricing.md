@@ -38,9 +38,13 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
+
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+        
         * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+
+
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
@@ -65,11 +69,11 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{mpg-name}} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

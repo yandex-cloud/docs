@@ -20,10 +20,9 @@ The option to get a receipt depends on the country of residence of your billing 
    We recommend that you keep all your payment receipts, as this will help you if any problems with payments occur.
 
    The payment receipt amount is equal to the amount debited from the bank card linked to your account.
-   More details [here](../../../billing/concepts/individual-bill).
 
 - Non-residents of Russia and Kazakhstan
 
-       According to the offer agreement for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/) clause 6.4, Yandex Cloud provides a usage invoice for such accounts. A payment receipt is not generated in this case.
+       According to the [offer agreement](https://yandex.com/legal/cloud_customer_agreement/) clause 6.4, Yandex Cloud provides a usage invoice for such accounts. A payment receipt is not generated in this case.
 
 {% endlist %}

@@ -4,6 +4,7 @@ All {{ mgp-name }} cluster hosts are located in the same {{ yandex-cloud }} [ava
 
 {% include [zone-d-disk-restrictions](../../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
+
 ## Specifics of migration in {{ data-transfer-full-name }} {#data-transfer}
 
 If your cluster acts as an [endpoint](../../../data-transfer/concepts/index.md#endpoint) at data transfer using {{ data-transfer-name }}:

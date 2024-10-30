@@ -15,15 +15,15 @@ editable: false
 The {{ compute-name }} usage cost is based on:
 * VM computing resources:
   * Type and number of cores (vCPUs).
-  * Number of graphics processing units ([GPUs](concepts/gpus.md)).
+  * Number of graphics accelerators ([GPUs](concepts/gpus.md)).
   * Amount of memory (RAM).
-* Operating systems
+* Operating systems.
 * Type and size of storage:
   * Disks
   * Images
   * Snapshots
-* Amount of outgoing traffic
-* Public IP address
+* Amount of outgoing traffic.
+* Public IP address.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -54,8 +54,8 @@ The basic level of vCPU performance depends on the [platform](concepts/vm-platfo
 Let's compare the cost of running VMs on the Intel Ice Lake [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
-* With 2 x 20% vCPUs and 2 GB of RAM.
-* With 2 x 100% vCPUs and 2 GB of RAM.
+* 2 x 20% vCPUs and 2 GB of RAM.
+* 2 x 100% vCPUs and 2 GB of RAM.
 
 Both VMs were running for 30 days.
 
@@ -143,7 +143,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported types, CVoS columns feature dashes under [Prices for the Russia region](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

@@ -6,10 +6,10 @@ description: Follow this guide to restore access to a VM.
 # Restoring access to a VM
 
 You may need to restore access to a [VM](../../concepts/vm.md) in the following cases:
-* [{#T}](#cloud-init)
-* [{#T}](#ssh-recovery)
-* [{#T}](#serial-console)
-* [{#T}](#os-recovery)
+* [{#T}](#cloud-init).
+* [{#T}](#ssh-recovery).
+* [{#T}](#serial-console).
+* [{#T}](#os-recovery).
 
 ## VM user credentials are lost {#cloud-init}
 
@@ -27,7 +27,7 @@ You may have problems accessing a Linux-based VM over SSH if the public part of 
 You can restore access to a Linux-based VM over SSH using the [serial console](#serial-console) if you have a valid pair of SSH keys.
 
 If you can't access the serial console, do the following to recover the public part of your SSH key:
-1. [Stop](../vm-control/vm-stop-and-start.md) the VM.
+1. [Stop the VM](../vm-control/vm-stop-and-start.md).
 1. [Take a snaphost](../disk-control/create-snapshot.md) of the VM's boot disk.
 1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section.
 1. [Connect over SSH](../vm-connect/ssh.md) to the auxiliary VM and [mount the disk](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) you created from the snapshot.
@@ -38,8 +38,8 @@ If you can't access the serial console, do the following to recover the public p
       cd /mnt/home/<username>/.ssh
       ```
 
-      By default, a user's SSH keys are stored in the `~/.ssh` directory of this user.
-   1. Open the `authorized_keys` file, for example, using the `nano` text editor:
+      By default, user SSH keys are stored in the user's `~/.ssh` folder.
+   1. Open the `authorized_keys` file, e.g., using the `nano` text editor:
 
       ```bash
       nano authorized_keys
@@ -73,16 +73,16 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
 - Linux {#linux}
 
-   {% note info %}
+  {% note info %}
 
-   You may use the serial console only if the user password is set. Otherwise, see [{#T}](#os-recovery).
+  You may use the serial console only if the user password is set; otherwise, see [{#T}](#os-recovery).
 
-   {% endnote %}
+  {% endnote %}
 
-   1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
-   1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the VM serial console.
-   1. Change the SSH or network settings. If you have security groups set up, make sure that their rules allow incoming TCP traffic to port 22.
-   1. Connect to the VM via SSH.
+  1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
+  1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the VM serial console.
+  1. Change the SSH or network settings. If you have security groups set up, make sure that their rules allow incoming TCP traffic to port 22.
+  1. Connect to the VM via SSH.
 
 
 {% endlist %}

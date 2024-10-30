@@ -206,7 +206,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call completely rewrite the resource access permissions. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 

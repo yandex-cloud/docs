@@ -27,7 +27,7 @@ To create a VM with a custom configuration script:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Set the required VM parameters.
+  1. [Set](create-linux-vm.md) the required VM parameters.
   1. Expand the **{{ ui-key.yacloud.common.metadata }}** section and specify:
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}**: `user-data`.
@@ -83,7 +83,7 @@ To create a VM with a custom configuration script:
 
 - API {#api}
 
-  Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. For example:
+  Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. Here is an example:
 
   ```json
   {

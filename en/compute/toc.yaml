@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Summary
+      - name: Overview
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
@@ -31,7 +31,7 @@ items:
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
-          - name: Summary
+          - name: Overview
             href: operations/dsvm/index.md
           - name: Creating a VM from a public DSVM image
             href: operations/dsvm/quickstart.md
@@ -129,7 +129,7 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Setting up OS Login on an existing VM
                 href: operations/vm-connect/enable-os-login.md
-              - name: Exporting an OS Login certificate
+              - name: Exporting an SSH certificate
                 href: operations/vm-connect/os-login-export-certificate.md
               - name: Connecting to a VM via OS Login
                 href: operations/vm-connect/os-login.md
@@ -401,7 +401,7 @@ items:
         href: tutorials/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: tutorials/hystax-disaster-recovery.md
-      - name: Creating a VM backup with Hystax Acura Backup
+      - name: Backing up a VM with Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
@@ -427,7 +427,7 @@ items:
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
         items:
-          - name: Summary
+          - name: Overview
             href: tutorials/opencart/index.md
           - name: Management console
             href: tutorials/opencart/console.md
@@ -446,7 +446,13 @@ items:
       - name: High-performance computing on preemptible VMs
         href: tutorials/hpc-on-preemptible.md
       - name: Single-node file server
-        href: tutorials/single-node-file-server.md
+        items:
+          - name: Overview
+            href: tutorials/single-node-file-server/index.md
+          - name: Management console
+            href: tutorials/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: tutorials/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: tutorials/backup-and-archive-to-sftp.md
       - name: Deploying the GlusterFS parallel file system in high availability mode
@@ -469,7 +475,7 @@ items:
         href: concepts/index.md
       - name: Virtual machines
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/vm.md
           - name: Platforms
             href: concepts/vm-platforms.md
@@ -497,7 +503,7 @@ items:
         href: concepts/gpus.md
       - name: Disks and file storages
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/storage-overview.md
           - name: Disks
             href: concepts/disk.md
@@ -515,7 +521,7 @@ items:
         href: concepts/image.md
       - name: Instance groups
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/instance-groups/index.md
           - name: Access
             href: concepts/instance-groups/access.md
@@ -527,7 +533,7 @@ items:
             href: concepts/instance-groups/variables-in-the-template.md
           - name: Policies
             items:
-              - name: Summary
+              - name: Overview
                 href: concepts/instance-groups/policies/index.md
               - name: Allocation policy
                 href: concepts/instance-groups/policies/allocation-policy.md
@@ -543,7 +549,7 @@ items:
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
-              - name: Summary
+              - name: Overview
                 href: concepts/instance-groups/deploy/index.md
               - name: Allocating instances across zones
                 href: concepts/instance-groups/deploy/zones.md

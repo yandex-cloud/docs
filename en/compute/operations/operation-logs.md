@@ -14,7 +14,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
 - Management console {#console}
 
-  To view operations with all {{ compute-name }} resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.switch_operations }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.switch_operations }}**. In the list that opens, you will also see operations with the resources that were deleted.
   
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a VM. The same steps apply to other service resources.
 
@@ -32,7 +32,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ compute-name }} resource, run this command:
+  To get a list of operations for an {{ compute-name }} resource, run this command:
 
   ```bash
   yc compute <resource_type> list-operations <resource_name_or_ID>
@@ -105,7 +105,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
 - API {#api}
 
-  Use the `listOperations` REST API method for the relevant resource or the gRPC API call `<service>/ListOperations`.
+  Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
   For example, to obtain a list of operations for a VM, use either the [listOperations](../api-ref/Instance/listOperations.md) REST API method for the [Instance](../api-ref/Instance/index.md) resource or the [InstanceService/ListOperations](../api-ref/grpc/Instance/listOperations.md) gRPC API call.
 

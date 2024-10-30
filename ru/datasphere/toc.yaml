@@ -239,6 +239,10 @@ items:
             href: tutorials/regular-launch.md
           - name: Запуск вычислений с помощью API
             href: tutorials/batch-code-execution.md
+          - name: >-
+              Геокодинг с помощью API Яндекс Карт для визуализации в {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
           - name: Обучение модели на данных из {{ objstorage-full-name }}
             href: tutorials/s3-to-datasphere.md
           - name: Создание сервера MLFlow для логирования экспериментов и артефактов
