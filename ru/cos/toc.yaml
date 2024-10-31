@@ -31,8 +31,8 @@ items:
     items:
       - name: Образ {{ coi }}
         href: concepts/index.md
-      - name: Особенности работы с загрузочным диском
-        href: concepts/boot-disk.md
+      - name: Особенности работы с дисками
+        href: concepts/disks.md
       - name: Особенности работы с сетью
         href: concepts/network.md
       - name: Docker-образ

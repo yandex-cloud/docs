@@ -35,8 +35,8 @@ items:
     items:
       - name: '{{ coi }}'
         href: concepts/index.md
-      - name: Specifics of working with a boot disk
-        href: concepts/boot-disk.md
+      - name: Specifics of working with disks
+        href: concepts/disks.md
       - name: Specifics of working with the network
         href: concepts/network.md
       - name: Docker image
