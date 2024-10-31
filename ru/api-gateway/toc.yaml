@@ -137,6 +137,10 @@ items:
           Использование {{ api-gw-name }} для настройки синтеза речи в {{
           speechkit-full-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: Ввод данных в системы хранения
+        href: tutorials/data-ingestion.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

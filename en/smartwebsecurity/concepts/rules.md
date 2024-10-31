@@ -52,6 +52,6 @@ Actions for Smart Protection and Web Application Firewall rules:
 * _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
 * _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
 
-Advanced Rate Limiter rule action: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
+Action for Advanced Rate Limiter rules: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
 
-Requests that have been allowed by all rules and passed to the protected resource are called _legitimate_.
+The requests that were allowed by all rules and passed on to the protected resource are called _legitimate_.

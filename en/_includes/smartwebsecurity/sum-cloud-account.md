@@ -1,6 +1,6 @@
 Billing is based on the number of requests across all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) linked to a single [billing account](../../billing/concepts/billing-account.md).
 
-You pay for the actual number of legitimate requests. For each request you are charged for:
+You pay for the actual number of legitimate requests. For each request, you are charged for:
 
 * Processing with security profile rules, both [basic](../../smartwebsecurity/concepts/rules.md#base-rules) and [Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) ones.
   

@@ -5,10 +5,13 @@
 Из этой статьи вы узнаете, как настроить систему сбора метрик [{{ prometheus-name }}](https://prometheus.io/) и систему визуализации [{{ grafana-name }}](https://grafana.com/) в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster). Для ускорения передачи метрик будет установлен [кеширующий прокси trickster](https://github.com/trickstercache/trickster).
 
 Чтобы настроить систему мониторинга кластера {{ managed-k8s-name }}:
-* [{#T}](#install-prometheus).
-* [{#T}](#install-trickster).
-* [{#T}](#install-grafana).
-* [{#T}](#configure-grafana).
+
+* [Установите {{ prometheus-name }}](#install-prometheus).
+* [Установите кеширующий прокси trickster](#install-trickster).
+* [Установите {{ grafana-name }}](#install-grafana).
+* [Настройте и проверьте работу {{ grafana-name }}](#configure-grafana).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 

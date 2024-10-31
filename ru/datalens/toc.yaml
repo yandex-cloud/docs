@@ -67,6 +67,8 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
             href: tutorials/data-from-tracker.md
+          - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
+            href: tutorials/storage-logs-analysis.md
           - name: 'Подкасты Яндекс Музыки: статистика'
             href: tutorials/data-from-podcasts.md
           - name: Визуализация данных {{ yq-full-name }}

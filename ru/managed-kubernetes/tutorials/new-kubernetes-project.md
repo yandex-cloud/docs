@@ -6,13 +6,14 @@
 Если вам нужно создать кластер {{ managed-k8s-name }} без доступа в интернет, обратитесь к разделу [{#T}](k8s-cluster-with-no-internet.md).
 
 Чтобы запустить приложение:
-1. [{#T}](#create-sa).
-1. [{#T}](#create-sg).
-1. [{#T}](#create-k8s-res).
-1. [{#T}](#cluster-connect).
-1. [{#T}](#create-cr-res).
-1. [{#T}](#setup-alb).
-1. [{#T}](#create-ingress).
+
+1. [Создайте сервисные аккаунты](#create-sa).
+1. [Создайте группы безопасности](#create-sg).
+1. [Подготовьте ресурсы {{ k8s }}](#create-k8s-res).
+1. [Подключитесь к кластеру {{ managed-k8s-name }}](#cluster-connect).
+1. [Подготовьте ресурсы {{ container-registry-name }}](#create-cr-res).
+1. [Установите {{ alb-name }}](#setup-alb).
+1. [Создайте балансировщик нагрузки](#create-ingress).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

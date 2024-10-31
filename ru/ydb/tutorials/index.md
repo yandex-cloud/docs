@@ -24,3 +24,4 @@ description: Различные сценарии использования {{ y
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](mkf-ydb-stream.md)
 * [{#T}](terraform-state-lock.md)
+* [{#T}](serverless-url-shortener.md)

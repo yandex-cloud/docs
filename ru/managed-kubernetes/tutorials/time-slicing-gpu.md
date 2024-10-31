@@ -4,8 +4,9 @@
 Плагин [Time-Slicing GPUs в {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) используется для чередования рабочих нагрузок, которые выполняются на одном [GPU](../../compute/concepts/gpus.md) с избыточной подпиской.
 
 Чтобы установить плагин Time-Slicing GPUs в {{ managed-k8s-name }}:
-1. [{#T}](#configure-time-slicing).
-1. [{#T}](#check-time-slicing).
+
+1. [Настройте Time-Slicing GPUs](#configure-time-slicing).
+1. [Проверьте работу Time-Slicing GPUs](#check-time-slicing).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

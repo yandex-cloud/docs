@@ -12,7 +12,7 @@ editable: false
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
-The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#rule-action) requests.
+In {{ sws-name }}, you pay for the actual number of [legitimate](concepts/rules.md#rule-action) requests.
 
 ## Prices for the Russia region {#prices}
 
@@ -37,7 +37,7 @@ The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#
 
 {% note warning %}
 
-The following price will be effective as of October 1, 2024.
+The pricing below will apply starting October 1, 2024.
 
 {% endnote %}
 
@@ -45,10 +45,14 @@ The following price will be effective as of October 1, 2024.
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
+{% cut "Example of cost calculation for requests processed by WAF rules" %}
 
-### Ready-made cost calculations for requests
+{% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity-waf.md) %}
 
-To estimate the approximate cost of requests, the table below shows the price calculations for a certain number of requests per month. This number does not include the free limit of 10,000 requests. The cost provided is for reference. The actual usage of {{ sws-name }} by your services will be calculated based on the actual number of requests.
+{% endcut %}
+
+
+#### Pre-calculated request costs
 
 
 
@@ -56,3 +60,4 @@ To estimate the approximate cost of requests, the table below shows the price ca
 
 
 To use DDoS protection at levels 3 and 4 of the OSI model, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). The service is charged for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
+

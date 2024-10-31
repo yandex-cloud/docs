@@ -1,7 +1,5 @@
 # Сгенерировать изображение с помощью {{ yandexart-name }}
 
-{% include notitle [preview-stage](../../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 С помощью нейросети {{ yandexart-name }} вы можете генерировать изображения в [асинхронном режиме](../../concepts/index.md#working-mode). В ответ на асинхронный запрос модель вернет [объект Operation](../../../api-design-guide/concepts/operation.md), содержащий идентификатор операции, по которому можно [отследить ее выполнение](../../../api-design-guide/concepts/operation.md#monitoring) и получить результат после того, как генерация завершится. Генерация результата в асинхронном режиме может занимать от пары минут до нескольких часов.
 
 ## Перед началом работы {#before-begin}

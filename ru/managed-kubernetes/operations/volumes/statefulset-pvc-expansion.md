@@ -7,8 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 
 Чтобы увеличить размер [тома](../../concepts/volume.md) для контроллера StatefulSet без остановки сервиса:
-1. [{#T}](#create-sts).
-1. [{#T}](#upgrade-sts).
+1. [Создайте контроллер StatefulSet](#create-sts).
+1. [Внесите изменения в настройки контроллера](#upgrade-sts).
 
 {% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 

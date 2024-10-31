@@ -205,6 +205,8 @@ items:
             href: tutorials/yds-to-objstorage.md
           - name: '{{ DS }} в {{ OS }}'
             href: tutorials/trails-to-os.md
+          - name: Ввод данных в системы хранения
+            href: tutorials/data-ingestion.md
       - name: Загрузка данных в витрины
         items:
           - name: '{{ GP }} в {{ CH }}'

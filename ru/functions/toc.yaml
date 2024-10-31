@@ -476,6 +476,10 @@ items:
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+        href: tutorials/data-from-tracker.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

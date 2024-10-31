@@ -52,11 +52,12 @@ The API is represented by REST resources located at `https://monitoring.{{ api-h
     ```bash
     export IAM_TOKEN=<IAM_token>
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
+    curl \
+      --request PUT \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "@body.json" \
+      "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
     ```
 
 If the request is successful, you will get the `204` HTTP code, if not, the error text.
@@ -70,9 +71,10 @@ Run the following query:
 ```bash
 export IAM_TOKEN=<IAM_token>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
 ```
 
 Response example:
@@ -92,9 +94,10 @@ Run the following query:
 ```bash
 export IAM_TOKEN=<IAM_token>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules"
 ```
 
 Response example:
@@ -115,9 +118,10 @@ Run the following query:
 ```bash
 export IAM_TOKEN=<IAM_token>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules/snapshots"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules/snapshots"
 ```
 
 Response example:
@@ -153,9 +157,10 @@ Run the following query:
 ```bash
 export IAM_TOKEN=<IAM_token>
 
-curl -X DELETE \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules"
+curl \
+  --request DELETE \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules/recording-rules"
 ```
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

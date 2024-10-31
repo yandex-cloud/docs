@@ -12,7 +12,19 @@
 
 {% endnote %}
 
-{% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
+## Различия в конфигурации кластеров с {{ ZK }} и протоколом {{ kraft-name }} {#zk-vs-kraft}
+
+Если вы создаете кластер с версией {{ KF }} 3.5 или ниже, в котором больше одного хоста, то в кластер будут добавлены три выделенных хоста {{ ZK }}. 
+
+В кластерах с версией {{ KF }} 3.6 и выше поддержан протокол [{{ kraft-name }}](../concepts/kraft.md) (сокращенно {{ kraft-short-name }}). Он используется для хранения метаданных вместо {{ ZK }}.
+
+При создании кластера с протоколом {{ kraft-short-name }} действуют ограничения на конфигурацию:
+  * Можно создать кластер только с одной или тремя [зонами доступности](../../overview/concepts/geo-scope.md).
+  * Ограничено количество хостов-брокеров:
+    * Если выбрана одна зона доступности, можно создать один или три хоста-брокера.
+    * Если выбраны три зоны доступности, можно создать только один хост-брокер.
+
+Подробнее о различиях в конфигурации кластеров с {{ ZK }} и {{ kraft-short-name }} см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -23,24 +35,26 @@
 Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 
-## Создать кластер с версией {{ KF }} 3.5 или ниже {#create-cluster}
+## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+  Чтобы создать кластер {{ mkf-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Введите имя кластера {{ mkf-name }} и его описание. Имя кластера {{ mkf-name }} должно быть уникальным в рамках каталога.
-     1. Выберите окружение, в котором нужно создать кластер {{ mkf-name }} (после создания кластера окружение изменить невозможно):
+     1. Выберите окружение, в котором нужно создать кластер {{ mkf-name }} (после создания кластера изменить окружение невозможно):
         * `PRODUCTION` — для стабильных версий приложений.
         * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
-     1. Выберите версию {{ KF }} 3.5 или ниже.
+     1. Выберите версию {{ KF }}.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов.
 
-     Класс хостов определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты брокеры {{ KF }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+     Класс хостов определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты хосты-брокеры {{ KF }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
 
      При [изменении класса хостов](cluster-update.md#change-brokers) для кластера {{ mkf-name }} меняются характеристики всех уже созданных экземпляров.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -56,18 +70,20 @@
      * Выберите объем хранилища, который будет использоваться для данных.
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
+  1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться:
 
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
-     
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить брокеры {{ KF }}. Если создать кластер {{ mkf-name }} с одной зоной доступности, в дальнейшем увеличить количество зон и брокеров будет невозможно.
+     1. Выберите одну или несколько зон доступности, в которых нужно разместить хосты-брокеры {{ KF }}.
+        Если создать кластер {{ mkf-name }} с одной зоной доступности, в дальнейшем увеличить количество зон и хостов-брокеров будет невозможно.
+        Для кластеров с версией {{ KF }} 3.6 и выше можно выбрать только одну или три зоны доступности.
      1. Выберите [сеть](../../vpc/concepts/network.md#network).
      1. Выберите [подсети](../../vpc/concepts/network.md#subnet) в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **{{ ui-key.yacloud.common.label_create-new_female }}** рядом с нужной зоной доступности.
 
         {% note info %}
 
-        Для кластера {{ mkf-name }} из нескольких хостов-брокеров нужно указать подсети в каждой зоне доступности, даже если вы планируете разместить брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+        Для кластера с версией {{ KF }} 3.5 или ниже, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
         {% endnote %}
 
@@ -79,6 +95,13 @@
      1. Укажите количество хостов-брокеров {{ KF }} для размещения в каждой выбранной зоне доступности.
 
         При выборе количества хостов учтите следующие особенности:
+        * В версиях {{ KF }} 3.6 и выше [количество хостов-брокеров зависит](#zk-vs-kraft) от выбранных зон доступности:
+        
+           * Одна зона доступности — один или три хоста-брокера. Чтобы использовать три хоста-брокера, включите настройку **{{ ui-key.yacloud.kafka.field_kraft-combined-mode }}**.
+           * Три зоны доступности — один хост-брокер.
+
+           Задать количество хостов-брокеров вручную нельзя.
+
         * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
 
 
@@ -86,7 +109,7 @@
 
 
         * Для отказоустойчивости кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/index.md#fault-tolerance).
-        * Добавление в кластер {{ mkf-name }} более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
+        * Добавление в кластер с версией {{ KF }} 3.5 или ниже более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
 
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер {{ mkf-name }}.
@@ -94,7 +117,7 @@
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-  1. Если вы указали более одного хоста-брокера, то в блоке **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
+  1. Если вы создаете кластер с версией {{ KF }} 3.5 или ниже и указали более одного хоста-брокера, то в блоке **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
   1. При необходимости задайте дополнительные настройки кластера {{ mkf-name }}:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -108,6 +131,12 @@
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% note warning %}
+
+  При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
+
+  {% endnote %}
 
   Чтобы создать кластер {{ mkf-name }}:
 
@@ -127,7 +156,8 @@
         --version <версия> \
         --network-name <имя_сети> \
         --subnet-ids <идентификаторы_подсетей> \
-        --brokers-count <количество_брокеров_в_зоне> \
+        --zone-ids <зоны_доступности> \
+        --brokers-count <количество_хостов-брокеров_в_зоне> \
         --resource-preset <класс_хоста> \
         --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <размер_хранилища_ГБ> \
@@ -140,10 +170,18 @@
      Где:
 
      * `--environment` — окружение кластера: `prestable` или `production`.
-     * `--version` — версия {{ KF }}: {{ versions.cli.str-without-latest }}.
+     * `--version` — версия {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6.
+     * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне.
+
+        Для [кластеров с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) доступны только следующие конфигурации:
+
+        * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`;
+        * `--zone-ids=<одна_зона_доступности> --brokers-count=1`;
+        * `--zone-ids=<одна_зона_доступности> --brokers-count=3`.
+
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--disk-type` — [тип диска](../concepts/storage.md).
-  
+
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -203,6 +241,12 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
+  {% note warning %}
+
+  При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
+
+  {% endnote %}
+
   Чтобы создать кластер {{ mkf-name }}:
   1. Опишите в конфигурационном файле создаваемые ресурсы:
      * Кластер {{ mkf-name }} — описание кластера и его хостов. При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
@@ -225,9 +269,10 @@
        deletion_protection = <защита_от_удаления>
 
        config {
-         assign_public_ip = "<публичный_доступ>"
-         brokers_count    = <количество_брокеров>
          version          = "<версия>"
+         zones            = ["<зоны_доступности>"]
+         brokers_count    = <количество_хостов-брокеров>
+         assign_public_ip = "<публичный_доступ>"
          schema_registry  = "<управление_схемами_данных>"
          kafka {
            resources {
@@ -237,10 +282,6 @@
            }
            kafka_config {}
          }
-
-         zones = [
-           "<зоны_доступности>"
-         ]
        }
      }
 
@@ -262,11 +303,18 @@
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
+     * `version` — версия {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6.        
+     * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
+
+       Если вы создаете [кластер с версией {{ KF }} 3.6 и выше](#zk-vs-kraft), укажите одну из доступных конфигураций:
+
+       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`;
+       * `zones = ["<одна_зона_доступности>"] brokers_count = 1`;
+       * `zones = ["<одна_зона_доступности>"] brokers_count = 3`.
+
      * `deletion_protection` — защита от удаления кластера: `true` или `false`.
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
-     * `version` — версия {{ KF }}: {{ versions.tf.str-without-latest }}.
      * `schema_registry` — управление схемами данных: `true` или `false`.
-
 
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -289,10 +337,24 @@
 
 - API {#api}
 
+  {% note warning %}
+
+  При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
+
+  {% endnote %}
+
   Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
   * Имя кластера {{ mkf-name }} в параметре `name`.
-  * Версию {{ KF }}: {{ versions.cli.str-without-latest }} — в параметре `configSpec.version`.
+  * Окружение: `PRESTABLE` или `PRODUCTION` — в параметре `environment`.
+  * Версию {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6. — в параметре `configSpec.version`.    
+  * Зоны доступности в параметре `configSpec.zoneId`.
+    При создании [кластера с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) можно указать только одну или три зоны доступности.
+  * Количество хостов-брокеров в параметре `configSpec.brokersCount`.
+    При создании [кластера с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) можно указать только один или три хоста-брокера:
+      * Если в параметре `configSpec.zoneId` указаны три зоны доступности, укажите количество хостов-брокеров `1`.
+      * Если в параметре `configSpec.zoneId` указана одна зона доступности, укажите количество хостов-брокеров `1` или `3`.
 
 
   * Идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в параметре `securityGroupIds`.
@@ -320,252 +382,41 @@
 
 {% endlist %}
 
-## Создать кластер с версией {{ KF }} 3.6 или выше {#higher-version}
-
-В кластерах {{ mkf-name }} с версией {{ KF }} 3.6 и выше поддержан протокол [{{ kraft-name }}](../concepts/kraft.md) (сокращенно {{ kraft-short-name }}). Он используется для хранения метаданных вместо {{ ZK }}.
-
-Создать кластер с {{ kraft-short-name }} можно только с определенной конфигурацией и не во всех интерфейсах {{ yandex-cloud }}. Поэтому процесс создания кластера отличается для версий {{ KF }} 3.6 и выше.
-
-{% note warning %}
-
-При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
-
-{% endnote %}
+Чтобы убедиться, что созданный кластер с версией {{ KF }} 3.6 или выше использует протокол {{ kraft-short-name }}, получите информацию о хостах кластера:
 
 {% list tabs group=instructions %}
 
-* CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы создать кластер {{ mkf-name }}:
-
-  1. Посмотрите описание команды CLI для создания кластера {{ mkf-name }}:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create --help
-     ```
-
-  1. Укажите параметры кластера {{ mkf-name }} в команде создания (в примере приведены не все параметры):
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        --name <имя_кластера> \
-        --environment prestable \
-        --version 3.6 \
-        --network-name <имя_сети> \
-        --subnet-ids <идентификаторы_подсетей> \
-        --zone-ids <зоны_доступности> \
-        --brokers-count <количество_брокеров_в_зоне> \
-        --resource-preset <класс_хоста> \
-        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
-        --disk-size <размер_хранилища_ГБ> \
-        --assign-public-ip <публичный_доступ> \
-        --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection
-     ```
-
-     Где:
-
-     * `--environment` — окружение кластера `prestable`. Только в этом окружении поддержана версия {{ KF }} 3.6.
-     * `--version` — версия {{ KF }} {{ versions.cli.latest }}.
-     * `--zone-ids` и `--brokers-count` — зоны доступности и число брокеров в каждой зоне. Укажите одну из доступных конфигураций:
-
-       * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`;
-       * `--zone-ids=<одна_зона_доступности> --brokers-count=3`.
-
-     * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
-     * `--disk-type` — [тип диска](../concepts/storage.md).
-
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-     * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
-
-        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-     {% note tip %}
-
-     При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
-
-     {% endnote %}
-
-  1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров {{ mkf-name }}), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --maintenance-window type=<тип_технического_обслуживания>,`
-                            `day=<день_недели>,`
-                            `hour=<час_дня>
-     ```
-
-     Где `type` — тип технического обслуживания:
-
-     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-
-  1. Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale):
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_байтах>,`
-                               `planned-usage-threshold=<процент_для_планового_увеличения>,`
-                               `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
-     ```
-
-     {% include [description-of-parameters](../../_includes/mdb/mkf/disk-auto-scaling.md) %}
-
-     {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-
-  1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --host-group-ids <идентификаторы_групп_выделенных_хостов>
-     ```
-
-     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-* {{ TF }} {#tf}
-
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-  {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-  Чтобы создать кластер {{ mkf-name }}:
-
-  1. Опишите в конфигурационном файле создаваемые ресурсы:
-
-     * Кластер {{ mkf-name }} — описание кластера и его хостов. При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
-
-     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
-
-     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
-
-     Пример структуры конфигурационного файла:
-
-     ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
-       environment         = "PRESTABLE"
-       name                = "<имя_кластера>"
-       network_id          = "<идентификатор_сети>"
-       subnet_ids          = ["<идентификаторы_подсетей>"]
-       security_group_ids  = ["<идентификаторы_групп_безопасности>"]
-       deletion_protection = <защита_от_удаления>
-
-       config {
-         version          = "3.6"
-         zones            = ["<зоны_доступности>"]
-         brokers_count    = <количество_брокеров>
-         assign_public_ip = "<публичный_доступ>"
-         schema_registry  = "<управление_схемами_данных>"
-         kafka {
-           resources {
-             disk_size          = <размер_хранилища_ГБ>
-             disk_type_id       = "<тип_диска>"
-             resource_preset_id = "<класс_хоста>"
-           }
-           kafka_config {}
-         }
-       }
-     }
-
-     resource "yandex_vpc_network" "<имя_сети>" {
-       name = "<имя_сети>"
-     }
-
-     resource "yandex_vpc_subnet" "<имя_подсети>" {
-       name           = "<имя_подсети>"
-       zone           = "<зона_доступности>"
-       network_id     = "<идентификатор_сети>"
-       v4_cidr_blocks = ["<диапазон>"]
-     }
-     ```
-
-     Где:
-
-     * `environment` — окружение кластера `PRESTABLE`. Только в этом окружении поддержана версия {{ KF }} 3.6.
-     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
-     * `version` — версия {{ KF }} {{ versions.tf.latest }}.
-     * `zones` и `brokers_count` — зоны доступности и число брокеров в каждой зоне. Укажите одну из доступных конфигураций:
-
-       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`;
-       * `zones = ["<одна_зона_доступности>"] brokers_count = 3`.
-
-     * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
-     * `schema_registry` — управление схемами данных: `true` или `false`.
-
-     {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-     {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
-
-  1. Проверьте корректность настроек.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Создайте кластер {{ mkf-name }}.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера {{ mkf-name }}](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
-
-* API {#api}
-
-  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
-
-  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
-  * Имя кластера {{ mkf-name }} в параметре `name`.
-  * Окружение `PRESTABLE` в параметре `environment`.
-  * Версию {{ KF }} 3.6 в параметре `configSpec.version`.
-  * Зоны доступности в параметре `configSpec.zoneId`. Можно указать одну или три зоны доступности.
-  * Количество хостов-брокеров в параметре `configSpec.brokersCount`. Если указана одна зона доступности, передайте количество брокеров 3. В случае трех зон доступности укажите количество брокеров 1.
-
-
-  * Идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в параметре `securityGroupIds`.
-
-
-  * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров {{ mkf-name }}) в параметре `maintenanceWindow`.
-  * Настройки защиты от удаления кластера {{ mkf-name }} в параметре `deletionProtection`.
-
-    {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-  Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
-
-
-
-  Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
-
-  {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-  Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale). Для этого передайте в запросе:
-
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-{% endlist %}
-
-Чтобы убедиться, что созданный кластер использует протокол {{ kraft-short-name }}, получите информацию о хостах кластера:
-
-{% list tabs group=instructions %}
-
-* Консоль управления {#console}
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя созданного кластера.
   1. На панели слева выберите **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список хостов кластера {{ mkf-name }}:
+
+  1. Посмотрите описание команды CLI для получения списка хостов кластера {{ mkf-name }}:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list-hosts --help
+     ```
+  1. Получите список хостов кластера:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list-hosts <имя_или_идентификатор_кластера>
+     ```
+
+- API {#api}
+
+  Чтобы получить список хостов кластера {{ mkf-name }}, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор кластера.
+
+  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -664,7 +515,7 @@
   * В подсети с идентификатором `{{ subnet-id }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
-  * С одним брокером.
+  * С одним хостом-брокером.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
   * С защитой от случайного удаления кластера {{ mkf-name }}.
@@ -706,7 +557,7 @@
 
 
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
-  * С одним брокером.
+  * С одним хостом-брокером.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
   * С защитой от случайного удаления кластера {{ mkf-name }}.

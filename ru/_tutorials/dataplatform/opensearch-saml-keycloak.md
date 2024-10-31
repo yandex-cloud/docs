@@ -173,6 +173,8 @@
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}** — оставьте поле пустым.
 
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — оставьте значение `0`.
+
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}** — убедитесь, что эта опция включена.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_save }}**.

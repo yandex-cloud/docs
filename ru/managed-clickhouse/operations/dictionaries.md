@@ -1075,32 +1075,27 @@
 
 ## Примеры
 
+Пусть существует кластер {{ CH }} `mych` с идентификатором `{{ cluster-id }}`, и в этот кластер нужно подключить словарь с тестовыми характеристиками:
+
+* имя словаря `mychdict`;
+* имя ключевого столбца `id`;
+* поля, доступные для запросов к базе данных:
+    * `id` с типом `UInt64`;
+    * `field1`с типом `String`;
+* фиксированный период между обновлениями словаря 300 секунд;
+* способ размещения словаря в памяти `cache` с размером кеша в 1024 ячейки;
+* источник {{ PG }}:
+    * база данных `db1`;
+    * имя таблицы `table1`;
+    * порт для подключения `{{ port-mpg }}`;
+    * имя пользователя базы данных `user1`;
+    * пароль для доступа к базе данных `user1user1`;
+    * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
+    * особый FQDN хоста-мастера `c-c9qash3nb1v9********.rw.{{ dns-zone }}`.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-    Подключите словарь с тестовыми характеристиками:
-
-    * кластер `mych`;
-    * имя `mychdict`;
-    * имя ключевого столбца `id`;
-    * поля, доступные для запросов к базе данных:
-
-        * `id` с типом `UInt64`;
-        * `field1`с типом `String`;
-
-    * фиксированный период между обновлениями словаря 300 секунд;
-    * способ размещения словаря в памяти `cache`;
-    * источник {{ PG }}:
-
-        * база данных `db1`;
-        * имя таблицы `table1`;
-        * порт для подключения `{{ port-mpg }}`;
-        * имя пользователя базы данных `user1`;
-        * пароль для доступа к базе данных `user1user1`;
-        * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
-
-    * особый FQDN хоста-мастера `c-c9qash3nb1v9********.rw.{{ dns-zone }}`.
 
     Выполните следующую команду:
 
@@ -1115,6 +1110,7 @@
                             `type=String \
        --fixed-lifetime=300 \
        --layout-type=cache \
+       --layout-size-in-cells 1024 \
        --postgresql-source db=db1,`
                           `table=table1,`
                           `port={{ port-mpg }},`
@@ -1123,6 +1119,125 @@
                           `ssl-mode=verify-full \
        --postgresql-source-hosts=c-c9qash3nb1v9********.rw.{{ dns-zone }}
     ```
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "externalDictionary": {
+            "name": "mychdict",
+            "structure": {
+              "id": {
+                "name": "id"
+              },
+              "attributes": [
+                {
+                  "name": "id",
+                  "type": "UInt64"
+                },
+                {
+                  "name": "field1",
+                  "type": "String"
+                }
+              ]
+            },
+            "layout": {
+              "type": "CACHE",
+              "sizeInCells": "1024"
+            },
+            "fixedLifetime": "300",
+            "postgresqlSource": {
+              "db": "db1",
+              "table": "table",
+              "port": "5432",
+              "user": "user1",
+              "password": "user1user1",
+              "sslMode": "VERIFY_FULL",
+              "hosts": ["c-c9qash3nb1v9********.rw.{{ dns-zone }}"]
+            }
+          }
+        }
+        ```
+
+    1. Выполните запрос c помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{{ cluster-id }}:createExternalDictionary' \
+            --data '@body.json'
+        ```
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "{{ cluster-id }}",
+          "external_dictionary": {
+            "name": "mychdict",
+            "structure": {
+              "id": {
+                "name": "id"
+              },
+              "attributes": [
+                {
+                  "name": "id",
+                  "type": "UInt64"
+                },
+                {
+                  "name": "field1",
+                  "type": "String"
+                }
+              ]
+            },
+            "layout": {
+              "type": "CACHE",
+              "size_in_cells": "1024"
+            },
+            "fixed_lifetime": "300",
+            "postgresql_source": {
+              "db": "db1",
+              "table": "table",
+              "port": "5432",
+              "user": "user1",
+              "password": "user1user1",
+              "ssl_mode": "VERIFY_FULL",
+              "hosts": ["c-c9qash3nb1v9********.rw.{{ dns-zone }}"]
+            }
+          }
+        }
+        ```
+
+    1. Выполните запрос с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateExternalDictionary \
+            < body.json
+        ```
 
 {% endlist %}
 

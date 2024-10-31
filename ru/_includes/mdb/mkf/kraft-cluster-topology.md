@@ -3,4 +3,4 @@
 * либо все три находятся в одной [зоне доступности](../../../overview/concepts/geo-scope.md);
 * либо каждый хост расположен в отдельной зоне доступности.
 
-Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} см. в [инструкции](../../../managed-kafka/operations/cluster-create.md#higher-version).
+Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} см. в [инструкции](../../../managed-kafka/operations/cluster-create.md#create-cluster).

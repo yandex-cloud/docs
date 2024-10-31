@@ -181,6 +181,7 @@
             * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
             * `zoneId` — зона доступности.
             * `subnetId` — идентификатор подсети.
+            * `shardName` — имя шарда.
             * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
         * `copySchema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
@@ -233,13 +234,14 @@
             * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
             * `zone_id` — зона доступности.
             * `subnet_id` — идентификатор подсети.
+            * `shard_name` — имя шарда.
             * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
         * `copy_schema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -404,7 +406,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -534,7 +536,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

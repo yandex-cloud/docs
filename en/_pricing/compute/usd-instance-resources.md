@@ -19,6 +19,10 @@
 | 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.v3|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible.v3|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.compute.vm.cpu.c100.standard.v3|string }} | {{ sku|USD|v1.commitment.selfcheckout.y1.compute.vm.cpu.c100.standard.v3|string }} |
 | 1 NVIDIA T4 GPU | {{ sku|USD|compute.vm.gpu.standard.v3-t4|string }} | {{ sku|USD|compute.vm.gpu.standard.v3-t4.preemptible|string }} | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.v3|string }} | {{ sku|USD|compute.vm.ram.preemptible.v3|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.compute.vm.ram.standard.v3|string }} | {{ sku|USD|v1.commitment.selfcheckout.y1.compute.vm.ram.standard.v3|string }} |
+| **Intel Ice Lake with T4i** | Regular VM | Preemptible&nbsp;VM  | | |
+| 100% vCPU | $0.008400 | $0.008400 | - | - |
+| 1 GPU | $1.152000 | $1.152000 | - | - |
+| RAM (for 1 GB) | $0.002240 | $0.002240 | - | - |
 | **Intel Ice Lake (Compute Optimized)** | Regular VM | Preemptible&nbsp;VM | | |
 | 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.highfreq-v3|string }} | - | − | − |

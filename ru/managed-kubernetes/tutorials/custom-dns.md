@@ -7,9 +7,11 @@ description: Следуя данному руководству, вы сможе
 
 
 Чтобы интегрировать [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) с приватной корпоративной [зоной](../../dns/concepts/dns-zone.md) [DNS](../../glossary/dns.md):
-1. [{#T}](#setup-zone).
-1. [{#T}](#create-pod).
-1. [{#T}](#verify-dns).
+
+1. [Настройте DNS-сервер](#setup-dns).
+1. [Укажите корпоративную зону DNS](#setup-zone).
+1. [Создайте под dns-utils](#create-pod).
+1. [Проверьте интеграцию DNS](#verify-dns).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

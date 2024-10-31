@@ -145,6 +145,8 @@ keywords:
 
 ## Создайте ВМ из подготовленного образа {#create-vm-from-user-image}
 
+Вы можете создать виртуальную машину с дисками, из подготовленного заранее образа.
+
 {% include notitle [Как создать ВМ из своего образа](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
 
 О стоимости использования {{ objstorage-name }} читайте в разделе [{#T}](../../../storage/pricing.md).

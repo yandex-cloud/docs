@@ -18,5 +18,5 @@
 1. Make sure the web server returns a list of folders in the `test-server` folder. Open the terminal on your computer and run this command:
 
     ```bash
-    curl -v <VM_public_IP_address>:8080
+    curl --verbose <VM_public_IP_address>:8080
     ```

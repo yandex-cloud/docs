@@ -24,7 +24,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder you want to create a [bucket](../../storage/concepts/bucket.md) in.
+        1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Enter exactly the same name for the bucket as the domain name.
@@ -42,8 +42,9 @@ To get started with {{ certificate-manager-name }}, you need:
 
         1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
-        1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-        1. Select **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** and specify your website home page.
+        1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+        1. Open the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+        1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` and specify the website's homepage.
         1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}** to complete the operation.
 
     {% endlist %}
@@ -146,8 +147,9 @@ To renew a certificate, you have to perform certain actions. Keep track of the l
     1. Log in to the [management console]({{ link-console-main }}).
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
+    1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-    1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}** at the top right.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** field, select the certificate from the list that opens.
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.

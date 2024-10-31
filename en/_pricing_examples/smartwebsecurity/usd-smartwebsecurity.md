@@ -1,4 +1,4 @@
-For example, the total cost of sending 315.04 million requests per month to {{ sws-name }} for analysis will be:
+> Let’s calculate the cost of 315.04 million legitimate requests per month processed by security profile rules: 
 > 0.01 × ${{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|string }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|string }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|string }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|string }} = {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %} excluding VAT.
 
 Where:

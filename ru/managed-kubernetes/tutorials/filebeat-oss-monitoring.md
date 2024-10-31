@@ -4,8 +4,9 @@
 [Filebeat OSS](https://www.elastic.co/beats/filebeat) — плагин, который позволяет собирать и передавать логи в экосистему {{ OS }}. Filebeat устанавливается в [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), собирает логи кластера и [подов](../concepts/index.md#pod), а затем отправляет их в сервис [{{ mos-full-name }}](../../managed-opensearch/).
 
 Чтобы настроить мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS:
-1. [{#T}](#filebeat-oss-install).
-1. [{#T}](#check-result).
+
+1. [Установите Filebeat OSS](#filebeat-oss-install).
+1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

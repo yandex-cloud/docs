@@ -13,8 +13,9 @@ description: Следуя данному руководству, вы сможе
 Количество реплик рассчитывается [с помощью формул](#parameters).
 
 Чтобы автоматизировать масштабирование DNS:
-1. [{#T}](#configure-autoscaler).
-1. [{#T}](#test-autoscaler).
+
+1. [Настройте kube-dns-autoscaler](#configure-autoscaler).
+1. [Проверьте масштабирование](#test-autoscaler).
 
 Если автоматическое масштабирование потеряло актуальность, [отключите его](#disable-autoscaler).
 

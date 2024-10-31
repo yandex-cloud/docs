@@ -1,5 +1,7 @@
 # Датасеты
 
+{% include [how-to-change-source-data](../../_qa/datalens/change-source-data.md) %}
+
 
 {% include [incorrectly-identified-date-field](../../_qa/datalens/incorrectly-identified-date-field.md) %}
 
