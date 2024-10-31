@@ -27,7 +27,7 @@ editable: false
 [Описание модели данных](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Аутентификация](./security/add-new-user.md) | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
+[Аутентификация](./security/add-new-user.md) | Яндекс ID, Яндекс 360 | Яндекс ID, Яндекс 360, корпоративные учетные записи / SSO¹
 [Конструктор отчетов](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 

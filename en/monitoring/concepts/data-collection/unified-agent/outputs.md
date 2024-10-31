@@ -7,7 +7,7 @@ The common output description format is:
 ```yaml
 - output:
     plugin: ... # Plugin name
-    id: ... # (recommended) output ID, which is used in metrics and agent logs
+    id: ... # (Recommended) Output ID, which is used in metrics and agent logs.
 ```
 
 ## debug output {#debug_output}
@@ -49,7 +49,7 @@ Parameter descriptions:
             directory: output_directory  # Optional, not set by default.
 
             # Message separator used in the file, for example, "\n".
-            delimiter: null  # Required.
+            delimiter: null  # Required
 ```
 
 ## dev_null output {#dev_null_output}
@@ -73,7 +73,7 @@ Parameter descriptions:
         folder_id: b1ge2vt0gml6********  # Required, folder ID.
 
         # IAM authentication settings.
-        iam:  # Required.
+        iam:  # Required
             # Either the cloud_meta or jwt element must be specified.
 
             # If specified, the IAM token is taken from the metadata service.
@@ -82,7 +82,7 @@ Parameter descriptions:
             # If specified, the JWT is exchanged for the IAM token.
             jwt: # Optional, not set by default.
             # Name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
-                file: "jwt_params.json"  # Required.
+                file: "jwt_params.json"  # Required
 
                 endpoint: iam.{{ api-host }}  # Optional, the default value is iam.{{ api-host }}.
 
@@ -148,11 +148,11 @@ Parameter descriptions:
         # First the message metadata is searched for a log group (if the parameter is specified).
         # Next the message metadata is searched for a folder, and the session metadata is searched for a log group.
         # Then the session metadata is searched for a folder. The one found first will be selected.
-        log_group_id: "b1ge2vt0gml6********"  # Not set by default.
+        log_group_id: "b1ge2vt0gml6********"  # Optional, not set by default.
 
         folder_id: "b1ge2vt0gml6********"  # Not set by default; if specified, the default log group will be used.
 
-        message_log_group_id: "b1ge2vt0gml6********" # Not set by default.
+        message_log_group_id: "b1ge2vt0gml6********" # Optional, not set by default
 
         message_folder_id: "b1ge2vt0gml6********"  # Not set by default; if specified, the default log group will be used.
 
@@ -165,7 +165,7 @@ Parameter descriptions:
         batch:
           # Limit on the size of the result.
           # A new message is generated if the size of received ones reaches the limit.
-          limit: # Optional.
+          limit: # Optional
             # The limit can be specified in message units or bytes.
             # If both are specified, the first one reached will apply.
 
@@ -206,12 +206,12 @@ Parameter descriptions:
         message_quota: 1000
 
         # IAM authentication settings.
-        iam:  # Required, not set by default.
+        iam:  # Optional, not set by default.
           # Either the cloud_meta or jwt element must be specified.
 
           # If specified, the IAM token is taken from the metadata service.
           cloud_meta:  # Optional, not set by default.
-            url:  # Optional.
+            url:  # Optional
 
             refresh_period: 1h  # Optional, the default value is 1h.
 
@@ -220,7 +220,7 @@ Parameter descriptions:
           # If specified, a JWT token is exchanged for an IAM token.
           jwt:  # Optional, not set by default.
             # Name of the file containing JWT parameters in the format returned by the `yc iam key create` command.
-            file: "jwt_params.json"  # Required.
+            file: "jwt_params.json"  # Required
 
             endpoint: iam.api.cloud.yandex.net  # Optional, the default value is iam.api.cloud.yandex.net.
 
@@ -246,9 +246,9 @@ Parameter descriptions:
         #   1. The message body will be replaced with that payload.
         #   2. If special fields (timestamp, priority) are detected and parsed successfully, they will replace the respective message fields.
         #   3. All other fields will be transferred to json_payload.
-        parse_json: # Optional.
+        parse_json: # Optional
           # Rule specifying the source for a new message body.
-          payload: # Required.
+          payload: # Required
             # List of first level keys.
             # The value matching the first key will be selected.
             keys: ["msg", "message"]
@@ -260,16 +260,16 @@ Parameter descriptions:
           # - ISO 8601
           # - RFC 822
           # - log4j {"epochSecond":123,"nanoOfSecond":456}
-          timestamp: # Optional.
+          timestamp: # Optional
             keys: ["ts", "timestamp", "instant"]
 
-          # Timestamp is measured in seconds, milliseconds, and microseconds.
-          unix_timestamp_format: seconds # Optional.
+          # Timestamp measurement units: seconds, milliseconds, microseconds.
+          unix_timestamp_format: seconds # Optional
 
           # Keys in JSON matching the priority.
           # If there are no keys in JSON, or value parsing fails, the value from meta information will be used.
           # Acceptable values: TRACE, DEBUG, INFO, WARN, ERROR, or FATAL (case insensitive).
-          priority: # Optional.
+          priority: # Optional
             keys: ["level"]
 
         # Parameters for LogEntryResource https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service#LogEntryResource

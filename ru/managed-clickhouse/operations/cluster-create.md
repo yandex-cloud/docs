@@ -426,52 +426,401 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать кластер {{ mch-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
-  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  * Имя кластера в параметре `name`.
-  * Окружение кластера в параметре `environment`.
-  * Конфигурацию кластера в параметре `configSpec`.
-  * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
-  * Идентификатор сети в параметре `networkId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-  * Настройки доступа из других сервисов в параметре `configSpec.access`.
+            {% note info %}
 
-  Чтобы разрешить [подключение](connect/index.md) к хостам кластера из интернета, передайте значение `true` в параметре `hostSpecs.assignPublicIp`.
+            В примере приведены не все доступные параметры.
 
-  При необходимости включите управление пользователями и базами данных через SQL:
-  * `configSpec.sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
-  * `configSpec.sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
-  * `configSpec.adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
-
-  {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+            {% endnote %}
 
 
-  Чтобы задать [настройки гибридного хранилища](../concepts/storage.md##hybrid-storage-settings):
+            ```json
+            {
+              "folderId": "<идентификатор_каталога>",
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "networkId": "<идентификатор_сети>",
+              "securityGroupIds": [
+                "<идентификатор_группы_безопасности_1>",
+                "<идентификатор_группы_безопасности_2>",
+                ...
+                "<идентификатор_группы_безопасности_N>"
+              ],
+              "configSpec": {
+                "version": "<версия_{{ CH }}>",
+                "embeddedKeeper": <использование_{{ CK }}>,
+                "clickhouse": {
+                  "resources": {
+                    "resourcePresetId": "<класс_хостов_{{ CH }}>",
+                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskTypeId": "<тип_диска>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resourcePresetId": "<класс_хостов_{{ ZK }}>",
+                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskTypeId": "<тип_диска>"
+                  }
+                },
+                "access": {
+                  "dataLens": <доступ_из_{{ datalens-name }}>,
+                  "webSql": <выполнение_SQL-запросов_из_консоли_управления>,
+                  "metrika": <доступ_из_Метрики_и_AppMetrika>,
+                  "serverless": <доступ_из_Cloud_Functions>,
+                  "dataTransfer": <доступ_из_Data_Transfer>,
+                  "yandexQuery": <доступ_из_Yandex_Query>
+                },
+                "cloudStorage": {
+                  "enabled": <использование_гибридного_хранилища>,
+                  "moveFactor": "<доля_свободного_места>",
+                  "dataCacheEnabled": <временное_хранение_файлов>,
+                  "dataCacheMaxSize": "<максимальный_объем_памяти_для_хранения_файлов>",
+                  "preferNotToMerge": <отключение_слияния_кусков_данных>
+                },
+                "adminPassword": "<пароль_пользователя_admin>",
+                "sqlUserManagement": <управление_пользователями_через_SQL>,
+                "sqlDatabaseManagement": <управление_базами_данных_через_SQL>
+              },
+              "databaseSpecs": [
+                {
+                  "name": "<имя_базы_данных>"
+                },
+                { <аналогичный_набор_настроек_для_базы_данных_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_базы_данных_N> }
+              ],
+              "userSpecs": [
+                {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                    {
+                      "databaseName": "<имя_базы_данных>"
+                    }
+                  ]
+                },
+                { <аналогичный_набор_настроек_для_пользователя_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_пользователя_N> }
+              ],
+              "hostSpecs": [
+                {
+                  "zoneId": "<зона_доступности>",
+                  "type": "<тип_хоста>",
+                  "subnetId": "<идентификатор_подсети>",
+                  "assignPublicIp": <публичный_доступ_к_хосту>,
+                  "shardName": "<имя_шарда>"
+                },
+                { <аналогичный_набор_настроек_для_хоста_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_хоста_N> }
+              ],
+              "deletionProtection": <защита_от_удаления>
+            }
+            ```
 
-    * Включите гибридное хранилище, передав значение `true` в параметре `configSpec.cloudStorage.enabled`.
-    * Передайте настройки гибридного хранилища в параметрах `configSpec.cloudStorage`:
 
-        {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
+            Где:
 
-  При создании кластера из нескольких хостов:
-
-  * Если для параметра `embeddedKeeper` указано значение `true`, для управления репликацией будет использоваться [{{ CK }}](../concepts/replication.md#ck).
-
-      {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
-
-  * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
+            * `name` — имя кластера.
+            * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+            * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
 
-    Если в [облачной сети](../../vpc/concepts/network.md) кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), а настройки хостов {{ ZK }} не заданы, в каждую подсеть будет автоматически добавлено по одному такому хосту.
+            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
 
-    Если подсети в сети кластера есть только в некоторых зонах доступности, укажите настройки хостов {{ ZK }} явно.
 
+            * `configSpec` — конфигурация кластера:
+
+                * `version` — версия {{ CH }}: {{ versions.api.str }}.
+                * `embeddedKeeper` — использовать [{{ CK }}](../concepts/replication.md#ck) вместо {{ ZK }}: `true` или `false`.
+
+                    {% include [replication-management-details](../../_includes/mdb/mch/api/replication-management-details.md) %}
+
+                * `clickhouse` — конфигурация {{ CH }}:
+
+                    * `resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.diskSize` — размер диска в байтах.
+                    * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
+
+                * `zookeeper` — конфигурация [{{ ZK }}](../concepts/replication.md#zk):
+
+                    * `resources.resourcePresetId` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.diskSize` — размер диска в байтах.
+                    * `resources.diskTypeId` — тип диска.
+
+                    Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, то необязательно указывать конфигурацию {{ ZK }} в `configSpec`: эта конфигурация не будет применена.
+
+                * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
+
+                    {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
+
+                * `cloudStorage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
+
+                    {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
+
+                * `sql...` и `adminPassword` — группа настроек для управления пользователями и базами данных через SQL:
+
+                    * `adminPassword` — пароль пользователя `admin`.
+                    * `sqlUserManagement` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sqlDatabaseManagement` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
+
+
+                    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+            * `databaseSpecs` — настройки баз данных в виде массива параметров элементов `name`. Один параметр содержит имя отдельной БД.
+
+            * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+                {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
+
+            * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+                * `type` — тип хоста: `CLICKHOUSE` или `ZOOKEEPER`.
+
+                    Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, то в `hostSpecs` нужно указать только настройки хостов {{ CH }}.
+
+                * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+                * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+                * `shardName` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
+                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
+
+
+            * `deletionProtection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            {% note info %}
+
+            В примере приведены не все доступные параметры.
+
+            {% endnote %}
+
+
+            ```json
+            {
+              "folder_id": "<идентификатор_каталога>",
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "network_id": "<идентификатор_сети>",
+              "security_group_ids": [
+                "<идентификатор_группы_безопасности_1>",
+                "<идентификатор_группы_безопасности_2>",
+                ...
+                "<идентификатор_группы_безопасности_N>"
+              ],
+              "config_spec": {
+                "version": "<версия_{{ CH }}>",
+                "embedded_keeper": <использование_{{ CK }}>,
+                "clickhouse": {
+                  "resources": {
+                    "resource_preset_id": "<класс_хостов_{{ CH }}>",
+                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_type_id": "<тип_диска>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resource_preset_id": "<класс_хостов_{{ ZK }}>",
+                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_type_id": "<тип_диска>"
+                  }
+                },
+                "access": {
+                  "data_lens": <доступ_из_{{ datalens-name }}>,
+                  "web_sql": <выполнение_SQL-запросов_из_консоли_управления>,
+                  "metrika": <доступ_из_Метрики_и_AppMetrika>,
+                  "serverless": <доступ_из_Cloud_Functions>,
+                  "data_transfer": <доступ_из_Data_Transfer>,
+                  "yandex_query": <доступ_из_Yandex_Query>
+                },
+                "cloud_storage": {
+                  "enabled": <использование_гибридного_хранилища>,
+                  "move_factor": "<доля_свободного_места>",
+                  "data_cache_enabled": <временное_хранение_файлов>,
+                  "data_cache_max_size": "<максимальный_объем_памяти_для_хранения_файлов>",
+                  "prefer_not_to_merge": <отключение_слияния_кусков_данных>
+                },
+                "admin_password": "<пароль_пользователя_admin>",
+                "sql_user_management": <управление_пользователями_через_SQL>,
+                "sql_database_management": <управление_базами_данных_через_SQL>
+              },
+              "database_specs": [
+                {
+                  "name": "<имя_базы_данных>"
+                },
+                { <аналогичный_набор_настроек_для_базы_данных_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_базы_данных_N> }
+              ],
+              "user_specs": [
+                {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                    {
+                      "database_name": "<имя_базы_данных>"
+                    }
+                  ]
+                },
+                { <аналогичный_набор_настроек_для_пользователя_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_пользователя_N> }
+              ],
+              "host_specs": [
+                {
+                  "zone_id": "<зона_доступности>",
+                  "type": "<тип_хоста>",
+                  "subnet_id": "<идентификатор_подсети>",
+                  "assign_public_ip": <публичный_доступ_к_хосту>,
+                  "shard_name": "<имя_шарда>"
+                },
+                { <аналогичный_набор_настроек_для_хоста_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_хоста_N> }
+              ],
+              "deletion_protection": <защита_от_удаления>
+            }
+            ```
+
+
+            Где:
+
+            * `name` — имя кластера.
+            * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+
+            * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
+
+
+            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
+
+
+            * `config_spec` — конфигурация кластера:
+
+                * `version` — версия {{ CH }}: {{ versions.api.str }}.
+
+                * `embedded_keeper` — использовать [{{ CK }}](../concepts/replication.md#ck) вместо {{ ZK }}: `true` или `false`.
+
+                    {% include [replication-management-details](../../_includes/mdb/mch/api/replication-management-details.md) %}
+
+                * `clickhouse` — конфигурация {{ CH }}:
+
+                    * `resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.disk_size` — размер диска в байтах.
+                    * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
+
+                * `zookeeper` — конфигурация [{{ ZK }}](../concepts/replication.md#zk):
+
+                    * `resources.resource_preset_id` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.disk_size` — размер диска в байтах.
+                    * `resources.disk_type_id` — тип диска.
+
+                    Если вы включили использование {{ CK }} с помощью настройки `embedded_keeper: true`, то необязательно указывать конфигурацию {{ ZK }} в `config_spec`: эта конфигурация не будет применена.
+
+                * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
+
+                    {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
+
+                * `cloud_storage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
+
+                    {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
+                * `sql...` и `admin_password` — группа настроек для управления пользователями и базами данных через SQL:
+
+                    * `admin_password` — пароль пользователя `admin`.
+                    * `sql_user_management` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sql_database_management` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
+
+
+                    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+            * `database_specs` — настройки баз данных в виде массива параметров элементов `name`. Один параметр содержит имя отдельной БД.
+
+            * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+                {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
+
+            * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+                * `type` — тип хоста: `CLICKHOUSE` или `ZOOKEEPER`.
+
+                    Если вы включили использование {{ CK }} с помощью настройки `embedded_keeper: true`, то в `host_specs` нужно указать только настройки хостов {{ CH }}.
+
+                * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+                * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+                * `shard_name` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
+                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
+
+
+            * `deletion_protection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.Create \
+              < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

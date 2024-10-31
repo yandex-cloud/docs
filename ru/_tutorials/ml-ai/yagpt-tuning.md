@@ -6,12 +6,6 @@
 
 {% endnote %}
 
-{% note info %}
-
-Сервис {{ foundation-models-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы дообучить модель {{ yagpt-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).

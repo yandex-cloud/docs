@@ -1236,10 +1236,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸5436.00
+            c100|number: 7.55
             c100|string: ₸7.55
             c50|month|string: ₸2448.00
             c50|string: ₸3.40
           ram|month|string: ₸1440.00
+          ram|number: 2
           ram|string: ₸2.00
       local-nvme:
         ch|month|string: ₸65.05
@@ -1283,10 +1285,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸5760.00
+            c100|number: 8
             c100|string: ₸8.00
             c50|month|string: ₸2700.00
             c50|string: ₸3.75
           ram|month|string: ₸3240.00
+          ram|number: 4.5
           ram|string: ₸4.50
       mysql:
         v1:
@@ -1322,20 +1326,24 @@ default:
             c100:
               dedicated|string: ₸2.50
             c100|month|string: ₸6048.00
+            c100|number: 8.4
             c100|string: ₸8.40
             c50|month|string: ₸2340.00
             c50|string: ₸3.25
           ram:
             dedicated|string: ₸0.75
           ram|month|string: ₸1656.00
+          ram|number: 2.3
           ram|string: ₸2.30
       network-hdd:
         ch|month|number: 16
         ch|month|string: ₸16.00
         elasticsearch|month|string: ₸16.00
         greenplum|month|string: ₸16.00
+        kafka|month|number: 16
         kafka|month|string: ₸16.00
         mongodb|month|string: ₸16.00
+        mysql|month|number: 16
         mysql|month|string: ₸16.00
         opensearch|month|string: ₸16.00
         pg|month|string: ₸16.00
@@ -1343,6 +1351,7 @@ default:
         ch|month|string: ₸65.05
         elasticsearch|month|string: ₸65.05
         greenplum|month|string: ₸65.05
+        kafka|month|number: 65.05
         kafka|month|string: ₸65.05
         mongodb|month|string: ₸65.05
         mysql|month|string: ₸65.05
@@ -1502,8 +1511,10 @@ default:
             c100|month|string: ₸3924.00
             c100|string: ₸5.45
             c50|month|string: ₸2520.00
+            c50|number: 3.5
             c50|string: ₸3.50
           ram|month|string: ₸1008.00
+          ram|number: 1.4
           ram|string: ₸1.40
   sku|KZT|mk8s:
     master:
@@ -2388,10 +2399,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1087.20
+            c100|number: 1.51
             c100|string: ₽1.51
             c50|month|string: ₽489.60
             c50|string: ₽0.68
           ram|month|string: ₽288.00
+          ram|number: 0.4
           ram|string: ₽0.40
       local-nvme:
         ch|month|string: ₽13.01
@@ -2435,10 +2448,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1152.00
+            c100|number: 1.6
             c100|string: ₽1.60
             c50|month|string: ₽540.00
             c50|string: ₽0.75
           ram|month|string: ₽648.00
+          ram|number: 0.9
           ram|string: ₽0.90
       mysql:
         v1:
@@ -2474,20 +2489,24 @@ default:
             c100:
               dedicated|string: ₽0.50
             c100|month|string: ₽1209.60
+            c100|number: 1.68
             c100|string: ₽1.68
             c50|month|string: ₽468.00
             c50|string: ₽0.65
           ram:
             dedicated|string: ₽0.15
           ram|month|string: ₽331.20
+          ram|number: 0.46
           ram|string: ₽0.46
       network-hdd:
         ch|month|number: 3.2
         ch|month|string: ₽3.20
         elasticsearch|month|string: ₽3.20
         greenplum|month|string: ₽3.20
+        kafka|month|number: 3.2
         kafka|month|string: ₽3.20
         mongodb|month|string: ₽3.20
+        mysql|month|number: 3.2
         mysql|month|string: ₽3.20
         opensearch|month|string: ₽3.20
         pg|month|string: ₽3.20
@@ -2495,6 +2514,7 @@ default:
         ch|month|string: ₽13.01
         elasticsearch|month|string: ₽13.01
         greenplum|month|string: ₽13.01
+        kafka|month|number: 13.01
         kafka|month|string: ₽13.01
         mongodb|month|string: ₽13.01
         mysql|month|string: ₽13.01
@@ -2654,8 +2674,10 @@ default:
             c100|month|string: ₽784.80
             c100|string: ₽1.09
             c50|month|string: ₽504.00
+            c50|number: 0.7
             c50|string: ₽0.70
           ram|month|string: ₽201.60
+          ram|number: 0.28
           ram|string: ₽0.28
   sku|RUB|mk8s:
     master:
@@ -3530,10 +3552,12 @@ default:
         v3:
           cpu:
             c100|month|string: $8.697600
+            c100|number: 0.01208
             c100|string: $0.012080
             c50|month|string: $3.916800
             c50|string: $0.005440
           ram|month|string: $2.304000
+          ram|number: 0.0032
           ram|string: $0.003200
       local-nvme:
         ch|month|string: $0.104080
@@ -3577,10 +3601,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.216000
+            c100|number: 0.0128
             c100|string: $0.012800
             c50|month|string: $4.320000
             c50|string: $0.006000
           ram|month|string: $5.184000
+          ram|number: 0.0072
           ram|string: $0.007200
       mysql:
         v1:
@@ -3628,6 +3654,7 @@ default:
         ch|month|string: $0.025600
         elasticsearch|month|string: $0.025600
         greenplum|month|string: $0.025600
+        kafka|month|number: 0.0256
         kafka|month|string: $0.025600
         mongodb|month|string: $0.025600
         mysql|month|string: $0.025600
@@ -3637,6 +3664,7 @@ default:
         ch|month|string: $0.104080
         elasticsearch|month|string: $0.104080
         greenplum|month|string: $0.104080
+        kafka|month|number: 0.10408
         kafka|month|string: $0.104080
         mongodb|month|string: $0.104080
         mysql|month|string: $0.104080
@@ -3790,7 +3818,9 @@ default:
         v3:
           cpu:
             c100|string: $0.008720
+            c50|number: 0.0056
             c50|string: $0.005600
+          ram|number: 0.00224
           ram|string: $0.002240
   sku|USD|mk8s:
     master:
@@ -6858,7 +6888,7 @@ default:
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
-            label_data-proc: Yandex Data Proc
+            label_data-proc: Yandex Data Processing
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
@@ -6905,7 +6935,7 @@ default:
             label_yq_ru: Yandex Query
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
-            value_data-proc: Yandex Data Proc cluster
+            value_data-proc: Yandex Data Processing cluster
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
             value_managed-mysql: MySQL cluster
@@ -7117,6 +7147,7 @@ default:
         field_connector-secret-access-key: Secret access key
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_kraft-combined-mode: Combined mode
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
         label_brokers-per-az: Number of brokers in zone
@@ -7291,6 +7322,7 @@ default:
           label_value: Value
           title_auto-generation_params_section: Automatic generation options
           title_kms-key: KMS key
+          title_secret-data-section: Secret data
           title_secret-type: Secret type
           title_secret-type-custom: Custom
           title_secret-type-generated: Generated
@@ -7655,6 +7687,7 @@ default:
           field_dashboards-url: kibana_url
           field_enabled: Enable
           field_idp-entity-id: idp_entity_id
+          field_jwt-default-expiration-timeout: Session timeout
           field_roles-key: roles_key
           field_sp-entity-id: sp_entity_id
           field_subject-key: subject_key

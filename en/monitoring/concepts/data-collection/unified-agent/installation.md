@@ -98,7 +98,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   1. Download the latest deb package:
 
       ```bash
-      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
       ```
 
       For `ubuntu_name`, specify the OS version:
@@ -111,7 +111,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
       You can also download a specific {{ unified-agent-short-name }} version. To do this, view all available versions and specify the required one instead of the `latest-version` value:
 
       ```(bash)
-      curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+      curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
       ```
 
   1. Check the version of the deb package using the `ls` command.
@@ -144,12 +144,12 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   To download the latest version of the agent's binary file, run:
 
   ```bash
-  ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   To find out all the available versions of the agent, run this command:
   ```(bash)
-  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+  curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).

@@ -21,10 +21,10 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.List
 
 ### Get {#get}
 
-Getting information about a dashboard. In the `dashboard_id` field, specify the ID for the dashboard to get information about.
+Getting information about a dashboard. In the `dashboard_id` field, specify the ID of the dashboard to get information about.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d '{"dashboard_id": "<dashboard_ID>"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -37,7 +37,7 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Get
 Creating a dashboard.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d @ \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -119,7 +119,7 @@ In the `folderId` field, specify the ID of the folder to create a dashboard in.
   }
 }
 ```
-**Sample response**
+**Response example**
 
 ```json
 {
@@ -137,7 +137,7 @@ In the `folderId` field, specify the ID of the folder to create a dashboard in.
 Updating a dashboard.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d @ \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -219,7 +219,7 @@ In the `dashboard_id` field, specify the ID of the dashboard to update. In the `
   }
 }
 ```
-**Sample response**
+**Response example**
 
 ```json
 {
@@ -237,8 +237,8 @@ In the `dashboard_id` field, specify the ID of the dashboard to update. In the `
 Deleting a dashboard. In the `dashboard_id` field, specify the ID of the dashboard to delete.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-    -d '{"dashboard_id": "<dashboard_ID>", "etag": "1"}' \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+   -d '{"dashboard_id": "<dashboard_ID>", "etag": "1"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \

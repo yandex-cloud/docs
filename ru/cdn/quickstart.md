@@ -7,10 +7,10 @@ description: Следуя данной инструкции, вы сможете
 
 Настройте раздачу контента через CDN на примере бакета {{ objstorage-name }}:
 
-1. [{#T}](#create-cdn-resource).
-1. [{#T}](#upload-content-to-CDN).
-1. [{#T}](#setup-cname).
-1. [{#T}](#check-cdn-working).
+1. [Создайте CDN-ресурс](#create-cdn-resource).
+1. [Загрузите контент в CDN](#upload-content-to-CDN).
+1. [Настройте CNAME для своего домена](#setup-cname).
+1. [Проверьте работу CDN](#check-cdn-working).
 
 ## Перед началом работы {#before-you-begin}
 

@@ -97,9 +97,9 @@ As an example, let's create a balancer with a node in the same subnet and same a
   1. Enter the load balancer name: `test-load-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnet will host the load balancer node.
   1. Toggle **{{ ui-key.yacloud.alb.label_detailed-settings }}** on.
-  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select a subnet in a single [availability zone](../overview/concepts/geo-scope.md) and enable traffic in this subnet.
+  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select a subnet in one [availability zone](../overview/concepts/geo-scope.md) and enable incoming traffic in this subnet.
 
-      Remove all other availability zones by clicking ![xmark](../_assets/console-icons/xmark.svg) in the relevant row.
+      Remove the other availability zones by clicking ![xmark](../_assets/console-icons/xmark.svg) in the relevant row.
 
 
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, enter the listener name: `test-listener`.
@@ -113,16 +113,16 @@ As an example, let's create a balancer with a node in the same subnet and same a
 In the terminal, run the following command:
 
 ```bash
-curl -v <load_balancer_public_IP_address>:80
+curl --verbose <load_balancer_public_IP_address>:80
 ```
 
-The response must return the `200` HTTP status code and an HTML-formatted list of folders from the test VM folder.
+The response must return the HTTP status code `200` and an HTML list of folders from the test VM folder.
 
 After that, you can add other VMs to the target group, create new backends for your application, and build routes to the application endpoints.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, delete them in the following order:
+To stop paying for the resources you created, delete them in the following order:
 
 {% list tabs group=instructions %}
 

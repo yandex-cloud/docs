@@ -28,7 +28,7 @@ An ARL rule may impose a limit on incoming HTTP requests for all traffic or traf
 [Conditions](conditions.md) are defined by the following parameters:
 
 * `IP`: IP address, address range, or address region of clients subject to the rule.
-* `Request path`: Path or a portion of the path the request was sent to.
+* `Request path`: Path or part of the path the request was sent to.
 * `Host`: Domain name the request was sent to.
 * `HTTP method`: Method or set of methods the request belongs to.
 * `HTTP header`: Request header parameters.
@@ -40,16 +40,16 @@ You can count the requests for the limit purposes in one of the following ways:
 
 * Counting each request individually.
 * Grouping requests by a certain attribute and limiting the number of groups.
-
+  
 You can group requests:
-* Automatically based on the `Request path`, `HTTP method`, `IP address`, `Region`, and `Host` attributes.
+* Automatically, by `Request path`, `HTTP method`, `IP address`, `Region`, and `Host` attributes.
 * Based on key match in the `Query params`, `HTTP header`, and `HTTP cookie` attributes.
-
-   You can configure flexible match/no match conditions for the parameters you specify for traffic. You can look for case-sensitive or case-insensitive string matches. Parameters can be represented by single values, ranges, or regular expressions.
+  
+  You can configure flexible match/no match conditions for the parameters you specify for traffic. You can search for both case-sensitive or case-insensitive string matches. Parameters can be represented by single values, ranges, or regular expressions.
 
 You can also select a time interval from 1 second to 60 minutes.
 
-All requests in excess of the limit received within the specified time interval will be blocked. In which case the client will get the `429` error.
+All requests in excess of the limit received within the specified time interval will be blocked. In this case, the client will get the `429` error.
 
 You can use the **Logging only (Dry run)** mode to calculate limits and test ARL rules. Requests will not be blocked in this mode. This allows you to evaluate backend capabilities and find the optimum limit values.
 

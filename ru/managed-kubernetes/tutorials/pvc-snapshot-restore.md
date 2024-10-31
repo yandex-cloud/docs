@@ -4,9 +4,10 @@
 В {{ managed-k8s-name }} доступны [снапшоты](../../glossary/snapshot.md) — копии дисков [PersistentVolume](../concepts/volume.md#provisioning-volumes) на определенный момент времени. Подробнее о механизме снапшотов см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 Чтобы создать снапшот, а потом восстановить его:
-1. [{#T}](#create-pvc-pod).
-1. [{#T}](#create-snapshot).
-1. [{#T}](#restore-from-snapshot).
+
+1. [Подготовьте тестовое окружение](#create-pvc-pod).
+1. [Создайте снапшот](#create-snapshot).
+1. [Восстановите объекты из снапшота](#restore-from-snapshot).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

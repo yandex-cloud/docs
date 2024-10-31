@@ -6,11 +6,12 @@
 В этом руководстве описана интеграция [инстанса {{ mgl-full-name }}](../../../managed-gitlab/concepts/index.md#instance), [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и установленных в кластере [Argo CD](/marketplace/products/yc/argo-cd) и [{{ GLR }}](/marketplace/products/yc/gitlab-runner), который выполняет сборку [Docker-контейнеров](/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 Чтобы интегрировать Argo CD с {{ managed-k8s-name }} и {{ mgl-name }}:
-1. [{#T}](#create-gitlab).
-1. [{#T}](#configure-gitlab).
-1. [{#T}](#runners).
-1. [{#T}](#setup-repo).
-1. [{#T}](#deploy-argo).
+
+1. [Создайте инстанс {{ GL }}](#create-gitlab).
+1. [Настройте {{ GL }}](#configure-gitlab).
+1. [Создайте {{ GLR }}](#runners).
+1. [Подготовьте репозиторий приложения для развертывания](#setup-repo).
+1. [Разверните приложение с помощью Argo CD](#deploy-argo).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

@@ -1,6 +1,6 @@
 ---
-title: How to write metrics via the Remote API
-description: Use this guide to write metrics via the Remote API.
+title: "How to write\_metrics via the Remote API"
+description: "Use this guide to write\_metrics via the Remote API."
 ---
 
 # Writing metrics via the Remote API
@@ -15,15 +15,15 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
    ...
    remote_write:
      ...
-     - url: '<URL>' # provided upon request
-       bearer_token: '<API_key>'
-       # Or via a file (recommended):
-       # bearer_token_file: '<name_of_the_file_with_the_API_key>'
+     - url: 'https://{{ api-host-monitoring-1 }}/prometheus/workspaces/<workspace_ID>/api/v1/write'
+       bearer_token_file: '<name_of_file_with_API_key>'
+       # Or the key itself (not recommended):
+       # bearer_token: '<API_key>'
        queue_config:
            max_samples_per_send: 2000 # 10,000 if using vmagent
            min_backoff: 100ms
            max_backoff: 15s
-           # for Prometheus 2.26 or newer
+           # for Prometheus version 2.26 or higher
            # retry_on_http_429: true
        metadata_config:
            send: false
@@ -45,17 +45,17 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
 
 ## {{ prometheus-name }} metrics {#metrics}
 
-| Metric name | Units | Explanations |
+| Metric name | Units | Comment |
 |----|----|----|
-| `prometheus_remote_storage_sent_batch_duration_seconds` | Seconds | Write request execution time histogram. |
-| `prometheus_remote_storage_bytes_total` | Bytes | Total number of bytes of data (not metadata) sent to remote storage after compression. |
-| `prometheus_remote_storage_enqueue_retries_total` | Number | Total number of failed sample enqueue retries. |
-| `prometheus_remote_storage_max_samples_per_send` | Number | Maximum number of samples sent per write request. |
-| `prometheus_remote_storage_samples_dropped_total` | Number | Total number of samples read from the WAL but not sent to remote storage. |
-| `prometheus_remote_storage_samples_failed_total` | Number | Total number of samples that failed to be sent to remote storage due to non-recoverable errors. |
-| `prometheus_remote_storage_samples_pending` | Number | Number of pending samples to be sent to remote storage. |
-| `prometheus_remote_storage_samples_retried_total` | Number | Total number of samples that failed to be sent to remote storage with their sending retried afterwards as the error was recoverable. |
-| `prometheus_remote_storage_samples_total` | Number | Total number of samples sent to remote storage. |
+`prometheus_remote_storage_sent_batch_duration_seconds` | Seconds | Write request execution time histogram.
+`prometheus_remote_storage_bytes_total` | Bytes | Total number of bytes of data (not metadata) sent to remote storage after compression.
+`prometheus_remote_storage_enqueue_retries_total` | Number | Total number of failed sample enqueue retries.
+`prometheus_remote_storage_max_samples_per_send` | Number | Maximum number of samples sent per write request.
+`prometheus_remote_storage_samples_dropped_total` | Number | Total number of samples read from the WAL but not sent to remote storage.
+`prometheus_remote_storage_samples_failed_total` | Number | Total number of samples that failed to be sent to remote storage due to non-recoverable errors.
+`prometheus_remote_storage_samples_pending` | Number | Number of pending samples to be sent to remote storage.
+`prometheus_remote_storage_samples_retried_total` | Number | Total number of samples that failed to be sent to remote storage with their sending retried afterwards as the error was recoverable.
+`prometheus_remote_storage_samples_total` | Number | Total number of samples sent to remote storage.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}
 

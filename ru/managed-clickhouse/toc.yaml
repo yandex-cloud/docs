@@ -144,6 +144,20 @@ items:
           Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
+      - name: Ввод данных в системы хранения
+        href: tutorials/data-ingestion.md
+      - name: Использование параметров
+        href: tutorials/data-from-ch-with-parameters.md
+      - name: Примеры создания QL-чартов
+        href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+        href: tutorials/data-from-metrica-yc-visualization.md
+      - name: 'AppMetrica: прямое подключение'
+        href: tutorials/data-from-appmetrica-visualization.md
+      - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
+        href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+        href: tutorials/data-from-tracker.md
       - name: Дашборд сети магазинов из БД {{ CH }}
         href: tutorials/data-from-ch-visualization.md
       - name: >-

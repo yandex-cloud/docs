@@ -101,7 +101,7 @@ The **I’m not a robot** button will appear on the page. The service will check
 
 ## Check the user response {#check-answer}
 
-After the check, the user is given a unique token. The token is loaded to the `<input type="hidden" name="smart-token" value="<token>"` element inside the widget container. For example:
+After the check, the user is given a unique token. The token is inserted into the `<input type="hidden" name="smart-token" value="<token>"` element inside the widget container. For example:
 
 ```html
 <div id="captcha-container" class="smart-captcha" ...>
@@ -110,17 +110,10 @@ After the check, the user is given a unique token. The token is loaded to the `<
 </div>
 ```
 
-To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
+To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate` specifying the parameters in `x-www-form-urlencoded` format:
 
-```HTML
-response = requests.post(
-"https://smartcaptcha.yandexcloud.net/validate",
-    {
-    "secret": SMARTCAPTCHA_SERVER_KEY,
-    "token": token,
-    "ip": "<user_IP_address>"
-    }
-)
+```
+secret=<server_key>&token=<token>&ip=<user_IP_address>
 ```
 
 Where:
@@ -227,7 +220,7 @@ Example of the token validation function:
         $server_output = curl_exec($ch); 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-
+    
         if ($httpcode !== 200) {
             echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
             return true;
@@ -271,7 +264,7 @@ Example of the token validation function:
            return True
         return json.loads(server_output)["status"] == "ok"
 
-    token = "<token>"  # For example, it can be `request.form["smart-token"]`
+    token = "<token>"  # For example, request.form["smart-token"]
     if check_captcha(token):
         print("Passed")
     else:
