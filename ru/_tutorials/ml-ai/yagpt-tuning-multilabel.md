@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Сервис {{ foundation-models-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Классификаторы на базе {{ yagpt-name }} находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 

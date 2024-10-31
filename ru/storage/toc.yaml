@@ -211,6 +211,8 @@ items:
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Статический веб-сайт в {{ objstorage-full-name }}
+      - name: Визуализация данных {{ yq-full-name }}
+        href: tutorials/data-from-yandex-query-visualization.md
         items:
           - name: Обзор
             href: tutorials/static/index.md
@@ -238,6 +240,14 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: tutorials/kubernetes-backup.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: Хранение журналов работы приложения
+        href: tutorials/log-ingestion.md
+      - name: Развертывание веб-приложения с использованием Java Servlet API
+        href: tutorials/java-servlet-todo-list.md
+      - name: Разработка Telegram-бота
+        href: tutorials/telegram-bot-serverless.md
   - name: Концепции
     items:
       - name: Обзор

@@ -267,6 +267,8 @@ items:
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
           - name: Анализ данных с помощью {{ yq-full-name }}
             href: tutorials/yq.md
           - name: Работа с данными в {{ objstorage-full-name }}

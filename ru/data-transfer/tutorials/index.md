@@ -72,6 +72,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} в {{ OS }}](trails-to-os.md)
+* [{#T}](data-ingestion.md)
 
 ## Загрузка данных в витрины {#upload-to-data-mart}
 

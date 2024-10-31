@@ -4,9 +4,9 @@
 
 Чтобы интегрировать [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:
 
-1. [{#T}](#install-kyverno).
-1. [{#T}](#check-baseline).
-1. [{#T}](#create-check-policies).
+1. [Установите приложение Kyverno & Kyverno Policies](#install-kyverno).
+1. [Проверьте работу политики для профиля baseline](#check-baseline).
+1. [Создайте собственную политику Kyverno policies и проверьте ее работу](#create-check-policies).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

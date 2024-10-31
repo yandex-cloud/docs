@@ -29,6 +29,7 @@ description: В разделе описаны сценарии использо�
   * [AppMetrica: экспорт, постобработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
   * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
+  * [Анализ логов {{ objstorage-name }}](storage-logs-analysis.md)
   * [Подкасты Яндекс Музыки: статистика](data-from-podcasts.md)
   * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
   * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)

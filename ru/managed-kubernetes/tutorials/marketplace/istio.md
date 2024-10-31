@@ -5,15 +5,15 @@
 
 Чтобы посмотреть варианты использования Istio:
 
-1. [{#T}](#istio-install).
-1. [{#T}](#test-application).
-1. [{#T}](#visualization-service-network).
-1. [{#T}](#request-routing).
-1. [{#T}](#injection-failures).
-1. [{#T}](#traffic-redistribution).
-1. [{#T}](#mutual-tls).
-1. [{#T}](#viewing-metrics-prometheus).
-1. [{#T}](#viewing-metrics-grafana).
+1. [Установите Istio](#istio-install).
+1. [Установите тестовое приложение](#test-application).
+1. [Посмотрите схему сервисной сети на дашборде Kiali](#visualization-service-network).
+1. [Маршрутизируйте запросы](#request-routing).
+1. [Внедрите сбой в работу сервиса](#injection-failures).
+1. [Перераспределите трафик](#traffic-redistribution).
+1. [Установите режим аутентификации с помощью mutual TLS](#mutual-tls).
+1. [Посмотрите метрики Istio на дашборде {{ prometheus-name }}](#viewing-metrics-prometheus).
+1. [Посмотрите метрики Istio на дашборде {{ grafana-name }}](#viewing-metrics-grafana).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -92,7 +92,7 @@
 1. [Установите](../../operations/applications/istio.md#marketplace-install) продукт [Istio](/marketplace/products/yc/istio) из каталога приложений {{ marketplace-full-name }}. При установке приложения:
 
     1. Создайте новое [пространство имен](../../concepts/index.md#namespace) `istio-system`.
-    1. Установите дополнения для Istio (Kiali, Prometheus, Grafana, Loki, Jaeger).
+    1. Установите дополнения для Istio (Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger).
 
 1. Убедитесь, что все [поды](../../concepts/index.md#pod) Istio и его дополнений перешли в статус `Running`:
 
@@ -467,7 +467,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     ...
     ```
 
-## Посмотрите метрики Istio на дашборде Prometheus {#viewing-metrics-prometheus}
+## Посмотрите метрики Istio на дашборде {{ prometheus-name }} {#viewing-metrics-prometheus}
 
 1. Убедитесь, что сервис `prometheus` установлен и доступен в кластере {{ managed-k8s-name }}:
 
@@ -488,7 +488,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     kubectl port-forward service/prometheus 9090:9090 -n istio-system
     ```
 
-1. Чтобы открыть дашборд Prometheus, вставьте в адресную строку браузера `http://localhost:9090`.
+1. Чтобы открыть дашборд {{ prometheus-name }}, вставьте в адресную строку браузера `http://localhost:9090`.
 
 1. Введите в поле **Expression** запрос:
 
@@ -498,7 +498,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
 
 1. Перейдите на вкладку **Graph**. Она показывает метрики Istio.
 
-## Посмотрите метрики Istio на дашборде Grafana {#viewing-metrics-grafana}
+## Посмотрите метрики Istio на дашборде {{ grafana-name }} {#viewing-metrics-grafana}
 
 1. Убедитесь, что сервис `grafana` установлен и доступен в кластере {{ managed-k8s-name }}:
 
@@ -519,7 +519,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     kubectl port-forward service/grafana 3000:3000 -n istio-system
     ```
 
-1. Чтобы открыть дашборд Grafana, вставьте в адресную строку браузера `http://localhost:3000`.
+1. Чтобы открыть дашборд {{ grafana-name }}, вставьте в адресную строку браузера `http://localhost:3000`.
 
 1. В списке дашбордов найдите и откройте **Istio Mesh Dashboard**. Он показывает метрики запросов к сервисам тестового приложения.
 

@@ -2,12 +2,12 @@
 
 
 Чтобы увеличить размер [тома](../../concepts/volume.md):
-1. [{#T}](#enabling-expansion).
-1. [{#T}](#create-pvc).
-1. [{#T}](#create-pod).
-1. [{#T}](#restart-pod).
-1. [{#T}](#volume-expansion).
-1. [{#T}](#restart-pod1).
+1. [Включите механизм увеличения размера тома](#enabling-expansion).
+1. [Создайте объект PersistentVolumeClaim](#create-pvc).
+1. [Создайте под с динамически подготовленным томом](#create-pod).
+1. [Удалите под с томом](#restart-pod).
+1. [Запросите увеличение размера тома](#volume-expansion).
+1. [Удалите под с томом](#delete-pod).
 
 {% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
@@ -105,7 +105,7 @@ reclaimPolicy: Delete
    pod/pod created
    ```
 
-## Удалите под с томом {#restart-pod}
+## Удалите под с томом {#delete-pod}
 
 Чтобы запросить увеличение размера тома, необходимо удалить под.
 1. Удалите под:

@@ -65,11 +65,52 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/User/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.List
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/list.md#yandex.cloud.mdb.clickhouse.v1.ListUsersResponse).
 
 - SQL {#sql}
 
@@ -179,16 +220,152 @@ description: Из статьи вы узнаете, как управлять п
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать пользователя, воспользуйтесь методом REST API [create](../api-ref/User/create.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../api-ref/grpc/User/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя нового пользователя в параметре `userSpec.name`.
-    * Пароль нового пользователя в параметре `userSpec.password`.
-    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
-    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
-    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "userSpec": {
+                "name": "<имя_пользователя>",
+                "password": "<пароль_пользователя>",
+                "permissions": [
+                  {
+                    "databaseName": "<имя_БД>"
+                  }
+                ],
+                "settings": {<настройки_{{ CH }}>},
+                "quotas": [
+                  {
+                    "intervalDuration": "<интервал_для_квоты>",
+                    "queries": "<суммарное_количество_запросов>",
+                    "errors": "<количество_запросов_с_ошибкой>",
+                    "resultRows": "<количество_строк_результата>",
+                    "readRows": "<количество_исходных_строк>",
+                    "executionTime": "<суммарное_время_выполнения>"
+                  },
+                  { <аналогичный_набор_настроек_для_квоты_2> },
+                  { ... },
+                  { <аналогичный_набор_настроек_для_квоты_N> }
+                ]
+              },
+              { <аналогичный_набор_настроек_для_создаваемого_пользователя_2> },
+              { ... },
+              { <аналогичный_набор_настроек_для_создаваемого_пользователя_N> }
+            }
+            ```
+
+            Где `userSpec` — массив, содержащий настройки создаваемых пользователей. Один элемент массива содержит настройки для одного пользователя и имеет следующую структуру:
+
+            {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
+
+            * `settings` — список [настроек {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя.
+
+                Настройки задаются в виде пар `ключ: значение`, разделенных запятыми.
+
+            * `quotas` — массив, содержащий [настройки квот](../concepts/settings-list.md#quota-settings). Один элемент массива содержит настройки для одной квоты.
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users' \
+              --data '@body.json'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#responses).
+
+    См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "cluster_id": "<идентификатор_кластера>",
+              "user_spec": {
+                "name": "<имя_пользователя>",
+                "password": "<пароль_пользователя>",
+                "permissions": [
+                  {
+                    "database_name": "<имя_БД>"
+                  }
+                ],
+                "settings": {<настройки_{{ CH }}>},
+                "quotas": [
+                  {
+                    "interval_duration": "<интервал_для_квоты>",
+                    "queries": "<суммарное_количество_запросов>",
+                    "errors": "<количество_запросов_с_ошибкой>",
+                    "result_rows": "<количество_строк_результата>",
+                    "read_rows": "<количество_исходных_строк>",
+                    "execution_time": "<суммарное_время_выполнения>"
+                  },
+                  { <аналогичный_набор_настроек_для_квоты_2> },
+                  { ... },
+                  { <аналогичный_набор_настроек_для_квоты_N> }
+                ]
+              },
+              { <аналогичный_набор_настроек_для_создаваемого_пользователя_2> },
+              { ... },
+              { <аналогичный_набор_настроек_для_создаваемого_пользователя_N> }
+            }
+            ```
+
+            Где `user_spec` — массив, содержащий настройки создаваемых пользователей. Один элемент массива содержит настройки для одного пользователя и имеет следующую структуру:
+
+            * `name` — имя пользователя. Оно может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы или подчеркивания.
+            * `password` — пароль пользователя. Длина пароля от 8 до 128 символов.
+            * `permissions` — список БД, к которым пользователь должен иметь доступ.
+
+                Список организован в виде массива параметров `database_name`. Один параметр содержит имя отдельной БД.
+
+            * `settings` — список [настроек {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя.
+
+                Настройки задаются в виде пар `ключ: значение`, разделенных запятыми.
+
+            * `quotas` — массив, содержащий [настройки квот](../concepts/settings-list.md#quota-settings). Один элемент массива содержит настройки для одной квоты.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.UserService.Create \
+              < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
+
+    См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
 - SQL {#sql}
 
@@ -273,18 +450,88 @@ description: Из статьи вы узнаете, как управлять п
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить пароль, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/User/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новый пароль в параметре `password`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+    1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --data '{
+                      "updateMask": "password",
+                      "password": "<новый_пароль>"
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `password`.
+
+        * `password` — новый пароль пользователя.
+
+            Длина пароля от 8 до 128 символов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "user_name": "<имя_пользователя>",
+                  "update_mask": {
+                    "paths": [
+                      "password"
+                    ]
+                  },
+                  "password": "<новый_пароль>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `password`.
+
+        * `password` — новый пароль пользователя.
+
+            Длина пароля от 8 до 128 символов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -348,18 +595,91 @@ description: Из статьи вы узнаете, как управлять п
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новый пароль в параметре `configSpec.adminPassword`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.adminPassword",
+                      "configSpec": {
+                        "adminPassword": "<новый_пароль>"
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `configSpec.adminPassword`.
+
+        * `configSpec.adminPassword` — новый пароль пользователя.
+
+            Длина пароля от 8 до 128 символов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.admin_password"
+                    ]
+                  },
+                  "config_spec": {
+                    "admin_password": "<новый_пароль>"
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `config_spec.admin_password`.
+
+        * `config_spec.admin_password` — новый пароль пользователя.
+
+            Длина пароля от 8 до 128 символов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -516,18 +836,132 @@ description: Из статьи вы узнаете, как управлять п
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить настройки пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/User/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
-    * (Опционально) Список баз, к которым пользователь должен иметь доступ, в параметре `userSpec.permissions[]`.
-    * (Опционально) Список настроек {{ CH }} для пользователя в параметре `userSpec.settings`.
-    * (Опционально) Список настроек квот для пользователя в параметре `userSpec.quotas[]`.
-    * Список полей конфигурации пользователя, которые необходимо изменить, в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --data '{
+                      "updateMask": "<перечень_изменяемых_настроек>",
+                      "permissions": [ <обновленный_список_БД> ],
+                      "settings": { <настройки_{{ CH }}> },
+                      "quotas": [ <обновленный_список_настроек_квот> ]
+                    }'
+        ```
+
+        Где `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        Укажите нужные параметры, чтобы изменить отдельные категории настроек:
+
+        * Чтобы изменить список БД, к которым пользователь должен иметь доступ, передайте в параметре `permissions` обновленный список БД.
+
+            Список организован в виде массива параметров `databaseName`. Один параметр содержит имя отдельной БД.
+
+            {% note warning %}
+
+            Существующий в кластере список БД будет полностью перезаписан списком, переданным в параметре `permissions`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные БД, в том числе существующие.
+
+            {% endnote %}
+
+        * Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
+
+        * Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings), передайте в параметре `quotas` обновленный список с настройками квот.
+
+            Список организован в виде массива. Один элемент массива содержит настройки для одной квоты.
+
+            {% note warning %}
+
+            Существующий в кластере список настроек квот будет полностью перезаписан списком, переданным в параметре `quotas`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные настройки квот, в том числе существующие.
+
+            {% endnote %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "user_name": "<имя_пользователя>",
+                  "update_mask": {
+                    "paths": [
+                      <перечень_изменяемых_настроек>
+                    ]
+                  },
+                  "permissions": [ <обновленный_список_БД> ],
+                  "settings": { <настройки_{{ CH }}> },
+                  "quotas": [ <обновленный_список_настроек_квот> ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.Update
+        ```
+
+        Где `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        Укажите нужные параметры, чтобы изменить отдельные категории настроек:
+
+        * Чтобы изменить список БД, к которым пользователь должен иметь доступ, передайте в параметре `permissions` обновленный список БД.
+
+            Список организован в виде массива параметров `database_name`. Один параметр содержит имя отдельной БД.
+
+            {% note warning %}
+
+            Существующий в кластере список БД будет полностью перезаписан списком, переданным в параметре `permissions`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные БД, в том числе существующие.
+
+            {% endnote %}
+
+        * Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
+
+        * Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings), передайте в параметре `quotas` обновленный список с настройками квот.
+
+            Список организован в виде массива. Один элемент массива содержит настройки для одной квоты.
+
+            {% note warning %}
+
+            Существующий в кластере список настроек квот будет полностью перезаписан списком, переданным в параметре `quotas`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные настройки квот, в том числе существующие.
+
+            {% endnote %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 
@@ -597,12 +1031,53 @@ description: Из статьи вы узнаете, как управлять п
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы удалить пользователя, воспользуйтесь методом REST API [delete](../api-ref/User/delete.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../api-ref/grpc/User/delete.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя пользователя, настройки которого будут изменены, в параметре `userName`. Чтобы узнать имя, [получите список пользователей](#list-users).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "user_name": "<имя_пользователя>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.Delete
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 
@@ -621,7 +1096,7 @@ description: Из статьи вы узнаете, как управлять п
 
 ### Создание пользователя с настройкой «только чтение» {#example-create-readonly-user}
 
-Допустим, нужно добавить в существующий кластер с именем `mych` нового пользователя `ro-user` с паролем `Passw0rd`, причем:
+Допустим, нужно добавить в существующий кластер с именем `mych` и идентификатором `{{ cluster-id }}` нового пользователя `ro-user` с паролем `Passw0rd`, причем:
 * пользователь должен иметь доступ к базе данных `db1` кластера;
 * доступ должен осуществляться в режиме «только чтение» (readonly), без возможности изменения настроек.
 
@@ -701,6 +1176,72 @@ description: Из статьи вы узнаете, как управлять п
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Выполните запрос c помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{{ cluster-id }}/users' \
+            --data '{
+                      "userSpec": {
+                        "name": "ro-user",
+                        "password": "Passw0rd",
+                        "permissions": [
+                          {
+                            "databaseName": "db1"
+                          }
+                        ],
+                        "settings": {
+                          "readonly": "1"
+                        }
+                      }
+                    }'
+        ```
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Выполните запрос с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "{{ cluster-id }}",
+                  "user_spec": {
+                    "name": "ro-user",
+                    "password": "Passw0rd",
+                    "permissions": [
+                      {
+                        "database_name": "db1"
+                      }
+                    ],
+                    "settings": {
+                      "readonly": "1"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.Create
+        ```
 
 - SQL {#sql}
 

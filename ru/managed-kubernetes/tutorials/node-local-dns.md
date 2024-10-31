@@ -18,11 +18,13 @@
 
 Чтобы настроить кеширование запросов DNS:
 
-1. [{#T}](#install).
-1. [{#T}](#configure).
-1. [{#T}](#dns-queries).
-1. [{#T}](#dns-traffic).
-1. [{#T}](#check-logs).
+1. [Установите NodeLocal DNS](#install).
+1. [Измените конфигурацию NodeLocal DNS Cache](#configure).
+1. [Выполните DNS-запросы](#dns-queries).
+1. [Настройте трафик через NodeLocal DNS](#dns-traffic).
+1. [Проверьте логи](#check-logs).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 

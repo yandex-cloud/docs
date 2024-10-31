@@ -1,6 +1,6 @@
 After validating a request, {{ captcha-name }} assigns it an ID: a one-time token. You can use the token to retrieve the result of a user request validation from the service. The token is valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
 
-After validation, the token is loaded into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user's page. For example:
+After validation, the token is loaded into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. Here is an example:
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
@@ -14,17 +14,10 @@ Where:
 * `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with a widget.
 * `value`: Token value.
 
-To find out the result of the validation, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
+To find out the result of the validation, send a POST request to `https://smartcaptcha.yandexcloud.net/validate` providing parameters in `x-www-form-urlencoded` format:
 
-```HTML
-response = requests.post(
-"https://smartcaptcha.yandexcloud.net/validate",
-    {
-    "secret": SMARTCAPTCHA_SERVER_KEY,
-    "token": token,
-    "ip": "<user_IP_address>"
-    }
-)
+```
+secret=<server_key>&token=<token>&ip=<user_IP_address>
 ```
 
 Where:
@@ -85,7 +78,7 @@ In its response, the service will return a JSON object containing the `status` a
 
 ## Request errors {#errors}
 
-If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error. For example:
+If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error. Here is an example:
 
 1. Request missing the server key:
 

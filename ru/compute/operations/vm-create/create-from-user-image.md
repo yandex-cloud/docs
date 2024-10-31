@@ -13,6 +13,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте ВМ из подготовленного образа {#create-vm-from-image}
 
+{% include [independent-resources](../../../_includes/compute/independent-resources.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

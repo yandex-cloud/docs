@@ -44,9 +44,10 @@ description: Вы можете запросить детальную инфор�
 
       ```bash
       curl \
-          --request GET \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters?folderId=<идентификатор_каталога>'
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters' \
+        --url-query folderId=<идентификатор_каталога>
       ```
 
 
@@ -155,7 +156,7 @@ description: Вы можете запросить детальную инфор�
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.clickhouse.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster).
 
 {% endlist %}
 

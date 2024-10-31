@@ -89,6 +89,8 @@ items:
         href: tutorials/mkf-ydb-stream.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
   - name: Концепции
     items:
       - name: Обзор

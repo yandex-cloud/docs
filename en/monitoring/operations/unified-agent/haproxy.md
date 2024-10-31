@@ -1,6 +1,6 @@
 # Delivering metrics from HAProxy and other third-party applications
 
-{{ unified-agent-full-name }} supports metric collection in {{ prometheus-name }} format and metric conversion to {{ monitoring-full-name }} format. {{unified-agent-short-name}} enables you to pull metrics from any applications that deliver them in {{ prometheus-name }} format.
+{{ unified-agent-full-name }} supports metric collection in the {{ prometheus-name }} format and metric conversion to the {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that deliver them in the {{ prometheus-name }} format.
 
 To deliver metrics from third-party applications to {{ monitoring-full-name }}, use the [metrics_pull input](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input) that regularly polls a third-party application directly (if the application supports metrics in {{ prometheus-name }} format) or polls a special export application that integrates with {{ prometheus-name }}.
 

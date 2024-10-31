@@ -19,6 +19,7 @@ description: Следуя этой инструкции, вы сможете п�
 Примеры для Linux проверялись в следующем окружении:
 
 * Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* OpenJDK: `11.0.24`.
 * Bash: `5.0.16`.
 
 Примеры для Windows проверялись в следующем окружении:
@@ -31,9 +32,9 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-### Linux (Bash)/macOS (Zsh) {#bash-zsh}
+### kafkacat {#bash-zsh}
 
-Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
+Утилита [kafkacat](https://github.com/edenhill/kcat) (второе название `kcat`) — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных и не требует установки Java Runtime Environment.
 
 Перед подключением установите зависимости:
 
@@ -90,7 +91,114 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% include [shell-howto](../../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
-### Windows (PowerShell) {#powershell}
+### Инструменты {{ KF }} для Linux (Bash)/macOS (Zsh) {#kafka-sh}
+
+{% include [kafka-cli-tools-intro](../../../_includes/mdb/mkf/kafka-cli-tools-intro.md) %}
+
+Перед подключением:
+
+1. Установите OpenJDK:
+
+    ```bash
+    sudo apt update && sudo apt install --yes default-jdk
+    ```
+
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+
+1. Распакуйте архив.
+
+{% list tabs group=connection %}
+
+- Подключение без SSL {#without-ssl}
+
+    1. {% include [connect-properties-no-ssl](../../../_includes/mdb/mkf/connect-properties-no-ssl.md) %}
+
+    1. Запустите команду получения сообщений из топика:
+
+        ```bash
+        <путь_к_директории_с_файлами_Apache_Kafka>/bin/kafka-console-consumer.sh \
+          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> \
+          --bootstrap-server <FQDN_брокера>:9092 \
+          --topic <имя_топика> \
+          --property print.key=true \
+          --property key.separator=":"
+        ```
+
+        Команда будет непрерывно считывать новые сообщения из топика.
+
+    1. В отдельном терминале запустите команду отправки сообщения в топик:
+
+        ```bash
+        echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>/bin/kafka-console-producer.sh \
+          --producer.config <путь_к_файлу_с_параметрами_для_производителя> \
+          --bootstrap-server <FQDN_брокера>:9092 \
+          --topic <имя_топика> \
+          --property parse.key=true \
+          --property key.separator=":"
+        ```
+
+- Подключение с SSL {#with-ssl}
+
+    1. Перейдите в каталог, где будет располагаться хранилище сертификатов Java:
+
+        ```bash
+        cd /etc/security
+        ```
+
+    1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
+
+    1. Создайте файлы с параметрами для подключения к кластеру: файл для производителя и файл для потребителя.
+
+        Эти файлы имеют одинаковое содержимое, различаются только реквизиты пользователя:
+
+        ```ini
+        sasl.mechanism=SCRAM-SHA-512
+        sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
+          username="<логин_производителя_или_потребителя>" \
+          password="<пароль_производителя_или_потребителя>";
+        security.protocol=SASL_SSL
+        ssl.truststore.location=/etc/security/ssl
+        ssl.truststore.password=<пароль_хранилища_сертификатов>
+        ```
+
+    1. Запустите команду получения сообщений из топика:
+
+        ```bash
+        <путь_к_директории_с_файлами_Apache_Kafka>/bin/kafka-console-consumer.sh \
+          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> \
+          --bootstrap-server <FQDN_брокера>:9091 \
+          --topic <имя_топика> \
+          --property print.key=true \
+          --property key.separator=":"
+        ```
+
+        Команда будет непрерывно считывать новые сообщения из топика.
+
+    1. В отдельном терминале запустите команду отправки сообщения в топик:
+
+        ```bash
+        echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>/bin/kafka-console-producer.sh \
+          --producer.config <путь_к_файлу_с_параметрами_для_производителя> \
+          --bootstrap-server <FQDN_брокера>:9091 \
+          --topic <имя_топика> \
+          --property parse.key=true \
+          --property key.separator=":"
+        ```
+
+{% endlist %}
+
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
+
+{% include [shell-howto](../../../_includes/mdb/mkf/connstr-shell-howto.md) %}
+
+### Инструменты {{ KF }} для Windows (PowerShell) {#powershell}
+
+{% include [kafka-cli-tools-intro](../../../_includes/mdb/mkf/kafka-cli-tools-intro.md) %}
+
+Хотя документация по инструментам содержит упоминание скриптов `.sh`, она актуальна и при работе в Windows. Сами инструменты одинаковы для любой платформы, различаются лишь скрипты, которые запускают их, например:
+
+* `bin/kafka-console-producer.sh` для Linux (Bash)/macOS (Zsh).
+* `bin\windows\kafka-console-producer.bat` для Windows (PowerShell).
 
 Перед подключением:
 
@@ -112,17 +220,17 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение без SSL {#without-ssl}
 
+  1. {% include [connect-properties-no-ssl](../../../_includes/mdb/mkf/connect-properties-no-ssl.md) %}
+
   1. Запустите команду получения сообщений из топика:
 
       ```powershell
       <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
+          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> `
           --bootstrap-server <FQDN_брокера>:9092 `
           --topic <имя_топика> `
           --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_PLAINTEXT `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';" 
+          --property key.separator=":"
       ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -131,14 +239,11 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```powershell
       echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
+          --producer.config <путь_к_файлу_с_параметрами_для_производителя> `
           --bootstrap-server <FQDN_брокера>:9092 `
           --topic <имя_топика> `
           --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_PLAINTEXT `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
+          --property key.separator=":"
       ```
 
 - Подключение с SSL {#with-ssl}
@@ -153,19 +258,47 @@ sudo apt update && sudo apt install -y kafkacat
        --noprompt
      ```
 
+  1. Создайте файлы с параметрами для подключения к кластеру: файл для производителя и файл для потребителя.
+
+     Эти файлы имеют одинаковое содержимое, различаются только реквизиты пользователя:
+
+     ```ini
+     sasl.mechanism=SCRAM-SHA-512
+     sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
+       username="<логин_производителя_или_потребителя>" \
+       password="<пароль_производителя_или_потребителя>";
+     security.protocol=SASL_SSL
+     ssl.truststore.location=<значение_переменной_$HOME>\\.kafka\\ssl
+     ssl.truststore.password=<пароль_хранилища_сертификатов>
+     ```
+
+     В качестве значения параметра `ssl.truststore.location` укажите полный путь к хранилищу сертификатов, например:
+
+     ```ini
+     ssl.truststore.location=C:\\Users\\Administrator\\.kafka\\ssl
+     ```
+
+     Хранилище сертификатов расположено по пути `$HOME\.kafka\ssl`, но в значении нельзя использовать переменные среды окружения. Чтобы раскрыть переменную, выполните команду:
+
+     ```powershell
+     echo $HOME
+     ```
+
+     {% note warning %}
+
+     Используйте `\\` вместо `\` при указании значения параметра `ssl.truststore.location`, иначе при запуске команд не удастся получить доступ к хранилищу сертификатов.
+
+     {% endnote %}
+
   1. Запустите команду получения сообщений из топика:
 
       ```powershell
       <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
+          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> `
           --bootstrap-server <FQDN_брокера>:9091 `
           --topic <имя_топика> `
           --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_SSL `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --consumer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';"
+          --property key.separator=":"
       ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -174,16 +307,11 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```powershell
       echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
+          --producer.config <путь_к_файлу_с_параметрами_для_производителя> `
           --bootstrap-server <FQDN_брокера>:9091 `
           --topic <имя_топика> `
           --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_SSL `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --producer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
+          --property key.separator=":"
       ```
 
 {% endlist %}

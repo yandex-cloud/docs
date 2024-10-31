@@ -49,3 +49,8 @@ description: На странице представлен список прак�
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)
+* [{#T}](./serverless-url-shortener.md)
+* [{#T}](./log-ingestion.md)
+* [{#T}](./java-servlet-todo-list.md)
+* [{#T}](./telegram-bot-serverless.md)
+* [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)

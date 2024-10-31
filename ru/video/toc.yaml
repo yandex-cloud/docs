@@ -107,6 +107,8 @@ items:
             href: sdk/index.md
           - name: IFrame
             href: iframe-sdk.md
+          - name: iOS
+            href: sdk/ios-sdk.md
           - name: JavaScript
             items:
               - name: Начало работы

@@ -49,13 +49,13 @@ You can configure [trigger conditions](conditions.md) for each exclusion rule. I
 
 When you configure a WAF profile, you can enable request body inspection and specify the following parameters:
 
-* Maximum request body size: from 8 KB (_you can customize it later_).
+* The maximum size of the request body starts from 8 KB (_you can customize the size later_).
   
-  The maximum request body size affects the web application's performance and security. Limiting the size helps prevent excessive resource consumption. It also helps mitigate the effects of DoS/DDoS attacks, where attackers submit large requests in order to exhaust the server's resources.
+  Defining a maximum request body size affects the performance and security of your web application. Limiting the size helps prevent excessive resource consumption and also mitigate the effects of DoS/DDoS attacks, where attackers send large requests in order to exhaust the server's resources.
   
-* Actions if maximum request body size is exceeded:
+* Actions you need to take when the maximum request body size is exceeded:
   * Do not analyze (skip). You can use it when a legitimate application frequently sends large requests.
-  * Block. A more universal and secure approach. Any requests exceeding the specified limit will be blocked, thus reducing the risk of attacks.
+  * Block. This is a more universal and secure approach. Any requests exceeding the specified limit will be blocked, thus reducing the risk of attacks.
 
 ## See also {#see-also}
 

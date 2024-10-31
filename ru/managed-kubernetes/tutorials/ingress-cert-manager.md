@@ -7,12 +7,12 @@ description: Следуя данному руководству, вы сможе
 
 Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
 
-1. [{#T}](#install-controller).
-1. [{#T}](#connecting-certs-manager).
-1. [{#T}](#install-certs-manager).
-1. [{#T}](#create-issuer).
-1. [{#T}](#install-objects).
-1. [{#T}](#test-controller).
+1. [Установите Ingress-контроллер NGINX](#install-controller).
+1. [Настройте DNS-запись для Ingress-контроллера](#connecting-certs-manager).
+1. [Установите менеджер сертификатов](#install-certs-manager).
+1. [Создайте ClusterIssuer](#create-issuer).
+1. [Создайте объекты для проверки работы cert-manager](#install-objects).
+1. [Проверьте работоспособность TLS](#test-controller).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

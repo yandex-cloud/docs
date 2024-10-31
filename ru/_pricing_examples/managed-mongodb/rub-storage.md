@@ -1,9 +1,9 @@
-> 720 × 31,20&nbsp;₽ + 100&nbsp;×&nbsp;3,20&nbsp;₽ = 22&nbsp;784,00&nbsp;₽
+> 720 × {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mongodb.v3.ram|number }}) %} + 100&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }} = {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mongodb.v3.ram|number }})) + 100 × {{ sku|RUB|mdb.cluster.network-hdd.ch|month|number }} %}
 >
-> Итого: 22&nbsp;784,00&nbsp;₽ — стоимость использования кластера в течение 30 дней.
+> Итого: {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mongodb.v3.ram|number }})) + 100 × {{ sku|RUB|mdb.cluster.network-hdd.ch|month|number }} %} — стоимость использования кластера в течение 30 дней.
 
 Где:
 * 720 — количество часов в 30 днях.
-* 31,20&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
+* {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mongodb.v3.ram|number }}) %} — стоимость часа работы хостов {{ MG }}.
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-* 3,20&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+* {{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.

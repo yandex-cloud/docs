@@ -203,7 +203,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
 In the terminal, run the following command:
 
 ```bash
-curl -v <load_balancer_public_IP_address>:80
+curl --verbose <load_balancer_public_IP_address>:80
 ```
 
 The response must return the HTTP status code `200` and an HTML list of folders from the test VM folder.
