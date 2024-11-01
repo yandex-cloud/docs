@@ -1,7 +1,5 @@
 # Generating an image using {{ yandexart-name }}
 
-{% include notitle [preview-stage](../../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [Operation object](../../../api-design-guide/concepts/operation.md) containing an operation ID, which you can use to [track its execution](../../../api-design-guide/concepts/operation.md#monitoring) and get the result after generation is completed. Generating a result in asynchronous mode can take from a couple of minutes to several hours.
 
 ## Getting started {#before-begin}

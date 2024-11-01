@@ -139,9 +139,9 @@ default:
   datalens-full-name: Yandex DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens
-  dataproc-full-name: Yandex Data Proc
-  dataproc-name: Yandex Data Proc
-  dataproc-short-name: Yandex Data Proc
+  dataproc-full-name: Yandex Data Processing
+  dataproc-name: Yandex Data Processing
+  dataproc-short-name: Yandex Data Processing
   dd: Dedicated
   ddos-protection-full-name: Yandex DDoS Protection
   ddos-protection-name: DDoS Protection

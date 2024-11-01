@@ -117,6 +117,12 @@ editable: false
 
 ### Генерация изображений {#pricing-image-generation}
 
+{% note warning %}
+
+Цены, указанные ниже, начнут действовать 1 ноября 2024 года.
+
+{% endnote %}
+
 
 {% list tabs group=pricing %}
 

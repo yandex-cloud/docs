@@ -50,14 +50,6 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 ### Image generation {#rules-image-generation}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
-
-{% note warning %}
-
-The pricing below will apply starting November 1, 2024.
-
-{% endnote %}
-
 You are charged for each generation query in {{ yandexart-name }}. The queries are not idempotent, which means two queries with different settings and generation prompts are two separate queries.
 
 ### Internal server errors {#error-request}
@@ -83,6 +75,12 @@ You are charged for each generation query in {{ yandexart-name }}. The queries a
 
 
 ### Image generation {#pricing-image-generation}
+
+{% note warning %}
+
+The pricing below will apply starting November 1, 2024.
+
+{% endnote %}
 
 
 
