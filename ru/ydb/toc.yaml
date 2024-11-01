@@ -89,6 +89,14 @@ items:
         href: tutorials/mkf-ydb-stream.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
       - name: Сокращатель ссылок
         href: tutorials/serverless-url-shortener.md
   - name: Концепции

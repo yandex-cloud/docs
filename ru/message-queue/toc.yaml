@@ -79,6 +79,10 @@ items:
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

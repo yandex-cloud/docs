@@ -62,6 +62,14 @@ items:
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
+      - name: >-
+          Автоматическое копирование объектов из одного бакета {{
+          objstorage-name }} в другой
+        href: tutorials/bucket-to-bucket-copying.md
       - name: Безопасная передача пароля в скрипт инициализации
         href: tutorials/secure-password-script.md
   - name: Квоты и лимиты

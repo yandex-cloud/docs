@@ -25,3 +25,6 @@ description: Различные сценарии использования {{ y
 * [{#T}](mkf-ydb-stream.md)
 * [{#T}](terraform-state-lock.md)
 * [{#T}](serverless-url-shortener.md)
+* [{#T}](api-gw-integration.md)
+* [{#T}](movies-database.md)
+* [{#T}](websocket-app.md)

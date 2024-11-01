@@ -211,6 +211,8 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: tutorials/deploy-app-container.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

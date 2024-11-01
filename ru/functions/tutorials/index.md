@@ -26,7 +26,6 @@
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
 * [{#T}](iot-emulation.md)
-* [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](./events-from-postbox-to-yds.md)
 * [{#T}](./serverless-url-shortener.md)
 * [{#T}](data-from-tracker.md)

@@ -212,6 +212,10 @@ items:
               Сканирование уязвимостей {{ container-registry-name }} при
               непрерывном развертывании приложений с помощью {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+          - name: >-
+              Построение пайплайна CI/CD в {{ GL }} с использованием
+              serverless-продуктов
+            href: tutorials/ci-cd-serverless.md
       - name: Работа с DNS
         items:
           - name: Интеграция с корпоративной зоной DNS
