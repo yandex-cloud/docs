@@ -476,6 +476,10 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
+      - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Check Point NGFW
         href: tutorials/high-accessible-dmz.md

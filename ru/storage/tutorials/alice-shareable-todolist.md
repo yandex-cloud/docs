@@ -4,6 +4,4 @@ description: В этом сценарии вы создадите навык А�
 canonical: '{{ link-docs }}/tutorials/serverless/alice-shareable-todolist'
 ---
 
-# Разработка навыка Алисы и сайта с авторизацией на базе serverless-продуктов
-
-{% include notitle [alice-shareable-todolist](../../_tutorials/serverless/alice-shareable-todolist.md) %}
+{% include [alice-shareable-todolist](../../_tutorials/serverless/alice-shareable-todolist.md) %}

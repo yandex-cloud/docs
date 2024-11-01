@@ -38,6 +38,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](ha-regional-glusterfs-high-performance.md)
 * [{#T}](backup-with-bacula.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+* [{#T}](ci-cd-serverless.md)
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md) 

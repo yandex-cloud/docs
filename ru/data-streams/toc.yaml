@@ -95,6 +95,10 @@ items:
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
