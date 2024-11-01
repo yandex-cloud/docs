@@ -7,28 +7,55 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.136.0 (21.10.24) {#version0.136.0}
+### Версия 0.137.0 (01.11.24) {#version0.137.0}
 
-### Изменения в CLI {#cli}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Исправлена работа команд `get` без параметров.
+* Исправлен формат результатов команд `list` — теперь возвращается таблица.
+
+##### {{ er-name }} {#eventrouter}
+
+* Исправлена работа команд `get` без параметров.
+* Исправлен формат результатов команд `list` — теперь возвращается таблица.
+
+##### {{ objstorage-name }} {#object-storage}
+
+* Добавлены команды `yc storage s3api get-object-retention` и `yc storage s3api put-object-retention` для чтения и изменения временной блокировки объекта.
+* Добавлены команды `yc storage s3api get-object-legal-hold` и `yc storage s3api put-object-legal-hold` для чтения и изменения бессрочной блокировки объекта.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `17` для параметра `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 17.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.136.0 (21.10.24) {#version0.136.0}
+
+#### Изменения в CLI {#cli}
 
 * В команде `yc init` теперь не предлагается зона `ru-central1-c`, поскольку она больше не используется.
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * В команды `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` добавлен параметр `--idle-timeout`, позволяющий указать таймаут неактивности соединения. 
 
-#### {{ er-name }} {#eventrouter}
+##### {{ er-name }} {#eventrouter}
 
 * Дополнена валидация параметров для команды `yc serverless eventrouter`.
-* Исправлена ошибка при вызове `yc serverless eventrouter put-event`.
+* Исправлена ошибка при работе команды `yc serverless eventrouter put-event`.
 
-#### {{ objstorage-name }}
+##### {{ objstorage-name }} {#object-storage}
 
 * Добавлена возможность проставить `--storage-endpoint` с помощью `yc config set`. Если пользователь не указал явно `--storage-endpoint`, то эндпоинт будет получен из `ApiEndpointService`.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -43,16 +70,14 @@ description: На странице представлены релизы YC CLI,
   * `--turn-before-switchover`,
   * `--allow-data-loss`.
 
-#### {{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}
+**{{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}**
 
-* Уточнено описание параметров `--disk-size`, по умолчанию размер диска передается в GB.
-
-
-## Предыдущие релизы {#previous-releases}
+* Уточнено описание параметров `--disk-size`, по умолчанию размер диска передается в ГБ.
 
 ### Версия 0.135.0 (07.10.24) {#version0.135.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Добавлены команды для работы с продуктами {{ marketplace-name }} в кластере {{ managed-k8s-name }}: 

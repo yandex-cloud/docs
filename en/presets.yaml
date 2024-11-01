@@ -419,9 +419,9 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mms-full-name: Yandex Managed Service for SQL Server
   mms-name: Managed Service for SQL Server
-  mmy-full-name: Yandex Managed Service for MySQL
-  mmy-name: Managed Service for MySQL
-  mmy-short-name: Managed Service for MySQL
+  mmy-full-name: Yandex Managed Service for MySQL®
+  mmy-name: Managed Service for MySQL®
+  mmy-short-name: Managed Service for MySQL®
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
@@ -447,7 +447,7 @@ default:
     docs: https://docs.microsoft.com/en-us
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
-  MY: MySQL
+  MY: MySQL®
   my:
     docs: https://dev.mysql.com/doc
   network-load-balancer-full-name: Yandex Network Load Balancer

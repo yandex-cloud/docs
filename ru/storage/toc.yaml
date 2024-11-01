@@ -240,10 +240,18 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: tutorials/kubernetes-backup.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
       - name: Сокращатель ссылок
         href: tutorials/serverless-url-shortener.md
       - name: Хранение журналов работы приложения
         href: tutorials/log-ingestion.md
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: tutorials/alice-shareable-todolist.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
       - name: Развертывание веб-приложения с использованием Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Telegram-бота

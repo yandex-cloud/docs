@@ -46,6 +46,8 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 
 
+* [{#T}](ci-cd-serverless.md)
+
 ## Работа с DNS {#dns}
 
 * [{#T}](custom-dns.md)
