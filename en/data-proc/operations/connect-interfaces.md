@@ -94,7 +94,7 @@ To connect to the {{ dataproc-name }} host port you need, run the following comm
 ```bash
 ssh -A \
     -J <VM_user_name>@<VM_public_IP_address> \
-    -L <port_number>:<Data_Proc_host_FQDN>:<port_number> <username>@<Data_Proc_host_FQDN>
+    -L <port_number>:<Yandex_Data_Processing_host_FQDN>:<port_number> <username>@<Yandex_Data_Processing_host_FQDN>
 ```
 
 

@@ -1,4 +1,4 @@
-title: Yandex Data Proc
+title: Yandex Data Processing
 description:
   - >-
     Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
@@ -12,7 +12,7 @@ description:
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
 meta:
-  title: Yandex Data Proc
+  title: Yandex Data Processing
   description: >-
     Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
     инфраструктуре Yandex Cloud.

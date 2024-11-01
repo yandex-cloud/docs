@@ -1,7 +1,7 @@
 # API-ключ
 
 
-_API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API {{ yandex-cloud }}. API-ключи используются только для авторизации [сервисного аккаунта](../users/service-accounts.md).
+_API-ключ_ — секретный ключ, используемый только для упрощенной авторизации [сервисных аккаунтов](../users/service-accounts.md) в API {{ yandex-cloud }}.
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
@@ -17,7 +17,18 @@ _API-ключ_ — секретный ключ, используемый для 
 
 ## API-ключи с ограничениями области и срока действия {#scoped-api-keys}
 
-Вы можете [создавать](../../operations/api-key/create.md) API-ключи с ограниченной областью и сроком действия. Это позволит снизить риск несанкционированного использования ключей.
+Вы можете [создавать](../../operations/api-key/create.md) API-ключи с ограниченным сроком и областью действия.
+
+{% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
+
+Область действия ограничивает применение API-ключей в дополнение к собственным правам доступа пользователя. Настройка ограничений области и срока действия позволит снизить риск несанкционированного использования ключей.
+
+{% include [scoped-api-keys-note](../../../_includes/iam/scoped-api-keys-note.md) %}
+
+Доступные области действия:
+
+* `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в {{ yds-full-name }}.
+* `yc.ydb.tables.manage` — для работы с {{ ydb-short-name }} в режиме совместимости с {{ PG }}.
 
 ## Использование API-ключа {#use}
 
@@ -29,16 +40,19 @@ Authorization: Api-Key <API-ключ>
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
-API-ключи в качестве способа аутентификации поддерживают несколько сервисов:
+API-ключи в качестве способа аутентификации поддерживаются в следующих сервисах:
 
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
+* [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
+* {{ serverless-containers-full-name }} — [контейнеры](../../../serverless-containers/api-ref/containers/authentication.md) и [триггеры](../../../serverless-containers/api-ref/triggers/authentication.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
 * [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
-
+* {{ yds-full-name }} — [Kafka API](../../../data-streams/kafkaapi/index.md)
+* {{ ydb-full-name }} — только в режиме совместимости с {{ PG }}. Для других режимов работы используйте соответствующий [способ аутентификации](../../../ydb/operations/connection#auth).
 
 #### См. также {#see-also}
 

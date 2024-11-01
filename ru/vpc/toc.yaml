@@ -170,6 +170,7 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Настройка PT Application Firewall
         href: tutorials/pt-application-firewall.md
+        hidden: true
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Check Point NGFW

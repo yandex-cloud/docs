@@ -4,6 +4,8 @@
 
 Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [назначьте ему роли](../sa/assign-role-for-sa.md).
 
+## Создать API-ключ {#create-api-key}
+
 Чтобы создать API-ключ:
 
 {% list tabs group=instructions %}
@@ -131,6 +133,33 @@
   * `expiresAt` — дата и время истечения срока действия ключа с ограниченным доступом. Необязательный параметр.
 
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md).
+
+{% endlist %}
+
+### Посмотреть доступные области действия {#available-scopes}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Чтобы посмотреть доступные области действия API-ключа, выполните команду:
+
+  ```bash
+  yc iam api-key list-scopes
+  ```
+
+  Результат:
+
+  ```text
+  - yc.ydb.tables.manage
+  - yc.ydb.topics.manage
+  ```
+
+- API {#api}
+
+  Посмотрите доступные области действия API-ключа с помощью метода REST API [ListScopes](../../api-ref/ApiKey/listScopes.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md).
+
+  Доступные области действия API-ключа также можно посмотреть с помощью вызова gRPC API [ApiKeyService/ListScopes](../../api-ref/grpc/ApiKey/listScopes.md).
 
 {% endlist %}
 

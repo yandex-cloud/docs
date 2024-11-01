@@ -27,6 +27,5 @@ description: Различные сценарии использования {{ v
 * [Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall](network-segmentation-checkpoint.md)
 * [Подключение к {{ objstorage-name }} из {{ vpc-name }}](storage-vpc-access.md)
 * [Подключение к {{ container-registry-name }} из {{ vpc-name }}](vpc-cr-access.md)
-* [Настройка PT Application Firewall](pt-application-firewall.md)
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](terraform-modules.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)

@@ -71,6 +71,22 @@ You can add, copy, or delete widgets in your report. When overlapping widgets, y
 
    {% list tabs group=widgets %}
 
+   - Image {#image}
+
+     * Add a link to an [image](../dashboard/markdown.md#image) hosted in the [{{ objstorage-full-name }}](../../storage/quickstart.md) storage.
+
+       {% note warning %}
+
+       In {{ objstorage-full-name }} you must set the [CORS](../../storage/operations/buckets/cors.md) settings for the bucket with the image:
+
+       {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
+
+       {% endnote %}
+
+     * (Optional) Specify an alternative text to display if the image fails to load.
+     * (Optional) Disable the option to save the aspect ratio when resizing the widget. This option is enabled by default.
+     * (Optional) Set a background.
+
    - Chart {#chart}
 
      * **Name**: Widget name. If the **Show** option is enabled (by default), the name is displayed at the top of the widget.
@@ -97,22 +113,6 @@ You can add, copy, or delete widgets in your report. When overlapping widgets, y
 
      * Enter title text.
      * Select size.
-     * (Optional) Set a background.
-
-   - Image {#image}
-
-     * Add a link to an [image](../dashboard/markdown.md#image) hosted in the [{{ objstorage-full-name }}](../../storage/quickstart.md) storage.
-
-       {% note warning %}
-
-       In {{ objstorage-full-name }} you must set the [CORS](../../storage/operations/buckets/cors.md) settings for the bucket with the image:
-
-       {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
-
-       {% endnote %}
-
-     * (Optional) Specify an alternative text to display if the image fails to load.
-     * (Optional) Disable the option to save the aspect ratio when resizing the widget. This option is enabled by default.
      * (Optional) Set a background.
 
    {% endlist %}
