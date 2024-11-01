@@ -63,7 +63,7 @@ The maximum number of fields in a single dataset is 1,200.
 
 {{ datalens-short-name }} allows you to create calculable fields using formulas. To write formulas, you can use existing dataset fields, constants, and functions. For a full list of functions, see the [Function reference](../function-ref/all.md).
 
-For more information about calculable fields, see [{#T}](../security/row-level-security.md).
+For more information about calculable fields, see [{#T}](../concepts/calculations/index.md).
 
 ## Aggregating data {#aggregation}
 

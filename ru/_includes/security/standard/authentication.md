@@ -508,7 +508,7 @@ yc compute instance update <ID_виртуальной_машины> \
 В {{ yandex-cloud }} поддерживаются следующие ключи доступа, которые могут быть созданы для сервисных аккаунтов:
 
 * [IAM-токены](../../../iam/concepts/authorization/iam-token.md) — действуют 12 часов. 
-* [API-ключи](../../../iam/concepts/authorization/api-key.md) — не имеют срока действия.
+* [API-ключи](../../../iam/concepts/authorization/api-key.md) — можно выбрать любой срок действия.
 * [Авторизованные ключи](../../../iam/concepts/authorization/key.md) — не имеют срока действия.
 * [Статические ключи доступа, совместимые с AWS API](../../../iam/concepts/authorization/access-key.md) — не имеют срока действия.
 

@@ -90,6 +90,9 @@
 {% include [transfer-error](../../_includes/data-transfer/troubles/network/transfer-error.md) %}
 
 
+{% include [vpc-user](../../_includes/data-transfer/troubles/network/vpc-user.md) %}
+
+
 ## {{ CH }} {#clickhouse}
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}

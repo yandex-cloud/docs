@@ -1,4 +1,4 @@
-title: Yandex Data Proc
+title: Yandex Data Processing
 description:
   - >-
     The service helps you deploy Apache Hadoop <sup>®</sup> and Apache Spark™
@@ -18,7 +18,7 @@ description:
     either registered trademarks or trademarks of the Apache Software Foundation
     in the United States and/or other countries.</em>
 meta:
-  title: Yandex Data Proc
+  title: Yandex Data Processing
   description: >-
     The service helps you deploy Apache Hadoop® and Apache Spark™ clusters in
     the Yandex Cloud infrastructure.

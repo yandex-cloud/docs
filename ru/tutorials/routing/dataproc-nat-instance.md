@@ -5,4 +5,4 @@ description: В этом руководстве описано создание 
 
 # Настройка сети для {{ dataproc-full-name }}
 
-{% include notitle [Data Proc network with NAT gateway](../../_tutorials/routing/data-proc-nat-gateway.md) %}
+{% include notitle [Data Processing network with NAT gateway](../../_tutorials/routing/data-proc-nat-gateway.md) %}

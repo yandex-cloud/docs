@@ -26,6 +26,7 @@ description: В данном разделе приведены описания 
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
 * [{{ objstorage-full-name }}](#objstorage)
+* [{{ sd-full-name }}](#security-deck)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
@@ -97,6 +98,14 @@ description: В данном разделе приведены описания 
 Имя сервиса — `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
+
+## {{ sd-full-name }} {#security-deck}
+
+### Модуль Access Transparency {#sd-access-transparency}
+
+Имя сервиса — `accesstransparency`.
+
+{% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
 
 ## {{ speechsense-full-name }} {#speechsense}
 

@@ -1,7 +1,5 @@
 # Getting started with {{ yandexart-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 In this section, you will learn how to use the {{ yandexart-name }} neural network to generate images.
 
 In the [management console]({{ link-console-main }}/link/foundation-models/yandexart), {{ art-freetier }} free prompts per day are available to new users without a [billing account](../../billing/concepts/billing-account.md). To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to the cloud.

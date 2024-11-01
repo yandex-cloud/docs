@@ -28,7 +28,7 @@ Automated {{ dataproc-name }} clusters are deployed on [{{ compute-full-name }} 
 You can calculate the total disk storage capacity required for different cluster configurations using this formula:
 
 ```text
-<number_of_Data_Proc_hosts> × 256 + 128
+<number_of_Yandex_Data_Processing_hosts> × 256 + 128
 ```
 
 | Cluster type | Number of hosts | Disk size |  Host parameters   |

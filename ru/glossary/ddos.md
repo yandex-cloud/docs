@@ -101,5 +101,4 @@ DDoS-атаки — одна из главных угроз для интерн�
    * [Валарм WAF (BYOL)](/marketplace/products/wallarm/waf-byol-3);
    * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf);
    * [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc);
-   * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);
-   * [PT Application Firewall 3.7.3](/marketplace/products/pt/pt-application-firewall).
+   * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);   
