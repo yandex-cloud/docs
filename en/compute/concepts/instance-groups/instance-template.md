@@ -10,7 +10,7 @@ You can set variable values for the instance template. For more information, see
 
 When describing a template, you specify the computing resources to allocate to each instance, i.e., the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
 
-You can also use a template to enable creating [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a long time.
+You can also use a template to enable creating [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if there is enough computing resources in the availability zone. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as more resources become available; however, this may take a longer time.
 
 You can enable a [software-accelerated network](../software-accelerated-network.md) for group instances. This will transfer the processing of VM network traffic to additional compute cores.
 

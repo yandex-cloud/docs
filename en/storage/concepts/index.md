@@ -10,7 +10,7 @@ description: In this tutorial, you will learn about the concepts used in {{ objs
 
 | Concept | Description |
 --------|----------
-| [Bucket](bucket.md) | {{ objstorage-name }} storage unit allocated for user data. |
+| [Bucket](bucket.md) | {{ objstorage-name }} unit allocated for user data. |
 | [Object](object.md) | File with data in any format. |
 | [Bucket versioning](versioning.md) | Feature that allows you to store multiple copies of an object in a bucket. |
 | [Object lock](object-lock.md) | Feature that protects an object version against deletion or overwrite. |
