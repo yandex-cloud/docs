@@ -29,9 +29,10 @@
 
       ```bash
       export IAM_TOKEN=<service_account_IAM_token> && \
-      curl -k \
-           -H "Authorization: Bearer ${IAM_TOKEN}" \
-           -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+      curl \
+        --insecure \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
       ```
 
       Where `IAM_TOKEN` is the IAM token of the service account.
@@ -42,9 +43,10 @@
 
       ```bash
       export API_KEY=<service_account_API_key> && \
-      curl -k \
-           -H "Authorization: Api-Key ${API_KEY}" \
-           -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+      curl \
+        --insecure \
+        --header "Authorization: Api-Key ${API_KEY}" \
+        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
       ```
 
     Result example:
@@ -69,19 +71,21 @@
     * Authorization using an IAM token:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Bearer ${IAM_TOKEN}" \
-             https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
         ```
 
     * Authorization using an API key:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Api-key ${API_KEY}" \
-             https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Api-key ${API_KEY}" \
+          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
         ```
 
     Result example:
@@ -102,19 +106,21 @@
     * Authorization using an IAM token:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Bearer ${IAM_TOKEN}" \
-             https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
     * Authorization using an API key:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Api-key ${API_KEY}" \
-             https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Api-key ${API_KEY}" \
+          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
     {% cut "Result example" %}
@@ -269,7 +275,7 @@
                             "endTimeMs": "2800"
                          },
                          {
-                            "text: "turn",
+                            "text": "turn",
                             "startTimeMs": "2860",
                             "endTimeMs": "3360"
                          },

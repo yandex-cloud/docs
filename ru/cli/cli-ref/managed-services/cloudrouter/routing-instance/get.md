@@ -22,7 +22,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>RoutingInstance id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>RoutingInstance id.|
+|`--name`|<b>`string`</b><br/>RoutingInstance name.|
 
 #### Global Flags
 

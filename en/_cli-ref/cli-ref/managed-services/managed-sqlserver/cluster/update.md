@@ -27,7 +27,7 @@ Syntax:
 |`--service-account-id`|<b>`string`</b><br/>Service account id to assign to cluster hosts.|
 |`--confirm-payment`|Confirm immediate payment for cluster creation/modification/restoring|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--secondary-connections`|<b>`string`</b><br/>Secondary replicas connection mode Values: 'secondary-connections-off', 'secondary-connections-read-only'|

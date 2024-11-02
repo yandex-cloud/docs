@@ -30,6 +30,7 @@ Syntax:
 |`--request-idle-timeout`|<b>`duration`</b><br/>Specifies request idle timeout for the route.|
 |`--host-rewrite`|<b>`string`</b><br/>Specifies host rewrite for the route. Authority/host header sent to the backend will be replace with this value|
 |`--grpc-status-response-code`|<b>`string`</b><br/>Specifies direct response with configured gRPC status code for the route.|
+|`--rate-limit`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specifies rate limit configuration to be applied to grpc route.<br/><br/>Possible property names:<br/><ul> <li><code>rps</code>:     Rate per second value.</li> <li><code>rpm</code>:     Rate per minute value.</li> <li><code>all-requests</code>:     Use rate limit for all incoming requests.</li> <li><code>requests-per-ip</code>:     Use rate limit for requests groupped by client ip address.</li> </ul>|
 |`--before`|<b>`string`</b><br/>Specifies the name of the route to append the new route before.|
 |`--after`|<b>`string`</b><br/>Specifies the name of the route to append the new route after.|
 

@@ -14,7 +14,7 @@ To set up authorization on behalf of a service account:
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ## Create a service account {#create-account}
-
+   
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -35,13 +35,13 @@ To set up authorization on behalf of a service account:
 
    {% include [default-catalogue](./default-catalogue.md) %}
 
-   Run the command to create a service account:
+   Run the following command to create a service account:
 
    ```bash
    yc iam service-account create --name sa-api
    ```
 
-   Where `--name` is the name of the service account in the following format:
+   Where `--name` is the service account name in the following format:
 
    {% include [name-format](./name-format.md) %}
 
@@ -58,15 +58,16 @@ To set up authorization on behalf of a service account:
    Create a service account using the [create](../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource:
 
    ```bash
-   curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d '{
-            "folderId": "<folder_ID>",
-            "name": "<service_account_name>",
-            "description": "service account for api"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+   curl \
+     --request POST \
+     --header 'Content-Type: application/json' \
+     --header "Authorization: Bearer <IAM_token>" \
+     --data '{
+       "folderId": "<folder_ID>",
+       "name": "<service_account_name>",
+       "description": "service account for api"
+     }' \
+     https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Where:
    * `<IAM_token>`: Valid authorization token.
@@ -86,8 +87,8 @@ To set up authorization on behalf of a service account:
 - Management console {#console}
 
    1. On the management console [home page]({{ link-console-main }}), select a folder.
-   1. Click the **Access bindings** tab.
-   1. Find the `sa-api` service account in the list and click ![image](../_assets/console-icons/ellipsis.svg).
+   1. Click the **Access permissions** tab.
+   1. Find the `sa-api` account in the list and click ![image](../_assets/console-icons/ellipsis.svg).
    1. Click **Edit roles**.
    1. Click **Add role** in the dialog box that opens and select the `ai.translate.user` role for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
    1. Click **Save**.
@@ -108,21 +109,22 @@ To set up authorization on behalf of a service account:
    Assign the required role to the service account using the [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource:
 
    ```bash
-   curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer <IAM_token>" \
-     -d '{
-            "accessBindingDeltas": [{
-               "action": "ADD",
-               "accessBinding": {
-                  "roleId": "<role_ID>",
-                  "subject": {
-                        "id": "<service_account_ID>",
-                        "type": "serviceAccount"
-                        }
-                  }
-               }
-            ]
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM_token>" \
+     --data '{
+       "accessBindingDeltas": [{
+         "action": "ADD",
+         "accessBinding": {
+           "roleId": "<role_ID>",
+           "subject": {
+             "id": "<service_account_ID>",
+             "type": "serviceAccount"
+             }
+           }
+         }
+       ]
       }' \
      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<folder_ID>:updateAccessBindings
    ```
@@ -194,11 +196,12 @@ To set up authorization on behalf of a service account:
    Create an API key using the [create](../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../iam/api-ref/ApiKey/index.md) resource:
 
    ```bash
-   curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d "{ \"serviceAccountId\": \"<service_account_ID>\" }" \
-      https://iam.{{ api-host }}/iam/v1/apiKeys
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM_token>" \
+     --data "{ \"serviceAccountId\": \"<service_account_ID>\" }" \
+     https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
 
    Where:
@@ -212,7 +215,7 @@ To set up authorization on behalf of a service account:
 
 Now you can send requests to {{ vision-full-name }} and {{ translate-full-name }} services on behalf of your service account.
 
-Enter the API key when accessing {{ yandex-cloud }} resources via the API. Include the API key in the `Authorization` header in the following format:
+Enter the API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:
 
 ```yaml
 Authorization: Api-Key <API_key>

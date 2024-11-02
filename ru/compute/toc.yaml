@@ -123,15 +123,15 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Подключиться к ВМ через PowerShell
             href: operations/vm-connect/powershell.md
-          - name: OS Login
+          - name: '{{ oslogin }}'
             items:
-              - name: Создать ВМ с OS Login
+              - name: Создать ВМ с {{ oslogin }}
                 href: operations/vm-connect/os-login-create-vm.md
-              - name: Настроить OS Login на существующей ВМ
+              - name: Настроить {{ oslogin }} на существующей ВМ
                 href: operations/vm-connect/enable-os-login.md
               - name: Экспортировать SSH-сертификат
                 href: operations/vm-connect/os-login-export-certificate.md
-              - name: Подключиться к ВМ по OS Login
+              - name: Подключиться к ВМ по {{ oslogin }}
                 href: operations/vm-connect/os-login.md
           - name: Работа с {{ yandex-cloud }} изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md

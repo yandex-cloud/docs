@@ -94,6 +94,13 @@ Aliases:
 	- [yc serverless network trigger-used-cleanup](network/trigger-used-cleanup.md) — Force obsolete used network to start cleanup process as soon as possible
 - [yc serverless eventrouter](eventrouter/index.md) — Manage eventrouters
 	- [yc serverless eventrouter put-event](eventrouter/put-event.md) — Send event
+- [yc serverless workflow](workflow/index.md) — Manage workflows
+	- [yc serverless workflow get](workflow/get.md) — Get Workflow
+	- [yc serverless workflow list](workflow/list.md) — List Workflows
+	- [yc serverless workflow create](workflow/create.md) — Create Workflow
+	- [yc serverless workflow update](workflow/update.md) — Update Workflow
+	- [yc serverless workflow delete](workflow/delete.md) — Delete Workflow
+	- [yc serverless workflow list-operations](workflow/list-operations.md) — List Workflow operations
 
 #### Global Flags
 

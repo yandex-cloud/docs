@@ -6,12 +6,6 @@ Foundation model tuning is at the [Preview](../../overview/concepts/launch-stage
 
 {% endnote %}
 
-{% note info %}
-
-{{ foundation-models-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 To tune a {{ yagpt-name }} classifier:
 
 1. [Prepare your infrastructure](#infra).
@@ -38,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -51,10 +45,10 @@ You can send requests to a tuned model through the {{ ml-platform-name }} interf
 
 - Management console {#console}
 
-   1. Go to the `data-folder` folder.
+   1. Go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `ai-user`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `{{ roles-yagpt-user }}` role.
+   1. Enter a name for the service account, e.g., `ai-user`.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -93,8 +87,8 @@ To enable the service account to access the tuned classifier, add it to the list
    * {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
    * In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
    * In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
-
-      You can also get the model ID here. You will need it to make API requests.
+  
+     You can also get the model ID here. You will need it to make API requests.
 
 ## Send a request to the tuned classifier {#request}
 
@@ -102,63 +96,63 @@ To enable the service account to access the tuned classifier, add it to the list
 
 - Playground {#playground}
 
-   1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-   1. In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
-   1. In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
-   1. Select your fine-tuned model and click **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
-   1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, enter the text you want to classify.
-   1. Click **{{ ui-key.yc-ui-datasphere.yagpt-playground.send-request }}**.
+  1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+  1. In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
+  1. In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
+  1. Select your fine-tuned model and click **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
+  1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, enter the text you want to classify.
+  1. Click **{{ ui-key.yc-ui-datasphere.yagpt-playground.send-request }}**.
 
 - cURL {#curl}
 
-   {% include [curl](../../_includes/curl.md) %}
+  {% include [curl](../../_includes/curl.md) %}
 
-   1. Create a file with the request body, e.g., `body.json`:
-
+  1. Create a file with the request body, e.g., `body.json`:
+  
       ```json
       {
         "model_uri": "cls://<folder_ID>/<classifier_ID>",
-        "text": "<request_text>"
+        "text": "<prompt_text>"
       }
       ```
-
+  
       Where:
-      * `model_uri`: ID of the model that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+      * `model_uri`: ID of the model that will be used to classify the message. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
       * `text`: Message text. The total number of tokens per request must not exceed 8,000.
-
-   1. Send a request to the classifier by running the following command:
-
+  
+  1. Send a request to the classifier by running the following command:
+  
       ```bash
       export IAM_TOKEN=<IAM_token>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@<path_to_file_with_request_body>" \
+      curl --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<path_to_request_body_file>" \
         "https://{{ api-host-llm }}:443/foundationModels/v1/textClassification"
       ```
-
-      In the response, the service will return the classification results with the `confidence` values for the probability of classifying the request text into each one of the classes:
-
+  
+      In the response, the service will return the classification results with the `confidence` values for the probability of classifying the request text into each class:
+  
       ```json
       {
         "predictions": [
           {
-            "label": "<class_name_1>",
+            "label": "<class_1_name>",
             "confidence": 0.00010150671005249023
           },
           {
-            "label": "<class_name_2>",
+            "label": "<class_2_name>",
             "confidence": 0.000008225440979003906
           },
           ...
           {
-            "label": "<class_name_n>",
+            "label": "<class_n_name>",
             "confidence": 0.93212890625
           }
         ],
         "modelVersion": "<model_version>"
       }
       ```
-
+  
       In multi-class classification, the sum of the `confidence` values for all classes is always `1`.
 
       In multi-label classification, the `confidence` value for each class is calculated independently (the sum of the values is not equal to `1`).

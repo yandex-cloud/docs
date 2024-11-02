@@ -147,7 +147,7 @@
 - Linux {#linux}
 
   * `serial-port-enable` — флаг, включающий доступ к [серийной консоли](../operations/serial-console/index.md). `1` — включить, `0` (по умолчанию) — выключить.
-  * `enable-oslogin` — флаг, включающий доступ через [OS Login](../operations/vm-connect/os-login.md). `true` — включить, `false` (по умолчанию) — выключить.
+  * `enable-oslogin` — флаг, включающий доступ через [{{ oslogin }}](../operations/vm-connect/os-login.md). `true` — включить, `false` (по умолчанию) — выключить.
   * `install-unified-agent` — флаг, устанавливающий агент для сбора метрик и логов [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup). `1` — установить, `0` (по умолчанию) — не устанавливать.
   * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
 

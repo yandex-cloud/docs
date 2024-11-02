@@ -23,6 +23,7 @@ description: Различные сценарии использования {{ y
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](mkf-ydb-stream.md)
+* [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](terraform-state-lock.md)
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](api-gw-integration.md)

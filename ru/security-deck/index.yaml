@@ -5,8 +5,9 @@ description:
     href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - >-
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
-    модули Access Transparency, Контроль данных (DSPM), Диагностика доступов
-    (CIEM) и Портал соответствия требованиям.
+    модули Access Transparency, Контроль данных (Data Security Posture
+    Management), Диагностика доступов (Cloud Infrastructure Entitlement
+    Management) и Портал соответствия требованиям.
   - >-
     Предоставляемые сервисом инструменты позволяют обнаруживать уязвимости,
     отслеживать и защищать доступ к данным, а также контролировать соблюдение

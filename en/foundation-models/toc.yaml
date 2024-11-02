@@ -11,6 +11,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Disabling request logging
+        href: operations/disable-logging.md
       - name: '{{ yagpt-full-name }}'
         items:
           - name: Sending a request in prompt mode
@@ -19,8 +21,6 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Sending an asynchronous request
             href: operations/yandexgpt/async-request.md
-          - name: Disabling request logging
-            href: operations/yandexgpt/disable-logging.md
       - name: Classifiers based on {{ yagpt-name }}
         items:
           - name: Using prompt-based classifiers
@@ -65,7 +65,7 @@ items:
         href: tutorials/yagpt-tuning.md
       - name: Tuning classifiers based on {{ yagpt-name }}
         href: tutorials/yagpt-tuning-classifier.md
-  - name: API Reference
+  - name: API references
     items:
       - name: Overview
         href: concepts/api.md
