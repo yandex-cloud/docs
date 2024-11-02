@@ -132,7 +132,7 @@ With {{ k8s }} RBAC, you can provide users with granular access to the cluster n
       name: <role_name>
     subjects:
     - kind: User
-      name: <account_name>
+      name: <account_identifier>
     ```
 
 Check creating resources in the cluster. In other namespaces, the user will have no permissions to create or edit resources.
