@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% note info %}
 
-      Собственные SSH-ключи на ВМ с включенным доступом по OS Login передавайте через [метаданные](../../concepts/vm-metadata.md#how-to-send-metadata).
+      Собственные SSH-ключи на ВМ с включенным доступом по {{ oslogin }} передавайте через [метаданные](../../concepts/vm-metadata.md#how-to-send-metadata).
 
       {% endnote %}
 

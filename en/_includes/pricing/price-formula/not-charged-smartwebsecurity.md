@@ -1,1 +1,1 @@
-You get the first 10,000 requests at no charge every month.
+Every month, you get the first 10,000 legitimate requests processed by WAF and security profile rules at no charge.

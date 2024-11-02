@@ -3,7 +3,7 @@ title: How to send requests to fine-tuned models in {{ yagpt-full-name }}
 description: Follow this guide to learn how to send requests to fine-tuned models.
 ---
 
-# Sending requests to fine-tuned models
+# Sending a request to a fine-tuned model
 
 You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the following models are supported:
 
@@ -14,7 +14,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
 
 {% include notitle [ai-before-beginning](../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-## Send a request for text summarization {#text-summarization}
+## Sending a request for text summarization {#text-summarization}
 
 1. Create a file with the request body, e.g., `body.json`:
 
@@ -37,25 +37,26 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
 
    {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
-1. To send the request to the model, run this command:
+1. Send a request to the model by running this command:
 
    ```bash
    export FOLDER_ID=<folder_ID>
    export IAM_TOKEN=<IAM_token>
-   curl --request POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
-     -d "@<path_to_json_file>" \
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
+     --header "x-folder-id: ${FOLDER_ID}" \
+     --data "@<path_to_JSON_file>" \
      "https://llm.{{ api-host }}/foundationModels/v1/completion"
    ```
 
    Where:
 
    * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-   * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+   * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-   Here is an example result for the SSH protocol article:
+   Here is an example of the result for the SSH protocol article:
 
    ```json
    {
@@ -64,14 +65,14 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
          {
            "message": {
              "role": "assistant",
-             "text": "- SSH is a network protocol for secure interaction between computers.\n
-             - SSH is used for connecting to remote servers, executing commands, copying and editing files.\n
-             - SSH is widely used in corporate infrastructure for installing updates and managing business-critical systems.\n
-             - SSH support is built into Unix and Linux operating systems, as well as in Windows with free SSH clients.\n
-             - SSH operation involves an SSH server and an SSH client, which establish a secure connection for transmitting encrypted data.\n
-             - The reliability of SSH is ensured by user authentication and processing of transmitted data.\n
-             - The SSH server supports three authentication methods: by IP address, by login/password, and by key.\n
-             - SSH keys provide a high degree of protection and convenience for use in scripts to automate routine operations."
+             "text": "- SSH is a network protocol for secure communication between computers.\n
+             - SSH is used to connect to remote servers, run commands, copy and edit files.\n
+             - SSH is widely used in enterprise infrastructures to install updates and manage business-critical systems.\n
+             - Unix and Linux support SSH natively. Windows also supports it through free SSH clients.\n
+             - The use of SSH involves an SSH server and an SSH client that create a secure connection to transmit encrypted data.\n
+             - SSH ensures reliability through user authentication and processing the transmitted data.\n
+             - SSH servers support these three authentication methods: IP address authentication, username/password authentication, and key authentication.\n
+             - SSH keys provide a high level of security and are easy to use in scripts to automate routine operations."
            },
            "status": "ALTERNATIVE_STATUS_FINAL"
          }

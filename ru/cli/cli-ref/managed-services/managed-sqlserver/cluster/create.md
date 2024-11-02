@@ -27,7 +27,7 @@ Syntax:
 |`--database`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of databases to be created in the SQLServer cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the SQLServer database.</li> </ul>|
 |`--sqlserver-version`|<b>`string`</b><br/>Version of SQLServer used in the cluster. Values: 2016sp2std, 2016sp2ent, 2017std, 2017ent, 2019std, 2019ent|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--secondary-connections`|<b>`string`</b><br/>Secondary replicas connection mode Values: 'secondary-connections-off', 'secondary-connections-read-only'|

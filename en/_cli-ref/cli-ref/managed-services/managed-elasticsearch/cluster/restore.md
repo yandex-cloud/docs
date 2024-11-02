@@ -24,10 +24,10 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for the cluster hosts.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>type</code>:     Type of the host to be created. Supported values: 'datanode', 'masternode'.</li> </ul>|
 |`--datanode-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a datanode host (CPU, RAM etc.).|
-|`--datanode-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a datanode host.|
+|`--datanode-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a datanode host in GB.|
 |`--datanode-disk-type`|<b>`string`</b><br/>Storage type for a datanode host.|
 |`--masternode-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a masternode host (CPU, RAM etc.).|
-|`--masternode-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a masternode host.|
+|`--masternode-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a masternode host in GB.|
 |`--masternode-disk-type`|<b>`string`</b><br/>Storage type for a masternode host.|
 |`--plugins`|<b>`value[,value]`</b><br/>ElasticSearch plugins|
 |`--version`|<b>`string`</b><br/>ElasticSearch version|

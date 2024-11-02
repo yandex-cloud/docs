@@ -1,14 +1,8 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified response format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified response format or text analysis principles to make it better suited to your tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
 Foundation model tuning is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
-{% note info %}
-
-{{ foundation-models-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -38,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -51,9 +45,9 @@ You can send requests to a fine-tuned model through the {{ ml-platform-name }} i
 
 - Management console {#console}
 
-   1. Go to the `data-folder` folder.
+   1. Go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `ai-user`.
+   1. Enter a name for the service account, e.g., `ai-user`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `{{ roles-yagpt-user }}` role.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -79,7 +73,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 1. In the left-hand panel, click **{{ ui-key.yc-ui-datasphere.common.foundation-models }}**.
 1. Select the **YandexGPT** model and click **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
 1. In the window that opens, specify your project and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a model name, e.g., `my-first-model`.
+1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for the model, e.g., `my-first-model`.
 1. Set **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. The learning rate determines the step size at each iteration when searching for the optimal solution. The higher the value, the faster the model will converge, but also the higher the risk of model tuning.
 1. Under **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**, attach a JSON file with request and response pairs in the **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** field.
 1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be tuned. This may take several hours.
@@ -89,7 +83,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
    * In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
    * In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
 
-      You can also get the model ID here. You will need it to make API requests.
+     You can also get the model ID here. You will need it to make API requests.
 
 ## Test the model {#model-test}
 
@@ -107,139 +101,139 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 - {{ jlab }}Lab {#jupyterlab}
 
-   Copy this code to a notebook cell if you did not use any instructions to tune the model:
+    Copy this code to a notebook cell if you did not use any instructions to tune the model:
 
-   ```python
-   import requests
-   req = {
-           "modelUri": "ds://<fine-tuned_model_ID>",
-           "completionOptions": {
-               "stream": False,
-               "temperature": 0.1,
-               "maxTokens": "2000"
-           },
-           "messages": [
-               {
-               "role": "user",
-               "text": "<prompt_text>"
-               }
-           ]
-   }
-   headers = {"Authorization" : "Bearer " + '<IAM_token>',
-           "x-folder-id": "<folder_ID>", }
-   res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
-       headers=headers, json=req)
-   print(res.json())
-   ```
+    ```python
+    import requests
+    req = {
+            "modelUri": "ds://<fine-tuned_model_ID>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "user",
+                "text": "<prompt_text>"
+                }
+            ]
+    }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
+            "x-folder-id": "<folder_ID>", }
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
+        headers=headers, json=req)
+    print(res.json())
+    ```
 
-   Where:
+    Where:
 
-   * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-   * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
-   * `maxTokens`: Maximum number of tokens per model response.
-   * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
-   * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
+    * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+    * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+    * `maxTokens`: Maximum number of tokens per model response.
+    * `<IAM_token>`: [Service account IAM token](../../iam/operations/iam-token/create-for-sa.md) value.
+    * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
 
-   If you used instructions to tune the model, enter the text in a `system` message:
+    If you used instructions to tune the model, enter their text in the message with the `system` role:
 
-   ```python
-   import requests
-   req = {
-           "modelUri": "ds://<fine-tuned_model_ID>",
-           "completionOptions": {
-               "stream": False,
-               "temperature": 0.1,
-               "maxTokens": "2000"
-           },
-           "messages": [
-               {
-               "role": "system",
-               "text": "<instruction_text>"
-               },
-               {
-               "role": "user",
-               "text": "<prompt_text>"
-               }
-           ]
-   }
-   headers = {"Authorization" : "Bearer " + '<IAM_token>',
-                      "x-folder-id": "<folder_ID>", }
-   res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
-       headers=headers, json=req)
-   print(res.json())
-   ```
+    ```python
+    import requests
+    req = {
+            "modelUri": "ds://<fine-tuned_model_ID>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "system",
+                "text": "<instruction_text>"
+                },
+                {
+                "role": "user",
+                "text": "<prompt_text>"
+                }
+            ]
+    }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
+                       "x-folder-id": "<folder_ID>", }
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
+        headers=headers, json=req)
+    print(res.json())
+    ```
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ foundation-models-full-name }} documentation](../../foundation-models/concepts/yandexgpt/index.md).
+    For more information about parameters of requests to fine-tuned models, see the [{{ foundation-models-full-name }} documentation](../../foundation-models/concepts/yandexgpt/index.md).
 
 - cURL {#curl}
 
-   {% include [curl](../../_includes/curl.md) %}
+    {% include [curl](../../_includes/curl.md) %}
 
-   1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code to the file:
+    1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code into the file:
+    
+       ```json
+        {
+        "modelUri": "ds://<fine-tuned_model_ID>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "user",
+            "text": "<prompt_text>"
+            }
+        ]
+        }
+       ```
 
-      ```json
-       {
-       "modelUri": "ds://<fine-tuned_model_ID>",
-       "completionOptions": {
-           "stream": false,
-           "temperature": 0.1,
-           "maxTokens": "2000"
-       },
-       "messages": [
-           {
-           "role": "user",
-           "text": "<prompt_text>"
-           }
-       ]
-       }
-      ```
+       Where:
 
-      Where:
+       * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+       * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+       * `maxTokens`: Maximum number of tokens per model response.
+       * `text`: Prompt text.
 
-      * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-      * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
-      * `maxTokens`: Maximum number of tokens per model response.
-      * `text`: Request text.
+       If you used instructions to tune the model, enter their text in the message with the `system` role in the JSON file:
 
-      If you used instructions to tune the model, enter the text in a `system` message in the JSON file:
+       ```json
+        {
+        "modelUri": "ds://<fine-tuned_model_ID>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "system",
+            "text": "<instruction_text>"
+            },
+            {
+            "role": "user",
+            "text": "<prompt_text>"
+            }
+        ]
+        }
+       ```
 
-      ```json
-       {
-       "modelUri": "ds://<fine-tuned_model_ID>",
-       "completionOptions": {
-           "stream": false,
-           "temperature": 0.1,
-           "maxTokens": "2000"
-       },
-       "messages": [
-           {
-           "role": "system",
-           "text": "<text_of_instructions>"
-           },
-           {
-           "role": "user",
-           "text": "<prompt_text>"
-           }
-       ]
-       }
-      ```
-
-   1. Send your request via a command shell:
-
-      ```bash
-      curl --request POST
-          -H "Content-Type: application/json"
-          -H "Authorization: Bearer <IAM_token>"
-          -H "x-folder-id: <folder_ID>"
-          -d prompt.json
-          https://llm.{{ api-host }}/foundationModels/v1/completion
-      ```
-
-      Where:
-
-      * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
-      * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
-      * `prompt.json`: JSON file with request parameters.
+    1. Send your request via a command shell:
+   
+       ```bash
+       curl --request POST
+           --header "Content-Type: application/json"
+           --header "Authorization: Bearer <IAM_token>"
+           --header "x-folder-id: <folder_ID>"
+           --data prompt.json
+           https://llm.{{ api-host }}/foundationModels/v1/completion
+       ```
+        
+       Where:
+   
+       * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
+       * `<IAM_token>`: [Service account IAM token](../../iam/operations/iam-token/create-for-sa.md) value.
+       * `prompt.json`: JSON file with request parameters.
 
 {% endlist %}
 

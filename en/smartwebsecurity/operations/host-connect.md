@@ -21,6 +21,8 @@ The security profile connection method depends on who manages the [{{ alb-full-n
 
     To learn more about Ingress controller settings, see the [{{ managed-k8s-full-name }} documentation](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
+    {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
 To connect a security profile using the {{ yandex-cloud }} interfaces:
 
 {% list tabs group=instructions %}
@@ -33,6 +35,7 @@ To connect a security profile using the {{ yandex-cloud }} interfaces:
   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens, select:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
+
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. You can connect the security profile to multiple virtual hosts at once.
 
         To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.

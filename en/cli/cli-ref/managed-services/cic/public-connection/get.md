@@ -22,7 +22,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PublicConnection id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>PublicConnection id.|
+|`--name`|<b>`string`</b><br/>PublicConnection name.|
 
 #### Global Flags
 

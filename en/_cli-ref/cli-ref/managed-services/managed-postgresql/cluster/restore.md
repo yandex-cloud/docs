@@ -31,7 +31,7 @@ Syntax:
 |`--yandexquery-access`|Allow access for Yandex Query|
 |`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 16, 15, 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|

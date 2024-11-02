@@ -41,6 +41,7 @@ Syntax:
 |`--redirect-path`|<b>`string`</b><br/>Specifies redirect path rewrite for the route.|
 |`--redirect-prefix`|<b>`string`</b><br/>Specifies path prefix to be appended to the request uri for the redirect.|
 |`--redirect-strip-query`|If specified, original request query will be stripped from redirect location for the route.|
+|`--rate-limit`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specifies rate limit configuration to be applied to http route.<br/><br/>Possible property names:<br/><ul> <li><code>rps</code>:     Rate per second value.</li> <li><code>rpm</code>:     Rate per minute value.</li> <li><code>all-requests</code>:     Use rate limit for all incoming requests.</li> <li><code>requests-per-ip</code>:     Use rate limit for requests groupped by client ip address.</li> </ul>|
 |`--clear-method-match`|Clears route method match.|
 |`--clear-path-match`|Clears route path match.|
 |`--clear-request-timeout`|Clears route request timeout.|
@@ -52,6 +53,7 @@ Syntax:
 |`--clear-redirect-host`|Clears route redirect host rewrite.|
 |`--clear-redirect-port`|Clears route redirect port rewrite.|
 |`--clear-redirect-path`|Clears route redirect path rewrite.|
+|`--clear-rate-limit`|Clears rate limiter configuration.|
 
 #### Global Flags
 

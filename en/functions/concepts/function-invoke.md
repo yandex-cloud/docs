@@ -4,7 +4,7 @@ You can invoke a function:
 * [Using an HTTPS request](#http).
 * [Using the CLI](#cli).
 * [Using a trigger](#trigger).
-* [Using the {{ api-gw-full-name }} extension](#extension).
+* [Using a {{ api-gw-full-name }} extension](#extension).
 
 Each method has its own data structure for function requests and responses. You can invoke a specific function [version](function.md#version) using a [tag](function.md#tag). Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
@@ -16,9 +16,9 @@ The result returned by the function should also be a JSON document. It should co
 
 {% note info %}
 
-You can run functions by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
+You can run a function by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
 * The contents of the HTTPS request body are provided as the first argument (without converting to a JSON structure).
-* The contents of the HTTPS response body is identical to the function response (without converting or checking the structure) and the HTTP response status is 200.
+* The contents of the HTTPS response body is identical to the function response (without converting or checking the structure), and the HTTP response status is 200.
 
 {% endnote %}
 
@@ -41,65 +41,65 @@ JSON query structure:
 
 Where:
 
-- `httpMethod`: HTTP method name, such as DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
+- `httpMethod`: HTTP method name, such as: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
 - `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
-- `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary, but if any header is repeated multiple times, its list contains all the provided values for this header. If the header is provided only once, it is included in this dictionary and the list for it will contain a single value.
+- `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
 - `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
 - `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
-- `requestContext` contains the following structure:
+- `requestContext` has the following structure:
+  
+    ```
+    {
+        "identity": "<a set of key:value pairs to authenticate the user>",
+        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>",
+        "requestId": "<request ID generated in the router>",
+        "requestTime": "<request time in CLF format>",
+        "requestTimeEpoch": "<request time in Unix format>",
+        "authorizer": "<dictionary with authorization context>",
+        "apiGateway": "<dictionary with specific data transmitted by API gateway during function invocation>",
+        "connectionId": "<web socket connection ID>",
+        "connectedAt": "<web socket connection time>",
+        "eventType": "<type or web socket event or operation: CONNECT, MESSAGE, DISCONNECT>",
+        "messageId": "<ID of the message received from the web socket>",
+        "disconnectStatusCode": "<web socket closing status code>",
+        "disconnectReason": "<text description of the reason for closing the web socket>"
+    }
+    ```
+               
+    Structure of the `identity` element:
+    ```
+    {
+        "sourceIp": "<address the request originated from>",
+        "userAgent": "<contents of the User-Agent HTTP header of the original request>"
+    }
+    ```
 
-   ```
-   {
-       "identity": "<collection of key:value pairs for user authentication>",
-       "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>",
-       "requestId": "<request ID, router-generated>",
-       "requestTime": "<request time in CLF format>",
-       "requestTimeEpoch": "<request time in Unix format>",
-       "authorizer": "<dictionary with authorization context>",
-       "apiGateway": "<dictionary of custom data transmitted by API gateway for function call>",
-       "connectionId": "<web socket connection ID>",
-       "connectedAt": "<web socket connection time>",
-       "eventType": "<web socket event or operation type: CONNECT, MESSAGE, DISCONNECT>",
-       "messageId": "<ID of message received from web socket>",
-       "disconnectStatusCode": "<web socket closure status code>",
-       "disconnectReason": "<web socket disconnection cause description in text format>"
-   }
-   ```
+    Structure of the `apiGateway` element:
+    ```
+    {
+        "operationContext": "<dictionary with operation context described in API gateway specification>"
+    }
+    ```
 
-   Structure of the `identity` element:
-   ```
-   {
-       "sourceIp": "<request source address>",
-       "userAgent": "<contents of the original request User-Agent HTTP header>"
-   }
-   ```
+    Structure of the `authorizer` element:
+    ```
+    {
+        "jwt": { // Field filled in by the API Gateway JWT authorizer. Contains data from the token about the user and the user's permissions
+          "claims": "<dictionary of JWT body fields>",
+          "scopes": "<list of JWT owner permissions>"
+        }
+        // Other authorization context fields returned from the authorizer function
+    }
+    ```
 
-   `apiGateway` element structure:
-   ```
-   {
-       "operationContext": "<dictionary with operation context described in API gateway spec>"
-   }
-   ```
+- `body`: Request body in string format. Data can be Base64-encoded (in which case {{ sf-name }} will set `isBase64Encoded: true`).
 
-   `authorizer` element structure:
-   ```
-   {
-       "jwt": { // Field that is filled in by the API Gateway JWT authorizer. Contains data about the user and their permissions'
-         "claims": "<dictionary of JWT body fields>",
-         "scopes": "<list of JWT owner permissions>"
-       }
-       //  Other authorization context fields returned from the authorizer function
-   }
-   ```
-
-- `body`: Request body in string format. Data can be Base64-encoded (in this case, {{ sf-name }} sets `isBase64Encoded: true`).
-
-   {% note info %}
-
-   If the function is invoked with the `Content-Type: application/json` header, the contents of `body` remains in the original format (`isBase64Encoded: false`).
-
-   {% endnote %}
-
+    {% note info %}
+    
+    If the function is invoked with the `Content-Type: application/json` header, the contents of `body` remains in the original format (`isBase64Encoded: false`).
+    
+    {% endnote %}
+    
 - `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`.
 
 #### Debugging functions {#example}
@@ -116,13 +116,16 @@ module.exports.handler = async (event) => {
 
 For example, for the request:
 
-```
-curl -XPOST -d "hello, world!" "https://{{ sf-url }}/<function ID>?a=1&a=2&b=1"
+```bash
+curl \
+  --request POST \
+  --data "hello, world!" \
+  "https://{{ sf-url }}/<Function_ID>?a=1&a=2&b=1"
 ```
 
 The result looks like this:
 
-```
+```text
 {
   "httpMethod": "POST",
   "headers": {
@@ -176,7 +179,7 @@ Optionally, the function can accept the second argument with the following struc
   "requestId": "<request ID>",
   "functionName": "<function ID>",
   "functionVersion": "<function version ID>",
-  "memoryLimitInMB": "<amount of memory available to function version, MB>",
+  "memoryLimitInMB": "<function version memory size, MB>",
   "token": "<IAM token, optional>",
 }
 ```
@@ -185,8 +188,8 @@ Where:
 
 - `requestId`: ID of the function call, generated when the function is accessed and displayed in the function call log.
 - `functionName`: Function ID.
-- `functionVersion`: ID of the function version.
-- `memoryLimitInMB`: Amount of memory given for the function version, in MB.
+- `functionVersion`: Function version ID.
+- `memoryLimitInMB`: Memory size specified for the function version, in MB.
 - `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It is used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
 
 Example of using service data in a function:
@@ -219,13 +222,13 @@ Where:
 
 - `statusCode`: HTTP status code, which the client uses to interpret the request results.
 - `headers`: Dictionary of strings with HTTP response headers and their values.
-- `multiValueHeaders`: Dictionary listing one or more HTTP response headers. If the same header is specified in both the `headers` and `multiValueHeaders` dictionaries, the contents of the `headers` dictionary is ignored.
-- `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. In this case, set `isBase64Encoded: true`.
+- `multiValueHeaders`: Dictionary where you can list one or more values for HTTP response headers. If the same header is specified in both `headers` and `multiValueHeaders`, the contents of the `headers` dictionary is ignored.
+- `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. If this is the case, set `isBase64Encoded: true`.
 - `isBase64Encoded`: If `body` is Base64-encoded, set the parameter to `true`.
 
 ### Handling errors in user-defined function code {#error}
 
-If an unhandled error occurs in user code, {{ sf-name }} returns a 502 error and error details in the following JSON structure:
+If an unprocessed error occurs in user code, {{ sf-name }} will return a 502 error and error details in the form of this JSON structure:
 
 ```
 {
@@ -237,8 +240,8 @@ If an unhandled error occurs in user code, {{ sf-name }} returns a 502 error and
 
 Where:
 
-- `errorMessage`: String with an error description.
-- `errorType`: Programming language-dependent type of error or exception.
+- `errorMessage`: Error description string.
+- `errorType`: Error or exception type that depends on the programming language.
 - `stackTrace`: Function execution stack at the time of the error.
 
 The specific contents of these fields depend on the programming language and your function's runtime environment.
@@ -261,18 +264,18 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 
 {{ sf-name }} can return results with the following HTTP codes:
 
-- `200 OK`: Successful function execution.
+- `200 OK`: Function executed successfully.
 - `400 BadRequest`: Error in HTTPS request parameters.
-- `403 Forbidden`: Can't execute the request due to restrictions on client access to the function.
-- `404 Not Found`: The function is not found at the specified URL.
-- `413 Payload Too Large`: The [limit](../concepts/limits.md#limits) for the request JSON structure is exceeded by more than 3.5 MB.
-- `429 TooManyRequests`: The function call intensity is too high:
-   - The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
-   - Can't execute this request because all executors are already overloaded by the existing requests to this function.
+- `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function.
+- `404 Not Found`: Function is not found at the specified URL.
+- `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#limits) is exceeded by more than 3.5 MB.
+- `429 TooManyRequests`: Function call intensity is too high:
+    - The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
+    - Cannot execute the request because all executors are already overloaded by existing requests to this function.
 - `500 Internal Server Error`: Internal server error.
-- `502 BadGateway`: Incorrect function code or format of the returning JSON response.
+- `502 BadGateway`: Incorrect function code or format of returned JSON response.
 - `503 Service Unavailable`: {{ sf-name }} is unavailable.
-- `504 Gateway Timeout`: Exceeded maximum function execution time before timeout.
+- `504 Gateway Timeout`: Maximum function running time before the timeout is exceeded.
 
 ### Filtering message headers {#headers}
 
@@ -281,48 +284,48 @@ Your function receives and transmits the contents of HTTP headers as JSON fields
 {% list tabs %}
 
 - Request headers
+    
+    Removed from a request:
 
-   Removed from a request:
-
-   - "Expect"
-   - "Te"
-   - "Trailer"
-   - "Upgrade"
-   - "Proxy-Authenticate"
-   - "Authorization"
-   - "Connection"
-   - "Content-Md5"
-   - "Max-Forwards"
-   - "Server"
-   - "Transfer-Encoding"
-   - "Www-Authenticate"
-   - "Cookie"
+    - "Expect"
+    - "Te"
+    - "Trailer"
+    - "Upgrade"
+    - "Proxy-Authenticate"
+    - "Authorization"
+    - "Connection"
+    - "Content-Md5"
+    - "Max-Forwards"
+    - "Server"
+    - "Transfer-Encoding"
+    - "Www-Authenticate"
+    - "Cookie"
 
 - Response headers
-
-   - Removed from a response:
-      - "Host"
-      - "Authorization"
-      - "User-Agent"
-      - "Connection"
-      - "Max-Forwards"
-      - "Cookie"
-      - "X-Request-Id"
-      - "X-Function-Id"
-      - "X-Function-Version-Id"
-      - "X-Content-Type-Options"
-
-   - Cause an error if present in a response:
-
-      - "Proxy-Authenticate"
-      - "Transfer-Encoding"
-      - "Via"
-
-   - Overwritten by adding the `X-Yf-Remapped-` prefix:
-      - "Content-Md5"
-      - "Date"
-      - "Server"
-      - "Www-Authenticate"
+        
+    - Removed from a response:
+        - "Host"
+        - "Authorization"
+        - "User-Agent"
+        - "Connection"
+        - "Max-Forwards"
+        - "Cookie"
+        - "X-Request-Id"
+        - "X-Function-Id"
+        - "X-Function-Version-Id"
+        - "X-Content-Type-Options"
+    
+    - Cause an error if present in a response:
+    
+        - "Proxy-Authenticate"
+        - "Transfer-Encoding"
+        - "Via"
+    
+    - Overwritten by adding the `X-Yf-Remapped-` prefix:
+        - "Content-Md5"
+        - "Date"
+        - "Server"
+        - "Www-Authenticate"
 
 {% endlist %}
 
@@ -332,7 +335,7 @@ If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forw
 
 ## Invoking a function using the {{ yandex-cloud }} CLI {#cli}
 
-Function calls from the CLI are HTTPS requests using the POST method and the `?integration=raw` parameter (without converting the request to a JSON structure or checking the response).
+A function call via the CLI is an HTTPS request which uses the POST method and the `?integration=raw` parameter (without converting the request into a JSON structure or checking the response).
 
 View the help for the function call command:
 
@@ -358,29 +361,29 @@ Detailed description of how to transfer data using different flags and arguments
 
 - `-d, --data`: Data is provided as an argument.
 
-   ```
-   yc serverless function invoke <function ID> -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
-   ```
+    ```
+    yc serverless function invoke <function ID> -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
+    ```
 
 - `--data-file`: Data is read from a file.
 
-   ```
-   yc serverless function invoke <function ID> --data-file <file path>
-   ```
+    ```
+    yc serverless function invoke <function ID> --data-file <File path>
+    ```
 
-   Similar to the command with the `-d` argument with the `@<file_name>` value: `yc serverless function invoke <function_ID> -d @<file_path>`
+    Similar to command with the `-d` argument set to `@<file_name>`: `yc serverless function invoke <function_ID> -d @<file_path>`
 
 - `--data-stdin`: Data is read from the input stream.
 
-   ```
-   echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> --data-stdin
-   ```
+     ```
+     echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> --data-stdin
+     ```
 
-   Similar to a command with the `-d` argument set to `@-`:
-
-   ```
-   echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> -d @-`.
-   ```
+    Similar to command with the `-d` argument set to `@-`:
+    
+    ```
+    echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> -d @-`.
+    ```
 
 ## Invoking a function using a trigger {#trigger}
 
@@ -390,5 +393,5 @@ When invoking a function using a trigger, the JSON description of a trigger even
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
-When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
 

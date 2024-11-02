@@ -1,6 +1,6 @@
 ---
 title: How to send a request in prompt mode to {{ yagpt-full-name }}
-description: Follow this guide to learn how to to use {{ yagpt-full-name }} in prompt mode.
+description: Follow this guide to learn how to use {{ yagpt-full-name }} in prompt mode.
 ---
 
 # Sending a request in prompt mode
@@ -40,25 +40,26 @@ To generate text in [prompt mode](../concepts/index.md#working-mode), send a req
 
    {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
-1. To send the request to the model, run this command:
+1. Send a request to the model by running this command:
 
    ```bash
    export FOLDER_ID=<folder_ID>
    export IAM_TOKEN=<IAM_token>
-   curl --request POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
-     -d "@<path_to_json_file>" \
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
+     --header "x-folder-id: ${FOLDER_ID}" \
+     --data "@<path_to_JSON_file>" \
      "https://llm.{{ api-host }}/foundationModels/v1/completion"
    ```
 
    Where:
 
    * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-   * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+   * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-   The service will respond with the generated text:
+   In the response, the service will return the generated text:
 
    ```json
    {

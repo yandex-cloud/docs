@@ -32,6 +32,7 @@ Syntax:
 |`--clear-sni-matches`|Disable TLS for specified listener.|
 |`--backend-group-id`|<b>`string`</b><br/>HTTP router id for specified listener.|
 |`--backend-group-name`|<b>`string`</b><br/>HTTP router name for specified listener.|
+|`--idle-timeout`|<b>`duration`</b><br/>Idle timeout for the stream.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

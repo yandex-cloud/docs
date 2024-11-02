@@ -357,6 +357,7 @@
         authorization   instance-service-account
     ```
 
+
     Где:
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
     * `authorization` — настройки авторизации. Укажите `instance-service-account`, чтобы авторизоваться от имени сервисного аккаунта, который указали в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** при [создании ВМ](#before-you-begin).

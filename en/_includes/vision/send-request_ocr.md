@@ -6,14 +6,15 @@ Send a request using the [recognize](../../vision/ocr/api-ref/TextRecognition/re
 
   ```bash
   export IAM_TOKEN=<IAM_token>
-  curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -H "x-folder-id: <folder_ID>" \
-      -H "x-data-logging-enabled: true" \
-      -d "@body.json" \
-      https://ocr.{{ api-host }}/ocr/v1/recognizeText \
-      -o output.json
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --header "x-folder-id: <folder_ID>" \
+    --header "x-data-logging-enabled: true" \
+    --data "@body.json" \
+    https://ocr.{{ api-host }}/ocr/v1/recognizeText \
+    --output output.json
   ```
 
   Where:
@@ -34,7 +35,6 @@ Send a request using the [recognize](../../vision/ocr/api-ref/TextRecognition/re
             "Authorization": "Bearer {:s}".format(<IAM_token>),
             "x-folder-id": "<folder_ID>",
             "x-data-logging-enabled": "true"}
-
     w = requests.post(url=url, headers=headers, data=json.dumps(data))
   ```
 

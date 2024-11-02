@@ -26,7 +26,7 @@ Syntax:
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the SQLServer cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address on creation.</li> </ul>|
 |`--sqlserver-version`|<b>`string`</b><br/>Version of SQLServer used in the cluster. Values: 2016sp2std, 2016sp2ent, 2017std, 2017ent, 2019std, 2019ent|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--secondary-connections`|<b>`string`</b><br/>Secondary replicas connection mode Values: 'secondary-connections-off', 'secondary-connections-read-only'|

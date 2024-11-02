@@ -23,6 +23,10 @@ Mirroring data across queues is a separate migration task.
 
 * [{{ KF }} mirroring](mkf-to-mkf.md)
 
+Syncing data from a third-party cluster.
+
+* [Syncing data from {{ MY }}](sync-mysql.md)
+
 Migration with data storage type changed.
 
 * [{{ MY }} to {{ ydb-short-name }}](managed-mysql-to-ydb.md)
@@ -42,14 +46,14 @@ CDC is used for creating apps that are sensitive to real-time data changes, exch
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
 * {{ MY }} change data capture and delivery to:
-   * [{{ KF }}](cdc-mmy.md)
-   * [{{ DS }}](mmy-to-yds.md)
+  * [{{ KF }}](cdc-mmy.md)
+  * [{{ DS }}](mmy-to-yds.md)
 * {{ PG }} change data capture and delivery to:
-   * [{{ KF }}](cdc-mpg.md)
-   * [{{ DS }}](mpg-to-yds.md)
+  * [{{ KF }}](cdc-mpg.md)
+  * [{{ DS }}](mpg-to-yds.md)
 * {{ ydb-short-name }} change data capture and delivery to:
-   * [{{ KF }}](cdc-ydb.md)
-   * [{{ DS }}](ydb-to-yds.md)
+  * [{{ KF }}](cdc-ydb.md)
+  * [{{ DS }}](ydb-to-yds.md)
 
 ## Delivering data from queues {#delivery-to-queue}
 

@@ -12,4 +12,5 @@ description: Различные сценарии использования {{ c
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](grafana-logs-plugin.md)
+* [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](logging.md)

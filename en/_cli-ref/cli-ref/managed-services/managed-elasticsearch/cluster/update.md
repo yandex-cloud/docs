@@ -31,10 +31,10 @@ Syntax:
 |`--edition`|<b>`string`</b><br/>Set new Elasticsearch server edition|
 |`--plugins`|<b>`value[,value]`</b><br/>Set new set of ElasticSearch plugins|
 |`--datanode-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources available to a datanode host (CPU, RAM etc.).|
-|`--datanode-disk-size`|<b>`byteSize`</b><br/>New storage volume available to a datanode host.|
+|`--datanode-disk-size`|<b>`byteSize`</b><br/>New storage volume available to a datanode host in GB.|
 |`--datanode-disk-type`|<b>`string`</b><br/>New storage type for a datanode host.|
 |`--masternode-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources available to a masternode host (CPU, RAM etc.).|
-|`--masternode-disk-size`|<b>`byteSize`</b><br/>New storage volume available to a masternode host.|
+|`--masternode-disk-size`|<b>`byteSize`</b><br/>New storage volume available to a masternode host in GB.|
 |`--masternode-disk-type`|<b>`string`</b><br/>New storage type for a masternode host.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`|Read password for entity from input|

@@ -25,6 +25,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
 * [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
+* [{{ cdn-full-name }}](../cdn/troubleshooting.md)
 * [{{ dns-full-name }}](../dns/qa/index.md)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ compute-full-name }}](../compute/qa/all.md)
@@ -42,6 +43,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ yq-full-name }}](../query/qa/index.md)
+* [{{ maf-full-name }}](../managed-airflow/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
@@ -52,6 +54,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ mrd-full-name }}](../managed-redis/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
+* [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
 
@@ -61,7 +64,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ container-registry-full-name }}](../container-registry/qa/index.md)
 * [{{ managed-k8s-full-name }}<sup>®</sup>](../managed-kubernetes/qa/all.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
-
+  
 
 
 ### Serverless computing {#serverless}
@@ -86,6 +89,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 ### Developer tools {#developer-tools}
 
+* [{{ ca-full-name }}](../code-assistant/qa.md)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 

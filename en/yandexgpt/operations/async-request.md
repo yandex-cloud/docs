@@ -1,11 +1,11 @@
 ---
 title: How to send asynchronous requests to {{ yagpt-full-name }}
-description: Follow this guide to send asynchronous requests to models in {{ yagpt-full-name }}
+description: Follow this guide to learn how to send asynchronous requests to models in {{ yagpt-full-name }}.
 ---
 
 # Sending an asynchronous request
 
-You can send requests to the models [asynchronously](../concepts/index.md#working-mode). In response to such a request, you will receive the operation ID and use it to track the operation progress.
+You can send requests to the models [asynchronously](../concepts/index.md#working-mode). In response to such a request, you will get the operation ID you can use to track its progress.
 
 ## Getting started {#before-begin}
 
@@ -38,25 +38,26 @@ You can send requests to the models [asynchronously](../concepts/index.md#workin
 
    {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
-1. To send the request to the model, run this command:
+1. Send a request to the model by running this command:
 
    ```bash
    export FOLDER_ID=<folder_ID>
    export IAM_TOKEN=<IAM_token>
-   curl --request POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
-     -d "@<path_to_json_file>" \
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
+     --header "x-folder-id: ${FOLDER_ID}" \
+     --data "@<path_to_JSON_file>" \
      "https://llm.{{ api-host }}/foundationModels/v1/completionAsync"
    ```
 
    Where:
 
    * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-   * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+   * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-   In response, the service will return an [Operation object](../../api-design-guide/concepts/operation.md):
+   In the response, the service will return the [Operation object](../../api-design-guide/concepts/operation.md):
 
    ```json
    {
@@ -70,12 +71,13 @@ You can send requests to the models [asynchronously](../concepts/index.md#workin
    }
    ```
 
-   Save the operation `id` received in the response.
+   Save the operation `id` you get in the response.
 
 1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+   curl \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
      https://llm.{{ api-host }}/operations/<operation_ID>
    ```
 

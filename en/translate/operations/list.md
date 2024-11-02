@@ -22,19 +22,20 @@ Get the list of supported languages using the [listLanguages](../api-ref/Transla
 - Bash {#bash}
 
     ```bash
-    export FOLDER_ID=<folder ID>
-    export IAM_TOKEN=<IAM token>
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-       "https://translate.{{ api-host }}/translate/v2/languages"
+    export FOLDER_ID=<folder_ID>
+    export IAM_TOKEN=<IAM_token>
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "{\"folderId\": \"${FOLDER_ID}\"}" \
+      "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Where:
 
-    * `FOLDER_ID`: Folder ID received [before starting](#before-begin).
-    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+    * `FOLDER_ID`: Folder ID you got [before you started](#before-begin).
+    * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
     The response will contain a list of language names in the corresponding language:
 

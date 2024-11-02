@@ -14,7 +14,7 @@ When invoking the handler, the runtime provides the following arguments:
     * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
 1. [Invocation context](context.md) (the `context` parameter). 
 
-    The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
+    The context contains the requred function version information. The structure of this object is described in [{#T}](context.md).
     
 ## Handler types {#type}
 
@@ -65,7 +65,10 @@ def handler(event, context):
 Function invocation example:
 
 ```bash
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/<function_ID>?param=one
+curl \
+  --data '{"hello": "world"}' \
+  --header 'Content-Type: application/json' \
+  https://{{ sf-url }}/<function_ID>?param=one
 ```
 
 Result:

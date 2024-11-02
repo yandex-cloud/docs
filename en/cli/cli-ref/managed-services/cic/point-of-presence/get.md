@@ -22,7 +22,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PointOfPresence id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>PointOfPresence id.|
+|`--name`|<b>`string`</b><br/>PointOfPresence name.|
 
 #### Global Flags
 

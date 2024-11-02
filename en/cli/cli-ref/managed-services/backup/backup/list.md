@@ -20,6 +20,7 @@ Syntax:
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--instance-id`|<b>`string`</b><br/>Specified instance id|
 |`--archive-id`|<b>`string`</b><br/>Specified archive id|
+|`--type`|<b>`string`</b><br/>Specified resource type for listing, one of 'compute' or 'bms' or ''|
 
 #### Global Flags
 

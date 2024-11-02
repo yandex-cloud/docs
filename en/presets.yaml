@@ -4025,19 +4025,9 @@ default:
         10|string: $1.600000
         100|number: 1.12
         100|string: $1.120000
-        1000|number: 0.4
         1000|string: $0.400000
         10000|string: $0.200000
       v1|string: Free
-    waf:
-      requests:
-        v1|pricingRate:
-          '0':
-            01|number: 200
-          1|number: 28
-          10|number: 1.6
-          100|number: 1.12
-          1000|number: 0.4
   sku|USD|v1:
     commitment:
       selfcheckout:

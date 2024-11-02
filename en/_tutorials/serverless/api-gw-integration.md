@@ -1,4 +1,4 @@
-# Developing custom integrations in {{ api-gw-name }}
+# Developing a custom integration in {{ api-gw-name }}
 
 
 Using serverless technology, you can create your own integration with {{ yandex-cloud }} services.
@@ -40,141 +40,141 @@ The cost of resources for the integration includes:
 
 - Windows {#windows}
 
-   1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
-   1. Run the Linux subsystem (by default, Ubuntu).
-   1. Configure the environment as described in the Linux manual.
+  1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
+  1. Run the Linux subsystem (by default, Ubuntu).
+  1. Configure the environment as described in the Linux manual.
 
 - Linux {#linux}
 
-   {% note info %}
+  {% note info %}
 
-   If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+  If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
 
-   {% endnote %}
+  {% endnote %}
 
-   1. Install the following utilities in the specified order using commands in the terminal:
-      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
+  1. Install the following utilities in the specified order using commands in the terminal:
+     * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
-         ```bash
-         sudo apt-get install curl git -y
-         ```
+       ```bash
+       sudo apt-get install curl git -y
+       ```
 
-      * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
-         ```bash
-         sudo snap install webstorm --classic
-         ```
+       ```bash
+       sudo snap install webstorm --classic
+       ```
 
-      * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
 
-         ```bash
-         curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash
-         sudo apt-get install nodejs
-         node -v
-         npm -v
-         ```
+       ```bash
+       curl --silent --location https://deb.nodesource.com/setup_16.x | sudo -E bash
+       sudo apt-get install nodejs
+       node -v
+       npm -v
+       ```
 
-      * [TypeScript](https://www.typescriptlang.org/):
+     * [TypeScript](https://www.typescriptlang.org/):
 
-         ```bash
-         sudo npm install -g typescript
-         ```
+       ```bash
+       sudo npm install -g typescript
+       ```
 
-      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
-         ```bash
-         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
-         exec -l $SHELL
-         yc version
-         ```
+       ```bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
+       exec -l $SHELL
+       yc version
+       ```
 
-      * [AWS CLI](https://aws.amazon.com/cli/):
+     * [AWS CLI](https://aws.amazon.com/cli/):
 
-         ```bash
-         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-         unzip awscliv2.zip
-         sudo ./aws/install
-         ```
-
-
-      * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
-
-         ```bash
-         sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-         sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-         sudo apt-get update && sudo apt-get install terraform -y
-         terraform version
-         ```
+       ```bash
+       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --output "awscliv2.zip"
+       unzip awscliv2.zip
+       sudo ./aws/install
+       ```
 
 
+     * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
-   1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
-   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
+       ```bash
+       sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+       curl --fail --silent --show-error --location https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+       sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+       sudo apt-get update && sudo apt-get install terraform -y
+       terraform version
+       ```
+
+
+
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
+  1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 - macOS {#macos}
 
-   1. Install the following utilities in the specified order using commands in the terminal:
-      * [Homebrew](https://brew.sh):
+  1. Install the following utilities in the specified order using commands in the terminal:
+     * [Homebrew](https://brew.sh):
 
-         ```bash
-         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-         ```
+       ```bash
+       /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+       ```
 
-      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
+     * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
-         ```bash
-         brew install curl git
-         ```
+       ```bash
+       brew install curl git
+       ```
 
-      * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
-         ```bash
-         brew install --cask webstorm
-         ```
+       ```bash
+       brew install --cask webstorm
+       ```
 
-      * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
 
-         ```bash
-         brew install node
-         node -v
-         npm -v
-         ```
+       ```bash
+       brew install node
+       node -v
+       npm -v
+       ```
 
-      * [TypeScript](https://www.typescriptlang.org/):
+     * [TypeScript](https://www.typescriptlang.org/):
 
-         ```bash
-         npm install -g typescript
-         ```
+       ```bash
+       npm install -g typescript
+       ```
 
-      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
-         ```bash
-         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
-         exec -l $SHELL
-         yc version
-         ```
+       ```bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
+       exec -l $SHELL
+       yc version
+       ```
 
-      * [AWS CLI](https://aws.amazon.com/cli/):
+     * [AWS CLI](https://aws.amazon.com/cli/):
 
-         ```bash
-         curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-         sudo installer -pkg AWSCLIV2.pkg -target /
-         ```
-
-
-      * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
-
-         ```bash
-         brew tap hashicorp/tap
-         brew install hashicorp/tap/terraform
-         terraform version
-         ```
+       ```bash
+       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
+       sudo installer -pkg AWSCLIV2.pkg -target /
+       ```
 
 
+     * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
-   1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic parameters.
-   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
+       ```bash
+       brew tap hashicorp/tap
+       brew install hashicorp/tap/terraform
+       terraform version
+       ```
+
+
+
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic parameters.
+  1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 {% endlist %}
 
@@ -191,13 +191,13 @@ The `src` folder contains source files for creating the function:
 * [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): The code to process calls of a function and main commands.
 * [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): The code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization when executing requests to the {{ ydb-short-name }}.
 
-When a function is called, the operation context is passed in the file [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) in the `requestContext.apiGateway.operationContext` field of the `event` object.
+When a function is called, the operation context is provided in the [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) file in the `requestContext.apiGateway.operationContext` field of the `event` object.
 
-The operation context is defined in the [`context`](../../api-gateway/concepts/extensions/cloud-functions.md#parameters) parameter in the specifications of the [API gateway](../../api-gateway/concepts/) calling the integration function.
+The operation context is defined in the [`context`](../../api-gateway/concepts/extensions/cloud-functions.md#parameters) parameter in the specification of the [API gateway](../../api-gateway/concepts/) invoking the integration function.
 
 {% note info %}
 
-When integrating using the [container](../../serverless-containers/concepts/container.md), the operation context is defined via the header [`X-Yc-ApiGateway-Operation-Context`](../../api-gateway/concepts/extensions/containers.md#parameters).
+When integrating using a [container](../../serverless-containers/concepts/container.md), the operation context is provided via the special header [`X-Yc-ApiGateway-Operation-Context`](../../api-gateway/concepts/extensions/containers.md#parameters).
 
 {% endnote %}
 
@@ -208,7 +208,7 @@ The file [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw
 1. Open the terminal and go to the project root folder:
 
    ```bash
-   cd <path_to_project_root_folder>
+   cd <path_to_project_root_directory>
    ```
 
 1. Set the dependencies required for the project:
@@ -224,19 +224,19 @@ The file [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw
    ```
 
 1. Add the built function code to a ZIP archive:
-
+  
    ```bash
    npm run package
    ```
 
 ## Upload the file of the function to the bucket {#upload-to-bucket}
 
-1. [Create](../../storage/operations/buckets/create.md) a bucket with public access. Save the bucket name. You will need it later.
-1. [Upload](../../storage/operations/objects/upload.md) the ZIP archive `apigw-dynamodb-connector-0.0.1.zip` with the function code from the `build` folder to the bucket.
+1. [Create a bucket](../../storage/operations/buckets/create.md) with public access. Save the bucket name. You will need it later.
+1. [Upload](../../storage/operations/objects/upload.md) the `apigw-dynamodb-connector-0.0.1.zip` ZIP archive with the function code from the `build` folder to the bucket.
 
 ## Prepare a resource configuration for the integration {#prepare-configuration}
 
-To deploy the CRUD API using the integration function, you'll need the [{{ TF }}](https://www.terraform.io) tool.
+To deploy the CRUD API using the integration function, you will need the [{{ TF }}](https://www.terraform.io) tool.
 
 A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration example makes it easier to configure {{ yandex-cloud }} resources. Created {{ TF }} resources:
 * Serverless {{ ydb-short-name }} database.
@@ -261,7 +261,7 @@ To prepare configuration files for {{ TF }}:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
    * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
-1. Create the `crud-api` folder and open it:
+1. Create a `crud-api` directory and navigate to it:
 
    ```bash
    mkdir crud-api
@@ -269,20 +269,20 @@ To prepare configuration files for {{ TF }}:
    ```
 
    Run all subsequent {{ TF }} commands in the `crud-api` folder.
-1. Create the `main.tf` file and copy the {{ TF }}module configuration there. Set the parameters of the resources to be created:
+1. Create a file named `main.tf` and copy into it the {{ TF }} module configuration. Set the parameters of the resources to be created:
    * `cloud_id`: Cloud ID.
    * `folder_id`: Folder ID.
    * `oauth_token`: OAuth token.
    * `database_connector_bucket`: Name of the bucket with the integration function.
 
    ```hcl
-
    locals {
      cloud_id    = "<cloud_ID>"
      folder_id   = "<folder_ID>"
-     oauth_token = "<OAuth token>"
+     oauth_token = "<OAuth_token>"
      zone        = "{{ region-id }}-a"
    }
+
    module "crud-api" {
      source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
 
@@ -293,7 +293,7 @@ To prepare configuration files for {{ TF }}:
      region                    = "region-id"
      openapi_spec              = "api.yaml"
      table_specs               = ["file://table.json"]
-     database_connector_bucket = "<name_of_bucket_with_integration_function>"
+     database_connector_bucket = "<name_of_bucket_with_the_integration_function>"
      database_connector_object = "apigw-dynamodb-connector-0.0.1.zip"
    }
 
@@ -321,7 +321,7 @@ To prepare configuration files for {{ TF }}:
    }
    ```
 
-1. Create `table.json` file and copy to it the specification of the table schema created by {{ ydb-short-name }}:
+1. Create a file named `table.json` and copy into it the specification of the table schema created by {{ ydb-short-name }}:
 
    ```json
    {
@@ -349,7 +349,7 @@ To prepare configuration files for {{ TF }}:
    }
    ```
 
-1. Create a `api.yaml` file and copy the OpenAPI specifications of the API gateway to be created to it:
+1. Create a file named `api.yaml` and copy into it the OpenAPI specification of the new API gateway:
 
    ```yaml
    openapi: "3.0.0"
@@ -558,9 +558,9 @@ To prepare configuration files for {{ TF }}:
    terraform apply
    ```
 
-1. Confirm resource creation: type `yes` in the terminal and press **Enter**.
+1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-   In the command result, the `crud_api_domain` variable shows the domain address of the created CRUD API. Save the address. You will need it later.
+   In the command output, the `crud_api_domain` variable will show the domain address of the new CRUD API. Save the address. You will need it later.
 
    You can use the [management console]({{ link-console-main }}) to check the created resources.
 
@@ -572,7 +572,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request POST 'https://<CRUD_API_domain_address>/movies' \
+     --request POST 'https://<domain_address_of_CRUD_API>/movies' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "id": "301",
@@ -586,7 +586,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request GET 'https://<CRUD_API_domain_address>/movies/301'
+     --request GET 'https://<domain_address_of_CRUD_API>/movies/301'
    ```
 
 1. Change movie details:
@@ -594,7 +594,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request PUT 'https://<CRUD_API_domain_address>/movies/301' \
+     --request PUT 'https://<domain_address_of_CRUD_API>/movies/301' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "title": "The Matrix"
@@ -606,7 +606,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request POST 'https://<CRUD_API_domain_address>/movies' \
+     --request POST 'https://<domain_address_of_CRUD_API>/movies' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "id": "299",
@@ -620,7 +620,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request GET 'https://<CRUD_API_domain_address>/movies?from=1&limit=5'
+     --request GET 'https://<domain_address_of_CRUD_API>/movies?from=1&limit=5'
    ```
 
 1. Delete details of a movie:
@@ -628,7 +628,7 @@ To check the performance of the created CRUD API, run the following HTTP request
    ```bash
    curl \
      --location \
-     --request DELETE 'https://<CRUD_API_domain_address>/movies/301' \
+     --request DELETE 'https://<domain_address_of_CRUD_API>/movies/301' \
      --data-raw ''
    ```
 
@@ -637,9 +637,9 @@ To check the performance of the created CRUD API, run the following HTTP request
 To stop paying for the resources you created:
 * Delete the resources created with {{ TF }}. In the terminal, run this command:
 
-   ```bash
-   terraform destroy
-   ```
+  ```bash
+  terraform destroy
+  ```
 
-   Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
+  Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
 * [Delete](../../storage/operations/buckets/delete.md) the bucket with the function file.

@@ -17,7 +17,7 @@ description: В данном разделе описано, как начать 
 1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 
-В сервис {{ sd-name }} входят модули Access Transparency, Контроль данных (DSPM), Диагностика доступов (CIEM) и Портал соответствия требованиям. 
+В сервис {{ sd-name }} входят модули Access Transparency, Контроль данных (Data Security Posture Management), Диагностика доступов (Cloud Infrastructure Entitlement Management) и Портал соответствия требованиям.
 
 Чтобы подключить любой из модулей, перейдите в [интерфейс {{ sd-name }}]({{ link-sd-main }}) и нажмите кнопку **Подключить** рядом с описанием нужного модуля. После этого вы сможете подробнее ознакомиться с возможностями инструмента и условиями его использования.
 

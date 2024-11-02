@@ -23,6 +23,10 @@ items:
         href: tutorials/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт
         href: tutorials/serial-port.md
+      - name: >-
+          Запуск контейнерного приложения в {{ serverless-containers-full-name
+          }}
+        href: tutorials/deploy-app-container.md
       - name: Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}
         href: tutorials/coi-with-terraform.md
       - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}

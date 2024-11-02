@@ -26,6 +26,7 @@ Syntax:
 |`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External IPv6 endpoint settings for specified listener.<br/><br/>Possible property names:<br/><ul> <li><code>port</code>:     Port for the listener.</li> <li><code>address</code>:     Use allocated address for the listener.</li> </ul>|
 |`--backend-group-id`|<b>`string`</b><br/>Backend group id for new listener.|
 |`--backend-group-name`|<b>`string`</b><br/>Backend group name for new listener.|
+|`--idle-timeout`|<b>`duration`</b><br/>Idle timeout for the stream.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -21,7 +21,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Partner id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>Partner id.|
+|`--name`|<b>`string`</b><br/>Partner name.|
 
 #### Global Flags
 

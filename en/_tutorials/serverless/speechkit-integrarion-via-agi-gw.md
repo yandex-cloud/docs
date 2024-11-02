@@ -40,7 +40,7 @@ The cost of support for the new infrastructure includes:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
   1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `speechkit-sa`.
+  1. Enter a name for the service account: `speechkit-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.speechkit-tts.user` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -162,13 +162,13 @@ To check whether your API gateway works properly, you will need [cURL](https://c
 Send a request to your API gateway by providing the service domain value you previously saved:
 
 ```bash
-curl -v \
+curl --verbose \
   https://<service_domain>/synthesis \
-  -d '{"text": “Hello! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
+  --data '{"text": “Hello! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
   | jq -r  '.data' | while read chunk; do base64 -d <<< "$chunk" >> audio.mp3; done
 ```
 
-Once you run the above command, the synthesized speech will be saved to the `audio.mp3` file in the current directory. You can listen to the file you created in your browser, e.g., [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
+Once you run the above command, the synthesized speech will be saved to the `audio.mp3` file in the current directory. You can listen to the output file in your browser, e.g., [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
 
 To learn more about the format of the text provided in the `-d` parameter, see the [{{ speechkit-full-name }} documentation](../../speechkit/tts/request.md).
 

@@ -183,6 +183,12 @@ For OnPremise, all fields are filled in manually.
 
         Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
 
+        {% note warning %}
+
+        If a table you want to include or exclude has the same name as your database, specify that table in `<DB_name>.<table_name>` format for the filter to work properly.
+
+        {% endnote %}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}**: Allows you to select the DB schema elements that will be transferred when activating or deactivating a transfer.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:

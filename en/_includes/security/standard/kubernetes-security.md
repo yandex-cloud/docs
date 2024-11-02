@@ -3,7 +3,7 @@
 
 #### Introduction {#intro}
 
-[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
+[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in the {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
 
 The user is responsible for all actions made inside the {{ k8s }} node. The user is responsible for the security of the nodes and their proper setup in accordance with PCI DSS requirements and other security standards.
 
@@ -65,7 +65,7 @@ Less strict isolation models are also possible, e.g., where:
 
 {% endlist %}
 
-#### 9.3 No access to the {{ k8s }} API and node groups from untrusted networks {#api-security}
+#### 9.3 There is no access to the {{ k8s }} API and node groups from untrusted networks {#api-security}
 
 We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet. Use firewall protection where needed (for example, [security groups](../../../vpc/concepts/security-groups.md)).
 
@@ -80,7 +80,7 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
   * [NGINX Ingress Controller](../../../managed-kubernetes/tutorials/ingress-cert-manager.md).
   * [Application Load Balancer of an Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
-#### 9.4 Authentication and access management configured in {{ managed-k8s-name }} {#kubernetes-auth}
+#### 9.4 Authentication and access management are configured in {{ managed-k8s-name }} {#kubernetes-auth}
 
 For the {{ k8s }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../../managed-kubernetes/security/index.md#sa-annotation). The access of IAM accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
@@ -217,16 +217,16 @@ When working with Velero that is installed manually, you can use [nfs](https://k
 
 * [Guide on {{ k8s }} cluster backup in {{ objstorage-name }}](../../../managed-kubernetes/tutorials/kubernetes-backup.md#backup).
 
-#### 9.10 Check lists are used for secure creation and use of Docker images {#check-list}
+#### 9.10 Check lists are in place for security when creating and using Docker images {#check-list}
 
-Practices for secure creation and use of Docker images must be in place for protection against potential vulnerabilities, malware, and unauthorized access to data. They ensure image integrity and security compliance while also preventing potential threats coming from its use in the infrastructure. Use these check lists to meet requirements for secure creation of images:
+Secure Docker image creation and operation practices ensure protection against potential vulnerabilities, malware, and unauthorized access to data. They ensure image integrity and security compliance while also preventing potential threats coming from its deployment in the infrastructure. Use these check lists to meet requirements for secure creation of images:
 
 * [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md).
 
 You can control Dockerfile in your [CI/CD](/blog/posts/2022/10/ci-cd) pipeline using the [Conftest](https://www.conftest.dev/) utility.
 
-When using minimal images or distroless images without a shell, [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) are recommended.
+When using minimal images or distroless images without a shell, we recommend using [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
 {% list tabs group=instructions %}
 
@@ -236,7 +236,7 @@ When using minimal images or distroless images without a shell, [ephemeral conta
 
 {% endlist %}
 
-#### 9.11 The {{ k8s }} security policy is used {#security-standards}
+#### 9.11 The {{ k8s }} security policy is in place {#security-standards}
 
 The requirements listed in [{{ k8s }} Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) allow you to prevent threats related to {{ k8s }} objects, such as unauthorized access to confidential data and execution of malicious code.
 
@@ -246,13 +246,13 @@ These requirements allow you to ensure security and reliability of applications 
 
 - Manual check {#manual}
 
-  Verify compliance with the {{ k8s }} Pod Security Standard.
+  Verify compliance with the {{ k8s }} Pod Security Standards.
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
-* You can also use the following tools within [CI/CD](/blog/posts/2022/10/ci-cd) to control compliance with Pod Security Standards:
+* You can also use the following tools within [CI/CD](/blog/posts/2022/10/ci-cd) to monitor compliance with the Pod Security Standards:
 
   * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
   * The gator CLI
@@ -275,9 +275,9 @@ In {{ managed-k8s-name }}, you can audit the current role model used in the serv
 
 You can also use:
 
-* [KubiScan](https://github.com/cyberark/KubiScan).
-* [Krane](https://github.com/appvia/krane).
-* {{ at-full-name }} [events](../../../managed-kubernetes/at-ref.md).
+* [KubiScan](https://github.com/cyberark/KubiScan)
+* [Krane](https://github.com/appvia/krane)
+* {{ at-full-name }} [events](../../../managed-kubernetes/at-ref.md)
 
 {% list tabs group=instructions %}
 

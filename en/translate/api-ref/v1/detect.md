@@ -23,9 +23,9 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 
 Parameter | Description
 ----- | -----
-`text` | Required parameter.<br/>UTF-8 encoded text for language detection.
+`text` | This is a required parameter.<br/>UTF-8 encoded text for language detection.
 `hint` | List of most probable languages (they will be given priority when detecting the language). The list items are comma-separated.
-`folderId` | Required parameter.<br/>Your folder ID.<br/>Learn more about how to get a folder ID.
+`folderId` | This is a required parameter.<br/>Your folder ID.<br/>Learn more about how to get a folder ID.
 
 
 ## Response {#response}
@@ -41,16 +41,17 @@ The response is returned in JSON format.
 
 ## Examples {#examples}
 
-### Sample request {#sample-request}
+### Request example {#sample-request}
 
 ```httpget
 export FOLDER_ID=<folder_ID>
 export TOKEN=<IAM_token>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
-     -d "folderId=${FOLDER_ID}" \
-     --data-urlencode "text=Hello world" \
-     "https://translate.{{ api-host }}/translate/v1/detect"
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data "folderId=${FOLDER_ID}" \
+  --data-urlencode "text=Hello world" \
+  "https://translate.{{ api-host }}/translate/v1/detect"
 ```
 
 ### Response example {#response-example}

@@ -27,10 +27,10 @@ Syntax:
 |`--database`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of databases to be created with the ClickHouse cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the ClickHouse database.</li> </ul>|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for a ClickHouse host.|
-|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host|
+|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host in GB|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-type`|<b>`string`</b><br/>Storage type for the host.|
-|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host|
+|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host in GB|
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--metrika-access`|Allow access for Yandex Metrika|
