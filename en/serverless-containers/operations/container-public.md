@@ -61,9 +61,10 @@ If you want any user to be able to invoke a container without providing the auth
   1. Run the request stating the IAM token, path to the `body.json` file, and container ID:
 
       ```bash
-      curl -X POST \
-          -H "Authorization: Bearer <IAM_token>" \
-          -d "@<body.json_file_path>" \
+      curl \
+          --request POST \
+          --header "Authorization: Bearer <IAM_token>" \
+          --data "@<body.json_file_path>" \
           https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/<container_ID>:setAccessBindings
       ```
 
@@ -87,8 +88,9 @@ If you want any user to be able to invoke a container without providing the auth
   1. Make sure the role is assigned. To do this, run the request stating the IAM token and container ID:
 
       ```bash
-      curl -X GET \
-          -H "Authorization: Bearer <IAM_token>" \
+      curl \
+          --request GET \
+          --header "Authorization: Bearer <IAM_token>" \
           https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/<container_ID>:listAccessBindings
       ```
 

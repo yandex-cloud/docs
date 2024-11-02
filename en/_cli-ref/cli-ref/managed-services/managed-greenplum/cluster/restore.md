@@ -24,10 +24,10 @@ Syntax:
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--master-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available on the master host.|
-|`--master-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available on the master host.|
+|`--master-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available on the master host in GB.|
 |`--master-disk-type`|<b>`string`</b><br/>Type of the storage environment for the master host.|
 |`--segment-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available on the segment host.|
-|`--segment-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available on the segment host.|
+|`--segment-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available on the segment host in GB.|
 |`--segment-disk-type`|<b>`string`</b><br/>Type of the storage environment for the segment host.|
 |`--datalens-access`|Allow access for DataLens.|
 |`--websql-access`|Allow access for Web SQL.|

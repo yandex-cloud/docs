@@ -21,7 +21,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>TrunkConnection id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>TrunkConnection id.|
+|`--name`|<b>`string`</b><br/>TrunkConnection name.|
 
 #### Global Flags
 

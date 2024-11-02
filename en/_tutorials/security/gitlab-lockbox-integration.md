@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    This role has no permissions to acquire the secrets list; therefore, lacking the secret ID, the attacker will not be able to retrieve the password from the secret.
 
-1. [Create a {{ GL }} environment variable]({{ gl.docs }}/ee/ci/variables/#for-a-project) for the project. Configure it as follows:
+1. [Create]({{ gl.docs }}/ee/ci/variables/#for-a-project) a {{ GL }} environment variable for your project. Configure it as follows:
 
    * **Key**: `MY_SECRET`.
    * **Value**: ID of the {{ lockbox-name }} secret you created.
@@ -63,12 +63,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
      stage: build
      script:
        - >
-         export IAM_TOKEN_JSON=`curl -s -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
+         export IAM_TOKEN_JSON=`curl --silent --header "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
        - export TOKEN=`echo $IAM_TOKEN_JSON | jq -rMc '.access_token'`
        - >
-         curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
+         curl --silent -header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
        - >
-         export SECRET_JSON=`curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
+         export SECRET_JSON=`curl --silent --header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
        - export VALUE_OF_MY_SECRET=`echo $SECRET_JSON | jq -rMc '.entries[] | select(.key | contains("MY_SECRET")) | .textValue'`
        - echo $VALUE_OF_MY_SECRET
    ```
@@ -90,7 +90,7 @@ This will run a build that will write the {{ lockbox-name }} secret value to the
 
 1. [Enable and configure](../../managed-gitlab/operations/approval-rules.md) code review rules in the branch for the CI script.
 
-   Thus attackers will not be able to learn the variable using such commands as `env`, `printenv`, or `echo`. The information security will be able to track changes in the branch.
+   This will prevent attackers from getting at the variable using such commands as `env`, `printenv`, or `echo`. The information security will be able to track changes in the branch.
 
 1. [Configure a security group](../../vpc/operations/security-group-add-rule.md) for a VM with {{ GLR }}. In this security group, ban the incoming traffic allowing connections to the VM from outside.
 

@@ -143,6 +143,12 @@ items:
         items:
           - name: '{{ KF }}'
             href: tutorials/mkf-to-mkf.md
+      - name: Syncing data
+        items:
+          - name: >-
+              Syncing data from a third-party {{ MY }} cluster to {{
+              mmy-full-name }}
+            href: tutorials/sync-mysql.md
       - name: Migration with data storage type changed
         items:
           - name: '{{ MY }} to {{ ydb-short-name }}'

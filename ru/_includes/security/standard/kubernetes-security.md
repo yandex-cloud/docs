@@ -240,7 +240,7 @@
 
 Требования [Pod Security Standards от {{ k8s }}](https://kubernetes.io/docs/concepts/security/pod-security-standards/) позволяют предотвращать угрозы, связанные с объектами {{ k8s }}, такие как несанкционированный доступ к конфиденциальным данным или выполнение вредоносного кода.
 
-Эти требования помогают обеспечить безопасность и надежность работы приложений в кластере {{ k8s }}. Для их реализации можно использовать встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) или открытое программное обеспечение, например, [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) или [Kyverno](/marketplace/products/yc/kyverno).
+Эти требования помогают обеспечить безопасность и надежность работы приложений в кластере {{ k8s }}. Для их реализации можно использовать встроенный инструмент {{ k8s }} [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) или открытое программное обеспечение, например, [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) или [Kyverno](/marketplace/products/yc/kyverno).
 
 {% list tabs group=instructions %}
 

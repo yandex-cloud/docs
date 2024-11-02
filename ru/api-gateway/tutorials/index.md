@@ -18,5 +18,6 @@ description: Различные сценарии использования {{ a
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
 * [{#T}](speechkit-integrarion-via-agi-gw.md)
+* [{#T}](deploy-app-container.md)
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](data-ingestion.md)

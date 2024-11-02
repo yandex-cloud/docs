@@ -28,10 +28,10 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
-|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>New volume of the storage available to a ClickHouse host.|
+|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>New volume of the storage available to a ClickHouse host in GB.|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>New storage type for a ClickHouse host.|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
-|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>New volume of the storage available to a ZooKeeper host.|
+|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>New volume of the storage available to a ZooKeeper host in GB.|
 |`--zookeeper-disk-type`|<b>`string`</b><br/>New storage type for a ZooKeeper host.|
 |`--version`|<b>`string`</b><br/>Version of the ClickHouse server software.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|

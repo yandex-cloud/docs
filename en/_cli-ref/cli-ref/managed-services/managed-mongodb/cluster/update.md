@@ -34,18 +34,18 @@ Syntax:
 |`--datalens-access`|Allow access for DataLens|
 |`--datatransfer-access`|Allow access for DataTransfer|
 |`--mongod-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
-|`--mongod-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role.|
+|`--mongod-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
 |`--mongod-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
 |`--mongocfg-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
-|`--mongocfg-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role.|
+|`--mongocfg-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
 |`--mongocfg-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
 |`--mongos-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
-|`--mongos-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role.|
+|`--mongos-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
 |`--mongos-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
 |`--mongoinfra-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
-|`--mongoinfra-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role.|
+|`--mongoinfra-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
 |`--mongoinfra-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
-|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>mongod-disk-size-limit</code>:     Set disk size limit for mongod (GB)</li> <li><code>mongod-planned-usage-threshold</code>:     Planned usage threshold mongod</li> <li><code>mongod-emergency-usage-threshold</code>:     Emergency usage threshold mongod</li> <li><code>mongocfg-disk-size-limit</code>:     Set disk size limit for mongocfg (GB)</li> <li><code>mongocfg-planned-usage-threshold</code>:     Planned usage threshold mongocfg</li> <li><code>mongocfg-emergency-usage-threshold</code>:     Emergency usage threshold mongocfg</li> <li><code>mongoinfra-disk-size-limit</code>:     Set disk size limit for mongoinfra (GB)</li> <li><code>mongoinfra-planned-usage-threshold</code>:     Planned usage threshold mongoinfra</li> <li><code>mongoinfra-emergency-usage-threshold</code>:     Emergency usage threshold mongoinfra</li> <li><code>mongos-disk-size-limit</code>:     Set disk size limit for mongos (GB)</li> <li><code>mongos-planned-usage-threshold</code>:     Planned usage threshold mongos</li> <li><code>mongos-emergency-usage-threshold</code>:     Emergency usage threshold mongos</li> </ul>|
+|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>mongod-disk-size-limit</code>:     Set disk size limit for mongod in GB</li> <li><code>mongod-planned-usage-threshold</code>:     Planned usage threshold mongod</li> <li><code>mongod-emergency-usage-threshold</code>:     Emergency usage threshold mongod</li> <li><code>mongocfg-disk-size-limit</code>:     Set disk size limit for mongocfg in GB</li> <li><code>mongocfg-planned-usage-threshold</code>:     Planned usage threshold mongocfg</li> <li><code>mongocfg-emergency-usage-threshold</code>:     Emergency usage threshold mongocfg</li> <li><code>mongoinfra-disk-size-limit</code>:     Set disk size limit for mongoinfra in GB</li> <li><code>mongoinfra-planned-usage-threshold</code>:     Planned usage threshold mongoinfra</li> <li><code>mongoinfra-emergency-usage-threshold</code>:     Emergency usage threshold mongoinfra</li> <li><code>mongos-disk-size-limit</code>:     Set disk size limit for mongos in GB</li> <li><code>mongos-planned-usage-threshold</code>:     Planned usage threshold mongos</li> <li><code>mongos-emergency-usage-threshold</code>:     Emergency usage threshold mongos</li> </ul>|
 
 #### Global Flags
 

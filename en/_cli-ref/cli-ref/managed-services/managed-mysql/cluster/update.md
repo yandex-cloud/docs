@@ -28,7 +28,7 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--mysql-version`|<b>`string`</b><br/>Version of MYSQL used in the cluster|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|

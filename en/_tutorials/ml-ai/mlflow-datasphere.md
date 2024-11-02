@@ -99,7 +99,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-  1. Save the `key_id` and the `secret` key. You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
@@ -128,10 +128,10 @@ To create a key pair:
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
      * Enter the VM name, e.g., `mlflow-vm`.
-     * Select the `{{ region-id }}-a` availability zone.
+     * Select the availability zone: `{{ region-id }}-a`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
-     * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -188,7 +188,7 @@ To create a key pair:
 1. Download the `Anaconda` distribution:
 
    ```bash
-   curl -O https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
+   curl --remote-name https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
    ```
 
 1. Run its installation:
@@ -324,7 +324,7 @@ For MLFlow to run automatically after the VM restarts, you need to convert it in
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the URL: `https://{{ s3-storage-host }}/`.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Create three more secrets:
-   * `MLFLOW_TRACKING_URI` with the following value: `http://<VM_internal_IP_address>:8000`;
+   * `MLFLOW_TRACKING_URI` with the `http://<VM_internal_IP_address>:8000` value.
    * `AWS_ACCESS_KEY_ID` with the static key ID.
    * `AWS_SECRET_ACCESS_KEY` with the static key value.
 

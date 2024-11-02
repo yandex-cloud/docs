@@ -87,6 +87,8 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: Интерактивная отладка функций {{ sf-name }}
+        href: tutorials/serverless-live-debug.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}

@@ -10,10 +10,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-In the [management console]({{ link-console-main }}), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
-
-* {{ yagpt-full-name }}: {{ gpt-freetier }} free requests per hour.
-* {{ yandexart-name }}: {{ art-freetier }} free requests per day.
+{% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 

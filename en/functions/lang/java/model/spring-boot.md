@@ -1,8 +1,8 @@
 # Using SpringBootApplication annotation to set a handler in Java
 
-You can set a Java handler by loading a `Spring Boot` application with an entry point as a class with [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
+You can set a Java handler by loading a `Spring Boot` application with an entry point as a class with the [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
 
-When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an `/api/v1/list` endpoint in your `Spring Boot` application, you will not be able to use `https://{{ sf-url }}/function-id/api/v1/list` to call your function. Instead, you will have to provide path data in the request body (`url` parameter) or use [API Gateway](../../../../api-gateway/quickstart/index.md) integration. We recommend utilizing the second method because the `API Gateway` is easiest to use with a `Spring Boot` application and enables you to access application endpoints as usual.
+When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an `/api/v1/list` endpoint in your `Spring Boot` application, you will not be able to invoke the function at `https://{{ sf-url }}/function-id/api/v1/list`. Instead, you will have to provide path data in the request body (`url` parameter) or use [API Gateway](../../../../api-gateway/quickstart/index.md) integration. We recommend the second option because `API Gateway` is the simplest you can use with a `Spring Boot` application and enables you to address application endpoints the usual way.
 
 In case your application logic uses the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes, please note that {{ sf-name }} does not support some methods of these classes. You can review the list of unsupported methods [here](servlet-api.md#unsupported).
 
@@ -12,24 +12,24 @@ In case your application logic uses the [HttpServletRequest](https://docs.oracle
 
 ## Example of a simple application with an endpoint {#simple-example}
 
-The following application has a single endpoint: `GET: /get/{name}`. In response to a `GET` request at `/get` with the specified path parameter, the function returns `Hello, $name`, where `$name` is the provided path parameter. In our example, we use a [public](../../../operations/function/function-public.md) function. If your function is [private](../../../operations/function/function-private.md), specify a service account with the `functions.functionInvoker` role in the API gateway specification.
+The following application has a single endpoint: `GET: /get/{name}`. In response to a `GET` request at `/get` with the path parameter specified, the function will return `Hello, $name`, where `$name` is the provided path parameter. In our example, we use a [public](../../../operations/function/function-public.md) function. If your function is [private](../../../operations/function/function-private.md), specify a service account with the `functions.functionInvoker` role in the API gateway specification.
 
-1. [Create](../../../operations/function/function-create.md) a function.
+1. [Create a function](../../../operations/function/function-create.md).
 
 1. Create a ZIP archive with the following hierarchy:
 
-   ```text
-   src
-   |__main
-       |__java
-           |__util
-               |__Application.java
-               |__controller
-                   |__TestController.java
-   pom.xml
-   ```
+    ```text
+    src
+    |__main
+        |__java
+            |__util
+                |__Application.java
+                |__controller
+                    |__TestController.java
+    pom.xml
+    ```
 
-   - The `Application.java` file:
+    - `Application.java` file:
 
       ```java
       package util;
@@ -45,7 +45,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-   - The `TestController.java` file:
+   - `TestController.java` file:
 
       ```java
       package util.controller;
@@ -61,7 +61,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-   - `pom.xml`:
+   - `pom.xml` file:
 
       ```xml
       <?xml version="1.0" encoding="UTF-8"?>
@@ -120,56 +120,58 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
 
 1. [Create](../../../operations/function/version-manage.md) a function version and specify:
 
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `java17`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Upload the previously created archive.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `util.Application`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `java17`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Upload the previously created archive.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `util.Application`.
 
 1. [Create](../../../../api-gateway/operations/api-gw-create.md) an {{ api-gw-name }} API gateway and add the following specification:
 
-   ```yaml
-   openapi: 3.0.0
-   info:
-     title: Test API
-     version: 1.0.0
-   paths:
-     /get/{name}:
-       get:
-         x-yc-apigateway-integration:
-           type: cloud-functions
-           function_id: <function_ID>
-           service_account_id: <service_account_ID>
-         operationId: get
-         parameters:
-         - description: my param
-           explode: false
-           in: path
-           name: name
-           required: true
-           schema:
-             type: string
-           style: simple
-   ```
+    ```yaml
+    openapi: 3.0.0
+    info:
+      title: Test API
+      version: 1.0.0
+    paths:
+      /get/{name}:
+        get:
+          x-yc-apigateway-integration:
+            type: cloud-functions
+            function_id: <function_ID>
+            service_account_id: <service_account_ID>
+          operationId: get
+          parameters:
+          - description: my param
+            explode: false
+            in: path
+            name: name
+            required: true
+            schema:
+              type: string
+            style: simple
+    ```
 
-   Where:
+    Where:
 
-   * `function_id`: Function ID.
-   * `service_account_id`: Service account with the `functions.functionInvoker` role.
+    * `function_id`: Function ID.
+    * `service_account_id`: Service account with the `functions.functionInvoker` role.
 
 1. Create a request to the endpoint:
 
-   ```
-   curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-   https://<gateway_ID>.apigw.yandexcloud.net/get/Anonymous
-   ```
+    ```
+    curl \
+      --request GET \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      https://<gateway_ID>.apigw.yandexcloud.net/get/Anonymous
+    ```
 
-   Result:
+    Result:
 
-   ```
-   Hello, Anonymous
-   ```
+    ```
+    Hello, Anonymous
+    ```
 
 Sample direct request where {{ api-gw-name }} is not used to invoke the function:
 

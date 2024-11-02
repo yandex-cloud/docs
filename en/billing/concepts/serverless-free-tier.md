@@ -1,7 +1,7 @@
 # Free tier
 
 
-Some {{ yandex-cloud }} services offer special plans where certain amounts of services are provided free of charge. These are selected to enable you to develop and launch a small service, website, or application.
+Some {{ yandex-cloud }} services offer special plans where certain amounts of services are provided free of charge. These are selected to enable you to develop and launch a small service, website, or application, or try out the service features.
 
 {% note info %}
 
@@ -26,7 +26,7 @@ Free tier applies to the following services:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ ml-platform-full-name }}](#datasphere)
+* [{{ foundation-models-full-name }}](#foundation-models)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -139,15 +139,11 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
 
-## {{ ml-platform-full-name }} {#datasphere}
+## {{ foundation-models-full-name }} {#foundation-models}
 
-[{{ ml-platform-full-name }}](../../datasphere/quickstart.md) is a full-cycle ML development service leveraging all cloud technology advantages. It combines an intuitive and easy-to-use web interface, familiar IDEs, and seamless integration of various {{ yandex-cloud }} computing resources.
+[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) is a service that provides large generative models for businesses. {{ yandex-cloud }} offers the {{ yagpt-name }} and {{ yandexart-name }} neural networks for your business apps and web services.
 
-{% include [not-charged-datasphere.md](../../_includes/pricing/price-formula/not-charged-datasphere.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../datasphere/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+{% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
@@ -251,7 +247,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) protects your infrastructure against DDoS attacks and bots at the application level (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart/index.md) protects your infrastructure against DDoS attacks and bots at the application level (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
@@ -296,3 +292,4 @@ Usage cost is calculated based on the pricing plans of the relevant service and 
 ### Calculation of {{ iot-full-name }} usage cost {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
+

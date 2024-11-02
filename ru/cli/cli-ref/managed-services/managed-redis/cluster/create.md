@@ -34,8 +34,17 @@ Syntax:
 |`--maxmemory-percent`|<b>`int`</b><br/>Redis maxmemory usage in percent. Values: 1-75|
 |`--client-output-buffer-limit-normal`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Redis client output buffer limit normal limits.<br/><br/>Possible property names:<br/><ul> <li><code>hard</code>:     Redis client output buffer limit normal hard limit.</li> <li><code>soft</code>:     Redis client output buffer limit normal soft limit.</li> <li><code>secs</code>:     Redis client output buffer limit normal soft seconds.</li> </ul>|
 |`--client-output-buffer-limit-pubsub`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Redis client output buffer limit pubsub limits.<br/><br/>Possible property names:<br/><ul> <li><code>hard</code>:     Redis client output buffer limit pubsub hard limit.</li> <li><code>soft</code>:     Redis client output buffer limit pubsub soft limit.</li> <li><code>secs</code>:     Redis client output buffer limit pubsub soft seconds.</li> </ul>|
+|`--lua-time-limit`|<b>`int`</b><br/>Maximum time in milliseconds for Lua scripts. Values: 0-5000, 0 - disabled mechanism|
+|`--repl-backlog-size-percent`|<b>`int`</b><br/>Replication backlog size as a percentage of flavor maxmemory. Values: 1-75|
+|`--cluster-require-full-coverage`|Controls whether all hash slots must be covered by nodes|
+|`--cluster-allow-reads-when-down`|Allows read operations when cluster is down|
+|`--cluster-allow-pubsubshard-when-down`|Allows Pub/Sub shard operations when cluster is down|
+|`--lfu-decay-time`|<b>`int`</b><br/>The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).|
+|`--lfu-log-factor`|<b>`int`</b><br/>Determines how the frequency counter represents key hits.|
+|`--turn-before-switchover`|Allows to turn before switchover in RDSync.|
+|`--allow-data-loss`|Allows some data to be lost in favor of faster switchover/restart.|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
 |`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--datalens-access`|Allow access for DataLens|
@@ -48,7 +57,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit (GB)</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
+|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
 
 #### Global Flags
 

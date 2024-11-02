@@ -1,6 +1,6 @@
 ---
-title: Guides on using {{ foundation-models-full-name }}
-description: The page presents all the guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. How-to guides.
+title: How to work with {{ foundation-models-full-name }}
+description: The page contains all guides on working with {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
 ---
 
 # Step-by-step guides for {{ foundation-models-full-name }}
@@ -10,7 +10,6 @@ description: The page presents all the guides on how to use {{ foundation-models
 * [{#T}](./yandexgpt/create-prompt.md)
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
-* [{#T}](./yandexgpt/disable-logging.md)
 
 ## Step-by-step guides for classifiers based on {{ yagpt-name }} {#classifiers}
 
@@ -20,3 +19,7 @@ description: The page presents all the guides on how to use {{ foundation-models
 ## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 
 [{#T}](./yandexart/request.md)
+
+## General step-by-step guides {#general}
+
+* [{#T}](disable-logging.md)

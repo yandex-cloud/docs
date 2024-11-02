@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Download the latest deb package:
 
       ```bash
-      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
       ```
 1. Check the deb package version using the `ls` command.
    
@@ -166,8 +166,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Where `unified_agent_url` is the VM's public IP address with {{ unified-agent-short-name }}.
 
-   By default, {{ unified-agent-short-name }} accepts data on all interfaces. Therefore, you can specify a public IP address 
-   even if the log source is on the same VM. If there is no public address, put `localhost`.
+   By default {{ unified-agent-short-name }} accepts data on all interfaces. Therefore, you can specify a public IP address even if the log source is on the same VM. If there is no public address, put `localhost`.
 
 1. Upgrade the versions of installed packages:
 

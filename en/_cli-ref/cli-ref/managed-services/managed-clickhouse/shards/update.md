@@ -21,7 +21,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/>Shard name.|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources (CPU, RAM etc.) available to a ClickHouse host in the shard.|
-|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to ClickHouse hosts in the shard.|
+|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to ClickHouse hosts in the shard in GB.|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for ClickHouse hosts in the shard.|
 |`--weight`|<b>`int`</b><br/>New weight of a ClickHouse host in the shard.|
 

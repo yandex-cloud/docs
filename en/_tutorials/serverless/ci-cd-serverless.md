@@ -6,12 +6,12 @@ You can build a continuous integration / continuous delivery (CI/CD) pipeline 
 As a project example, we will use a web app based on [Django](https://www.djangoproject.com/) that simulates a shopping cart in an online store. Product descriptions are stored in a database, while the product cart status is stored by the service in a user session. The Django app is deployed in a [{{ serverless-containers-name }} container](../../serverless-containers/concepts/container.md) with secrets securely delivered to the app using [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app's container.
 
 The project uses two environments:
-* `prod`: Production environment that is available to users.
-* `testing`: Test environment that is used for testing the app before its release to `production`.
+* `prod`: Production environment available to users.
+* `testing`: Test environment used for testing the app before its release into `prod`.
 
 For each environment, there is an individual [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in {{ yandex-cloud }}, as well as a separate set of static resources, such as the DB and [service accounts](../../iam/concepts/users/service-accounts.md). This isolates the environments from each other at the level of [{{ iam-full-name }}](../../iam/) settings.
 
-In addition, there is a common folder named `infra`. It contains a [{{ container-registry-full-name }}](../../container-registry/) [registry](../../container-registry/concepts/registry.md) where all collected [Docker images](../../container-registry/concepts/docker-image.md) of the app are published. The images are published under a separate service account named `builder`. The service accounts of the `prod` and `testing` environments have limited permissions in the `infra` folder and are only allowed to [pull Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
+In addition, there is a common folder named `infra`. It contains a [{{ container-registry-full-name }}](../../container-registry/) [registry](../../container-registry/concepts/registry.md) into which all the app's collected [Docker images](../../container-registry/concepts/docker-image.md) are published. The images are published under a separate service account named `builder`. The service accounts of the `prod` and `testing` environments have limited permissions in the `infra` folder and are only allowed to [pull Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
 
 To build a CI/CD pipeline using serverless products:
 1. [Create a {{ GL }} instance](#create-gitlab).
@@ -43,19 +43,19 @@ Install the following items in the local environment:
 * [Python 3.8 or higher](https://www.python.org/downloads/).
 * Python libraries listed in the `application/requirements.txt` project file:
 
-   ```bash
-   python -m pip install -r ./application/requirements.txt
-   ```
+  ```bash
+  python -m pip install -r ./application/requirements.txt
+  ```
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-1. Go to the project directory and run the `bootstrap.sh` script specifying your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
+1. Go to the project directory and run the `bootstrap.sh` script by specifying your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
 
    ```bash
    YC_CLOUD_ID=<cloud_ID> ./bootstrap.sh
    ```
 
-   The script will deploy the basic infrastructure and create YAML files in the `config` directory with a description of created resources. You can edit the script to create additional folders with required resources. For example, you can do it to add another test environment.
+   The script will deploy the basic infrastructure and create YAML files with a description of the resources you created in the `config` directory. You can edit the script to create additional folders with required resources. For example, you can do it to add another test environment.
 
    {% note warning %}
 
@@ -81,14 +81,14 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 - {{ mgl-name }} instance {#instance-mgl}
 
-   Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
+  Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
 
 
 - VM running a {{ GL }} image {#gl-image-vm}
 
-   Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
+  Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
 
-   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
+  {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
 {% endlist %}
 
@@ -124,19 +124,19 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 1. Click **Expand** next to **Variables**.
-1. Add environment variables with the protection option disabled. All required variables and their values were output by the `bootstrap.sh` script upon its completion:
+1. Add environment variables with the protection option disabled. All required variables and their values were output following the execution of the `bootstrap.sh` script:
    * `cloud_id`: Your cloud ID.
-   * `CI_REGISTRY`: ID of the {{ container-registry-name }} registry in the `infra` folder prefixed with `{{ registry }}/`.
-   * `CI_REGISTRY_KEY`: [Key](../../iam/concepts/users/service-accounts.md#sa-key) of the `builder` service account.
+   * `CI_REGISTRY`: ID of the {{ container-registry-name }} registry in the `infra` folder prefixed with the `{{ registry }}/` prefix.
+   * `CI_REGISTRY_KEY`: `builder` service account [key](../../iam/concepts/users/service-accounts.md#sa-key).
    * `cart_prod`: Name of the production folder in {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_prod`: Document API endpoint of the [{{ ydb-full-name }}](../../ydb/) database in the `prod` folder.
-   * `PROD_SA_ID`: ID of the `deployer` service account in the `prod` folder.
-   * `SA_PROD_DEPLOYER_PRIVATE_KEY`: Key of the `deployer` service account in the `prod` folder.
+   * `PROD_SA_ID`: The `deployer` service account ID in the `prod` folder.
+   * `SA_PROD_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `prod` folder.
    * `prod_container_id`: ID of the {{ serverless-containers-name }} container in the `prod` folder.
    * `cart_testing`: Name of the test folder in {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_testing`: Document API endpoint of the {{ ydb-name }} database in the `testing` folder.
-   * `TESTING_SA_ID`: ID of the `deployer` service account in the `testing` folder.
-   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: Key of the `deployer` service account in the `testing` folder.
+   * `TESTING_SA_ID`: `deployer` service account ID in the `testing` folder.
+   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `testing` folder.
 
    To add a variable:
    1. Click **Add variable**.
@@ -160,7 +160,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
      - delete-test-env
      - release
 
-   # Building an image container.
+   # Building a container image.
    build-job:
      stage: build
    # Using kaniko to create a container inside the container for enhanced security.
@@ -169,7 +169,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
        entrypoint: [""]
      script:
        - mkdir -p /kaniko/.docker
-   # Pushing the container image to the registry. The image is marked with the commit hash.
+   # Upload the container image to the registry. The image is marked with the commit hash.
        - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
        - >-
          /kaniko/executor
@@ -182,17 +182,17 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
      stage: deploy-test-env
      image: alpine:3.15
      script:
-   # Deploying the tools.
+   # Installing tools.
        - apk add -q --no-cache bash curl jq gettext
        - apk add yq --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail -silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
-    # Authenticating with the service account key.
+    # Authentication with a service account key.
        - echo "$SA_TESTING_DEPLOYER_PRIVATE_KEY" > key.json
        - yc config profile create sa-profile
        - yc config set service-account-key key.json
-   # Setting the variables to deploy {{ api-gw-name }} and creating a container.
+   # Setting up the variables to deploy {{ api-gw-name }} and creating a container.
        - export sa_id=$TESTING_SA_ID
        - export container_id=$(yc serverless container create --name testing --cloud-id ${cloud_id} --folder-name ${cart_testing} | yq .id)
    # Deploying a revision.
@@ -230,7 +230,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
      image: alpine:3.15
      script:
        - apk add -q --no-cache bash curl jq gettext yq
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
        - echo "$SA_TESTING_DEPLOYER_PRIVATE_KEY" > key.json
@@ -244,7 +244,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
      image: alpine:3.15
      script:
        - apk add -q --no-cache bash curl jq gettext
-       - curl -f -s -LO https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail --silent --location -remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
        - echo "$SA_PROD_DEPLOYER_PRIVATE_KEY" > key.json
@@ -263,7 +263,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 1. Click **Commit changes**.
 
 In the `.gitlab-ci.yml` file, the following steps of the CI script are described:
-* **build**: Building a Docker image with the `Dockerfile` and pushing the image to {{ container-registry-name }}.
+* **build**: Building a Docker image using `Dockerfile` and pushing the image to {{ container-registry-name }}.
 * **deploy-test-env**: Deploying the application in test mode. In addition, the [artifacts](https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html) mechanism for transferring data from one stage to another is described but not used. You can configure it, if required.
 * **test**: Testing the application. The tests involve E2E simulation and load testing. Describe and set up custom tests.
 * **delete-test-env**: Deleting the test app.
@@ -280,7 +280,7 @@ The app will be available at the URL of the {{ api-gw-name }} API gateway's serv
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
-1. [Delete the folders](../../resource-manager/operations/folder/delete.md) named `prod`, `testing`, and `infra` along with their resources.
+1. [Delete the folders](../../resource-manager/operations/folder/delete.md) named `prod`, `testing`, and `infra` together with their resources.
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

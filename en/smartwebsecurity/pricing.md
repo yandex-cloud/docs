@@ -26,7 +26,7 @@ In {{ sws-name }}, you pay for the actual number of [legitimate](concepts/rules.
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
 
-{% cut "Example of cost calculation for requests processed by security profile rules" %}
+{% cut "Example of calculating the cost of requests processed by WAF rules" %}
 
 {% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
 
@@ -45,19 +45,14 @@ The pricing below will apply starting October 1, 2024.
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
-{% cut "Example of cost calculation for requests processed by WAF rules" %}
+{% cut "Example of calculating the cost of requests processed by WAF rules" %}
 
 {% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity-waf.md) %}
 
 {% endcut %}
 
 
-#### Pre-calculated request costs
-
-
-
-{% include [usd-smartwebsecurity-pack](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity-pack.md) %}
-
+### Request cost calculations
 
 To use DDoS protection at levels 3 and 4 of the OSI model, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). The service is charged for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
 

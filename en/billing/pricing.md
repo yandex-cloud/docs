@@ -25,6 +25,7 @@ Billable service costs are calculated based on the amount of consumed resources 
 * [{{ interconnect-full-name }}](../interconnect/pricing.md)
 * [{{ cloud-logging-full-name }}](../logging/pricing.md)
 * [{{ cns-full-name }}](../notifications/pricing.md)
+* [{{ postbox-name }}](../postbox/pricing.md)
 * [{{ compute-full-name }}](../compute/pricing.md)
 * [{{ container-registry-full-name }}](../container-registry/pricing.md)
 * [{{ dataproc-full-name }}](../data-proc/pricing.md)
@@ -69,17 +70,21 @@ Billable service costs are calculated based on the amount of consumed resources 
 
 The following services are always free of charge:
 
+* {{ preview-stage }} [{{ baremetal-full-name }}](../baremetal/pricing.md)
 * [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md)
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
+* {{ preview-stage }} [{{ cloud-registry-full-name }}](../cloud-registry/pricing.md)
 * {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
 * {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
+* {{ preview-stage }} [{{ mtr-full-name }}](../managed-trino/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
-* {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
+* {{ preview-stage }} [{{ sd-full-name }}](../security-deck/pricing.md)
+* {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 

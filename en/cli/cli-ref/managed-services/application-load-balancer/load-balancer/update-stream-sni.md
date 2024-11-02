@@ -26,6 +26,7 @@ Syntax:
 |`--certificate-id`|<b>`value[,value]`</b><br/>Certificate ID for SNI match.|
 |`--backend-group-id`|<b>`string`</b><br/>Backend group id for SNI match.|
 |`--backend-group-name`|<b>`string`</b><br/>Backend group name for SNI match.|
+|`--idle-timeout`|<b>`duration`</b><br/>Idle timeout for the stream.|
 
 #### Global Flags
 

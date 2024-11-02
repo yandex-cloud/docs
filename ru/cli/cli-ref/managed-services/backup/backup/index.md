@@ -23,6 +23,7 @@ Aliases:
 - [yc backup backup list-archives](list-archives.md) — Lists available archives
 - [yc backup backup delete](delete.md) — Delete backup
 - [yc backup backup recover](recover.md) — Start recovery of the backup
+- [yc backup backup get](get.md) — Get full information about backup
 
 #### Global Flags
 

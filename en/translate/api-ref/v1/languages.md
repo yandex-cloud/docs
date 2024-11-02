@@ -24,7 +24,7 @@ The maximum size of the POST request body is 30 KB.
 
 Parameter | Description
 ----- | -----
-`folderId` | Required parameter.<br/>Your folder ID.<br/>
+`folderId` | This is a required parameter.<br/>Your folder ID.<br/>
 
 
 ## Response {#response}
@@ -44,15 +44,16 @@ The response is returned in JSON format.
 
 ## Examples {#examples}
 
-### Sample request {#sample-request}
+### Request example {#sample-request}
 
 ```httpget
 export FOLDER_ID=<folder_ID>
 export TOKEN=<IAM_token>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
-     -d "folderId=${FOLDER_ID}" \
-     "https://translate.{{ api-host }}/translate/v1/languages"
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data "folderId=${FOLDER_ID}" \
+  "https://translate.{{ api-host }}/translate/v1/languages"
 ```
 
 ### Response example {#response-example}

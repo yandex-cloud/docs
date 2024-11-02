@@ -26,10 +26,10 @@ Syntax:
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the ClickHouse cluster being restored.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>shard-name</code>:     Host shard name.</li> <li><code>type</code>:     Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'.</li> </ul>|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for a ClickHouse host.|
-|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host|
+|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host in GB|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-type`|<b>`string`</b><br/>Storage type for the host.|
-|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host|
+|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host in GB|
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--metrika-access`|Allow access for Yandex Metrika|

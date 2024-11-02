@@ -108,6 +108,7 @@
 
   1. Укажите параметры трансляции логов в блоке `data.output-elasticsearch.conf` файла `config.yaml`:
 
+
      ```yaml
      ...
        output-elasticsearch.conf: |
@@ -120,6 +121,7 @@
            authorization   iam-key-file:/etc/secret/key.json
      ...
      ```
+
 
      Идентификатор [лог-группы](../../logging/concepts/log-group.md) можно получить со [списком лог-групп в каталоге](../../logging/operations/list.md).
 

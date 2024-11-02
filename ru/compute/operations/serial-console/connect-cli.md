@@ -18,7 +18,7 @@
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-Дальнейший порядок действий по подключению зависит от операционной системы и от того, включен ли для ВМ доступ по [OS Login](../../../organization/concepts/os-login.md). Если для ВМ [включен](../vm-connect/enable-os-login.md) доступ по OS Login, подключение к серийной консоли происходит с использованием короткоживущих SSH-сертификатов. Для подключения к ВМ с выключенным доступом по OS Login используются [SSH-ключи](../../../glossary/ssh-keygen.md).
+Дальнейший порядок действий по подключению зависит от операционной системы и от того, включен ли для ВМ доступ по [{{ oslogin }}](../../../organization/concepts/os-login.md). Если для ВМ [включен](../vm-connect/enable-os-login.md) доступ по {{ oslogin }}, подключение к серийной консоли происходит с использованием короткоживущих SSH-сертификатов. Для подключения к ВМ с выключенным доступом по {{ oslogin }} используются [SSH-ключи](../../../glossary/ssh-keygen.md).
 
 Некоторые ОС могут запрашивать данные пользователя для доступа на ВМ. Поэтому перед подключением к серийной консоли таких ВМ необходимо создать локальный пароль пользователя.
 
@@ -61,10 +61,10 @@
 
       Подробнее о команде `yc compute connect-to-serial-port` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
 
-- Linux по OS Login
+- Linux по {{ oslogin }}
 
   1. Создайте локальный пароль пользователя на ВМ:
-      1. [Подключитесь](../vm-connect/os-login.md) к ВМ по OS Login.
+      1. [Подключитесь](../vm-connect/os-login.md) к ВМ по {{ oslogin }}.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Отключитесь от ВМ. Для этого введите команду `logout`.
 

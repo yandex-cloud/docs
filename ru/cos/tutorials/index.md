@@ -12,5 +12,6 @@ description: Различные сценарии использования {{ c
 * [Создание группы ВМ с {{ coi }} и несколькими Docker-контейнерами](ig-with-containers.md) 
 * [{#T}](vm-update.md)
 * [{#T}](serial-port.md)
+* [{#T}](deploy-app-container.md)
 * [{#T}](coi-with-terraform.md)
 * [{#T}](coi-fluent-bit-logging.md)

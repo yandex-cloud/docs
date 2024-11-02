@@ -11,6 +11,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ dns-full-name }}](../dns/release-notes.md)
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)
+* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ objstorage-full-name }}](../storage/release-notes.md)
 * [{{ sws-full-name }}](../smartwebsecurity/release-notes.md)
 * [{{ vpc-full-name }}](../vpc/release-notes.md)
@@ -38,6 +39,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 ## Developer tools {#dev-tools}
 
+* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
 
 ## Serverless computing {#serverless}
