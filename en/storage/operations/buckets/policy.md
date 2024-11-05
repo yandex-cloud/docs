@@ -1,3 +1,8 @@
+---
+title: '{{ objstorage-full-name }} bucket policy management'
+description: Follow this guide to learn how to manage an {{ objstorage-name }} bucket policy.
+---
+
 # Bucket policy management
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
@@ -20,11 +25,8 @@ To apply or edit a bucket access policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
-  1. Select **{{ objstorage-name }}**.
-  1. Select a bucket from the list.
-  1. Go to the ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab in the left-hand menu.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose policy you need to configure.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
   1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Enter a bucket policy ID.
   1. Set up a rule:
@@ -36,11 +38,11 @@ To apply or edit a bucket access policy:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
-          {% note info %}
+            {% note info %}
 
-          {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
+            {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
 
-          {% endnote %}
+            {% endnote %}
 
      1. If required, add a [condition](../../s3/api-ref/policy/conditions.md) for the rule:
         * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
@@ -91,7 +93,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
@@ -172,7 +174,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
@@ -271,7 +273,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
@@ -327,10 +329,9 @@ To view the access policy applied to a bucket:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you need to view a bucket access policy.
-  1. Select **{{ objstorage-name }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
   1. Select a bucket from the list.
-  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
+  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
 
 - AWS CLI {#aws-cli}
 
@@ -368,10 +369,9 @@ To delete a bucket policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
-  1. Select **{{ objstorage-name }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
   1. Select a bucket from the list.
-  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
+  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -441,7 +441,7 @@ To delete a bucket policy:
 
      1. Type `yes` and press **Enter**.
 
-     This will delete the bucket policy from the specified folder. You can check that the bucket policy is gone in the [management console]({{ link-console-main }}).
+     This will delete the bucket policy from the specified folder. You can check the bucket policy's deletion using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

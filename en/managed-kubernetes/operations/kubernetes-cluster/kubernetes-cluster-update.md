@@ -68,13 +68,13 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
        --service-account-name <name_of_service_account_for_resources> \
        --node-service-account-id <ID_of_service_account_for_{{ k8s }}_nodes> \
        --security-group-ids <list_of_security_group_IDs> \
-       --master-logging enabled=<sending_logs>,`
+       --master-logging enabled=<send_logs>,`
            `log-group-id=<log_group_ID>,`
            `folder-id=<folder_ID>,`
-           `kube-apiserver-enabled=<sending_kube-apiserver_logs>,`
-           `cluster-autoscaler-enabled=<sending_cluster-autoscaler_logs>,`
-           `events-enabled=<sending_{{ k8s }}_events>`
-           `audit-enabled=<sending_audit_events>
+           `kube-apiserver-enabled=<send_kube-apiserver_logs>,`
+           `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs>,`
+           `events-enabled=<send_{{ k8s }}_events>`
+           `audit-enabled=<send_audit_events>
      ```
 
      Where:
@@ -181,7 +181,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
   {% note warning %}
 
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  The existing `labels` will be completely overwritten by the ones you provide in your request.
 
   {% endnote %}
 

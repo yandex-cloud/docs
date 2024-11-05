@@ -1,3 +1,8 @@
+---
+title: Configuring cross-domain requests (CORS) to objects in the {{ objstorage-full-name }} bucket
+description: Follow this guide to configure cross-domain requests (CORS) to objects in the {{ objstorage-name }} bucket.
+---
+
 # Configuring CORS
 
 {{ objstorage-name }} allows you to manage [CORS configurations](../../concepts/cors.md) in the bucket.
@@ -6,10 +11,15 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure CORS for.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure CORS for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_cors }}** tab.
   1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
-  1. This will open a page where you can add, delete, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
+  1. Fill out the form that opens. You can add, delete, and edit configuration rules.
+     
+     {% include [storage-cors-create-rule](../../_includes_service/storage-cors-create-rule.md) %}
+  
+     For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -59,7 +69,7 @@
 
         Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces. For example, `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
-        Permissions specified in the command override the current CORS settings of the bucket. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full`.
+        Permissions specified in the command override the current CORS settings of the bucket. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
 
         Result:
 
@@ -85,7 +95,7 @@
 
   To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS object configurations in JSON format. Here is an example:
+  1. Describe the CORS object configurations in JSON format. See the examples below:
 
      ```json
      {

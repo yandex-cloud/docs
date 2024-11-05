@@ -1,6 +1,6 @@
 ---
-title: Editing an object's ACL in {{ objstorage-full-name }}
-description: To manage an {{ objstorage-name }} bucket access, you can use an access control list, or ACL.
+title: Editing an object's ACL in a {{ objstorage-full-name }} bucket
+description: Follow this guide to edit an object's ACL in an {{ objstorage-name }} bucket.
 ---
 
 # Editing an object's ACL
@@ -19,9 +19,8 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
-    1. Select **{{ objstorage-name }}**.
-    1. Click the bucket name.
+    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
     1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
         You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the page that opens, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
@@ -147,7 +146,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
      Where:
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
 
      For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).

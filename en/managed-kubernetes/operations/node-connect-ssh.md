@@ -56,7 +56,7 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
      ssh-keygen -t ed25519
      ```
 
-     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in `C:\Users\<username>\.ssh\`.
+     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
 
      The public part of the key will be saved to a file named `<key name>.pub`.
 

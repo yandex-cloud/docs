@@ -1,6 +1,6 @@
 ---
 title: Setting up hosting in {{ objstorage-full-name }}
-description: Follow this guide to set up hosting.
+description: Follow this guide to set up static website hosting in {{ objstorage-name }}.
 ---
 
 # Hosting setup
@@ -20,13 +20,19 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the hosting for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
       * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `pages/index.html`.
-      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to be displayed in case of 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
+      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to be displayed in the event of 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+
+  Use the link in **{{ ui-key.yacloud.storage.bucket.website.field_link }}** to check the hosting.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -39,7 +45,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      yc storage bucket update --help
      ```
      
-  1. Create a hosting settings file in JSON format. Here is an example:
+  1. Create a hosting settings file in JSON format. See the examples below:
      
      ```json
      {
@@ -188,12 +194,12 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure the redirect for.
-  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the request redirects for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
-      * Domain name of the host to act as the redirect target for all requests to the bucket.
-      * (Optional) Protocol if the specified host accepts requests only over a specific protocol.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** of the host to act as the redirect target for all requests to the bucket.
+      * (Optional) **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** if the specified host accepts requests only over a specific protocol.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -333,18 +339,18 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure conditional request redirects for.
-  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-  1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the conditional request redirects for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
-      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request.
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request. 
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
-      * Protocol to use to send redirected requests.
-      * Domain name of the host where the requests that satisfy the condition should redirect.
-      * Response code to determine the redirect type.
-      * Replace the key: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}** specified in the condition.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** that will be used to send redirected requests.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host the requests that have satisfied the condition should be redirected to.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** to determine the redirect type.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
@@ -359,7 +365,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      yc storage bucket update --help
      ```
      
-  1. Create a file with conditional redirect settings in JSON format. Here is an example:
+  1. Create a file with conditional redirect settings in JSON format. See the examples below:
      
      ```json
      {
@@ -472,7 +478,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      * `website`: Website parameters:
        * `index_document`: Absolute path to the website home page file. This is a required parameter.
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
-       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q>. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
+       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 

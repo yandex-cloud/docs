@@ -1,6 +1,6 @@
 ---
-title: How to delete a bucket
-description: Follow this guide to delete a bucket.
+title: Deleting a bucket in {{ objstorage-full-name }}
+description: Follow this guide to delete a bucket in {{ objstorage-name }}.
 ---
 
 # Deleting a bucket
@@ -17,9 +17,8 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
-  1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
-  1. To delete a single bucket, click ![image](../../../_assets/console-icons/ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. Select the bucket you need and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
@@ -59,7 +58,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       yc storage bucket delete --name <bucket_name>
       ```
 
-      Where `--name` is the name of the bucket to delete.
+      Where `--name`: Name of the bucket to delete.
 
       {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
@@ -99,7 +98,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
     ```
 
-    Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
     Example of the command for deleting all buckets whose names start with `samplebucket`:
 
@@ -122,7 +121,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       --bucket $x}
     ```
 
-    Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+    Where `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
     Example of the command for deleting all buckets whose names start with `samplebucket`:
 

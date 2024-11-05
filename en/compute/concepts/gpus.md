@@ -1,14 +1,14 @@
 ---
 title: Graphics accelerators (GPUs)
-description: GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in terms of processing certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards.
+description: GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU for certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards.
 ---
 
 # Graphics accelerators (GPUs)
 
 
-{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs in terms of processing certain types of data and can be used for complex computing. To make problem solving even more efficient and convenient, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
+{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs for certain types of data and can be used for complex computing. For even more performance and convenience, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
-In {{ compute-name }}, you can use the following GPUs:
+The following GPUs are available in {{ compute-name }}:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6.
@@ -34,17 +34,17 @@ You can manage GPUs and RAM directly from your VM.
 
 ### NVIDIA® Tesla® V100 {#tesla-v100}
 
-The NVIDIA® Tesla® V100 GPU contains 5120 CUDA® cores for [high-performance computing](https://www.nvidia.com/en-us/high-performance-computing/) (HPC) and 640 Tensor cores for deep learning (DL) tasks.
+The NVIDIA® Tesla® V100 graphics card contains 5120 CUDA® cores for [high-performance computing](https://www.nvidia.com/en-us/high-performance-computing/) (HPC), and 640 Tensor cores for deep learning (DL) tasks.
 
 
 ### NVIDIA® Ampere® A100 {#a100}
 
-The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/) microarchitecture uses third-generation Tensor Cores and delivers 80 GB HBM2 memory with up to 2 TB/s throughput.
+The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/) microarchitecture uses third-generation Tensor Cores and offers 80 GB HBM2 memory with up to 2 TB/s bandwidth.
 
 
 ### NVIDIA® Tesla® T4 {#tesla-t4}
 
-NVIDIA® Tesla® T4 based on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores, as well as the RT cores, and provides 16 GB of GDDR6 memory with a [throughput of 300 GB/s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
+NVIDIA® Tesla® T4 based on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores and RT cores and offers 16 GB of GDDR6 memory with [300 GB/s bandwidth](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 
 
@@ -57,40 +57,46 @@ The computing resources may have the following configurations:
 
 * {{ v100-broadwell }} (`gpu-standard-v1`):
 
-  | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
-  | 1 | 32 | 8 | 96 |
-  | 2 | 64 | 16 | 192 |
-  | 4 | 128 | 32 | 384 |
+  1 | 32 | 8 | 96
+  2 | 64 | 16 | 192
+  4 | 128 | 32 | 384
 
 * {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
-  | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
-  | 1 | 32 | 8 | 48 |
-  | 2 | 64 | 16 | 96 |
-  | 4 | 128 | 32 | 192 |
-  | 8 | 256 | 64 | 384 |
+  1 | 32 | 8 | 48
+  2 | 64 | 16 | 96
+  4 | 128 | 32 | 192
+  8 | 256 | 64 | 384
 
 
 * {{ a100-epyc }} (`gpu-standard-v3`):
 
-  | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
-  | 1 | 80 | 28 | 119 |
-  | 2 | 160 | 56 | 238 |
-  | 4 | 320 | 112 | 476 |
-  | 8 | 640 | 224 | 952 |
+  1 | 80 | 28 | 119
+  2 | 160 | 56 | 238
+  4 | 320 | 112 | 476
+  8 | 640 | 224 | 952
 
-* {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
+* AMD EPYC™ 9474F with Gen2 (`gpu-standard-v3i`):
 
-
-  | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
-  | 1 | 16 | 4 | 16 |
-  | 1 | 16 | 8 | 32 |
-  | 1 | 16 | 16 | 64 |
-  | 1 | 16 | 32 | 128 |
+  8 | 640 | 180 | 1,440
+
+* {{ t4-ice-lake }} (`standard-v3-t4`):
+
+
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- | --- | --- | ---
+  1 | 16 | 4 | 16
+  1 | 16 | 8 | 32
+  1 | 16 | 16 | 64
+  1 | 16 | 32 | 128
 
 
 
@@ -112,15 +118,11 @@ For information about the cost of VMs with GPUs, see [{#T}](../pricing.md#prices
 
 ## GPU clusters {#gpu-clusters}
 
-{% note info %}
-
-GPU clusters will be [publicly available](../../overview/concepts/launch-stages.md) and billable starting September 1, 2023.
-
-{% endnote %}
-
-You can group multiple VMs running on 8 NVIDIA A100 GPUs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network.
+You can group several VMs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network.
 
 You can add VMs from different folders, networks, and subnets to your cluster. For the cluster VMs to interact properly, we recommend using a [security group](../../vpc/concepts/security-groups.md) that allows unlimited traffic within the group. The default security group meets this requirement. If you edited the default security group, add a group with unlimited internal traffic.
+
+Maximum cluster size for AMD EPYC™ 9474F with Gen2 is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
 
 
 ## See also {#see-also}

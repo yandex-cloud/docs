@@ -8,7 +8,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. Select **{{ objstorage-name }}**.
-  1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
 
@@ -31,7 +31,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
           * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
 
-          "Cold" classes are designed to store objects that you plan to use less frequently for longer periods of time. The "colder" your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
+          "Cold" classes are for long-term storage of objects you intend to use less frequently. The "colder" the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
 
       1. Add [labels](../../storage/concepts/tags.md), if required:
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -100,7 +100,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
       * Parameters to configure the bucket [ACL](../../storage/concepts/acl.md):
         * `--acl`: Predefined ACL. For a list of possible values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls). You cannot use this parameter together with the `--grants` parameter.
-        * `--grants`: Configures permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [public groups](../../storage/concepts/acl.md#public-groups) (a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with the `--acl` parameter. The parameter value is specified in the following format: `grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>`, where:
+        * `--grants`: Configures permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [public groups](../../storage/concepts/acl.md#public-groups) (a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with the `--acl` parameter. The parameter value is specified in the following format: `grant-type=<permission_grantee_type>,grantee-id=<user_ID>,permission=<permission_type>`, where:
           * `grant-type`: Permission grantee type. The possible values are:
             * `grant-type-account`: User, [service account](../../iam/concepts/users/service-accounts.md), or [user group](../../organization/concepts/groups.md).
             * `grant-type-all-authenticated-users`: [Public group](../../storage/concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
@@ -162,7 +162,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% note info %}
 
-  To manage bucket [ACL](../../storage/concepts/acl.md) settings, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.admin` [role[ to the service account used by the AWS CLI.
+  To manage bucket [ACL](../../storage/concepts/acl.md) settings, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.admin` [role](../../storage/security/index.md#storage-admin) to the service account used by the AWS CLI.
 
   {% endnote %}
 
@@ -188,7 +188,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   Where:
   * Possible types of ACL permissions:
-    * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, or static hosting), and read all objects in the bucket.
+    * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
     * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. Can only be used together with `--grant-read`.
     * `--grant-full-control`: Full access to the bucket and the objects in it.
 

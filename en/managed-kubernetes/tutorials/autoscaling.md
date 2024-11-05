@@ -18,42 +18,42 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
-1. [Create service accounts](../../iam/operations/sa/create.md) for the [master](../concepts/index.md#master) and node groups and [assign them roles](../../iam/operations/sa/assign-role-for-sa.md).
-   * The `sa-k8s-master` service account for managing clusters:
-     * `k8s.clusters.agent`: For managing {{ k8s }} clusters.
-     * `load-balancer.admin`: For managing the [network load balancer](../../network-load-balancer/).
-   * The `sa-k8s-nodes` service account to manage a group of nodes:
+1. [Create service accounts](../../iam/operations/sa/create.md) for the [master](../concepts/index.md#master) and node groups and [assign roles to them](../../iam/operations/sa/assign-role-for-sa.md).
+   * `sa-k8s-master` service account for cluster management.
+     * `k8s.clusters.agent`: To manage a {{ k8s }} cluster.
+     * `load-balancer.admin`: To manage a [network load balancer](../../network-load-balancer/).
+   * `sa-k8s-nodes` service account for node group management:
      * `container-registry.images.puller`: For pulling images from [{{ container-registry-full-name }}](../../container-registry/).
 1. [Create a network](../../vpc/quickstart.md) named `k8s-network` to host your cluster. When creating your network, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create an encryption key](../../kms/operations/key.md#create):
    * **{{ ui-key.yacloud.common.name }}**: `k8s-symetric-key`
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-128`
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: `365 days`
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `sa-k8s-master`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `sa-k8s-nodes`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `k8s-symetric-key`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}**: `RAPID`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `k8s-network`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `sa-k8s-master`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `sa-k8s-nodes`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `k8s-symetric-key`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}**: `RAPID`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `k8s-network`.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic and {{ k8s }} API access.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**: `{{ ui-key.yacloud.common.enabled }}`
-1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**: `{{ ui-key.yacloud.common.enabled }}`.
+1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and the `{{ region-id }}-b` availability zones:
    * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: `1`
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: `3`
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: `1`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: `1`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: `3`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: `1`.
    * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
      * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Select the previously created security groups containing the rules for service traffic, connection to the services from the internet, and connection to nodes over SSH.
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `{{ region-id }}-a` or `{{ region-id }}-b`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `{{ region-id }}-a` or `{{ region-id }}-b`.
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -154,7 +154,7 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
 
    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-   In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
+   In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. As soon as existing cluster resources become inadequate to satisfy the `requests` value, {{ k8s-ca }} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
 ## Scaling based on application requests {#rps-autoscaling}
@@ -232,10 +232,10 @@ In this section, you will learn to configure cluster autoscaling based on the nu
    ```bash
    URL=$(kubectl get service rps-ingress-nginx-controller -o json \
      | jq -r '.status.loadBalancer.ingress[0].ip') && \
-     curl -H "Host: nginx.example.com" http://$URL
+     curl --header "Host: nginx.example.com" http://$URL
    ```
 
-   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. Make sure that the `nginx_ingress_controller_requests_per_second` metric is available:
 
@@ -263,12 +263,12 @@ In this section, you will learn to configure cluster autoscaling based on the nu
    ```bash
    URL=$(kubectl get service rps-ingress-nginx-controller -o json \
      | jq -r '.status.loadBalancer.ingress[0].ip') && \
-     while true; do curl -H "Host: nginx.example.com" http://$URL; done
+     while true; do curl --header "Host: nginx.example.com" http://$URL; done
    ```
 
-   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-   Over the next several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of an increased number of application requests. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca }} will increase the number of nodes in the groups.
+   Over the next several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of an increased number of application requests. As soon as existing cluster resources become inadequate to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
 ## Delete the resources you created {#clear-out}

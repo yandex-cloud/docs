@@ -248,7 +248,7 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
   The command contains the following parameters:
 
   * `--id`: Node group ID. You can [get it with the list](node-group-list.md#list) of node groups in the {{ managed-k8s-name }} cluster.
-  * `--labels`: {{ k8s }} labels formatted as `<key>=<value>`. You can specify one label or multiple labels separated by commas.
+  * `--labels`: {{ k8s }} labels in `<key>=<value>` format. You can specify one label or multiple labels separated by commas.
 
 - {{ TF }} {#tf}
 

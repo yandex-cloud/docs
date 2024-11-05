@@ -198,7 +198,7 @@ items:
             href: tutorials/sign-cr-with-cosign.md
       - name: Using {{ mkf-name }}
         items:
-          - name: Deploying the UI for {{ KF }}
+          - name: Deploying the {{ KF }} web interface
             href: tutorials/deploy-kafka-ui.md
       - name: Continuous integration with {{ GL }}
         items:
@@ -220,7 +220,7 @@ items:
             href: tutorials/dnschallenge.md
           - name: Creating an ACME resolver webhook for responses to DNS01 checks
             href: tutorials/cert-manager-webhook.md
-      - name: Backup
+      - name: Backups
         items:
           - name: Backups in {{ objstorage-name }}
             href: tutorials/kubernetes-backup.md

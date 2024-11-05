@@ -7,9 +7,9 @@ description: Следуя данной инструкции, вы сможете
 
 
 Вы можете [сканировать](../concepts/vulnerability-scanner.md) загруженные в [реестр](../concepts/registry.md) [Docker-образы](../concepts/docker-image.md) на наличие уязвимостей. Это можно делать:
-* [{#T}](#manual).
-* [{#T}](#automatically).
-* [{#T}](#scheduled).
+* [Вручную](#manual).
+* [При загрузке](#automatically).
+* [По расписанию](#scheduled).
 
 {% note warning %}
 

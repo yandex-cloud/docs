@@ -1,6 +1,6 @@
 ---
 title: Editing a bucket's ACL in {{ objstorage-full-name }}
-description: To manage an {{ objstorage-name }} bucket access, apart from {{ iam-short-name }}, you can also use an access control list, or ACL.
+description: Follow this guide to edit a bucket's access control list (ACL) in {{ objstorage-name }}.
 ---
 
 # Editing a bucket's ACL
@@ -17,13 +17,9 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
-  1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the bucket name and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-
-     You can also click the bucket name and then click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** on the page that opens.
-
-  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. Select the bucket you need and click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window, grant or revoke the appropriate permissions.
 
       {% note info %}
 

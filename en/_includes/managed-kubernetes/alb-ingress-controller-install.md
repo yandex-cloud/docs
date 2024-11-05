@@ -1,6 +1,6 @@
 # Installing the {{ alb-name }} Ingress controller
 
-To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the required auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+To balance the load and distribute traffic between {{ k8s }} applications, use an [{{ alb-full-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the L7 load balancer and the required auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
 ## Getting started {#before-you-begin}
 
@@ -14,11 +14,12 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) for the ingress controller to run and [assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
-   * `alb.editor`: To create the required resources.
-   * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
-   * `certificate-manager.certificates.downloader`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
-   * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+1. [Create a service account](../../iam/operations/sa/create.md) for the Ingress controller to run and [assign the following folder roles to it](../../iam/operations/sa/assign-role-for-sa.md):
+   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create the required {{ alb-name }} resources.
+   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
+   * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+   * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor): (Optional) To connect your {{ sws-full-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) to a virtual host of the L7 load balancer.
 1. [Create an authorized access key](../../iam/operations/authorized-key/create.md) for the service account in JSON format and save it to the `sa-key.json` file:
 
    ```bash
@@ -42,7 +43,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Service account key**: Paste the contents of the `sa-key.json` file.
    * **Enable default health checks**: Select this option to install the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network for application health checks.
 
-      As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes goes up or down, respectively.
+      The resource adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes goes up or down, respectively.
 
       You can omit this option if you do not need to run cluster health checks or if you are using your own checks. For more information on setting up health checks manually, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
@@ -82,7 +83,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   The `enableDefaultHealthChecks` parameter enables health checks for applications in a cluster. To that end, the Ingress controller installs the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network.
+   The `enableDefaultHealthChecks` parameter enables health checks for applications in a cluster. To do this, the Ingress controller installs the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network.
 
    The resource adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes goes up or down, respectively.
 

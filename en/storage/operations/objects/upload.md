@@ -1,3 +1,8 @@
+---
+title: Uploading an object to a {{ objstorage-full-name }} bucket
+description: Follow this guide to upload an object to a bucket in {{ objstorage-name }}.
+---
+
 # Uploading an object
 
 You can create folders inside buckets and upload objects there. Keep in mind that in the SDK and HTTP API, an object key is the entire path to the object from the bucket root. For more information, see [{#T}](../../concepts/object.md).
@@ -20,14 +25,11 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
 - Management console {#console}
 
-  In the management console, you can work with {{ objstorage-name }} buckets like a hierarchical file system.
-
-  To upload an object:
-  1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the name of the bucket you need.
-  1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
-  1. Once you navigate to the appropriate folder, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to upload your object to.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
+  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
   1. In the window that opens, select the required files and click **Open**.
   1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../concepts/bucket.md#bucket-settings).
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -115,7 +117,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-resources-link }}/storage_object).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
   1. Make sure the configuration files are correct.
 
@@ -153,6 +155,26 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to upload your object to.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** on the top panel.
+  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
+  1. In the window that opens, select the required files and click **Open**.
+  1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../concepts/bucket.md#bucket-settings).
+  1. To configure locks for uploaded objects, select the lock type from the **{{ ui-key.yacloud.storage.title_object-lock }}** drop-down list:
+     * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**: Indefinitely prohibits deleting or overwriting the object version, while you still can upload new versions of the object. A user with the `storage.uploader` role can set and remove the lock. This lock cannot be bypassed. Combined with a temporary lock, the indefinite one has priority.
+     * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set the lock. Combined with an indefinite lock, the temporary one has no priority.
+  1. If you selected **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: A user with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: A user with the `storage.admin` role can only extend the lock period. This lock cannot be bypassed, shortened, or removed until it expires.
+  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
+  1. Click **{{ ui-key.yacloud.storage.button_upload }}** and reload the page.
+
+  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+
 - AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
@@ -164,9 +186,9 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
        --body <local_file_path> \
        --bucket <bucket_name> \
        --key <object_key> \
-       --object-lock-mode <retention_type> \
-       --object-lock-retain-until-date <retention_period_end_date_and_time> \
-       --object-lock-legal-hold-status <legal_hold_status>
+       --object-lock-mode <temporary_lock_type> \
+       --object-lock-retain-until-date <temporary_lock_period_end_date_and_time> \
+       --object-lock-legal-hold-status <indefinite_lock_status>
      ```
 
      Where:

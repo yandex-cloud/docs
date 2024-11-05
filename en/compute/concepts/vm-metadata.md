@@ -179,7 +179,8 @@ To request an identity document:
    - GCE
 
      ```bash
-     curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+     curl \
+       --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
      ```
 
    - EC2
@@ -223,7 +224,8 @@ Apart from identity documents, the VM metadata service provides their cryptograp
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
        ```
 
      * **EC2**:
@@ -258,7 +260,8 @@ Apart from identity documents, the VM metadata service provides their cryptograp
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
        ```
 
      * **EC2**:
@@ -321,7 +324,9 @@ Apart from identity documents, the VM metadata service provides their cryptograp
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | base64 -d >> signature
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | \
+         base64 -d >> signature
        ```
 
      * **EC2**:
@@ -335,7 +340,8 @@ Apart from identity documents, the VM metadata service provides their cryptograp
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
        ```
 
      * **EC2**:
@@ -389,7 +395,8 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 Map the identity document from the VM metadata to the document saved to the file:
 
 ```bash
-curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
+curl http://169.254.169.254/latest/vendor/instance-identity/document | \
+openssl dgst -sha256
 ```
 
 ```bash

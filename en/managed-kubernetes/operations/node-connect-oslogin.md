@@ -257,7 +257,7 @@ Set up your cluster node for connection:
 
     Where:
 
-    * `<certificate_file_path>`: Path to the previously saved `Identity` file of the certificate. For example: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
+    * `<path_to_certificate_file>`: Path to the previously saved `Identity` file of the certificate, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
     * `<username>`: Organization user's name. It is specified at the end of the exported {{ oslogin }} certificate's name. In the example above, it is `orgusername`.
     * `<node_public_IP_address>`: Public IP address of the node obtained earlier.
 
