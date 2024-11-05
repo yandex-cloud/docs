@@ -33,61 +33,61 @@
 
     Для изменения каталога ВМ в CLI выполните следующие действия:
 
-        {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-        {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-        1. Получите список всех виртуальных машин в каталоге по умолчанию:
+    1. Получите список всех виртуальных машин в каталоге по умолчанию:
 
-            ```bash
-            yc compute instance list
-            ```
+        ```bash
+        yc compute instance list
+        ```
 
-            Результат:
+        Результат:
 
-            ```bash
-            +----------------------+-----------------+---------------+---------+----------------------+
-            |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-            +----------------------+-----------------+---------------+---------+----------------------+
-            | fhmXXXXXXXXXXXXXXXXX | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-            | fhmXXXXXXXXXXXXXXXXX | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
-            +----------------------+-----------------+---------------+---------+----------------------+
-            ```      
+        ```bash
+        +----------------------+-----------------+---------------+---------+----------------------+
+        |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+        +----------------------+-----------------+---------------+---------+----------------------+
+        | fhmXXXXXXXXXXXXXXXXX | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+        | fhmXXXXXXXXXXXXXXXXX | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+        +----------------------+-----------------+---------------+---------+----------------------+
+        ```      
 
-        1. Получите список всех каталогов в облаке по умолчанию:
+    1. Получите список всех каталогов в облаке по умолчанию:
 
-            ```bash
-            yc resource-manager folder list
-            ```
+        ```bash
+        yc resource-manager folder list
+        ```
 
-            Результат:
+        Результат:
 
-            ```bash
-            +----------------------+--------------------+------------------+--------+
-            |          ID          |        NAME        |      LABELS      | STATUS |
-            +----------------------+--------------------+------------------+--------+
-            | b1gXXXXXXXXXXXXXXXXX | my-folder          |                  | ACTIVE |
-            | b1gXXXXXXXXXXXXXXXXX | default            |                  | ACTIVE |
-            +----------------------+--------------------+------------------+--------+
-            ```
+        ```bash
+        +----------------------+--------------------+------------------+--------+
+        |          ID          |        NAME        |      LABELS      | STATUS |
+        +----------------------+--------------------+------------------+--------+
+        | b1gXXXXXXXXXXXXXXXXX | my-folder          |                  | ACTIVE |
+        | b1gXXXXXXXXXXXXXXXXX | default            |                  | ACTIVE |
+        +----------------------+--------------------+------------------+--------+
+        ```
 
-        1. Посмотрите описание команды CLI для переноса виртуальной машины:
+    1. Посмотрите описание команды CLI для переноса виртуальной машины:
 
-            ```bash
-            yc compute instance move --help
-            ```
+        ```bash
+        yc compute instance move --help
+        ```
 
-        1. Перенесите виртуальную машину в другой каталог со следующими параметрами: 
+    1. Перенесите виртуальную машину в другой каталог со следующими параметрами: 
 
-            * в параметре `id` укажите идентификатор виртуальной машины, например `fhmXXXXXXXXXXXXXXXXX`;
-            * в параметре `destination-folder-id` укажите идентификатор целевого каталога, например `b1gXXXXXXXXXXXXXXXXX`.
+        * в параметре `id` укажите идентификатор виртуальной машины, например `fhmXXXXXXXXXXXXXXXXX`;
+        * в параметре `destination-folder-id` укажите идентификатор целевого каталога, например `b1gXXXXXXXXXXXXXXXXX`.
 
-            ```bash
-            yc compute instance move \
-                --id fhmXXXXXXXXXXXXXXXXX \
-                --destination-folder-id b1gXXXXXXXXXXXXXXXXX
-            ```
+        ```bash
+        yc compute instance move \
+            --id fhmXXXXXXXXXXXXXXXXX \
+            --destination-folder-id b1gXXXXXXXXXXXXXXXXX
+        ```
 
-            Подробнее о команде `yc compute instance move` можно узнать в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+        Подробнее о команде `yc compute instance move` можно узнать в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
 
 {% endlist %}
