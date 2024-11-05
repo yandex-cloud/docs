@@ -1,5 +1,9 @@
-# Deleting an object
+---
+title: Deleting an object in {{ objstorage-full-name }}
+description: Follow this guide to delete an object in a bucket in {{ objstorage-name }}.
+---
 
+# Deleting an object
 
 ## Deleting an object or object version without a lock {#wo-object-lock}
 
@@ -19,10 +23,10 @@ To delete an object:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the name of the bucket you need.
-  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name; in the menu that opens, click **{{ ui-key.yacloud.storage.file.button_delete }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket where the object you need to delete is stored.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
      To do the same with multiple objects, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
@@ -77,7 +81,7 @@ To delete an object:
 
   Where:
   * `--bucket`: Bucket name.
-  * `<object_1_key>`, `<object_2_key>`, `<object_n_key>`: [Keys](../../concepts/object.md#key) of the objects to delete.
+  * `<object_1_key>`, `<object_2_key>`, `<object_n_key>`: [Keys](../../concepts/object.md#key) of objects you need to delete.
 
   Result:
 
@@ -166,7 +170,7 @@ To delete an object:
   To delete an object created with {{ TF }} from a bucket:
   1. Open the {{ TF }} configuration file and delete the fragment with the object description.
 
-      {% cut "Example object description in a {{ TF }} configuration" %}
+     {% cut "Example object description in a {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -228,6 +232,15 @@ To check whether lock has been put and delete the object version when possible
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. If possible, [remove the lock](edit-object-lock.md) from the object you want to delete.
+  1. [Delete](#object-lock-w-object-lock) the object.
+  
+  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  
+  {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
+
 - AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
@@ -264,9 +277,9 @@ To check whether lock has been put and delete the object version when possible
        * `GOVERNANCE`: Temporary managed lock. A user with the `storage.admin` role can delete an object version.
        * `COMPLIANCE`: Temporary strict lock. You cannot delete an object version.
 
-     * `ObjectLockRetainUntilDate`: Date and time of end of retention in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
+     * `ObjectLockRetainUntilDate`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
 
-     * `ObjectLockLegalHoldStatus`: [Indefinite lock](../../concepts/object-lock.md#types) status:
+     * `ObjectLockLegalHoldStatus`: [Legal hold](../../concepts/object-lock.md#types) status:
        * `ON`: Enabled. You cannot delete an object version. To [remove a lock](edit-object-lock.md#remove-legal-hold), a user must have the `storage.uploader` role.
        * `OFF`: Disabled.
 

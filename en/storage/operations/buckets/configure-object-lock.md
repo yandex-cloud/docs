@@ -1,4 +1,9 @@
-# Managing object locks in buckets
+---
+title: Managing object locks in a bucket
+description: Follow this guide to manage an object lock in {{ objstorage-name }}.
+---
+
+# Managing object locks in a bucket
 
 You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. When object lock is enabled, you can lock an object version so that it would not be deleted or overwritten. You can also set default object locks for a bucket that will apply to all new object versions.
 
@@ -17,6 +22,14 @@ The minimum required role is `storage.admin`.
 To enable object locks:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure a lock for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
+  1. To enable working with locks, enable **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -94,6 +107,19 @@ The minimum required role is `storage.admin`.
 To set up default object locks:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure a default lock for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
+  1. To enable or disable working with locks, use **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Enable **{{ ui-key.yacloud.storage.bucket.object-lock.field_rule-enabled }}**.
+  1. Select **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass a lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -206,6 +232,14 @@ The minimum required role is `storage.admin`.
 To disable object locks:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure a lock for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
+  1. To disable working with locks, disable **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 

@@ -28,7 +28,7 @@ If you no longer need the image you created, [delete it](#clear-out).
     {% note tip %}
 
     If you access the cloud using a [federated account](../../iam/concepts/users/accounts.md#saml-federation) and want to use the CLI from within your VM, [authenticate with the CLI as a service account](../../cli/operations/authentication/service-account.md#vm-auth-as-sa).
-
+    
     {% endnote %}
 
 1. [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
@@ -133,7 +133,7 @@ Install a Packer distribution for your platform from a [mirror](https://hashicor
 
       ```bash
       mkdir packer
-      curl -L -o ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
+      curl --location --output ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
       unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
       ```
 

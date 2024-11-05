@@ -5936,6 +5936,10 @@ default:
         field_server-user: Пользователь
         field_server-zone: Зона доступности
         field_ssh-public-key: Публичный SSH-ключ
+        label_create-network: Создать VRF
+        label_create-server: Заказать сервер
+        label_create-subnetwork: Создать подсеть
+        label_kvm-console: KVM-консоль
         label_networks: VRF
         label_one-month-duration: 1 месяц
         label_public-ip-auto: Автоматически
@@ -6885,6 +6889,7 @@ default:
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
             label_backup: Cloud Backup
+            label_baremetal: BareMetal
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
@@ -7345,6 +7350,7 @@ default:
         field_logging: Запись логов
         label_destination: Назначение
         label_export: Выгрузить логи
+        label_filter-query: Запрос
         label_groups: Группы
         label_loggroup: Лог-группа
         label_minlevel: Минимальный уровень логирования
@@ -9978,7 +9984,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.8
+        tag: 1.15.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -9991,7 +9997,7 @@ default:
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
-        tag: 0.5.1
+        tag: 0.5.1-a
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco

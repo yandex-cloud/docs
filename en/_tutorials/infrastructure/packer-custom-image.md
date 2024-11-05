@@ -56,7 +56,7 @@ The cost of building a VM image and creating a VM from it includes:
 
         {% note info %}
 
-        {{ yandex-cloud }} Requires Packer 1.5 or higher.
+        {{ yandex-cloud }} requires Packer 1.5 or higher.
 
         {% endnote %}
 
@@ -78,7 +78,7 @@ The cost of building a VM image and creating a VM from it includes:
     1. Install the plugin:
 
         ```bash
-        packer init <path_to_config.pkr.hcl_file>
+        packer init <path_to_config.pkr.hcl>
         ```
 
         Result:
@@ -218,14 +218,14 @@ The cost of building a VM image and creating a VM from it includes:
           "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
           # {{ yandex-cloud }} CLI tool
-          "curl -s -O https://{{ s3-storage-host-cli }}{{ yc-install-path }}",
+          "curl --silent --remote-name https://{{ s3-storage-host-cli }}{{ yc-install-path }}",
           "chmod u+x install.sh",
           "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
           "rm -rf install.sh",
           "sudo sed -i '$ a source /usr/local/completion.bash.inc' /etc/profile",
       
           # Docker
-          "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-keyring.gpg",
+          "curl --fail --silent --show-error --location https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-keyring.gpg",
           "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
           "sudo apt-get update",
           "sudo apt-get install -y docker-ce containerd.io",
@@ -239,13 +239,13 @@ The cost of building a VM image and creating a VM from it includes:
           "docker pull -q golang:${var.GOLANG_VER}",
 
           # Terraform (classic way)
-          #"curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-keyring.gpg",
+          #"curl --fail --silent --show-error --location https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-keyring.gpg",
           #"echo \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main\" | sudo tee /etc/apt/sources.list.d/hashicorp.list > /dev/null",
           #"sudo apt-get update",
           #"sudo apt-get install -y terraform",
           #
           # Alternative Option
-          "curl -sL {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip -o terraform.zip",
+          "curl --silent --location {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip --output terraform.zip",
           "unzip terraform.zip",
           "sudo install -o root -g root -m 0755 terraform /usr/local/bin/terraform",
           "rm -rf terraform terraform.zip",
@@ -253,12 +253,12 @@ The cost of building a VM image and creating a VM from it includes:
           #"cat <<EOF > ~/.terraformrc \n provider_installation { network_mirror { url = \"https://terraform-mirror.yandexcloud.net/\" include = [\"registry.terraform.io/*/*\"] } direct { exclude = [\"registry.terraform.io/*/*\"] } } \n EOF",
 
           # kubectl
-          "curl -s -LO https://dl.k8s.io/release/v${var.KCTL_VER}/bin/linux/amd64/kubectl",
+          "curl --silent --location --remote-name https://dl.k8s.io/release/v${var.KCTL_VER}/bin/linux/amd64/kubectl",
           "sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl",
           "rm -rf kubectl",
 
           # Helm
-          "curl -sSLO https://get.helm.sh/helm-v${var.HELM_VER}-linux-amd64.tar.gz",
+          "curl --silent --show-error --location --remote-name https://get.helm.sh/helm-v${var.HELM_VER}-linux-amd64.tar.gz",
           "tar zxf helm-v${var.HELM_VER}-linux-amd64.tar.gz",
           "sudo install -o root -g root -m 0755 linux-amd64/helm /usr/local/bin/helm",
           "rm -rf helm-v${var.HELM_VER}-linux-amd64.tar.gz",
@@ -267,14 +267,14 @@ The cost of building a VM image and creating a VM from it includes:
           # helm repo add stable https://charts.helm.sh/stable
 
           ## grpccurl
-          "curl -sSLO https://github.com/fullstorydev/grpcurl/releases/download/v${var.GRPCURL_VER}/grpcurl_${var.GRPCURL_VER}_linux_x86_64.tar.gz",
+          "curl --silent --show-error --location --remote-name https://github.com/fullstorydev/grpcurl/releases/download/v${var.GRPCURL_VER}/grpcurl_${var.GRPCURL_VER}_linux_x86_64.tar.gz",
           "tar zxf grpcurl_${var.GRPCURL_VER}_linux_x86_64.tar.gz",
           "sudo install -o root -g root -m 0755 grpcurl /usr/local/bin/grpcurl",
           "rm -rf grpcurl_${var.GRPCURL_VER}_linux_x86_64.tar.gz",
           "rm -rf grpcurl",
 
           # Pulumi
-          "curl -sSLO https://get.pulumi.com/releases/sdk/pulumi-v${var.PULUMI_VER}-linux-x64.tar.gz",
+          "curl --silent --show-error --location --remote-name https://get.pulumi.com/releases/sdk/pulumi-v${var.PULUMI_VER}-linux-x64.tar.gz",
           "tar zxf pulumi-v${var.PULUMI_VER}-linux-x64.tar.gz",
           "sudo cp pulumi/* /usr/local/bin/",
           "rm -rf pulumi-v${var.PULUMI_VER}-linux-x64.tar.gz",
@@ -416,7 +416,7 @@ The cost of building a VM image and creating a VM from it includes:
 
       * `--name`: Name of the new VM.
       * `--hostname`: VM host's name.
-      * `--zone`: Availability zone
+      * `--zone`: Availability zone.
       * `--create-boot-disk`: Boot disk properties: `size` stands for size, and `image-id`, for the ID of the image being used.
       * `--cores`: Number of vCPUs.
       * `--memory`: Amount of RAM.

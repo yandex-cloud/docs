@@ -1,6 +1,6 @@
 ---
-name: How to copy objects from a {{ objstorage-full-name }} bucket
-description: In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}.
+title: Copying objects in {{ objstorage-full-name }}
+description: Follow this guide to copy an object from a bucket in {{ objstorage-name }}.
 ---
 
 # Copying objects

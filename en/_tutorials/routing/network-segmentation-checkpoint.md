@@ -1,6 +1,6 @@
 # Cloud infrastructure segmentation with Check Point Next-Generation Firewall
 
-This guide describes how to deploy a secure network infrastructure based on Check Point Next-Generation Firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing services are placed and the MGMT segment hosts resources used to manage the cloud infrastructure. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
+This guide describes how to deploy a secure network infrastructure based on Check Point Next-Generation Firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing applications are placed; whereas the MGMT segment hosts the cloud infrastructure management resources. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
 
 If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
 
@@ -90,13 +90,13 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 ### Configure WSL {#setup-wsl}
 
 1. Check if WSL is installed on your PC. To do this, run the following command in the CLI terminal:
-
+  
    ```bash
    wsl -l
    ```
 
    If WSL is installed, the terminal will display a list of available distributions, for example:
-
+   
    ```bash
    Windows Subsystem for Linux Distributions:
    docker-desktop (Default)
@@ -108,7 +108,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 1. In addition, you can install on WSL a familiar Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
 
 1. To make the installed distribution the default system, run:
-
+   
    ```bash
    wsl --setdefault ubuntu
    ```
@@ -126,12 +126,12 @@ All the steps described below are completed in the Linux terminal.
 {% endnote %}
 
 ### Create a service account with the admin privileges for the cloud {#create-account}
-
+   
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. In the **Service accounts** tab, click **Create service account**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
@@ -143,11 +143,11 @@ All the steps described below are completed in the Linux terminal.
 
    1. Assign the account the admin [role](../../iam/concepts/access-control/roles.md):
 
-      1. On the [start page]({{ link-console-main }}) of the management console, select the required cloud.
-      1. Go to **Access rights**.
-      1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
-      1. Click **Edit roles**.
-      1. Click **Add role** in the dialog box that opens and select the `admin` role.
+         1. On the management console [home page]({{ link-console-main }}), select the cloud.
+         1. Click the **Access permissions** tab.
+         1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
+         1. Click **Edit roles**.
+         1. Click **Add role** in the dialog box that opens and select the `admin` role.
 
 - CLI {#cli}
 
@@ -157,36 +157,36 @@ All the steps described below are completed in the Linux terminal.
 
    1. Create a service account:
 
-      ```bash
-      yc iam service-account create --name sa-terraform
-      ```
+         ```bash
+         yc iam service-account create --name sa-terraform
+         ```
 
-      In this command, replace `name` with the name of the service account. The naming requirements are as follows:
+         Where `name` is the service account name. The naming requirements are as follows:
 
-      {% include [name-format](../../_includes/name-format.md) %}
+         {% include [name-format](../../_includes/name-format.md) %}
 
-      Result:
+         Result:
 
-      ```text
-      id: ajehr0to1g8bh0la8c8r
-      folder_id: b1gv87ssvu497lpgjh5o
-      created_at: "2024-01-04T09:03:11.665153755Z"
-      name: sa-terraform
-      ```
-
+         ```text
+         id: ajehr0to1g8bh0la8c8r
+         folder_id: b1gv87ssvu497lpgjh5o
+         created_at: "2024-01-04T09:03:11.665153755Z"
+         name: sa-terraform
+         ```
+      
    1. Assign the account the admin [role](../../iam/concepts/access-control/roles.md):
 
-      ```bash
-      yc resource-manager cloud add-access-binding <cloud_ID> \
-        --role admin \
-        --subject serviceAccount:<service_account_ID>
-      ```
+         ```bash
+         yc resource-manager cloud add-access-binding <cloud_ID> \
+           --role admin \
+           --subject serviceAccount:<service_account_ID>
+         ```
 
-      Result:
+         Result:
 
-      ```text
-      done (1s)
-      ```
+         ```text
+         done (1s)
+         ```
 
 - API {#api}
 
@@ -213,7 +213,7 @@ All the steps described below are completed in the Linux terminal.
       ```
 
    1. Create a directory named `terraform` and open it:
-
+   
       ```bash
       mkdir terraform
       cd terraform
@@ -222,31 +222,31 @@ All the steps described below are completed in the Linux terminal.
    1. Run the following command to download the `terraform_1.3.9_linux_amd64.zip` archive from the official website:
 
       ```bash
-      curl -LO https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
+      curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
       ```
 
    1. Install the `zip` utility and unpack the ZIP archive:
-
+      
       ```bash
       apt install zip
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the directory with the executable file to the `PATH` variable:
-
+   1. Add the path to the directory with the executable to the `PATH` variable:
+      
       ```bash
       export PATH=$PATH:~/terraform
       ```
 
    1. Make sure that {{ TF }} is installed by running this command:
-
+   
       ```bash
       terraform -help
       ```
 
 1. Create a configuration file specifying the provider source for {{ TF }}:
 
-   1. Create a file named `.terraformrc` using the built-in `nano` editor:
+   1. Create a file named `.terraformrc` using the native `nano` editor:
 
       ```bash
       cd ~
@@ -271,8 +271,8 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone this GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` directory:
-
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` script directory:
+   
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint.git
    cd yc-network-segmentation-with-checkpoint
@@ -289,7 +289,7 @@ All the steps described below are completed in the Linux terminal.
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
-
+         
          ```bash
          yc iam key create \
            --service-account-id <service_account_ID> \
@@ -298,13 +298,13 @@ All the steps described below are completed in the Linux terminal.
          ```
 
          Where:
-
+         
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
          Result:
-
+         
          ```text
          id: aje8nn871qo4a8bbopvb
          service_account_id: ajehr0to1g8bh0la8c8r
@@ -313,19 +313,19 @@ All the steps described below are completed in the Linux terminal.
          ```
 
       1. Create a CLI profile to run operations on behalf of the service account:
-
+        
          ```bash
          yc config profile create sa-terraform
          ```
 
          Result:
-
+         
          ```text
          Profile 'sa-terraform' created and activated
          ```
 
       1. Set the profile configuration:
-
+         
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
@@ -339,7 +339,7 @@ All the steps described below are completed in the Linux terminal.
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
       1. Add the credentials to the environment variables:
-
+         
          ```bash
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)
@@ -349,39 +349,39 @@ All the steps described below are completed in the Linux terminal.
    {% endlist %}
 
 1. Get your PC's IP address:
+      
+      ```bash
+      curl 2ip.ru
+      ```
 
-   ```bash
-   curl 2ip.ru
-   ```
+      Result:
+      
+      ```text
+      192.240.24.87
+      ```
 
-   Result:
-
-   ```text
-   192.240.24.87
-   ```
-
-1. Open the `terraform.tfvars` file using the `nano` editor and edit:
+1. Open the `terraform.tfvars` file in the `nano` editor to edit as follows:
 
    1. The line with the cloud ID:
-
+      
       ```text
       cloud_id = "<cloud_ID>"
       ```
 
    1. The line with a list of allowed public IP addresses for `jump-vm` access:
-
+      
       ```text
       trusted_ip_for_access_jump-vm = ["<PC_external_IP>/32"]
       ```
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Parameter<br>name | Change<br>required | Description | Type | Example |
+   | Parameter<br>name | Needs<br>editing | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
    | `az_name` | - | Yandex Cloud <a href="https://yandex.cloud/en/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` | `["mgmt", "public", "dmz"]` |
-   | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
+   | `subnet_prefix_list` | - | List of subnet network prefixes consistent with the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
    | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as public_app_port or a different one. | `number` | `8080` |
    | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs/subnets trusted to access the jump VM. Used in the inbound rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
@@ -392,41 +392,41 @@ All the steps described below are completed in the Linux terminal.
 
    {% note warning %}
 
-   We recommend that you specify additional segments in advance if you may need them later on, as the VW hosting the NGFW image in the cloud does not support adding new network interfaces after it is created.
+   We recommend you to specify additional segments ahead of time if you are going to need them later, because a VM with a NGFW image in the cloud does not support adding new network interfaces once it is created.
 
    {% endnote %}
 
 1. Deploy the resources in the cloud using {{ TF }}:
 
    1. Initialize {{ TF }}:
-
+       
       ```bash
       terraform init
       ```
 
    1. Check the {{ TF }} file configuration:
-
+       
       ```bash
       terraform validate
       ```
 
-   1. Check the list of created cloud resources:
-
+   1. Check the list of cloud resources you are about to create:
+       
       ```bash
       terraform plan
       ```
 
    1. Create resources:
-
+       
       ```bash
       terraform apply
       ```
 
-1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Afterwards, you can view this information by running the `terraform output` command.
+1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this information by running the `terraform output` command.
 
    {% cut "Viewing information on deployed resources" %}
 
-   | Name | Description | Sample value |
+   | Parameter | Description | Sample value |
    | ----------- | ----------- | ----------- |
    | `dmz-web-server_ip_address` | DMZ web server IP for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall. | `10.160.1.100` |
    | `fw-mgmt-server_ip_address` | Firewall management server IP | `192.168.1.100` |
@@ -438,7 +438,7 @@ All the steps described below are completed in the Linux terminal.
    | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to the jump VM | `./jump-vm-wg.conf` |
    | `jump-vm_public_ip_address_jump-vm` | Jump VM public IP | `E.E.E.E` |
    | `path_for_private_ssh_key` | File with a private key used to connect to VMs over SSH (jump VM, firewalls, management server, DMZ web server) | `./pt_key.pem` |
-
+   
    {% endcut %}
 
 ## Configure the firewall gateway {#configure-gateway}
@@ -449,7 +449,7 @@ Learn more about Check Point capabilities and configuration with our free course
 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to the `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
+After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
 
 To set up the VPN tunnel:
 
@@ -465,21 +465,21 @@ To set up the VPN tunnel:
    To find the directory created in a Linux subsystem, e.g., Ubuntu, type the file path in the dialog box address bar:
 
    ```bash
-   \\wsl$\Ubuntu\home\<Ubuntu_username>\yc-network-segmentation-with-checkpoint
+   \\wsl$\Ubuntu\home\<Ubuntu_user_name>\yc-network-segmentation-with-checkpoint
    ```
-
-   Where `<Ubuntu_username>` is the name of the current Linux distribution user.
+   
+   Where `<Ubuntu_user_name>` is the name of the current Linux distribution user.
 
 1. Click **Activate** to activate the tunnel.
 1. Check network connectivity with the management server via the WireGuard VPN tunnel by running the following command in the terminal:
-
+   
    ```bash
    ping 192.168.1.100
    ```
 
    {% note warning %}
 
-   If the packets fail to reach the management server, make sure that the `mgmt-jump-vm-sg` [security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have your PC's external IP address specified.
+   If the packets fail to reach the management server, make sure that the `mgmt-jump-vm-sg` [security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have your PC external IP address specified.
 
    {% endnote %}
 
@@ -488,16 +488,16 @@ To set up the VPN tunnel:
 To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point) solution, install and run the SmartConsole GUI client:
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
-1. Sign in using the `admin` username and `admin` password.
+1. Sign in with `admin` for username and `admin` for password.
 1. In the Gaia Portal interface that opens, download the SmartConsole GUI client. To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole access password:
-
+   
    ```bash
    terraform output fw_smartconsole_mgmt-server_password
    ```
 
-1. Open SmartConsole and sign in with the `admin` username, `192.168.1.100` management server IP address, and SmartConsole password.
+1. Open SmartConsole and sign in with `admin` for username, `192.168.1.100` for the management server IP, and your SmartConsole password.
 
 ### Add the firewall gateway {#add-gateway}
 
@@ -511,7 +511,7 @@ Add the FW firewall gateway to the management server using the Wizard:
    * **IPv4:** `192.168.1.10`
 1. Click **Next**.
 1. Get the firewall access password:
-
+   
    ```bash
    terraform output fw_sic-password
    ```
@@ -524,12 +524,12 @@ Add the FW firewall gateway to the management server using the Wizard:
 Configure the `eth0` network interface:
 
 1. In the **Gateways & Servers** tab, open the FW gateway setup dialog. To to this, double-click on the added FW in the list.
-1. In the **Network Management** tab, the **Topology** table, select the `eth0` interface, click **Edit** and then click **Modify...** in the window that opens.
+1. In the **Topology** table on the **Network Management** tab, select the `eth0` interface, click **Edit** and then click **Modify...** in the window that opens.
 1. Under **Security Zone**, activate **Specify Security Zone** and select **InternalZone**.
 
 In the same way, configure the `eth1` and `eth2` network interfaces:
 
-1. For the `eth1` interface, set **ExternalZone** under **Security Zone**.
+1. For the `eth1` interface, specify **ExternalZone** under **Security Zone**.
 1. For the `eth2` interface, in the **Leads To** section select **Override** and enable **Interface leads to DMZ**. Under **Security Zone**, set **DMZZone**.
 
 | Interface | IPv4 address/mask | Leads To | Security Zone | Anti Spoofing |
@@ -540,7 +540,7 @@ In the same way, configure the `eth1` and `eth2` network interfaces:
 
 ### Create network objects {#create-network-objects}
 
-1. In the **Objects** drop-down list at the top left, select **New Network...** and create `mgmt`, `public`, and `dmz` networks with the following data:
+1. In the **Objects** drop-down list at the top left, select **New Network...** to create networks named `mgmt`, `public`, and `dmz` with the following data:
 
    | Name | Network address | Net mask |
    | ----------- | ----------- | ----------- |
@@ -549,17 +549,17 @@ In the same way, configure the `eth1` and `eth2` network interfaces:
    | dmz | 10.160.1.0 | 255.255.255.0 |
 
    For the DMZ network, set up Automatic Hide NAT to hide the addresses of internet-facing VMs hosted in the DMZ segment behind the IP address of the FW gateway in the public segment. To do this:
-   1. In the `dmz` interface editing dialog box, go to the **NAT** tab.
-   1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind the gateway**.
+      1. In the `dmz` network editing dialog box, go to the **NAT** tab.
+      1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind the gateway**.
 
-1. In the **Objects** drop-down list at the top left, select **New Host...** and create the `dmz-web-server` and `FW-public-IP` hosts with the following data:
+1. In the **Objects** drop-down list at the top left, select **New Host...** and create hosts named `dmz-web-server` and `FW-public-IP` with the following data:
 
    | Name | IPv4 address |
    | ----------- | ----------- |
    | dmz-web-server | 10.160.1.100 |
    | FW-public-IP | 172.16.1.10 |
 
-1. Select **More object types → Service → New TCP...** and create a TCP service for the application deployed in the DMZ segment by specifying the `TCP_8080` name and the `8080` port.
+1. Select **More object types → Service → New TCP...** to create a TCP service for the application deployed in the DMZ segment and specify `TCP_8080` as its name and `8080` as the port.
 
 ### Set security policy rules {#define-policies}
 
@@ -572,7 +572,7 @@ To add a security rule:
    * In the **Destination** column, select the `FW-public-IP` object.
    * In the **Services & Applications** column, select the `http` object.
    * In the **Action** column, select `Accept`.
-   * In the **Track** column, select the `Log` option.
+   * In the **Track** column, select `Log`.
 
 In the same way, add the other basic rules from the table below to test the firewall policies, run NLB health checks, publish a test application from the DMZ segment, and test its fault tolerance.
 
@@ -639,15 +639,15 @@ To set up the NAT tables of the FW gateway:
 1. Make sure the network infrastructure can be accessed from the outside by opening the following address in the browser:
 
    ```bash
-   http://<FW_public_ip_address>
+   http://<FW_public_IP_address>
    ```
-   If the system is accessible from the outside, the `Welcome to nginx!` page should open.
+   If the system is accessible from the outside, you will see the `Welcome to nginx!` page.
 
-1. Make sure the firewall security policy rules that allow traffic are active. To do this, go to the `yc-network-segmentation-with-checkpoint` directory and connect to the DMZ VM over SSH:
+1. Make sure the firewall security policy rules that allow traffic are active. To do this, go to your PC’s `yc-network-segmentation-with-checkpoint` directory and connect to the DMZ VM over SSH:
 
    ```bash
    cd ~/yc-network-segmentation-with-checkpoint
-   ssh -i pt_key.pem admin@<Internal_ip_address_of_VM_in_DMZ_segment>
+   ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
    ```
 
 1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:
@@ -656,23 +656,23 @@ To set up the NAT tables of the FW gateway:
    ping ya.ru
    ```
 
-   The command should be executed according to the `ping from dmz to internet` rule that allows traffic.
+   The command must run according to the `ping from dmz to internet` rule that allows traffic.
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that the `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
+   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
 
    ```bash
    ping 192.168.1.101
    ```
 
-   The command should fail according to the `Cleanup rule` that prohibits traffic.
+   The command must fail according to the `Cleanup rule` that prohibits traffic.
 
 1. In SmartConsole, open the `LOGS & MONITOR` section; in the `Logs` tab, find the entries made during testing to see which security rules and actions were applied to the traffic.
 
 ## Requirements for production deployment {#deployment-requirements}
 
 * If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
-* Make sure to change the passwords sent in the `check-init...yaml` files via the metadata service:
+* Make sure to change the passwords provided in `check-init...yaml` files via the metadata service:
    * SIC password for connecting the firewall and the firewall management server.
    * Check Point SmartConsole password.
    * Admin user password for the firewall management server. You can change this password in Gaia Portal.
@@ -681,16 +681,16 @@ To set up the NAT tables of the FW gateway:
 * If you plan to use the jump VM for connecting to the management segment with WireGuard VPN, change the WireGuard keys in the jump VM and admin workstation.
 * Set up access control and NAT policies for your installation in the Check Point NGFW.
 * In security groups within segments, set up the required rules for deployed applications.
-* Do not assign public IP addresses to the VMs in those segments where the Check Point NGFW routing tables are used. The only exception is the MGMT segment where routing tables do not use the `0.0.0.0/0 `default route.
+* Do not assign public IP addresses to the VMs in those segments where the Check Point NGFW routing tables are used. The only exception is the MGMT segment where routing tables do not use the `0.0.0.0/0` default route.
 * Select your preferred Check Point CloudGuard IaaS license and image (see [Next-Generation Firewall](#next-generation-firewall)).
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created, run this command:
 
-```bash
-terraform destroy
-```
-{{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, folders, etc.
+   ```bash
+   terraform destroy
+   ```
+   {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, folders, etc.
 
-As the resources you created reside in folders, to delete them all faster you can delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-network-segmentation-with-checkpoint` directory on your PC.
+As the resources you created reside in folders, a faster way to delete all resources is to delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-network-segmentation-with-checkpoint` directory on your PC.

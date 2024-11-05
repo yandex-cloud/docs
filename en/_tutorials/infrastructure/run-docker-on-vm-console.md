@@ -1,7 +1,7 @@
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM](#create-vm).
 1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
-1. [Download the Docker image to the VM](#run).
+1. [Upload the Docker image to the VM](#run).
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -20,13 +20,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a service account {#create-sa}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) and grant it the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md) for the previously created registry:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) and assign it the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md) for the previously created registry:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -36,58 +36,58 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. In the top-right corner, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and add the service account by providing its ID.
-      1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `container-registry.images.puller`.
+      1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `container-registry.images.puller` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI {#cli}
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
       1. View a description of the CLI command to create a service account:
 
-         ```bash
-         yc iam service-account create --help
-         ```
+          ```bash
+          yc iam service-account create --help
+          ```
 
       1. Create a service account:
 
-         {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+          {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-         ```bash
-         yc iam service-account create --name <service_account_name>
-         ```
+          ```bash
+          yc iam service-account create --name <service_account_name>
+          ```
 
-         Result:
+          Result:
 
-         ```text
-         id: ajelabcde12f********
-         folder_id: b0g12ga82bcv********
-         created_at: "2020-11-30T14:32:18.900092Z"
-         name: myservice-acc
-         ```
+          ```text
+          id: ajelabcde12f********
+          folder_id: b0g12ga82bcv********
+          created_at: "2020-11-30T14:32:18.900092Z"
+          name: myservice-acc
+          ```
 
       1. Assign the role to the service account:
 
-         ```bash
-         yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
-           --role <role_ID> \
-           --subject serviceAccount:<service_account_ID>
-         ```
+          ```bash
+          yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
+            --role <role_ID> \
+            --subject serviceAccount:<service_account_ID>
+          ```
 
-         Where:
-         * `<service_name>`: `Container` service name.
-         * `<resource>`: Category of the `registry` resource.
-         * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
-         * `--role`: `container-registry.images.puller` role ID.
-         * `--subject`: ID of the service account (e.g., `ajelabcde12f********`) to which the role is assigned.
+          Where:
+          * `<service_name>`: `container` service name.
+          * `<resource>`: `registry` resource category.
+          * `<resource_name_or_ID>`: Name or ID of the resource to assign the role for.
+          * `--role`: `container-registry.images.puller` role ID.
+          * `--subject`: ID of the service account getting the role, e.g., `ajelabcde12f********`.
 
-   - API {#api}
+    - API {#api}
 
       1. To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API method or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API  method for the `ServiceAccount` resource.
 
       1. To assign the service account a role for the registry, use the [updateAccessBindings](../../container-registry/api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../container-registry/api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../container-registry/api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-   {% endlist %}
+    {% endlist %}
 
 ## Create a VM {#create-vm}
 
@@ -97,62 +97,62 @@ Create a VM with a public IP address and link the service account you created to
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.landing.action_create-resource }}** and select **{{ ui-key.yacloud.compute.instance.label_vm }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click **{{ ui-key.yacloud.compute.landing.action_create-resource }}** and select **{{ ui-key.yacloud.compute.instance.label_vm }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 
-         {% include [name-format](../../_includes/name-format.md) %}
+        {% include [name-format](../../_includes/name-format.md) %}
 
-         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * Select the [service account](../../iam/concepts/users/service-accounts.md) you created at the previous step.
+      * Select the [service account](../../iam/concepts/users/service-accounts.md) you created in the previous step.
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
-   1. (Optional) Configure the boot disk under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
+  1. (Optional) Configure the boot disk under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
       * Specify the required [disk](../../compute/concepts/disk.md) size.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
-         If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+        If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
+      * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
       * If required, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
-         * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+        * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
-         * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+        * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
+        * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
+        * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+        * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+      * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
-         {% note alert %}
+        {% note alert %}
 
-         Do not use `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+        Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
 
-         {% endnote %}
+        {% endnote %}
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
-   1. View a description of the CLI create VM command:
+  1. View the description of the CLI command to create a VM:
 
       ```bash
       yc compute instance create --help
       ```
 
-   1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Select in {{ marketplace-name }} a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. Prepare the public and private key pair for SSH access to the VM.
+  1. Select in {{ marketplace-name }} a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images](../../_includes/standard-images.md) %}
 
-   1. View a list of available subnets:
+  1. View a list of available subnets:
 
       ```bash
       yc vpc subnet list
@@ -170,7 +170,7 @@ Create a VM with a public IP address and link the service account you created to
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
-   1. Create a VM in the default folder:
+  1. Create a VM in the default folder:
 
       ```bash
       yc compute instance create \
@@ -187,7 +187,7 @@ Create a VM with a public IP address and link the service account you created to
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: Availability zone that corresponds to the selected subnet.
+      * `--zone`: Availability zone matching the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: [Image family](../../compute/concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the operating system from the specified family.
       * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
@@ -198,31 +198,31 @@ Create a VM with a public IP address and link the service account you created to
 
 - API {#api}
 
-   Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
-   1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+  Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
+  1. Prepare the public and private key pair for SSH access to the VM.
+  1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
       * [Guide](../../iam/operations/iam-token/create.md) for users with a Yandex account.
       * [How to get a token](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 
-   1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
-   1. Get information about the image to create your VM from (image ID and minimum disk size):
+  1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
+  1. Get information about the image to create your VM from (image ID and minimum disk size):
       * If you know the [image family](../../compute/concepts/image.md#family), get information about the latest image in this family:
 
-         ```bash
-         export IAM_TOKEN=CggaATEVAgA...
-         export FAMILY=ubuntu-1804
-         curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-           "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-         ```
+          ```bash
+          export IAM_TOKEN=CggaATEVAgA...
+          export FAMILY=ubuntu-1804
+          curl --header "Authorization: Bearer ${IAM_TOKEN}" \
+            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
+          ```
 
       * To learn more about the image, see the [list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-   1. Get the subnet ID and availability zone ID. Specify the ID of the folder where the subnet was created in your request:
+  1. Get the subnet ID and availability zone ID. Specify the ID of the folder where the subnet was created in your request:
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
       export FOLDER_ID=b1gvmob95yys********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
         "subnets": [
@@ -242,7 +242,7 @@ Create a VM with a public IP address and link the service account you created to
         ]}
       ```
 
-   1. Create a file named `body.json` with the body of the request to create a VM:
+  1. Create a file named `body.json` with the body of the request to create a VM:
 
       ```json
       {
@@ -280,14 +280,14 @@ Create a VM with a public IP address and link the service account you created to
       Where:
       * `folderId`: Folder ID.
       * `name`: Name to assign to the VM when you create it.
-      * `zoneId`: Availability zone that corresponds to the selected subnet.
+      * `zoneId`: Availability zone matching the selected subnet.
       * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-      * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
+      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
       * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size. The disk size must not be less than the minimum value specified in the image details.
-      * `networkInterfaceSpecs`: Network setting:
-         * `subnetId`: ID of the selected subnet.
-         * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
+      * `networkInterfaceSpecs`: Network settings:
+        * `subnetId`: ID of the selected subnet.
+        * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
 
             ```yaml
             "primaryV4AddressSpec": {
@@ -301,14 +301,14 @@ Create a VM with a public IP address and link the service account you created to
 
       Read more about the request body format in the [API reference](../../compute/api-ref/Instance/create.md).
 
-   1. Create a VM:
+  1. Create a VM:
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
         https://compute.{{ api-host }}/compute/v1/instances
       ```
 

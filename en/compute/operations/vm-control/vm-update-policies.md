@@ -5,10 +5,10 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 1. [Create a VM with a configured maintenance policy](#create).
 1. [Check the maintenance event processing](#check).
-1. [Connect to the VM via SSH](#ssh).
+1. [Connect to the VM over SSH](#ssh).
 1. [Create a script to track VM maintenance events](#script).
 1. [Simulate the occurrence of a VM maintenance event](#simulate).
-1. [Optional. Change the VM maintenance policy type](#change-policy).
+1. [Optionally, change the VM maintenance policy type](#change-policy).
 
 ## Create a VM with a configured maintenance policy {#create}
 
@@ -16,25 +16,25 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 - CLI {#cli}
 
-   Create a VM with the maintenance policies:
+  Create a VM with the maintenance policies:
 
-   ```
-   FOLDER_ID=$(yc config get folder-id)
+  ```
+  FOLDER_ID=$(yc config get folder-id)
 
-   yc compute instance create --name mnt-vm1 --hostname mnt-vm1\
-     --folder-id $FOLDER_ID \
-     --zone {{ region-id }}-a \
-     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-     --cores=2 --memory=4G --core-fraction=100 \
-     --network-interface subnet-name=default-{{ region-id }}-a,ipv4-address=auto,nat-ip-version=ipv4 \
-     --ssh-key ~/.ssh/id_ed25519.pub \
-     --maintenance-policy restart \
-     --maintenance-grace-period 1m
-   ```
+  yc compute instance create --name mnt-vm1 --hostname mnt-vm1\
+    --folder-id $FOLDER_ID \
+    --zone {{ region-id }}-a \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
+    --cores=2 --memory=4G --core-fraction=100 \
+    --network-interface subnet-name=default-{{ region-id }}-a,ipv4-address=auto,nat-ip-version=ipv4 \
+    --ssh-key ~/.ssh/id_ed25519.pub \
+    --maintenance-policy restart \
+    --maintenance-grace-period 1m
+  ```
 
 - {{ TF }} {#tf}
 
-   1. Create the `mnt-vm.tf` {{ TF }} manifest:
+  1. Create a {{ TF }} manifest named `mnt-vm.tf`:
 
       ```
       terraform {
@@ -89,7 +89,7 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
       }
       ```
 
-   1. Apply the {{ TF }} manifest:
+  1. Apply the {{ TF }} manifest:
 
       ```bash
       export YC_TOKEN=$(yc iam create-token)
@@ -136,7 +136,9 @@ Create a file named `mnt-pol.sh` and paste the following code to it:
 while true
 do
   echo -n `date`" : "
-  curl -s -H Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
+  curl \
+    --silent \
+    --header Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
   echo
   sleep 1
 done
@@ -175,7 +177,7 @@ Tue Jan 16 14:24:49 UTC 2024 : NONE
 
 ## Change the VM maintenance policy type {#change-policy}
 
-You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter with the following command:
+You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter through the following command:
 
 ```
 yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
