@@ -1,14 +1,19 @@
+---
+title: Your own domain
+description: Follow this guide to set up your own domain for hosting.
+---
+
 # Your own domain
 
-To publish a website, you can use your own domain, such as `example.com`.
+You can use your own domain to publish a website, e.g., `example.com`.
 
 To support your own domain:
 
 1. Create a [bucket](../buckets/create.md). Name it the same as your domain, e.g., `example.com`.
-
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
+1. On the DNS server, create a public [DNS zone](../../../dns/concepts/dns-zone.md) and a [resource record](../../../dns/concepts/resource-record.md) to link your domain name to the bucket.
 
-1. On the DNS server, create a public [DNS zone](../../../dns/concepts/dns-zone.md) and a [resource record](../../../dns/concepts/resource-record.md) to link your domain name to the bucket:
+   {% include [storage-cloud-dns-domains](../../_includes_service/storage-cloud-dns-domains.md) %}
 
     {% list tabs group=instructions %}
 
@@ -20,13 +25,13 @@ To support your own domain:
 
       {% endnote %}
 
-      1. In the [management console]({{ link-console-main }}), go to the bucket you want to use your own domain for.
-      1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to use your own domain for.
+      1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
           {% note info %}
 
-          Only the domains created through this interface are displayed under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**. If a record was created in [{{ dns-name }}](../../../dns/quickstart.md), it will not appear there.
+          Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** in the **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** section, you can see only those domains that were created through this interface. If a record was created in [{{ dns-name }}](../../../dns/quickstart.md), it will not appear there.
 
           {% endnote %}
 
@@ -50,11 +55,11 @@ To support your own domain:
 
       Resource record parameters:
 
-      | Name          | Type   | TTL | Data                      |
+      | Name          | Type   | TTL | Value                      |
       |--------------|-------|-----|-------------------------------|
       | example.com. | ANAME | 600 | example.com.{{ s3-web-host }} |
 
-      [ANAME](../../../dns/concepts/resource-record.md#aname) records allow second-level domains to be used for hosting. Unlike [CNAME](../../../dns/concepts/resource-record.md#cname) records, they do not restrict the use of other record types in the same zone.
+      [ANAME](../../../dns/concepts/resource-record.md#aname) records allow second-level domains to be used for hosting. Unlike [CNAME](../../../dns/concepts/resource-record.md#cname) records, they do not restrict the use of other record types in the same zone. 
 
       {% endcut %}
 

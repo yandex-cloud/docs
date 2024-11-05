@@ -18,4 +18,9 @@
   1. Укажите пользователя, для которого создается рабочий стол.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../cloud-desktop/api-ref/Desktop/create.md) для ресурса [Desktop](../../cloud-desktop/api-ref/Desktop/index.md) или вызовом gRPC API [DesktopService/Create](../../cloud-desktop/api-ref/grpc/Desktop/create.md).
+
 {% endlist %}

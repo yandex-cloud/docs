@@ -1,3 +1,8 @@
+---
+title: Configuring HTTPS for hosting in {{ objstorage-full-name }}
+description: Follow this guide to configure HTTPS for hosting in {{ objstorage-name }}.
+---
+
 # Configuring HTTPS
 
 If you are using a bucket to [host a static website](../../concepts/hosting.md), then to access the website via HTTPS, you will need to upload your own security certificate and a corresponding secret key.
@@ -18,115 +23,114 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the name of the bucket you need.
-   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
+    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
+    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
 
-      {% note info %}
+        {% note info %}
 
-      If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.
+        If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.
 
-      {% endnote %}
+        {% endnote %}
 
-   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
+    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command to edit a bucket ACL:
 
-      ```bash
-      yc storage bucket update --help
-      ```
+     ```bash
+     yc storage bucket update --help
+     ```
 
-   1. Run the following command:
+  1. Run the following command:
 
-      ```bash
-      yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
-      ```
+     ```bash
+     yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
+     ```
 
-      Where:
-      * `--name`: Name of the bucket to configure HTTPS for.
-      * `--certificate-id`: Certificate ID in {{ certificate-manager-name }}.
+     Where:
+     * `--name`: Name of the bucket to configure HTTPS for.
+     * `--certificate-id`: Certificate ID in {{ certificate-manager-name }}.
 
-      Result:
+     Result:
 
-      ```text
-      source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
-      certificate_id: fpqe2g0hfr0e********
-      ```
+     ```text
+     source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
+     certificate_id: fpqe2g0hfr0e********
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To select a certificate from {{ certificate-manager-name }}:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add the `https` section to the bucket description:
 
-      ```hcl
-      ...
-      resource "yandex_storage_bucket" "b" {
-        bucket = "my-policy-bucket"
+  To select a certificate from {{ certificate-manager-name }}:
 
-        https {
-          certificate_id = "<certificate_ID>"
-        }
-      }
-      ...
-      ```
+  1. Open the {{ TF }} configuration file and add the `https` section to the bucket description:
 
-      Where:
-      * `certificate_id`: ID of the certificate in {{ certificate-manager-name }} to use for the bucket.
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "b" {
+       bucket = "my-policy-bucket"
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+       https {
+         certificate_id = "<certificate_ID>"
+       }
+     }
+     ...
+     ```
 
-   1. Check the configuration using this command:
+     Where:
+     * `certificate_id`: Сertificate ID in {{ certificate-manager-name }} that will be used for the bucket.
 
-      ```bash
-      terraform validate
-      ```
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
-      If the configuration is correct, you will get this message:
+  1. Check the configuration using this command:
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+     ```bash
+     terraform validate
+     ```
 
-   1. Run this command:
+     If the configuration is correct, you will get this message:
 
-      ```bash
-      terraform plan
-      ```
+     ```bash
+     Success! The configuration is valid.
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Run this command:
 
-   1. Apply the configuration changes:
+     ```bash
+     terraform plan
+     ```
 
-      ```bash
-      terraform apply
-      ```
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Apply the configuration changes:
 
-      You can use the [management console]({{ link-console-main }}) to check the selected certificate.
+     ```bash
+     terraform apply
+     ```
+
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+     You can use the [management console]({{ link-console-main }}) to check the selected certificate.
 
 - API {#api}
 
-   To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
+  To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
 {% endlist %}
 
@@ -148,18 +152,17 @@ To upload a certificate:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click the name of the bucket you need.
-   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select `{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}`.
-   1. Add the certificate and secret key.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
+   1. Add **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** and **{{ ui-key.yacloud.storage.bucket.https.field_private-key }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - API {#api}
 
-   To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
+  To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,0 +1,1 @@
+This option is available for buckets with a dot in their name, e.g., `example.com`.

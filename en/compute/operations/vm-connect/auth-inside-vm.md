@@ -52,9 +52,9 @@ To link a service account to a VM, you must have permission to use this account.
 
 - Management console {#console}
 
-  In the management console, you can link your VM to service account located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the VM you are creating. If the service account is in a different folder, use the CLI or API.
+  In the management console, you can link a service account to a virtual machine located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the VM you are creating. If the service account is in a different folder, use the CLI or API.
 
-  To link a service account to a VM, select it in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field of the **{{ ui-key.yacloud.compute.instances.create.section_additional }}** section when [creating the VM](../index.md#vm-create). You can select an existing service account or create a new one.
+  To link a service account to a VM, select it under **{{ ui-key.yacloud.compute.instances.create.section_additional }}** in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field when [creating a VM](../index.md#vm-create). You can select an existing service account or create a new one.
 
 - CLI {#cli}
 
@@ -62,7 +62,7 @@ To link a service account to a VM, you must have permission to use this account.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Create a VM by specifying the service account in `--service-account-name` or `--service-account-id`:
+  Create a VM by specifying the service account using the `--service-account-name` or `--service-account-id` option:
 
   ```bash
   yc compute instance create \
@@ -115,12 +115,17 @@ To authenticate from inside a VM on behalf of the linked service account:
   1. Get an {{ iam-name }} token from metadata in Google Compute Engine format:
 
      ```bash
-     curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+     curl \
+       --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+     ```
 
+     Result:
+
+     ```
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 
-     You can find the {{ iam-name }} token in the `access_token` field of the response. The remaining lifetime of the {{ iam-name }} token is specified in the `expires_in` field.
+     The response will return an {{ iam-name }} token in the `access_token` field. The remaining lifetime of the {{ iam-name }} token is specified in the `expires_in` field.
 
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 

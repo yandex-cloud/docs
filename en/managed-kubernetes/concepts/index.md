@@ -23,7 +23,7 @@ The main entity {{ k8s }} operates is a _{{ k8s }}_ cluster.
 Resource | Amount | Comment
 --- | --- | ---
 Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services.
-Public IP | N | N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use the one-to-one NAT technology.
+Public IP | N | N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address for **each** node in the group if you use one-to-one NAT.
 
 ## Master {#master}
 

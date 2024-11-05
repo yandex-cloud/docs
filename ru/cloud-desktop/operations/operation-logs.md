@@ -77,6 +77,10 @@
       desktop_id: e3v7nfkhn0q4********
   ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Desktop/listOperations.md) для ресурса [Desktop](../api-ref/Desktop/index.md) или вызовом gRPC API [DesktopService/ListOperations](../api-ref/grpc/Desktop/listOperations.md).
+
 {% endlist %}
 
 ## Получить подробную информацию об операции {#get-operations-info}

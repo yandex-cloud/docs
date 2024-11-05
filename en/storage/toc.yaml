@@ -100,12 +100,12 @@ items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
       - name: >-
-          Getting statistics of queries to {{ objstorage-full-name }} objects
-          using {{ yq-full-name }}
+          Getting statistics for the requests to {{ objstorage-full-name }}
+          objects using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
-      - name: Getting statistics of queries to objects using {{ yq-full-name }}
+      - name: Getting statistics of the requests to objects using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: tutorials/billing-resource-detailing.md
@@ -169,6 +169,10 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Migrating a database from {{ mmy-full-name }} to {{
+          objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
       - name: >-
           Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
           }}
@@ -242,7 +246,7 @@ items:
         href: concepts/storage-class.md
       - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md

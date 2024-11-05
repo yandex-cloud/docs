@@ -26,4 +26,9 @@ description: Из статьи вы узнаете, как сбросить па
   1. Нажмите ![image](../../../_assets/console-icons/lock-open.svg) и подтвердите сброс пароля.
   1. Сохраните новый пароль из всплывающего окна и закройте его.
 
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [resetPassword](../../api-ref/Desktop/resetPassword.md) для ресурса [Desktop](../../api-ref/Desktop/index.md) или вызовом gRPC API [DesktopService/ResetPassword](../../api-ref/grpc/Desktop/resetPassword.md).
+
 {% endlist %}

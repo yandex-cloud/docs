@@ -26,56 +26,56 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+     1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
+     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating them, specify the network, subnet, and the security groups prepared in advance. Also, enable the Calico network policy controller in the cluster:
-         * In the management console, by selecting **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
-         * Using the CLI, by setting the `--enable-network-policy` flag.
-         * Using the [create](../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource.
+     1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating it, specify the network, subnet, and security groups prepared earlier. Also, enable the Calico network policy controller in the cluster:
+        * In the management console, by selecting **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
+        * Using the CLI, by setting the `--enable-network-policy` flag.
+        * Using the [create](../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource.
 
    - {{ TF }} {#tf}
 
-      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
-         * [Network](../../vpc/operations/network-create.md).
-         * Subnet.
-         * {{ managed-k8s-name }} cluster.
-         * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
-         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+     1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
+        * [Network](../../vpc/operations/network-create.md).
+        * Subnet
+        * {{ managed-k8s-name }} cluster
+        * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
+        * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. Specify the following in the configuration file:
-         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-         * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
-         * {{ managed-k8s-name }} cluster CIDR.
-         * Name of the {{ managed-k8s-name }} cluster service account.
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Specify the following in the configuration file:
+        * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+        * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+        * {{ managed-k8s-name }} cluster CIDR.
+        * Name of the {{ managed-k8s-name }} cluster service account.
+     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Create the required infrastructure:
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a `policy-test` namespace](kubernetes-cluster/kubernetes-cluster-namespace-create.md) in the {{ managed-k8s-name }} cluster.
+1. [Create the `policy-test` namespace](kubernetes-cluster/kubernetes-cluster-namespace-create.md) in your {{ managed-k8s-name }} cluster.
 
 ## Create an nginx service {#create-pod}
 
@@ -103,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    service/nginx exposed
    ```
 
-1. Make sure the nginx web server is available. To do this, create a pod named `access`:
+1. Make sure the nginx web server is available. Create a pod named `access`:
 
    ```bash
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
@@ -213,7 +213,7 @@ networkpolicy.networking.k8s.io/deny created
 
 ## Create network policies enabling service access {#create-policy}
 
-Allow access to the nginx web server using network policies. Network policies will only allow the `access` pod to connect to it.
+Allow access to the nginx web server using network policies. Only the `access` pod will be allowed to connect by the network policies.
 1. Create `access-nginx` network policies:
 
    ```yaml
@@ -359,24 +359,24 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually {#manual}
 
-   1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you reserved a public static IP address for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+  1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. If you reserved a public static IP address for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}
 
-   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-   1. Delete the `k8s-calico.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+  1. Delete the `k8s-calico.tf` configuration file.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Confirm updating the resources.
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All the resources described in the `k8s-calico.tf` configuration file will be deleted.
+     All the resources described in the `k8s-calico.tf` configuration file will be deleted.
 
 {% endlist %}

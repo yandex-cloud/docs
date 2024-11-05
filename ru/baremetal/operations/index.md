@@ -9,6 +9,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./servers/server-update.md)
 * [{#T}](./servers/server-stop-and-start.md)
 * [{#T}](./servers/server-kvm.md)
+* [{#T}](./servers/rescue-boot.md)
 * [{#T}](./servers/server-lease-cancel.md)
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)

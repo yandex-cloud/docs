@@ -1,6 +1,6 @@
 ---
-title: How to download an object from a {{ objstorage-full-name }} bucket
-description: In this tutorial, you will learn how to download an object in {{ objstorage-full-name }}.
+title: Downloading an object in {{ objstorage-full-name }}
+description: Follow this guide to download an object from a bucket in {{ objstorage-name }}.
 ---
 
 # Downloading an object
@@ -19,10 +19,9 @@ To download an object group with a specified prefix (a [directory](../../concept
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
-  1. Select the bucket from which you want to download an object.
-  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to download an object from.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
+  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}** in the top panel.
 
   {% note info %}
 
@@ -46,9 +45,9 @@ To download an object group with a specified prefix (a [directory](../../concept
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `<bucket_name>`: Name of the bucket you want to download the object from.
+  * `<bucket_name>`: Name of the bucket you want to download the objects from.
   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
-  * `<local_path>`: Path to the folder to save the downloaded object to. For example: `~/downloads/`.
+  * `<local_path>`: Path to the directory to save the downloaded object to, e.g., `~/downloads/`.
 
   **Downloading a directory (all objects with a specified prefix)**
 
@@ -68,7 +67,7 @@ To download an object group with a specified prefix (a [directory](../../concept
   * `--recursive`: Parameter for downloading all objects with the specified prefix.
   * `<bucket_name>`: Name of the bucket you want to download the objects from.
   * `<prefix>`: Prefix (folder) of the objects you want to download, e.g., `test/folder`.
-  * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
+  * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
   **Downloading all objects from a bucket**
 
@@ -85,7 +84,7 @@ To download an object group with a specified prefix (a [directory](../../concept
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
   * `--recursive`: Parameter for downloading all objects from the bucket to a local folder.
   * `<bucket_name>`: Name of the bucket you want to download the objects from.
-  * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
+  * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
   `aws s3 cp` is a high-level command with limited functionality. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
@@ -106,7 +105,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `~/downloads/`.
+      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
       Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `~/downloads/` local folder:
 
@@ -134,7 +133,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the folder to save the downloaded objects to, e.g., `d:\downloads\`.
+      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `d:\downloads\`.
 
       Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `d:\downloads\` local folder:
 

@@ -20,6 +20,8 @@ items:
             href: operations/servers/server-lease-cancel.md
           - name: Подключиться к KVM-консоли
             href: operations/servers/server-kvm.md
+          - name: Воспользоваться диском Rescue-CD
+            href: operations/servers/rescue-boot.md
       - name: Создать VRF
         href: operations/network-create.md
       - name: Создать подсеть

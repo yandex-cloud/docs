@@ -1,5 +1,5 @@
 ---
-title: How to configure public access to bucket operations in {{ objstorage-full-name }}
+title: Configuring public access to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to configure public access to a bucket in {{ objstorage-name }}.
 ---
 
@@ -19,10 +19,9 @@ By default, [buckets](../../concepts/bucket.md) are created with restricted [acc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the bucket name.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure a public access for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Enable public access for the operation types you need.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
@@ -169,10 +168,9 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the bucket name.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to disable public access for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Enable restricted access for the operation types you need.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 

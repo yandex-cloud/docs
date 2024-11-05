@@ -10,8 +10,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
-  1. В списке сервисов выберите **{{ baremetal-name }}**.
-  1. Нажмите кнопку **Заказать сервер**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет арендован сервер.
   1. Выберите [пул](../../concepts/servers.md#server-pools), из которого будет арендован сервер.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
         Если у вас нет подсетей, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}** и создайте ее:
 
         * В открывшемся окне укажите имя и описание подсети.
-        * Нажмите кнопку **Создать подсеть**.
+        * Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите способ назначения публичного адреса:
 
@@ -57,6 +57,6 @@ description: Следуя данной инструкции, вы сможете
      1. (Опционально) Добавьте **{{ ui-key.yacloud.baremetal.field_description }}** к серверу.
      1. (Опционально) Задайте **{{ ui-key.yacloud.component.label-set.label_labels }}**.
   
-  1. Нажмите кнопку **Заказать сервер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}

@@ -1,6 +1,11 @@
+---
+title: Restoring an object version in a {{ objstorage-full-name }} versioned bucket
+description: Follow this guide to restore an object version in an {{ objstorage-name }} versioned bucket.
+---
+
 # Restoring an object's version in a bucket with versioning
 
-You can only restore object versions if a bucket supports [versioning](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow the [instructions](../buckets/versioning.md).
+You can only restore object versions if a bucket supports [versioning](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow [this guide](../buckets/versioning.md).
 
 {% list tabs group=instructions %}
 
@@ -14,11 +19,10 @@ You can only restore object versions if a bucket supports [versioning](../../con
 
   To restore an object's version:
 
-  1. In the [management console]({{ link-console-main }}), select the folder the object is in.
-  1. Select **{{ objstorage-name }}**.
-  1. In the list of buckets, click the row with the appropriate bucket.
-  1. In the object list, in the row with the object you need, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_version-history }}**.
-  1. In the list of versions, click **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the appropriate version. This restores the selected version and displays it as the current one.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
+  1. Select the object whose version you want to restore and click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_version-history }}**.
+  1. In the list of versions, click ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This restores the selected version and displays it as the current one.
 
 - AWS CLI {#cli}
 
