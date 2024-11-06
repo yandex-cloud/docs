@@ -41,4 +41,4 @@ COUNT_ITEM(ARRAY(1, NULL, 2, NULL), NULL) = 2
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.

@@ -80,4 +80,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/ARG_MIN.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `YDB`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`, `YDB`.

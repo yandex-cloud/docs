@@ -7,6 +7,21 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.138.0 (06.11.24) {#version0.138.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Команда `yc compute connect-to-serial-port` теперь явно проверяет наличие флагов `serial-port-enable` и `enable-oslogin` в метаданных инстанса.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Команды `yc cic point-of-presence get` и `yc cic partner get` теперь работают только с ID без флагов.
+* Для `trunk-connection`, `private-connection` и `public-connection` в {{ interconnect-name }} и для `routing-instance` в Cloud Router исправлен формат результата команды `list` — удалена часть полей и преобразованы форматы отображения.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.137.0 (01.11.24) {#version0.137.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -26,8 +41,6 @@ description: На странице представлены релизы YC CLI,
 **{{ mpg-name }}**
 
 * В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `17` для параметра `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 17.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.136.0 (21.10.24) {#version0.136.0}
 

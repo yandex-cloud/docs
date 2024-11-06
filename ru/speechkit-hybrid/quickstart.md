@@ -16,13 +16,13 @@ description: По этой инструкции вы можете создать
 
 Чтобы развернуть демонстрационный стенд {{ sk-hybrid-name }}:
 
-1. [{#T}](#get-started).
-1. [{#T}](#prepare).
-1. [{#T}](#ssh).
-1. [{#T}](#variables).
-1. [{#T}](#create-infrastructure).
-1. [{#T}](#communication-channel).
-1. [{#T}](#stt-and-tts).
+1. [Начните работу с {{ yandex-cloud }}](#get-started).
+1. [Установите дополнительные зависимости](#prepare).
+1. [Подготовьте SSH-ключи](#ssh).
+1. [Добавьте переменные для конфигурации {{ TF }}](#variables).
+1. [Создайте инфраструктуру с помощью {{ TF }}](#create-infrastructure).
+1. [Организуйте постоянный канал связи с сервером {{ yandex-cloud }}](#communication-channel).
+1. [Проведите нагрузочное тестирование распознавания и синтеза речи](#stt-and-tts).
 
 В случае ошибок воспользуйтесь [инструкцией по отладке](quickstart-debugging.md).
 

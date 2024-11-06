@@ -64,11 +64,11 @@ In our example, we use a configuration file named `example.tf`, which is located
      - name: yc-user
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - "<public_SSH_key>"
    ```
 
-   Where `ssh-authorized-keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) value.
+   Where `ssh_authorized_keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) value.
 
 1. Create a {{ coi }} specification file named `declaration.yaml` in the `~/cloud-terraform` directory. Describe the specification:
 
@@ -294,7 +294,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
    * `name`: Name of the instance group.
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `instance_template.network_interface.network_id`: ID of the [network](../../vpc/concepts/network.md).
+   * `instance_template.network_interface.network_id`: [Network](../../vpc/concepts/network.md) ID.
    * `instance_template.network_interface.subnet_ids`: List of [subnet](../../vpc/concepts/network.md#subnet) IDs.
    * `instance_template.service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) authorized for this instance group.
    * `allocation_policy.zones`: List of [availability zones](../../overview/concepts/geo-scope.md).

@@ -3,9 +3,9 @@
 
 locals {
   zone             = "<default_availability_zone>"
-  username         = "<VM_username>"
-  ssh_key_path     = "<public_SSH_key_path>"
-  target_folder_id = "<folder_ID_for_VM_placement>"
+  username         = "<VM_user_name>"
+  ssh_key_path     = "<path_to_public_SSH_key>"
+  target_folder_id = "<ID_of_folder_to_place_VM_in>"
   registry_name    = "<registry_name>"
   sa_name          = "<service_account_name>"
   network_name     = "<cloud_network_name>"
@@ -14,7 +14,7 @@ locals {
   image_id         = "<image_ID>"
 }
 
-# Setting up a provider
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -43,7 +43,7 @@ resource "yandex_iam_service_account" "registry-sa" {
   folder_id = local.target_folder_id
 }
 
-# Assigning a role to a service account
+# Assigning roles to a service account
 
 resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-puller" {
   folder_id = local.target_folder_id
@@ -76,7 +76,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = local.image_id
 }
 
-# Creating a VM
+# Creating a VM instance
 
 resource "yandex_compute_instance" "docker-vm" {
   name               = local.vm_name
@@ -99,7 +99,7 @@ resource "yandex_compute_instance" "docker-vm" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${local.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${local.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${local.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${local.ssh_key_path}")}"
   }
 }
 ```

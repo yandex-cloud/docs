@@ -2,21 +2,21 @@
 
 В этом разделе описаны типичные проблемы, которые могут возникать при [активации](../operations/transfer.md#activate) или во время работы [трансферов](../concepts/index.md#transfer), и методы их решения.
 
-* [{#T}](#overview)
-* [{#T}](#common)
-* [{#T}](#data-transform)
-* [{#T}](#api)
-* [{#T}](#network)
-* [{#T}](#clickhouse)
-* [{#T}](#elasticsearch)
-* [{#T}](#mongodb)
-* [{#T}](#mysql)
-* [{#T}](#object-storage)
-* [{#T}](#opensearch)
-* [{#T}](#postgresql)
-* [{#T}](#ydb)
-* [{#T}](#yds)
-* [{#T}](#support)
+* [Проблемы, возникающие при работе с сервисом {{ data-transfer-name }}](#overview)
+* [Общие](#common)
+* [Трансформация данных](#data-transform)
+* [Ошибки в API](#api)
+* [Сеть](#network)
+* [{{ CH }}](#clickhouse)
+* [{{ ES }}](#elasticsearch)
+* [{{ MG }}](#mongodb)
+* [{{ MY }}](#mysql)
+* [{{ objstorage-name }}](#object-storage)
+* [{{ OS }}](#opensearch)
+* [{{ PG }}](#postgresql)
+* [{{ ydb-full-name }}](#ydb)
+* [{{ yds-full-name }}](#yds)
+* [Куда заявить о проблеме](#support)
 
 ## Проблемы, возникающие при работе с сервисом {{ data-transfer-name }} {#overview}
 Чтобы вовремя обнаружить проблему:

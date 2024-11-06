@@ -1,13 +1,5 @@
 # Создать профиль ARL
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, при создании первого профиля ARL опишите, как вы планируете использовать ARL, и нажмите кнопку **{{ ui-key.yacloud_components.request-alpha-flag-dialog.button_send }}**.
-
-После одобрения заявки вы сможете перейти к созданию профиля ARL.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

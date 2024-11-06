@@ -43,4 +43,4 @@ REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Яндекс Документы`.

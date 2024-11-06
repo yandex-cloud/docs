@@ -25,6 +25,9 @@ description: Из статьи вы узнаете, как задать наст
     * [Захват изменений из {{ MY }} и поставка в {{ KF }}](../../../tutorials/cdc-mmy.md);
     * [Захват изменений {{ ydb-short-name }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md);
     * [Захват изменений из {{ PG }} и поставка в {{ KF }}](../../../tutorials/cdc-mpg.md).
+    
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+    * [Поставка данных из очереди {{ DS }} в {{ KF }}](../../../tutorials/yds-to-kafka.md)
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

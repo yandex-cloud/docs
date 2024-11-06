@@ -4,6 +4,8 @@
 
 Подробнее узнать об использовании сервиса {{ managed-k8s-name }} можно в следующих курсах:
 
+* {% include [training-k8s](../_includes/training/training-k8s.md) %}
+
 * {% include [training-ycloud](../_includes/training/training-csi.md) %}
 
 * {% include [training-deploy](../_includes/training/training-gid.md) %}

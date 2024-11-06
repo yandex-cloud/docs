@@ -61,4 +61,4 @@ SPLIT("a,b,c,d") = "['a','b','c','d']"
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 5.7`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `MySQL 5.7`, `PostgreSQL 9.3`, `Яндекс Документы`, `YDB`.

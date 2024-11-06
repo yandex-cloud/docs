@@ -68,4 +68,4 @@ DATE_PARSE("2019") = #2019-01-01#
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`.

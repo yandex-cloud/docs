@@ -50,4 +50,4 @@ ANY([Profit])
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 5.7`, `YDB`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `MySQL 5.7`, `Yandex Documents`, `YDB`.

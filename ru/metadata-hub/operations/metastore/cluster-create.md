@@ -11,9 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
 Перед началом работы:
 
-1. [{#T}](#set-up-network).
-1. [{#T}](#set-up-security-groups).
-1. [{#T}](#prepare-access-key).
+1. [Настройте сеть](#set-up-network).
+1. [Настройте группы безопасности](#set-up-security-groups).
+1. (Опционально) [Подготовьте статический ключ доступа](#prepare-access-key).
 
 После этого [создайте кластер](#create-cluster).
 

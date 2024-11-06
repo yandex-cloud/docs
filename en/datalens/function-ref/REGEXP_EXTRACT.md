@@ -46,4 +46,4 @@ REGEXP_EXTRACT("RU 912873", "[A-Z]+\s+(\d+)") = "912873"
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Yandex Documents`.

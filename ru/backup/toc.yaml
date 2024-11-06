@@ -7,6 +7,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Активировать сервис
+        href: operations/activate-service.md
       - name: ВМ в {{ backup-name }}
         items:
           - name: Создать и подключить ВМ на Linux
@@ -15,10 +17,14 @@ items:
             href: operations/create-vm-windows.md
           - name: Подключить ВМ на Linux
             href: operations/connect-vm-linux.md
+          - name: Подключить ВМ на Linux с {{ oslogin }}
+            href: operations/connect-vm-oslogin-linux.md
           - name: Подключить ВМ на Windows
             href: operations/connect-vm-windows.md
           - name: Обновить подключение ВМ к {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Обновить подключение ВМ на Linux с {{ oslogin }}
+            href: operations/refresh-connection-oslogin-linux.md
           - name: Удалить ВМ из {{ backup-name }}
             href: operations/delete-vm.md
       - name: Политики резервного копирования

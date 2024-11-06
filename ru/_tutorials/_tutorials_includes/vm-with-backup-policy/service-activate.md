@@ -14,4 +14,8 @@
 
       Если кнопки **{{ ui-key.yacloud.backup.button_action-activate }}** нет, и вам доступно создание ВМ с подключением к {{ backup-name }}, значит, сервис уже активирован. Переходите к следующему шагу.
 
+- CLI {#cli}
+
+  {% include [default-policies](../../../_includes/backup/operations/cli-activate-service.md) %}
+
 {% endlist %}
