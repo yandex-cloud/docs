@@ -46,4 +46,4 @@ REGEXP_EXTRACT_ALL("100-200, 300-400", "(\d+)-(\d+)") = ["100","300"]
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Yandex Documents`.

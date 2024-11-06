@@ -33,4 +33,4 @@ UTF8([Name], "CP-1251")
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`.

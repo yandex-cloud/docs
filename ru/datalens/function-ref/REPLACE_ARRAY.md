@@ -40,4 +40,4 @@ REPLACE( array, old, new )
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.

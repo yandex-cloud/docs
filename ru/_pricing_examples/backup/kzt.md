@@ -1,9 +1,9 @@
-> 1 ВМ × 1 194,00 ₸ + 50 ГБ × 21,00 ₸ = 2 244,00 ₸
+> 1 ВМ × {{ sku|KZT|backup.protected_vms.v2|month|string }} + 50 ГБ × {{ sku|KZT|backup.used_space.v1|month|string }} = {% calc [currency=KZT] 1 × {{ sku|KZT|backup.protected_vms.v2|month|number }} + 50 × {{ sku|KZT|backup.used_space.v1|month|number }} %}
 
-> Итого: 2 244,00 ₸ — стоимость использования {{ backup-name }} для защиты 1 ВМ с суммарным размером резервных копий 50 ГБ за один месяц, вкл. НДС.
+> Итого: {% calc [currency=KZT] 1 × {{ sku|KZT|backup.protected_vms.v2|month|number }} + 50 × {{ sku|KZT|backup.used_space.v1|month|number }} %} — стоимость использования {{ backup-name }} для защиты 1 ВМ с суммарным размером резервных копий 50 ГБ за один месяц, вкл. НДС.
 
 Где:
 * 1 — количество ВМ, привязанных к политикам резервного копирования.
-* 1 194,00 ₸ — цена за подключение 1 ВМ к {{ backup-name }} в месяц, вкл. НДС.
+* {{ sku|KZT|backup.protected_vms.v2|month|string }} — цена за подключение 1 ВМ к {{ backup-name }} в месяц, вкл. НДС.
 * 50 ГБ — суммарный объем резервных копий.
-* 21,00 ₸ — цена за хранение 1 ГБ резервных копий в месяц, вкл. НДС.
+* {{ sku|KZT|backup.used_space.v1|month|string }} — цена за хранение 1 ГБ резервных копий в месяц, вкл. НДС.

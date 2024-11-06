@@ -1,13 +1,5 @@
 # Создать профиль WAF
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, при создании первого профиля WAF опишите, как вы планируете использовать WAF, и нажмите кнопку **{{ ui-key.yacloud_components.request-alpha-flag-dialog.button_send }}**.
-
-После одобрения заявки вы сможете перейти к созданию профиля WAF.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

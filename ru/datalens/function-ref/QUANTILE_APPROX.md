@@ -44,4 +44,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`.

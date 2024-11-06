@@ -38,4 +38,4 @@ Converts `array` to an array of integers. The conversion rules are the same as f
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Yandex Documents`.

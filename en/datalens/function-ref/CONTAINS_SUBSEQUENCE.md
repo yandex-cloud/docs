@@ -39,4 +39,4 @@ Returns `TRUE` if `array_2` is a continuous subsequence of `array_1`. In other w
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `Yandex Documents`.

@@ -39,4 +39,4 @@ Removes all `array` elements equal to `value`.
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Yandex Documents`.

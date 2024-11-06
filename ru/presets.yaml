@@ -870,8 +870,10 @@ default:
         v1|string: Не тарифицируется
   sku|KZT|backup:
     protected_vms:
+      v2|month|number: 1194
       v2|month|string: "1\_194,00\_₸"
     used_space:
+      v1|month|number: 21
       v1|month|string: "21,00\_₸"
   sku|KZT|cdn:
     api:
@@ -2032,8 +2034,10 @@ default:
         v1|string: Не тарифицируется
   sku|RUB|backup:
     protected_vms:
+      v2|month|number: 238.8
       v2|month|string: "238,80\_₽"
     used_space:
+      v1|month|number: 4.2
       v1|month|string: "4,20\_₽"
   sku|RUB|cdn:
     api:
@@ -3195,8 +3199,10 @@ default:
         v1|string: Не тарифицируется
   sku|USD|backup:
     protected_vms:
+      v2|month|number: 1.9104
       v2|month|string: "1,910400\_$"
     used_space:
+      v1|month|number: 0.0336
       v1|month|string: "0,033600\_$"
   sku|USD|cdn:
     api:
