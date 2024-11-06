@@ -63,4 +63,4 @@ TOP_CONCAT([Profit], 3, '; ')
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `YDB`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`, `YDB`.

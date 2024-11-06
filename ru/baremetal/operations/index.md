@@ -14,3 +14,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
 * [{#T}](./image-upload.md)
+
+#### См. также {#see-also}
+
+* [{#T}](../../backup/tutorials/backup-baremetal.md)

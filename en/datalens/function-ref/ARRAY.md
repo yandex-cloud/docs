@@ -49,4 +49,4 @@ ARRAY(0, 2.3, NULL, 0.18)
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Yandex Documents`.

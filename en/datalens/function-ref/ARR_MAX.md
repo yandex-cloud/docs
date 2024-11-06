@@ -45,4 +45,4 @@ This function cannot work with arrays with `Nullable` items. To remove `NULL` it
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `Yandex Documents`.

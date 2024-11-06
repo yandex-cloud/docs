@@ -432,6 +432,10 @@ items:
           Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
+      - name: >-
+          Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-kafka.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
       - name: Использование схем формата данных с {{ mkf-name }}

@@ -9,15 +9,15 @@ description: Пошаговые инструкции по работе с {{ con
 
 Вы можете создать подключения следующих типов:
 * [к кластеру с управляемой базой данных](#mdb-connection):
-  * [{#T}](#mdb-postgresql)
-  * [{#T}](#mdb-clickhouse)
-  * [{#T}](#mdb-mysql)
-  * [{#T}](#mdb-redis)
+  * [{{ mpg-name }}](#mdb-postgresql)
+  * [{{ mch-name }}](#mdb-clickhouse)
+  * [{{ mmy-name }}](#mdb-mysql)
+  * [{{ mrd-name }}](#mdb-redis)
 * [к пользовательской инсталляции базы данных](#on-premise-connection):
-  * [{#T}](#postgresql-on-premise)
-  * [{#T}](#clickhouse-on-premise)
-  * [{#T}](#mysql-on-premise)
-  * [{#T}](#redis-on-premise)
+  * [{{ PG }}](#postgresql-on-premise)
+  * [{{ CH }}](#clickhouse-on-premise)
+  * [{{ MY }}](#mysql-on-premise)
+  * [{{ RD }}](#redis-on-premise)
 
 ## Подключение к кластеру с управляемой базой данных {#mdb-connection}
 
