@@ -1,5 +1,5 @@
 To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
-1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) in.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
 1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
@@ -31,7 +31,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * (Optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
    * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
 
-      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
+     {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
 
    {% note info %}
 
@@ -54,7 +54,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
    * Select [security groups](../../vpc/concepts/security-groups.md).
 
@@ -67,21 +67,21 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, configure one of the methods of connecting to nodes in a {{ managed-k8s-name }} node group:
 
-   * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
+    * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
 
-      If you select this option, you will be unable to specify SSH keys because these connection methods are mutually exclusive.
+        If you select this option, you will be unable to specify SSH keys because these connection methods are mutually exclusive.
 
-      For more on configuring and using {{ oslogin }}, see [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md).
+        For more information on how to configure and use {{ oslogin }}, see [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md).
 
-   * To connect to nodes using SSH keys, specify the required details:
+    * To connect to nodes using SSH keys, specify the required details:
 
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+        * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
 
-      For more on preparing, configuring, and using SSH keys, see [{#T}](../../managed-kubernetes/operations/node-connect-ssh.md).
+        For more information about preparing, configuring, and using SSH keys, see [{#T}](../../managed-kubernetes/operations/node-connect-ssh.md).
 
-   {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+    {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select your preferred maintenance window:
@@ -96,14 +96,14 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. (Optional) Open the **{{ ui-key.yacloud.common.metadata }}** block and add metadata for the nodes.
 
-   {% note warning %}
+    {% note warning %}
 
-   {% include [node-group-metadata-warning](./node-group-metadata-warning.md) %}
+    {% include [node-group-metadata-warning](./node-group-metadata-warning.md) %}
 
-   {% endnote %}
+    {% endnote %}
 
-   To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
+    To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
 
-   {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+    {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. Click **{{ ui-key.yacloud.common.create }}**.

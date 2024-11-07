@@ -34,7 +34,7 @@ In CHYT, this query is implemented as follows:
 
 ## Types of queries using JOIN in {{ CH }} {#sql-join-query-ch}
 
-Same as a simple query, a SELECT query that uses the `JOIN` operator is sent to a clique instance called a query coordinator. The query coordinator determines the further execution plan, and the load distribution across instances depends on how `lhs JOIN rhs USING/ON` is executed:
+Same as a simple query, a SELECT query that uses the `JOIN` operator is sent to a clique instance called a query coordinator. The query coordinator determines the further execution plan, and the load distribution between instances depends on how `lhs JOIN rhs USING/ON` is executed:
 
 * In {{ CH }}, **distributed local JOIN** is executed by default. If tables are sharded in the same way, a matching pair of keys cannot end up on different VMs. Therefore, `lhs` and `rhs` are interpreted on each instance as corresponding local tables. In this case, the query that the coordinator splits in parts can be executed independently on each instance.
 
@@ -89,8 +89,8 @@ In this case, additional restrictions are imposed on `lhs` and `rhs`:
 
 For example:
 
-* Let's assume that `lhs` is sorted by the `l1, l2, ..., ln` columns, and `rhs` is sorted by the `r1, r2, ..., rm` columns.
-* The `JOIN` `ON` clause should look like a set of `l1 = r1 , ..., lk = rk` equations for a certain `k` (the equations themselves can be given in any order).
+* Let's assume that `lhs` is sorted by the `l1, l2, ..., ln` columns, and `rhs`, by the `r1, r2, ..., rm` columns.
+* The `JOIN` `ON` clause should look like a set of `l1 = r1 , ..., lk = rk` equations for a certain `k` (the equations can be listed in any order).
 * This can be represented as a set of equations in the `ON` clause and as a set of general key columns in the `USING` statement, but not as a set of equations in the `WHERE` clause.
 
 If these conditions are met, the query coordinator generates pairs of matching ranges from `lhs` and `rhs` and distributes them across the instances in subqueries.

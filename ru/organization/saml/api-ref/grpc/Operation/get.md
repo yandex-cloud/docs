@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Operation/get.md
 ---
 
-# Cloud Organization SAML API, gRPC: OperationService.Get {#Get}
+# SAML Federation API, gRPC: OperationService.Get {#Get}
 
 Returns the specified Operation resource.
 

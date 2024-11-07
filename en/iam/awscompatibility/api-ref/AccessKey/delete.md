@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/delete.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.Delete {#Delete}
+# Access Key, REST: AccessKey.Delete {#Delete}
 
 Deletes the specified access key.
 

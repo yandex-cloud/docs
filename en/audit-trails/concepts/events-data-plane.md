@@ -1,6 +1,6 @@
 ---
 title: Data event reference {{ at-full-name }}
-description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
+description: This section provides descriptions of the service level events collected in {{ yandex-cloud }} services.
 ---
 
 # Data event reference
@@ -21,6 +21,7 @@ On this page, you will find events for the following services:
 * [{{ iam-full-name }}](#iam)
 * [{{ kms-full-name }}](#kms)
 * [{{ lockbox-full-name }}](#lockbox)
+* [{{ mch-full-name }}](#mch)
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
@@ -65,6 +66,13 @@ Service name: `kms`.
 Service name: `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
+
+## {{ mch-full-name }} {#mch}
+
+Service name: `mdb.clickhouse`.
+
+{% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
+
 
 ## {{ mmg-full-name }} {#mmg}
 

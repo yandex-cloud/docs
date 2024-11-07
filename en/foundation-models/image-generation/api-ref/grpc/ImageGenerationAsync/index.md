@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/image_generation/image-gene
 
 # Foundation Models Image Generation API, gRPC: ImageGenerationAsyncService
 
-Service for obtaining images from input data.
+Service for creating images based on a text description.
 
 ## Methods
 

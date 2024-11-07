@@ -11,6 +11,7 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
 {% endnote %}
 
 
+
 ## Create a new dashboard {#create-dashboard}
 
 1. On the [homepage]({{ link-monitoring }}), click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
@@ -23,21 +24,21 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
 ## Add a widget of {{ compute-full-name }} {#add-compute-widget}
 
 1. On the dashboard editing page, click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Configure a new chart representing CPU loads of all the VMs in the folder by specifying {{ compute-full-name }}'s `cpu_usage` metric in the query. To do this, select the following labels in the query constructor:
+1. Configure a new chart that shows CPU load on all the VMs in the folder by specifying the `cpu_usage` metric of the {{ compute-full-name }} service in the query. To do this, select the following labels in the query constructor:
     - `service=Compute Cloud`
     - `name=cpu_usage`
     - `resource_id=*`
     - `resource_type=vm`
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget will be displayed on the dashboard.
-1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget settings modal window.
-1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a name for the widget, e.g., `CPU on all hosts`.
+1. Click ![gear](../_assets/console-icons/gear.svg) to open the modal window of widget settings.
+1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a widget name, such as `CPU on all hosts`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget name will appear at the top of the widget.
 1. Drag the created widget to the appropriate place on the dashboard.
 
 ## Add a widget of {{ mch-full-name }} {#add-clickhouse-widget}
 
 1. On the dashboard editing page, click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Configure a new chart representing the amount of free space on {{ mch-full-name }} cluster VMs by specifying the `disk.free_bytes` metric in the query. To do this, select the following labels in the query constructor:
+1. Configure a new chart that shows the amount of free space on {{ mch-full-name }} cluster VMs by specifying the `disk.free_bytes` metric in the query. To do this, select the following labels in the query constructor:
     - `service=Managed Service for ClickHouse`
     - `name=disk.free_bytes`
     - `host=*`
@@ -45,8 +46,8 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
     - `resource_type=cluster`
 
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget will be displayed on the dashboard.
-1. Click ![gear](../_assets/console-icons/gear.svg) to open the widget settings modal window.
-1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a name for the widget, e.g., `Free space on ClickHouse hosts`.
+1. Click ![gear](../_assets/console-icons/gear.svg) to open the modal window of widget settings.
+1. In the **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** parameter, enter a widget name, such as `Free space on ClickHouse hosts`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The widget name will appear at the top of the widget.
 1. Drag the created widget to the appropriate place on the dashboard.
 

@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/index.md
 
 # yc cic
 
-Manage Yandex Cloud Interconnect resources
+[PREVIEW] Manage Yandex Cloud Interconnect resources
 
 #### Command Usage
 
@@ -15,19 +15,19 @@ Syntax:
 
 #### Command Tree
 
-- [yc cic partner](partner/index.md) — Manage partners.
+- [yc cic partner](partner/index.md) — [PREVIEW] Manage partners.
 	- [yc cic partner get](partner/get.md) — Get information about a partner.
 	- [yc cic partner list](partner/list.md) — List partners in a folder.
-- [yc cic point-of-presence](point-of-presence/index.md) — Manage point of presences.
+- [yc cic point-of-presence](point-of-presence/index.md) — [PREVIEW] Manage point of presences.
 	- [yc cic point-of-presence get](point-of-presence/get.md) — Get information about a point of presence.
 	- [yc cic point-of-presence list](point-of-presence/list.md) — List point of presences in a folder.
-- [yc cic trunk-connection](trunk-connection/index.md) — Manage trunk connections.
+- [yc cic trunk-connection](trunk-connection/index.md) — [PREVIEW] Manage trunk connections.
 	- [yc cic trunk-connection get](trunk-connection/get.md) — Get information about a trunk connection.
 	- [yc cic trunk-connection list](trunk-connection/list.md) — List trunk connections in a folder.
-- [yc cic private-connection](private-connection/index.md) — Manage privateConnections.
+- [yc cic private-connection](private-connection/index.md) — [PREVIEW] Manage privateConnections.
 	- [yc cic private-connection get](private-connection/get.md) — Get information about a privateConnection.
 	- [yc cic private-connection list](private-connection/list.md) — List privateConnections in a folder.
-- [yc cic public-connection](public-connection/index.md) — Manage publicConnections.
+- [yc cic public-connection](public-connection/index.md) — [PREVIEW] Manage publicConnections.
 	- [yc cic public-connection get](public-connection/get.md) — Get information about an publicConnection.
 	- [yc cic public-connection list](public-connection/list.md) — List publicConnections in a folder.
 

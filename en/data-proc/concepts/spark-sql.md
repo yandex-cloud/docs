@@ -1,6 +1,6 @@
 # Spark jobs
 
-{{ dataproc-name }} supports [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) job run in Spark _applications_. When running Spark jobs, resource allocation is handled by [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).
+{{ dataproc-name }} supports [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) jobs run in Spark _applications_. When running Spark jobs, resource allocation is handled by [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).
 
 ## Application management {#applications}
 
@@ -28,12 +28,12 @@ If you use standard {{ dataproc-name }} settings, computing resources required t
 
 A Spark application running on a {{ dataproc-name }} cluster includes a number of processes running on the cluster nodes. Contents of the application's processes, their location, and the amount of the computing resources reserved depend on the Spark [component properties](./settings-list.md).
 
-Spark applications managed by the YARN resource manager support two possible deploy modes set by the `spark:spark.submit.deployMode` property:
+Spark applications managed by the YARN resource manager support two possible deploy modes you set using the `spark:spark.submit.deployMode` property:
 
-* In the `deployMode=cluster` mode, the driver runs in the application's main process managed by YARN (YARN Application Master process), so the client can finish operation once the application launches successfully.
-* In the `deployMode=client` mode, the driver runs directly in the client process, while the YARN Application Master is used only for working with YARN (e.g., to get resources).
+* In `deployMode=cluster` mode, the driver runs inside the application's main process managed by YARN (YARN Application Master process), so the client can terminate its operation once the application is started successfully.
+* In `deployMode=client` mode, the driver runs directly within the client process, while the YARN Application Master is used only for interaction with YARN (e.g., to get resources).
 
-In both modes, the YARN Application Master runs on a compute host within a `compute` or `data` subcluster.
+In both modes, the YARN Application Master runs on one of the compute hosts within the `compute` or `data` subcluster.
 
 If the cluster meets the requirements for [lightweight clusters](./index.md#light-weight-clusters), the `deployMode=client` mode is used by default. Otherwise, the default mode is `deployMode=cluster`.
 
@@ -42,12 +42,12 @@ Resources are allocated between the driver and the executors based on the Spark 
 These tables use the following abbreviations:
 
 * `allCPU`: Number of host cores. This property is determined by the host class selected while creating the subcluster.
-* `nmMem`: Amount of the host RAM available to YARN NodeManager. This property is calculated using the following formula:
+* `nmMem`: Host RAM available to YARN NodeManager. This property is calculated using the following formula:
 
-   `total host RAM` × `fraction of RAM allocated for YARN NodeManager`
+    `total host RAM` × `RAM share allocated for YARN NodeManager`
 
-   * The total host RAM is determined by the host class selected while creating the subcluster.
-   * The fraction of RAM allocated for YARN NodeManager can be set in the `dataproc:nodemanager_available_memory_ratio` property. By default, it is set to `0.8`. The remaining RAM is reserved for auxiliary load (sending logs and metrics, file system cache, etc.).
+    * Total host RAM is based on the host class selected when creating the subcluster.
+    * You can set the RAM share allocated for YARN NodeManager using the `dataproc:nodemanager_available_memory_ratio` property. By default, it is set to `0.8`. The remaining RAM is reserved for auxiliary load (sending logs and metrics, file system cache, etc.).
 
 In the tables, results of arithmetic operations are rounded:
 
@@ -58,32 +58,32 @@ In the tables, results of arithmetic operations are rounded:
 
 - deployMode=client
 
-   In this mode, the driver runs on the cluster's master host separately from the YARN Application Master and can access all resources of the master host. The YARN Application Master runs in a separate YARN container on a compute host. However, only the required small amount of resources is reserved for its operation.
+    In this mode, the driver runs on the cluster's master host separately from the YARN Application Master and can access all resources of the master host. The YARN Application Master runs in a separate YARN container on a compute host. However, only the required small amount of resources is reserved for its operation.
 
-   #|
-   || **Parameter (abbreviation)**                 | **Description**                                                     | **Default value**                ||
-   || `dataproc:spark_executors_per_vm` (`numCon`) | Maximum number of containers per compute host                       | `1`                              ||
-   || `spark:spark.yarn.am.cores` (`yamCPU`)       | Number of processor cores allocated for the YARN Application Master | `1`                              ||
-   || `spark:spark.yarn.am.memory` (`yamMem`)      | Amount of RAM (MB) allocated for the YARN Application Master        | `1024`                           ||
-   || `spark:spark.executor.cores` (`exCPU`)       | Number of processor cores allocated to each executor                | (`allCPU` − `yamCPU`) / `numCon` ||
-   || `spark:spark.executor.memory` (`exMem`)      | Amount of RAM (MB) allocated to each executor                       | (`nmMem` − `yamMem`) / `numCon`  ||
-   |#
+    #|
+    || **Property (abbreviation)**                    | **Description**                                                       | **Default value**        ||
+    || `dataproc:spark_executors_per_vm` (`numCon`) | Maximum number of containers per computing host  | `1`                              ||
+    || `spark:spark.yarn.am.cores` (`yamCPU`)       | Number of CPU cores allocated to YARN Application Master | `1`                              ||
+    || `spark:spark.yarn.am.memory` (`yamMem`)      | Memory size (MB) allocated to YARN Application Master          | `1024`                           ||
+    || `spark:spark.executor.cores` (`exCPU`)       | Number of processor cores allocated to each executor     | (`allCPU` − `yamCPU`) / `numCon` ||
+    || `spark:spark.executor.memory` (`exMem`)      | Memory size (MB) allocated to each executor               | (`nmMem` − `yamMem`) / `numCon`  ||
+    |#
 
-   Since `yamCPU` and `yamMem` are subtracted from the total CPU and RAM, respectively, the YARN Application Master consumes less resources than a standard container, and the amount of resources for the executor increases.
+    `yamCPU` and `yamMem` being subtracted from the total CPU and RAM, respectively, the YARN Application Master takes up less resources than a standard container, thus increasing the share of resources available for executors.
 
 - deployMode=cluster
 
-   This mode assumes that a resource-intensive program, e.g., HDFS, is running on the cluster's master host. Consequently, the drivers run on compute hosts within the YARN Application Master and are allocated a substantial amount of resources.
+    This mode assumes that a resource-intensive program, e.g., HDFS, is running on the cluster's master host. Consequently, the drivers run on compute hosts within the YARN Application Master and are allocated a substantial amount of resources.
 
-   #|
-   || **Property (abbreviation)**                        | **Description**                                                      | **Default value**             ||
-   || `dataproc:spark_driver_memory_fraction` (`drMemF`) | Fraction of compute host RAM reserved for the driver                 | `0.25`                        ||
-   || `dataproc:spark_executors_per_vm` (`numCon`)       | Maximum number of containers per compute host                        | `2`                           ||
-   || `spark:spark.executor.cores` (`exCPU`)             | Number of processor cores allocated to each executor                 | `allCPU` / `numCon`           ||
-   || `spark:spark.executor.memory` (`exMem`)            | Amount of RAM (MB) allocated to each executor                        | `nmMem` / `numCon`            ||
-   || `spark:spark.driver.cores` (`drCPU`)               | Number of processor cores allocated for the YARN Application Master  | `allCPU` / `numCon`           ||
-   || `spark:spark.driver.memory` (`drMem`)              | Amount of RAM (MB) allocated for the YARN Application Master         | `drMemF` × `nmMem` / `numCon` ||
-   |#
+    #|
+    || **Property (abbreviation)**                          | **Description**                                                        | **Default value**     ||
+    || `dataproc:spark_driver_memory_fraction` (`drMemF`) | Share of compute host memory reserved for the driver       | `0.25`                        ||
+    || `dataproc:spark_executors_per_vm` (`numCon`)       | Maximum number of containers per computing host   | `2`                           ||
+    || `spark:spark.executor.cores` (`exCPU`)             | Number of processor cores allocated to each executor      | `allCPU` / `numCon`           ||
+    || `spark:spark.executor.memory` (`exMem`)            | Memory size (MB) allocated to each executor                | `nmMem` / `numCon`            ||
+    || `spark:spark.driver.cores` (`drCPU`)               | Number of CPU cores allocated to YARN Application Master  | `allCPU` / `numCon`           ||
+    || `spark:spark.driver.memory` (`drMem`)              | Memory size (MB) allocated to YARN Application Master           | `drMemF` × `nmMem` / `numCon` ||
+    |#
 
 {% endlist %}
 
@@ -91,8 +91,8 @@ The default values set in the service are optimal for running a single app. To o
 
 * For all new jobs in a cluster:
 
-   * When [creating a cluster](../operations/cluster-create.md).
-   * When [modifying a cluster](../operations/cluster-update.md).
+    * When [creating a cluster](../operations/cluster-create.md).
+    * When [updating a cluster](../operations/cluster-update.md).
 
 * For an individual job, during its [creation](../operations/jobs-spark.md#create).
 
@@ -104,19 +104,19 @@ A single app runs on a cluster with default settings and two compute hosts. In t
 
 - deployMode=client
 
-   * The driver can take up all the master host's resources.
-   * The amount of resources available for executors on all compute hosts will be reduced by the amount reserved for the YARN Application Master.
-   * The resources reserved for the YARN Application Master on the second host will remain unused.
+    * The driver can take up all the master host's resources.
+    * The amount of resources available for executors on all compute hosts will be reduced by the amount reserved for the YARN Application Master.
+    * The resources reserved for the YARN Application Master on the second host will remain unused.
 
-   ![lightweight-load](../../_assets/data-proc/lightweight-load.svg)
+    ![lightweight-load](../../_assets/data-proc/lightweight-load.svg)
 
 - deployMode=cluster
 
-   * The master host may be running HDFS or another resource-intensive program.
-   * The YARN Application Master and the driver will take up a substantial portion of the resources on one of the compute hosts, but no more than the size of the container for the executors. Because of this, some resources may remain unused.
-   * On the second compute host, both containers will be allocated to the executors.
+    * The master host may be running HDFS or another resource-intensive program.
+    * The YARN Application Master and the driver will take up a substantial portion of the resources on one of the compute hosts, but no more than the size of the container for the executors. Because of this, some resources may remain unused.
+    * On the second compute host, both containers will be allocated to the executors.
 
-   ![heavyweight-load](../../_assets/data-proc/heavyweight-load.svg)
+    ![heavyweight-load](../../_assets/data-proc/heavyweight-load.svg)
 
 {% endlist %}
 
@@ -130,9 +130,9 @@ When the load drops below a specified threshold, the automatic scaling function 
 1. Repeated executions must be permitted for operations within a Spark job.
 1. Processes of the YARN Application Master and Spark job drivers must be located on hosts without automatic scaling (i.e., not to be automatically decommissioned).
 
-To configure repeated executions of operations, you need to set the `spark:spark.task.maxFailures` parameter at the job level or for the entire cluster. This parameter defines the number of errors which causes the entire job to terminate abnormally when a certain operation reaches it. We recommend using the default value, `4`, in which case three attempts are possible when errors occur consecutively on a certain operation within the job.
+To configure repeated operations, you need to set up the `spark:spark.task.maxFailures` parameter at the job level or the overall cluster level. This parameter defines how many errors you can get for an individual operation until the whole job is aborted. We recommend using the default value of `4`, which means three possible retries in the event of consecutive errors executing a specific operation within a job.
 
-Forced termination of YARN Application Master processes and Spark job driver processes results in immediate abnormal termination of the entire job, so you should locate these processes on hosts without automatic scaling. HDFS nodes (a subcluster of nodes with the *Data Node* role) or an additional subcluster of compute nodes (with the *Compute Node* role) with disabled automatic scaling can serve as such nodes.
+Forced termination of YARN Application Master processes and Spark job driver processes results in immediate abnormal termination of the entire job, so you should locate these processes on hosts not controlled by the autoscaling mechanism. HDFS nodes (a subcluster of nodes with the *Data Node* role) or an additional subcluster of compute nodes (with the *Compute Node* role) with disabled automatic scaling can serve as such nodes.
 
 ### YARN settings for automatic scaling {#autoscaling-yarn}
 
@@ -154,16 +154,16 @@ mv /tmp/yq /usr/local/bin/
 chown root:bin /usr/local/bin/jq /usr/local/bin/yq
 chmod 555 /usr/local/bin/jq /usr/local/bin/yq
 
-# Checking the requirement to set labels.
+# Checking if labeling is required.
 MUSTLABEL=N
 if [ ! -z "$NAME_TO_LABEL" ]; then
   # Getting the subcluster name from the VM metadata.
-  curl -H Metadata-Flavor:Google 'http://169.254.169.254/computeMetadata/v1/instance/?alt=json&recursive=true' -o /tmp/host-meta.json
+  curl --header Metadata-Flavor:Google 'http://169.254.169.254/computeMetadata/v1/instance/?alt=json&recursive=true' --output /tmp/host-meta.json
   jq -r .attributes.'"user-data"' /tmp/host-meta.json >/tmp/host-userdata.yaml
   subcid=`jq -r '.vendor.labels.subcluster_id' /tmp/host-meta.json`
   subname=`yq -r ".data.topology.subclusters.${subcid}.name" /tmp/host-userdata.yaml`
   if [ "${subname}" = "${NAME_TO_LABEL}" ]; then
-    # The subcluster name matches the specified one.
+    # The subcluster name matches the configured one.
     MUSTLABEL=Y
   fi
 fi
@@ -171,16 +171,16 @@ fi
 if [ "${MUSTLABEL}" = "Y" ]; then
   MYHOST=`hostname -f`
   while true; do
-    # Checking whether the label exists in the cluster.
+    # Checking if there is a label in the cluster.
     foundya=`sudo -u yarn yarn cluster --list-node-labels 2>/dev/null | grep -E '^Node Labels' | grep '<SPARKAM:' | wc -l | (read x && echo $x)`
     if [ $foundya -gt 0 ]; then
       break
     fi
-    # If the label does not exist, creating it at the cluster level.
+    # If there is no label, create it at the cluster level.
     sudo -u yarn yarn rmadmin -addToClusterNodeLabels 'SPARKAM' || true
     sleep 2
   done
-  # Setting the label to the current node.
+  # Setting a label to the current node.
   sudo -u yarn yarn rmadmin -replaceLabelsOnNode "${MYHOST}=SPARKAM"
 fi
 ```
@@ -190,43 +190,43 @@ fi
 The table below provides the typical Spark parameters for a {{ dataproc-name }} cluster with automatic scaling.
 
 #|
-|| **Parameter=value** | **Usage description** ||
+|| **Parameter=value**  | **Description of use** ||
 || `spark:`
 `spark.task.maxFailures=`
-`4` | Number of possible consecutive errors occuring on a ceratin step of the Spark job ||
+`4`  | Number of consecutive errors allowed per a Spark job step ||
 || `spark:`
 `spark.yarn.am.nodeLabelExpression=`
-`SPARKAM` | Name of the label for selecting nodes to launch AM containers of Spark jobs ||
+`SPARKAM`  | Label name for selecting nodes to run AM containers of Spark jobs ||
 || `spark:`
 `spark.submit.deployMode=`
-`cluster` | Default mode of running Spark jobs that is used when the respective setting is missing at the job level or for a specific service ||
+`cluster` | Default mode for Spark jobs (used if there is no relevant setting at job or particular service level) ||
 || `livy:`
 `livy.spark.deploy-mode=`
-`cluster` | Spark job running mode used in Apache Livy sessions ||
+`cluster`  | Spark job run mode used in Apache Livy sessions ||
 || `yarn:`
 `yarn.node-labels.enabled=`
 `true` | Enabling support for node labels in YARN ||
 || `yarn:`
 `yarn.node-labels.fs-store.root-dir=`
-`file:///hadoop/yarn/node-labels` | Folder storing node labels in the file system of the cluster master node ||
+`file:///hadoop/yarn/node-labels` | Folder for storing node labels in the file system of the cluster's master node ||
 || `yarn:`
 `yarn.node-labels.configuration-type=`
-`centralized` | Mode of managing YARN node labels ||
+`centralized` | YARN node label management mode ||
 || `capacity-scheduler:`
 `yarn.scheduler.capacity.maximum-am-resource-percent=`
-`1.00` | Maximum share of resources (from `0.0` to `1.0`) to run Application Master containers ||
+`1.00` | Maximum share of resources (`0.0` to `1.0`) for the execution of Application Master containers ||
 || `capacity-scheduler:`
 `yarn.scheduler.capacity.root.`
 `default.accessible-node-labels=`
-`SPARKAM` | Allowing jobs in the `default` queue to use nodes with the specified labels ||
+`SPARKAM` | Allow jobs in the `default` queue to use nodes with specified labels ||
 || `capacity-scheduler:`
 `yarn.scheduler.capacity.root.`
 `accessible-node-labels.SPARKAM.capacity=`
-`100` | Setting the allowed usage percentage for nodes with the `SPARKAM` label to 100% ||
+`100` | Set the allowed percentage of using the `SPARKAM` labeled nodes to 100% ||
 || `capacity-scheduler:`
 `yarn.scheduler.capacity.root.`
 `default.accessible-node-labels.SPARKAM.capacity=`
-`100` | Setting the allowed usage percentage for nodes with the `SPARKAM` label by jobs in the `default` queue to 100% ||
+`100` | Set the allowed percentage of the `SPARKAM` labeled nodes used by the `default` queue jobs to 100% ||
 |#
 
 ## Useful links {#see-also}

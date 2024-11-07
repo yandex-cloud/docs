@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: August 2024'
-description: Check out {{ datalens-full-name }} release notes for August 2024.
+title: '{{ datalens-full-name }} release notes: September 2024'
+description: Check out {{ datalens-full-name }} release notes for September 2024.
 ---
 
-# {{ datalens-full-name }} release notes: August 2024
+# {{ datalens-full-name }} release notes: September 2024
 
 
 * [Changes in basic features](#base)
@@ -13,90 +13,134 @@ description: Check out {{ datalens-full-name }} release notes for August 2024.
 
 
 
-### Searching by fields in the wizard and dataset {#search-in-wizard}
 
-In the wizard and dataset, added the ability to search not only by name but also by field description.
+### Special FQDNs in connections {#special-fqdns}
 
+In connections to [{{ CH }}](../operations/connection/create-clickhouse.md), [{{ PG }}](../operations/connection/create-postgresql.md), [{{ MY }}](../operations/connection/create-mysql.md), or [{{ GP }}](../operations/connection/create-greenplum.md), now you can select a special FQDN that points to the current master host or the least lagging replica.
 
-### List of published objects {#public-objects-list}
+For standard FQDNs, now you can specify multiple hosts for connection.
 
-The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-admin) can [view a list](../concepts/datalens-public.md#public-objects-list) of all published objects.
+### Integration with {{ connection-manager-name }} {#dash-link-settings}
 
+Added integration with [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) for the following connections:
 
-### Support ticket creation form {#support-form}
-
-Updated the support ticket creation form.
-
-
-![image](../../_assets/datalens/release-notes/support-form.png)
+* [{{ CH }}](../operations/connection/create-clickhouse.md)
+* [{{ PG }}](../operations/connection/create-postgresql.md)
+* [{{ MY }}](../operations/connection/create-mysql.md)
 
 
+### Pinning widgets {#widget-fixation}
 
-### Position of selector title {#selector-title-position}
+Now you can [pin (i.e. lock the position of) a widget](../dashboard/settings.md#widget-fixation) in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
 
-Added a selector setting that allows you to specify the position of the title: `Left` (default) or `Top`.
+### Freezing table columns {#column-fixation}
+
+Added the ability to freeze one or more columns in [regular](../visualization-ref/table-chart.md#column-fixation) and [pivot](../visualization-ref/pivot-table-chart.md#column-fixation) tables. Once frozen, these columns stay in place as you scroll horizontally.
+
+### New bulk operations with fields {#bulk-changes}
+
+Added new bulk operations with marked fields in a [dataset](../dataset/index.md). Now you can change their types or aggregation.
+
+![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
+
+### Support for markup functions in charts {#markup-support}
+
+In charts, now you can use [markup functions](../function-ref/markup-functions.md) in labels.
+
+For example, under **Labels**, you can add a field with this formula:
+
+```markdown
+MARKUP(
+    COLOR(STR([OrderCount]), IF ([OrderCount] < 7000) THEN 'red' ELSE 'green' END),
+    BR(),
+    IF(LEN([ProductSubcategory]) > 15) THEN LEFT([ProductSubcategory],15) +'...' ELSE [ProductSubcategory] END
+)
+```
+
+![image](../../_assets/datalens/release-notes/markup-chart.png)
+
+### Using Markdown in chart and map tooltip labels {#markdown-sign-map-tooltips}
+
+In chart and [map tooltip](../concepts/chart/settings.md#map-settings) [labels](../concepts/chart/settings.md#sign), now you can configure the formatting for the `String` type fields using the basic [Markdown](../dashboard/markdown.md) syntax. To do this, click the icon before the field name and enable **Markdown**.
+
+{% cut "Markdown in chart labels" %}
+
+![image](../../_assets/datalens/release-notes/markdown-chart.png)
+
+{% endcut %}
+
+{% cut "Markdown in map tooltips" %}
+
+![image](../../_assets/datalens/release-notes/markdown-chart-map.png)
+
+{% endcut %}
+
+### Configuring RLS for user groups {#group-rls}
+
+Added the ability to configure [RLS for user groups](../security/row-level-security.md#group-rls) in a dataset.
+
+### Filtering charts by other charts for maps {#chart-chart-map-filtration}
+
+Now you can [filter charts by other charts](../dashboard/chart-chart-filtration.md) in [maps](../visualization-ref/map-chart.md). Clicking a map element applies filtering by all the dimensions used in the chart except the coordinates themselves.
 
 
-### **Selector** widget improvements {#group-selectors-fix}
+### Field tooltips in a chart {#hint-fields}
 
-Fixed these group selector related errors:
+Fixed the error that caused field tooltips to disappear after changing a dataset in a chart.
 
-* Widget failed to regain its original height after canceling the edits made in the selector.
-* Dashboard stopped working correctly on canceling selector deletion in a widget with two selectors and auto update.
-* Navigation window reopened after a dataset was selected in the widget.
-* Widget width went incorrect after other selectors were added to the widget's group.
+### Dataset access denied error {#dataset-access-error}
 
-### Displaying a tooltip next to the selector title {#selector-tooltips}
+Fixed the issue where an incorrect error type was displayed instead of the _dataset access denied_ message.
 
-Fixed the error that caused the system tooltip next to the selector title to remain visible when hovering over ![icon](../../_assets/console-icons/circle-question.svg).
+### Displaying charts as tables {#chart-as-table}
 
-### Tooltip text in the selector {#selector-hint-text}
+Fixed the display of charts as tables. To open your chart as a table, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/layout-cells.svg) **Open as a table** in the top-right corner of the chart.
 
-In the selector's **Tooltip** setting, fixed an error where the text from the dataset field description was not added to the selector's tooltip text field.
+### Fixes in tables {#table-fix}
 
+Fixed these table related errors:
 
-### Auto update of selectors on a public dashboard {#selector-auto-update}
+* Old dates were displayed incorreclty.
+* Colors failed to apply to a table correctly after updating filters.
+* **Totals** row was displayed incorrectly.
+* In a table with a hierarchy and enabled pagination, only the first rows were displayed and there was no navigator to move through the pages.
 
-Fixed the error that interrupted a public dashboard's operation upon enabling a selector's **Dependent selector auto update** setting on that dashboard.
+### **Heat map** chart display {#heat-map-fix}
 
-
-### SQL source name in a dataset {#dataset-sql-source-name}
-
-Fixed the error that caused an SQL source name to reset to default after each subquery edit in the dialog box for [adding the SQL source](../dataset/create-dataset.md#add-data) in a dataset.
+Fixed the display of [Heat map](../visualization-ref/heat-map-chart.md) chart in the wizard.
 
 
-### Display of heat map charts {#heat-map-fix}
+### Dashboard link settings {#dash-link-settings}
 
-Fixed the display of [heat map](../visualization-ref/heat-map-chart.md) charts in the wizard.
+When configuring an access link for a dashboard, now you can save the state of selectors and share the link with the federation:
 
+1. At the top of your dashboard, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) **Share**.
+1. In the window that opens:
 
-### Documentation link in the migration section {#migrate-link}
+   * Set the menu language, theme, and appearance.
+   * (Optional) Save the selector values.
+   * (Optional) If you set up an [identity federation](../../organization/concepts/add-federation.md), save the federation to share your link with the federation users.
 
-Fixed the [documentation](../concepts/organizations.md#migration) link in the description of the section about migration from a folder to an organization.
-
-### Usernames in {{ datalens-short-name }} Usage Analytics Light {#usage-analytics-light-user-name}
-
-Fixed the display of usernames in [{{ datalens-short-name }} Usage Analytics Light](../operations/connection/create-usage-tracking.md#light-dash).
+1. Copy the link with the selected appearance settings by clicking **Copy and close**.
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Object publishing prohibition {#publication-disable}
+### Reports {#reports}
 
-Added the ability to [prohibit publishing](../concepts/datalens-public.md#publication-disable) charts and dashboards at the {{ datalens-short-name }} instance level.
+Now {{ datalens-short-name }} support [reports](../reports/index.md), i.e., multi-page documents that you can export to PDF and print. You can add charts, text blocks, headers, and images to report pages.
 
-### Embedding private objects {#private-embedded-hints}
+### Restrictions on embedding private objects {#private-embedded-connections}
 
-Improved the interface for [embedding private objects](../security/private-embedded-objects.md):
+Now you cannot create a [private embedding](../security/private-embedded-objects.md) for an object if it has dependent objects that based on the following connections:
 
-* In the **Embedding keys** dialog box, added tooltips about embedding a private object with links to the relevant documentation.
-* In the **Create embedding** dialog box, the **Key** field is blocked if the workbook does not contain any available keys for the object.
-* In the **Embedding settings** dialog box:
+* [Google BigQuery](../operations/connection/create-big-query.md)
+* [Snowflake](../operations/connection/create-snowflake.md)
+* [Metrica](../operations/connection/create-metrica-api.md)
+* [AppMetrica](../operations/connection/create-appmetrica.md)
+* [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
+* [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
 
-  * Added tooltips about embedding a private object with links to the relevant documentation.
-  * In the table with the list of embeddings:
+### Embedding settings {#private-embedded-setings}
 
-    * When hovering over a row, you will now see buttons for copying the embedding ID and name.
-    * A click on a row now opens an information window about the embedding in view mode.
-    * Changed the color of dependent objects and parameters.
-    * Parameters and dependent objects displayed in the button now also state the number of objects that did not fit (when there are more than three of them).
+Now you can edit embeddings for private objects. To open the settings, in the row with the object in your workbook, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **Embedding settings**.
 

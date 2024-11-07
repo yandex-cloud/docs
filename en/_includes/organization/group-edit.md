@@ -1,12 +1,14 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-  1. Select a [group](../../organization/concepts/groups.md) from the list and click ![image](../../_assets/console-icons/ellipsis.svg) next to the group name.
-  1. Click **{{ ui-key.yacloud_org.entity.group.action_edit }}** and enter a new group name or description.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+  
+  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
+
+  1. Enter a new name or description for the group.
 
       The name must be unique within the organization and satisfy the relevant requirements:
 
@@ -20,7 +22,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the command to edit a {{ org-name }} user group:
+  1. View the description of the command to edit a {{ org-name }} user group:
 
       ```bash
       yc organization-manager group update --help
@@ -31,7 +33,7 @@
       ```bash
       yc organization-manager group update \
         --name <group_name> \
-        --new-name <new_name_for_group> \
+        --new-name <new_group_name> \
         --organization-id <organization_ID> \
         --description <group_description>
       ```
@@ -43,7 +45,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
       * `--new-name`: New name for the user group.
-      * `--organization-id`: Organization ID. This is an optional parameter.
+      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md). This is an optional parameter.
       * `--description`: Text description of the user group. This is an optional parameter.
 
 - {{ TF }} {#tf}
@@ -69,7 +71,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
      * `description`: New group description.
-     * `organization_id`: ID of the organization the group belongs to.
+     * `organization_id`: [ID](../../organization/operations/organization-get-id.md) of the organization the group belongs to.
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

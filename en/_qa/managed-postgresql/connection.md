@@ -1,4 +1,4 @@
-#### Can I access the cluster from within {{ yandex-cloud }}? {#conn-from-yc}
+#### Can I access a cluster from within {{ yandex-cloud }}? {#conn-from-yc}
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
@@ -18,20 +18,20 @@ You can find an example of connection from a container in {{ serverless-containe
 You can obtain an SSL certificate using PowerShell:
 
 ```powershell
-mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web-path }}
 ```
 
 The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
 For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} using psql? {#power-bi}
+#### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 
 1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the following command in the terminal:
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "{{ crt-web-path }}" -o /mnt/c/temp/CA.pem && \
+   curl "{{ crt-web-path }}" --output /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 
@@ -39,7 +39,7 @@ For more information about obtaining a certificate and connecting to a database,
 
 1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
-#### What do I do if I get the _SSL is required_ error when connecting? {#ssl-req}
+#### What must I do if I get the _SSL is required_ error when connecting? {#ssl-req}
 
 The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
 
@@ -72,7 +72,7 @@ too many active clients for user (pool_size for user <username> reached <limit_v
 
 To learn how to update the {{ PG }} settings at the user level, see our [documentation](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
-#### Why does an error occur when trying to connect to a database? {#database-error}
+#### Why do I get an error when trying to connect to a database? {#database-error}
 
 Connecting to a database may fail with an error like:
 
@@ -82,11 +82,11 @@ ERROR: odyssey: ce3ea075f4ffa: route for 'dbname.username' is not found
 
 The error means that the connection parameters contain an invalid database name.
 
-#### Why does an error occur when trying to connect to a database from {{ google-looker }}? {#google-looker}
+#### Why do I get an error when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
 To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).
 
-#### Why does a connection fail? {#connection-error}
+#### Why does a connection terminate with an error? {#connection-error}
 
 A {{ mpg-name }} cluster connection may be terminated with the following message:
 

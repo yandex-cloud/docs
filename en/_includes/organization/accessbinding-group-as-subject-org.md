@@ -1,11 +1,13 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+
   1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../../organization/concepts/groups.md) you need or search by group name.
 
      You can also assign a role to one of the [system](../../iam/concepts/access-control/system-group.md) groups:
@@ -13,7 +15,8 @@
      * `All users in organization X`: The group includes all users in organization `X`.
      * `All users in federation N`: The group includes all users in federation `N`.
 
-  1. Click **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../iam/concepts/access-control/roles.md) in the organization. You can assign multiple roles.
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../iam/concepts/access-control/roles.md) for the organization you want to assign to the group. You can assign multiple roles.
+
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -71,7 +74,7 @@
 
      * `organization_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
      * `role`: Role you want to assign. This is a required parameter.
-     * `member`: Group the role is assigned to. Use this format: `group:<group_ ID>`. This is a required parameter.
+     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
 

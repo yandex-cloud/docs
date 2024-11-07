@@ -1,18 +1,19 @@
 ---
-title: Guides on using {{ org-full-name }}
+title: How to work with {{ org-full-name }}
 description: In this article, you will learn how to work with {{ org-full-name }} in {{ yandex-cloud }}.
 ---
 
-# Guides on using {{ org-full-name }}
+# How to work with {{ org-full-name }}
 
 ## Managing organizations {#manage-orgs}
 
 * [{#T}](enable-org.md).
+* [{#T}](organization-get-id.md).
 * [{#T}](org-profile.md).
 * [{#T}](manage-organizations.md).
 * [{#T}](delete-org.md).
 
-## Managing {#manage-users} users
+## Managing users {#manage-users}
 
 * [{#T}](add-account.md).
 * [{#T}](users-get.md).

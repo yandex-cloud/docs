@@ -5,4 +5,4 @@
 Query execution time exceeded for the data source.
 
 
-{{ datalens-short-name }} limits the time for executing a query to 90 seconds.
+{% include [datalens-dataset-timeout-note](../../../_includes/datalens/datalens-dataset-timeout-note.md) %}

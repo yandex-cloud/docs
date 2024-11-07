@@ -1,6 +1,7 @@
 # Agent for delivering metrics
 
 
+
 {{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
 
 The agent supports:
@@ -47,7 +48,7 @@ See the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
-Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
 
 See also the [list of available outputs](outputs.md).
 

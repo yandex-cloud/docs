@@ -4,7 +4,7 @@ editable: false
 
 # yc cic public-connection
 
-Manage publicConnections.
+[PREVIEW] Manage publicConnections.
 
 #### Command Usage
 

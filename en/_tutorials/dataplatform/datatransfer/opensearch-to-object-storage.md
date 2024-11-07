@@ -89,7 +89,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -105,7 +106,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Alice",
                "age" : "30"
@@ -114,7 +116,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Robert",
                "age" : "32"

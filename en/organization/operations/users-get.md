@@ -19,7 +19,7 @@ Only users with the `organization-manager.admin` or `organization-manager.organi
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
   {% include [users-info](../../_includes/users-info.md) %}
 
@@ -41,7 +41,7 @@ Only users with the `organization-manager.admin` or `organization-manager.organi
       yc organization-manager user list --organization-id <organization_ID>
       ```
 
-      Where `organization_id` is the organization ID.
+      Where `organization_id` is the [organization ID](./organization-get-id.md).
 
       Result:
 

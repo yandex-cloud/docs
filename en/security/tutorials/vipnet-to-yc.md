@@ -91,9 +91,9 @@ The cost of the infrastructure includes:
 
 ### Install the solution on a local machine {#local-software}
 
-* [Oracle VM VirtualBox](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html)
-* [qemu-img](https://www.qemu.org/docs/master/tools/qemu-img.html)
-* [jq](https://stedolan.github.io/jq/download/)
+* [Oracle VM VirtualBox](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html).
+* [qemu-img](https://www.qemu.org/docs/master/tools/qemu-img.html).
+* [jq](https://stedolan.github.io/jq/download/).
 
 
 ### Create a cloud network {#create-network}
@@ -144,13 +144,13 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
     1. Click **Create subnet**.
 
     Similarly, create subnets for `vipnet-network` or any other network:
-    * `segment1-subnet`, CIDR: `10.1.1.0/24`.
-    * `segment2-subnet`, CIDR: `10.1.2.0/24`.
-    * `segment3-subnet`, CIDR: `10.1.3.0/24`.
+    * `segment1-subnet`, CIDR: `10.1.1.0/24`
+    * `segment2-subnet`, CIDR: `10.1.2.0/24`
+    * `segment3-subnet`, CIDR: `10.1.3.0/24`
 
     {% note info %}
 
-    All the subnets must be in the same availability zone.
+    All subnets must be in the same availability zone.
 
     {% endnote %}
 
@@ -168,16 +168,16 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
         ```
 
         Where:
-        * `name`: Name of the subnet.
+        * `name`: Subnet name.
         * `folder-id`: ID of the folder where the cloud network is located.
         * `network-name`: Name of the cloud network.
         * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
         * `range`: Subnet CIDR.
 
     1. Similarly, create subnets for cloud resources:
-        * `segment1-subnet`, CIDR: `10.1.1.0/24`.
-        * `segment2-subnet`, CIDR: `10.1.2.0/24`.
-        * `segment3-subnet`, CIDR: `10.1.3.0/24`.
+        * `segment1-subnet`, CIDR: `10.1.1.0/24`
+        * `segment2-subnet`, CIDR: `10.1.2.0/24`
+        * `segment3-subnet`, CIDR: `10.1.3.0/24`
 
     {% note info %}
 
@@ -261,7 +261,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
           ```bash
           mkdir vipnet
           cd vipnet
-          curl -O <link_to_ViPNet_Coordinator_VA_download>
+          curl --remote-name <link_to_ViPNet_Coordinator_VA_download>
           ```
 
       1. Find out the archive name:
@@ -276,7 +276,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
           -rw-r--r--   1 user  457853789 Aug 21 12:28 va_vipnet_base_x86_64_4.5.1-5668.ova.zip
           ```
 
-      1. Find out the archive MD5 checksum:
+      1. Find out the archive MD5 cheksum:
 
           ```bash
           md5 <archive_name>
@@ -310,7 +310,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
           ```powershell
           mkdir vipnet
           cd vipnet
-          curl.exe -O <link_to_ViPNet_Coordinator_VA_download>
+          curl.exe --remote-name <link_to_ViPNet_Coordinator_VA_download>
           ```
 
       1. Find out the archive name:
@@ -364,7 +364,7 @@ The tutorial uses the demo versions of the keys.
   1. Upload the file with the keys to the USB flash drive:
 
       ```bash
-      curl -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       unzip vipnet_demokeys.zip
       cp Coordinator\ 4\ MOBILE/Coordinator\ 4\ MOBILE/abn_0004.dst <path_to_USB_disk_root_directory>
       ```
@@ -389,7 +389,7 @@ The tutorial uses the demo versions of the keys.
   1. Upload the file with the keys to the USB flash drive:
 
       ```powershell
-      curl.exe -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl.exe --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       Expand-Archive vipnet_demokeys.zip
       Copy-Item -Path "<path_to_vipnet_directory>\vipnet_demokeys\Coordinator 4 MOBILE\Coordinator 4 MOBILE\abn_0004.dst" -Destination <path_to_USB_disk_root_directory>
       ```
@@ -434,8 +434,8 @@ The tutorial uses the demo versions of the keys.
 1. Select `usb` as the source of downloading information about the keys. After reading the USB flash drive, information about the discovered files is listed with key details. Click `Next`.
 1. Enter `11111111` for password and click `Next`. The data from the file will be uploaded to the VM.
 1. Configure the `eth0` and `eth1` network interfaces:
-    * `Activate interface on boot`
-    * `Get IP-address automatically on boot (via DHCP)`
+    * `Activate interface on boot`.
+    * `Get IP-address automatically on boot (via DHCP)`.
 1. Configure the `eth2` and `eth3` network interfaces:
 1. Configure the following parameters:
     * In the `Enable/Disable NTP server mode` field, select `Disable starting the DNS server on boot`.
@@ -537,7 +537,7 @@ The tutorial uses the demo versions of the keys.
 - Management console {#console}
 
   1. Create a bucket:
-      1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+      1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
       1. Select **{{ objstorage-name }}**.
       1. Click **Create bucket**.
       1. Set the bucket parameters:

@@ -43,8 +43,9 @@ POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
     "includePunctuation": "boolean",
     "includedPunctuation": "string",
     "excludedPunctuation": "string"
-  }
+  },
   // end of the list of possible fields
+  "createVersion": "boolean"
 }
 ```
 
@@ -78,6 +79,12 @@ Flag that inhibits deletion of the secret. ||
 || passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
 
 Includes only one of the fields `passwordPayloadSpecification`. ||
+|| createVersion | **boolean**
+
+If true: a version will be created with either version_payload_entries or password_payload_specification (one is required).
+If false: a version is NOT created, no matter version_payload_entries or password_payload_specification.
+Default: a version is created IF either version_payload_entries or password_payload_specification are specified.
+It's never allowed to set both version_payload_entries and password_payload_specification. ||
 |#
 
 ## PayloadEntryChange {#yandex.cloud.lockbox.v1.PayloadEntryChange}

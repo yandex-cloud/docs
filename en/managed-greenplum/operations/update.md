@@ -200,7 +200,7 @@ If you enabled public access to the cluster but cannot access it from the inter
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
             --assign-public-ip=<public_access_to_cluster> \
-            --deletion-protection=<cluster_deletion_protection>
+            --deletion-protection
         ```
 
 
@@ -328,7 +328,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * New values in the `configSpec.greenplumConfig_<version>` parameter.
+    * New values ​​in the `configSpec.greenplumConfig_<version>` parameter.
     * List of cluster configuration fields to update in the `updateMask` parameter.
 
         {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -445,7 +445,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
   * Master host class ID in the `masterConfig.resources.resourcePresetId` parameter or segment host class ID in the `segmentConfig.resources.resourcePresetId` parameter. You can get a list of supported values by using the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset`.
-  * List of settings to update (in this case, `masterConfig.resources.resourcePresetId` or `segmentConfig.resources.resourcePresetId`) in the `updateMask` parameter.
+  * List of settings to update (in this case, `masterConfig.resources.resourcePresetId` or `segmentConfig.resources.resourcePresetId`), in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

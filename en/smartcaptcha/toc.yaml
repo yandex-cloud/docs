@@ -23,18 +23,16 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: CAPTCHA in mobile apps
-        items:
-          - name: Embedding {{ captcha-full-name }} HTML code
-            href: tutorials/mobile-app/website.md
-          - name: CAPTCHA in Android apps
-            items:
-              - name: CAPTCHA in Android apps
-                href: tutorials/mobile-app/android/quickstart-android.md
-              - name: Invisible CAPTCHA in Android apps
-                href: tutorials/mobile-app/android/invisible-captcha-android.md
-          - name: CAPTCHA in iOS apps
-            href: tutorials/mobile-app/ios/quickstart-ios.md
+      - name: Adding an HTML page to work with {{ captcha-full-name }}
+        href: tutorials/mobile-app/website.md
+      - name: CAPTCHA in Android apps
+        href: tutorials/mobile-app/android/quickstart-android.md
+      - name: Invisible CAPTCHA in Android apps
+        href: tutorials/mobile-app/android/invisible-captcha-android.md
+      - name: CAPTCHA in an Android app on Flutter
+        href: tutorials/mobile-app/android/quickstart-android-flutter.md
+      - name: CAPTCHA in iOS apps
+        href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Concepts
     items:
       - name: User validation

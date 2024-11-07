@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/public-connection/index.md
 
 # yc cic public-connection
 
-Manage publicConnections.
+[PREVIEW] Manage publicConnections.
 
 #### Command Usage
 

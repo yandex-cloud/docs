@@ -5,6 +5,7 @@
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
 `DeleteCluster` | Удаление кластера
+`DeleteBackup` | Удаление резервной копии
 `DeleteDashboardsNodeGroup` | Удаление группы хостов типа `Dashboards`
 `DeleteOpenSearchNodeGroup` | Удаление группы хостов типа `OpenSearch`
 `MoveCluster` | Перемещение кластера

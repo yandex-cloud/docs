@@ -3,7 +3,6 @@ title: Managing {{ yandex-cloud }} resources in {{ org-full-name }}
 description: Use {{ org-full-name }} to expand the capabilities of your business. A cloud is your organization's workspace. All clouds connected to your organization are displayed in the "Clouds and services" section.
 ---
 
-
 # Managing clouds and services
 
 Use {{ org-full-name }} to expand the capabilities of your business. Create a [cloud](#cloud) and connect [collaboration and business intelligence services](#collaboration).
@@ -18,30 +17,31 @@ All clouds and services can be managed by a user with the `{{ roles-organization
 
 To go to cloud and service management:
 
-1. [Log in]({{ link-passport }}) as the organization administrator or owner.
+{% list tabs group=instructions %}
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.raw_services }}]({{ link-org-services }}) ![icon-services](../../_assets/console-icons/cloud.svg).
+  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
-   The page displays a list of clouds connected to the organization and the following services: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, {{ datalens-full-name }}, and {{ ml-platform-full-name }}.
+  1. Go to [{{ cloud-center }}]({{ cloud-center-link }}).
 
-1. To go to a service, click the service card.
+  1. On the page that opens, there is a list of services in the right-hand panel: {{ console-full-name }}, {{ tracker-full-name }}, {{ datalens-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, {{ ml-platform-full-name }}, and {{ speechsense-full-name }}.
 
-   To open a cloud in the {{ yandex-cloud }} console, click the cloud name.
+      To go to a service, click one in the list.
 
+  1. Go to the [management console]({{ link-console-main }}) to view a list of clouds connected to the organization.
 
+{% endlist %}
 
 ## Cloud {#cloud}
 
-A cloud is your organization's workspace. All clouds connected to your organization are displayed in the **{{ ui-key.yacloud_org.pages.raw_services }}** section.
+A cloud is your organization's workspace. All clouds connected to your organization are displayed in the [{{ yandex-cloud }} management console]({{ link-console-main }}).
 
 A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md).
 
-An organization's first cloud will connect automatically when an administrator logs in to the [{{ yandex-cloud }} console]({{ link-console-main }}). To connect an additional cloud, you need to create a [billing account](../../billing/quickstart/).
+The organization's first cloud will connect automatically when an administrator logs in to the management console. To connect an additional cloud, you need to create a [billing account](../../billing/quickstart/).
 
 If there are multiple organizations registered in your account, you can [move](../../resource-manager/operations/cloud/change-organization.md) clouds between them. To do this, you need the `{{ roles-cloud-owner }}` [role](../security/index.md#organization-manager-organizations-owner) for the cloud being transferred and the `{{ roles-organization-owner }}` [role](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the organization to transfer the cloud to.
-
 
 ## Collaboration and business intelligence services {#collaboration}
 
@@ -52,11 +52,11 @@ Collaboration services and business intelligence tools are available to all orga
 
     For more information about the service and its features, see the [{{ tracker-full-name }} documentation](../../tracker/).
 
-* [{{ wiki-full-name }}]({{ link-wiki }}) is a service to create a corporate knowledge base for company employees to populate and update. {{ wiki-name}} gives company employees additional capabilities for collaboration: they can share information, search for answers to frequently asked questions, and hold discussions in the page comment section.
+* [{{ wiki-full-name }}]({{ link-wiki }}) is a service to create a corporate knowledge base for company employees to populate and update. {{ wiki-name}} gives employees extra collaboration capabilities: they can share information, get answers to frequently asked questions, and hold discussions in the page comment section.
 
     For more information about the service and its features, see the [{{ wiki-full-name }} documentation](../../wiki/).
 
-* [{{ forms-full-name }}]({{ link-forms-b2b }}) is a service that enables you to administer surveys among co-workers or customers, collect feedback, and accept applications. Corporate users have access to advanced functions in [{{ forms-full-name }} for business](../../forms/forms-for-org.md), such as integration with {{ tracker-name }} and {{ wiki-name}}, form access management, as well as special question sections.
+* [{{ forms-full-name }}]({{ link-forms-b2b }}) is a service that enables you to administer surveys among co-workers or customers, collect feedback, and accept applications. Corporate users have access to [{{ forms-full-name }} advanced business functions](../../forms/forms-for-org.md), such as integration with {{ tracker-name }} and {{ wiki-name}}, form access management, as well as special question sections.
 
     For more information about the service and its features, see the [{{ forms-full-name }} documentation](../../forms/).
 
@@ -67,4 +67,3 @@ Collaboration services and business intelligence tools are available to all orga
 * [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) is a full-cycle ML development service. {{ ml-platform-full-name }} is part of the data platform and provides powerful features to work with {{ yandex-cloud }} services. {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms due to automatic maintenance of computing resources.
 
     For more information about the service and its features, see the [{{ ml-platform-full-name }} documentation](../../datasphere/).
-

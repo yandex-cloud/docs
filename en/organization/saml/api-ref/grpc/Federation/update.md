@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/update.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.Update {#Update}
+# SAML Federation API, gRPC: FederationService.Update {#Update}
 
 Updates the specified federation.
 

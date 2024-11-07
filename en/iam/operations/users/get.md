@@ -4,7 +4,7 @@ You can get the ID, email address, and other user information.
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
   {% include [users-info](../../../_includes/users-info.md) %}
 
@@ -19,6 +19,7 @@ You can get the ID, email address, and other user information.
       ```
 
   1. Get user information by specifying the user's login:
+      
       ```bash
       yc iam user-account get just.mad.hatter
       ```

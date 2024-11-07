@@ -4,7 +4,7 @@ editable: false
 
 # yc cloudrouter routing-instance
 
-Manage routingInstances.
+[PREVIEW] Manage routingInstances.
 
 #### Command Usage
 

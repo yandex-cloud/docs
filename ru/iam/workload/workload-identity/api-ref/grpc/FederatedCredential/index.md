@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/index.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederatedCredentialService
+# Workload Identity, gRPC: FederatedCredentialService
 
 A set of methods for managing federated credentials.
 

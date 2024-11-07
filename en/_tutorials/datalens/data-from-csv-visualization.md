@@ -1,243 +1,209 @@
 # Simple dashboard from a CSV file
 
 
-For our source data, let's use a file named [SuperHeroes.csv](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) with information about superheroes, such as their name, gender, race, and comic book publisher.
 
-This scenario demonstrates how to use {{ datalens-short-name }} to analyze dependencies, for example:
-- A superhero's weight from their gender.
-- A superhero's weight from whether they're good or bad.
+{% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
+
+
+This guide demonstrates how to use {{ datalens-short-name }} to analyze dependencies, for example:
+
+* Superhero's weight depending on gender.
+* Superhero's weight depending on whether they are good or bad.
+
+For source data, we are going to use the `SuperHeroes.csv` file with data about the superheroes: name, gender, race, comics publisher, etc. [Download](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) it before going through the guide.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
-1. [Create a connection](#step1).
-1. [Create a dataset](#step2).
-1. [Create the first chart](#step3).
-1. [Create the second chart](#step4).
-1. [Create a dashboard](#step5).
-1. [Add charts to the dashboard](#step6).
-1. [Add selectors to the dashboard](#step7).
-1. [Set up widgets and start analyzing dependencies](#step8).
-1. [Continue to analyze the data about superheroes](#step9).
+1. [Create a workbook](#create-workbook).
+1. [Create a connection](#create-connection).
+1. [Create a dataset](#create-dataset).
+1. [Create the first chart](#create-column-chart1).
+1. [Create the second chart](#create-column-chart2).
+1. [Create a dashboard and add charts to it](#create-dashboard).
+1. [Add selectors to the dashboard](#add-selectors).
+1. [Start analyzing superhero dependencies and data](#search-on-dashboard).
 
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
-
-## Step 1. Create a connection and dataset {#step1}
-
-Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
+## Create a workbook {#create-workbook}
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
-1. Select **Files**.
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
+1. In the top-right corner, click **Create** → **Create workbook**.
+1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Click **Create**.
 
-   ![image](../../_assets/datalens/solution-01/select-file-connection.png)
 
+## Create a connection {#create-connection}
+
+Create a [connection](../../datalens/concepts/connection.md) to the source data file.
+
+
+1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.
+
+
+
+1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files**.
-
-   ![image](../../_assets/datalens/solution-01/03-choose-file.png)
-
-1. Select the file. For this example, use **SuperHeroes.csv** ([download link](https://storage.yandexcloud.net/datalens/SuperHeroes.csv)).
-
-   Wait until the table content appears on the screen.
-
+1. Select the **SuperHeroes.csv** file. Wait until the table content appears on the screen.
 1. Click **Create connection**.
 
-   ![image](../../_assets/datalens/solution-01/04-save-file-connection.png)
+   ![image](../../_assets/datalens/solution-01/01-save-file-connection.png)
 
-1. Enter the `SuperHeroes` connection name and click **Create**.
+1. Enter `SuperHeroes` for the connection name and click **Create**.
 
-   ![image](../../_assets/datalens/solution-01/04-2-save-file-connection.png)
+## Create a dataset {#create-dataset}
 
-1. After the data is saved, click **Create dataset**.
+Create a [dataset](../../datalens/dataset/index.md) based on the `SuperHeroes` connection:
 
-   ![image](../../_assets/datalens/solution-01/05-create-dataset_file_connection.png)
-
-## Step 2. Create a dataset {#step2}
-
-1. If there is no **SuperHeroes.csv** table in the workspace, drag the table from the selection panel to the workspace.
-
-   ![image](../../_assets/datalens/solution-01/06-Drag-Table-file.png)
-
+1. In the top-right corner of the connection page, click **Create dataset**.
 1. Go to the **Fields** tab.
-
-   ![image](../../_assets/datalens/solution-01/07-Fields-Tab.png)
-
 1. Create a field for the superheros's average weight:
 
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the **Weight** row.
-   1. Select **Duplicate**.
+   1. Duplicate the `Weight` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Duplicate**.
+   1. Rename the `Weight (1)` duplicate field as `Weight avg`: click the field name, delete the current name, and enter the new one.
+   1. In the **Aggregation** column, select **Average**. The aggregation field will change its color to blue: it is now a measure.
 
-      ![image](../../_assets/datalens/solution-01/08-Weight-Duplication.png)
+      ![image](../../_assets/datalens/solution-01/03-weght-avg.png)
 
-   1. Rename the **Weight (1)** duplicate field to **Weight avg**: click the row name, delete the current name, and enter the new one.
-   1. In the **Aggregation** column, select **Average** for the **Weight avg** field.
-
-      ![image](../../_assets/datalens/solution-01/09-Weght-AVG.png)
-
-1. In the top-right corner, click **Save**.
-
-   ![image](../../_assets/datalens/solution-01/10-Save-Dataset.png)
-
-1. Enter a name for the dataset: **SuperHeroes dataset**, then click **Create**.
-
-1. When the dataset is saved, click **Create chart**.
-
-   ![image](../../_assets/datalens/solution-01/11-Create-Chart.png)
-
-## Step 3. Create the first chart {#step3}
-
-To visualize data by gender, create a bar chart type [chart](../../datalens/concepts/chart/index.md).
-
-1. Add the names of superheroes to the chart. To do this, drag the **Name** field from **Dimensions** to the **X** section.
-1. Add the superheroes' weight to the chart. To do this, drag the **Weight avg** field from **Measures** to the **Y** section.
-
-   ![image](../../_assets/datalens/solution-01/12-Chart-XY.png)
-
-1. Sort the chart by weight, e.g., in descending order.
-
-   1. From the first column in **Measures**, drag the **Weight avg** field to the **Sorting** section.
-
-      ![image](../../_assets/datalens/solution-01/13-Chart-Sort.png)
-
-1. Leave only the superheroes whose weight is known (greater than zero) on the chart.
-
-   1. From the first column in **Measures**, drag the **Weight avg** field to the **Filters** section.
-   1. In the window that opens, specify the **Greater than** operator and the **0** value.
-   1. Click **Apply filter**.
-
-      ![image](../../_assets/datalens/solution-01/14-Chart-Filter.png)
-
-1. Add a color division for superheroes depending on their gender to the chart. To do this, drag the **Gender** field from **Dimensions** to the **Colors** section.
-
-   ![image](../../_assets/datalens/solution-01/15-Chart-Color.png)
-
-1. Redefine the colors for the **Gender** dimension.
-
-   1. Click the settings icon in the **Colors** section.
-
-      ![image](../../_assets/datalens/solution-01/16-Chart-Color-Set-Buttun.png)
-
-   1. Select the colors: pink for **Female**; blue for **Male**; orange for **unknown**.
-
-      ![image](../../_assets/datalens/solution-01/17-Chart-Color-Set1.png)
-
-1. Save the chart.
+1. Save the dataset:
 
    1. In the top-right corner, click **Save**.
+   1. Enter `SuperHeroes dataset` for the dataset name and click **Create**.
 
-      ![image](../../_assets/datalens/solution-01/18-Chart-Save.png)
+## Create the first chart {#create-column-chart1}
 
-   1. In the window that opens, enter a name for the chart: **SuperHeroes — gender**, then click **Save**.
+To visualize data by gender, create a [bar chart](../../datalens/visualization-ref/column-chart.md).
 
-## Step 4. Create the second chart {#step4}
+1. Click **Create chart** in the top-right corner of the dataset page.
+1. Add superhero names to the chart. To do this, drag the `Name` field from **Dimensions** to the **X** section.
+1. Add superhero weights to the chart. To do this, drag the `Weight avg` field from **Measures** to the **Y** section.
+1. Sort columns by descending weight. To do this, drag the `Weight avg` field from **Measures** to the **Sorting** section.
 
-To visualize whether a superhero is good or bad, create a bar chart.
+   ![image](../../_assets/datalens/solution-01/04-chart-section-1.png)
 
-1. Copy the chart from the previous step.
+1. Color code superheros in the chart based on gender. To do this, drag the `Gender` field from **Dimensions** to the **Colors** section.
+1. Redefine the colors for the `Gender` dimension:
 
-   1. Click the down arrow next to the **Save** button in the top-right corner.
-   1. Click **Save as**.
+   1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon is displayed when you hover over the section).
+   1. Select colors: Pink for **Female**; blue for **Male**; orange for **unknown**.
+   1. Click **Apply**.
 
-      ![image](../../_assets/datalens/solution-01/19-Chart-SaveAs.png)
+      ![image](../../_assets/datalens/solution-01/06-chart-color-set1.png)
 
-   1. In the window that opens, enter the name of the new chart: **SuperHeroes — alignment**.
-   1. Click **Done**.
+1. Leave on the chart only those superheroes whose weight is known (greater than zero):
 
-1. Color code superheros in the chart based on whether they are good or bad. To do this, drag the **Alignment** field from **Dimensions** to the **Colors** section.
+   1. Drag the `Weight avg` field from **Measures** to the **Filters** section.
+   1. In the window that opens, specify the **Greater than** operator and the **0**value.
+   1. Click **Apply filter**.
 
-   The previous section (**Gender** field) value will be replaced with **Alignment**.
+   ![image](../../_assets/datalens/solution-01/05-chart-section-2.png)
 
-   ![image](../../_assets/datalens/solution-01/20-Charts-Alignment.png)
+1. Save the chart:
 
-1. Redefine the colors for the **Alignment** dimension.
+   1. In the top-right corner, click **Save**.
+   1. In the window that opens, enter `SuperHeroes — gender` for chart name and click **Save**.
 
-   1. Click the settings icon in the **Colors** section.
-   1. Select the colors: green for **good**; blue for **neutral**; red for **bad**; orange for **unknown**.
+   ![image](../../_assets/datalens/solution-01/08-chart-save.png)
 
-      ![image](../../_assets/datalens/solution-01/21-Chart-Color-Set2.png)
+## Create the second chart {#create-column-chart2}
 
-1. In the top-right corner, click **Save**.
+To visualize superheros as good or bad, create the second chart – a bar chart.
 
-## Step 5. Create a dashboard {#step5}
+1. Copy the chart you created in the previous step:
 
-Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
+   1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Click **Create dashboard**.
+      ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)      
 
-   ![image](../../_assets/datalens/solution-01/22-Create-Dashboard.png)
+   1. In the window that opens, enter the `SuperHeroes — alignment` name for the new chart and click **Save**.
 
-## Step 6. Add charts to the dashboard {#step6}
+1. Replace the gender color code with the good-bad color code. To do this, drag the `Alignment` field from **Dimensions** to the **Colors** section and hold it over the `Gender` field until the latter turns red.
+1. Redefine the colors for the `Alignment` dimension:
 
-1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the top-right corner.
+    1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon is displayed when you hover over the section).
+    1. Select the colors: green for **good**; blue for **neutral**; red for **bad**; orange for **unknown**.
 
-   ![image](../../_assets/datalens/solution-01/23-Dash-Edit.png)
+1. Save your chart: click **Save** in the top-right corner.
 
-1. Click **Add**.
-1. Choose **Chart**.
+   ![image](../../_assets/datalens/solution-01/10-chart-alignment.png)
 
-   ![image](../../_assets/datalens/solution-01/24-Dash-Add-Chart.png)
+## Create a dashboard and add charts to it {#create-dashboard}
 
-1. In the window that opens, click **Select** and choose the **SuperHeroes — gender** chart.
+Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and other widgets to:
 
-   This will automatically fill in the **Name** field.
 
-1. Click **Add**.
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Tutorials` workbook.
+1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
 
-   ![image](../../_assets/datalens/solution-01/25-Dash-Gender-Add.png)
 
-1. Add another chart. Perform step 6 from the beginning and specify the **SuperHeroes — alignment** chart in item 4.
 
-   ![image](../../_assets/datalens/solution-01/26-Dash-Aligmnnent-Add.png)
+1. In the panel at the bottom of the page, select **Chart**.
 
-## Step 7. Add selectors to the dashboard {#step7}
+   ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)   
 
-Add [selectors](../../datalens/dashboard/selector.md) to be able to filter superheroes by race (**Race** field) and publisher (**Publisher** field).
-
-1. Click **Add**.
-1. Choose **Selector**.
-
-   ![image](../../_assets/datalens/solution-01/27-Add-Selector.png)
-
-1. Select the **SuperHeroes dataset**.
-1. Select the **Race** field.
-
-   This will automatically fill in the **Name** field.
-
-1. Click the **Show** checkbox next to the selector title.
-1. Enable the **Multiple choice** option.
+1. In the window that opens, click **Select**.
+1. Choose the `SuperHeroes — gender` chart.
 1. Click **Add**.
 
-   ![image](../../_assets/datalens/solution-01/28-Selector-Race.png)
+   ![image](../../_assets/datalens/solution-01/12-add-chart-window.png)
 
-1. Add another selector. Perform step 7 from the beginning and specify the **Publisher** field in item 4.
+1. Repeat steps 3-6 to add the `SuperHeroes — alignment` chart.
+1. Adjust the size of the charts with your mouse and place them on the dashboard as you prefer.
 
-   ![image](../../_assets/datalens/solution-01/29-Selector-Publisher.png)
+   ![image](../../_assets/datalens/solution-01/13-dashboard1.png)
 
-## Step 8. Set up widgets and start analyzing dependencies {#step8}
+## Add selectors to the dashboard {#add-selectors}
 
-1. Drag the selectors to the top of the page next to each other.
-1. Stretch the charts by width and place them next to each other.
-1. In the top-right corner, click **Save**.
 
-   ![image](../../_assets/datalens/solution-01/30-Dash.png)
+Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by race (`Race` field) and publisher (`Publisher` field).
 
-1. Enter **SuperHeroes dashboard** for the dashboard name and click **Create**.
+1. In the panel at the bottom of the page, choose **Selector**.
+
+   ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)   
+
+1. Add a selector for race:
+
+   1. Select `SuperHeroes dataset`.
+   1. Select the `Race` field.
+   1. Enable **Multiple choice**.
+   1. Click **Save**.
+
+   ![image](../../_assets/datalens/solution-01/15-selector-race.png)
+
+1. Add a selector for publisher:
+
+   1. Make sure you selected the `SuperHeroes dataset` dataset.
+   1. Select the `Publisher` field.
+   1. Enable **Multiple choice**.
+   1. Click **Save**.
+
+1. Position the selectors on the dashboard however you like.
+1. Save the dashboard:
+
+   1. In the top-right corner of the dashboard, click **Save**.
+   1. Enter `SuperHeroes dashboard` for the dashboard name and click **Create**.
+
+1. Your dashboard is ready.
+
+   ![image](../../_assets/datalens/solution-01/16-dashboard-saved.png)
+
+## Analyze data about superheroes {#search-on-dashboard}
+
 1. Apply various filters and analyze the weight dependencies on a superhero's gender and good or bad alignment.
 
-   ![image](../../_assets/datalens/solution-01/31-Final-Dash.png)
+   ![image](../../_assets/datalens/solution-01/17-final-dashboard.png)
 
    The dataset analyzed shows the following dependencies:
-   - Men are generally heavier than women.
-   - Bad superheroes are mostly heavier than good ones.
 
-## Step 9. Continue to analyze the data about superheroes {#step9}
+   * Men are generally heavier than women.
+   * Bad superheroes are mostly heavier than good ones.
 
-You can create new measures in the dataset, such as average height (average from the **Height** field) and the number of superheroes (number of unique entries from the **Name** field) and answer the following questions:
+1. You can create new measures in the dataset, e.g., average height (`Height` field average) and number of superheroes (number of unique entries from the `Name` field), and answer the following questions:
 
-- Representatives of which race are the most numerous?
-- Does a superhero's height depend on whether they are good or bad?
-- Which studio created the most superheroes?
+   * Which race is the most numerous?
+   * Is there a dependency between a superhero's height and their being good or bad?
+   * Which studio created the most superheroes?

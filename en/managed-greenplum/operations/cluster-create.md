@@ -1,4 +1,4 @@
-# Creating a {{ GP }} cluster
+# Creating an {{ GP }} cluster
 
 
 A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
@@ -168,7 +168,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            --subnet-id=<subnet_ID> \
            --assign-public-ip=<public_access_to_hosts> \
            --security-group-ids=<list_of_security_group_IDs> \
-           --deletion-protection=<cluster_deletion_protection>
+           --deletion-protection
         ```
 
         {% note info %}
@@ -184,7 +184,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `PRODUCTION`: For stable versions of your apps.
             * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
-        * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
+        * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
         * `--master-config` and `--segment-config`: Master and segment host configuration:
             * `resource-id`: [Host class](../concepts/instance-types.md).
@@ -199,7 +199,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You need to specify the ID if the selected availability zone has two or more subnets.
         * `--assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-a-host) to the hosts is required, `true` or `false`.
         * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-        * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
+        * `--deletion-protection`: Cluster deletion protection.
 
 
             {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -471,21 +471,21 @@ To create an {{ GP }} cluster copy:
     Create a {{ mgp-name }} cluster with the following test specifications:
 
 
-    * Name: `gp-cluster`
-    * Version: `{{ versions.cli.latest }}`
-    * Environment: `PRODUCTION`
-    * Network: `default`
-    * User: `user1`
-    * Password: `user1user1`
+    * Name: `gp-cluster`.
+    * Version: `{{ versions.cli.latest }}`.
+    * Environment: `PRODUCTION`.
+    * Network: `default`.
+    * User: `user1`.
+    * Password: `user1user1`.
     * Master and segment hosts:
 
         * Class: `s2.medium`
         * With 100 GB local SSD (`local-ssd`) storage
 
-    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`
-    * With public access to hosts
-    * Security group: `{{ security-group }}`
-    * With protection against accidental cluster deletion
+    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.
+    * With public access to hosts.
+    * Security group: `{{ security-group }}`.
+    * With protection against accidental cluster deletion.
 
 
     Run the following command:
@@ -509,7 +509,7 @@ To create an {{ GP }} cluster copy:
        --subnet-id={{ subnet-id }} \
        --assign-public-ip=true \
        --security-group-ids={{ security-group }} \
-       --deletion-protection=true
+       --deletion-protection
     ```
 
 

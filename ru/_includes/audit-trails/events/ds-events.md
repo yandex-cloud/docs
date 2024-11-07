@@ -1,5 +1,7 @@
 Имя события | Описание
 --- | ---
+`ActivateDataset` | Активация датасета
+`ActivateDocker` | Применение Docker-образа для проекта
 `CancelJob` | Отмена задания
 `CloneJob` | Клонирование задания
 `CloseProject` | Закрытие проекта
@@ -7,6 +9,11 @@
 `CreateJob` | Создание задания
 `CreateNode` | Создание ноды
 `CreateProject` | Создание проекта
+`CreateDataset` | Создание датасета
+`CreateDocker` | Создание Docker-образа
+`DeactivateDataset` | Деактивация датасета
+`DeleteDataset` | Удаление датасета
+`DeleteDocker` | Удаление Docker-образа
 `DeleteAllJobData` | Удаление данных всех заданий
 `DeleteCommunity` | Удаление сообщества
 `DeleteJobData` | Удаление данных задания

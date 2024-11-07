@@ -13,6 +13,8 @@ items:
             href: operations/organizations-overview.md
           - name: Creating an organization
             href: operations/enable-org.md
+          - name: Getting organization ID
+            href: operations/organization-get-id.md
           - name: Editing organization data
             href: operations/org-profile.md
           - name: Managing multiple organizations
@@ -43,13 +45,13 @@ items:
             href: operations/add-member-group.md
           - name: Editing a group
             href: operations/edit-group.md
-          - name: Configuring group management access
+          - name: Setting up permissions to manage a group
             href: operations/access-manage-group.md
           - name: Granting permissions to a group
             href: operations/access-group.md
           - name: Deleting members
             href: operations/delete-member-group.md
-          - name: Deleting a group
+          - name: Delete a group
             href: operations/delete-group.md
       - name: Managing identity federations
         items:
@@ -125,7 +127,7 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
-      - name: Authentication errors with Yandex account
+      - name: Authentication errors when using a Yandex account
         href: yandex-id-diagnostics.md
   - name: Access management
     href: security/index.md
@@ -259,7 +261,7 @@ items:
                 href: api-ref/grpc/UserSshKey/update.md
               - name: Delete
                 href: api-ref/grpc/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/grpc/index.md
@@ -413,7 +415,7 @@ items:
                 href: api-ref/UserSshKey/update.md
               - name: Delete
                 href: api-ref/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/index.md

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/list.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederationService.List {#List}
+# Federation, gRPC: FederationService.List {#List}
 
 Retrieves the list of OIDC workload identity federations in the specified folder.
 

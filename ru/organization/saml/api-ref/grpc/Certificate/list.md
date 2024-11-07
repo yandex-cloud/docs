@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/list.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.List {#List}
+# SAML Federation API, gRPC: CertificateService.List {#List}
 
 Retrieves the list of certificates in the specified federation.
 

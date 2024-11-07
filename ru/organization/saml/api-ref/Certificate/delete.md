@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/delete.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.Delete {#Delete}
+# SAML Federation API, REST: Certificate.Delete {#Delete}
 
 Deletes the specified certificate.
 

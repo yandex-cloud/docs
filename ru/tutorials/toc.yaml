@@ -34,7 +34,7 @@ items:
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: security/static-key-in-lockbox.md
       - name: >-
-          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: security/sa-oslogin-ansible.md
       - name: Организация защищенного доступа к контенту в {{ cdn-name }}

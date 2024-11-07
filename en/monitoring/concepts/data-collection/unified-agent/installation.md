@@ -16,6 +16,7 @@ description: In this tutorial, you will learn about installing and running {{ un
 - Fedora CoreOS (Docker image)
 
 
+
 ## Before you begin installation {#before-you-begin}
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
@@ -108,13 +109,13 @@ Install {{ unified-agent-short-name }} using one of the following methods:
         * `ubuntu-20.04-focal`
         * `ubuntu-22.04-jammy`, starting with version `23.03.02`
 
-      You can also download a specific {{ unified-agent-short-name }} version. To do this, view all available versions and specify the required one instead of the `latest-version` value:
+      You can also download a specific {{ unified-agent-short-name }} version. To do this, check the available versions and specify the one you need instead of the `latest-version` value:
 
       ```(bash)
       curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
       ```
 
-  1. Check the version of the deb package using the `ls` command.
+  1. Check the deb package version using the `ls` command.
   1. Install the deb package:
 
       ```bash
@@ -199,7 +200,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
   
-  Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and begin providing basic VM metrics to {{ monitoring-full-name }}.
+  Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and start sending basic VM metrics to {{ monitoring-full-name }}.
   
   You are responsible for updating and maintaining the agent.
 

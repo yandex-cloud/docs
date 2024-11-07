@@ -166,7 +166,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Where `unified_agent_url` is the VM's public IP address with {{ unified-agent-short-name }}.
 
-   By default {{ unified-agent-short-name }} accepts data on all interfaces. Therefore, you can specify a public IP address even if the log source is on the same VM. If there is no public address, put `localhost`.
+   By default, {{ unified-agent-short-name }} accepts data on all interfaces. Therefore, you can specify a public IP address even if the log source is on the same VM. If there is no public address, put `localhost`.
 
 1. Upgrade the versions of installed packages:
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/list.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.List {#List}
+# Access Key, REST: AccessKey.List {#List}
 
 Retrieves the list of access keys for the specified service account.
 

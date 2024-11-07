@@ -19,7 +19,7 @@ Such key is managed on the user side, which provides additional opportunities:
 
 * Auditing [events](../../kms/at-ref.md) related to the key usage with [{{ at-full-name }}](../../audit-trails/).
 * Tracking operations with keys using [{{ monitoring-full-name }}](../../monitoring/).
-* [Operations with keys](../../kms/operations/index.md#symmetric-encryption), namely: rotation, update, deactivation, and deletion.
+* [Operations with keys](../../kms/operations/index.md#symmetric-encryption), such as rotation, modification, deactivation, and deletion.
 * Granular management of [access permissions to the key](../../kms/security/index.md) at the level of individual [{{ yandex-cloud }} accounts](../../iam/concepts/users/accounts.md).
 * Using the [hardware security module (HSM)](../../kms/concepts/hsm.md) when needed.
 
@@ -29,9 +29,9 @@ Such key is managed on the user side, which provides additional opportunities:
 
     {% endnote %}
 
-## Encryption of {{ k8s }} secrets {#k8s-secrets-encryption}
+## Encrypting {{ k8s }} secrets {#k8s-secrets-encryption}
 
-A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is private information the {{ k8s }} clusters use when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
+A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is confidential information used by {{ k8s }} clusters when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
 
 By default, cluster secrets are stored in an open format. If you specified an encryption key when [creating a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md), the cluster secrets will be encrypted.
 

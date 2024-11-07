@@ -43,7 +43,7 @@ locals {
   alb_zone_name    = "alb-zone"
 }
 
-# Setting up the provider
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -58,7 +58,7 @@ provider "yandex" {
   folder_id = var.folder_id
 }
 
-# Creating a service account for a VM group
+# Creating a service account for an instance group
 
 resource "yandex_iam_service_account" "ig-sa" {
   name        = local.sa_name
@@ -155,7 +155,7 @@ resource "yandex_vpc_security_group" "sg-vms" {
   }
 }
 
-# Importing the site's TLS certificate
+# Importing a website’s TLS certificate
 
 resource "yandex_cm_certificate" "imported-cert" {
   name    = local.cert_name
@@ -166,7 +166,7 @@ resource "yandex_cm_certificate" "imported-cert" {
   }
 }
 
-# Creating a VM group for the site
+# Creating an instance group for a website
 
 resource "yandex_compute_image" "lemp-image" {
   source_family = "lemp"
@@ -199,7 +199,7 @@ resource "yandex_compute_instance_group" "site-ig" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+      user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
     }
   }
 
@@ -340,7 +340,7 @@ resource "yandex_dns_zone" "alb-zone" {
   public      = true
 }
 
-# Creating a resource record in the DNS zone
+# Creating a resource record in a DNS zone
 
 resource "yandex_dns_recordset" "alb-record" {
   zone_id = yandex_dns_zone.alb-zone.id

@@ -80,8 +80,9 @@ These may be UPNs or user email addresses. ||
               "string"
             ]
           }
-        }
+        },
         // end of the list of possible fields
+        "lastAuthenticatedAt": "string"
       }
     ]
   }
@@ -195,7 +196,7 @@ List of users created by [FederationService.AddUserAccounts](#AddUserAccounts) r
 
 ## UserAccount {#yandex.cloud.iam.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -212,12 +213,20 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 A SAML federated user.
 
 Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
+|| lastAuthenticatedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## YandexPassportUserAccount {#yandex.cloud.iam.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||

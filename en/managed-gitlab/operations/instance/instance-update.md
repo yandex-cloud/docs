@@ -1,8 +1,8 @@
 # Editing instance settings
 
-After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can change its name and description, configure protection against accidental deletion by the user, and change the retention period for automatic backups. You cannot change other settings.
+After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can edit the general and advanced instance settings yourself. Instance type and disk size can be changed only by contacting [support]({{ link-console-support }}). You cannot change other settings.
 
-## Changing instance settings {#change-settings}
+## Changing general and advanced instance settings {#change-settings}
 
 {% list tabs group=instructions %}
 
@@ -26,7 +26,13 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
       * To activate the approval rules, specify a [{{ GL }} token](../approval-rules.md#gitlab-token).
 
-  1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion for untagged images. This setting affects the amount of free disk space on the instance.
+  1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion for untagged images. The setting affects the free disk space on the instance.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
+
+## Changing instance type or disk size {#change-type-instance}
+
+To increase the disk size (e.g., from `s2.micro` to `s2.small`) or change the instance type, contact [support]({{ link-console-support }}).
+
+You cannot reduce the disk size.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/create.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederatedCredentialService.Create {#Create}
+# Workload Identity, gRPC: FederatedCredentialService.Create {#Create}
 
 Creates a federated credential for the specified service account.
 

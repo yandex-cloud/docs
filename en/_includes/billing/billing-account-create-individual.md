@@ -2,7 +2,7 @@ To create a billing account:
 
 1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 
-1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) to work in [{{org-full-name}}]({{link-org-main}}). If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
+1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) to work in [{{ org-full-name }}]({{ link-org-cloud-center }}). If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
 1. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, click **Create billing account**. Fill in your information:
 
@@ -10,7 +10,7 @@ To create a billing account:
    * {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
    * {% include [choose-country-step](../../billing/_includes/choose-country-step.md) %}
 
-      {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+     {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** section, you can select one of them or add a new one. To add a payer:
 

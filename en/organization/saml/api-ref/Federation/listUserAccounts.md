@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/listUserAccounts.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.ListUserAccounts {#ListUserAccounts}
+# SAML Federation API, REST: Federation.ListUserAccounts {#ListUserAccounts}
 
 Lists users for the specified federation.
 
@@ -92,7 +92,7 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 ## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -114,7 +114,7 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 ## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||

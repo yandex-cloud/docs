@@ -51,13 +51,13 @@ When [creating a pivot table](#create-diagram), you can use these advanced setti
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 Columns | Dimensions
-Strings | Dimensions
-Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**.
+Rows | Dimensions
+Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. You can move `Measure Names` to **Rows**.
 Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure.
-Sorting | Dimensions and measures under **Columns** and **Rows**. Multiple dimensions and measures can be used.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only impacts a query to the source and does not affect the pivot table.
+Sorting | Dimensions and measures under **Columns** and **Rows**. You can use multiple dimensions and measures.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only impacts a request to the source and does not affect the pivot table.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a pivot table {#create-diagram}
@@ -101,14 +101,14 @@ To create a pivot table:
 ### Adding a tooltip to a table header {#hint-column}
 
 1. Under **Rows**, click the icon to the left of the dimension or measure name.
-1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
+1. In the window that opens, enable the **Tooltip** option, enter the text in the field below, and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
 
 When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
-### Setting up the width of table columns and rows {#set-column-width}
+### Setting the width of table columns and rows {#set-column-width}
 
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
-1. In the **Column and row width** window that opens, set up the width of columns and rows:
+1. Under **Width**, select the values for columns and rows:
 
    * `Auto`: Automatic column/row width.
    * `%`: Column/row width as a percentage of the table's total width.
@@ -135,7 +135,7 @@ You can only freeze columns generated from dimensions in the **Rows** section.
 {% endnote %}
 
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
-1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will be frozen in place as you scroll horizontally.
+1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
 ### Adding rows with subtotals {#add-totals}
@@ -161,7 +161,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% endnote %}
 
-### Setting up a field fill color {#set-field-color}
+### Setting the field fill color {#set-field-color}
 
 1. Under **Columns**, **Rows**, or **Measures**, click the icon to the left of the field name.
 1. In the window that opens, enable **Column fill color**.
@@ -183,7 +183,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
    - For a measure {#indicator}
 
-     1. Click the gradient selection field and set up:
+     1. Click the gradient selection field and set the following properties:
 
         * **Gradient type**: Select two or three colors.
 
@@ -271,4 +271,4 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 * Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
-* When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10.3 M` rather than `10,345,234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
+* When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.

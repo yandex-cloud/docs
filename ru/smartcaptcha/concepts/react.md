@@ -53,7 +53,7 @@
 ||`onChallengeVisible`|`() => void` \| `undefined`|Метод вызывается, когда появляется всплывающее окно с заданием.||
 ||`onChallengeHidden`|`() => void` \| `undefined`|Метод вызывается, когда закрывается всплывающее окно с заданием.||
 ||`onNetworkError`|`() => void` \| `undefined`|Метод вызывается, когда происходит ошибка сети.||
-||`onJavaScriptError`|`(error: { filename: string, message: string,` 
+||`onJavascriptError`|`(error: { filename: string, message: string,` 
 `col: number, line: number }) => void` \| `undefined`
 |
 Метод вызывается, когда происходит критическая ошибка в работе JavaScript.||
@@ -89,7 +89,7 @@ export const ComponentWithCaptcha = () => {
 ||`onChallengeVisible`|`() => void` \| `undefined`|Метод вызывается, когда появляется всплывающее окно с заданием.||
 ||`onChallengeHidden`|`() => void` \| `undefined`|Метод вызывается, когда закрывается всплывающее окно с заданием.||
 ||`onNetworkError`|`() => void` \| `undefined`|Метод вызывается, когда происходит ошибка сети.||
-||`onJavaScriptError`|`(error: { filename: string, message: string,` 
+||`onJavascriptError`|`(error: { filename: string, message: string,` 
 `col: number, line: number }) => void` \| `undefined`
 |
 Метод вызывается, когда происходит критическая ошибка в работе JavaScript.||
@@ -133,7 +133,7 @@ export const InvisibleCaptcha = () => {
 * `onChallengeVisible`
 * `onChallengeHidden`
 * `onNetworkError`
-* `onJavaScriptError`
+* `onJavascriptError`
 * `onSuccess`
 * `onTokenExpired`
 
@@ -162,7 +162,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
 
-  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError'] = useCallback((error) => {
+  const handleJavaScriptError: SmartCaptchaProps['onJavascriptError'] = useCallback((error) => {
     setStatus('javascript-error');
     logError(error);
   }, []);
@@ -175,7 +175,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeVisible={handleChallengeVisible}
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
-        onJavaScriptError={handleJavaScriptError}
+        onJavascriptError={handleJavaScriptError}
         onSuccess={handleSuccess}
         onTokenExpired={handleTokenExpired}
       />

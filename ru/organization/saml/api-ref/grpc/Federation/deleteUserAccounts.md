@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/deleteUserAccounts.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.DeleteUserAccounts {#DeleteUserAccounts}
+# SAML Federation API, gRPC: FederationService.DeleteUserAccounts {#DeleteUserAccounts}
 
 Deletes users from the specified federation.
 

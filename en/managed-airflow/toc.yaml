@@ -7,10 +7,14 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
       - name: Creating a cluster
         href: operations/cluster-create.md
       - name: Updating a cluster
         href: operations/cluster-update.md
+      - name: Stopping and starting a cluster
+        href: operations/cluster-stop.md
       - name: Working with {{ AF }} interfaces
         href: operations/af-interfaces.md
       - name: Uploading DAG files to a cluster

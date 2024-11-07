@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/get.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.Get {#Get}
+# SAML Federation API, gRPC: FederationService.Get {#Get}
 
 Returns the specified federation.
 

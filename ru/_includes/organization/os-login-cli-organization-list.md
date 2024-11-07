@@ -1,4 +1,4 @@
-Получите идентификатор организации, в которой находится нужный профиль OS Login пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+Получите идентификатор организации, в которой находится нужный [профиль {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
 
 ```bash
 yc organization-manager organization list

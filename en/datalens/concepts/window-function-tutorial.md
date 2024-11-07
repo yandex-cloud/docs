@@ -185,7 +185,7 @@ The calculation order is changed when you need to calculate the function value f
 
 **Example**
 
-You need to calculate the change in the total sales amount (`IncTotal`) from `17/01/2014` to `11/03/2014`. If you add the `Date` dimension filter and create the `RSUM(SUM([Sales]) TOTAL ORDER BY [Date])` measure, the function will be calculated only for the data limited by the filter:
+You need to calculate the change in the total sales amount (`IncTotal`) from `17.01.2014` to `11.03.2014`. If you add the `Date` dimension filter and create the `RSUM(SUM([Sales]) TOTAL ORDER BY [Date])` measure, the function will be calculated only for the data limited by the filter:
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-6.png)
 

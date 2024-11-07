@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/point-of-presence/index.md
 
 # yc cic point-of-presence
 
-Manage point of presences.
+[PREVIEW] Manage point of presences.
 
 #### Command Usage
 

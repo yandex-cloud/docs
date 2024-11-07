@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cloudrouter/routing-instance/in
 
 # yc cloudrouter routing-instance
 
-Manage routingInstances.
+[PREVIEW] Manage routingInstances.
 
 #### Command Usage
 

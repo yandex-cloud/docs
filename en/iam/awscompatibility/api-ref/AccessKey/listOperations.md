@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/listOperations.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.ListOperations {#ListOperations}
+# Access Key, REST: AccessKey.ListOperations {#ListOperations}
 
 Retrieves the list of operations for the specified access key.
 

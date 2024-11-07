@@ -220,7 +220,7 @@ We recommend that you only allow access to your cloud infrastructure through con
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled; if the `SG_ID` is not empty, proceed to **Guides and solutions to use**.
 
 {% endlist %}
 
@@ -388,7 +388,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to the **Guides and solutions to use**.
   1. Run the command below to see if there is a NAT instance:
 
      ```bash

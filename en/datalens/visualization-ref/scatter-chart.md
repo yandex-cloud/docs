@@ -28,10 +28,10 @@ You can use a gradient in a chart by adding a measure to the **Color** section. 
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
-X | Dimension or measure. Sets the X-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Y | Dimension or measure. Sets the Y-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+X | Dimension or measure. Sets the X-axis value. You can set fields with the `String` type to use the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Y | Dimension or measure. Sets the Y-axis value. You can set fields with the `String` type to use the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Points | Dimension. Specifies the number of points on the chart.
 Point size | Measure. Sets point size depending on the measure value.
 Colors | Dimension or measure. Affects the color of points.

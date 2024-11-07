@@ -67,5 +67,5 @@ Syntax:
 - [yc smartcaptcha](managed-services/smartcaptcha/index.md) — Manage Yandex SmartCaptcha resources
 - [yc smartwebsecurity](managed-services/smartwebsecurity/index.md) — Manage Yandex SmartWebSecurity resources
 - [yc managed-airflow](managed-services/managed-airflow/index.md) — Manage Airflow clusters.
-- [yc cloudrouter](managed-services/cloudrouter/index.md) — Manage Yandex Cloud Router resources
-- [yc cic](managed-services/cic/index.md) — Manage Yandex Cloud Interconnect resources
+- [yc cloudrouter](managed-services/cloudrouter/index.md) — [PREVIEW] Manage Yandex Cloud Router resources
+- [yc cic](managed-services/cic/index.md) — [PREVIEW] Manage Yandex Cloud Interconnect resources

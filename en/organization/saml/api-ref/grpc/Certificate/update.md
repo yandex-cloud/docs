@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/update.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.Update {#Update}
+# SAML Federation API, gRPC: CertificateService.Update {#Update}
 
 Updates the specified certificate.
 

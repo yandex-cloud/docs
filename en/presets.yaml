@@ -19,6 +19,7 @@ default:
   api-gw-name: API Gateway
   api-gw-short-name: API Gateway
   api-host: api.cloud.yandex.net
+  api-host-airflow: airflow.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -93,6 +94,8 @@ default:
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
   cloud-apps-name: Cloud Apps
+  cloud-center: Cloud Center
+  cloud-center-link: https://center.yandex.cloud
   cloud-desktop-full-name: Yandex Cloud Desktop
   cloud-desktop-name: Cloud Desktop
   cloud-logging-full-name: Yandex Cloud Logging
@@ -300,6 +303,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.yandex.cloud
   link-org-acl: https://org.yandex.cloud/acl
+  link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-main: https://org.yandex.cloud/
   link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
@@ -787,6 +791,7 @@ default:
   yc-dt: yc datatransfer
   yc-install-path: /yandexcloud-yc/install.sh
   yc-k8s: yc managed-kubernetes
+  yc-mdb-af: yc managed-airflow
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-es: yc managed-elasticsearch
   yc-mdb-gp: yc managed-greenplum
@@ -5483,7 +5488,6 @@ default:
           title_tab-members: Members
         invitation:
           action_send-invitation: Send invitation
-          label_option-actual: Pending
           label_row-action-delete: Delete invitation
           label_row-action-resend: Resend
         oslogin-profile:
@@ -5559,23 +5563,11 @@ default:
       page:
         acl-diagnostics:
           action_select-subject: Select subject
-        context:
-          action:
-            create: Create new organization
         federation:
           link:
             download-cert: Download certificate
           section:
             certificates: Certificates
-        services:
-          clouds:
-            create: Create cloud
-          service:
-            console:
-              title_ru: Yandex Cloud management console
-        settings:
-          action:
-            edit: Edit data
         user:
           title_tab-os-login: OS Login profiles
           title_tab-ssh-keys: SSH keys
@@ -5586,14 +5578,10 @@ default:
           label_tab-invitations: Invitations
       pages:
         acl: Access bindings
-        create: Create organization
         federations: Federations
         groups: Groups
-        notifications: Notifications
         oslogin:
           title: Security settings
-        raw_services: Clouds & services
-        settings: Organization information
         users: Users
     yacloud_portal:
       acl:
@@ -6329,6 +6317,8 @@ default:
           label_serverless-containers: Serverless Containers
           label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
+        password-input:
+          label_button-generate: Generate
         security-group-field:
           label_sg-auto: Auto
           label_sg-from-list: From list
@@ -8986,11 +8976,19 @@ default:
                         title: Bucket
                       endpoint:
                         title: Endpoint
+                      service_account_id:
+                        title: Service account
                       title: Connection settings
                       use_ssl:
                         title: Use SSL
                       verify_ssl_cert:
                         title: Verify SSL certificate
+                    OBJECT_STORAGE_UNPARSED_CONTINUE:
+                      title: Continue
+                    OBJECT_STORAGE_UNPARSED_FAIL:
+                      title: Fail
+                    OBJECT_STORAGE_UNPARSED_RETRY:
+                      title: Retry
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
                         title: Row time column name
@@ -9075,8 +9073,13 @@ default:
                           title: Parquet
                       path_pattern:
                         title: Path pattern
+                      path_prefix:
+                        title: Path prefix
                       result_schema:
                         title: Result table schema
+                    ObjectStorageSourceAdvancedSettings:
+                      unparsed_mode:
+                        title: Unparsed mode
                     ObjectStorageTarget:
                       advanced_settings:
                         title: Advanced settings

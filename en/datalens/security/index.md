@@ -8,8 +8,8 @@ description: In this tutorial, you will learn about {{ datalens-short-name }} ac
 
 Access to {{ datalens-full-name }} is managed by assigning permissions:
 
-* To a {{ datalens-short-name }} instance at the organization level: using the [organizations](../concepts/organizations.md) service.
-* To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
+* To a {{ datalens-short-name }} instance at the enterprise level: using the [organization's](../concepts/organizations.md) service.
+* To a {{ datalens-short-name }} instance at the cloud folder level: using the {{ yandex-cloud }} [console]({{ link-console-main }}).
 
 When using a firewall, allow access to external resources required to run {{ datalens-short-name }}:
 

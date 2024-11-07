@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/create.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.Create {#Create}
+# SAML Federation API, REST: Certificate.Create {#Create}
 
 Creates a certificate in the specified federation.
 

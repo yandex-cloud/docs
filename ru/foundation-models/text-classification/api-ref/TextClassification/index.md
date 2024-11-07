@@ -5,12 +5,12 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classif
 
 # Foundation Models Text Classification API, REST: TextClassification
 
-Service for classifying text from input text.
+Service for classifying the text requests provided in prompts.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Classify](classify.md) | RPC method for text classification. ||
-|| [FewShotClassify](fewShotClassify.md) | RPC method for few-shot text classification. ||
+|| [Classify](classify.md) | RPC method to classify text with tuned model. ||
+|| [FewShotClassify](fewShotClassify.md) | RPC method for binary and multi-class classification. ||
 |#

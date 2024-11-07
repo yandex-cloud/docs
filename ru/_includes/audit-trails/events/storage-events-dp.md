@@ -6,3 +6,4 @@
 `ObjectTagsDelete` | Удаление тегов объекта в бакете
 `ObjectTagsUpdate` | Изменение тегов объекта в бакете
 `ObjectUpdate` | Изменение объекта в бакете
+`PresignURLCreate` | Создание подписанной ссылки

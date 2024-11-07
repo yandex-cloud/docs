@@ -12,8 +12,8 @@ description: Follow this guide to delete an API key.
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Choose a service account and click the row with its name.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** list, find an API key to be deleted.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row of the key.
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** list, find an API key to delete.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the key row.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
@@ -21,7 +21,7 @@ description: Follow this guide to delete an API key.
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Get a list of API `ID`s for a specific service account. Specify the service account name in the `--service-account-name` parameter:
+    1. Get a list of API key `ID`s for a specific service account. Specify the service account name in the `--service-account-name` parameter:
 
         ```bash
         yc iam api-key list --service-account-name <service_account_name>
@@ -40,7 +40,7 @@ description: Follow this guide to delete an API key.
 
         The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder using the `--folder-name` or `--folder-id` flag.
 
-    1. Delete the old API key. Instead of `<ID>` specify the API key ID:
+    1. Delete the old API key. Replace `<ID>` with your API key ID:
 
         ```bash
         yc iam api-key delete <ID>
@@ -100,7 +100,9 @@ description: Follow this guide to delete an API key.
     ```bash
     export APIKEY_ID=ajeke74kbp5b********
     export IAM_TOKEN=CggaATEVAgA...
-    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+    curl \
+        --request DELETE \
+        --header "Authorization: Bearer $IAM_TOKEN" \
         https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
     ```
    You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.

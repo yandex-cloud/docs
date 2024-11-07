@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/Operation/cancel.md
 ---
 
-# Identity and Access Management API, REST: Operation.Cancel {#Cancel}
+# Access Key, REST: Operation.Cancel {#Cancel}
 
 Cancels the specified operation.
 

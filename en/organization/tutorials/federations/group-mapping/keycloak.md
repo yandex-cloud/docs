@@ -49,7 +49,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 1. Get the certificate used for signing in {{ keycloak }}:
 
-    1. Log in to the {{ keycloak }} administrator account at: `http://<{{ keycloak }}_IP_or_URL>:8080/admin`.
+    1. Log in to the {{ keycloak }} administrator account at: `http://<IP_or_URL_{{ keycloak }}>:8080/admin`.
 
         If you are using a local server from a Docker image, the default login credentials are:
 
@@ -73,53 +73,71 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 ## Create a {{ org-full-name }} federation {#create-federation}
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
+  1. In the left-hand panel, select ![icon-federation](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. You can also add a description, if required.
+  1. Click ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
+      1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter a link of the form:
+      1. You can also add a description, if required.
 
-    ```text
-    http://<{{ keycloak }}_IP_or_URL>:8080/realms/master
-    ```
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, enter a link of the form:
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter a link of the form:
 
-    ```text
-    http://<{{ keycloak }}_IP_or_URL>:8080/realms/master/protocol/saml
-    ```
+          ```text
+          http://<{{ keycloak }}_IP_or_URL>:8080/realms/master
+          ```
 
-    {% include [ssourl_protocol](../../../../_includes/organization/ssourl_protocol.md) %}
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, enter a link of the form:
 
-1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. Otherwise, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
+          ```text
+          http://<{{ keycloak }}_IP_or_URL>:8080/realms/master/protocol/saml
+          ```
 
-    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+          {% include [ssourl_protocol](../../../../_includes/organization/ssourl_protocol.md) %}
 
-1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. Otherwise, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
 
-1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-1. (Optional) Download the certificate from the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field if you previously enabled the corresponding option. You will need this certificate later when setting up the client in {{ keycloak }}.
+      1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+
+      1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+  1. (Optional) Download the certificate from the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field if you previously enabled the corresponding option. You will need this certificate later when setting up the client in {{ keycloak }}.
+
+{% endlist %}
 
 ## Add the {{ keycloak }} certificate to the federation {#add-certificate}
 
 To make sure that {{ org-name }} can verify the {{ keycloak }} server certificate during authentication, add the certificate to the federation:
 
-  1. In the left-hand panel, navigate to [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to: `demo-federation`.
+{% list tabs group=instructions %}
 
-  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+- {{ cloud-center }} interface {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+  1. Click the row with the federation you need to add a certificate for: `demo-federation`.
+
+  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**.
 
   1. Enter a name for the certificate and specify the path to the `keycloak-cert.cer` file.
+
+  1. Click **{{ ui-key.yacloud_org.actions.add }}**.
+
+{% endlist %}
 
 {% note tip %}
 
@@ -131,7 +149,7 @@ To ensure the authentication is not interrupted when the certificate expires, ad
 
 A SAML application in {{ keycloak }} acts as an identity provider (IdP). To create and set up a SAML application:
 
-1. Log in to the {{ keycloak }} administrator account at: `http://<{{ keycloak }}_IP_or_URL>:8080/admin`.
+1. Log in to the {{ keycloak }} administrator account at: `http://<IP_or_URL_{{ keycloak }}>:8080/admin`.
 
     If you are using a local server from a Docker image, the default login credentials are:
 
@@ -145,7 +163,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     1. In the **Client type** field, select **SAML**.
 
-    1. In the **Client ID** field, enter the ACS URL to redirect users to after authentication.
+    1. In the **Client ID** field, enter the ACS URL to redirect users to after successful authentication.
 
         {% cut "How to get the federation ID" %}
 
@@ -249,13 +267,29 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 ## Configure group mapping on the federation side {#org-mapping}
 
-1. [Create a user group](../../../operations/create-group.md) named `yc_demo_group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
-1. Select `demo-federation` you created previously and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
-1. Enable group mapping in the **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}** field.
-1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the group name in {{ keycloak }}: `kc_demo_group`.
-1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc_demo_group` group you created in {{ org-full-name }} from the list.
-1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} interface {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. [Create a user group](../../../operations/create-group.md) named `yc_demo_group` in {{ org-name }} and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
+
+  1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+  1. Select `demo-federation` you created previously and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
+
+  1. Enable **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+  1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+
+  1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the group name in {{ keycloak }}: `kc_demo_group`.
+
+  1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc_demo_group` group you created in {{ org-full-name }} from the list.
+
+  1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+{% endlist %}
 
 ## Test authentication {#test-auth}
 
@@ -277,6 +311,6 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 1. Enter the username and password for the test federated user (`demo_user1`) and click **Sign in**.
 
-    On successful authentication, the IdP server will redirect you to the ACS URL you specified in the {{ keycloak }} settings, and then to the [management console]({{ link-console-main }}) home page.
+    On successful authentication, the IdP server will redirect you to the ACS URL you specified in the {{ keycloak }} settings and then to the [management console]({{ link-console-main }}) home page.
 
 1. Make sure the created `demo_user1` user belongs to `yc-demo-group` and has the viewer permissions for resources according to the role assigned to the group.

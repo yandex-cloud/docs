@@ -81,8 +81,8 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
 
         * [User](../../../iam/operations/users/get.md).
-        * [Service account](../../../iam/operations/sa/get-id.md).
-        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+        * [Service account](../../../iam/operations/sa/get-id.md)
+        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
     1. Run this command:
@@ -160,8 +160,8 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
 
         * [User](../../../iam/operations/users/get.md).
-        * [Service account](../../../iam/operations/sa/get-id.md).
-        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+        * [Service account](../../../iam/operations/sa/get-id.md)
+        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
     1. Run this command:
@@ -249,8 +249,8 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+         * [Service account](../../../iam/operations/sa/get-id.md)
+         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `uri`: Public group ID. Used with the `Group` type of permission grantee. The possible values are:

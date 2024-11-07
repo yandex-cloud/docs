@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Включите](../vm-control/vm-update.md#enable-oslogin-access) на виртуальной машине доступ по {{ oslogin }}.
 
-Теперь вы можете подключиться к виртуальной машине по {{ oslogin }} как [с помощью CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль {{ oslogin }} пользователя или сервисного аккаунта в {{ org-full-name }}.
+Теперь вы можете подключиться к виртуальной машине по {{ oslogin }} как [с помощью CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль пользователя или сервисного аккаунта в организации {{ org-full-name }}.
 
 ## Отключить доступ по {{ oslogin }} {#disable-os-login}
 

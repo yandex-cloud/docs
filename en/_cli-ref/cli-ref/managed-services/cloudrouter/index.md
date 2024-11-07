@@ -4,7 +4,7 @@ editable: false
 
 # yc cloudrouter
 
-Manage Yandex Cloud Router resources
+[PREVIEW] Manage Yandex Cloud Router resources
 
 #### Command Usage
 
@@ -14,7 +14,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc cloudrouter routing-instance](routing-instance/index.md) — Manage routingInstances.
+- [yc cloudrouter routing-instance](routing-instance/index.md) — [PREVIEW] Manage routingInstances.
 	- [yc cloudrouter routing-instance get](routing-instance/get.md) — Get information about a routingInstance.
 	- [yc cloudrouter routing-instance list](routing-instance/list.md) — List routingInstances in a folder.
 

@@ -97,7 +97,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for a host, click ![image](../../_assets/console-icons/pencil.svg).
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for the host, click ![image](../../_assets/console-icons/pencil.svg).
 
 
      When configuring the hosts, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
@@ -161,7 +161,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <list_of_security_group_IDs> \
        --connection-pooling-mode=<connection_pooler_mode> \
-       --deletion-protection=<deletion_protection>
+       --deletion-protection
      ```
 
 
@@ -177,7 +177,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.
 
 
-     * `deletion-protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
+     * `deletion-protection`: Protection of the cluster, its databases, and users against deletion.
 
        By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
@@ -419,7 +419,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
+     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be placed in.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -438,7 +438,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
 
-       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -450,8 +450,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
-         * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `sessionsSamplingInterval`: Session sampling interval. Possible values: `1` to `86400` seconds.
+         * `statementsSamplingInterval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
 
      * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
 
@@ -567,7 +567,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
+     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be placed in.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -586,7 +586,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
 
-       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -597,9 +597,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled`: Enable collecting statistics.
-         * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `enabled`: Enabling statistics collection.
+         * `sessions_sampling_interval`: Session sampling interval. Possible values: `1` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
 
      * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
 
@@ -633,7 +633,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ PG }} cluster copy:
 
@@ -720,15 +720,15 @@ To create an {{ PG }} cluster copy:
   Create a {{ mpg-name }} cluster with the following test specifications:
 
 
-  * Name: `mypg`
-  * Environment: `production`
-  * Network: `default`
-  * Security group: `{{ security-group }}`
-  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-  * User: `user1`, password: `user1user1`
-  * Database: `db1`, owner: `user1`
-  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
+  * Name: `mypg`.
+  * Environment: `production`.
+  * Network: `default`.
+  * Security group: `{{ security-group }}`.
+  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+  * User: `user1`, password: `user1user1`.
+  * Database: `db1`, owner: `user1`.
+  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
   Run the following command:
@@ -746,7 +746,7 @@ To create an {{ PG }} cluster copy:
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1 \
      --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+     --deletion-protection
   ```
 
 
@@ -754,22 +754,22 @@ To create an {{ PG }} cluster copy:
 
   Create a {{ mpg-name }} cluster and a network for it with the following test specifications:
 
-  * Name: `mypg`
-  * Version: `{{ pg.versions.tf.latest }}`
-  * Environment: `PRESTABLE`
-  * Cloud ID: `{{ tf-cloud-id }}`
-  * Folder ID: `{{ tf-folder-id }}`
-  * New network: `mynet`
+  * Name: `mypg`.
+  * Version: `{{ pg.versions.tf.latest }}`.
+  * Environment: `PRESTABLE`.
+  * Cloud ID: `{{ tf-cloud-id }}`.
+  * Folder ID: `{{ tf-folder-id }}`.
+  * New network: `mynet`.
 
 
-  * New security group: `pgsql-sg`, allowing cluster connections from the internet through port `6432`
+  * New security group: `pgsql-sg`, allowing cluster connections from the internet through port `6432`.
 
 
   * Host class: `{{ host-class }}` (one host), new subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. `mysubnet` range: `10.5.0.0/24`.
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-  * User: `user1`, password: `user1user1`
-  * Database: `db1`, owner: `user1`
-  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+  * User: `user1`, password: `user1user1`.
+  * Database: `db1`, owner: `user1`.
+  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
   The configuration file for this cluster is as follows:
 

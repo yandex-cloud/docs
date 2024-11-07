@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/listOperations.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.ListOperations {#ListOperations}
+# SAML Federation API, gRPC: FederationService.ListOperations {#ListOperations}
 
 Lists operations for the specified federation.
 

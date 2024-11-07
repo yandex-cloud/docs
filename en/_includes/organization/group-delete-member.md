@@ -1,12 +1,18 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) and click the line with the [group](../../organization/concepts/groups.md) name.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name you need.
+
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
-  1. In the list of members, select the one you need and click ![image](../../_assets/console-icons/ellipsis.svg) -> ![image](../../_assets/console-icons/trash-bin.svg)**{{ ui-key.yacloud_org.entity.group.action_remove-user }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud_org.entity.group.action_remove-user }}**.
+
+  1. Locate the group member. You may want to use the search feature.
+
+  1. In the line with the group member you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-user }}**.
+
+  1. In the window that opens, confirm the exclusion of the member from the group.
 
 - CLI {#cli}
 
@@ -32,7 +38,7 @@
       Where:
 
       * `--name`: User group name. This is a required parameter.
-      * `--organization-id`: Organization ID.
+      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
       * `--subject-id`: ID of the member you are deleting from the group.
 
 - {{ TF }} {#tf}

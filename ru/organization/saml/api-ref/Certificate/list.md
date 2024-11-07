@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/list.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.List {#List}
+# SAML Federation API, REST: Certificate.List {#List}
 
 Retrieves the list of certificates in the specified federation.
 

@@ -9,6 +9,8 @@ A dataset works with sources in direct access mode: {{ datalens-short-name }} ru
 
 
 
+{% include [datalens-dataset-timeout-note](../../_includes/datalens/datalens-dataset-timeout-note.md) %}
+
 ## Dataset page {#dataset-page}
 
 A dataset page consists of several tabs:

@@ -46,7 +46,7 @@ Page token. To get the next page of results, set `pageToken` to the
 A filter expression that filters resources listed in the response.
 
 The expression must specify:
-1. The field name. Currently filtering can only be applied to the [Revision.status](#yandex.cloud.serverless.containers.v1.Revision) and [Revision.runtime] fields.
+1. The field name. Currently filtering can only be applied to the [Revision.status](#yandex.cloud.serverless.containers.v1.Revision) and [Revision.runtime](#yandex.cloud.serverless.containers.v1.Revision) fields.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `status="ACTIVE"`. ||
@@ -143,7 +143,13 @@ Example of a filter: `status="ACTIVE"`. ||
           }
           // end of the list of possible fields
         }
-      ]
+      ],
+      "runtime": {
+        // Includes only one of the fields `http`, `task`
+        "http": "object",
+        "task": "object"
+        // end of the list of possible fields
+      }
     }
   ],
   "nextPageToken": "string"
@@ -235,6 +241,9 @@ S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
 
 Mounts to be used by the revision. ||
+|| runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
+
+The container's execution mode ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -495,4 +504,22 @@ The size of disk for mount in bytes ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## Runtime {#yandex.cloud.serverless.containers.v1.Runtime}
+
+The container's execution mode
+
+#|
+||Field | Description ||
+|| http | **object**
+
+The classic one. You need to run an HTTP server inside the container.
+
+Includes only one of the fields `http`, `task`. ||
+|| task | **object**
+
+We run a process from ENTRYPOINT inside the container for each user request.
+
+Includes only one of the fields `http`, `task`. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/delete.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService.Delete {#Delete}
+# Access Key, gRPC: AccessKeyService.Delete {#Delete}
 
 Deletes the specified access key.
 

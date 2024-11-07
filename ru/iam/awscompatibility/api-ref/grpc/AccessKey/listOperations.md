@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/listOperations.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService.ListOperations {#ListOperations}
+# Access Key, gRPC: AccessKeyService.ListOperations {#ListOperations}
 
 Retrieves the list of operations for the specified access key.
 

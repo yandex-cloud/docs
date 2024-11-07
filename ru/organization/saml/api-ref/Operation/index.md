@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Operation/index.md
 ---
 
-# Cloud Organization SAML API, REST: Operation
+# SAML Federation API, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.
 

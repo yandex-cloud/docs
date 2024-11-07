@@ -1,12 +1,13 @@
 # Delivering Linux system metrics
 
-{{ monitoring-full-name }} gets general virtual machine metrics from {{ compute-full-name }}. For example, the amount of RAM allocated to a VM at the start. However, you can measure how a VM utilizes its memory only by collecting data within that VM. {{ unified-agent-full-name }} is a utility that collects and transmits such metrics.
+{{ monitoring-full-name }} gets general virtual machine metrics from {{ compute-full-name }}. For example, this can be the amount of RAM allocated to a VM at its start. However, you can only measure how a VM utilizes memory by collecting data within that VM. To collect and transmit these metrics, use {{ unified-agent-full-name }}.
 
 {% note warning %}
 
 Delivery of system metrics for virtual machines run on Windows and macOS is planned for upcoming {{ unified-agent-full-name }} releases.
 
 {% endnote %}
+
 
 
 To configure {{ unified-agent-full-name }} to collect system metrics from a {{ yandex-cloud }} VM, follow these steps:
