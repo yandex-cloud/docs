@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/get.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.Get {#Get}
+# SAML Federation API, REST: Certificate.Get {#Get}
 
 Returns the specified certificate.
 

@@ -93,7 +93,7 @@ items:
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
       - name: >-
-          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: tutorials/sa-oslogin-ansible.md
   - name: Концепции
@@ -281,7 +281,7 @@ items:
                 href: api-ref/grpc/YandexPassportUserAccount/index.md
               - name: GetByLogin
                 href: api-ref/grpc/YandexPassportUserAccount/getByLogin.md
-          - name: Identity and Access Management API
+          - name: Access Key
             items:
               - name: Overview
                 href: awscompatibility/api-ref/grpc/index.md
@@ -357,7 +357,7 @@ items:
                     href: saml/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: saml/api-ref/grpc/Operation/cancel.md
-          - name: Identity and Access Management Workload Identity API
+          - name: Workload Identity
             items:
               - name: Overview
                 href: workload/workload-identity/api-ref/grpc/index.md
@@ -387,7 +387,7 @@ items:
                   - name: Cancel
                     href: >-
                       workload/workload-identity/api-ref/grpc/Operation/cancel.md
-              - name: Identity and Access Management Workload Identity API
+              - name: Federation
                 items:
                   - name: Overview
                     href: workload/oidc/workload-identity/api-ref/grpc/index.md
@@ -542,7 +542,7 @@ items:
                 href: api-ref/YandexPassportUserAccount/index.md
               - name: GetByLogin
                 href: api-ref/YandexPassportUserAccount/getByLogin.md
-          - name: Identity and Access Management API
+          - name: Access Key
             items:
               - name: Overview
                 href: awscompatibility/api-ref/index.md
@@ -618,7 +618,7 @@ items:
                     href: saml/api-ref/Operation/get.md
                   - name: Cancel
                     href: saml/api-ref/Operation/cancel.md
-          - name: Identity and Access Management Workload Identity API
+          - name: Workload Identity
             items:
               - name: Overview
                 href: workload/workload-identity/api-ref/index.md
@@ -647,7 +647,7 @@ items:
                     href: workload/workload-identity/api-ref/Operation/get.md
                   - name: Cancel
                     href: workload/workload-identity/api-ref/Operation/cancel.md
-              - name: Identity and Access Management Workload Identity API
+              - name: Federation
                 items:
                   - name: Overview
                     href: workload/oidc/workload-identity/api-ref/index.md

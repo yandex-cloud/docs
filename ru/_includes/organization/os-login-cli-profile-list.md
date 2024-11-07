@@ -1,4 +1,4 @@
-Получите список логинов в профилях OS Login пользователей и сервисных аккаунтов нужной организации, указав ее идентификатор:
+Получите список логинов в профилях {{ oslogin }} пользователей и сервисных аккаунтов нужной организации, указав ее идентификатор:
 
 ```bash
 yc organization-manager os-login profile list \
@@ -18,3 +18,5 @@ yc organization-manager os-login profile list \
 ```
 
 Сохраните значение поля `LOGIN` для нужного пользователя или сервисного аккаунта — оно понадобится позднее.
+
+{% include [os-login-profile-tab-access-notice](./os-login-profile-tab-access-notice.md) %}

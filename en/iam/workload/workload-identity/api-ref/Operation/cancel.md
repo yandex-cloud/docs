@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/Operation/cancel.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Operation.Cancel {#Cancel}
+# Workload Identity, REST: Operation.Cancel {#Cancel}
 
 Cancels the specified operation.
 

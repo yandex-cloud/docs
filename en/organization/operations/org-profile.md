@@ -13,12 +13,20 @@ Organization data can be edited by users with the `organization-manager.admin` o
 
 To edit your organization data:
 
-1. Log in to [{{org-full-name}}]({{link-org-main}}) as the organization administrator or owner.
+{% list tabs group=instructions %}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/console-icons/circle-info.svg).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. To change the organization name and description, click **{{ ui-key.yacloud_org.page.settings.action.edit }}** in the top-right corner.
+  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with an administrator or organization owner account.
 
-1. Change the organization name, technical name, or description.
+      The {{ cloud-center }} home page that opens displays the basic information about your organization.
 
-1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.
+      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the the name of the current organization and select another one. This will switch you to a different organization.
+  
+  1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.edit-button }}** in the organization name section at the center of the screen to edit the name and description of the current organization.
+
+  1. In the window that opens, edit the organization's name, technical name, and description or specify employee count.
+
+  1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.
+
+{% endlist %}

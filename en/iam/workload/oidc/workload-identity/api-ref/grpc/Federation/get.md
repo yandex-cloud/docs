@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/get.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederationService.Get {#Get}
+# Federation, gRPC: FederationService.Get {#Get}
 
 Returns the specified OIDC workload identity federation.
 

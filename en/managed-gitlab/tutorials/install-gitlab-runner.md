@@ -4,9 +4,9 @@ You can install {{ GLR }} on a {{ compute-name }} [VM](../../compute/concepts/vm
 
 To install {{ GLR }} on a {{ compute-name }} VM:
 
-1. [{#T}](#infra)
-1. [{#T}](#gitlab-token)
-1. [{#T}](#install)
+1. [{#T}](#infra).
+1. [{#T}](#gitlab-token).
+1. [{#T}](#install).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -40,7 +40,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Add a repository with {{ GLR }} to the package manager:
 
    ```bash
-   curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+   curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
 1. Install {{ GLR }}:
@@ -57,11 +57,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    The command will prompt you for additional data:
 
-   * {{ GL }} instance's URL in `https://<domain>/` format.
+   * URL of the {{ GL }} instance in `https://<domain>/` format.
    * [Previously obtained](#gitlab-token) {{ GLR }} token.
    * {{ GLR }} description.
-   * Do not specify {{ GLR }} tags and the `maintenance note`.
-   * `Executor`: `shell`.
+   * Do not specify {{ GLR }} tags and the update settings (`maintenance note`).
+   * `executor`: `shell`.
 
    Result:
 

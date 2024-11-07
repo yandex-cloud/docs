@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/create.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.Create {#Create}
+# SAML Federation API, REST: Federation.Create {#Create}
 
 Creates a federation in the specified organization.
 

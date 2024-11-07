@@ -1,7 +1,6 @@
 # Dashboard settings
 
 
-
 Dashboard settings allow you to optimize it for a specific task or work with a specific data source. For example, you can set the dashboard update time, add informational messages, or customize widget loading priority.
 
 ## Auto-update {#auto-update}

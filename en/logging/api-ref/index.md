@@ -7,7 +7,9 @@ sourcePath: en/_api-ref/logging/v1/api-ref/index.md
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/logging/v1).
+
+**Service URL**: `https://logging.{{ api-host }}`
 
 #|
 ||Service | Description ||

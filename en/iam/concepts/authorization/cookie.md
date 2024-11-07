@@ -1,12 +1,12 @@
 ---
 title: Cookies in {{ yandex-cloud }}
-description: In this tutorial, you will learn which cookies {{ yandex-cloud }} uses.
+description: In this tutorial, you will learn about the cookies used by {{ yandex-cloud }}.
 ---
 
 # Cookie
 
 {{ yandex-cloud }} web interfaces use `yc_session` cookies to authenticate a user.
 
-In the console of each service (e.g., [https://{{ console-host }}]({{ console-host }}) and [{{ link-org-main }}]({{ link-org-main }})), cookies are independent of each other.
+In each service's console, e.g., [management console]({{ link-console-main }}) or [{{ cloud-center }}]({{ cloud-center-link }}), cookies are independent of each other.
 
 All cookies are linked to a single logical session initiated by [{{ auth-main-host }}]({{ auth-main-host }}).

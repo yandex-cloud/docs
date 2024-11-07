@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/index.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: FederatedCredential
+# Workload Identity, REST: FederatedCredential
 
 A set of methods for managing federated credentials.
 

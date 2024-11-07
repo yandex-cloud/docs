@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/get.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.Get {#Get}
+# SAML Federation API, REST: Federation.Get {#Get}
 
 Returns the specified federation.
 

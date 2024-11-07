@@ -77,7 +77,7 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them with {{ datalens-full-name }}
+              and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
       - name: Functional
         items:
@@ -145,6 +145,8 @@ items:
             href: operations/connection/create-usage-tracking.md
       - name: Partner connections
         items:
+          - name: Creating a connection to Extractor 1C
+            href: operations/connection/create-extractor1c.md
           - name: Creating a Bitrix24 connection
             href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
@@ -821,10 +823,12 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: August 2024
+      - name: September 2024
         href: release-notes/index.md
       - name: Archive
         items:
+          - name: August 2024
+            href: release-notes/2408.md
           - name: July 2024
             href: release-notes/2407.md
           - name: June 2024
@@ -867,7 +871,7 @@ items:
             href: qa/workbooks-collections.md
           - name: Other
             href: qa/other.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: Access denied
         hidden: true

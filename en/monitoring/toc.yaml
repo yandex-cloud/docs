@@ -27,7 +27,7 @@ items:
             href: operations/metric/prometheusExport.md
       - name: Working with dashboards
         items:
-          - name: Creating dashboards
+          - name: Creating a dashboard
             href: operations/dashboard/create.md
           - name: Copying dashboards
             href: operations/dashboard/copy.md
@@ -37,7 +37,7 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting a dashboard
+          - name: Deleting dashboards
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
@@ -47,7 +47,7 @@ items:
             href: operations/alert/create-alert.md
           - name: Creating a notification channel
             href: operations/alert/create-channel.md
-          - name: Deleting alerts
+          - name: Deleting an alert
             href: operations/alert/delete-alert.md
   - name: Metric collection agent
     items:
@@ -89,7 +89,7 @@ items:
             href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
-          - name: Dashboard
+          - name: Dashboards
             href: concepts/visualization/dashboard.md
       - name: Query language
         href: concepts/querying.md
@@ -111,9 +111,7 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
-      - name: >-
-          Automatically scaling an instance group to process messages from a
-          queue
+      - name: Autoscaling a group of VMs to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Monitoring sensor readings and event notifications
         href: tutorials/monitoring.md
@@ -137,6 +135,8 @@ items:
             href: operations/prometheus/querying/grafana.md
       - name: Recording rules
         href: operations/prometheus/recording-rules.md
+      - name: Alerting rules
+        href: operations/prometheus/alerting-rules.md
       - name: Reading and writing {{ k8s }} cluster metrics
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Access management

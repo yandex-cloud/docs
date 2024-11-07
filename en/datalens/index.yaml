@@ -20,7 +20,7 @@ links:
   - title: Tutorials
     description: See the tutorials with DataLens usage examples
     href: tutorials/
-  - title: Connection
+  - title: Connections
     description: Connect to various data sources
     href: concepts/connection
   - title: Datasets
@@ -32,6 +32,9 @@ links:
   - title: Dashboards
     description: Build your charts on a single page
     href: concepts/dashboard
+  - title: Reports
+    description: Prepare a multi-page document for print
+    href: reports/
   - title: Quotas and limits
     description: Technical and organizational restrictions
     href: concepts/limits

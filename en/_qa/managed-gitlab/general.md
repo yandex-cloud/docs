@@ -34,15 +34,19 @@ You are not allowed to push code to protected branches on this project.
 
 To push changes to the {{ mgl-name }} repository, [assign]({{ gl.docs }}/ee/user/project/members/#add-users-to-a-project) the user an appropriate role in the project. To push changes:
 
-* To protected branches (such as `master`): `Maintainer` or `Owner`.
+* To protected branches (e.g., `master`): `Maintainer` or `Owner`.
 * To unprotected branches: `Developer`, `Maintainer`, or `Owner`.
 
 Users with the `Guest` and `Reporter` roles cannot push changes.
 
 For more information about roles, see the [{{ GL }} documentation]({{ gl.docs }}/ee/user/permissions.html).
 
-#### I get `500 Internal Server Error` when opening an instance. What could be the problem? {#500-error}
+#### I get `500 Internal Server Error` when trying to open the instance. What could be the problem? {#500-error}
 
-The instance disk space may be full. To clean up disk space and recover access to the instance, contact [technical support]({{ link-console-support }}).
+The instance disk space may be full. To clean up disk space and recover access to the instance, contact [support]({{ link-console-support }}).
 
 For more information on how to prevent instance disk space overflow, see [this guide](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+
+#### Why cannot I create backups? {#backup-failed}
+
+If backup creation fails (`Failed` status), [configure a separate security group](../../managed-gitlab/operations/configure-security-group.md) and link it to the {{ GL }} instance.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Operation/cancel.md
 ---
 
-# Cloud Organization SAML API, gRPC: OperationService.Cancel {#Cancel}
+# SAML Federation API, gRPC: OperationService.Cancel {#Cancel}
 
 Cancels the specified operation.
 

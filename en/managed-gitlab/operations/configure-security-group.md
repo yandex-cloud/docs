@@ -2,14 +2,14 @@
 title: How to set up security groups for a {{ mgl-full-name }} instance
 ---
 
-# Setting up security groups and {{ mgl-name }} instance access restrictions
+# Setting up security groups and access restrictions to a {{ mgl-name }} instance 
 
-[Security group](../../vpc/concepts/security-groups.md) rules specify the following:
+[Security group](../../vpc/concepts/security-groups.md) rules determine the following:
 
 * IPs that can access the instance, including web access.
 * Protocol to work with Git repositories in the {{ GL }} instance: SSH or HTTPS.
-* Certificate to work over HTTPS: [Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (by default) or [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually).
-* Whether or not access to [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/) has been provided.
+* Certificate for HTTPS: [Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (default) or [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually).
+* Whether or not access to [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/) is provided.
 
 To set traffic rules for a {{ GL }} instance:
 
@@ -24,11 +24,11 @@ To set traffic rules for a {{ GL }} instance:
 ## Rules for incoming traffic {#ingress-rules}
 
 #|
-|| **Purpose of the rule** | **Rule settings** ||
-|| To access your Git repository over SSH |
+|| **Why the rule is required** | **Rule settings** ||
+|| To access Git repositories over SSH. | 
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-ssh }}` and `2222`. Create a separate rule for each port.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: To provide access, specify subnet IP ranges within {{ yandex-cloud }} or public IP addresses of web-connected computers. Examples:
 
    * `172.16.0.0/12`
@@ -36,26 +36,26 @@ To set traffic rules for a {{ GL }} instance:
 
    To allow all traffic from any IP, specify `0.0.0.0/0`.
 ||
-|| To enable Let’s Encrypt
+|| To enable Let’s Encrypt certificate.
 
-This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) when working with Git repositories over HTTPS. If you do not specify this rule, you will need to configure HTTPS manually with [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually). |
+This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) when using Git repositories over HTTPS. If you do not specify this rule, add [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually) to work over HTTPS. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-http }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
 ||
-|| To access your Git repository over SSH |
+|| To access Git repositories over HTTPS. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: To provide access, specify subnet IP ranges within {{ yandex-cloud }} or public IP addresses of web-connected computers.
 ||
-|| For [health checks](../../network-load-balancer/concepts/health-check.md) by a network load balancer |
+|| For [health checks](../../network-load-balancer/concepts/health-check.md) by a network load balancer. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: Target port specified in the load balancer settings.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`
 ||
-|| To connect to {{ GL }} Container Registry |
+|| To connect to {{ GL }} Container Registry. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `5050`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
@@ -67,7 +67,7 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 
 ## Rules for outgoing traffic {#egress-rules}
 
-{{ mgl-name }} relies on third-party integrations to provide its services. If you limit the outgoing traffic in the instance's security group, the instance may work incorrectly. To avoid this, add one of the rules presented in the table to the security group. You need them to create backups and store user objects in {{ objstorage-full-name }}.
+{{ mgl-name }} relies on third-party integrations to provide its services. If you limit the outgoing traffic in the instance's security group, the instance may work incorrectly. To avoid this, add one of the rules presented in the table to the security group. You need them to create [backups](../concepts/backup.md) and store user objects in {{ objstorage-full-name }}.
 
 Your choice of rule depends on the certificate you are using: Let's Encrypt (default) or self-signed.
 

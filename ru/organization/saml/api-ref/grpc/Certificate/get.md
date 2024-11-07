@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/get.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.Get {#Get}
+# SAML Federation API, gRPC: CertificateService.Get {#Get}
 
 Returns the specified certificate.
 

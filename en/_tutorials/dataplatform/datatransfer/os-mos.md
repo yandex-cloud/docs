@@ -91,12 +91,13 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 1. In the source cluster, create a test index named `people` and set its schema:
 
     ```bash
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people' && \
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -109,17 +110,19 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 1. Populate the test index with data:
 
     ```bash
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name": "Alice",
                "age": "30"
          }
          ' && \
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name": "Robert",
                "age": "32"

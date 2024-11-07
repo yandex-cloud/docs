@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/delete.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.Delete {#Delete}
+# SAML Federation API, gRPC: CertificateService.Delete {#Delete}
 
 Deletes the specified certificate.
 

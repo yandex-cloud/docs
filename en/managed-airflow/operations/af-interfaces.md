@@ -13,7 +13,7 @@ To work with {{ maf-name }}, you can use the [web interface](#web-gui) or the [{
 
 To open a web interface or send an API request, users need the [{{ roles.maf.user }}](../security/index.md#managed-airflow-user) role or higher. The API checks the role via the [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
 
-{{ AF }} interfaces are accessible via the internet, so the role check is required for added security. Even if an attacker has the link to the web interface and `admin` user password for authentication, they will not have the required role to access the interface.
+{{ AF }} interfaces are accessible via the internet, so the role check is required for added security. Even if an attacker has the link to the web interface and the `admin` user's password to get authenticated with, they will not have the required role to access the interface.
 
 ## Working with the web interface {#web-gui}
 
@@ -33,17 +33,18 @@ You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stabl
 
 1. Make an API request, for example, using cURL. In the authorization parameters, enter your username and password.
 
-   Query example:
+    Request example:
 
-   ```bash
-   curl -X GET \
-       'https://c-<cluster_ID>.airflow.yandexcloud.net/api/v1/dags' \
-       --user 'admin:<admin_user_password>' \
-       --header 'Content-Type: application/json' \
-       --header 'X-Cloud-Authorization: Bearer <IAM_token>'
-   ```
+    ```bash
+    curl \
+        --request GET \
+        'https://c-<cluster_ID>.airflow.yandexcloud.net/api/v1/dags' \
+        --user 'admin:<admin_user_password>' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Cloud-Authorization: Bearer <IAM_token>'
+    ```
 
-   The request returns a list of DAG files. For an example of the response, refer to the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
+    The request returns a list of DAG files. For an example of the response, refer to the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
 
 {% note warning %}
 

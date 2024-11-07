@@ -18,21 +18,32 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
     Identity providers offer guides on how to set up group mapping:
 
-   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md)
-   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md)
-   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md)
-   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU)
+   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
+   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
+   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
+   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Set up user group mapping in the federation settings:
 
-    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-    1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
-    1. Select a federation and open the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
-    1. Enable **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
-    1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** and configure mapping:
+    {% list tabs group=instructions %}
 
-        * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}**: Enter the name of an identity provider group.
-        * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}**: Select a {{ org-name }} group from the list.
+    - {{ cloud-center }} interface {#cloud-center}
 
-    1. Repeat the previous step for each group you want to map.
+      1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
+
+      1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+      1. Click the line with the required federation and go to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
+
+      1. Enable **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+      1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** and configure mapping:
+
+          * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}**: Enter the name of an identity provider group.
+          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}**: Select a {{ org-name }} group from the list.
+
+      1. Repeat the previous step for each group you want to map.
+
+      1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+    {% endlist %}

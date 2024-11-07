@@ -456,7 +456,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
                                `hour=<hour> \
-           --deletion-protection=<deletion_protection> \
+           --deletion-protection \
            --schema-registry=<data_schema_management>
         ```
 
@@ -500,7 +500,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
     1. To enable data schema management using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add the `config.schema_registry` field set to `true` to the cluster description:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
           ...
           config {
             ...

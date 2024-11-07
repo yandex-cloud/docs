@@ -17,7 +17,7 @@ After creating a cluster, you can:
 * [Increase storage size](#change-disk-size).
 
 
-* Configure [{{ RD }} servers](#change-redis-config) as described in the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* [Configure](#change-redis-config) {{ RD }} servers as described in the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -488,7 +488,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
     To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * Required {{ RD }} setting values in the following parameter: `configSpec.redisConfig_<{{ RD }}_version>`.
+    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }}_version>` parameter.
     * List of cluster configuration fields to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -535,7 +535,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
             --websql-access=<true_or_false> \
-            --deletion-protection=<deletion_protection>
+            --deletion-protection
         ```
 
 

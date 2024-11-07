@@ -323,7 +323,11 @@ Creates a security profile in the specified folder using the data specified in t
     }
   ],
   "captchaId": "string",
-  "advancedRateLimiterProfileId": "string"
+  "advancedRateLimiterProfileId": "string",
+  "analyzeRequestBody": {
+    "sizeLimit": "int64",
+    "sizeLimitAction": "Action"
+  }
 }
 ```
 
@@ -357,6 +361,9 @@ Captcha ID to use with this security profile. Set empty to use default. ||
 || advancedRateLimiterProfileId | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
+
+Parameters for request body analyzer. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule}
@@ -607,6 +614,22 @@ The condition for matching the rule. ||
 || wafProfileId | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
+|#
+
+## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody}
+
+#|
+||Field | Description ||
+|| sizeLimit | **int64**
+
+Maximum size of body to pass to analyzer. In kilobytes. ||
+|| sizeLimitAction | enum **Action**
+
+Action to perform if maximum size of body exceeded.
+
+- `ACTION_UNSPECIFIED`
+- `IGNORE`: Ignore body.
+- `DENY`: Deny request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -936,7 +959,11 @@ Required field. ID of WAF profile to use in this rule. ||
     "createdAt": "google.protobuf.Timestamp",
     "cloudId": "string",
     "captchaId": "string",
-    "advancedRateLimiterProfileId": "string"
+    "advancedRateLimiterProfileId": "string",
+    "analyzeRequestBody": {
+      "sizeLimit": "int64",
+      "sizeLimitAction": "Action"
+    }
   }
   // end of the list of possible fields
 }
@@ -1049,6 +1076,9 @@ Captcha ID to use with this security profile. Set empty to use default. ||
 || advancedRateLimiterProfileId | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2)**
+
+Parameters for request body analyzer. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule2}
@@ -1299,4 +1329,20 @@ The condition for matching the rule. ||
 || wafProfileId | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
+|#
+
+## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2}
+
+#|
+||Field | Description ||
+|| sizeLimit | **int64**
+
+Maximum size of body to pass to analyzer. In kilobytes. ||
+|| sizeLimitAction | enum **Action**
+
+Action to perform if maximum size of body exceeded.
+
+- `ACTION_UNSPECIFIED`
+- `IGNORE`: Ignore body.
+- `DENY`: Deny request. ||
 |#

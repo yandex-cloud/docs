@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/addUserAccounts.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.AddUserAccounts {#AddUserAccounts}
+# SAML Federation API, gRPC: FederationService.AddUserAccounts {#AddUserAccounts}
 
 Adds users to the specified federation.
 
@@ -149,7 +149,7 @@ List of users created by [FederationService.AddUserAccounts](#AddUserAccounts) r
 
 ## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -171,7 +171,7 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 ## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||

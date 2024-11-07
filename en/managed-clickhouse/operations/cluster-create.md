@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ CH }} cluster
-description: Use this tutorial to create a {{ CH }} cluster with a single or multiple DB hosts.
+description: Follow this guide to create a {{ CH }} cluster with a single or multiple DB hosts.
 ---
 
 # Creating a {{ CH }} cluster
@@ -37,7 +37,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 ## Creating a cluster {#create-cluster}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../security.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../security.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -173,7 +173,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         --database name=<DB_name> \
         --security-group-ids <list_of_security_group_IDs> \
         --websql-access=<true_or_false> \
-        --deletion-protection=<cluster_deletion_protection>
+        --deletion-protection
       ```
 
       You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
@@ -193,9 +193,9 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
-      * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
 
-      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
+      * `--deletion-protection`: Cluster deletion protection.
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -263,7 +263,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             --cloud-storage-data-cache=<file_storage> \
             --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
             --cloud-storage-move-factor=<percentage_of_free_space> \
-            --cloud-storage-prefer-not-to-merge=<merge_data_parts>
+            --cloud-storage-prefer-not-to-merge=<merging_data_parts>
            ...
          ```
 
@@ -341,7 +341,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          }
 
          user {
-           name     = "<DB_username>"
+           name     = "<DB_user_name>"
            password = "<password>"
            permission {
              database_name = "<name_of_DB_to_create_user_in>"
@@ -418,7 +418,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - API {#api}
 
   To create a {{ mch-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
-  * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+  * ID of the folder to host the cluster, in the `folderId` parameter.
   * Cluster name in the `name` parameter.
   * Cluster environment in the `environment` parameter.
   * Cluster configuration in the `configSpec` parameter.
@@ -467,14 +467,14 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ CH }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -567,9 +567,9 @@ To create a {{ CH }} cluster copy:
   * Network: `default`.
   * Security group: `{{ security-group }}`.
   * Number of {{ CH }} hosts of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
-  * {{ CK }}
+  * {{ CK }}.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * User: `user1`, with the `user1user1` password.
+  * User: `user1` with password `user1user1`.
   * Database: `db1`.
   * Protection against accidental cluster deletion: Enabled.
 
@@ -590,7 +590,7 @@ To create a {{ CH }} cluster copy:
     --user name=user1,password=user1user1 \
     --database name=db1 \
     --security-group-ids {{ security-group }} \
-    --deletion-protection=true
+    --deletion-protection
   ```
 
 
@@ -608,16 +608,16 @@ To create a {{ CH }} cluster copy:
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
-  * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
+  * One `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`.
 
     Subnet parameters:
-    * Address range: `172.16.1.0/24`.
-    * Network: `cluster-net`.
-    * Availability zone: `{{ region-id }}-a`.
+    * Address range: `172.16.1.0/24`
+    * Network: `cluster-net`
+    * Availability zone: `{{ region-id }}-a`
 
   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
   * Database name: `db1`.
-  * User: `user1`, with the `user1user1` password.
+  * User: `user1` with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 
@@ -666,13 +666,13 @@ To create a {{ CH }} cluster copy:
     These subnets will belong to the `cluster-net` network.
 
 
-  * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+  * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
   * Database name: `db1`.
-  * User: `user1`, with the `user1user1` password.
+  * User: `user1` with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 

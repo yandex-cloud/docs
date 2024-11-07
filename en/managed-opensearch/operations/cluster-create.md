@@ -135,7 +135,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          --network-name <network_name> \
          --security-group-ids <security_group_IDs> \
          --service-account-name <service_account_name> \
-         --delete-protection <deletion_protection:_true_or_false> \
+         --delete-protection \
          --maintenance schedule=<maintenance_type>,`
                       `weekday=<day_of_week>,`
                       `hour=<hour> \
@@ -167,19 +167,19 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       Where:
 
       * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) expressed as `<key>=<value>`. You can use them to logically separate resources.
-      * `--environment`: Environment.
+      * `--environment`: Environment:
 
           * `production`: For stable versions of your apps.
           * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * `--service-account-name`: Name of the service account for [access to {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. For more information on service accounts, see the [{{ iam-full-name }} documentation](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection`: Cluster protection from accidental deletion by a user, `true` or `false`. With deletion protection enabled, you still can connect to a cluster manually to delete data.
+      * `--delete-protection`: Cluster protection from accidental deletion by a user. With deletion protection enabled, you still can connect to a cluster manually to delete data.
 
       * `--maintenance`: Maintenance window settings:
 
           * To allow maintenance at any time, do not specify the `--maintenance` parameter in the command (default configuration) or specify `--maintenance schedule=anytime`.
-          * To specify the preferred start time for maintenance, specify the `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>` parameter in the command. In this case, maintenance will take place every week on a specified day at a specified time.
+          * To specify the preferred start time for maintenance, specify this parameter in the command: `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
 
           Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
 
@@ -291,7 +291,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `ANYTIME`: Anytime.
               * `WEEKLY`: On a schedule.
           * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-          * `hour`: Hour of the day in `HH` format for the `WEEKLY` type, e.g., `21`.
+          * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
 
       {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -311,7 +311,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mos-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
 
-  * ID of the folder where the cluster should be placed, in the `folderId` parameter.
+  * ID of the folder to host the cluster, in the `folderId` parameter.
   * Cluster name in the `name` parameter.
   * {{ OS }} version in the `configSpec.version` parameter.
   * `admin` user password in the `configSpec.adminPassword` parameter.
@@ -336,7 +336,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 
@@ -466,7 +466,7 @@ To create an {{ OS }} cluster copy:
        --network-name {{ network-name }} \
        --security-group-ids {{ security-group }} \
        --service-account-name os-account \
-       --delete-protection=false \
+       --delete-protection \
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \

@@ -1,5 +1,5 @@
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/console-icons/vector-square.svg).
+1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. Copy the ID of the federation you are configuring access for.
+1. Select the required federation and copy the **{{ ui-key.yacloud_org.common.columns.column_id }}** field value on the federation info page.

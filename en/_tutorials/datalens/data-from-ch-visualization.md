@@ -1,29 +1,27 @@
 # Retail chain's dashboard based on a {{ CH }} DB
 
 
-We will use a Moscow retail chain's demo {{ CH }} sales database as our data source.
+{% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
 
+In this tutorial, you will set up a dashboard to visualize sales analytics for a Moscow retail chain. This dashboard will present:
 
-In this example, {{ datalens-short-name }} is used to visualize:
 * Sales dynamics by day and month.
 * Sales by product categories.
-* Order heat map.
+* Heat map of orders.
 
-
-A connection named **Sample ClickHouse** will be created for database access.
-
+We will use a Moscow retail chain's demo sales {{ CH }} database as our data source.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
-1. [Define the data source for a dataset](#step1).
-1. [Configure the dataset fields](#step2).
-1. [Create a line chart](#step3).
-1. [Create a bar chart](#step4).
-1. [Create a pivot table chart](#step5).
-1. [Create a heat map](#step6).
-1. [Create a dashboard](#step7).
-1. [Add charts to the dashboard](#step8).
-1. [Add selectors to the dashboard](#step9).
+1. [Create a workbook](#create-workbook).
+1. [Create a connection](#create-connection).
+1. [Create a dataset](#create-dataset).
+1. [Create a line chart](#create-line-chart).
+1. [Create a bar chart](#create-column-chart).
+1. [Create a pivot table chart](#create-pivot-chart).
+1. [Create a heat map](#create-heat-map-chart).
+1. [Create a dashboard and add charts to it](#create-dashboard).
+1. [Add selectors to the dashboard](#add-selectors).
 
 
 ## Getting started {#before-you-begin}
@@ -31,19 +29,30 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
-## Step 1. Create a connection and dataset {#step1}
+## Create a workbook {#create-workbook}
 
-{% include [datalens-create-sample-connection](../../_includes/datalens/operations/datalens-create-sample-connection.md) %}
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
+1. In the top-right corner, click **Create** → **Create workbook**.
+1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Click **Create**.
 
-1. In the top-right corner, click **Create dataset**.
+## Create a connection {#create-connection}
 
-## Step 2. Set up the dataset fields {#step2}
+A connection named **Sample ClickHouse** will be created for database access.
 
-1. Drag the **MS_SalesFacts** table to the workspace.
+{% include [datalens-create-sample-connection](../../_includes/datalens/operations/datalens-create-sample-connection-wb_or_folder.md) %}
+
+## Create a dataset {#create-dataset}
+
+Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHouse` connection:
+
+1. In the top-right corner of the connection page, click **Create dataset**.
+1. Drag the `MS_SalesFacts` table to the workspace.
 
    ![image](../../_assets/datalens/solution-02/03-drag-table.png)
 
-1. Drag the **MS_Clients** table to the workspace. The tables are automatically linked.
+1. Drag the `MS_Clients` table to the workspace. The tables will be linked together automatically.
 
    ![image](../../_assets/datalens/solution-02/04-autolink1.png)
 
@@ -51,281 +60,239 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    ![image](../../_assets/datalens/solution-02/05-link-button.png)
 
-1. Tables are linked by the **ClientID** field. If needed, you can modify or expand the link by specifying another pair of fields. To close the link settings window, click the cross button or anywhere outside the window.
+1. The tables are linked by the `ClientID` field. If needed, you can modify or expand the link by specifying another pair of fields. To close the link settings window, click ![icon](../../_assets/console-icons/xmark.svg) or anywhere outside the window.
 
    ![image](../../_assets/datalens/solution-02/06-link-settings.png)
 
-1. Drag the **MS_Products** table to the workspace. The table is automatically linked to the left (root) table **MS_SalesFacts**.
+1. Drag the `MS_Products` table to the workspace. The table will automatically link with the left (root) table `MS_SalesFacts`.
 
    ![image](../../_assets/datalens/solution-02/06-autolink2.png)
 
-1. Drag the **MS_Shops** table to the workspace. The table is automatically linked to the left (root) table **MS_SalesFacts**.
+1. Drag the `MS_Shops` table to the workspace. The table will automatically link with the left (root) table `MS_SalesFacts`.
 
    ![image](../../_assets/datalens/solution-02/07-autolink3.png)
 
 1. Go to the **Fields** tab.
+1. Delete the duplicate fields left over from joining the tables: `ClientID (1)`, `ProductID (1)`, and `ShopID (1)`. To do this, select them and click ![icon](../../_assets/console-icons/trash-bin.svg) **Delete** in the panel below the list of fields.
 
-   ![image](../../_assets/datalens/solution-02/08-dataset-tab.png)
+   ![image](../../_assets/datalens/solution-02/09-delete-some-fields.png)
 
-1. Delete the duplicate fields left over from joining the tables: **ClientID (1)**, **ProductID (1)**, and **ShopID (1)**.
+1. Create an order date field named `OrderDate`:
 
-   ![image](../../_assets/datalens/solution-02/09-delet-field.png)
+   1. Duplicate the `OrderDatetime` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Duplicate**.
+   1. Rename the `OrderDatetime (1)` duplicate field as `OrderDate`: click the field name, delete the current name, and enter the new one.
+   1. In the **Type** column, change the data type from **Date and time** to **Date**.
 
-1. Create an order date field named **OrderDate**.
+   ![image](../../_assets/datalens/solution-02/10-rename-field-date-type-change.png)
 
-   1. Duplicate the **OrderDatetime** field.
+1. Change data types for the fields as follows:
 
-      ![image](../../_assets/datalens/solution-02/10-dublicate-field.png)
+   * `ShopDistrictCoordinates`: Change to **Geopolygon**.
+   * `DeliveryDistrictCoordinates`: Change to **Geopolygon**.
+   * `DeliveryAddressCoord`: Change to **Geopoint**.
 
-   1. Rename the **OrderDatetime (1)** duplicate field to **OrderDate**: click the row name, delete the current name, and enter the new one.
-
-      ![image](../../_assets/datalens/solution-02/11-rename-field.png)
-
-   1. Change the data type from **Date and time** to **Date**.
-
-      ![image](../../_assets/datalens/solution-02/12-choose-date-type.png)
-
-1. For the **ShopDistrictCoordinates** field, change the data type to **Geopolygon**.
-
-1. For the **DeliveryDistrictCoordinates** field, change the data type to **Geopolygon**.
-
-1. For the **DeliveryAddressCoord** field, change the data type to **Geopoint**.
-
-1. In the **Aggregation** column, select **Sum** for the **Sales** field.
+1. Create a measure for the order amount: in the **Aggregation** column, select **Sum** for the `Price` field. The aggregation field changes color to blue: it is now a measure.
 
    ![image](../../_assets/datalens/solution-02/13-choose-agg.png)
 
-   The aggregation field changes color to blue: **Sales** is now a measure.
+1. Create a measure for the number of orders:
 
-   ![image](../../_assets/datalens/solution-02/14-agg-color.png)
-
-1. Create a measure for the number of orders.
-
-   1. Duplicate the **OrderID** field.
-
-   1. Rename the **OrderID (1)** duplicate field to **OrderCount**.
-
+   1. Duplicate the `OrderID` field.
+   1. Rename the `OrderID (1)` duplicate field to `OrderCount`.
    1. Change the aggregation type to **Number of unique**.
 
-   ![image](../../_assets/datalens/solution-02/15-ordercount.png)
+1. Create a calculated field for the average sales amount per order:
 
-1. Create a calculated field for the average sales amount per order.
    1. In the top-right corner, click **Add field**.
-   1. In the **Name** field, specify **Sales per Order**.
-   1. In the column to the left, click the **Sales** field.
-   1. Enter a `/`.
-   1. In the column to the left, click the **OrderCount** field.
+   1. At the top-left, specify the field name: `Sales per Order`.
+   1. In the column to the left, click the `Price` field.
+   1. Enter `/`.
+   1. In the column to the left, click the `OrderCount` field.
    1. Click **Create**.
 
-      ![image](../../_assets/datalens/solution-02/16-formula.png)
+   ![image](../../_assets/datalens/solution-02/16-formula.png)
 
-1. Click **Save** in the top-right corner to save the dataset.
+1. Save the dataset:
 
-   ![image](../../_assets/datalens/solution-02/17-save-dataset.png)
+   1. In the top-right corner, click **Save**.
+   1. Enter `Moscow Sales dataset` for the dataset name and click **Create**.
 
-1. Enter a name for the dataset: **Moscow Sales dataset**, then click **Create**.
+## Create a line chart {#create-line-chart}
 
-1. When the dataset is saved, click **Create chart**.
+To visualize sales dynamics by month, create a [line](../../datalens/visualization-ref/line-chart.md) [chart](../../datalens/concepts/chart/index.md):
 
-   ![image](../../_assets/datalens/solution-02/18-create-chart.png)
-
-## Step 3. Create a line chart {#step3}
-
-To visualize sales dynamics by month, create a line [chart](../../datalens/concepts/chart/index.md).
-
+1. On the dataset page, click **Create chart** in the top-right corner.
 1. For the visualization type, choose **Line chart**.
 
    ![image](../../_assets/datalens/solution-02/19-choose-line-chart.png)
 
-1. Add the sales date to the chart. Drag the **OrderDate** field from the **Dimensions** section to the **X** section.
-1. Add a sales measure to the chart. To do this, drag the **Sales** field from **Measures** to the **Y** section.
-1. Add the delivery type to the chart. To do this, drag the **PaymentType** field from the **Dimensions** to the **Colors** section.
+1. Add a sales date to the chart. To do this, drag the `OrderDate` field from **Dimensions** to the **X** section.
+1. Add a sales measure to the chart. To do this, drag the `Price` field from **Measures** to the **Y** section.
+1. Add a delivery type to the chart. To do this, drag the `PaymentType` field from **Dimensions** to the **Colors** section.
 
    ![image](../../_assets/datalens/solution-02/20-line-diagram1.png)
 
-1. Display the chart by month.
-   1. Click the calendar icon next to the **OrderDate** field in the **X** section.
+1. Display the chart by month:
+
+   1. Click the calendar icon next to the `OrderDate` field in the **X** section.
    1. In the **Grouping** field, select **Rounding** ⟶ **Month** and click **Apply**.
 
    ![image](../../_assets/datalens/solution-02/21-date-to-month.png)
 
-1. Save the chart.
-   1. Click **Save** in the top-right corner to save the chart.
+1. Save the chart:
 
-      ![image](../../_assets/datalens/solution-02/22-save-chart.png)
+   1. In the top-right corner, click **Save**.
+   1. In the window that opens, enter a name for the chart: `Sales dynamics by month and payment type`, and click **Save**.
 
-   1. In the window that opens, enter a name for the chart: **Sales dynamics by month and payment type**, and click **Save**.
+   ![image](../../_assets/datalens/solution-02/22-save-chart.png)
 
-## Step 4. Create a column chart {#step4}
+## Create a column chart {#create-column-chart}
 
-To visualize sales by brand and product category, create a column [chart](../../datalens/concepts/chart/index.md).
+To visualize sales by brand and product category, create a [column chart](../../datalens/visualization-ref/column-chart.md).
 
-1. Copy the chart from the previous step.
-   1. Click the down arrow next to the **Save** button in the top-right corner.
-   1. Choose **Save as**.
+1. Copy the chart you created in the previous step:
 
-      ![image](../../_assets/datalens/solution-02/23-save-as.png)
+   1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
-   1. In the window that opens, enter the **Sales by brand and category** name for the new chart and click **Save**.
+      ![image](../../_assets/datalens/solution-02/23-save-chart-as-copy.png)
+
+   1. In the window that opens, enter the `Sales by brand and category` name for the new chart and click **Save**.
 
 1. Select the **Bar chart** visualization type.
 
    ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
-1. The **OrderDate**, **Sales**, and **PaymentType** fields are automatically added to the **X**, **Y**, and **Colors** sections, respectively.
+1. The `OrderDate`, `Price`, and `PaymentType` fields are automatically added to the **X**, **Y**, and **Colors** sections, respectively.
+1. Replace the months with brands on the X-axis. To do this, drag the `ProductBrand` field from **Dimensions** to the **X** section and hold it over the `OrderDate` field until the latter turns red.
+1. Under **Colors**, replace payment types with product categories. To do this, drag the `ProductCategory` field from **Dimensions** to the **Colors** section and hold it over the `PaymentType` field until the latter turns red.
+1. Sort the chart in descending order of the sales measure. To do this, drag the `Price` field from **Measures** to the **Sorting** section.
+1. Save your chart: click **Save** in the top-right corner.
 
-1. Replace the months with brands on the X-axis. Drag the **ProductBrand** field from the **Dimensions** section to the **X** section and hold it over the **OrderDate** field until it turns red.
+   ![image](../../_assets/datalens/solution-02/27-column-chart.png)
 
-   ![image](../../_assets/datalens/solution-02/25-replace-field1.png)
+## Create a pivot table chart {#create-pivot-chart}
 
-1. Replace payment types for product categories in the **Colors** section. Drag **ProductCategory** from the **Dimensions** to the **Colors** section and hold it over the **PaymentType** field until it turns red.
+To visualize sales by product and time, create a [pivot table](../../datalens/visualization-ref/pivot-table-chart.md) chart.
 
-   ![image](../../_assets/datalens/solution-02/26-replace-field2.png)
+1. Copy the chart you created in the previous step:
 
-1. Sort the chart in descending order of sales measure. Drag the **Sales** field from the **Measures** section to the **Sorting** section.
-
-   ![image](../../_assets/datalens/solution-02/27-sort-chart.png)
-
-1. Save the chart.
-
-## Step 5. Create a pivot table chart {#step5}
-
-To visualize sales by product and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
-
-1. Copy the chart from the previous step.
-   1. Click the down arrow next to the **Save** button in the top-right corner.
-   1. Click **Save as**.
-   1. In the window that opens, enter **Sales by year and product** as the name for the new chart.
-   1. Click **Save**.
+   1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
+   1. In the window that opens, enter the name `Sales by year and product` for the new chart, and click **Save**.
 
 1. Choose the **Pivot table** visualization type.
 
    ![image](../../_assets/datalens/solution-02/28-choose-pivot.png)
 
-1. The **ProductBrand** and **Sales** fields are automatically copied to the **Columns** and **Measures** sections, respectively.
+1. The `ProductBrand` and `Price` fields will automatically appear in the **Columns** and **Measures** sections, respectively.
+1. Remove `ProductBrand` from the table. To do this, click ![save-button](../../_assets/console-icons/xmark.svg) (the icon appears when you hover over the field) next to the field in the **Columns** section.
+1. Add the order date to the table. To do this, drag the `OrderDate` field from **Dimensions** to the **Columns** section.
+1. Change the display format in the `OrderDate` field to years:
 
-   ![image](../../_assets/datalens/solution-02/29-pivot1.png)
-
-1. Remove **ProductBrand** from the table.
-
-1. Add the order date to the table. To do this, drag the **OrderDate** field from the **Dimensions** section to the **Columns** section.
-
-1. Change the display format in the **OrderDate** field to years.
-   1. Click the calendar icon next to the **OrderDate** field in the **Columns** section.
+   1. Click the calendar icon next to the `OrderDate` field in the **Columns** section.
    1. In the **Grouping** field, select **Date part** ⟶ **Year** and click **Apply**.
 
    ![image](../../_assets/datalens/solution-02/30-date-to-year.png)
 
-1. Add the product category and subcategory to the table. To do this, drag the **ProductCategory** and **ProductSubcategory** fields from the **Dimensions** section to the **Rows** section.
+1. Add the product category and subcategory to the table. To do this, drag the `ProductCategory` and `ProductSubcategory` fields from **Dimensions** to the **Rows** section.
+1. Change the color of the sales measure in the table. To do this, drag the `Price` field from **Measures** to the **Colors** section.
+1. In the top-right corner, click **Save**.
 
-   ![image](../../_assets/datalens/solution-02/31-pivot2.png)
+   ![image](../../_assets/datalens/solution-02/32-pivot-chart.png)
 
-1. Change the color of the sales measure in the table. To do this, drag the **Sales** field from the **Measures** section to the **Colors** section.
+## Create a heat map chart {#create-heat-map-chart}
 
-   ![image](../../_assets/datalens/solution-02/32-pivot3.png)
+To visualize the density of orders on the map of Moscow, create a [heat map](../../datalens/visualization-ref/heat-map-chart.md) chart.
 
-1. Save the chart.
+1. Copy the chart you created in the previous step:
 
-## Step 6. Create a heat map {#step6}
-
-To visualize the density of orders on the map of Moscow, create a heat map [chart](../../datalens/concepts/chart/index.md).
-
-1. Copy the chart from the previous step.
-   1. Click the icon next to the **Save** button in the top-right corner and select **Save as**.
-   1. In the window that opens, enter **Sales heat map** as the name for the new chart.
-   1. Click **Save**.
+   1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
+   1. In the window that opens, enter the `Sales heat map` name for the new chart and click **Save**.
 
 1. Select the **Map** visualization type.
 
    ![image](../../_assets/datalens/solution-02/33-choose-heatmap.png)
 
-1. Select the **Points (heat map)** layer type.
+1. Select the **Heat map (Geopoints)** layer type.
 
-1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAddressCoord** field from the **Dimensions** section to the **Points (heat map)** section.
+   ![image](../../_assets/datalens/solution-02/33-choose-layer-heatmap.png)
+
+1. Add the delivery point coordinates to the map. To do this, drag the `DeliveryAddressCoord` field from **Dimensions** to the **Heatmap (Geopoints)** section.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-02/34-heatmap.png)
 
-1. Save the chart.
+## Create a dashboard and add charts to it {#create-dashboard}
 
-## Step 7. Create a dashboard {#step7}
+Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and other widgets to:
 
-Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
-
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-
-1. Click **Create dashboard**.
-
-   ![image](../../_assets/datalens/solution-02/35-create-dashboard.png)
-
-## Step 8. Add charts to the dashboard {#step8}
-
-1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the top-right corner.
-
-   ![image](../../_assets/datalens/solution-02/36-edit-dashboard.png)
-
-1. Click **Add** and select **Chart**.
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Tutorials` workbook.
+1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
+1. In the panel at the bottom of the page, select **Chart**.
 
    ![image](../../_assets/datalens/solution-02/37-add-chart.png)
 
 1. In the window that opens, click **Select**.
-1. Select the chart **Sales dynamics by month and payment type**. This automatically fills in the **Title** field with the name of the selected chart.
+1. Select the chart `Sales dynamics by month and payment type`.
 1. Click **Add**.
 
    ![image](../../_assets/datalens/solution-02/38-add-chart-window.png)
 
-1. Similarly, add the following charts:
-   * **Sales by brand and category**
-   * **Sales by year and product**
-   * **Sales heat map**
+1. Repeat steps 3-6 to add these charts:
 
-1. Position the charts on the dashboard however you like.
+   * `Sales by brand and category`
+   * `Sales by year and product`
+   * `Sales heat map`
+
+1. Adjust the size of the charts with your mouse and place them on the dashboard as you prefer.
 
    ![image](../../_assets/datalens/solution-02/39-dashboard1.png)
 
-## Step 9. Add selectors to the dashboard {#step9}
+## Add selectors to the dashboard {#add-selectors}
 
-Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by date, Moscow districts, products, and customer statuses.
+Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by date, Moscow district, product, and customer status:
 
-1. Click **Add**.
-1. Choose **Selector**.
+1. In the panel at the bottom of the page, choose **Selector**.
 
    ![image](../../_assets/datalens/solution-02/40-add-selector.png)
 
-1. Add the calendar selector for the order date.
-   1. Select the **Moscow Sales dataset**.
-   1. Select the **OrderDate** field.
-   1. This automatically fills in **Title** with the name of the selected field. Click the **Show** checkbox next to the selector title.
-   1. Select the **Calendar** type.
+1. Add the calendar selector for the order date:
+
+   1. Select `Moscow Sales dataset`.
+   1. Select the `OrderDate` field.
    1. Enable **Range**.
-   1. Click **Add**.
+   1. Click **Save**.
 
    ![image](../../_assets/datalens/solution-02/41-selector1.png)
 
-1. Add a product category selector.
-   1. Select the **Moscow Sales dataset**.
-   1. Select the **ProductCategory** field.
-   1. This automatically fills in **Title** with the name of the selected field. Click the **Show** checkbox next to the selector title.
-   1. Enable the **Multiple choice** option.
-   1. Click **Add**.
+1. Add a product category selector:
 
-   ![image](../../_assets/datalens/solution-02/42-selector2.png)
+   1. Make sure you selected the `Moscow Sales dataset` dataset.
+   1. Select the `ProductCategory` field.
+   1. Enable the **Multiple choice** option.
+   1. Click **Save**.
 
 1. Similarly, add selectors for the following fields:
-   * **ProductBrand**
-   * **DeliveryDistrictName**
-   * **DeliveryType**
-   * **PaymentType**
+
+   * `ProductBrand`
+   * `DeliveryDistrictName`
+   * `DeliveryType`
+   * `PaymentType`
 
 1. Position the selectors on the dashboard however you like.
-
 1. Save the dashboard:
 
-   1. In the top-right corner, click **Save**.
+   1. In the top-right corner of the dashboard, click **Save**.
+   1. Enter `Moscow Shops dashboard` for the dashboard name and click **Create**.
 
-      ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
+Your dashboard is ready.
 
-   1. Enter **Moscow Shops dashboard** for the dashboard name and click **Create**.
+![image](../../_assets/datalens/solution-02/44-dashboard3.png)
 
-1. Your dashboard is ready. Now you can filter charts using selectors.
+You can now use various filter combinations to see how your sales evolved for different products and cross sections. For example, you can analyze the dynamics of sales with delivery for the `Household goods` and `Home appliances` categories within the `Izmaylovo` delivery area over the period `01.01.2017 - 31.12.2018` and estimate the sales density on the heat map. To do this, set the selectors as follows:
 
-   ![image](../../_assets/datalens/solution-02/44-dashboard3.png)
+* `OrderDate`: `01.01.2017 - 31.12.2018`
+* `ProductCategory`: `Household goods` and `Home appliances`
+* `DeliveryDistrictName`: `Izmaylovo`
+* `DeliveryType`: `Delivery`
+
+![image](../../_assets/datalens/solution-02/45-dashboard4.png)

@@ -11,23 +11,115 @@ To create an OS Login profile for a user:
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
-  1. Select a user from the list.
-  1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
-  1. Click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**.
-  1. Enter the username.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
-      {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
+      [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
 
-  1. Enter a unique numeric user ID (UID) within the range of `1,000` to `65,534`.
-  1. (Optional) Enter the path to the user's home directory.
-  1. (Optional) Enter the path to the shell's executable file.
-  1. Click **{{ ui-key.yacloud_org.forms.action.create }}**.
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+ 
+  1. From the list, select the user you want to create an {{ oslogin }} profile for.
+  
+      You may want to use the filter or search for that.
+  
+  1. On the user page, go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
+
+      1. Enter the OS username the user will get when connected to the VM. It must be unique within the folder.
+
+          {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
+
+      1. In the **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** field, enter a unique numeric user ID (UID) within the range from `1000` to `65534`. It must be unique within the system.
+
+      1. (Optional) In the **{{ ui-key.yacloud_org.form.oslogin.field_home-directory }}** field, enter the path to the user's home folder.
+
+      1. (Optional) In the **{{ ui-key.yacloud_org.form.oslogin.field_shell }}** field, specify the path to the command shell executable file.
+
+      1. Click **{{ ui-key.yacloud_org.forms.action.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command for creating an OS Login profile:
+
+      ```bash
+      yc organization-manager oslogin profile create --help
+      ```
+
+  1. Get the ID of the required organization:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+-------------------------+-----------------------+--------+
+      |          ID          |          NAME           |         TITLE         | LABELS |
+      +----------------------+-------------------------+-----------------------+--------+
+      | bpf1smsil5q0******** | sample-organization-1   | My organization       |        |
+      | bpf2c65rqcl8******** | sample-organization-new | New organization      |        |
+      +----------------------+-------------------------+-----------------------+--------+
+      ```
+
+  1. Get the required user ID by specifying the ID of the organization it belongs to:
+
+      ```bash
+      yc organization-manager user list \
+        --organization-id <organization_ID>
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+----------+-------------------+---------------+-----------------------+
+      |          ID          | USERNAME |       EMAIL       | FEDERATION ID | LAST AUTHENTICATED AT |
+      +----------------------+----------+-------------------+---------------+-----------------------+
+      | rser11gh89el******** | user01   | user01@example.ru |               |                       |
+      | mber02hy54km******** | user02   | user02@example.ru |               |                       |
+      +----------------------+----------+-------------------+---------------+-----------------------+
+      ```
+
+
+  1. Create an OS Login profile for the selected user:
+
+      ```bash
+      yc organization-manager oslogin profile create \
+        --organization-id <organization_ID> \
+        --subject-id <user_ID> \
+        --login <login> \
+        --uid <numeric_ID> \
+        --home-directory <path_to_home_folder> \
+        --shell <path_to_command_shell_executable_file>
+      ```
+
+      Where:
+
+      * `--organization-id`: Previously obtained organization ID.
+      * `--subject-id`: Previously obtained user ID.
+      * `--login`: OS username the user will get when connected to the VM. It must be unique within the folder.
+
+          {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
+
+      * `--uid`: Unique numeric user ID (UID) within the range from `1000` to `65534`. It must be unique within the system.
+      * (Optional) `--home-directory`: Path to the user's home folder. The default value is `/home/<username>`.
+      * (Optional) `--shell`: Path to the command shell executable file. Default value: `/bin/bash`.
+
+      Result:
+
+      ```text
+      id: aje6ddct3de5********
+      organization_id: bpf1smsil5q0********
+      subject_id: rser11gh89el********
+      login: new-os-login
+      uid: "100500"
+      home_directory: home/username
+      shell: bin/bash
+      ```
 
 - API {#api}
 
@@ -37,7 +129,7 @@ To create an OS Login profile for a user:
 
 {% note info %}
 
-If manually entering the UID, please use values within the range of `1,000` to `65,534`. Using this range will prevent matches between the OS Login profile UID and those of OS system profiles.
+If you set the UID manually, use values in the range from `1000` to `65534`. Using this range will prevent matches between the OS Login profile UID and those of OS system profiles.
 
 {% endnote %}
 

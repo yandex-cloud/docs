@@ -86,8 +86,8 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
 
       * [User](../../../iam/operations/users/get.md).
-      * [Service account](../../../iam/operations/sa/get-id.md).
-      * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+      * [Service account](../../../iam/operations/sa/get-id.md)
+      * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
   1. Run this command:

@@ -7,7 +7,9 @@ sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/index.md
 
 The service does not operate with resources.
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/ocr/v1).
+
+**Service URL**: `https://ocr.{{ api-host }}`
 
 #|
 ||Service | Description ||

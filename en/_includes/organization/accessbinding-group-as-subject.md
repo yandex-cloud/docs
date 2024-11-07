@@ -1,20 +1,23 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- Management console {#console}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-  1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-  1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../../organization/concepts/groups.md) you need or search by group name.
+  1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator or owner account.
 
-     You can also assign a role to one of the [system](../../iam/concepts/access-control/system-group.md) groups:
+  1. On the left side of the screen, click the line with the name of the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
 
-     * `All users in organization X`: The group includes all users in organization `X`.
-     * `All users in federation N`: The group includes all users in federation `N`.
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
-  1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [role](../../iam/concepts/access-control/roles.md) in the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can assign multiple roles.
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+      1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../../organization/concepts/groups.md) you need or search by group name.
+
+          You can also assign a role to one of the [system](../../iam/concepts/access-control/system-group.md) groups:
+
+          * `All users in organization X`: The group includes all users in organization `X`.
+          * `All users in federation N`: The group includes all users in federation `N`.
+
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../iam/concepts/access-control/roles.md) you want to assign to the group for the cloud or folder you selected earlier. You can assign multiple roles.
+
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -38,7 +41,7 @@
 
          You can also assign a role to a system group using the `--subject` parameter. To do this, provide in it the [subject](../../iam/concepts/access-control/index.md#subject) ID matching the selected system group.
 
-     For example, assign the `resource-manager.viewer` role for the `mycloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder):
+     For example, assign the `resource-manager.viewer` role for the `my-cloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
      ```bash
      yc resource-manager cloud add-access-binding mycloud \
@@ -64,7 +67,7 @@
 
      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role within an individual [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
      * `role`: Role you want to assign. This is a required parameter.
-     * `member`: Group the role is assigned to. Use this format: `group:<group_ ID>`. This is a required parameter.
+     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
 

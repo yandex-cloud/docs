@@ -7,13 +7,17 @@ description: This section contains {{ mmg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## September 2024 {#sep-2024}
+
+Added support for {{ MG }} version 7.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
+
 ## February 2024 {#feb-2024}
 
-* The `flowControl`, `changeStreamOptions`, `net.compression.compressors`, and `storage.wiredTiger.indexConfig.prefixCompression` settings are now supported. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+The `flowControl`, `changeStreamOptions`, `net.compression.compressors`, and `storage.wiredTiger.indexConfig.prefixCompression` settings are now supported. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q1 2023 {#q1-2023}
 
-* You can now create a sharded cluster instead of first creating a non-sharded one and then splitting it into shards.
+You can now create a sharded cluster instead of first creating a non-sharded one and then splitting it into shards.
 
 ## Q4 2022 {#q4-2022}
 
@@ -25,7 +29,7 @@ description: This section contains {{ mmg-name }} release notes.
 
 ## Q3 2022 {#q3-2022}
 
-* Added access to the `oplog` collection for users with the `mdbReplication` role.
+Added access to the `oplog` collection for users with the `mdbReplication` role.
 
 ## Q2 2022 {#q2-2022}
 
@@ -35,4 +39,4 @@ description: This section contains {{ mmg-name }} release notes.
 
 ## Q1 2022 {#q1-2022}
 
-* {{ MG }} 4.0 is no longer supported. Clusters cannot be created with this version. Existing {{ MG }} 4.0 clusters will be automatically updated to version 4.2.
+{{ MG }} 4.0 is no longer supported. Clusters cannot be created with this version. Existing {{ MG }} 4.0 clusters will be automatically updated to version 4.2.

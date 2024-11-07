@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/listOperations.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.ListOperations {#ListOperations}
+# SAML Federation API, REST: Certificate.ListOperations {#ListOperations}
 
 Lists operations for the specified certificate.
 

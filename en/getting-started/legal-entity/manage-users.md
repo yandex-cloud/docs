@@ -8,15 +8,31 @@ If your employees have Yandex accounts, e.g., `login@yandex.ru`, they can use th
 
 To add employee accounts to the organization, follow these steps:
 
-1. [Log in]({{ link-passport-login }}) as the organization administrator.
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the panel on the left, select the [Users]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg) section.
-1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+{% list tabs group=instructions %}
 
-    {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization as soon as they accept the invitation and select a log-in account for the organization.
+  {% include [add-yandex-user](../../_includes/organization/add-yandex-user.md) %}
+
+- Management console {#console}
+
+    1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator account.
+
+    1. Select the appropriate cloud from the list on the left. Example:
+
+        ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
+
+    1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+
+    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+
+        You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+
+{% endlist %}
+
+The users will be added to the organization as soon as they accept the invitation and select a log-in account for the organization.
 
 To access the organization's enabled services, invited users simply need to log in to their Yandex account.
 

@@ -6,8 +6,10 @@
 
 * [Can I use Yandex ID or Yandex 360 for authentication?](#auth-yandex-id)
 
-* [Is {{ GL }} integration with {{ tracker-full-name }} supported?](#tracker-integration)
+* [Is there support for {{ GL }} integration with {{ tracker-full-name }}?](#tracker-integration)
 
 * [Why cannot I push changes to the {{ mgl-name }} repository?](#push)
 
 * [I get `500 Internal Server Error` when opening an instance. What could be the problem?](#500-error)
+
+* [Why backups are not created?](#backup-failed)

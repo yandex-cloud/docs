@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/delete.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.Delete {#Delete}
+# SAML Federation API, gRPC: FederationService.Delete {#Delete}
 
 Deletes the specified federation.
 

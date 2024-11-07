@@ -4,7 +4,7 @@ editable: false
 
 # yc cic partner
 
-Manage partners.
+[PREVIEW] Manage partners.
 
 #### Command Usage
 

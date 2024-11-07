@@ -19,9 +19,8 @@ To create a chart:
 
 
 
-
 1. On the top panel, select a [visualization type](../../visualization-ref/index.md).
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/chart/index.md)
+* [{#T}](../../concepts/chart/index.md).

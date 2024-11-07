@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/get.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederatedCredentialService.Get {#Get}
+# Workload Identity, gRPC: FederatedCredentialService.Get {#Get}
 
 Returns the specified federated credential.
 

@@ -190,7 +190,8 @@ Changes may take up to 15 minutes to apply. Afterwards, it is recommended to pur
       // end of the list of possible fields
     }
   },
-  "labels": "string"
+  "labels": "string",
+  "removeLabels": "bool"
 }
 ```
 
@@ -228,6 +229,9 @@ SSL Certificate options. ||
 || labels | **string**
 
 Resource labels. At some point will be needed for granular detailing. ||
+|| removeLabels | **bool**
+
+If flag is set to true resource labels will be deleted. ||
 |#
 
 ## SecondaryHostnames {#yandex.cloud.cdn.v1.SecondaryHostnames}

@@ -1,4 +1,4 @@
-# Access control lists (ACLs)
+# Access control list (ACL)
 
 {% include [full-overview](./full-overview.md) %}
 
@@ -46,7 +46,7 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
 * [User group](../../../organization/concepts/groups.md)
 
-  To get the ID, navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+  To get the ID, navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
   You can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API. For more information, see [Editing a bucket ACL](../../../storage/operations/buckets/edit-acl.md) and [Editing an object ACL](../../../storage/operations/objects/edit-acl.md).
 
@@ -79,7 +79,7 @@ If you specify the `WRITE` permission without `READ` when creating an ACL, {{ ob
 
 ACL | Description
 --- |---
-`private`<br>`bucket-owner-full-control` | {{ yandex-cloud }} Users get permissions according to their roles in {{ iam-short-name }}.
+`private`<br>`bucket-owner-full-control` | {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 `public-read` | The `AllUsers` public group gets the `READ` permission.
 `public-read-write` | The `AllUsers` public group gets the `READ` and `WRITE` permissions.
 `authenticated-read` | The `AuthenticatedUsers` public group gets the `READ` permission.
@@ -150,7 +150,7 @@ A bucket inherits access permissions from the folder. If you want to know exactl
   +---------+--------------+-----------------------+
   ```
 
-  The output contains `allAuthenticatedUsers` and `allUsers`. This means the users of these groups are granted rights for this folder and all resources it contains, including buckets.
+  The output contains `allAuthenticatedUsers` and `allUsers`. This means the users of these groups have permissions for this folder and all resources it contains, including buckets.
 
 * To revoke a role from the `All authenticated users` public group, run the following command:
 

@@ -102,14 +102,16 @@ Versions can't be changed. Whenever you need to change the number of key-value p
         You can also get an IAM token for your service account from inside the VM the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
         
         ```
-        export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
+        export IAM_TOKEN=$(curl --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
         ```
 
     1. Run the following query:
 
         ```
-        curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
+        curl \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
         ```
 {% endlist %}
 

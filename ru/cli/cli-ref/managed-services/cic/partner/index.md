@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/partner/index.md
 
 # yc cic partner
 
-Manage partners.
+[PREVIEW] Manage partners.
 
 #### Command Usage
 

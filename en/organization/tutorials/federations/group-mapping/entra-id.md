@@ -15,7 +15,7 @@ To configure user group mapping in {{ microsoft-idp.entra-id-short }} and in an 
 1. [Complete configuring the application](#azure-settings-end).
 1. [Configure group mapping on the application side](#azure-mapping).
 1. [Configure group mapping on the federation side](#org-mapping).
-1. [Test the authentication operation](#test-auth).
+1. [Test authentication](#test-auth).
 
 ## Getting started {#before-you-begin}
 
@@ -80,49 +80,65 @@ Do not close the configuration tab in your browser.
 
 ## Create a {{ org-full-name }} federation {#create-federation}
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
+  1. In the left-hand panel, select ![icon-federation](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. You can also add a description, if required.
+  1. Click ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
+      1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, paste the {{ microsoft-idp.entra-full }} ID [you got when configuring the Azure app](#azure-settings-begin).
+      1. You can also add a description, if required.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the login page URL you got when configuring the Azure app.
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. Otherwise, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, paste the {{ microsoft-idp.entra-full }} ID [you got when configuring the Azure app](#azure-settings-begin).
 
-    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the login page URL you got when configuring the Azure app.
 
-1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. Otherwise, you will need to [manually add](../../../operations/add-account.md#add-user-sso) your federated users.
 
-1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-1. Use the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field to download the certificate (if the option was enabled earlier).
+      1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
-    You will need this certificate later when configuring SAML-based sign-on for the Azure app.
+      1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+  1. Use the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field to download the certificate (if the option was enabled earlier).
+
+      You will need this certificate later when configuring SAML-based sign-on for the Azure app.
+
+{% endlist %}
 
 ## Add the Azure app's SAML certificate to the federation {#add-certificate}
 
 To enable {{ org-name }} to verify the app's SAML certificate during authentication, add the certificate to the federation:
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. In the left-hand panel, navigate to [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to: `demo-federation`.
+- {{ cloud-center }} interface {#cloud-center}
 
-1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Enter certificate name and description.
+  1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. Enable **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** and paste the data of the [certificate obtained earlier](#azure-settings-begin).
+  1. Click the row with `demo-federation` to add your certificate to.
+
+  1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+
+  1. Enter certificate name and description.
+
+  1. In the **{{ ui-key.yacloud_org.component.form-file-upload.field.method }}** field, select `{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}` and paste the contents of the [certificate you got earlier](#azure-settings-begin).
+
+  1. Click **{{ ui-key.yacloud_org.actions.add }}**.
+
+{% endlist %}
 
 ## Complete the Azure app configuration {#azure-settings-end}
 
@@ -244,23 +260,37 @@ Configure the application for the new group to have access it.
 
 ## Configure group mapping on the federation side {#org-mapping}
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
-1. Select `demo-federation` you created previously and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
-1. Enable group mapping in the **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}** field.
-1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the `az_demo_group` ID [you got in {{ microsoft-idp.entra-id-short }} earlier](#create-group).
+{% list tabs group=instructions %}
 
-    {% note warning %}
+- {{ cloud-center }} interface {#cloud-center}
 
-    You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-    Therefore, enter the group ID, not its name.
+  1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in {{ org-name }} and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 
-    {% endnote %}
+  1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc-demo-group` group you created in {{ org-full-name }} from the list.
-1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+  1. Select `demo-federation` you created previously and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
+
+  1. Enable **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+  1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+
+  1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the `az_demo_group` ID [you got in {{ microsoft-idp.entra-id-short }}](#create-group) earlier.
+
+      {% note warning %}
+
+      You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
+
+      Therefore, enter the group ID, not its name.
+
+      {% endnote %}
+
+  1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc-demo-group` group you created in {{ org-full-name }} from the list.
+
+  1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+{% endlist %}
 
 ## Test authentication {#test-auth}
 
@@ -282,6 +312,6 @@ Configure the application for the new group to have access it.
 
 1. Enter the credentials of the `az_demo_user@example.com` user [you created earlier in {{ microsoft-idp.entra-id-short }}](#create-user) and click **Sign in**.
 
-    On successful authentication, the IdP server will redirect you to the URL (`https://{{ auth-host }}/federations/<federation_ID>`) you specified in the SAML settings for the Azure app, and then to the [management console]({{ link-console-main }}) home page.
+    On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL you specified in the SAML settings for the Azure app and then to the [management console]({{ link-console-main }}) home page.
 
 1. Make sure the signed in user belongs to `yc-demo-group` and has the viewer permissions for resources according to the role assigned to the group.

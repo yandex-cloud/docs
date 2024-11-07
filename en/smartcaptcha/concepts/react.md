@@ -53,7 +53,7 @@ Available properties:
 ||`onChallengeVisible`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge appears.||
 ||`onChallengeHidden`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge closes.||
 ||`onNetworkError`|`() => void` \| `undefined`|The method is invoked when a network error occurs.||
-||`onJavaScriptError`|`(error: { filename: string, message: string,`
+||`onJavascriptError`|`(error: { filename: string, message: string,`
 `col: number, line: number }) => void` \| `undefined`
 |
 The method is invoked when a critical JavaScript error occurs.||
@@ -89,7 +89,7 @@ Available properties:
 ||`onChallengeVisible`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge appears.||
 ||`onChallengeHidden`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge closes.||
 ||`onNetworkError`|`() => void` \| `undefined`|The method is invoked when a network error occurs.||
-||`onJavaScriptError`|`(error: { filename: string, message: string,`
+||`onJavascriptError`|`(error: { filename: string, message: string,`
 `col: number, line: number }) => void` \| `undefined`
 |
 The method is invoked when a critical JavaScript error occurs.||
@@ -133,7 +133,7 @@ Both components provide methods for [subscribing](./widget-methods.md#subscribe)
 * `onChallengeVisible`
 * `onChallengeHidden`
 * `onNetworkError`
-* `onJavaScriptError`
+* `onJavascriptError`
 * `onSuccess`
 * `onTokenExpired`
 
@@ -162,7 +162,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
 
-  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError'] = useCallback((error) => {
+  const handleJavaScriptError: SmartCaptchaProps['onJavascriptError'] = useCallback((error) => {
     setStatus('javascript-error');
     logError(error);
   }, []);
@@ -175,7 +175,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeVisible={handleChallengeVisible}
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
-        onJavaScriptError={handleJavaScriptError}
+        onJavascriptError={handleJavaScriptError}
         onSuccess={handleSuccess}
         onTokenExpired={handleTokenExpired}
       />

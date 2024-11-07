@@ -94,6 +94,20 @@ items:
                 href: api-ref/grpc/DesktopGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/DesktopGroup/updateAccessBindings.md
+          - name: DesktopImage
+            items:
+              - name: Overview
+                href: api-ref/grpc/DesktopImage/index.md
+              - name: List
+                href: api-ref/grpc/DesktopImage/list.md
+              - name: Get
+                href: api-ref/grpc/DesktopImage/get.md
+              - name: Copy
+                href: api-ref/grpc/DesktopImage/copy.md
+              - name: CopyFromDesktop
+                href: api-ref/grpc/DesktopImage/copyFromDesktop.md
+              - name: Delete
+                href: api-ref/grpc/DesktopImage/delete.md
           - name: Desktop
             items:
               - name: Overview
@@ -148,6 +162,20 @@ items:
                 href: api-ref/DesktopGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/DesktopGroup/updateAccessBindings.md
+          - name: DesktopImage
+            items:
+              - name: Overview
+                href: api-ref/DesktopImage/index.md
+              - name: List
+                href: api-ref/DesktopImage/list.md
+              - name: Get
+                href: api-ref/DesktopImage/get.md
+              - name: Copy
+                href: api-ref/DesktopImage/copy.md
+              - name: CopyFromDesktop
+                href: api-ref/DesktopImage/copyFromDesktop.md
+              - name: Delete
+                href: api-ref/DesktopImage/delete.md
           - name: Desktop
             items:
               - name: Overview

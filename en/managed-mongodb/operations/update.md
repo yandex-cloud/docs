@@ -146,7 +146,7 @@ We recommend changing the host class only when the cluster has no active workloa
   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-  * Host class in `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.resourcePresetId`.
+  * Host class in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.resourcePresetId` parameter.
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -258,7 +258,7 @@ We recommend changing the host class only when the cluster has no active workloa
   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-  * New storage size in `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.diskSize`.
+  * New storage size in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.diskSize` parameter.
   * List of settings to update, in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -306,7 +306,7 @@ You can change the DBMS settings of the hosts in your cluster.
   To change {{ MG }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-  * Required {{ MG }} setting values in `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config`.
+  * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
 
       All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
@@ -354,7 +354,7 @@ You can change the DBMS settings of the hosts in your cluster.
                                `day=<day_of_week>,`
                                `hour=<hour> \
           --performance-diagnostics=<enable_diagnostics> \
-          --deletion-protection=<deletion_protection>
+          --deletion-protection
         ```
 
     You can change the following settings:
@@ -366,7 +366,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       Changing the retention period affects both new automatic backups and existing backups.
 
-      For example, if the original retention period is 7 days, and the remaining lifetime of a separate automatic backup is 1 day, then increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
+      For example, if the original retention period was 7 days, and the remaining lifetime of a separate automatic backup is 1 day, then increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 

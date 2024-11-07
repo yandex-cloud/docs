@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/listOperations.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.ListOperations {#ListOperations}
+# SAML Federation API, gRPC: CertificateService.ListOperations {#ListOperations}
 
 Lists operations for the specified certificate.
 

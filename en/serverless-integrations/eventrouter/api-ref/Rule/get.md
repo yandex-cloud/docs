@@ -175,7 +175,8 @@ Rule status
 - `CREATING`: Rule creation in progress, rule is not enabled yet
 - `ENABLED`: Rule is operating
 - `UPDATING`: Rule update in progress, rule is disabled during update
-- `DISABLED`: Rule is explicitly disabled by the user ||
+- `DISABLED`: Rule is explicitly disabled by the user
+- `DELETING`: Rule deletion in progress ||
 |#
 
 ## Filter {#yandex.cloud.serverless.eventrouter.v1.Filter}

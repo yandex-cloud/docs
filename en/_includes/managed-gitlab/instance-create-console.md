@@ -17,13 +17,13 @@ Once an instance is created, you cannot change its resource configuration, i.e.,
 
 1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-   1. Select the instance type.
-   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. Currently, you cannot select a subnet with the `192.168.0.0/24` address range due to {{ yandex-cloud }} technical restrictions.
+   1. Select the instance type. After you create an instance, you can only change its type by contacting [support]({{ link-console-support }}).
+   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. Currently, {{ yandex-cloud }} technical restrictions do not allow selecting a subnet with an address range of `192.168.0.0/24`.
 
       The [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network) will be used for the instance. If you cannot open the {{ GL }} web interface after creating the instance, create a separate security group and [configure it](../../managed-gitlab/operations/configure-security-group.md) so that the rules allow incoming traffic from the required ports and IP addresses.
 
-   1. Select the [disk](../../compute/concepts/disk.md) size.
-   1. Specify the [instance domain name](../../compute/concepts/network.md#hostname): the required DNS records for this domain name will be automatically created in `.gitlab.yandexcloud.net`.
+   1. Select the [disk](../../compute/concepts/disk.md) size. After you create an instance, you can only increase the storage size by contacting support. You cannot reduce the storage size.
+   1. Specify the [instance domain name](../../compute/concepts/network.md#hostname): relevant DNS records will be automatically created for it in the `.gitlab.yandexcloud.net` domain.
 
       The domain name must be unique throughout {{ yandex-cloud }}.
 

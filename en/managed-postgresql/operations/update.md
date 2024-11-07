@@ -23,7 +23,7 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [Upgrading the {{ PG }} version](cluster-version-update.md).
+* [{{ PG }} version upgrade](cluster-version-update.md).
 
 * [Managing disk space](storage-space.md).
 
@@ -257,7 +257,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   1. Set the required parameter values:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the following field: `postgresqlConfig_<{{ PG }}_version>`. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API call must be converted to `max_prepared_transactions` for the CLI command:
+      All supported parameters are listed in the [request format for the `update` method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<{{ PG }}_version>` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, convert the `maxPreparedTransactions` parameter from an API request to `max_prepared_transactions` for the CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster_name_or_ID> \
@@ -336,7 +336,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
        In this case, specify all the {{ PG }} settings to update.
 
-     * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting, separated by commas.
+     * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
        See the [method description](../api-ref/Cluster/update.md#body_params) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for description and possible values for each setting.
 
@@ -391,9 +391,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
        In this case, specify all the {{ PG }} settings to update.
 
-     * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting, separated by commas.
+     * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
-       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for description and possible values for each setting.
+       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -444,7 +444,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
             --websql-access=<true_or_false> \
-            --deletion-protection=<deletion_protection> \
+            --deletion-protection \
             --connection-pooling-mode=<connection_pooler_mode> \
             --serverless-access=<true_or_false> \
             --yandexquery-access=<access_via_{{ yq-name }}> \
@@ -459,21 +459,21 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access`: Enables access from DataLens. The default value is `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access`: Enables access from DataLens. Default value: `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
 
 
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and provided upon request.
 
 
-    * `--autofailover`: Manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). The default value is `true`.
+    * `--autofailover`: Manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). Default value: `true`.
 
     * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md) (`SESSION`, `TRANSACTION`, or `STATEMENT`).
 
@@ -487,7 +487,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     * `--performance-diagnostics`: Settings for [collecting statistics](./performance-diagnostics.md#activate-stats-collector):
 
-        * `enabled`: If `true`, enables collecting statistics. The default value is `false`.
+        * `enabled`: If `true`, enables collecting statistics. Default value: `false`.
         * `sessions-sampling-interval`: Session sampling interval, seconds. The values range from `1` to `86400`.
         * `statements-sampling-interval`: Statement sampling interval, seconds. The values range from `60` to `86400`.
 
@@ -656,7 +656,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
          In the parameter, specify the time to start backup. Possible values:
 
-         * `hours`: Between `60` and `86400` hours.
+         * `hours`: Between `0` and `23` hours.
          * `minutes`: Between `0` and `59` minutes.
          * `seconds`: Between `0` and `59` seconds.
          * `nanos`: Between `0` and `999999999` nanoseconds.
@@ -666,22 +666,22 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `access`: Settings of the cluster access to the following {{ yandex-cloud }} services:
 
-         * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml).
-         * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml).
-         * `serverless`: [{{ sf-full-name }}](../../functions/index.yaml).
-         * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
-         * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml).
+         * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
+         * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
+         * `serverless`: [{{ sf-full-name }}](../../functions/index.yaml)
+         * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+         * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
-         * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
+         * `sessionsSamplingInterval`: Session sampling interval. Possible values: `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
-       * `ANYTIME`: Maintenance can take place at any time.
+       * `anytime`: Maintenance can take place at any time.
        * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
          * `day`: Day of week, in `DDD` format.
@@ -782,7 +782,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
          In the parameter, specify the time to start backup. Possible values:
 
-         * `hours`: Between `60` and `86400` hours.
+         * `hours`: Between `0` and `23` hours.
          * `minutes`: Between `0` and `59` minutes.
          * `seconds`: Between `0` and `59` seconds.
          * `nanos`: Between `0` and `999999999` nanoseconds.
@@ -790,7 +790,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        * `backup_retain_period_days`: The number of days to retain a backup of the cluster. Possible values: between `7` and `60` days.
 
 
-       * `access`: Settings of the cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -801,13 +801,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled`: Enable collecting statistics.
-         * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `enabled`: Enabling statistics collection.
+         * `sessions_sampling_interval`: Session sampling interval. Possible values: `1` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including those for disabled clusters). In `maintenance_window`, provide one of the two parameters:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
-       * `ANYTIME`: Maintenance can take place at any time.
+       * `anytime`: Maintenance can take place at any time.
        * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
          * `day`: Day of week, in `DDD` format.

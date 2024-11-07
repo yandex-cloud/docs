@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/list.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation.List {#List}
+# Federation, REST: Federation.List {#List}
 
 Retrieves the list of OIDC workload identity federations in the specified folder.
 

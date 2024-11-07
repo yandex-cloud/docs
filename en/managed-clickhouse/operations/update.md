@@ -128,7 +128,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, change the value of the `resource_preset_id` parameter in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mch-name }} cluster description, change the value of the `resource_preset_id` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -227,7 +227,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -278,7 +278,7 @@ The {{ mch-name }} service lets enable cluster [user](./cluster-users.md#sql-use
 
 {% note alert %}
 
-This disables user and database management through standard {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, API).
+This disables user and database management through standard {{ yandex-cloud }} interfaces (the management console, CLI, {{ TF }}, or API).
 
 Once enabled, user and database management settings for SQL cannot be disabled.
 
@@ -397,7 +397,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
            --serverless-access=<true_or_false> \
            --websql-access=<true_or_false> \
            --yandexquery-access=<true_or_false> \
-           --deletion-protection=<cluster_deletion_protection> \
+           --deletion-protection \
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
                                `hour=<hour>
@@ -408,15 +408,15 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access`: Enables access from {{ datalens-name }}. Default value: `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
 
-    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
+    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
-    * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
 
 
     * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Default value: `false`.
@@ -429,7 +429,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
@@ -679,7 +679,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
           --cloud-storage-data-cache=<file_storage> \
           --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
           --cloud-storage-move-factor=<percentage_of_free_space> \
-          --cloud-storage-prefer-not-to-merge=<merge_data_parts>
+          --cloud-storage-prefer-not-to-merge=<merging_data_parts>
       ```
 
       You can change the following settings:

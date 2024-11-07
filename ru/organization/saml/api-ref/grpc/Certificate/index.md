@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/index.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService
+# SAML Federation API, gRPC: CertificateService
 
 A set of methods for managing certificates.
 

@@ -7,6 +7,10 @@ description: This section contains {{ mpg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## September 2024 {#sep-2024}
+
+Added support for {{ PG }} [version 17]({{ pg.docs.org }}/release/17.0/). To learn how to update a cluster, see [{#T}](operations/cluster-version-update.md).
+
 ## May 2024 {#may-2024}
 
 Users with the `mdb_admin` role can now use the `pg_stat_reset_single_table_counters()` and `pg_stat_reset_single_function_counters()` functions.
@@ -17,7 +21,7 @@ Users with the `mdb_admin` role can now use the `pg_stat_reset_single_table_coun
 * Added the ability to upgrade {{ PG }} for 1C to version 13, 14, and 15.
 * Installed the updates from [16.2, 15.6, 14.11, 13.14, and 12.18](https://www.postgresql.org/about/news/postgresql-162-156-1411-1314-and-1218-released-2807/).
 * Expanded the permissions for users with the `mdb_admin` [role](./concepts/roles.md#mdb-admin). Now they can:
-  
+
   * Grant additional users permissions to use the `pg_cron` extension.
   * Reset statistics using the `pg_stat_reset_shared()` function.
   * Terminate the `autovacuum` sessions.
@@ -38,7 +42,7 @@ Key changes in the new version:
 
 To learn how to update a cluster, see [{#T}](operations/cluster-version-update.md).
 
-    For more information about the updates in {{ PG }} version 16, see the [{{ PG }} documentation]({{ pg.docs.org }}/release/16.0/).
+For more information about the updates in {{ PG }} version 16, see the [{{ PG }} documentation]({{ pg.docs.org }}/release/16.0/).
 
 ## Q3 2023 {#q3-2023}
 

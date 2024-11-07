@@ -58,7 +58,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
      * `description`: Service account description. This is an optional parameter.
      * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-     For more information about the `yandex_iam_service_account` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -121,21 +121,22 @@ Create a service account with the following name and description:
 - API {#api}
 
   ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d '{
-          "folderId": "b1gvmob95yys********",
-          "name": "my-robot",
-          "description": "this is my favorite service account"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
+      "folderId": "b1gvmob95yys********",
+      "name": "my-robot",
+      "description": "this is my favorite service account"
+    }' \
+    https://iam.{{ api-host }}/iam/v1/serviceAccounts
   ```
 
 {% endlist %}
 
 #### See also {#see-also}
 
-* [{#T}](assign-role-for-sa.md).
-* [{#T}](set-access-bindings.md).
-* [{#T}](../../concepts/users/service-accounts.md#sa-key).
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](set-access-bindings.md)
+* [{#T}](../../concepts/users/service-accounts.md#sa-key)

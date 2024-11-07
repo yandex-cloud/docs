@@ -1,4 +1,4 @@
-We will use a Moscow retail chain's demo sales {{ CH }} database as our data source. For an example of creating a connection, see [this guide](../../tutorials/datalens/data-from-ch-visualization.md#step1).
+We will use a Moscow retail chain's demo sales {{ CH }} database as our data source. For an example of creating a connection, see [this guide](../../tutorials/datalens/data-from-ch-visualization.md#create-connection).
 
 1. Build two datasets using a [SQL query against the data source](../../datalens/dataset/create-dataset.md#add-data):
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/delete.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederatedCredentialService.Delete {#Delete}
+# Workload Identity, gRPC: FederatedCredentialService.Delete {#Delete}
 
 Deletes the specified federated credential.
 

@@ -85,4 +85,4 @@ ssh <логин>@<IP-адрес>
 
 После успешного подключения вам могут понадобиться права администратора для выполнения некоторых команд. Пользователь, указанный при создании ВМ, входит в группу `sudo`, что позволяет выполнять команды с правами `root`. Для [повышения прав](../compute/qa/all.md#use-root-linux) используйте `sudo`. В {{ yandex-cloud }} у `root` нет пароля, поэтому достаточно [подключиться](../compute/operations/vm-connect/ssh.md) к ВМ по SSH и использовать эту команду.
 
-Также вы можете использовать ключ SSH для [подключения](../compute/operations/vm-connect/os-login.md) по [OS Login](../organization/concepts/os-login.md).
+Также вы можете использовать ключ SSH для [подключения](../compute/operations/vm-connect/os-login.md) по [{{ oslogin }}](../organization/concepts/os-login.md).

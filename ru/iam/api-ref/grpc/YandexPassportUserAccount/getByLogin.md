@@ -44,12 +44,13 @@ Required field. Login of the YandexPassportUserAccount resource to return. ||
         "string"
       ]
     }
-  }
+  },
   // end of the list of possible fields
+  "lastAuthenticatedAt": "google.protobuf.Timestamp"
 }
 ```
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -66,12 +67,13 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 A SAML federated user.
 
 Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
+|| lastAuthenticatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## YandexPassportUserAccount {#yandex.cloud.iam.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||

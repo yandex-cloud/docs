@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/private-connection/index.md
 
 # yc cic private-connection
 
-Manage privateConnections.
+[PREVIEW] Manage privateConnections.
 
 #### Command Usage
 

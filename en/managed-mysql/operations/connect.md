@@ -30,41 +30,41 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-   [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
+    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-   1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+    1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-      * Security group: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * Security group: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
 
-      For example, you can set the following rules for a VM:
+        For example, you can set the following rules for a VM:
 
-      * For incoming traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+        * For incoming traffic:
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+            This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
 
-      * For outgoing traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+        * For outgoing traffic:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
+            This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
@@ -113,7 +113,7 @@ If, when the [master host is changed automatically](../concepts/replication.md#m
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -131,12 +131,12 @@ mysql --host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 ### Most recent replica {#fqdn-replica}
 
-Such FQDN as `c-<cluster_ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../concepts/replication.md) that is most up-to-date with the master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in a cluster, you cannot connect to this FQDN, as the respective DNS CNAME record will point to a `null` object.
+* If there are no active replicas in a cluster, you cannot connect to this FQDN as the respective DNS CNAME record will point to a null object (`null`).
 
 Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9********` ID:
 
@@ -154,7 +154,7 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+You can only use graphical IDEs to connect to public cluster hosts using an SSL certificate.
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
@@ -162,40 +162,40 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 - DataGrip {#datagrip}
 
-   1. Create a data source:
-      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
-      1. On the **General** tab:
-         1. Specify the connection parameters:
-            * **Host**: [Any {{ MY }} host FQDN](#fqdn) or a [special FQDN](#special-fqdns).
-            * **Port**: `{{ port-mmy }}`.
-            * **User**, **Password**: DB user's name and password.
-            * **Database**: Name of the DB to connect to.
-         1. Click **Download** to download the connection driver.
-      1. On the **SSH/SSL** tab:
+  1. Create a data source:
+     1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
+     1. On the **General** tab:
+        1. Specify the connection parameters:
+           * **Host**: [Any {{ MY }} host FQDN](#fqdn) or a [special FQDN](#special-fqdns).
+           * **Port**: `{{ port-mmy }}`.
+           * **User**, **Password**: DB user's name and password.
+           * **Database**: Name of the DB to connect to.
+        1. Click **Download** to download the connection driver.
+     1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-   1. To test the connection, click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-   1. Click **OK** to save the data source.
+  1. To test the connection, click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
 
-   1. Create a new DB connection:
-      1. In the **Database** menu, select **New connection**.
-      1. Select **{{ MY }}** from the DB list.
-      1. Click **Next**.
-      1. Specify the connection parameters on the **Main** tab:
-         * **Server**: [FQDN of any {{ MY }} host](#fqdn) or a [special FQDN](#special-fqdns).
-         * **Port**: `{{ port-mmy }}`.
-         * **Database**: DB to connect to.
-         * **Username**, **Password**: DB username and password.
-      1. On the **SSL** tab:
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select **{{ MY }}** from the DB list.
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Server**: [FQDN of any {{ MY }} host](#fqdn) or a [special FQDN](#special-fqdns).
+        * **Port**: `{{ port-mmy }}`.
+        * **Database**: DB to connect to.
+        * **Username**, **Password**: DB username and password.
+     1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-   1. Click **Ready** to save the database connection settings.
+  1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
@@ -215,22 +215,22 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
 
 - Connecting without SSL {#without-ssl}
 
-   ```bash
-   RUN apt-get update && \
-       apt-get install mysql-client --yes
-   ```
+  ```bash
+  RUN apt-get update && \
+      apt-get install mysql-client --yes
+  ```
 
 
 - Connecting via SSL {#with-ssl}
 
-   ```bash
-   RUN apt-get update && \
-       apt-get install wget mysql-client --yes && \
-       mkdir --parents ~/.mysql && \
-       wget "{{ crt-web-path }}" \
-            --output-document ~/.mysql/root.crt && \
-       chmod 0600 ~/.mysql/root.crt
-   ```
+  ```bash
+  RUN apt-get update && \
+      apt-get install wget mysql-client --yes && \
+      mkdir --parents ~/.mysql && \
+      wget "{{ crt-web-path }}" \
+           --output-document ~/.mysql/root.crt && \
+      chmod 0600 ~/.mysql/root.crt
+  ```
 
 {% endlist %}
 

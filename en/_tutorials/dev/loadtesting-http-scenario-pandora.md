@@ -89,8 +89,8 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
    ```hcl
    variable_source "variables" "variables" {
       variables = {
-         auth_path = /auth
-         order_path = /order
+         auth_path = "/auth"
+         order_path = "/order"
       }
    }
 

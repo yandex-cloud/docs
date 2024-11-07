@@ -7,9 +7,11 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classif
 
 The service does not operate with resources.
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/foundation_models/v1/text_classification).
+
+**Service URL**: `https://llm.{{ api-host }}`
 
 #|
 ||Service | Description ||
-|| [TextClassification](TextClassification/index.md) | Service for classifying text from input text. ||
+|| [TextClassification](TextClassification/index.md) | Service for classifying the text requests provided in prompts. ||
 |#

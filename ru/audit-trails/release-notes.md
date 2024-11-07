@@ -261,8 +261,8 @@ description: В разделе представлена история изме�
   Событие | Описание
   --- | ---
   `CreateIamToken` | Создание IAM-токена
-  `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
-  `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
+  `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
+  `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
 
   {% endcut %}
 
@@ -493,13 +493,13 @@ description: В разделе представлена история изме�
 
   Событие | Описание
   --- | ---
-  `CreateOsLoginProfile` | Создание профиля OS Login
+  `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
   `CreateUserSshKey` | Создание SSH-ключа пользователя
-  `UpdateOsLoginProfile` | Изменение профиля OS Login
-  `UpdateOsLoginSettings` | Изменение настроек OS Login
+  `UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}
+  `UpdateOsLoginSettings` | Изменение настроек {{ oslogin }}
   `UpdateUserSshKey` | Изменение SSH-ключа пользователя
   `SetDefaultProfile` | Назначение профиля по умолчанию
-  `DeleteOsLoginProfile` | Удаление профиля OS Login
+  `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
   `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 
   {% endcut %}

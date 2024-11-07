@@ -23,7 +23,7 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Upgrading the {{ MY }} version
+          - name: '{{ MY }} version upgrade'
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
@@ -95,7 +95,7 @@ items:
         href: tutorials/sqoop.md
       - name: Migrating a database from a third-party {{ MY }} cluster
         href: tutorials/data-migration.md
-      - name: Migrating databases from {{ mmy-name }} to {{ MY }}
+      - name: Migrating a database from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-
           Delivering data from {{ mkf-full-name }} using {{
@@ -134,7 +134,7 @@ items:
           - name: '{{ TF }}'
             href: tutorials/opencart/terraform.md
       - name: >-
-          Migrating databases to {{ ydb-full-name }} using {{
+          Migrating a database to {{ ydb-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
       - name: Migrating a database from {{ mmy-name }} to {{ objstorage-full-name }}
@@ -155,6 +155,10 @@ items:
           Migrating data from {{ mmy-name }} to {{ mgp-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-to-mgp.md
+      - name: >-
+          Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name
+          }} using {{ data-transfer-full-name }}
+        href: tutorials/sync-mysql.md
       - name: >-
           Migrating a database from {{ MY }} to {{ CH }} using {{
           data-transfer-full-name }}

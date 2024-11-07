@@ -13,6 +13,14 @@ The file name may contain lowercase Latin letters, numbers, hyphens, and undersc
 
 {% endnote %}
 
+{% note info "Rule computation highlights" %}
+
+  * {{ managed-prometheus-name }} uses a global computation delay of 2 minutes to coordinate recording rules with the results of read requests. This means that the rules are applied two minutes after the data arrives. It allows all metrics collection agents to transmit the data before it is read by {{ managed-prometheus-name }} and recorded as a result of applying the recording rules.
+
+  * The default limit on the number of series as a result of rule computation is 1,000. The maximum limit value is 10,000.
+
+{% endnote %}
+
 The API is represented by REST resources located at `https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules`. To start executing requests:
 1. Specify the ID of your workspace in the URL. You can find the workspace ID in the {{ monitoring-name }} UI under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. Install [cURL](https://curl.haxx.se/).
@@ -66,7 +74,7 @@ If any rules or groups of rules are deleted when replacing a file, they will no 
 
 ## Getting a list of files {#list}
 
-Run the following query:
+Run this request:
 
 ```bash
 export IAM_TOKEN=<IAM_token>
@@ -89,7 +97,7 @@ Response example:
 
 ## Viewing the file contents {#get-content}
 
-Run the following query:
+Run this request:
 
 ```bash
 export IAM_TOKEN=<IAM_token>
@@ -113,7 +121,7 @@ Response example:
 
 You can get the computation status for any rule in all file groups by using the `snapshots` REST resource. Each snapshot contains information about the status, error, rule name, and computation time.
 
-Run the following query:
+Run this request:
 
 ```bash
 export IAM_TOKEN=<IAM_token>
@@ -152,7 +160,7 @@ Possible rule states:
 
 ## Deleting a file {#delete}
 
-Run the following query:
+Run this request:
 
 ```bash
 export IAM_TOKEN=<IAM_token>

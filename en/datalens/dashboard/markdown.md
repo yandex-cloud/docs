@@ -1,6 +1,6 @@
 # Markdown
 
-{{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
+{{ datalens-short-name }} lets you use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
@@ -9,15 +9,15 @@ In text widgets, you can use the following elements:
 * [Bold and italics](#emphasizing)
 * [Text color](#text-color)
 * [Lists](#lists)
-   * [Simple unordered list](#unordered-list)
-   * [Nested unordered list](#unordered-sublist)
-   * [Simple ordered list](#ordered-list)
-   * [Nested ordered list](#ordered-sublist)
+  * [Simple unordered list](#unordered-list)
+  * [Nested unordered list](#unordered-sublist)
+  * [Simple ordered list](#ordered-list)
+  * [Nested ordered list](#ordered-sublist)
 * [Tables](#tables)
 * [Links](#links)
 * [Code formatting](#code)
-   * [Inline code snippet](#inline-code)
-   * [Code block](#codeblock)
+  * [Inline code snippet](#inline-code)
+  * [Code block](#codeblock)
 * [Image](#image)
 
 ## Headers {#headings}
@@ -38,24 +38,24 @@ Syntax example:
 
 Use formatting to highlight key points in your text:
 
-* To make text **bold**, use double `*`:
+* Use double `*` for **bold**:
 
-   ```markdown
-   This text will be **bold**.
-   ```
+  ```markdown
+  This text will be **bold**.
+  ```
 
-* To make text _italic_, use `_`:
+* Use `_` for _italic_:
 
-   ```markdown
-   This text will be _italic_.
-   ```
+  ```markdown
+  This text will be _italic_.
+  ```
 
-* To combine _****bold and italics****_, use double `*` and `_` at the same time:
+* To combine **_bold and italics_**, use double `*` and `_` at the same time:
 
-   ```markdown
-   This text will be _**bold and italic**_.
-   This text will be **_bold and italic_**.
-   ```
+  ```markdown
+  This text will be **_bold and italic_**.
+  This text will be **_bold and italic_**.
+  ```
 
 ## Text color {#text-color}
 
@@ -77,7 +77,7 @@ This text is {green}(green).
 
 will be displayed as:
 
-This text is <font color="green">green</font>.
+This text is <font color=green>green</font>.
 
 ## Lists {#lists}
 
@@ -85,7 +85,7 @@ You can use multiple list types to arrange the data on the dashboard.
 
 ### Simple unordered list {#unordered-list}
 
-To make an unordered bulleted list, use characters such as `*`, `-`, or `+`.
+To make an unordered bulleted list, use `*`, `-`, or `+`.
 
 For example, the following markup:
 
@@ -123,7 +123,7 @@ will be displayed as:
 
 ### Simple ordered list {#ordered-list}
 
-To make an ordered list, use numbers with a `.` or `)` symbol.
+To make an ordered list, use numbers with a `.` or `)`.
 
 For example, the following markup:
 
@@ -147,8 +147,8 @@ For example, the following markup:
 
 ```markdown
 1. First item
-    1. Nested item
-    1. Nested item
+   1. Nested item
+   1. Nested item
 1. Second item
 ```
 
@@ -157,16 +157,16 @@ will be displayed as:
 1. First item
 
    1.1. Nested item<br>
-   1.2 Nested item
+   1.2. Nested item
 1. Second item
 
 ## Tables {#tables}
 
 A table consists of a single row with headers, a separator row, and rows with data.
 
-Each row in a table consists of cells that are separated from each other by a `|`.
+Each table row consists of cells that are separated from each other by `.|`.
 
-The cells of the separator row only allow the `-` character and `:` character. The colon (`:`) is used at the beginning, end, or on both sides of the cell content of the separator row to indicate left, right, or center alignment of text in the corresponding column, respectively.
+In the separator row cells, only `-` and `:` can be used. The colon (`:`) is used at the beginning, end, or on both sides of the separator row cell content to indicate left, right, or center alignment of text in the column, respectively.
 
 A table should be separated from the surrounding text with empty lines.
 
@@ -180,15 +180,15 @@ Text | Text | Text
 
 will be displayed as:
 
-| Left-aligned | Right-aligned | Centered |
+Left-aligned | Right-aligned | Centered
 :--- | ---: | :---:
-| Text | Text | Text |
+Text | Text | Text
 
 To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
 
 ```
 #|
-|| **Header1** | **Header2** ||
+|| **Header_1** | **Header_2** ||
 || Text | Text ||
 |#
 ```
@@ -198,7 +198,7 @@ Sample markup with line breaks and a list:
 ```
 #|
 ||Text
-on two lines
+in two lines
 |
 - Item 1
 - Item 2
@@ -207,7 +207,7 @@ on two lines
 |#
 ```
 
-See more in the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
+For more information, see the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
 
 ## Links {#links}
 
@@ -216,8 +216,8 @@ For example, you can add links to other dashboards and specify data sources.
 
 A link consists of two parts:
 
-* `[text]`: Link text
-* `(link)`: URL or path to the referenced file
+* `[text]`: Link text.
+* `(link)`: URL or path to the referenced file.
 
 For example, the following markup:
 
@@ -227,12 +227,10 @@ For example, the following markup:
 ```
 
 
-
 will be displayed as:
 
 
 [link to yandex.ru](https://yandex.ru).
-
 
 
 
@@ -242,7 +240,7 @@ You can use inline code snippets or code blocks.
 
 ### Inline code snippet {#inline-code}
 
-Use <code>`</code> to format inline code snippets.
+Use <code>`</code> to format an inline code snippet.
 
 For example, the following markup:
 
@@ -256,7 +254,7 @@ A sentence with a `code snippet`.
 
 ### Code block {#codeblock}
 
-Use triple <code>`</code> and the programming language name to format your snippet as a code block.
+Use triple <code>`</code> and the appropriate programming language name to format your snippet as a code block.
 
 For example, the following markup:
 
@@ -312,7 +310,7 @@ For the uploaded image to be permanently available, open access to it via an [AC
 
 {% note warning %}
 
-Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [documentation](../../storage/security/overview.md).
+Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [relevant documentation](../../storage/security/overview.md).
 
 {% endnote %}
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/create.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService.Create {#Create}
+# Access Key, gRPC: AccessKeyService.Create {#Create}
 
 Creates an access key for the specified service account.
 

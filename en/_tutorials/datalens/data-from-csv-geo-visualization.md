@@ -211,7 +211,7 @@ The dataset will consist of a single source: the CSV file.
 
 1. Save the dataset by clicking **Save** at the top right.
 
-1. In the window that opens, specify the dataset name: **Accidents**. Click **Create**.
+1. In the window that opens, specify the dataset name: **Accident**. Click **Create**.
 
 The dataset is created.
 
@@ -480,7 +480,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/22-create-chart.png)
 
-1. Select the **Map** chart type.
+1. Select **Map** for chart type.
 
    ![image](../../_assets/datalens/solution-07/23-heatmap.png)
 

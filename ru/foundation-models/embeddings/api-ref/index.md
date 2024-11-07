@@ -7,7 +7,9 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/embedding/embeddings/api-ref/ind
 
 The service does not operate with resources.
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/foundation_models/v1/embedding).
+
+**Service URL**: `https://llm.{{ api-host }}`
 
 #|
 ||Service | Description ||
