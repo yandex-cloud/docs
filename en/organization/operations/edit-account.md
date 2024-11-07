@@ -1,6 +1,6 @@
 ---
 title: Deleting a user account in {{ org-full-name }}
-description: In this tutorial, you will learn how to delete user accounts in {{ org-name }}.
+description: In this tutorial, you will learn how to delete a user account in {{ org-name }}.
 ---
 
 # Deleting a user account
@@ -13,7 +13,7 @@ Only users with the `organization-manager.admin` or `organization-manager.organi
 
 {% endnote %}
 
-You cannot undo removing or deleting a user from an organization. To restore a user, you need to [add](add-account.md) them back to the organization.
+You cannot undo removing or deleting a user from an organization. To restore a user, [add](add-account.md) them to the organization again.
 
 ## Removing a user from an organization {#remove-user}
 
@@ -21,15 +21,21 @@ Once removed, a user with a Yandex account will lose access to all the organizat
 
 To remove a user from an organization:
 
-1. [Log in]({{link-passport-login}}) as the organization administrator or owner.
+{% list tabs group=instructions %}
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
+  1. Navigate to [{{ org-full-name }}]({{ link-org-cloud-center }}) and log in using an administrator or organization owner account.
 
-1. Select an employee from the list or use the search bar at the top of the page.
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-1. In the line with the employee name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+  1. Select a user from the list or use the search bar or filter at the top of the page.
+
+  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+
+  1. In the window that opens, confirm user removal from the organization.
+
+{% endlist %}
 
 ## Deleting a user from an organization {#delete-user}
 
@@ -37,12 +43,18 @@ Only federated users can be deleted from an organization. Once you delete a fede
 
 To delete a user from your organization:
 
-1. [Log in]({{link-passport-login}}) as the organization administrator or owner.
+{% list tabs group=instructions %}
 
-1. Go to [{{ org-full-name }}]({{link-org-main}}).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
+  1. Navigate to [{{ org-full-name }}]({{ link-org-cloud-center }}) and log in using an administrator or organization owner account.
 
-1. Select an employee from the list or use the search bar at the top of the page.
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-1. In the line with the employee name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.delete }}**.
+  1. Select a user from the list or use the search bar or filter at the top of the page.
+
+  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.user.action.delete }}**.
+
+  1. In the window that opens, confirm user deletion from the organization.
+
+{% endlist %}

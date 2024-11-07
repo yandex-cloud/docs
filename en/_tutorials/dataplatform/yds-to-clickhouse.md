@@ -19,64 +19,64 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
-   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
-   1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
+    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
-               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-yds-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-clickhouse/blob/main/data-transfer-yds-mch.tf) configuration file to the same working directory.
+    1. Download the [data-transfer-yds-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-clickhouse/blob/main/data-transfer-yds-mch.tf) configuration file to the same working directory.
 
-      This file describes:
+        This file describes:
 
-      * {{ ydb-name }} database.
-      * Service account with the `yds.editor` role.
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mch-name }} cluster from the internet.
-      * {{ mch-name }} target cluster.
-      * Target endpoint.
-      * Transfer.
+        * {{ ydb-name }} database.
+        * Service account with the `yds.editor` role.
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mch-name }} cluster from the internet.
+        * {{ mch-name }} target cluster.
+        * Target endpoint.
+        * Transfer.
 
-   1. Specify in the `data-transfer-yds-mch.tf` file:
+    1. Specify the following in the `data-transfer-yds-mch.tf` file:
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
-      * `sa_name`: Name of the service account to be used in endpoints.
-      * `source_db_name`: {{ ydb-name }} database name.
-      * `target_db_name`: {{ CH }} database name.
-      * `target_user` and `target_password`: {{ CH }} database owner username and password.
-      * `transfer_enabled`: Set `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the resources will be created in.
+        * `sa_name`: Name of the service account to be used in endpoints.
+        * `source_db_name`: {{ ydb-name }} database name.
+        * `target_db_name`: {{ CH }} database name.
+        * `target_user` and `target_password`: Username and password of the {{ CH }} database owner.
+        * `transfer_enabled`: `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+        ```bash
+        terraform validate
+        ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Create the required infrastructure:
+    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -101,118 +101,120 @@ Prepare the infrastructure:
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
+{% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
+
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+    * **Endpoint parameters**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
-               Set a list of topic fields manually:
+                Set a list of topic fields manually:
 
-               | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.name.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.type.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.key.title }} |
-               | :-- | :-- | :--- |
-               | `device_id` | `STRING` | Yes |
-               | `datetime` | `DATETIME` |  |
-               | `latitude` | `DOUBLE` |  |
-               | `longitude` | `DOUBLE` |  |
-               | `altitude` | `DOUBLE` |  |
-               | `speed` | `DOUBLE` |  |
-               | `battery_voltage` | `ANY` |
-               | `cabin_temperature` | `DOUBLE` |
-               | `fuel_level` | `ANY` |
+                | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.name.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.type.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.key.title }} |
+                | :-- | :-- | :--- |
+                |`device_id`|`STRING`| Yes|
+                |`datetime` |`DATETIME`|  |
+                |`latitude` |`DOUBLE`|  |
+                |`longitude`|`DOUBLE`|  |
+                |`altitude` |`DOUBLE`|  |
+                |`speed`    |`DOUBLE`|  |
+                |`battery_voltage`| `ANY`||
+                |`cabin_temperature`| `DOUBLE`||
+                | `fuel_level`|`ANY`||
 
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
-               Create and upload the `json_schema.json` file in JSON format:
+                Create and upload a `json_schema.json` data schema file in JSON format:
 
-               {% cut "json_schema.json" %}
+                {% cut "json_schema.json" %}
 
-               ```json
-               [
-                   {
-                       "name": "device_id",
-                       "type": "string",
-                       "key": true
-                   },
-                   {
-                       "name": "datetime",
-                       "type": "datetime"
-                   },
-                   {
-                       "name": "latitude",
-                       "type": "double"
-                   },
-                   {
-                       "name": "longitude",
-                       "type": "double"
-                   },
-                   {
-                       "name": "altitude",
-                       "type": "double"
-                   },
-                   {
-                       "name": "speed",
-                       "type": "double"
-                   },
-                   {
-                       "name": "battery_voltage",
-                       "type": "any"
-                   },
-                   {
-                       "name": "cabin_temperature",
-                       "type": "double"
-                   },
-                   {
-                       "name": "fuel_level",
-                       "type": "any"
-                   }
-               ]
-               ```
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "string",
+                        "key": true
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "any"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "double"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "any"
+                    }
+                ]
+                ```
 
-               {% endcut %}
+                {% endcut %}
 
 1. Create a transfer:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   - {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-      1. Specify the variables in the `data-transfer-yds-mch.tf` file:
+        1. In the `data-transfer-yds-mch.tf` file, specify these variables:
 
-         * `source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set to `1` to enable transfer creation.
+            * `source_endpoint_id`: ID of the source endpoint.
+            * `transfer_enabled`: `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+            ```bash
+            terraform validate
+            ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+            If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Create the required infrastructure:
+        1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, your transfer will be activated automatically.
+            Once created, your transfer will be activated automatically.
 
-   {% endlist %}
+    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -220,19 +222,19 @@ Prepare the infrastructure:
 
 1. [Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md) {{ yds-name }}:
 
-   ```json
-   {
-       "device_id":"rhibbh3y08qm********",
-       "datetime":"2022-06-06 09:49:54",
-       "latitude":55.71294467,
-       "longitude":37.66542005,
-       "altitude":429.13,
-       "speed":55.5,
-       "battery_voltage":null,
-       "cabin_temperature":18,
-       "fuel_level":32
-   }
-   ```
+    ```json
+    {
+        "device_id":"rhibbh3y08qm********",
+        "datetime":"2022-06-06 09:49:54",
+        "latitude":55.71294467,
+        "longitude":37.66542005,
+        "altitude":429.13,
+        "speed":55.5,
+        "battery_voltage":null,
+        "cabin_temperature":18,
+        "fuel_level":32
+    }
+    ```
 
 1. Make sure the data from the {{ yds-name }} stream has been moved to the {{ mch-name }} cluster database:
 
@@ -256,27 +258,27 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - Manually {#manual}
 
-      * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-      * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-      * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+       * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+       * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
    - {{ TF }} {#tf}
 
-      1. In the terminal window, go to the directory containing the infrastructure plan.
-      1. Delete the `data-transfer-yds-mch.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. In the terminal window, go to the directory containing the infrastructure plan.
+       1. Delete the `data-transfer-yds-mch.tf` configuration file.
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+           ```bash
+           terraform validate
+           ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+           If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm updating the resources.
+       1. Confirm updating the resources.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the configuration file `data-transfer-yds-mch.tf` will be deleted.
+           All the resources described in the `data-transfer-yds-mch.tf` configuration file will be deleted.
 
    {% endlist %}
 

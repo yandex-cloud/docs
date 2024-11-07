@@ -247,4 +247,4 @@ wget "{{ crt-web-path-int }}" \
 
 ## How to delete the resources you created {#clear-out}
 
-If you no longer plan to use the project in {{ ml-platform-short-name }}, [delete it](../../datasphere/operations/projects/delete.md#delete-project).
+If you no longer plan to use the {{ ml-platform-short-name }} project, [delete it](../../datasphere/operations/projects/delete.md#delete-project).

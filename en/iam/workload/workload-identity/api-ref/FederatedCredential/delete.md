@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/delete.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: FederatedCredential.Delete {#Delete}
+# Workload Identity, REST: FederatedCredential.Delete {#Delete}
 
 Deletes the specified federated credential.
 

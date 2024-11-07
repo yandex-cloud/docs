@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/index.md
 ---
 
-# Cloud Organization SAML API, REST: Federation
+# SAML Federation API, REST: Federation
 
 A set of methods for managing federations.
 

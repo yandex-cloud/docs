@@ -2,7 +2,7 @@
 
 To manage [virtual machines](../../compute/concepts/vm.md) via [Ansible](https://www.ansible.com/), you can use a [service account](../../iam/concepts/users/service-accounts.md) with an [OS Login](../../organization/concepts/os-login.md) profile with an SSH key. This configuration will allow you to have a separate account for VM management via Ansible with scheduled or manual SSH key revocation.
 
-In addition, with this configuration you can temporarily elevate the privileges of this account by assigning additional [roles](../../iam/concepts/access-control/roles.md) to the service account. For example, to use the `become` directive in Ansible tasks you will have to temporarily assign the `compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin) to the service account.
+In addition, with this configuration you can temporarily elevate the privileges of this account by assigning additional [roles](../../iam/concepts/access-control/roles.md) to the service account. For example, to use the `become` directive in Ansible tasks, you will have to temporarily assign the `compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin) to the service account.
 
 To configure a service account for VM management via Ansible:
 1. [Prepare your cloud](#before-you-begin).
@@ -34,7 +34,7 @@ The cost of supporting the infrastructure created in the guide includes:
 ## Create a service account with an SSH key in the OS Login profile {#create-ssh-key}
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) it the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin).
-1. Create a pair of `ed25519` type SSH keys the service account will use to connect to virtual machines:
+1. Create an SSH keys pair of the `ed25519` type that the service account will use to connect to virtual machines:
 
     ```bash
     ssh-keygen \
@@ -63,7 +63,7 @@ The cost of supporting the infrastructure created in the guide includes:
       ```
       Where:
       * `--name`: Uploaded key name, e.g., `ssh-my-ansible-sa`.
-      * `--organization-id`: ID of the [organization](../../organization/quickstart.md) the `my-ansible-sa` service account belongs to. To get a list of available organizations and their IDs, run the `yc organization-manager organizations list` command.
+      * `--organization-id`: ID of the [organization](../../organization/operations/organization-get-id.md) the `my-ansible-sa` service account belongs to.
       * `--subject-id`: [ID](../../iam/operations/sa/get-id.md) of the service account to whose profile you are adding the SSH key.
       * `--data`: Contents of the file with the public part of the SSH key (`id_yc-sa-my-ansible-sa.pub`).
       * `--expires-at`: Uploaded key expiration date. This is an optional parameter. If the parameter is not set, the key will have no expiration date.
@@ -102,7 +102,7 @@ The cost of supporting the infrastructure created in the guide includes:
     ```
  
     Where:
-    * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the virtual machine with enabled OS Login access.
+    * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM with enabled OS Login access.
     * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
 
 ## Configure Ansible to run on behalf of a service account {#configure-ansible}
@@ -122,7 +122,7 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     ```
     Where:
     * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
-    * `<VM_IP_address>`: Public IP address of the virtual machine with enabled OS Login access.
+    * `<VM_IP_address>`: Public IP address of the VM with enabled OS Login access.
 
 1. Run Ansible with the `ansible.builtin.ping` module:
 

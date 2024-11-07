@@ -42,40 +42,45 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
 ### Create a federation {#create-federation}
 
+To create a federation:
+
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
+  1. In the left-hand panel, select ![icon-federation](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
-  1. Give your federation a name. It must be unique within the folder.
+      1. Give your federation a name. It must be unique within the folder.
 
-  1. You can also add a description, if required.
+      1. You can also add a description, if required.
 
-  1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
   
-  1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
-      ```text
-      https://accounts.google.com/o/saml2?idpid=<SAML_app_ID>
-      ```
+          ```text
+          https://accounts.google.com/o/saml2?idpid=<SAML_app_ID>
+          ```
 
-  1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the link copied from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the link copied from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
-      ```text
-      https://accounts.google.com/o/saml2/idp?idpid=<SAML_app_ID>
-      ```
-      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+          ```text
+          https://accounts.google.com/o/saml2/idp?idpid=<SAML_app_ID>
+          ```
 
-  1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-     {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+      1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
 
-  1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+
+      1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+
+      1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 - CLI {#cli}
 
@@ -106,7 +111,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
         * `--name`: Federation name. It must be unique within the folder.
         
-        * `--organization-id`: Organization ID.
+        * `--organization-id`: [Organization ID](../../operations/organization-get-id.md).
 
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
@@ -145,7 +150,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
         * `name`: Federation name. It must be unique within the folder.
         * `description`: Federation description.
-        * `organization_id`: Organization ID.
+        * `organization_id`: [Organization ID](../../operations/organization-get-id.md).
         * `labels`: Set of key/value label pairs assigned to the federation.
         * `issuer`: ID of the IdP server to use for authentication.
 
@@ -173,7 +178,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
             If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
-        * `security_settings`: Federation security settings:
+        * `security_settings`: Federation security settings: 
           * `encrypted_assertions`: For signing authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
@@ -239,7 +244,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
         
         * `name`: Federation name. It must be unique within the folder.
 
-        * `organizationId`: Organization ID.
+        * `organizationId`: [Organization ID](../../operations/organization-get-id.md).
 
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
@@ -279,23 +284,9 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
-
-  1. Click the name of the federation to add a certificate to.
-
-  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
-
-  1. Enter certificate name and description.
-
-  1. Choose how to add a certificate:
-
-      * To add a certificate as a file, click **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** and specify the path to it.
-
-      * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method and paste the contents.
-
-  1. Click **{{ ui-key.yacloud_org.actions.add }}**.
+  {% include [add-cert-to-fed](../../../_includes/organization/add-cert-to-fed.md) %}
 
 - CLI {#cli}
 
@@ -334,12 +325,13 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
   1. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaAT********
-      $ curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \
-          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+      export IAM_TOKEN=CggaAT********
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -361,7 +353,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-    * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after authentication:
+    * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication:
 
 
       ```text
@@ -433,9 +425,9 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If t
 
 {% endnote %}
 
-> Attribute mapping example:
+>Attribute mapping example:
 >
-> ![image](../../../_assets/organization/google-saml-mapping.png)
+>![image](../../../_assets/organization/google-saml-mapping.png)
 
 ### Add users to your organization {#add-users-to-org}
 
@@ -449,21 +441,9 @@ A user can be added by the organization administrator (the `organization-manager
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/console-icons/person.svg).
-
-  1. In the top-right corner, click ![icon-users](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
-
-  1. Select the identity federation to add users from.
-
-  1. List the name IDs of users, separating them with line breaks.
-
-  1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
+  {% include [add-users-to-fed](../../../_includes/organization/add-users-to-fed.md) %}
 
 - CLI {#cli}
 
@@ -508,10 +488,11 @@ A user can be added by the organization administrator (the `organization-manager
   1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer <IAM_token>" \
-        -d '@body.json' \
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer <IAM_token>" \
+        --data '@body.json' \
         https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
       ```
 
@@ -523,7 +504,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the URL to log in to the management console:
+1. Use this URL to log in to the management console:
 
    ```text
    {{ link-console-main }}/federations/<federation_ID>
@@ -539,7 +520,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you back to the ACS URL you specified in the Google Workspace settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you back to the ACS URL you specified in the Google Workspace settings and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

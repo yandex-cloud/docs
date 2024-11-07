@@ -96,7 +96,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role you want to assign. This is a required parameter.
 
        {% note info %}
 
@@ -108,8 +108,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
-       * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-       * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+       * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+       * `system:group:federation:<federation_ID>:users`: [Identity federation](../../../organization/concepts/add-federation.md) ID to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -131,7 +131,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -170,7 +170,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
       ```bash
-      curl -H "Authorization: Bearer <IAM_token>" \
+      curl \
+        --header "Authorization: Bearer <IAM_token>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
       ```
 
@@ -191,7 +192,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       ```
   1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       ```bash
-      curl -H "Authorization: Bearer <IAM_token>" \
+      curl \
+        --header "Authorization: Bearer <IAM_token>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
@@ -209,10 +211,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Assign the `editor` role to the user for `my-folder`. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM_token>" \
-        -d '{
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM_token>" \
+        --data '{
         "accessBindingDeltas": [{
             "action": "ADD",
             "accessBinding": {
@@ -277,7 +280,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role you want to assign. This is a required parameter.
 
        {% note info %}
 
@@ -285,7 +288,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
        {% endnote %}
 
-     * `member`: User to assign the role to. To add a user to the list, create an entry as follows: `userAccount:<user_ID>`, where `<user_ID>` is a Yandex email address, such as `ivan@yandex.ru`. This is a required parameter.
+     * `member`: User to assign the role to. To add a user to the list, create an entry in this format: `userAccount:<user_ID>`, where `<user_ID>` is the email address of a Yandex account, e.g., `ivan@yandex.ru`. This is a required parameter.
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -312,7 +315,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -350,10 +353,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   Assign the `editor` role to one user and the `viewer` role to another:
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM_token>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
     "accessBindingDeltas": [{
         "action": "ADD",
         "accessBinding": {
@@ -384,10 +388,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM_token>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
     "accessBindings": [{
         "roleId": "editor",
         "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
@@ -431,7 +436,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role you want to assign. This is a required parameter.
 
        {% note info %}
 
@@ -439,7 +444,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
        {% endnote %}
 
-     * `member`: User to assign the role to. To add a user to the list, create an entry as follows: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account ID](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
+     * `member`: User to assign the role to. To add a user to the list, create a record in this format: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account ID](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -452,14 +457,14 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "editor"
-       member    = "serviceAccount:<service_account_ID>"
+       member   = "serviceAccount:<service_account_ID>"
      }
      ...
      ```
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```

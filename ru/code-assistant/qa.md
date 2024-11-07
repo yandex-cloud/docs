@@ -14,6 +14,16 @@
 
 Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./quickstart.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./quickstart.md#install-plugin).
 
+### Ошибка получения refresh-токена {#refresh-token}
+
+Текст ошибки:
+
+```text
+Error refreshing token: no refresh token found
+```
+
+В вашей [организации](../overview/roles-and-resources.md) запрещен выпуск [refresh-токенов](../iam/api-ref/RefreshToken/), которые используются {{ ca-name }} для аутентификации. Чтобы работать с {{ ca-name }}, [зарегистрируйтесь](../getting-started/) в {{ yandex-cloud }} с помощью личного [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport) и [создайте](../organization/operations/enable-org.md) новую организацию.
+
 ## Работа в Visual Studio Code {#vs-code-ide}
 
 ### Ошибка при аутентификации {#crypto-is-not-defined}

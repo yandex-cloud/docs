@@ -2,7 +2,7 @@
    
 1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
    
-    Если у вас установлен [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md), вы можете подключиться к ВМ по [OS Login](../../compute/operations/vm-connect/os-login):
+    Если у вас установлен [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md), вы можете подключиться к ВМ по [{{ oslogin }}](../../compute/operations/vm-connect/os-login):
 
     ```bash
     yc compute ssh --name test-vm1

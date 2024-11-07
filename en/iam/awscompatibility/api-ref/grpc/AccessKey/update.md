@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/update.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService.Update {#Update}
+# Access Key, gRPC: AccessKeyService.Update {#Update}
 
 Updates the specified access key.
 

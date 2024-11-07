@@ -36,6 +36,7 @@ The following connection types are available in {{ datalens-short-name }}:
 
 * Partner connections:
 
+  * [1C Extractor](../operations/connection/create-extractor1c.md)
   * [Bitrix24](../operations/connection/create-bitrix24.md)
   * [Analystics podcasts](../operations/connection/create-podcasts.md)
 

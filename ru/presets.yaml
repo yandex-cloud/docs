@@ -3,6 +3,7 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -5493,7 +5494,6 @@ default:
           title_tab-members: Участники
         invitation:
           action_send-invitation: Отправить приглашение
-          label_option-actual: Действующие
           label_row-action-delete: Удалить приглашение
           label_row-action-resend: Отправить повторно
         oslogin-profile:
@@ -5569,23 +5569,11 @@ default:
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
-        context:
-          action:
-            create: Создать новую организацию
         federation:
           link:
             download-cert: Скачать сертификат
           section:
             certificates: Сертификаты
-        services:
-          clouds:
-            create: Создать облако
-          service:
-            console:
-              title_ru: Консоль управления Yandex Cloud
-        settings:
-          action:
-            edit: Редактировать данные
         user:
           title_tab-os-login: Профили OS Login
           title_tab-ssh-keys: SSH-ключи
@@ -5596,14 +5584,10 @@ default:
           label_tab-invitations: Приглашения
       pages:
         acl: Права доступа
-        create: Создать организацию
         federations: Федерации
         groups: Группы
-        notifications: Уведомления
         oslogin:
           title: Настройки безопасности
-        raw_services: Облака и сервисы
-        settings: Об организации
         users: Пользователи
     yacloud_portal:
       acl:
@@ -6339,6 +6323,8 @@ default:
           label_serverless-containers: Serverless Containers
           label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
+        password-input:
+          label_button-generate: Сгенерировать
         security-group-field:
           label_sg-auto: Автоматически
           label_sg-from-list: Из списка
@@ -8998,11 +8984,19 @@ default:
                         title: Бакет
                       endpoint:
                         title: Эндпоинт
+                      service_account_id:
+                        title: Сервисный аккаунт
                       title: Настройки подключения
                       use_ssl:
                         title: Использовать SSL
                       verify_ssl_cert:
                         title: Проверять SSL-сертификат
+                    OBJECT_STORAGE_UNPARSED_CONTINUE:
+                      title: Продолжать
+                    OBJECT_STORAGE_UNPARSED_FAIL:
+                      title: Прерывать
+                    OBJECT_STORAGE_UNPARSED_RETRY:
+                      title: Повторять
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
                         title: Колонка со временем
@@ -9087,8 +9081,13 @@ default:
                           title: Parquet
                       path_pattern:
                         title: Шаблон пути
+                      path_prefix:
+                        title: Префикс пути
                       result_schema:
                         title: Схема результирующей таблицы
+                    ObjectStorageSourceAdvancedSettings:
+                      unparsed_mode:
+                        title: Тип не определён
                     ObjectStorageTarget:
                       advanced_settings:
                         title: Расширенные настройки

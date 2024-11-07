@@ -5,7 +5,7 @@ description: Follow this guide to enable OS Login access to virtual machines and
 
 # Enabling access via OS Login
 
-[OS Login](../concepts/os-login.md) access allows you to connect to VMs and {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes with an SSH key or SSH certificate [using the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). If you are connecting with an SSH key, you need to [add](../../organization/operations/add-ssh.md) the public SSH key to the organization user profile in {{ org-full-name }} first.
+[OS Login](../concepts/os-login.md) access allows you to connect to VMs and {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes using an SSH key or SSH certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). Before connecting using an SSH key, you need to [add](../../organization/operations/add-ssh.md) the respective public SSH key to the organization user profile in {{ org-full-name }}.
 
 To create virtual machines or {{ k8s }} nodes with OS Login access, enable this feature at the organization level. This will allow you to [enable](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) OS Login access for VMs created from a ready-made image with OS Login support or [configure](../../compute/operations/vm-connect/enable-os-login.md) the OS Login agent on an already running VM. For more information about connecting via OS Login, see [{#T}](../../compute/operations/vm-connect/os-login.md).
 
@@ -19,19 +19,21 @@ To enable OS Login access at the organization level:
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+      [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
+
+  1. In the left-hand panel, select ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+
   1. Enable the required access options:
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
           This option allows you to connect to a VM or {{ k8s }} cluster node with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
-          This option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI or a standard SSH client with an SSH key stored in the OS Login profile of a user or [service account](../../iam/concepts/users/service-accounts.md).
+          This option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI or a standard SSH client with an SSH key stored in the OS Login profile for a user or [service account](../../iam/concepts/users/service-accounts.md).
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
           The option is available if OS Login access with SSH keys is enabled.
@@ -83,7 +85,7 @@ To enable OS Login access at the organization level:
 
           To disable this option, provide the `false` value in the `--ssh-certificates-enabled=false` parameter.
 
-      * `--ssh-user-keys-enabled`: Access via OS Login using SSH keys. This option allows you to connect to a VM via the YC CLI or a standard SSH client with an SSH key stored in the OS Login profile of an organization user.
+      * `--ssh-user-keys-enabled`: Access via OS Login using SSH keys. This option allows you to connect to a VM via the YC CLI or a standard SSH client with an SSH key stored in the OS Login profile for an organization user.
 
           To disable this option, provide the `false` value in the `--ssh-user-keys-enabled=false` parameter.
 

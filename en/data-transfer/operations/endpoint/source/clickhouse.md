@@ -231,16 +231,16 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables).
+* [New tables cannot be added](#no-new-tables).
 * [Data is not transferred](#no-transfer).
 * [Unsupported date range](#date-range).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
-{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
+{% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

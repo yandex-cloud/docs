@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/get.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService.Get {#Get}
+# Access Key, gRPC: AccessKeyService.Get {#Get}
 
 Returns the specified access key.
 

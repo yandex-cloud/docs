@@ -4,7 +4,7 @@ editable: false
 
 # yc cic point-of-presence
 
-Manage point of presences.
+[PREVIEW] Manage point of presences.
 
 #### Command Usage
 

@@ -4,7 +4,7 @@ editable: false
 
 # yc cic private-connection
 
-Manage privateConnections.
+[PREVIEW] Manage privateConnections.
 
 #### Command Usage
 

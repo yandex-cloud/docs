@@ -1,6 +1,6 @@
 # Managing access at the data row level (RLS)
 
-With RLS (_row-level security_), you can restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can restrict access for different customers.
+With RLS (_row-level security_), you can restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
@@ -8,7 +8,7 @@ You can introduce data access control at the row level either in a [dataset](#da
 
 ## Configuring RLS at the dataset level {#dataset-rls}
 
-You can restrict access to any dataset dimension. Each [user](#user-rls) or [user group](#group-rls) can be granted permissions for an unlimited number of measure values.
+You can control access to any dataset dimension. Each [user](#user-rls) or [user group](#group-rls) can be granted permissions for an unlimited number of measure values.
 
 With RLS, a query to a dataset passes through the following filter:
 
@@ -16,7 +16,7 @@ With RLS, a query to a dataset passes through the following filter:
 where dimension in (value_1, value_2 ... value_N)
 ```
 
-### Access for users {#user-rls}
+### User access {#user-rls}
 
 For users, access control is based on the access configuration which looks like this:
 
@@ -26,7 +26,7 @@ For users, access control is based on the access configuration which looks like 
 'value_3': user_1, user_2, user_3
 ```
 
-For example, to allow the `user-login` user to access the `first-company` value of the `Company name` field, [specify the following configuration](#how-to-manage-rls):
+For example, to permit the `user-login` user to access the `first-company` value of the `Company name` field, [specify the following configuration](#how-to-manage-rls):
 
 
 
@@ -106,7 +106,7 @@ You can define values, users, and group names using wildcard characters:
   'value_1': *
   ```
 
-  For example, to allow all users and groups to access the `first-company` value of the `Company name` field, specify the following configuration:
+  For example, to allow all users and groups to access the `first-company` value in the `Company name` field, specify the following configuration:
 
   ```yaml
   'first-company': *
@@ -146,7 +146,7 @@ To avoid this, you can move the access control logic at the row level to the dat
    To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
 
 
-1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users should have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
+1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
 
 1. In the dataset, enter `userid:userid` in the ID field under the RLS settings. The `userid` variable can be used together with the regular RLS type in the dataset:
 

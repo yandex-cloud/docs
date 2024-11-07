@@ -2,7 +2,7 @@ To create a billing account:
 
 1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 
-1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) in [{{ org-full-name }}]({{ link-org-main }}) for you to work in. If using your social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
+1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) in [{{ org-full-name }}]({{ link-org-cloud-center }}) for you to work in. If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
 1. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, click **Create billing account**. Fill in your information:
 

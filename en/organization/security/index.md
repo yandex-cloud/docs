@@ -12,7 +12,7 @@ For more information on access management in {{ yandex-cloud }}, see the {{ iam-
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+You can assign a role via the [{{ cloud-center }} interface]({{ cloud-center-link }}), [YC CLI](../../cli/quickstart.md) or [API {{ yandex-cloud }}](../../api-design-guide/index.yaml) for individual resources within the service:
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
@@ -77,23 +77,9 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user you need, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-     If the user is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and select the appropriate user from the list or use the search bar.
-
-  1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and enter the role name or select one from the list.
-
-      You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
 - CLI {#cli}
 
@@ -128,7 +114,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Describe the parameters of the roles you assign in the configuration file:
 
-     * `organization_id`: Organization ID.
+     * `organization_id`: [Organization ID](../operations/organization-get-id.md).
      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
      * `members`: Array of the IDs of users to assign the role to:
        * `userAccount:{user_id}`: ID of the user Yandex account.
@@ -147,21 +133,21 @@ For information about roles available in {{ yandex-cloud }} and their associated
      }
      ```
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
-
+    
      1. In the command line, go to the folder where you created the configuration file.
      1. Run a check using this command:
-
+ 
        ```
        terraform plan
        ```
 
       If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out. 
-
+ 
   1. Assign roles.
-
+  
      If the configuration does not contain any errors, run this command:
 
        ```
@@ -201,10 +187,12 @@ For information about roles available in {{ yandex-cloud }} and their associated
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
      For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
@@ -224,21 +212,9 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Select a user from the list or use the search bar at the top of the page.
-
-  1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-  1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
@@ -301,7 +277,9 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Result:
@@ -344,10 +322,12 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

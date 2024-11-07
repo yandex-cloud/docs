@@ -94,7 +94,13 @@ Deploys a revision for the specified container.
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "runtime": {
+    // Includes only one of the fields `http`, `task`
+    "http": "Http",
+    "task": "Task"
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -150,6 +156,9 @@ S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
 
 Mounts to be used by the revision. ||
+|| runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
+
+The container's execution mode ||
 |#
 
 ## Resources {#yandex.cloud.serverless.containers.v1.Resources}
@@ -409,6 +418,38 @@ The size of disk for mount in bytes ||
 Optional block size of disk for mount in bytes ||
 |#
 
+## Runtime {#yandex.cloud.serverless.containers.v1.Runtime}
+
+The container's execution mode
+
+#|
+||Field | Description ||
+|| http | **[Http](#yandex.cloud.serverless.containers.v1.Runtime.Http)**
+
+The classic one. You need to run an HTTP server inside the container.
+
+Includes only one of the fields `http`, `task`. ||
+|| task | **[Task](#yandex.cloud.serverless.containers.v1.Runtime.Task)**
+
+We run a process from ENTRYPOINT inside the container for each user request.
+
+Includes only one of the fields `http`, `task`. ||
+|#
+
+## Http {#yandex.cloud.serverless.containers.v1.Runtime.Http}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## Task {#yandex.cloud.serverless.containers.v1.Runtime.Task}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -508,7 +549,13 @@ Optional block size of disk for mount in bytes ||
         }
         // end of the list of possible fields
       }
-    ]
+    ],
+    "runtime": {
+      // Includes only one of the fields `http`, `task`
+      "http": "Http",
+      "task": "Task"
+      // end of the list of possible fields
+    }
   }
   // end of the list of possible fields
 }
@@ -642,6 +689,9 @@ S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount2)**
 
 Mounts to be used by the revision. ||
+|| runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime2)**
+
+The container's execution mode ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -902,4 +952,36 @@ The size of disk for mount in bytes ||
 || blockSize | **int64**
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## Runtime {#yandex.cloud.serverless.containers.v1.Runtime2}
+
+The container's execution mode
+
+#|
+||Field | Description ||
+|| http | **[Http](#yandex.cloud.serverless.containers.v1.Runtime.Http2)**
+
+The classic one. You need to run an HTTP server inside the container.
+
+Includes only one of the fields `http`, `task`. ||
+|| task | **[Task](#yandex.cloud.serverless.containers.v1.Runtime.Task2)**
+
+We run a process from ENTRYPOINT inside the container for each user request.
+
+Includes only one of the fields `http`, `task`. ||
+|#
+
+## Http {#yandex.cloud.serverless.containers.v1.Runtime.Http2}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## Task {#yandex.cloud.serverless.containers.v1.Runtime.Task2}
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#

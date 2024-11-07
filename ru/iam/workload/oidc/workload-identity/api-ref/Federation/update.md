@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/update.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation.Update {#Update}
+# Federation, REST: Federation.Update {#Update}
 
 Updates the specified OIDC workload identity federation.
 

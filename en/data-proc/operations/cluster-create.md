@@ -22,10 +22,10 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for service traffic of the {{ dataproc-name }} cluster.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
    * One rule for inbound and another one for outbound service traffic:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
    * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
 
      You can set up this rule using one of the two methods:
@@ -34,16 +34,16 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 
      - To all addresses
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
      - To the addresses used by {{ yandex-cloud }}
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
          * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs, UI Proxy.
          * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
@@ -53,10 +53,10 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
      {% endlist %}
 
    * Rule that allows access to NTP servers for time syncing:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 If you plan to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic between these groups.
 
@@ -83,7 +83,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ dataproc-name }} cluster.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** in the drop-down list.
-  1. Enter a name for the {{ dataproc-name }} cluster. Optionally, add cluster description.
+  1. Enter a cluster name and an optional description {{ dataproc-name }}.
 
      The naming requirements are as follows:
 
@@ -91,10 +91,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
-  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). Use them to divide or put resources into logical groups.
   1. Specify the following cluster settings:
 
-     * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
+     * [Image version](../concepts/environment.md) and the services you want to use in the {{ dataproc-name }} cluster.
 
         {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -116,14 +116,14 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
         * URI link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` schema.
         * (Optional) Script timeout (in seconds). If your initialization script runs longer than the specified time period, it will be terminated.
-        * (Optional) Arguments enclosed in square brackets and separated by commas. The initialization script will use these arguments when it runs. Example of arguments:
+        * (Optional) Arguments, enclosed in square brackets and separated by commas. The initialization script will use these arguments. Example of the arguments:
 
           ```text
           ["arg1","arg2",...,"argN"]
           ```
 
      * [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
-     * Bucket to use by the cluster.
+     * Bucket that will be used by the cluster.
 
         Depending on the format you selected, either pick a name from the list or specify it manually. You can get it with a [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
 
@@ -144,9 +144,9 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. Configure the {{ dataproc-name }} subclusters. The following types are available:
 
-     * Subcluster with a master host (`{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`). There can only be one such subcluster.
-     * Data storage subclusters (`{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`). These are used to deploy storage components.
-     * Data processing subclusters (`{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`). These are used to deploy computing components. The [storage](../concepts/storage.md) of such a subcluster can only be used to temporarily store processed files.
+     * Subcluster with a master host is specified as `{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`. There can only be one such subcluster.
+     * Data storage subclusters are specified as `{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`. These are used to deploy storage components.
+     * Data processing subclusters are specified as `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`. These are used to deploy computing components. The [storage](../concepts/storage.md) of such a subcluster can only be used to temporarily store processed files.
 
      For each {{ dataproc-name }} subcluster, specify:
 
@@ -168,13 +168,13 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. (Optional) Set up [automatic scaling](../concepts/autoscaling.md) for data processing subclusters.
 
-     1. In the `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` subcluster settings, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
+     1. In the `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` type subcluster settings, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Set autoscaling parameters.
      1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU utilization, disable the **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** setting and specify the target CPU utilization level.
      1. Click **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
 
   1. (Optional) Add and set up additional subclusters for data storage or processing.
-  1. (Optional) Use additional settongs to enable protection against accidental cluster deletion.
+  1. (Optional) Use additional settings to enable protection against accidental cluster deletion.
 
      With the protection enabled, one can still connect to the {{ dataproc-name }} cluster manually and delete the data.
 
@@ -198,7 +198,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View the description of the create {{ dataproc-name }} cluster [CLI](../../cli/) command:
+  1. View the description of the [CLI](../../cli/) command to create a {{ dataproc-name }} cluster:
 
      ```bash
      {{ yc-dp }} cluster create --help
@@ -229,8 +229,8 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
                     `subnet-name=<subnet_name>,`
                     `hosts-count=<number_of_hosts>,`
                     `assign-public-ip=<public_access_to_subcluster_host> \
-       --deletion-protection=<cluster_deletion_protection> \
-       --ui-proxy=<access_to_component_web_interfaсes> \
+       --deletion-protection \
+       --ui-proxy=<access_to_component_web_interfaces> \
        --log-group-id=<log_group_ID> \
        --security-group-ids=<list_of_security_group_IDs>
      ```
@@ -276,11 +276,11 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
          {% endnote %}
 
-     * `--deletion-protection`: Protection against accidental deletion of the {{ dataproc-name }} cluster. Its possible values are `true` or `false`.
+     * `--deletion-protection`: Protection against accidental deletion of the {{ dataproc-name }} cluster.
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-     * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md). Its possible values are `true` or `false`.
+     * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md). It can either be `true` or `false`.
      * `target_group_id`: [Log group ID](../concepts/logs.md).
      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
@@ -315,10 +315,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      Where:
      * `hosts-count`: Minimum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `32`.
      * `max-hosts-count`: Maximum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
-     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. Its possible values are `true` or `false`.
-     * `warmup-duration`: Time required to warm up a VM instance, in `<value>s`. The minimum value is `0s`, and the maximum value is `600s`.
+     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
+     * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
-     * `measurement-duration`: Period, in seconds, for which the average utilization is calculated for each instance, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
+     * `measurement-duration`: Period, in seconds, for which the average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
      * `cpu-utilization-target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
      * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
 
@@ -437,7 +437,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
          hadoop {
            services   = ["<list_of_components>"]
-           # List example: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"].
+           # Example of the list: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"].
            properties = {
              "<component_property>" = <value>
              ...
@@ -486,7 +486,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      }
      ```
 
-     Where `deletion_protection` means deletion protection for the {{ dataproc-name }} cluster. Its possible values are `true` or `false`.
+     Where `deletion_protection` means deletion protection for the {{ dataproc-name }} cluster. It can either be `true` or `false`.
 
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -529,10 +529,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      Where:
      * `max_hosts_count`: Maximum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
-     * `measurement_duration`: Period, in seconds, for which the avegare utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
+     * `measurement_duration`: Period, in seconds, for which the average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
      * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization_duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
-     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. Its possible values are `true` or `false`.
+     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
      * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
 
@@ -591,7 +591,7 @@ After the {{ dataproc-name }} cluster status changes to **Running**, you can [co
 
 ## Create a {{ dataproc-name }} cluster copy {#duplicate}
 
-You can create a {{ dataproc-name }} cluster with the same settings as the one you previously created. To do so, you need to import the configuration of the source {{ dataproc-name }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ dataproc-name }} cluster has lots of settings (e.g., it is an HDFS cluster) and you need to create a similar one.
+You can create a {{ dataproc-name }} cluster with the same settings as the one you previously created. To do so, you need to import the configuration of the source {{ dataproc-name }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ dataproc-name }} cluster has lots of settings (e.g., it is an HDFS cluster) and you need to create a similar one.
 
 To create a {{ dataproc-name }} cluster copy:
 
@@ -680,20 +680,20 @@ To create a {{ dataproc-name }} cluster copy:
 - CLI {#cli}
 
   Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters with the following test settings:
-  * Name: `my-dataproc`
-  * Bucket: `dataproc-bucket`
-  * Availability zone: `{{ zone-id }}`
-  * Service account: `dataproc-sa`
-  * Image version: `2.0`
-  * Components: `SPARK` and `YARN`
-  * Path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`
+  * Name: `my-dataproc`.
+  * Bucket: `dataproc-bucket`.
+  * Availability zone: `{{ zone-id }}`.
+  * Service account: `dataproc-sa`.
+  * Image version: `2.0`.
+  * Components: `SPARK` and `YARN`.
+  * Path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`.
   * {{ dataproc-name }} subcluster with `master` hosts and a single `compute` subcluster for processing data:
-    * Class: `{{ host-class }}`
-    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-    * Subnet: `{{ subnet-name }}`
-    * Public access: Allowed
-  * Security group: `{{ security-group }}`
-  * Protection against accidental {{ dataproc-name }} cluster deletion: Enabled
+    * Class: `{{ host-class }}`.
+    * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+    * Subnet: `{{ subnet-name }}`.
+    * Public access: Allowed.
+  * Security group: `{{ security-group }}`.
+  * Protection against accidental {{ dataproc-name }} cluster deletion: Enabled.
 
   Run the following command:
 
@@ -720,7 +720,7 @@ To create a {{ dataproc-name }} cluster copy:
                   `subnet-name={{ subnet-name }},`
                   `assign-public-ip=true \
      --security-group-ids={{ security-group }} \
-     --deletion-protection=true
+     --deletion-protection
   ```
 
 {% endlist %}

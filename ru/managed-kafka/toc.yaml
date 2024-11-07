@@ -107,8 +107,6 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Поставка в ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
-      - name: Развертывание веб-интерфейса {{ KF }}
-        href: tutorials/deploy-kafka-ui.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
         href: tutorials/data-proc.md
   - name: Концепции

@@ -1,15 +1,15 @@
 ---
 title: Как добавить SSH-ключ пользователя
-description: Следуя данной инструкции, вы сможете добавить в профиль пользователя SSH-ключи, которые позволят ему подключаться к ВМ и узлам кластеров {{ k8s }} с настроенным доступом по OS Login.
+description: Следуя данной инструкции, вы сможете добавить в профиль пользователя SSH-ключи, которые позволят ему подключаться к ВМ и узлам кластеров {{ k8s }} с настроенным доступом по {{ oslogin }}.
 ---
 
 # Добавить SSH-ключ
 
-Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в {{ org-name }}, чтобы с их помощью он мог подключаться к виртуальным машинам и узлам кластеров {{ managed-k8s-full-name }} с включенным доступом по [OS Login](../concepts/os-login.md).
+Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в {{ org-name }}, чтобы с их помощью он мог подключаться к виртуальным машинам и узлам кластеров {{ managed-k8s-full-name }} с включенным доступом по [{{ oslogin }}](../concepts/os-login.md).
 
 Для добавления SSH-ключа в профиль пользователя или сервисного аккаунта убедитесь, что на уровне организации [включена](./os-login-access.md) опция **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**. При необходимости [создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) новую пару SSH-ключей.
 
-Чтобы добавить публичный SSH-ключ в профиль OS Login:
+Чтобы добавить публичный SSH-ключ в профиль {{ oslogin }}:
 
 {% list tabs group=instructions %}
 
@@ -197,5 +197,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/os-login-profile-create.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
-* [Подключиться к узлу {{ k8s }} через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)
+* [Подключиться к узлу {{ k8s }} через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)

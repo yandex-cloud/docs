@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/index.md
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1/asymmetricsignature).
+
+**Service URL**: `https://{{ api-host-kms }}`
 
 #|
 ||Service | Description ||

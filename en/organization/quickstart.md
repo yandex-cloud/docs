@@ -4,40 +4,39 @@ To get started, create an organization and add users to it.
 
 _Organization_ is a workspace that combines different types of {{ yandex-cloud }} resources and users. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).
 
+You can manage organization settings in the **{{ ui-key.yacloud_org.layout.organization }}** section of the [{{ cloud-center }} interface]({{ cloud-center-link }}).
+
+Before getting started with {{ org-full-name }}, [log in]({{ link-passport }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
+
 ## Create an organization {#create}
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
+{% list tabs group=instructions %}
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Read the {{yandex-cloud}} terms of use and click **{{ ui-key.yacloud_org.form.organization.select.action.enter }}**.
+  {% include [create-new-org](../_includes/organization/create-new-org.md) %}
 
-1. Enter your company name and description.
-
-1. Click **{{ ui-key.yacloud_org.pages.create }}**.
+{% endlist %}
 
 After registering, you become the organization owner. You will be able to manage employee accounts, as well as connect and disable services.
 
 ## Add employees {#add-users}
 
-To provide your employees with access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{yandex-cloud}} services.
+To grant your employees access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{yandex-cloud}} services.
 
 ### Connect employees with Yandex accounts {#add-ya-users}
 
-If your employees have Yandex accounts (for example, `{{login-example}}`), they can use them to access the {{yandex-cloud}} services enabled in your organization.
+If your employees have Yandex accounts, e.g., `{{ login-example }}`, they can use them to access {{ yandex-cloud }} services enabled in your organization.
 
 To connect employees with Yandex accounts:
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/console-icons/person.svg).
+{% list tabs group=instructions %}
 
-1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+  {% include [add-yandex-user](../_includes/organization/add-yandex-user.md) %}
 
-   {% include [send-invitation](../_includes/organization/send-invitation.md) %}
-
-
-1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+{% endlist %}
 
 The users will be connected to the organization upon accepting the invitation via the emailed link and selecting an account for log-in.
 
@@ -47,36 +46,48 @@ An identity federation is a technology that allows you to implement a Single Sig
 
 To configure your identity federation, follow these steps:
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/console-icons/vector-square.svg).
+* Set up the configurations in {{ yandex-cloud }}:
 
-1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+    {% list tabs group=instructions %}
 
-1. Enter the federation name and description.
+    - {{ cloud-center }} interface {#cloud-center}
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
+      1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{ org-name }} during user authentication.
+      1. In the left-hand panel, select ![icon-federation](../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-   {% note info %}
+      1. Click ![Circles3Plus](../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
-   ID format depends on the type of IdP server you use (for example, Active Directory or Google Workspace).
+          1. Enter the federation name and description.
 
-   {% endnote %}
+          1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** field, choose **POST**.
+          1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to use for authentication. While authenticating the user, the IdP server must send the same ID in its response to {{ org-name }}.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page that the browser redirects the user to for authentication.
+              {% note info %}
 
-1. Add an [identity provider certificate](#add-cert) to the created federation.
+              ID format depends on the type of IdP server you use (for example, Active Directory or Google Workspace).
 
-1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically.
+              {% endnote %}
 
-   If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
+          1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** field, choose **POST**.
 
-1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
+          1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page to which the browser redirects the user for authentication.
+
+          1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically.
+
+             If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
+
+          1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+    {% endlist %}
+
+* Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
    User attributes supported by {{ org-full-name }} services are listed in identity federation setup guides for different identity providers:
 
-   * [Active Directory](tutorials/federations/integration-adfs.md)
-   * [Google Workspace](tutorials/federations/integration-gworkspace.md)
-   * [Other SAML-compatible identity providers](operations/setup-federation.md)
+   * [Active Directory](./tutorials/federations/integration-adfs.md).
+   * [Google Workspace](./tutorials/federations/integration-gworkspace.md).
+   * [Microsoft Entra ID](./tutorials/federations/integration-azure.md).
+   * [Keycloak](./tutorials/federations/integration-keycloak.md).
+   * [Other SAML-compatible identity providers](./operations/setup-federation.md)

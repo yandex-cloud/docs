@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/index.md
 
 This API reference is organized by resource. All actions are performed by sending HTTP requests to resource URLs. For more information about the API architecture, see [API Concepts](/docs/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/compute/v1/instancegroup).
+
+**Service URL**: `https://compute.{{ api-host }}`
 
 #|
 ||Service | Description ||

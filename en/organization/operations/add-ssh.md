@@ -13,15 +13,27 @@ To add a public SSH key to an OS Login profile:
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
-  1. In the left-hand panel, select the ![icon-users](../../_assets/console-icons/person.svg) [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) section and select the required user.
-  1. Go to the **SSH keys** tab and click **Add key**.
-  1. In the window that opens, enter a public SSH key manually or upload it from a file.
-  1. Click **{{ ui-key.yacloud.common.add }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+      [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
+
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+ 
+  1. From the list, select the user whose {{ oslogin }} profile you want to add an SSH key to.
+  
+      Use the filter or search as needed.
+
+  1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
+  
+      1. Name the SSH key you are adding.
+
+      1. Enter the public SSH key manually or upload it from a file.
+
+      1. Specify the validity period for the key.
+
+      1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
@@ -52,7 +64,7 @@ To add a public SSH key to an OS Login profile:
       +----------------------+-------------------------+-------------------------+
       ```
 
-  1. Get the required user ID by specifying the organization ID you obtained earlier:
+  1. Get the required user ID by specifying the organization ID you got earlier:
 
       ```bash
       yc organization-manager user list \
@@ -85,7 +97,7 @@ To add a public SSH key to an OS Login profile:
 
       Where:
 
-      * `--organization-id`: Previously obtained organization ID.
+      * `--organization-id`: Previously obtained organization [ID](./organization-get-id.md).
       * `--name`: Uploaded key name.
       * `--subject-id`: Previously obtained ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `--data`: Contents of a public SSH key.
@@ -125,7 +137,7 @@ To add a public SSH key to an OS Login profile:
 
       Where:
 
-      * `organization_id`: Organization ID. You can get the organization ID using the [YC CLI](../../cli/quickstart.md) `yc organization-manager organization list` command or in the [management console]({{ link-console-main }}).
+      * `organization_id`: [Organization ID](./organization-get-id.md).
       * `subject_id`: ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `data`: Contents of a public SSH key.
       * `name`: Uploaded key name.

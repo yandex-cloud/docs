@@ -146,7 +146,9 @@ Status of the connector.
 - `STOPPED`: disabled by user
 - `RESOURCE_NOT_FOUND`: source does not exist
 - `PERMISSION_DENIED`: service account does not have read permission on source
-- `SUBJECT_NOT_FOUND`: service account not found ||
+- `SUBJECT_NOT_FOUND`: service account not found
+- `DELETING`: deletion in progress
+- `CREATING`: creation in progress ||
 |#
 
 ## Source {#yandex.cloud.serverless.eventrouter.v1.Source}

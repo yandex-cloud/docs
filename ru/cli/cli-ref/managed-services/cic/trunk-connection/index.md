@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cic/trunk-connection/index.md
 
 # yc cic trunk-connection
 
-Manage trunk connections.
+[PREVIEW] Manage trunk connections.
 
 #### Command Usage
 

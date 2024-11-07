@@ -28,7 +28,7 @@ Request for the service to obtain text embeddings.
 ||Field | Description ||
 || modelUri | **string**
 
-The [ID of the model](/docs/foundation-models/concepts/embeddings) to be used for obtaining text embeddings. ||
+The [model URI](/docs/foundation-models/concepts/embeddings) to be used for obtaining text embeddings. ||
 || text | **string**
 
 The input text for which the embedding is requested. ||

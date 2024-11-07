@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/Operation/cancel.md
 ---
 
-# Identity and Access Management API, gRPC: OperationService.Cancel {#Cancel}
+# Access Key, gRPC: OperationService.Cancel {#Cancel}
 
 Cancels the specified operation.
 

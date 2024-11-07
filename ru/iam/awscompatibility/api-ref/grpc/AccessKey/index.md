@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/index.md
 ---
 
-# Identity and Access Management API, gRPC: AccessKeyService
+# Access Key, gRPC: AccessKeyService
 
 A set of methods for managing access keys.
 

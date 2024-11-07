@@ -76,7 +76,7 @@ _Группа узлов_ — группа ВМ с одинаковой конф
 
 К узлам группы можно подключаться следующими способами:
 * через SSH-клиент с помощью стандартной пары SSH-ключей, см. [{#T}](../operations/node-connect-ssh.md);
-* через SSH-клиент и YC CLI с помощью OS Login, см. [{#T}](../operations/node-connect-oslogin.md).
+* через SSH-клиент и YC CLI с помощью {{ oslogin }}, см. [{#T}](../operations/node-connect-oslogin.md).
 
 ### Политики taints и tolerations {#taints-tolerations}
 

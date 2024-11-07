@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/Operation/get.md
 ---
 
-# Identity and Access Management API, gRPC: OperationService.Get {#Get}
+# Access Key, gRPC: OperationService.Get {#Get}
 
 Returns the specified Operation resource.
 

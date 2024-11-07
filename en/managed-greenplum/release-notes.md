@@ -7,10 +7,6 @@ description: This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
-## July 2024 {#jule-2024}
-
-* Enabled managing [PXF](./operations/external-tables.md) settings from the API and UI. You can now customize the import and export of data from other DBMSs, S3, and HDFS.
-
 ## June 2024 {#jun-2024}
 
 Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources for accessing external tables. {{ tag-con }} {{ tag-api }}
@@ -46,7 +42,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard: {{ tag-con }}
-    * Cluster size cannot exceed `<maximum_host_count> × <maximum_disk_size_per_host>`.
+    * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.
     * If the amount of data you specify is large, the wizard will prompt you to create a cluster on dedicated hosts.
 

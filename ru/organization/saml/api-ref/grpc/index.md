@@ -3,11 +3,13 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/index.md
 ---
 
-# Cloud Organization SAML API: gRPC reference
+# SAML Federation API: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/organizationmanager/v1/saml).
+
+**Service URL**: `https://organization-manager.{{ api-host }}`
 
 #|
 ||Service | Description ||

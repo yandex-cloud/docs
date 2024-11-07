@@ -1,5 +1,5 @@
 ---
-title: Access management in the {{ datalens-full-name }} data visualization and analysis service
+title: 'Managing access in {{ datalens-full-name }}: data visualization and analysis service'
 description: This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service.
 ---
 
@@ -7,37 +7,34 @@ description: This section describes the roles required to perform a particular a
 
 There are two types of roles in {{ datalens-short-name }}:
 
-* For service access: These roles are assigned for an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
+* For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
 * For [workbooks and collections](../workbooks-collections/index.md): These roles define the access level to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
 
 ## Roles required to access the service {#service-roles}
 
-To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
-
+To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
 {% list tabs %}
 
 - Before switching to workbooks and collections
 
-   {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
 
-   {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
 
 - After switching to workbooks and collections
 
-   {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
+  {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
 
-   {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+  {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
 
-   {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+  {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
 
 {% endlist %}
 
-
-
 ## Roles for workbooks and collections {#workbooks-collections-roles}
 
-These roles apply to users who switched to a new approach to storing {{ datalens-short-name }} objects: in [workbooks and collections](../workbooks-collections/index.md). The roles allow you to define the level of access to each workbook or collection for a user or a user group.
+These roles are valid for users who adopted the new {{ datalens-short-name }} object storage mechanism: [workbooks and collections](../workbooks-collections/index.md). The roles allow you to define the level of access to each workbook or collection for a user or a user group.
 
 ### Roles for workbooks {#workbook-roles}
 

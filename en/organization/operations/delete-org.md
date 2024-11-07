@@ -15,16 +15,22 @@ Before deleting an organization, make sure to [delete](../../resource-manager/op
 
 To delete an organization:
 
-1. Log in to [{{org-full-name}}]({{link-org-main}}) as the organization administrator or owner.
+{% list tabs group=instructions %}
 
-1. In the bottom-left corner, click the profile photo and select the organization to delete.
+- {{ cloud-center }} interface {#cloud-center}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/console-icons/circle-info.svg).
+  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with an administrator or organization owner account.
 
-1. In the top-right corner, click ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+      On the {{ cloud-center }} home page that opens, you can view general info about your organization.
 
-1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.
+      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select another one. This will switch you to a different organization.
+  
+  1. To delete your current organization, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.delete-button }}** in the box with its name in the center of the screen.
 
-1. Click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.
+
+  1. Click **{{ ui-key.yacloud.common.delete }}**.
+
+{% endlist %}
 
 After deleting an organization, you will no longer be able to use the {{ yandex-cloud }} resources created in that organization.

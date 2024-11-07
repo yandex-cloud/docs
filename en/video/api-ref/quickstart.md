@@ -12,7 +12,7 @@ In this section, you will learn how to create [channels](../concepts/index.md#ch
 To get started with the {{ video-name }} API:
 
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. Get the ID of the organization to create a channel in. You can find the organization ID on the **{{ ui-key.yacloud_org.pages.settings }}** page in the [{{ org-full-name }}]({{ link-org-main }}) interface.
+1. Get the ID of the organization to create a channel in.
 1. [Assign](../../organization/operations/add-role.md) the `video.admin` or `video.editor` [role](../../iam/concepts/access-control/roles.md) to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use to authenticate with the {{ video-name }} API. For more information, see [{#T}](../security/index.md).
 1. [Get](./authentication.md) an IAM token for the user or service account you will use to authenticate with the {{ video-name }} API.
 
@@ -175,9 +175,9 @@ Save the new channel's ID (`channelId` value) as you will need it later.
 
       Where:
       * `<IAM_token>`: IAM token you got before you started.
-      * `<channel_ID>`: The new channel's ID you saved at the previous step.
+      * `<channel_ID>`: New channel's ID you saved at the previous step.
       * `<video_name>`: Name the video will get when uploaded to the channel.
-      * `<video_file_size>`: Video file size in bytes you got earlier.
+      * `<video_file_size>`: Video file size you got earlier, in bytes.
       * `<video_file_name>`: Name of the video file you are going to upload.
 
       Result:
@@ -230,9 +230,9 @@ Save the new channel's ID (`channelId` value) as you will need it later.
 
       Where:
       * `<IAM_token>`: IAM token you got before you started.
-      * `<channel_ID>`: The new channel's ID you saved at the previous step.
+      * `<channel_ID>`: New channel's ID you saved at the previous step.
       * `<video_name>`: Name the video will get when uploaded to the channel.
-      * `<video_file_size>`: Video file size in bytes you got earlier.
+      * `<video_file_size>`: Video file size you got earlier, in bytes.
       * `<video_file_name>`: Name of the video file you are going to upload.
 
       Result:

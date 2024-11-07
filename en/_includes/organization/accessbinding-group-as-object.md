@@ -1,15 +1,20 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-    1. [Log in]({{ link-passport-login }}) as the organization administrator.
-    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-    1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) and click the line with the group name.
-    1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
-    1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
-    1. Select the group, user, or service account you want to grant access to the group.
-    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
-    1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
+  
+  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
+
+  1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
+  
+  1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. You may want to use the search feature.
+  
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles to assign to the group.
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

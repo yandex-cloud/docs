@@ -53,7 +53,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 {% list tabs group=programming_language %}
 
-- Guide {#instruction}
+- Step-by-step guide {#instruction}
 
   Generate the parts that make up a JWT:
   * `header`: Base64Url-encoded JWT headers.
@@ -66,14 +66,14 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   header.payload.signature
   ```
 
-  **1.1. Generating a header**
+  **1.1. Generating header**
 
   A service account's JWT header must contain the following fields:
   * `typ`: Token type, the value is always `JWT`.
   * `alg`: Encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
   * `kid`: ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
 
-  Examples:
+  Example:
 
   ```
   {
@@ -85,7 +85,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Save the result as a Base64Url-encoded string.
 
-  **1.2. Generating a payload**
+  **1.2. Generating payload**
 
   A service account's JWT payload must contain the following fields:
   * `iss`: ID of the service account whose key the JWT is signed with.
@@ -93,7 +93,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   * `iat`: JWT issue time in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
   * `exp`: JWT expiration time in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp - iat ≤ 3600`.
 
-  Examples:
+  Example:
 
   ```
   {
@@ -106,9 +106,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Save the result as a Base64Url-encoded string.
 
-  **1.3. Generating a signature**
+  **1.3. Generating signature**
 
-  Create a signature using the private key obtained when [creating authorized keys](../authorized-key/create.md). For the signature, use a string consisting of the header and payload separated by a period (`.`):
+  Create a signature using the private key obtained when [creating authorized keys](../authorized-key/create.md). For the signature, use a string consisting of the header and payload separated by a dot (`.`):
 
   ```
   header.payload
@@ -138,7 +138,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import jwt
   import json
 
-  # Reading a private key from a JSON file
+  # Reading your private key from a JSON file
   with open('<JSON_file_with_keys>', 'r') as f:
     obj = f.read()
     obj = json.loads(obj)
@@ -162,7 +162,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
       headers={'kid': key_id}
     )
 
-  #Writing a key to a file
+  #Writing your key to a file
   with open('jwt_token.txt', 'w') as j:
      j.write(encoded_token)
 
@@ -278,13 +278,13 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
                     { "iat", now },
                     { "exp", now + 3600 }
                 };
-
+    
                 RsaPrivateCrtKeyParameters privateKeyParams;
                 using (var pemStream = File.OpenText("<private_key_file>"))
                 {
                     privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
                 }
-
+    
                 using (var rsa = RSA.Create())
                 {
                     rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
@@ -297,7 +297,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
     ```
 
   **.NET 5.0+**:
-
+    
     Verified for NET 5.0, NET 6.0, NET 7.0, and NET 8.0.
 
     ```c#
@@ -362,10 +362,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   	"log"
   	"os"
   	"time"
-
+  
   	"github.com/golang-jwt/jwt/v5"
   )
-
+  
   func main() {
     // Getting a token
   	 token := signedToken()
@@ -378,13 +378,13 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   	 fmt.Println("Here is token:")
   	 fmt.Println(token)
   }
-
+  
   const (
     keyID            = "<public_key_ID>"
     serviceAccountID = "<service_account_ID>"
     keyFile          = "<JSON_file_with_keys>"
   )
-
+  
   // JWT generation.
   func signedToken() string {
   	 claims := jwt.RegisteredClaims{
@@ -396,7 +396,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   	 }
   	 token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
   	 token.Header["kid"] = keyID
-
+  
   	 privateKey := loadPrivateKey()
   	 signed, err := token.SignedString(privateKey)
   	 if err != nil {
@@ -404,22 +404,22 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   	 }
   	 return signed
   }
-
+  
   type keyFileStruct struct {
   	 PrivateKey string `json:"private_key"`
   }
-
+  
   func loadPrivateKey() *rsa.PrivateKey {
   	 data, err := os.ReadFile(keyFile)
   	 if err != nil {
   		panic(err)
   	 }
-
+  
   	 var keyData keyFileStruct
   	 if err := json.Unmarshal(data, &keyData); err != nil {
   		panic(err)
   	 }
-
+  
   	 rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
   	 if err != nil {
   		panic(err)
@@ -437,22 +437,22 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```js
   var jose = require('node-jose');
   var fs = require('fs');
-
+  
   var json = JSON.parse(fs.readFileSync(require.resolve('<JSON_file_with_keys>')));
-
+  
   var key = json.private_key;
   var serviceAccountId = json.service_account_id;
   var keyId = json.id;
-
+  
   var now = Math.floor(new Date().getTime() / 1000);
-
+  
   var payload = {
      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
      iss: serviceAccountId,
      iat: now,
      exp: now + 3600
   };
-
+  
   jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
      .then(function (result) {
         jose.JWS.createSign({ format: 'compact' }, result)
@@ -474,13 +474,13 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   ```php
   require 'vendor/autoload.php';
-
+  
   use Jose\Component\Core\AlgorithmManager;
   use Jose\Component\KeyManagement\JWKFactory;
   use Jose\Component\Signature\Algorithm\PS256;
   use Jose\Component\Signature\JWSBuilder;
   use Jose\Component\Signature\Serializer\CompactSerializer;
-
+  
   // Reading data from a file
   $keyData = json_decode(file_get_contents("<JSON_file_with_keys>"), true);
   $privateKeyPem = $keyData['private_key'];
@@ -653,16 +653,17 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md) gRPC API call.
 
-  Example of request using cURL for the `create` REST API method:
+  Request example with cURL for the `create` REST API method:
 
   ```curl
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"jwt": "<JWT_token>"}' \
+  curl \
+      --request POST \
+      --header 'Content-Type: application/json' \
+      --data '{"jwt": "<JWT>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  Where `<JWT_token>` is the JWT token you got in the previous step.
+  Where `<JWT_token>` is the JWT received in the previous step.
 
 - Go {#go}
 

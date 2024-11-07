@@ -144,9 +144,9 @@ description: На странице представлены релизы YC CLI,
 ##### {{ backup-name }} {#backup}
 
 * Добавлены следующие команды:
-  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным OS Login к {{ backup-name }}.
-  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным OS Login.
-  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным {{ oslogin }} к {{ backup-name }}.
+  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным {{ oslogin }}.
+  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным {{ oslogin }}.
   * `yc backup provider activate` — для активации сервиса и подключения к провайдеру резервного копирования.
 
 * При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.
@@ -498,7 +498,7 @@ description: На странице представлены релизы YC CLI,
 
 ##### {{ org-name }} {#organization}
 
-* Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями OS Login.
+* Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями {{ oslogin }}.
 * В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен флаг `--expires-at` при указании значения в виде интервала. Например значение `5h` теперь отсылает значение в будущем.
 
 ### Версия 0.124.0 (22.04.24) {#version0.124.0}
@@ -582,7 +582,7 @@ description: На странице представлены релизы YC CLI,
 
 ##### {{ org-name }} {#organization}
 
-* Добавлена группа команд `yc organization-manager oslogin` для управления настройками OS Login и пользовательскими SSH-ключами.
+* Добавлена группа команд `yc organization-manager oslogin` для управления настройками {{ oslogin }} и пользовательскими SSH-ключами.
 
 ##### {{ container-registry-name }} {#container-registry}
 
@@ -609,7 +609,7 @@ description: На странице представлены релизы YC CLI,
 
 ##### {{ compute-name }}
 
-* В команде `yc compute connect-to-serial-port` поддержана авторизация через OS Login.
+* В команде `yc compute connect-to-serial-port` поддержана авторизация через {{ oslogin }}.
 
 ##### {{ at-name }}
 
@@ -845,7 +845,7 @@ description: На странице представлены релизы YC CLI,
 ##### {{ compute-name }} {#compute}
 
 * Поддержан параметр `--network-interface` в команде `yc compute instance relocate`.
-* Добавлена группа команд `yc compute ssh` для подключения к ВМ по сертификату, выписанному с помощью OS Login, и экспорта этого сертификата. OS Login используется для предоставления пользователям доступа к ВМ по SSH через {{ iam-short-name }}.
+* Добавлена группа команд `yc compute ssh` для подключения к ВМ по сертификату, выписанному с помощью {{ oslogin }}, и экспорта этого сертификата. {{ oslogin }} используется для предоставления пользователям доступа к ВМ по SSH через {{ iam-short-name }}.
 
 ##### {{ mpg-name }}
 

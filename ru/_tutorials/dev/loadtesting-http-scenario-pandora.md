@@ -89,8 +89,8 @@
    ```hcl
    variable_source "variables" "variables" {
       variables = {
-         auth_path = /auth
-         order_path = /order
+         auth_path = "/auth"
+         order_path = "/order"
       }
    }
 

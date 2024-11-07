@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/list.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.List {#List}
+# SAML Federation API, gRPC: FederationService.List {#List}
 
 Retrieves the list of federations in the specified organization.
 

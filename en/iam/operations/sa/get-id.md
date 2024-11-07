@@ -9,7 +9,7 @@ You can get information about a service account: its name and ID, creation and l
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Choose a service account and click the row with its name.
-  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list the service account's parameters:
+  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list parameters of the service account:
 
      * **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** of the service account as a string in `aje9sb6ffd2u********` format.
      * **{{ ui-key.yacloud.iam.folder.service-accounts.column_name }}**.
@@ -40,7 +40,7 @@ You can get information about a service account: its name and ID, creation and l
   +----------------------+------------------+-------------------------------+
   ```
 
-  Get information about a service account using the `get` command:
+  Get information about the service account you need using the `get` command:
 
   ```bash
   yc iam service-account get <service_account_ID>
@@ -60,7 +60,7 @@ You can get information about a service account: its name and ID, creation and l
 
   * `id`: Service account ID.
   * `folder_id`: Folder ID.
-  * `created_at`: Service account creation date and time.
+  * `created_at`: Creation date and time of the service account.
   * `name: service-account`: Service account name.
   * `last_authenticated_at`: Last authentication date and time.
 
@@ -72,9 +72,14 @@ You can get information about a service account: its name and ID, creation and l
       ```bash
       export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+      ```
 
+      Result:
+
+      ```text
       {
        "serviceAccounts": [
         {

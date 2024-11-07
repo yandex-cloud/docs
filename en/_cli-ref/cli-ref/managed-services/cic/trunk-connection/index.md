@@ -4,7 +4,7 @@ editable: false
 
 # yc cic trunk-connection
 
-Manage trunk connections.
+[PREVIEW] Manage trunk connections.
 
 #### Command Usage
 

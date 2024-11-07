@@ -27,8 +27,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. To connect to a demo data source, specify:
 
-   * **Portal**: `gds.office.bitrix.ru`
-   * **Token**: `wJZIFjdYtbLRtfewYcnq71oSFyEgxlbQ`
+   * **Portal**: `gds.office.bitrix.ru`.
+   * **Token**: `wJZIFjdYtbLRtfewYcnq71oSFyEgxlbQ`.
 
    When connecting to a working [Bitrix24](../../datalens/operations/connection/create-bitrix24.md) data source, specify:
 
@@ -66,7 +66,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Edit**.
 
-   {% cut "Editing the chart" %}
+   {% cut "Editing a chart" %}
 
    ![image](../../_assets/datalens/solution-bitrix24/edit-chart.png)
 

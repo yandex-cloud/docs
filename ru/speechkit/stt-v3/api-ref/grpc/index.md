@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/index.md
 
 The SpeechKit Speech To Text Service API v3 allows application developers to use speech recognition technologies. <br>The service does not operate with resources. Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/stt/v3).
+
+**Service URL**: `https://stt.{{ api-host }}`
 
 #|
 ||Service | Description ||

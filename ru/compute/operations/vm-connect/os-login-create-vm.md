@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. [Создайте ВМ](../images-with-pre-installed-software/create.md) из подготовленного образа с поддержкой доступа по {{ oslogin }}. Такие образы доступны в [{{ marketplace-full-name }}](/marketplace).
   
-     При создании ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Доступ по OS Login**. Если эта опция недоступна, значит выбранный образ не поддерживает доступ по OS Login.
+     При создании ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**. Если эта опция недоступна, значит выбранный образ не поддерживает доступ по {{ oslogin }}.
   
      Чтобы получить возможность [подключаться](./ssh.md#vm-connect) к ВМ по SSH без использования {{ oslogin }}, [измените](../vm-control/vm-update.md) настройки ВМ, отключив эту опцию.
 
