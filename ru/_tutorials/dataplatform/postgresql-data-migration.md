@@ -433,22 +433,8 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 1. Установите клиент {{ PG }} и дополнительные утилиты для работы с СУБД:
 
     ```bash
-    sudo apt install postgresql-client-common
-
-    # Для PostgreSQL 10
-    sudo apt install postgresql-client-10
-
-    # Для PostgreSQL 11
-    sudo apt install postgresql-client-11
-
-    # Для PostgreSQL 12
-    sudo apt install postgresql-client-12
-
-    # Для PostgreSQL 13
-    sudo apt install postgresql-client-13
-
-    # Для PostgreSQL 14
-    sudo apt install postgresql-client-14
+    sudo apt install postgresql-client-common && \
+    sudo apt install postgresql-client-<версия_{{ PG }}>
     ```
 
 1. Упакуйте дамп в архив:

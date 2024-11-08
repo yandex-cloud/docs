@@ -66,6 +66,8 @@ items:
             href: operations/arl-rule-delete.md
       - name: Посмотреть операции с профилями
         href: operations/operation-logs.md
+      - name: Настроить мониторинг
+        href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Создание L7-балансировщика с профилем безопасности

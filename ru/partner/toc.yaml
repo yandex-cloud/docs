@@ -36,6 +36,8 @@ items:
         href: operations/stop-client-services.md
       - name: Привязать облако к сабаккаунту
         href: operations/pin-cloud.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Термины и определения
     href: terms.md
   - name: Вопросы и ответы

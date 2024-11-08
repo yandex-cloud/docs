@@ -28,6 +28,8 @@ items:
             href: operations/video/upload.md
           - name: Изменить видео
             href: operations/video/update.md
+          - name: Добавить обложку
+            href: operations/video/add-thumbnail.md
           - name: Управлять субтитрами
             href: operations/video/subtitles.md
           - name: Скачать видео
@@ -58,6 +60,8 @@ items:
             href: operations/streams/create.md
           - name: Изменить трансляцию
             href: operations/streams/update.md
+          - name: Добавить обложку
+            href: operations/streams/add-thumbnail.md
           - name: Получить адрес сервера и ключ трансляции
             href: operations/streams/get-key.md
           - name: Начать трансляцию

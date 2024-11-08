@@ -21,6 +21,9 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-  - title: Инструкции
-    description: Как пользоваться сервисом
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутиных операций
     href: operations/
+  - title: Практические руководства
+    description: Инструкции по применению {{ interconnect-name }}
+    href: tutorials/

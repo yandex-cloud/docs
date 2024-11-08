@@ -430,6 +430,10 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
 
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../_roles/organization-manager/users/viewer.md) %}
+
 Подробнее см. [{#T}](../organization/security/index.md).
 
 

@@ -5,6 +5,7 @@ name: <string>
 annotations:
   ingress.alb.yc.io/protocol: <string>
   ingress.alb.yc.io/transport-security: <string>
+  ingress.alb.yc.io/health-checks: <string>
 ```
 
 #|

@@ -15,7 +15,7 @@ description: In this tutorial, you will learn how to get a list of supported lan
 
 ## Get the list of supported languages {#get-languages}
 
-Get the list of supported languages using the [listLanguages](../api-ref/Translation/listLanguages) method:
+Get the list of [supported languages](../concepts/supported-languages.md) using the [listLanguages](../api-ref/Translation/listLanguages) method:
 
 {% list tabs group=programming_language %}
 
@@ -59,7 +59,7 @@ Get the list of supported languages using the [listLanguages](../api-ref/Transla
             "name": "English"
             },
             ...
-    ]
+        ]
     }
     ```
 

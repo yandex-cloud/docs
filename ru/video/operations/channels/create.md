@@ -11,10 +11,30 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [create-channel](../../../_includes/video/create-channel.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Channel/create.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Create](../../api-ref/grpc/Channel/create.md).
-  
-  Подробности о создании канала см. в инструкции [Как начать работать с API {{ video-full-name }}](../../api-ref/quickstart.md#create-channel).
+  Выполните команду:
+
+  {% include [create-channel-rest-api-command](../../../_includes/video/create-channel-rest-api-command.md) %}
+
+  Где:
+  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал {{ video-name }}.
+  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+
+  {% include [create-channel-rest-api-output](../../../_includes/video/create-channel-rest-api-output.md) %}
+
+- gRPC API {#grpc-api}
+
+  Выполните команду:
+
+  {% include [create-channel-grpc-api-command](../../../_includes/video/create-channel-grpc-api-command.md) %}
+
+  Где:
+  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал {{ video-name }}.
+  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+
+  {% include [create-channel-grpc-api-output](../../../_includes/video/create-channel-grpc-api-output.md) %}
 
 {% endlist %}

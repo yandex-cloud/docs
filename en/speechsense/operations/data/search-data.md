@@ -1,6 +1,6 @@
 # Searching data
 
-You can use the API to search for voice call recordings and chat transcripts uploaded to {{ speechsense-name }}. The [Search](../../api-ref/grpc/Talk/search.md) method allows you to apply filters, sort data, and use pagination. The [Get](../../api-ref/grpc/Talk/get.md) method allows you to specify which data from the found conversations should be displayed.
+You can use the API to search for voice call recordings and chat transcripts uploaded to {{ speechsense-name }}. The [Search](../../api-ref/grpc/talk_service#Search) method allows you to apply filters, sort data, and use pagination. The [Get](../../api-ref/grpc/talk_service#Get) method allows you to specify which data from the found conversations should be displayed.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
 
@@ -190,7 +190,7 @@ To search data using the {{ yandex-cloud }} API:
             # print(f'found falks {search_response.talks_count}')
 
             # By default, only the basic fields of the conversation will be returned.
-            # To enable result analysis, you need to add the results in the request:
+            # To include the analysis results, add them to the request
             fields_to_include = FieldMask(
                 paths=['transcription', 'speech_statistics', 'silence_statistics', 'interrupts_statistics',
                        'conversation_statistics', 'points', 'text_classifiers'])
@@ -249,7 +249,7 @@ To search data using the {{ yandex-cloud }} API:
 
         Under `Filter`, provide the key (`key`) in the required format:
 
-        * `userMeta.<field_name>`: Searching by user metadata. Where `<field_name> is the user metadata field that was specified when uploading the conversation, e.g., `userMeta.date`. The filter type must match the metadata field type, which you selected when creating the connection.
+        * `userMeta.<field_name>`: Searching by user metadata. Where `<field_name>` is the user metadata field that was specified when uploading the conversation, e.g., `userMeta.date`. The filter type must match the metadata field type, which you selected when creating the connection.
         * `talk.classifiers.<classifier_name>.count`: Searching by classifiers.
         * `talk.summarization.points.<question_ID>`: Searching by conversation summary. You can view IDs of the questions from the conversation summary in the response of the GET request.
         * Searching by statistics (only for audio):
@@ -306,7 +306,7 @@ To search data using the {{ yandex-cloud }} API:
 
     Where:
 
-    * `--organization-id`, `--space-id`, `--connection-id`, `--project-id`: IDs of the organization, space, connection, and project, respectively, in which the data search is performed.
+    * `--organization-id`, `--space-id`, `--connection-id`, and `--project-id`: IDs of the organization, space, connection, and project, respectively, the data search is performed in.
     * `--key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.
 
     As the result of running the script, data in JSON format will be displayed.

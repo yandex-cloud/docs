@@ -18,7 +18,7 @@
 
 1. Выберите способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** или **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
 
-1. Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**
+1. Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
 
 1. Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}**:
 
