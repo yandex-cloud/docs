@@ -159,3 +159,5 @@ spec:
         Интервал отправки проверочных запросов в секундах.
 
         Возможные значения — от `1s` до `60s`. Значение `interval` должно быть больше значения `timeout` минимум на одну секунду.
+
+      {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}

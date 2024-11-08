@@ -154,8 +154,8 @@ description: Из статьи вы узнаете, как управлять х
 
 
      ```bash
-     {{ yc-mdb-pg }} host add
-       --cluster-name <имя_кластера>
+     {{ yc-mdb-pg }} host add \
+       --cluster-name <имя_кластера> \
        --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>
      ```
 
@@ -354,9 +354,9 @@ description: Из статьи вы узнаете, как управлять х
   Чтобы изменить параметры хоста в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} host update <имя_хоста>
-    --cluster-name <имя_кластера>
-    --replication-source <имя_хоста-источника>
+  {{ yc-mdb-pg }} host update <имя_хоста> \
+    --cluster-name <имя_кластера> \
+    --replication-source <имя_хоста-источника> \
     --assign-public-ip=<публичный_доступ_к_хосту>
   ```
 
@@ -552,7 +552,7 @@ description: Из статьи вы узнаете, как управлять х
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} host delete <имя_хоста>
+  {{ yc-mdb-pg }} host delete <имя_хоста> \
     --cluster-name <имя_кластера>
   ```
 

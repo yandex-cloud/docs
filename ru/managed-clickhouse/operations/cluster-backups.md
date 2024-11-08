@@ -8,7 +8,7 @@ description: Вы можете создавать резервные копии 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mch-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) для нее.
+Также {{ mch-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [срок хранения](#set-backup-retain) для нее.
 
 ## Создать резервную копию {#create-backup}
 
@@ -746,6 +746,41 @@ description: Вы можете создавать резервные копии 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Задать срок хранения автоматических резервных копий {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+  
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+  
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в формате `HH:MM:SS` в аргументе `--backup-retain-period-days` команды изменения кластера:
+
+  ```bash
+  {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+     --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях>
+  ```
+  
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API {#api}
+
+    Чтобы задать срок хранения автоматических резервных копий, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [Cluster/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Его можно получить [со списком кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новый срок хранения автоматических резервных копий (в днях) в параметре `configSpec.backupRetainPeriodDays`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.backupRetainPeriodDays`).
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

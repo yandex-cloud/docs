@@ -506,6 +506,8 @@ AD FS требует создавать _отношение доверия с п
 
 Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#admin).
 
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
+
 Чтобы добавить пользователей федерации в организацию:
 
 {% list tabs group=instructions %}

@@ -43,6 +43,98 @@ items:
     items:
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Partner
+            items:
+              - name: Overview
+                href: api-ref/grpc/Partner/index.md
+              - name: Get
+                href: api-ref/grpc/Partner/get.md
+              - name: List
+                href: api-ref/grpc/Partner/list.md
+          - name: PointOfPresence
+            items:
+              - name: Overview
+                href: api-ref/grpc/PointOfPresence/index.md
+              - name: Get
+                href: api-ref/grpc/PointOfPresence/get.md
+              - name: List
+                href: api-ref/grpc/PointOfPresence/list.md
+          - name: PrivateConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/PrivateConnection/index.md
+              - name: Get
+                href: api-ref/grpc/PrivateConnection/get.md
+              - name: List
+                href: api-ref/grpc/PrivateConnection/list.md
+          - name: PublicConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/PublicConnection/index.md
+              - name: Get
+                href: api-ref/grpc/PublicConnection/get.md
+              - name: List
+                href: api-ref/grpc/PublicConnection/list.md
+          - name: TrunkConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/TrunkConnection/index.md
+              - name: Get
+                href: api-ref/grpc/TrunkConnection/get.md
+              - name: List
+                href: api-ref/grpc/TrunkConnection/list.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Partner
+            items:
+              - name: Overview
+                href: api-ref/Partner/index.md
+              - name: Get
+                href: api-ref/Partner/get.md
+              - name: List
+                href: api-ref/Partner/list.md
+          - name: PointOfPresence
+            items:
+              - name: Overview
+                href: api-ref/PointOfPresence/index.md
+              - name: Get
+                href: api-ref/PointOfPresence/get.md
+              - name: List
+                href: api-ref/PointOfPresence/list.md
+          - name: PrivateConnection
+            items:
+              - name: Overview
+                href: api-ref/PrivateConnection/index.md
+              - name: Get
+                href: api-ref/PrivateConnection/get.md
+              - name: List
+                href: api-ref/PrivateConnection/list.md
+          - name: PublicConnection
+            items:
+              - name: Overview
+                href: api-ref/PublicConnection/index.md
+              - name: Get
+                href: api-ref/PublicConnection/get.md
+              - name: List
+                href: api-ref/PublicConnection/list.md
+          - name: TrunkConnection
+            items:
+              - name: Overview
+                href: api-ref/TrunkConnection/index.md
+              - name: Get
+                href: api-ref/TrunkConnection/get.md
+              - name: List
+                href: api-ref/TrunkConnection/list.md
   - name: Pricing policy
     href: pricing.md
   - name: Release notes

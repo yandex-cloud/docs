@@ -26,6 +26,8 @@ When updating models, {{ yagpt-name }} generations available in different branch
 
 Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 
+{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
+
 ## Tuning capabilities {#tuning-abilities}
 
 {% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}

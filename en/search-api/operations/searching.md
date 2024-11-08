@@ -1,11 +1,11 @@
 ---
-title: How to search using {{ search-api-name }}
-description: Follow this guide to learn how to use {{ search-api-name }} to send search queries and get search results in XML format.
+title: How to search using {{ search-api-full-name }} in synchronous mode
+description: Follow this guide to learn how to use {{ search-api-name }} to submit search queries and get search results in synchronous mode.
 ---
 
-# Performing search queries in {{ search-api-name }}
+# Performing search queries in {{ search-api-name }} in synchronous mode
 
-{{ search-api-name }} allows you to perform text and image search in the Yandex search database and get search results in XML format. Search results depend on the parameters specified in the query.
+With {{ search-api-name }}, you can perform text and image search through the Yandex search database and get search results in XML format in synchronous mode. Search results depend on the parameters specified in the query.
 
 ## Getting started {#before-you-begin}
 
@@ -16,7 +16,7 @@ description: Follow this guide to learn how to use {{ search-api-name }} to send
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `{{ roles-search-api-executor }}` role to the created service account.
 1. [Create](../../iam/operations/api-key/create.md) an API key for the created service account.
-1. [Sign up](./workaround.md) for {{ search-api-name }}.
+1. [Sign up](./workaround.md) to {{ search-api-name }}.
 
 ## Create a search query {#form-request}
 
@@ -37,7 +37,7 @@ Based on the search type selected when signing up for the service, specify the a
 
   {% endnote %}
 
-  1. Make a GET request in the following format:
+  1. To get an [XML](../concepts/response.md) response, create a GET request formatted as follows:
 
       ```httpget
       https://yandex.<domain>/search/xml
@@ -61,7 +61,7 @@ Based on the search type selected when signing up for the service, specify the a
       https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
       ```
 
-      This request returns the fifth page of search results for the `<table>` prompt. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter will be applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
+      This request returns the fifth page of search results for the `<table>` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter will be applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
   1. Send a query to the Yandex search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 
@@ -72,7 +72,9 @@ Based on the search type selected when signing up for the service, specify the a
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4'
       ```
 
-      As a result of running the query, the `result.xml` file containing the search query results in XML [format](../concepts/response.md) will be saved to the current directory.
+      As a result of running the query, the `result.xml` file containing the search query results in [XML](../concepts/response.md) format will be saved to the current directory.
+
+      To get an [HTML](../concepts/html-response.md) response, add `/html` to query URL, e.g., `https://yandex.ru/search/xml/html?folderid=b1...`. For more information, see [{#T}](../concepts/get-request.md#get-request-format).
 
 - Text search using the POST method
 
@@ -84,7 +86,7 @@ Based on the search type selected when signing up for the service, specify the a
 
   {% endnote %}
 
-  1. Create a URL of the POST request in the following format:
+  1. To get an [XML](../concepts/response.md) response, create a POST request URL formatted as follows:
 
       ```httpget
       https://yandex.<domain>/search/xml
@@ -121,7 +123,7 @@ Based on the search type selected when signing up for the service, specify the a
 
       For detailed information about the parameters specified in the request body, see [Request body parameters](../concepts/post-request.md#post-body-parameters).
 
-      The following request example returns the fifth page of search results for the `<table>` prompt. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2.
+      This request example returns the fifth page of search results for the `<table>` query. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2.
 
   1. Send a query to the Yandex search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 
@@ -134,7 +136,9 @@ Based on the search type selected when signing up for the service, specify the a
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru'
       ```
 
-      As a result of running the query, the `result.xml` file containing the search query results in XML [format](../concepts/response.md) will be saved to the current directory.
+      As a result of running the query, the `result.xml` file containing the search query results in [XML](../concepts/response.md) format will be saved to the current directory.
+
+      To get an [HTML](../concepts/html-response.md) response, add `/html` to query URL, e.g., `https://yandex.ru/search/xml/html?folderid=b1...`. For more information, see [{#T}](../concepts/post-request.md#post-request-format).
 
 - Searching by images
 
@@ -146,7 +150,7 @@ Based on the search type selected when signing up for the service, specify the a
 
   {% endnote %}
 
-  1. Make a GET request in the following format:
+  1. Create a GET request in the following format:
 
       ```text
       https://yandex.<domain>/images-xml

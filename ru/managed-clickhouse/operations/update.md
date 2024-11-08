@@ -727,6 +727,7 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
            --backup-window-start <время_начала_резервного_копирования> \
+           --backup-retain-period-days <срок_хранения_автоматических_резервных_копий> \
            --datalens-access=<true_или_false> \
            --metrika-access=<true_или_false> \
            --serverless-access=<true_или_false> \
@@ -742,6 +743,8 @@ description: Следуя данной инструкции, вы сможете
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+    * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
 
     * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
 

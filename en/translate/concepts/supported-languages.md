@@ -2,6 +2,13 @@
 
 This section lists the supported translation languages.
 
+{% note warning %}
+
+The list on this page may differ from the current list of supported languages.
+To retrieve the current list, [use the relevant API method](../operations/list).
+
+{% endnote %}
+
 {% note tip %}
 
 To search the page, press **CTRL** + **F** (for MacOS, use **CMD** + **F**).
@@ -45,7 +52,7 @@ List of languages (from A to Z):
 1. `hr`: Croatian
 1. `ht`: Haitian
 1. `hu`: Hungarian
-1. `hy`:  Armenian
+1. `hy`: Armenian
 1. `id`: Indonesian
 1. `is`: Icelandic
 1. `it`: Italian

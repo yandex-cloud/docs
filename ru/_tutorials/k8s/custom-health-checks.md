@@ -12,6 +12,8 @@ L7-балансировщик автоматически проверяет ра
 
 Результат проверок состояния приложения можно будет посмотреть в [консоли управления]({{ link-console-main }}).
 
+{% include [alb-custom-hc-enabling](../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+
 Чтобы развернуть приложение в кластере {{ managed-k8s-name }} и настроить к нему доступ и проверки состояния через {{ alb-name }}:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте Docker-образ](#docker-image).

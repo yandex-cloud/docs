@@ -56,6 +56,10 @@ You can assign a role via the [{{ cloud-center }} interface]({{ cloud-center-lin
 
 {% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
 
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../../_roles/organization-manager/users/viewer.md) %}
+
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
