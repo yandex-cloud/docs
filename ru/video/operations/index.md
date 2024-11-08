@@ -15,6 +15,7 @@ description: Пошаговые инструкции по работе с сер
 
 * [{#T}](video/upload.md)
 * [{#T}](video/update.md)
+* [{#T}](video/add-thumbnail.md)
 * [{#T}](video/subtitles.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
@@ -34,6 +35,7 @@ description: Пошаговые инструкции по работе с сер
 
 * [{#T}](streams/create.md)
 * [{#T}](streams/update.md)
+* [{#T}](streams/add-thumbnail.md)
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)

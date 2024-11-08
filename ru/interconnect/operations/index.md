@@ -1,8 +1,7 @@
-# Инструкции по применению {{ interconnect-name }}
+# Пошаговые инструкции {{ interconnect-name }}
 
-- [{#T}](trunk-priv-add.md)
-- [{#T}](trunk-pub-add.md)
-- [{#T}](partner-trunk-priv-add.md)
-- [{#T}](partner-trunk-pub-add.md)
-- [{#T}](priv-add.md)
-- [{#T}](pub-add.md)
+- [{#T}](partner-get-info.md)
+- [{#T}](pop-get-info.md)
+- [{#T}](trunk-get-info.md)
+- [{#T}](priv-con-get-info.md)
+- [{#T}](pub-con-get-info.md)

@@ -6,10 +6,11 @@
 Количество запросов на векторизацию текста, в секунду | 10
 **[Генерация текста](../foundation-models/concepts/yandexgpt/index.md)** |
 Количество одновременных генераций, [синхронный режим](../foundation-models/concepts/index.md#working-mode) | 10
-Количество одновременных генераций, модель {{ yagpt-name }} 32k | 1
+Количество одновременных генераций, модель [{{ gpt-pro }} 32k](../foundation-models/concepts/yandexgpt/models.md#yandexgpt-generation) | 1
 Количество запросов в секунду, [асинхронный режим](../foundation-models/concepts/index.md#working-mode) (запрос) | 10
 Количество запросов в секунду, асинхронный режим (получение ответа) | 50
 Количество запросов в час, асинхронный режим (запрос) | 5000
+Количество запросов в час, модель {{ gpt-pro }} 32k, синхронный режим (запрос) | 100
 Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
 **[Классификация текста](../foundation-models/concepts/classifier/index.md)** |
 Количество запросов на классификацию текста в секунду | 1
@@ -32,7 +33,7 @@
 Суммарное количество токенов в запросе и ответе, [модели 3 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Суммарное количество токенов в запросе и ответе, синхронный режим [моделей 4 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Суммарное количество токенов в запросе и ответе, асинхронный режим [моделей 4 поколения](../foundation-models/concepts/yandexgpt/models.md) | 32 000
-Суммарное количество токенов в запросе и ответе, модель {{ yagpt-name }} 32k | 32 000
+Суммарное количество токенов в запросе и ответе, модель {{ gpt-pro }} 32k | 32 000
 Количество бесплатных запросов в час для пользователей без платежного аккаунта. Доступно только в консоли управления | {{ gpt-freetier }}
 **[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |
 Максимальная длина [промта](../foundation-models/concepts/index.md#prompt) | 500 символов

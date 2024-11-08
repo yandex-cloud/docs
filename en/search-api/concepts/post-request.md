@@ -5,9 +5,11 @@ description: This article describes how to use POST requests.
 
 # POST requests
 
-{{ search-api-name }} allows you to search the Yandex search database using set parameters and get search results in XML format. You can transmit search parameters to the service in an HTTP request using the POST method. {{ search-api-name }} generates a [response](./response.md) as an XML document.
+With {{ search-api-name }}, you can submit requests with preset parameters to the Yandex search database. You can provide search parameters to the service in an HTTP request using the POST method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
+## Request format {#post-request-format}
 
 {% note warning %}
 
@@ -15,15 +17,31 @@ If you have any special characters in the parameter values provided in the reque
 
 {% endnote %}
 
-## Request format {#post-request-format}
+The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
 
-```httpget
-https://yandex.<domain>/search/xml
-  ? [folderid=<folder_ID>]
-  & [filter=<filtering_type>]
-  & [lr=<search_region_ID>]
-  & [l10n=<notification_language>]
-```
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.<domain>/search/xml
+    ? [folderid=<folder_ID>]
+    & [filter=<filtering_type>]
+    & [lr=<search_region_ID>]
+    & [l10n=<notification_language>]
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.<domain>/search/xml/html
+    ? [folderid=<folder_ID>]
+    & [filter=<filtering_type>]
+    & [lr=<search_region_ID>]
+    & [l10n=<notification_language>]
+  ```
+
+{% endlist %}
 
 ### Request parameters {#parameters}
 
@@ -61,14 +79,14 @@ Authorization: Api-Key <API_key>
     <!--Maximum number of passages-->
   </maxpassages>
   <page>
-    <!--Number of the requested search result page-->
+    <!--Number of the requested search results page-->
   </page>
 </request>
 ```
 
 ## Request body parameters {#post-body-parameters}
 
-### Grouping tag <request> {#request}
+### Grouping tag: <request> {#request}
 
 The `<request>` grouping tag integrates all contents of the request body. Child tags contain search query parameters.
 
@@ -80,9 +98,9 @@ The `<request>` grouping tag integrates all contents of the request body. Child 
 
 {% include [page](../../_includes/search-api/page.md) %}
 
-#### Grouping tag <groupings> {#groupings}
+#### Grouping tag: <groupings> {#groupings}
 
-The `groupings` grouping tag integrates the grouping results parameters.
+The `groupings` grouping tag integrates the result grouping parameters.
 
 ##### `Groupby` result grouping {#groupby}
 
@@ -92,15 +110,27 @@ Possible `groupby` parameters:
 
 {% include [groupby-description](../../_includes/search-api/groupby-parameters.md) %}
 
-## Sample POST request {#example-post-request}
+## POST request example {#example-post-request}
 
-The URL and request body presented below return the fifth page of search results for the `<table>` request. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
+The URL and request body presented below return the fifth page of search results for the `<table>` query. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
 
-Request URL:
+The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
 
-```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
-```
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
+  ```
+
+{% endlist %}
 
 Request body:
 
@@ -120,4 +150,5 @@ Request body:
 #### See also {#see-also}
 
 * [{#T}](./response.md)
+* [{#T}](./html-response.md)
 * [{#T}](../operations/searching.md)

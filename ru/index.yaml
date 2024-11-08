@@ -43,6 +43,9 @@ links:
   - title: Cloud Notification Service
     description: Сервис для рассылки уведомлений
     href: notifications/
+  - title: Cloud Router
+    description: Сервис для управления сетевыми топологиями
+    href: cloud-router/
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/

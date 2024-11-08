@@ -4,6 +4,8 @@
 
 Добавить можно [пользователей с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) и [федеративных пользователей](../../iam/concepts/users/accounts.md#saml-federation). Для этого нужно быть администратором (роль `organization-manager.admin`) или владельцем (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [{#T}](../../iam/operations/roles/grant.md).
 
+{% include [console-user-access](console-user-access.md) %}
+
 ## Пользователи с аккаунтом на Яндексе {#useraccount}
 
 {% include notitle [useraccount](./useraccount.md) %}

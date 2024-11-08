@@ -1,6 +1,6 @@
 # Getting started with {{ search-api-full-name }}
 
-If you used the [Yandex.XML](https://yandex.ru/dev/xml/) service before and want to set up your workflow in {{ search-api-full-name }}, see [{#T}](operations/workaround.md).
+If you have used the Yandex.XML service before and want to set up your workflow in {{ search-api-full-name }}, see [{#T}](operations/workaround.md).
 
 ## Getting started {#before-you-begin}
 

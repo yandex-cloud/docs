@@ -429,6 +429,10 @@ For more information, see [{#T}](../marketplace/security/index.md).
 
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
 
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../_roles/organization-manager/users/viewer.md) %}
+
 For more information, see [{#T}](../organization/security/index.md).
 
 

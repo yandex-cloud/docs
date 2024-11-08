@@ -1,5 +1,9 @@
 * {% include [Backup time](../../../_includes/mdb/console/backup-time.md) %}
 
+* **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}** — время, в течение которого нужно хранить созданные автоматически резервные копии (в днях). Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — {{ mch-backup-retention }} дней. Подробнее см. в разделе [Резервные копии](../../../managed-clickhouse/concepts/backup.md#storage).
+
+    Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие. Например, изначальный срок хранения был 7 дней, оставшееся время жизни отдельной автоматической резервной копии — 1 день. При увеличении срока хранения до 9 дней оставшееся время жизни этой резервной копии будет уже 3 дня.
+
 * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../../../managed-clickhouse/concepts/maintenance.md):
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}

@@ -203,7 +203,7 @@
 
 ## Примеры {#examples}
 
-Допустим, нужно обновить кластер с версии 11 до версии 12.
+Допустим, нужно обновить кластер с версии 14 до версии 15.
 
 {% list tabs group=instructions %}
 
@@ -233,14 +233,14 @@
         id: c9q8p8j2gaih********
         ...
         config:
-          version: "11"
+          version: "14"
           ...
       ```
 
-   1. Для обновления кластера `postgre406` до версии 12, выполните команду:
+   1. Для обновления кластера `postgre406` до версии 15, выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 12
+      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 15
       ```
 
 {% endlist %}
