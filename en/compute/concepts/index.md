@@ -23,20 +23,20 @@ A VM must have at least one disk attached, which is a boot disk. You can create 
 
 Snapshots and images are mainly designed for saving and restoring data disks.
 
-You can create a snapshot only from a disk. Snapshot information contains the ID of its source disk.
+You can only create a snapshot from a disk. Snapshot information contains the ID of its source disk.
 
 As for an image, you can create it from a disk, snapshot, another image, or file.
 
 ## Information resources {#information-resource}
 
-When creating disks and VMs, you need to specify an [availability zone](../../overview/concepts/geo-scope.md) where they will reside; disk images and snapshots are not associated with any availability zones.
+When creating disks and VMs, you need to specify the [availability zone](../../overview/concepts/geo-scope.md) where they will reside; disk images and snapshots are not associated with any availability zones.
 
 You can view a list of availability zones and find out their current status.
 
-When creating a disk, you also specify its disk type. You can view possible disk types and find out in which zones they are available.
+When creating a disk, you also specify the disk type. You can view possible disk types and find out in which zones they are available.
 
 ## Relationship with resources of other services {#relationship-with-resources-of-other-services}
 
 When creating a VM, you need to specify the subnet it will be connected to. You can find more information about cloud networks [here](../../vpc/concepts/network.md).
 
-All {{ compute-short-name }} resources are created within folders. You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../resource-manager/concepts/resources-hierarchy.md).
+All {{ compute-short-name }} resources are created within folders. Disk types and availability zones are public resources that do not belong to any folder. You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../resource-manager/concepts/resources-hierarchy.md).
