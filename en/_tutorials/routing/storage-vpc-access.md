@@ -18,7 +18,7 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | Name | Description |
 | ---- | ---- |
 | `s3-vpc` | Cloud network with the resources for which access to {{ objstorage-name }} is set up. For deployment, you can specify an existing cloud network as well. |
-| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that accepts traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
+| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that is responsible for accepting traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
 | `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VM instances that have the NAT function enabled. |
 | `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, `nat-b2-vm` | NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) for routing traffic to {{ objstorage-name }} and back with translation of IP addresses of traffic sources and targets. |
 | `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, `pub-ip-b2` | VM public IPs to which the {{ vpc-short-name }} cloud network translates their internal IPs. |

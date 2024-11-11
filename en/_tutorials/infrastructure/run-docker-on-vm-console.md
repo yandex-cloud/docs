@@ -1,7 +1,7 @@
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM](#create-vm).
 1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
-1. [Upload the Docker image to the VM](#run).
+1. [Download the Docker image to a VM](#run).
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -255,7 +255,7 @@ Create a VM with a public IP address and link the service account you created to
           "cores": "2"
         },
         "metadata": {
-          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
         },
         "bootDiskSpec": {
           "diskSpec": {
@@ -334,5 +334,5 @@ To stop paying for the resources you created:
 
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 * [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
-* [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
+* [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
 * [Delete](../../container-registry/operations/registry/registry-delete.md) the registry.

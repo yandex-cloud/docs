@@ -44,7 +44,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Create a service account named `backup-sa`.
+  1. Create a service account named `backup-sa`:
 
       ```bash
       yc iam service-account create --name backup-sa
@@ -439,7 +439,7 @@ You can create a new policy or use one of those automatically generated upon ser
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Enter a name for the VM: `backup-instance`.
   1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select `Ubuntu 22.04`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Select the`cloud-network-{{ region-id }}-d` subnet.
@@ -529,7 +529,7 @@ You can create a new policy or use one of those automatically generated upon ser
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh-authorized-keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<policy_ID>\"]}"
     },
     "bootDiskSpec": {

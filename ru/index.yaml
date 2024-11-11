@@ -37,6 +37,9 @@ links:
   - title: Cloud Interconnect
     description: Подключение к ресурсам Yandex Cloud по выделенному каналу
     href: interconnect/
+  - title: Cloud Router
+    description: Создание сетевых топологий
+    href: cloud-router/
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/

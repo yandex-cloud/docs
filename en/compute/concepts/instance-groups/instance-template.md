@@ -48,7 +48,7 @@ You can create a group without specifying any subnets for its instances if the a
 
 {% note info %}
 
-In addition to subnets created by you, a cloud network can host automatically created subnets. For example, the [{{ sf-name }}](../../../functions/concepts/networking.md#user-network), [{{ serverless-containers-name }}](../../../serverless-containers/concepts/networking.md), and [{{ api-gw-name }}](../../../api-gateway/concepts/networking.md#user-network) service subnets, or reserved addresses for {{ managed-k8s-name }} cluster pods and services.
+In the cloud network, there can be automatically created subnets, in addition to the ones, that you created. For example, the [{{ sf-name }}](../../../functions/concepts/networking.md#user-network), [{{ serverless-containers-name }}](../../../serverless-containers/concepts/networking.md), and [{{ api-gw-name }}](../../../api-gateway/concepts/networking.md#user-network) service subnets, or [reserved addresses[ for {{ managed-k8s-name }} cluster pods and services.
 
 {% endnote %}
 
@@ -127,7 +127,7 @@ instance_template:
           groups: sudo
           shell: /bin/bash
           sudo: 'ALL=(ALL) NOPASSWD:ALL'
-          ssh-authorized-keys:
+          ssh_authorized_keys:
             - ssh-ed25519 AAAAB3...
 ...
 ```
@@ -144,7 +144,7 @@ Key | Value
 `resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md).
 `boot_disk_spec` | Boot disk parameters.
 `boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`boot_disk_spec.disk_spec.image_id` | ID of the image to create the disk from.
+`boot_disk_spec.disk_spec.image_id` | ID of the image to create the VM from.
 `boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request.
 `boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
 `boot_disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.

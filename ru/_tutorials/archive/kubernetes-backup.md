@@ -151,7 +151,7 @@
    my-backup  Completed  0       0         2020-10-19 17:13:25 +0300 MSK  29d      default           <none>
    ```
 
-## Восстановление данных их резервной копии {#restore}
+## Восстановление данных из резервной копии {#restore}
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
 1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером {{ managed-k8s-name }}.

@@ -35,7 +35,7 @@ locals {
   db_name      = "db1"
 }
 
-# Configuring the provider
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -126,7 +126,7 @@ resource "yandex_vpc_security_group" "opencart-sg-vm" {
   }
 }
 
-# Specifying a ready-made VM image
+# Specifying a prebuilt VM image
 
 resource "yandex_compute_image" "opencart-image" {
   source_family = "opencart"
@@ -160,7 +160,7 @@ resource "yandex_compute_instance" "opencart" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 

@@ -40,7 +40,7 @@
 
 {% include [crossplane-provider-info](../../../_includes/managed-kubernetes/crossplane-provider-info.md) %}
 
-## Установка с помощью Helm-чарта из репозитория {{ marketplace-full-name }} {#helm-install}
+## Установка с помощью Helm-чарта из репозитория {{ marketplace-name }} {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}

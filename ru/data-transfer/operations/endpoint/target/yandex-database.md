@@ -25,8 +25,8 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
-    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
-
+    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md);
+    * [Поставка данных из {{ DS }} в {{ ydb-short-name }}](../../../tutorials/yds-to-ydb.md).
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
     * [Загрузка данных из {{ objstorage-name }} в {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).

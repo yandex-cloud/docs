@@ -28,13 +28,22 @@
      --subject serviceAccount:<идентификатор_сервисного_аккаунта>
    ```
 
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
-   ```bash
-   yc iam access-key create \
-     --service-account-name=<имя_сервисного_аккаунта> \
-     --format=json > sa-key.json
-   ```
+   * Если установка Velero будет выполняться в [консоли управления с помощью {{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
+
+            ```bash
+            yc iam access-key create \
+               --service-account-name=<имя_сервисного_аккаунта> \
+               --format=json > sa-key.json
+            ```
+
+   * Если установка Velero будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
+
+            ```bash
+            yc iam access-key create \
+               --service-account-name=<имя_сервисного_аккаунта>
+            ```
 
 1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
@@ -76,7 +85,8 @@
         --namespace velero \
         --create-namespace \
         --set configuration.backupStorageLocation.bucket=<имя_бакета> \
-        --set-file serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
+        --set serviceaccountawskeyvalue_generated.accessKeyID=<идентификатор_ключа> \
+        --set serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ> \
         velero ./velero/
    ```
 
@@ -84,4 +94,5 @@
 
 ## См. также {#see-also}
 
-* [Документация Velero](https://velero.io/docs/v1.11/examples/).
+* [Документация Velero](https://velero.io/docs/v1.11/examples/)
+* [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for custom parameters
 
 variable "zone" {
   type = string
@@ -36,7 +36,7 @@ locals {
   dns_zone_name      = "example-zone"
 }
 
-# Provider configuration
+# Configuring a provider 
 
 terraform {
   required_providers {
@@ -90,7 +90,7 @@ resource "yandex_vpc_security_group" "sg-1" {
   }
 }
 
-# Adding a ready-to-use VM image
+# Adding a prebuilt VM image
 
 resource "yandex_compute_image" "lamp-vm-image" {
   source_family = var.vm_image_family
@@ -104,7 +104,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = yandex_compute_image.lamp-vm-image.id
 }
 
-# Creating a VM
+# Creating a VM instance
 
 resource "yandex_compute_instance" "vm-lamp" {
   name        = local.vm_name
@@ -124,7 +124,7 @@ resource "yandex_compute_instance" "vm-lamp" {
     security_group_ids = [yandex_vpc_security_group.sg-1.id]
   }
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 

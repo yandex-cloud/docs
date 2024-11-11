@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Все запросы к данным выполняются с включенным флагом [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [{#T}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
+Все запросы к данным выполняются с включенным флагом [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [Особенности работы с подключением к {{ CH }}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
 
 {% endnote %}
 

@@ -145,6 +145,7 @@ description: На странице представлен список прак�
 * [{#T}](ydb-to-object-storage.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](yds-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 

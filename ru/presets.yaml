@@ -130,6 +130,7 @@ default:
   container-registry-short-name: Container Registry
   cos-full-name: Yandex Container Solution
   cos-name: Container Solution
+  cr-full-name: Yandex Cloud Router
   crt-alias: YandexCA
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
@@ -1157,6 +1158,7 @@ default:
   sku|KZT|mdb:
     cluster:
       clickhouse:
+        backup|month|string: "9,60\_₸"
         v1:
           cpu:
             c100|month|string: "8\_208,00\_₸"
@@ -1269,6 +1271,7 @@ default:
         pg|month|string: "65,05\_₸"
         redis|month|string: "65,05\_₸"
       mongodb:
+        backup|month|string: "9,60\_₸"
         v1:
           cpu:
             c100|month|string: "5\_760,00\_₸"
@@ -1369,6 +1372,15 @@ default:
         opensearch|month|string: "65,05\_₸"
         pg|month|string: "65,05\_₸"
         redis|month|string: "65,05\_₸"
+      network-ssd-io-m3:
+        ch|month|string: "108,90\_₸"
+        greenplum|month|string: "108,90\_₸"
+        kafka|month|string: "108,90\_₸"
+        mongodb|month|string: "108,90\_₸"
+        mysql|month|string: "108,90\_₸"
+        opensearch|month|string: "108,90\_₸"
+        pg|month|string: "108,90\_₸"
+        redis|month|string: "108,90\_₸"
       network-ssd-nonreplicated:
         ch|month|string: "44,00\_₸"
         elasticsearch|month|string: "44,00\_₸"
@@ -1380,6 +1392,7 @@ default:
         pg|month|string: "44,00\_₸"
         redis|month|string: "44,00\_₸"
       opensearch:
+        backup|month|string: "9,60\_₸"
         v2:
           cpu:
             c100|month|string: "6\_048,00\_₸"
@@ -1960,6 +1973,9 @@ default:
         cpu|string: "9,35\_₸"
         ram|month|string: "1\_836,00\_₸"
         ram|string: "2,55\_₸"
+    db:
+      backup:
+        v1|month|string: "10,05\_₸"
     v1:
       serverless:
         requests|pricingRate:
@@ -2322,6 +2338,7 @@ default:
   sku|RUB|mdb:
     cluster:
       clickhouse:
+        backup|month|string: "1,92\_₽"
         v1:
           cpu:
             c100|month|string: "1\_641,60\_₽"
@@ -2434,6 +2451,7 @@ default:
         pg|month|string: "13,01\_₽"
         redis|month|string: "13,01\_₽"
       mongodb:
+        backup|month|string: "1,92\_₽"
         v1:
           cpu:
             c100|month|string: "1\_152,00\_₽"
@@ -2534,6 +2552,15 @@ default:
         opensearch|month|string: "13,01\_₽"
         pg|month|string: "13,01\_₽"
         redis|month|string: "13,01\_₽"
+      network-ssd-io-m3:
+        ch|month|string: "21,78\_₽"
+        greenplum|month|string: "21,78\_₽"
+        kafka|month|string: "21,78\_₽"
+        mongodb|month|string: "21,78\_₽"
+        mysql|month|string: "21,78\_₽"
+        opensearch|month|string: "21,78\_₽"
+        pg|month|string: "21,78\_₽"
+        redis|month|string: "21,78\_₽"
       network-ssd-nonreplicated:
         ch|month|string: "8,80\_₽"
         elasticsearch|month|string: "8,80\_₽"
@@ -2545,6 +2572,7 @@ default:
         pg|month|string: "8,80\_₽"
         redis|month|string: "8,80\_₽"
       opensearch:
+        backup|month|string: "1,92\_₽"
         v2:
           cpu:
             c100|month|string: "1\_209,60\_₽"
@@ -3125,6 +3153,9 @@ default:
         cpu|string: "1,87\_₽"
         ram|month|string: "367,20\_₽"
         ram|string: "0,51\_₽"
+    db:
+      backup:
+        v1|month|string: "2,01\_₽"
     v1:
       serverless:
         requests|pricingRate:

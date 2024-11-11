@@ -11,17 +11,17 @@ description: При создании дашборда в {{ datalens-full-name }
 
 Вы можете воспользоваться различными вариантами объединения данных:
 
-* [{#T}](#dataset-join)
+* [На уровне датасета](#dataset-join)
 
-  * [{#T}](#ui-join)
-  * [{#T}](#sql-join)
+  * [Добавление таблиц](#ui-join)
+  * [SQL-запрос](#sql-join)
 
-* [{#T}](#chart-join)
+* [На уровне чарта](#chart-join)
 
-  * [{#T}](#sql-chart)
-  * [{#T}](#datasets-chart)
+  * [QL-чарт](#sql-chart)
+  * [Мультидатасетные чарты](#datasets-chart)
 
-* [{#T}](#selector-join)
+* [На уровне связей селекторов](#selector-join)
 
 ### На уровне датасета {#dataset-join}
 

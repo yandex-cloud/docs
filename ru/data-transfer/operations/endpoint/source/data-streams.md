@@ -27,6 +27,7 @@ description: Следуя данной инструкции, вы сможете
     * [{{ DS }} в {{ CH }}](../../../tutorials/yds-to-clickhouse.md);
     * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);
     * [{{ DS }} в {{ OS }}](../../../tutorials/trails-to-os.md);
+    * [{{ DS }} в {{ ydb-name }}](../../../tutorials/yds-to-ydb.md);
     * [{{ DS }} в {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).

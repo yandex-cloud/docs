@@ -12,27 +12,27 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
 - Management console {#console}
 
-   Expand the **{{ ui-key.yacloud.common.metadata }}** section and add the `user-data` key with the following configuration:
+  Expand the **{{ ui-key.yacloud.common.metadata }}** section and add the `user-data` key with the following configuration:
 
-   {% cut "For Ubuntu" %}
+  {% cut "For Ubuntu" %}
 
-   {% include [multiinterfaced-vm-cloudinit-ubuntu](../../_includes/compute/multiinterfaced-vm-cloudinit-ubuntu.md) %}
+  {% include [multiinterfaced-vm-cloudinit-ubuntu](../../_includes/compute/multiinterfaced-vm-cloudinit-ubuntu.md) %}
 
-   {% endcut %}
+  {% endcut %}
 
-   {% cut "For Debian" %}
+  {% cut "For Debian" %}
 
-   {% include [multiinterfaced-vm-cloudinit-debian](../../_includes/compute/multiinterfaced-vm-cloudinit-debian.md) %}
+  {% include [multiinterfaced-vm-cloudinit-debian](../../_includes/compute/multiinterfaced-vm-cloudinit-debian.md) %}
 
-   {% endcut %}
+  {% endcut %}
 
-   Where:
-   * `name:`: Username for [connecting](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-   * `ssh-authorized-keys:`: List of public SSH keys to connect the user to the VM over SSH. You need to specify at least one public SSH key.
+  Where:
+  * `name:`: Username for [connecting](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+  * `ssh_authorized_keys:`: List of public SSH keys to connect the user to the VM over SSH. You need to specify at least one public SSH key.
 
 - CLI {#cli}
 
-   1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
+  1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
 
       {% cut "For Ubuntu" %}
 
@@ -46,7 +46,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
       {% endcut %}
 
-   1. When creating a VM, provide this configuration file in the `--metadata-from-file` parameter, for example:
+  1. When creating a VM, provide the created configuration file to it in the `--metadata-from-file` parameter, e.g.:
 
       ```bash
       yc compute instance create --name=multi-net-vm --hostname=multi-net-vm \
@@ -61,7 +61,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
 - {{ TF }} {#tf}
 
-   1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
+  1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
 
       {% cut "For Ubuntu" %}
 
@@ -75,7 +75,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
       {% endcut %}
 
-   1. When creating a VM, provide this configuration file in the `yandex_compute_instance.metadata` section, for example:
+  1. When creating a VM, provide the created metadata file to it in the `yandex_compute_instance.metadata` section, e.g.:
 
       ```hcl
       resource "yandex_compute_instance" "multi-net-vm" {
@@ -127,98 +127,98 @@ If upgrading the OS is not possible or does not help:
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
-   If the SSH connection fails due to network connectivity issues, [remove](../../compute/operations/vm-control/detach-network-interface.md) all the additional network interfaces and [reboot](../../compute/operations/vm-control/vm-stop-and-start.md#restart) the VM.
+    If the SSH connection fails due to network connectivity issues, [remove](../../compute/operations/vm-control/detach-network-interface.md) all the additional network interfaces and [reboot](../../compute/operations/vm-control/vm-stop-and-start.md#restart) the VM.
 
 1. Update the OS network configuration:
 
-   {% list tabs %}
+    {% list tabs %}
 
-   - Ubuntu
+    - Ubuntu
 
       1. Add the configuration of the new network interfaces to the `/etc/netplan/01-netcfg.yaml` file:
+      
+          ```bash
+          sudo nano /etc/netplan/01-netcfg.yaml
+          ```
 
-         ```bash
-         sudo nano /etc/netplan/01-netcfg.yaml
-         ```
+          In the `write_files.content.network.ethernets` configuration section, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
 
-         In the `write_files.content.network.ethernets` configuration section, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
-
-         ```
-         # This file describes the network interfaces available on your system
-         # For more information, see netplan(5).
-         network:
-           version: 2
-           renderer: networkd
-           ethernets:
-             eth0:
-               dhcp4: yes
-             eth1:
-               dhcp4: yes
-               dhcp4-overrides:
-                 use-dns: false
-                 use-routes: false
-               dhcp6: no
-             eth2:
-               dhcp4: yes
-               dhcp4-overrides:
-                 use-dns: false
-                 use-routes: false
-               dhcp6: no
-         ```
+          ```
+          # This file describes the network interfaces available on your system
+          # For more information, see netplan(5).
+          network:
+            version: 2
+            renderer: networkd
+            ethernets:
+              eth0:
+                dhcp4: yes
+              eth1:
+                dhcp4: yes
+                dhcp4-overrides:
+                  use-dns: false
+                  use-routes: false
+                dhcp6: no
+              eth2:
+                dhcp4: yes
+                dhcp4-overrides:
+                  use-dns: false
+                  use-routes: false
+                dhcp6: no
+          ```
 
       1. Assign the required permissions to the `/etc/netplan/01-netcfg.yaml` file:
 
-         ```bash
-         sudo chmod 0644 /etc/netplan/01-netcfg.yaml
-         ```
+          ```bash
+          sudo chmod 0644 /etc/netplan/01-netcfg.yaml
+          ```
 
       1. Apply the configuration changes:
 
-         ```bash
-         sudo netplan apply
-         ```
+          ```bash
+          sudo netplan apply
+          ```
 
-   - Debian
+    - Debian
 
       1. Add the configuration of the new network interfaces to the `/etc/network/interfaces` file:
+      
+          ```bash
+          sudo nano /etc/network/interfaces
+          ```
+      
+          In the `Primary network interface` and `Other network interfaces` configuration sections, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
 
-         ```bash
-         sudo nano /etc/network/interfaces
-         ```
+          ```txt
+          # This file describes the network interfaces available on your system
+          # and how to activate them. For more information, see interfaces(5).
 
-         In the `Primary network interface` and `Other network interfaces` configuration sections, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
+          source /etc/network/interfaces.d/*
 
-         ```txt
-         # This file describes the network interfaces available on your system
-         # and how to activate them. For more information, see interfaces(5).
+          # Loopback network interface
+          auto lo
+          iface lo inet loopback
 
-         source /etc/network/interfaces.d/*
+          # Primary network interface
+          allow-hotplug eth0
+          iface eth0 inet dhcp
 
-         # Loopback network interface
-         auto lo
-         iface lo inet loopback
+          # Other network interfaces
+          auto eth1
+          allow-hotplug eth1
+          iface eth1 inet dhcp
 
-         # Primary network interface
-         allow-hotplug eth0
-         iface eth0 inet dhcp
-
-         # Other network interfaces
-         auto eth1
-         allow-hotplug eth1
-         iface eth1 inet dhcp
-
-         auto eth2
-         allow-hotplug eth2
-         iface eth2 inet dhcp
-         post-up ip route del default
-         ```
+          auto eth2
+          allow-hotplug eth2
+          iface eth2 inet dhcp
+          post-up ip route del default
+          ```
 
       1. Restart the network service:
 
-         ```bash
-         sudo systemctl restart networking
-         ```
+          ```bash
+          sudo systemctl restart networking
+          ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. If you previously had to remove additional network interfaces, [attach](../../compute/operations/vm-control/attach-network-interface.md) them again.

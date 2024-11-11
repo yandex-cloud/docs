@@ -55,20 +55,20 @@ To create a VM:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the VM you are creating or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, enter the network name and select the folder to host the network.
+              * In the window that opens, specify the network name and select the folder to create it in.
               * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the VM, e.g., `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the virtual machine, such as `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       {% note alert %}
@@ -397,7 +397,10 @@ To set up the backup process:
 1. Send the resulting archive to the SFTP server:
 
    ```bash
-   curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   curl \
+     --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz \
+     --insecure \
+     --user $SFTP_USER:
    ```
 
    Where:
@@ -421,7 +424,7 @@ To set up the backup process:
 You can perform all actions for creating a backup with a single command in the SFTP client terminal:
 
 ```bash
-sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
 ## Check whether the backup is working properly {#check-backup}
@@ -431,7 +434,7 @@ To make sure the backup is being created properly, run the backup, and find the 
 1. [Log in to the SFTP client VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and run the backup command:
 
    ```bash
-   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
 1. [Log in to the SFTP server VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and make sure there is a file named like `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` in the SFTP user's home directory. To do this, run the following command on the SFTP server:
@@ -456,7 +459,7 @@ To create regular backups of your settings, you can use `crontab`, a built-in ut
    SFTP_SERVER=<SFTP_server_IP_address>
    SFTP_USER='fuser'
 
-   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
    * The VM's time is UTC by default. Keep the time zone difference in mind when setting up the schedule.
@@ -524,7 +527,7 @@ On the SFTP client VM:
    sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | sudo cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
    ```
 
-   The `echo "## this is from backup" >> etc/yum.conf` command writes the _## this is from backup_ test phrase at the end of the `etc/yum.conf` file unpacked from the archive.
+   `echo "## this is from backup" >> etc/yum.conf` command writes the _## this is from backup_ test phrase at the end of the `etc/yum.conf` file unpacked from the archive.
 
 1. After restoring the backup, run the following command:
 
