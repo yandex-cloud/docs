@@ -30,7 +30,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
   In the CLI, you can provide metadata in any of the three parameters:
 
-  * `--metadata-from-file`: As a configuration file in this format: `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
+  * `--metadata-from-file`: As a configuration file formatted as `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
 
       For example, to add several users to a VM at the same time, describe the configuration in a `YAML` file:
 
@@ -77,7 +77,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
     ```hcl
     ...
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <SSH_key_contents>"
+      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - <SSH_key_contents>"
     }
     ...
     ```
@@ -132,7 +132,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
   * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. Use `1` to install or `0` (default) not to install the agent.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 
-    Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
+    Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh_authorized_keys` section:
 
     {% include [user-data](../../_includes/compute/user-data.md) %}
 
@@ -140,7 +140,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
     ```json
     "metadata": {
-      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
+      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
     }
     ```
 

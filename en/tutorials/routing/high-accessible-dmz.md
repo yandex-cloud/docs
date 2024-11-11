@@ -61,8 +61,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | Folders | 7 |
    | Instance groups | 1 |
    | Virtual machines | 6 |
-   | VM instance vCPUs | 18 |
-   | VM instance RAM | 30 GB |
+   | VM vCPUs | 18 |
+   | VM RAM | 30 GB |
    | Disks | 6 |
    | SSD size | 360 GB |
    | HDD size | 30 GB |
@@ -209,7 +209,7 @@ All the steps described below are completed in the Linux terminal.
 
 1. Install {{ TF }}:
 
-   1. Go to the root folder:
+   1. Go to the root directory:
 
       ```bash
       cd ~
@@ -225,7 +225,7 @@ All the steps described below are completed in the Linux terminal.
    1. Run the following command to download the `terraform_1.3.9_linux_amd64.zip` archive from the official website:
 
       ```bash
-      curl -LO https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
+      curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
       ```
 
    1. Install the `zip` utility and unpack the ZIP archive:
@@ -235,7 +235,7 @@ All the steps described below are completed in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the folder with the executable file to the `PATH` variable:
+   1. Add the path to the folder with the executable to the `PATH` variable:
 
       ```bash
       export PATH=$PATH:~/terraform

@@ -18,7 +18,7 @@ To create a [VM](../../concepts/vm.md):
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-  1. (Optional) Configure the boot [disk](../../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section:
+  1. (Optional) Configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
@@ -51,7 +51,7 @@ To create a [VM](../../concepts/vm.md):
   1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
+  VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configure the software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
 
 - CLI {#cli}
 
@@ -65,7 +65,7 @@ To create a [VM](../../concepts/vm.md):
      yc compute instance create --help
      ```
 
-  1. Prepare the public and private [key pair](../../operations/vm-connect/ssh.md#creating-ssh-keys) for SSH access to the VM.
+  1. Prepare a [key pair](../../operations/vm-connect/ssh.md#creating-ssh-keys) (public and private keys) for SSH access to the VM.
   1. Select one of the {{ marketplace-full-name }} public [images](../images-with-pre-installed-software/get-list.md).
 
      {% include [id-info](../../../_includes/compute/id-info.md) %}
@@ -155,7 +155,7 @@ To create a [VM](../../concepts/vm.md):
 
        resources {
          cores  = "<number_of_vCPU_cores>"
-         memory = "<RAM_in_GB>"
+         memory = "<RAM_GB>"
        }
 
        boot_disk {
@@ -168,7 +168,7 @@ To create a [VM](../../concepts/vm.md):
        }
 
        metadata = {
-         user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
+         user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("<path_to_public_SSH_key>")}"
        }
      }
 
@@ -205,9 +205,9 @@ To create a [VM](../../concepts/vm.md):
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In the metadata, provide the username and [public key for SSH access](../vm-connect/ssh.md#creating-ssh-keys) to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In the metadata, provide the username and [public key for SSH access to the VM](../vm-connect/ssh.md#creating-ssh-keys). For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
      * `yandex_vpc_network`: Description of the cloud network.
      * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
 

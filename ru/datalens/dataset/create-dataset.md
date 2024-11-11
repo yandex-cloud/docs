@@ -2,14 +2,14 @@
 
 В этом разделе вы узнаете, как работать с датасетом:
 
-* [{#T}](#create)
-* [{#T}](#add-data)
-* [{#T}](#links)
-* [{#T}](#create-fields)
-* [{#T}](#setup-fields)
-* [{#T}](#add-parameters)
-* [{#T}](#add-filters)
-* [{#T}](#access)
+* [Создать датасет](#create)
+* [Добавить данные](#add-data)
+* [Настроить связи](#links)
+* [Создать поля](#create-fields)
+* [Настроить поля](#setup-fields)
+* [Добавить параметры](#add-parameters)
+* [Добавить фильтры](#add-filters)
+* [Настроить доступ](#access)
 
 ## Создать датасет {#create}
 

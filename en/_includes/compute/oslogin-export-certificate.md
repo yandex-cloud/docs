@@ -1,4 +1,4 @@
-To export the SSH certificate of a {{ org-name }} organization user or [service account](../../iam/concepts/users/service-accounts.md) to a local computer:
+To export a SSH certificate of a user of the {{ org-name }} organization or a [service account](../../iam/concepts/users/service-accounts.md) to a local PC:
 
 {% list tabs group=instructions %}
 
@@ -26,8 +26,8 @@ To export the SSH certificate of a {{ org-name }} organization user or [service 
       ```
 
       Where:
-      * `--login`: Previously obtained user or service account login, as set in the OS Login profile. This is an optional parameter. If you do not set this parameter, you will export the SSH certificate of the user or service account currently authorized in the YC CLI profile.
-      * `--organization-id`: Previously obtained ID of the organization to export the SSH certificate from. This is an optional parameter. If omitted, the certificate will be exported from the organization the default folder belongs to.
+      * `--login`: Previously obtained login for the user or service account, as set in the OS Login profile. This is an optional parameter. If this parameter is not specified, the SSH certificate will be downloaded for the user or service account currently authorized in the YC CLI profile.
+      * `--organization-id`: Previously obtained [ID](../../organization/operations/organization-get-id.md) of the organization to export the SSH certificate from. This is an optional parameter. If the parameter is not set, the certificate will be exported from the organization the default folder belongs to.
       * `--directory`: Path to the local directory to save the exported SSH certificate to. This is an optional parameter. If not specified, the certificate will be saved by default to the `.ssh` home directory of the current PC user (`~/.ssh/`).
 
       Result:

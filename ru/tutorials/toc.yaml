@@ -433,6 +433,10 @@ items:
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
       - name: >-
+          Поставка данных из {{ yds-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-ydb.md
+      - name: >-
           Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md

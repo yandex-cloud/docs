@@ -41,13 +41,13 @@
 
 При [создании сводной таблицы](#create-diagram) можно использовать дополнительные настройки:
 
-* [{#T}](#change-columns-names)
-* [{#T}](#hint-column)
-* [{#T}](#set-column-width)
-* [{#T}](#column-fixation)
-* [{#T}](#add-totals)
-* [{#T}](#set-field-color)
-* [{#T}](#add-linear-indicator)
+* [Изменение названия столбцов и строк](#change-columns-names)
+* [Добавление подсказки к заголовкам](#hint-column)
+* [Настройка ширины столбцов и строк](#set-column-width)
+* [Закрепление столбцов](#column-fixation)
+* [Добавление строк с подытогами](#add-totals)
+* [Настройка заливки полей](#set-field-color)
+* [Добавление линейного индикатора в столбец с показателем](#add-linear-indicator)
 
 ## Секции в визарде {#wizard-sections}
 

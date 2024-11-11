@@ -72,6 +72,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} в {{ OS }}](trails-to-os.md)
+* [{{ DS }} в {{ ydb-name }}](yds-to-ydb.md)
 * [{{ DS }} в {{ KF }}](yds-to-kafka.md)
 * [{#T}](data-ingestion.md)
 

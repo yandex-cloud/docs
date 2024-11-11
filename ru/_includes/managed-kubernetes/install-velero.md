@@ -32,8 +32,8 @@
 
         ```ini
         [default]
-          aws_access_key_id=<идентификатор_ключа>
-          aws_secret_access_key=<секретная_часть_ключа>
+        aws_access_key_id=<идентификатор_ключа>
+        aws_secret_access_key=<секретная_часть_ключа>
         ```
 
     1. Установите серверную часть Velero в кластер {{ managed-k8s-name }}:
@@ -44,13 +44,13 @@
         velero install \
           --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
           --bucket <имя_бакета> \
-          --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
+          --plugins velero/velero-plugin-for-aws:v1.5.2 \
           --provider aws \
-          --secret-file ./credentials \
+          --secret-file <путь_к_файлу_credentials> \
           --features=EnableCSI \
           --use-volume-snapshots=true \
           --snapshot-location-config region={{ region-id }} \
-          --use-restic
+          --uploader-type=restic
         ```
 
         Где:
@@ -61,7 +61,7 @@
         * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
         * `--features` — список активных функциональных возможностей.
         * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
-        * (опционально) `--use-restic` — включение плагина restic.
+        * (опционально) `--uploader-type=restic` — включение плагина restic.
 
         Результат:
 

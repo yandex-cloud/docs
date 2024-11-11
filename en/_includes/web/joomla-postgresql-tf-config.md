@@ -46,7 +46,7 @@ locals {
   dns_zone_name      = "example-zone-1"
 }
 
-# Setting up the provider
+# Configuring a provider 
 
 terraform {
   required_providers {
@@ -144,7 +144,7 @@ resource "yandex_vpc_security_group" "vm-sg" {
   }
 }
 
-# Adding a pre-configured VM image
+# Adding a prebuilt VM image
 
 resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
@@ -158,7 +158,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = yandex_compute_image.joomla-pg-vm-image.id
 }
 
-# Creating a VM
+# Creating a VM instance
 
 resource "yandex_compute_instance" "joomla-pg-vm" {
   name               = local.vm_name
@@ -182,7 +182,7 @@ resource "yandex_compute_instance" "joomla-pg-vm" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 

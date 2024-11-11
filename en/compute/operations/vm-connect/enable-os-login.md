@@ -49,11 +49,17 @@ To set up OS Login access to an existing VM:
       curl https://{{ s3-storage-host }}/oslogin-configs/debian-11/config_oslogin.sh | bash
       ```
 
+    - AlmaLinux 9
+
+      ```bash
+      curl https://{{ s3-storage-host }}/oslogin-configs/almalinux-9/config_oslogin.sh | bash
+      ```
+
     {% endlist %}
 
 1. [Enable](../vm-control/vm-update.md#enable-oslogin-access) access via OS Login on the VM.
 
-You can now connect to the VM via OS Login using either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client). For connection, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the OS Login profile of a {{ org-full-name }} user or service account.
+You can now connect to the VM via OS Login using either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client) providing an SSH certificate or key previously [added](../../../organization/operations/add-ssh.md) to the OS Login profile for the user or service account in {{ org-full-name }}.
 
 ## Disabling access via OS Login {#disable-os-login}
 
@@ -69,9 +75,9 @@ To be able to [connect](ssh.md) to the VM over SSH without using OS Login:
 
         1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
+        1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM you need.
         1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable **Access via OS Login**.
+        1. When creating the VM, under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, disable **Access via OS Login**.
         1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
     - CLI {#cli}

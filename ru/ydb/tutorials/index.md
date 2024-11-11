@@ -18,6 +18,7 @@ description: Различные сценарии использования {{ y
 * [{#T}](object-storage-to-ydb.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](yds-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](mpg-ydb-replication.md)
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)

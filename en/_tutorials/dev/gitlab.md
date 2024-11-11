@@ -2,7 +2,7 @@
 
 [{{ GL }}](https://about.gitlab.com/) is a web-based Git repository management site and system. {{ GL }} also lets developers run a continuous process for writing, testing, and deploying code.
 
-In this tutorial, you will set up {{ GL }} on a [virtual machine](../../compute/concepts/vm.md), create a single project in the C++ programming language, configure a project test script, and test its execution.
+In this scenario, you will set up {{ GL }} on a [virtual machine](../../compute/concepts/vm.md), create a single project in the C++ programming language, configure a project test script, and test its execution.
 
 To create and test a project in the {{ GL }} environment:
 1. [Prepare your cloud](#before-you-begin).
@@ -17,7 +17,7 @@ To create and test a project in the {{ GL }} environment:
 1. [Create a project](#create-project).
 1. [Set up and run testing for the project](#ci-cd).
 1. [Configure and register a Runner](#configure-runner).
-1. [Create a test script](#create-test-case).
+1. [Create a test scenario](#create-test-case).
 1. [Create an error in the project](#create).
 1. [How to delete the resources you created](#clear-out).
 
@@ -36,7 +36,7 @@ The cost for maintaining a {{ GL }} server includes:
 ## Create a VM with {{ GL }} {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.common.name }}** field, enter `gitlab` for the VM name.
+1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `gitlab`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, select a 20 GB [SSD](../../compute/concepts/disk.md#disks_types).
@@ -51,7 +51,7 @@ The cost for maintaining a {{ GL }} server includes:
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
    * Select the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** and **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-   * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random [external IP address](../../vpc/operations/subnet-create.md) from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+   * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random [external IP address](../../vpc/operations/subnet-create.md) from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter your preferred login for the user to create on the VM.
    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste your public SSH key. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
@@ -60,7 +60,7 @@ The cost for maintaining a {{ GL }} server includes:
 
 ## Configure {{ GL }} {#confgure-gitlab}
 
-1. On the {{ compute-name }} page, select the created `gitlab` VM and copy its public IP.
+1. On the {{ compute-name }} page, select the created VM named `gitlab` and copy its public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
 1. Get the {{ GL }} administrator password using the following VM command:
 
@@ -94,8 +94,8 @@ Now, only the administrator can register a new user from the **Users** tab in **
 To create a project:
 1. On the {{ GL }} home page, select **Create a project**.
 1. On the page that opens, specify:
-   * Project name: `My Project`
-   * Project group and ID: `root` and `my-project`
+   * Project name: `My Project`.
+   * Project group and project ID: `root` and `my-project`, respectively.
    * Set a description and the scope of the project if required.
 1. Click **Create project**.
 
@@ -109,7 +109,7 @@ To create a project:
 1. Add a project file.
    1. In the left-hand panel, go to the {{ GL }} project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name the file as `test.cpp`. To this file, add the code of a program that checks the product of 2 × 2 and displays `Hello World` if the result is 4:
+   1. Name your file `test.cpp`. Add into it the code of the program that checks the product of 2 × 2 and displays `Hello World` if the result is 4:
 
       ```cpp
       #include <iostream>
@@ -142,7 +142,7 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
 1. Download the Runner:
 
    ```bash
-   curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+   curl --location --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
    ```
 
 1. Make the Runner executable:
@@ -203,13 +203,13 @@ Runner installation and setup is complete. If everything is done correctly, the 
 
 ![Successful setup](../../_assets/tutorials/gitlab/gitlab5.png)
 
-### Create a test script {#create-test-case}
+### Create a test scenario {#create-test-case}
 
-Create a test script to execute the Runner. The script is described in a special file named `.gitlab-ci.yml`. It should be located in the project root directory. According to the script, the Runner will compile the project source file, convert it to an executable file, and then run it.
+Create a test scenario to execute the Runner. The scenario is described in a special file named `.gitlab-ci.yml`, which should be stored in the project's root directory. According to the scenario, the Runner will compile the project source file, convert it to an executable file, and then run it.
 
-Since testing is performed on the VM operating system, you need to install the apps required for testing: `git` to clone a project from the repository and `g++` to compile the project.
+As testing will take place on the VM operating system, you need to install the apps required for testing: `git` to clone the project from the repository and `g++` to compile the project.
 
-To create a test script:
+To create a test scenario:
 1. Connect to the VM via SSH and install the required apps:
 
    ```bash
@@ -217,11 +217,11 @@ To create a test script:
    sudo apt install -y git g++
    ```
 
-1. Add a test script:
+1. Add a test scenario:
    1. Open the {{ GL }} web interface.
    1. Open the {{ GL }} project.
    1. On the page that opens, click **Set up CI/CD**.
-   1. A page will open asking you to add a new file named `.gitlab-ci.yml`, in which you need to describe the script in [YAML](https://yaml.org/) format. Add the script text:
+   1. A page will open asking you to add a new file named `.gitlab-ci.yml`, in which you need to describe the scenario in [YAML](https://yaml.org/) format. Add the scenario text:
 
       ```yaml
       stages:
@@ -249,14 +249,14 @@ To create a test script:
             - hello.gz
       ```
 
-      The script indicates that the process is divided into three stages that are performed sequentially:
+      The scenario indicates that the process is divided into three stages that are performed sequentially:
       * `build`: At the first stage, the project is compiled and converted to an executable file named `hello`.
       * `test`: At the second stage, the executable file is run.
-      * `pack`: At the third stage, an archive with the executable file is created, which you can download via the {{ GL }} web interface after the script successfully finishes. Under `artifacts`, there is a list of files available for download.
+      * `pack`: At the third stage, an archive with the executable file is created, which you can download via the {{ GL }} web interface after the scenario is successfully completed. Under `artifacts`, there is a list of files available for download.
 
       Under `cache`, specify which files and directories are to be transferred between stages. If you omit it, the `hello` file will not be available at the `test` stage and an error will occur.
 
-      ![Test script](../../_assets/tutorials/gitlab/gitlab6.png)
+      ![Test scenario](../../_assets/tutorials/gitlab/gitlab6.png)
 
    1. Click **Commit changes**
 
@@ -275,18 +275,18 @@ Now, make the project run with an error that the Runner should help you find dur
    ...
    ```
 
-1. Name the commit `Wrong assert in test.cpp`.
+1. Name your commit: `Wrong assert in test.cpp`.
 1. Click **Commit Changes**.
 
-Open **Build** → **Pipelines**. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, completed successfully and the second stage, `test`, ended with an error. The third stage, `pack`, was skipped and the build artifacts were not generated.
+Open **Build** → **Pipelines**. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, was passed successfully and the second stage, `test`, returned an error. The third stage, `pack`, was skipped and the build artifacts were not generated.
 
-If you click the `failed` progress status and go to **Failed Jobs**, you can see the error text saying that `assertion` failed:
+If you click the `failed` progress status and go to **Failed Jobs**, you can see the error text saying that `assert` was not executed:
 
 ![Runtime error](../../_assets/tutorials/gitlab/gitlab7.png)
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for your deployed server, delete the `gitlab` VM you created.
+To stop paying for your deployed server, it is enough to delete the `gitlab` VM you created.
 
 If you reserved a static public IP address specifically for this VM:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
