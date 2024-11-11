@@ -111,10 +111,11 @@ To create an API key:
   ```bash
   export SERVICEACCOUNT_ID=<service_account_ID>
   export IAM_TOKEN=<token>
-  curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"scope\": \"<scope>\",
         \"expiresAt\": \"<date_and_time>\"
@@ -126,8 +127,8 @@ To create an API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
-  * `scope`: Scope of the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
-  * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
+  * `scope`: scope for the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `expiresAt`: expiration date and time for the key with restricted access. This is an optional parameter.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 
@@ -172,10 +173,11 @@ To add an API key description when creating the key:
   ```bash
   export SERVICEACCOUNT_ID=<service_account_ID>
   export IAM_TOKEN=<IAM_token>
-  curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\"
     }" \

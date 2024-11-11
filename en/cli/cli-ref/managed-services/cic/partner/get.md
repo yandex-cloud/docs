@@ -11,18 +11,12 @@ Get information about a partner.
 
 Syntax: 
 
-`yc cic partner get <PARTNER-NAME>|<PARTNER-ID> [<PARTNER-NAME>|<PARTNER-ID>...] [Global Flags...]`
+`yc cic partner get <PARTNER-ID> [<PARTNER-ID>...] [Global Flags...]`
 
 Aliases: 
 
 - `describe`
 - `show`
-
-#### Flags
-
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>Partner id.<br/>--name string|
 
 #### Global Flags
 

@@ -12,6 +12,7 @@
     ```text
     [default]
       region={{ region-id }}
+      endpoint_url=https://{{ s3-storage-host }}
     ```
 
     {% note info %}

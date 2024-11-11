@@ -37,7 +37,7 @@ items:
         href: standard/encryption.md
       - name: Collecting, monitoring, and analyzing audit logs
         href: standard/audit-logs.md
-      - name: Backup
+      - name: Backups
         href: standard/backup.md
       - name: Physical security
         href: standard/physical-security.md

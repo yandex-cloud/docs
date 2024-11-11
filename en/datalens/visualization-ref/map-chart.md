@@ -11,7 +11,6 @@ You can use a map to display layers of different types:
 
 ![image](../../_assets/datalens/visualization-ref/map/map.png)
 
-
 To create maps, make sure the data source contains either [Geopoint](../dataset/data-types.md#geopoint) coordinates or [Geopolygon](../dataset/data-types.md#geopolygon) areas.
 
 One map can contain a maximum of 5 layers with any type of visualization. Layers in the **Map** chart are called geolayers.

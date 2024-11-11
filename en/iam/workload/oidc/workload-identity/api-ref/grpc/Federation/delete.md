@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/delete.md
 ---
 
-# Identity and Access Management Workload Identity API, gRPC: FederationService.Delete {#Delete}
+# Federation, gRPC: FederationService.Delete {#Delete}
 
 Deletes the specified OIDC workload identity federation.
 

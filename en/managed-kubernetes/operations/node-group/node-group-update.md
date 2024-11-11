@@ -78,7 +78,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  * `--template-labels`: Change [node group cloud labels](../../../resource-manager/concepts/labels.md) formatted as `<label_name>=<label_value>`. You can specify multiple labels separated by commas.
+  * `--template-labels`: Change [node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
   * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }}](../../concepts/index.md#master) master version.
   * Scaling settings:
 
@@ -100,7 +100,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
   {% note warning %}
 
   * The `user-data` metadata key is not supported for VM post-configuration or user data transmission.
-  * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
+  * To manage SSH keys, [use the `ssh-keys`](../../../compute/concepts/vm-metadata.md) key.
   * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
   {% endnote %}

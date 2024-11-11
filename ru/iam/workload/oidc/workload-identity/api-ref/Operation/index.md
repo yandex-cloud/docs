@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Operation/index.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Operation
+# Federation, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.
 

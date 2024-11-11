@@ -5,11 +5,8 @@
 Настройка аутентификации состоит из следующих этапов:
 
 1. [Создание и настройка SAML-приложения в Google Workspace](#gworkspace-settings).
-
 1. [Создание и настройка федерации в {{ org-full-name }}](#yc-settings).
-
 1. [Настройка системы единого входа (SSO)](#sso-settings).
-
 1. [Проверка аутентификации](#test-auth).
 
 ## Перед началом работы {#before-you-begin}
@@ -388,7 +385,7 @@
     * **First name**.
     * **Last name**.
 
-    Атрибуты пользователей, которые поддерживают сервисы {{ org-full-name }}, перечислены в разделе [{#T}](#claims-mapping).
+    Атрибуты пользователей, которые поддерживают сервисы {{ org-full-name }}, перечислены в разделе [Сопоставление атрибутов пользователей](#claims-mapping).
 
     {% endnote %}
 
@@ -438,6 +435,8 @@
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
 Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#admin).
+
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 

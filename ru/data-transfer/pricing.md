@@ -72,7 +72,9 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
-При расчете стоимости необходимо учитывать, что по умолчанию один [воркер](concepts/index.md#worker) использует 2 vCPU и 4 ГБ RAM.
+При расчете стоимости учитывайте, что один [воркер](concepts/index.md#worker) может использовать следующие вычислительные ресурсы:
+
+{% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
 
 ### Однократное копирование данных из {{ PG }} в {{ CH }} {#copy}
 

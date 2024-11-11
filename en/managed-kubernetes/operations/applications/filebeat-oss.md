@@ -19,9 +19,11 @@
 
    ```bash
    wget "{{ crt-web-path }}" && \
-   curl --user <username>:<password> --cacert CA.pem \
+   curl \
+   --user <username>:<password> --cacert CA.pem \
    --request PUT https://<name_of_host_with_DATA_role>:{{ port-mos }}/_cluster/settings \
-   -H "Content-Type: application/json" -d \
+   --header "Content-Type: application/json" \
+   --data \
    '{
    "persistent": {
      "compatibility": {
@@ -32,7 +34,7 @@
    ```
 
    Where:
-   * `<username>`: {{ OS }} user name.
+   * `<username>`: {{ OS }} username.
    * `<password>`: {{ OS }} user password.
    * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), e.g., `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
 
@@ -80,7 +82,7 @@
      --namespace <namespace> \
      --create-namespace \
      --set app.url='<URL_and_port_for_Managed_Service_for_{{ OS }}_cluster_with_DATA_role>' \
-     --set app.username='<{{ OS }}_cluster_user_name>' \
+     --set app.username='<{{ OS }}_cluster_username>' \
      --set app.password='<{{ OS }}_cluster_user_password>' \
      filebeatoss ./filebeat-oss/
    ```

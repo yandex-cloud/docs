@@ -3,7 +3,7 @@
 
 We will use a {{ CH }} database connection and the **Companies: supply and demand product** from Marketplace as a source.
 
-In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
+In this scenario, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
 
 With {{ datalens-short-name }}, you will analyze locations based on real data:
 - Revenue from current Dodo pizzerias.
@@ -128,7 +128,7 @@ Wait for the connection to be saved.
 1. Add the **Revenue** metric to the **X** section. Remove the **The number of pizzerias** metric from the **X** section.
 1. Add the **Revenue** measure to the **Sorting** section.
 
-   ![sort-rank](../../_assets/datalens/solution-09/33-sort-rank.png) 
+   ![sort-rank](../../_assets/datalens/solution-09/33-sort-rank.png)
 
 1. Add the **Rank by revenue** measure to the **Filters** section:
    1. Select **Less than or equal** to from the **Operation** list.

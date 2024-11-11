@@ -177,8 +177,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
      ```
 
      Save the following parameters (you will need them to configure the AWS CLI utility):
-     * `key_id`: Static access key ID.
-     * `secret`: Secret key.
+     * `key_id`: Static access key ID
+     * `secret`: Secret key
   1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account:
 
      ```bash
@@ -392,14 +392,14 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       EOF
       # Send the image to Vision OCR for recognition and write the result to the `output.json` file.
       echo "Processing file $f in Vision..."
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAMTOKEN}" \
-        -H "x-data-logging-enabled: true" \
-        -H "x-folder-id: ${FOLDERID}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAMTOKEN}" \
+        --header "x-data-logging-enabled: true" \
+        --header "x-folder-id: ${FOLDERID}" \
+        --data '@body.json' \
         https://ocr.{{ api-host }}/ocr/v1/recognizeText \
-        -o output.json
+        --output output.json
 
       # Get the image file name to use it later.
       IMAGE_BASE_NAME=$(basename -- "$f")
@@ -451,7 +451,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
   1. Open the bucket with the recognition results.
   1. Make sure the bucket contains the `my_pictures_text.tar` archive.
   1. Download and unpack the archive.
-  1. Make sure the text in the `image_name>.txt` file matches that in the images.
+  1. Make sure the text in the `<image_name>.txt` files matches the text in the respective images.
 
 {% endlist %}
 

@@ -32,6 +32,10 @@ Syntax:
 	- [yc storage s3api copy-object](s3api/copy-object.md) — Creates a copy of an object that is already stored in Object Storage
 	- [yc storage s3api head-object](s3api/head-object.md) — Returns object metadata from Object Storage
 	- [yc storage s3api delete-objects](s3api/delete-objects.md) — Deletes objects based on a list of keys passed in a request
+	- [yc storage s3api put-object-retention](s3api/put-object-retention.md) — Puts retention on the object version or enables/disables a previously set lock
+	- [yc storage s3api get-object-retention](s3api/get-object-retention.md) — Returns settings of the retention put on an object version
+	- [yc storage s3api put-object-legal-hold](s3api/put-object-legal-hold.md) — Puts or removes legal hold for an object version
+	- [yc storage s3api get-object-legal-hold](s3api/get-object-legal-hold.md) — Returns the settings of the legal hold placed on the object version
 
 #### Global Flags
 

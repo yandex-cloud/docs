@@ -21,7 +21,8 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PrivateConnection id.<br/>--name string|
+|`--id`|<b>`string`</b><br/>PrivateConnection id.|
+|`--name`|<b>`string`</b><br/>PrivateConnection name.|
 
 #### Global Flags
 

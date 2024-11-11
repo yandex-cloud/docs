@@ -200,7 +200,8 @@ Required field. ID of updated resource. ||
       // end of the list of possible fields
     }
   },
-  "labels": "string"
+  "labels": "string",
+  "removeLabels": "boolean"
 }
 ```
 
@@ -235,6 +236,9 @@ SSL Certificate options. ||
 || labels | **string**
 
 Resource labels. At some point will be needed for granular detailing. ||
+|| removeLabels | **boolean**
+
+If flag is set to true resource labels will be deleted. ||
 |#
 
 ## SecondaryHostnames {#yandex.cloud.cdn.v1.SecondaryHostnames}

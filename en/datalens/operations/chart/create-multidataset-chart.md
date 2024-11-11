@@ -18,15 +18,12 @@ To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-ch
 
 
 
-
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create chart**.
 
 
+
 1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../../dataset/create-dataset.md#create).
-
-
-
 1. Add another dataset. To do this, under the dataset list, click **Add dataset** and select the dataset to visualize.
 1. When you add a dataset, a link is automatically created based on the first field name and data type match. In the dataset link configuration window that opens, click **Save**.
 1. Repeat steps 3-4 as required.

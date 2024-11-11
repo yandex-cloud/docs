@@ -85,6 +85,8 @@ items:
             href: tutorials/mkf-to-mch-migration.md
           - name: Поставка из {{ KF }} в {{ yds-name }}
             href: tutorials/mkf-yds-stream.md
+          - name: Поставка из {{ yds-name }} в {{ KF }}
+            href: tutorials/yds-to-kafka.md
           - name: Поставка из {{ KF }} в {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
           - name: Поставка из {{ KF }} в {{ MG }}
@@ -105,8 +107,6 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Поставка в ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
-      - name: Развертывание веб-интерфейса {{ KF }}
-        href: tutorials/deploy-kafka-ui.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
         href: tutorials/data-proc.md
   - name: Концепции

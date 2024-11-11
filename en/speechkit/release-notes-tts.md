@@ -4,6 +4,11 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+### Release as of 10/10/24 {#101024}
+
+1. Now there is a new female voice for synthesis in Kazakh (`saule`) and its Russian counterpart (`saule_ru`). 
+1. The `madirus` Russian voice was renamed to `madi_ru`. The voice is still available by its old name, but please use the new one where possible.
+
 ### Release as of 20/09/24 {#200924}
 
 * A quality update for the `filipp`, `ermil`, and `zahar` [voices](tts/voices.md).
@@ -111,7 +116,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 1. More pausing features were added:
    * The error when pauses shorter than 1200 milliseconds were not taken into account in SSML markup has been fixed. Note that pauses shorter than 700 milliseconds are considered a synthesis cue and do not allow accurate control of the duration of a pause between words.
    * SSML pauses with the `x-weak`, `weak`, and `medium` values have a greater impact on the synthesized text.
-   * You can now apply pauses when using TTS markup. Use the `<[small]>` tag to set the pause length in the synthesized text, e.g., `Hello, <[small]>`. The possible pause lengths are: `tiny`, `small`, `medium`, `large`, or `huge`.
+   * You can now apply pauses when using TTS markup. Use the `<[small]>` tag to set the pause length in the synthesized text, e.g., `Hello, <[small]>`. The possible pause lengths are: `tiny`, `small`, `medium`, `large`, `huge`.
 
 1. Support for `filipp:deprecated` was discontinued. `filipp:deprecated` and `filipp` now sound the same.
 
@@ -139,7 +144,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 
 1. Fixed the emphasis placement quality regression issue for the `alena` and `filipp` voices. Improved emphasis placement and subjective perception for all voices.
 
-1. Started a major update of standard voices: `oksana`, `ermil`, `jane`, `omazh`, and `zahar` will be replaced with `oksana:rc`, `ermil:rc`, `jane:rc`, `omazh:rc`, and `zahar:rc`, respectively. The update will not affect the cost of the regular voices. The existing `oksana`, `ermil`, `jane`, `omazh`, and `zahar` voices are available in the `:deprecated` branch.
+1. Started a major upgrade of standard voices: `oksana`, `ermil`, `jane`, `omazh`, and `zahar` will be replaced with `oksana:rc`, `ermil:rc`, `jane:rc`, `omazh:rc`, and `zahar:rc`, respectively. The update will not affect the cost of the regular voices. The existing `oksana`, `ermil`, `jane`, `omazh`, and `zahar` voices are available in the `:deprecated` branch.
 
 ### Release as of 24/01/22 {#240122}
 

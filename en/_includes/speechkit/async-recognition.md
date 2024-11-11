@@ -29,14 +29,15 @@
 
       The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
-1. Run the created file:
+1. Run the file you created:
 
    ```bash
    export API_KEY=<service_account_API_key> && \
-   curl -k \
-        -H "Authorization: Api-Key ${API_KEY}" \
-        -d "@body.json"\
-        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   curl \
+     --insecure \
+     --header "Authorization: Api-Key ${API_KEY}" \
+     --data "@body.json"\
+     https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
    ```
 
    Result example:
@@ -57,8 +58,10 @@
 1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -k -H "Authorization: Api-key ${API_KEY}" \
-      https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+   curl \
+     --insecure \
+     --header "Authorization: Api-key ${API_KEY}" \
+     https://operation.{{ api-host }}/operations/<recognition_operation_ID>
    ```
 
    Result example:

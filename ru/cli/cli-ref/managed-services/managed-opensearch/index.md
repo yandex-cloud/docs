@@ -35,6 +35,9 @@ Aliases:
 - [yc managed-opensearch backup](backup/index.md) — Backups of a managed OpenSearch cluster.
 	- [yc managed-opensearch backup list](backup/list.md) — List available OpenSearch backups in a folder.
 	- [yc managed-opensearch backup get](backup/get.md) — Get information about an OpenSearch cluster backup.
+- [yc managed-opensearch auth-settings](auth-settings/index.md) — Authorization settings for a managed OpenSearch cluster.
+	- [yc managed-opensearch auth-settings get](auth-settings/get.md) — Get authorization settings for a managed OpenSearch cluster.
+	- [yc managed-opensearch auth-settings update](auth-settings/update.md) — Update authorization settings for a managed OpenSearch cluster.
 
 #### Global Flags
 

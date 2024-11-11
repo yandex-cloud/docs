@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/index.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate
+# SAML Federation API, REST: Certificate
 
 A set of methods for managing certificates.
 

@@ -1,6 +1,7 @@
 # Creating alerts
 
 
+
 1. On the {{ monitoring-short-name }} home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Specify the main parameters of the alert:
 

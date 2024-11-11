@@ -3,11 +3,13 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/index.md
 ---
 
-# Identity and Access Management API: REST reference
+# Access Key: REST reference
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/iam/v1/awscompatibility).
+
+**Service URL**: `https://iam.{{ api-host }}`
 
 #|
 ||Service | Description ||

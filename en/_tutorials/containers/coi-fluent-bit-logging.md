@@ -211,7 +211,7 @@ if __name__ == '__main__':
        groups: sudo
        shell: /bin/bash
        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - ssh-ed25519 AAAA
    ```
 
@@ -262,7 +262,7 @@ yc compute instance create \
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To view records in the log group, run the command:
+  To view records in the log group, run this command:
 
   ```bash
   yc logging read --group-id=<log_group_ID>

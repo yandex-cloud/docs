@@ -17,7 +17,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--type`|<b>`string`</b><br/>Specified resource type for listing, one of 'compute' or ''|
+|`--type`|<b>`string`</b><br/>Specified resource type for listing, one of 'compute' or 'bms' or ''|
 
 #### Global Flags
 

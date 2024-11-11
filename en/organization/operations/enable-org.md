@@ -1,22 +1,22 @@
 # Creating an organization
 
-[_Organization_](../../overview/roles-and-resources.md) is a workspace that combines different types of {{yandex-cloud}} resources and users. To enable your employees to use {{yandex-cloud}} resources, create an organization and add them to it. Any Yandex user can create an organization in {{org-full-name}}.
+[_Organization_](../../overview/roles-and-resources.md) is a workspace that combines different types of {{ yandex-cloud }} resources and users. To enable your employees to use {{ yandex-cloud }} resources, create an organization and add them to it. Any Yandex user can create an organization in {{ org-full-name }}.
+
+Before you start using {{ org-full-name }}, [log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
 
 To create an organization, follow these steps:
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
+{% list tabs group=instructions %}
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+- {{ cloud-center }} interface {#cloud-center}
 
-1. Read the {{yandex-cloud}} terms of use and click **{{ ui-key.yacloud_org.form.organization.select.action.enter }}**.
+  {% include [create-new-org](../../_includes/organization/create-new-org.md) %}
 
-1. Enter your company name and description.
-
-1. Click **{{ ui-key.yacloud_org.pages.create }}**.
+{% endlist %}
 
 After registering, you become the organization owner and can manage its settings.
 
 To get started:
 
-- [Add](add-account.md) users with a Yandex account to the organization.
+- [Add](./add-account.md) users with Yandex accounts to the organization.
 - [Configure an identity federation](../concepts/add-federation.md), so that your employees can log in to the organization using their work accounts.

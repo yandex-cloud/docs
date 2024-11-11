@@ -1,7 +1,7 @@
 # Entering data into storage systems
 
 
-Data from mobile phones, various smart devices, or external services can be received in a great number of small batches. Slow communication channels are often used for data transmission, while the communication time is limited. {{ yds-full-name }} receives data incoming at a high frequency and speed. It also generates data batches to be sent to target systems by providing optimal operation modes for sources and targets. Using an API gateway to receive messages enables you to implement a custom data transmission protocol.
+Data from mobile phones, various smart devices, or external services can come in massive numbers of small batches. Data is often transmitted through slow communication channels, whereas the communication time is limited. {{ yds-full-name }} receives data arriving at high frequency and speed and forms outbound data batches for the target systems, thus maintaining optimal operating modes for sources and targets. Using an API gateway to receive messages enables you to implement a custom data transmission protocol.
 
 In this use case, the [API gateway](../../api-gateway/concepts/index.md) accepts incoming data and sends it to the [data stream](../../data-streams/concepts/index.md). Data is buffered in the stream and transmitted using a [transfer](../../data-transfer/concepts/index.md) to a cluster of [{{ CH }}](../../managed-clickhouse/concepts/index.md) databases.
 
@@ -40,18 +40,18 @@ The cost of supporting data input into storage systems includes:
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
 1. Specify the settings for a {{ CH }} cluster:
-   1. Under **Basic parameters**:
+    1. Under **Basic parameters**:
       * Enter a name for the cluster.
       * Select the service account you created earlier.
-   1. Under **Database**, specify the DB name, username, and password.
-   1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
-   1. Under **Additional settings**, enable the following options:
+    1. Under **Database**, specify the DB name, username, and password.
+    1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
+    1. Under **Additional settings**, enable the following options:
       * Access from {{ data-transfer-short-name }}
       * Access from the management console
-   1. Specify the remaining cluster parameters according to the [instructions](../../managed-clickhouse/operations/cluster-create.md).
+    1. Specify the remaining cluster parameters according to the [instructions](../../managed-clickhouse/operations/cluster-create.md).
 1. Click **Create cluster**.
 
-Wait for the cluster to start. When the cluster is ready for use, its status changes to `Alive`.
+Wait for the cluster to start. When the cluster is ready for use, its status will change to `Alive`.
 
 ## Create a data stream {#create-stream}
 
@@ -62,7 +62,7 @@ Wait for the cluster to start. When the cluster is ready for use, its status cha
 1. Enter a name for the stream.
 1. Click **Create**.
 
-Wait for the stream to start. When the stream is ready for use, its status changes from `CREATING` to `ACTIVE`.
+Wait for the stream to start. When the stream is ready for use, its status will change from `CREATING` to `ACTIVE`.
 
 ## Create an API gateway {#create-api-gw}
 
@@ -70,10 +70,10 @@ Wait for the stream to start. When the stream is ready for use, its status chang
 1. Enter the name of the API gateway.
 1. Under **Specification**, replace the `service_account_id` key value with the ID of the service account you created earlier.
 
-   Save the values of the **Name** and **Service domain** fields, you will need them later.
+    Save the values of the **Name** and **Service domain** fields, you will need them later.
 1. Click **Create**.
 
-Wait for the API gateway to start. When the API gateway is ready for use, its status changes from `CREATING` to `ACTIVE`.
+Wait for the API gateway to start. When the API gateway is ready for use, its status will change from `CREATING` to `ACTIVE`.
 
 ## Create a transfer {#create-transfer}
 
@@ -82,20 +82,20 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 1. Click **Create data transfer**.
 1. Name the transfer.
 1. Create a source endpoint:
-   1. In the **Source** line, click **Create new**.
-   1. Enter a name for the endpoint.
-   1. In the **Database type** list, select `{{ yds-full-name }}`.
-   1. Select a database for the source.
-   1. Enter the name of the previously created stream.
-   1. Select the service account you created earlier.
-   1. Click **Create**.
+    1. In the **Source** line, click **Create new**.
+    1. Enter a name for the endpoint.
+    1. In the **Database type** list, select `{{ yds-full-name }}`.
+    1. Select a database for the source.
+    1. Enter the name of the previously created stream.
+    1. Select the service account you created earlier.
+    1. Click **Create**.
 1. Create a target endpoint:
-   1. In the **Target** line, click **Create new**.
-   1. Enter a name for the endpoint.
-   1. In the **Database type** list, select `ClickHouse`.
-   1. Select the MDB cluster you created earlier.
-   1. Enter the DB name, username, and password of the cluster you created earlier.
-   1. Click **Create**.
+    1. In the **Target** line, click **Create new**.
+    1. Enter a name for the endpoint.
+    1. In the **Database type** list, select `ClickHouse`.
+    1. Select the MDB cluster you created earlier.
+    1. Enter the DB name, username, and password of the cluster you created earlier.
+    1. Click **Create**.
 1. Click **Create**.
 1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
@@ -105,14 +105,14 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 
 1. Send data to the storage system:
 
-   ```bash
-   curl -X POST -d 'test massage' https://<url>/<paths>
-   ```
+    ```bash
+    curl --request POST --data 'test massage' https://<url>/<paths>
+    ```
 
-   Where:
+    Where:
 
-   * `<url>`: The earlier saved **Service domain** value of the API gateway.
-   * `<paths>`: The earlier saved **Name** value of the API gateway.
+    * `<url>`: The earlier saved **Service domain** value of the API gateway.
+    * `<paths>`: The earlier saved **Name** value of the API gateway.
 1. In the [management console]({{ link-console-main }}), select the {{ mch-name }} cluster you created earlier.
 1. On the left-hand panel, select **SQL**.
 1. Enter the username and password and click **Connect**.

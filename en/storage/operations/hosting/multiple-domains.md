@@ -8,27 +8,29 @@ description: Use this guide to set up support for multiple domain names for a we
 {% note info %}
 
 This guide describes how to set up support for a website's primary domain name and its [subdomain](https://en.wikipedia.org/wiki/Subdomain), e.g., `example.com` and `www.example.com`.
-To set up an additional domain, e.g., `example2.com`, [create](../buckets/create.md) a bucket with its name.Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
+To set up an additional domain, e.g., `example2.com`, [create](../buckets/create.md) a bucket with its name. Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
 
 {% endnote %}
 
 To support multiple domain names for your website, e.g., `example.com` and `www.example.com`:
 
-1. [Create](../buckets/create.md) a bucket. Give it a domain name, e.g., `www.example.com`.
+1. Create a [bucket](../buckets/create.md). Give it one of the domain names, e.g., `www.example.com`.
 
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
 
-1. [Link](./own-domain.md) a domain name, e.g., `www.example.com`, to your bucket.
+1. [Link](./own-domain.md) the domain name, e.g., `www.example.com`, and the bucket.
 
-1. On the DNS server, add another [resource record](../../../dns/concepts/resource-record.md) to link one more domain name, e.g., `example.com`, to the bucket:
+1. On the DNS server, add another [resource record](../../../dns/concepts/resource-record.md) to link one more domain name, e.g., `example.com`, and the bucket:
 
-   {% list tabs group=instructions %}
+   {% include [storage-cloud-dns-domains](../../_includes_service/storage-cloud-dns-domains.md) %}
 
-   - {{ dns-full-name }} {#dns}
+    {% list tabs group=instructions %}
+
+    - {{ dns-full-name }} {#dns}
 
       [Create](../../../dns/operations/resource-record-create.md) a resource record in {{ dns-name }} with the following parameters:
 
-      | Name | Type | TTL | Value |
+      | Name          | Type   | TTL | Value                          |
       |--------------|-------|-----|-----------------------------------|
       | example.com. | ANAME | 600 | www.example.com.{{ s3-web-host }} |
 
@@ -36,7 +38,7 @@ To support multiple domain names for your website, e.g., `example.com` and `www.
 
       Updating the resource records may take some time.
 
-   - Third-party DNS server {#third-party-dns-server}
+    - Third-party DNS server {#third-party-dns-server}
 
       [CNAME](../../../dns/concepts/resource-record.md#cname) resource record example:
 
@@ -48,7 +50,7 @@ To support multiple domain names for your website, e.g., `example.com` and `www.
 
       Updating the resource records may take some time.
 
-   {% endlist %}
+    {% endlist %}
 
 If for some reason you cannot or do not want to create an additional resource record, you can do the following:
 

@@ -6,8 +6,6 @@
 
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
-LLM, которые применяются в {{ ca-name }}, дообучены на корпусе общедоступного кода.
-
 Плагин {{ ca-name }} доступен для [Visual Studio Code](https://code.visualstudio.com/) и [IDE от JetBrains](https://www.jetbrains.com/ides/) версий 2024.1 и 2024.2.
 
 {% note info %}
@@ -17,6 +15,8 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 {% endnote %}
 
 Непосредственный анализ кода выполняется на вычислительных мощностях {{ yandex-cloud }}, поэтому {{ ca-name }} не нагружает локальные рабочие станции пользователей.
+
+LLM, которые применяются в {{ ca-name }}, дообучены на корпусе общедоступного кода. Качество и количество предложений по автодополнению зависит от объема и разнообразия общедоступного кода, представленного на конкретном языке.
 
 {% include [syntax-support](../../_includes/code-assistant/syntax-support.md) %}
 

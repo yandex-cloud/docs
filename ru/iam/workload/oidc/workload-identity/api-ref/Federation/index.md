@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/index.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation
+# Federation, REST: Federation
 
 A set of methods for managing OIDC workload identity federations.
 

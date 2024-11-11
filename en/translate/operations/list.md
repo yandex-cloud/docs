@@ -15,26 +15,27 @@ description: In this tutorial, you will learn how to get a list of supported lan
 
 ## Get the list of supported languages {#get-languages}
 
-Get the list of supported languages using the [listLanguages](../api-ref/Translation/listLanguages) method:
+Get the list of [supported languages](../concepts/supported-languages.md) using the [listLanguages](../api-ref/Translation/listLanguages) method:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
     ```bash
-    export FOLDER_ID=<folder ID>
-    export IAM_TOKEN=<IAM token>
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-       "https://translate.{{ api-host }}/translate/v2/languages"
+    export FOLDER_ID=<folder_ID>
+    export IAM_TOKEN=<IAM_token>
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "{\"folderId\": \"${FOLDER_ID}\"}" \
+      "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Where:
 
-    * `FOLDER_ID`: Folder ID received [before starting](#before-begin).
-    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+    * `FOLDER_ID`: Folder ID you got [before you started](#before-begin).
+    * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
     The response will contain a list of language names in the corresponding language:
 
@@ -58,7 +59,7 @@ Get the list of supported languages using the [listLanguages](../api-ref/Transla
             "name": "English"
             },
             ...
-    ]
+        ]
     }
     ```
 

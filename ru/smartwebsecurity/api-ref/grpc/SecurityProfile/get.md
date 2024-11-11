@@ -341,7 +341,11 @@ Required field. ID of the SecurityProfile resource to return. ||
   "createdAt": "google.protobuf.Timestamp",
   "cloudId": "string",
   "captchaId": "string",
-  "advancedRateLimiterProfileId": "string"
+  "advancedRateLimiterProfileId": "string",
+  "analyzeRequestBody": {
+    "sizeLimit": "int64",
+    "sizeLimitAction": "Action"
+  }
 }
 ```
 
@@ -386,6 +390,9 @@ Captcha ID to use with this security profile. Set empty to use default. ||
 || advancedRateLimiterProfileId | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
+
+Parameters for request body analyzer. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule}
@@ -636,4 +643,20 @@ The condition for matching the rule. ||
 || wafProfileId | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
+|#
+
+## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody}
+
+#|
+||Field | Description ||
+|| sizeLimit | **int64**
+
+Maximum size of body to pass to analyzer. In kilobytes. ||
+|| sizeLimitAction | enum **Action**
+
+Action to perform if maximum size of body exceeded.
+
+- `ACTION_UNSPECIFIED`
+- `IGNORE`: Ignore body.
+- `DENY`: Deny request. ||
 |#

@@ -5,7 +5,7 @@ description: This article describes how to use GET requests.
 
 # GET requests
 
-{{ search-api-name }} allows you to search the Yandex search database using set parameters and get search results in XML format. You can transmit search parameters to the service in an HTTP request using the GET method. {{ search-api-name }} generates a [response](./response.md) as an XML document.
+With {{ search-api-name }}, you can submit requests with preset parameters to the Yandex search database. You can provide search parameters to the service in an HTTP request using the GET method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -13,23 +13,47 @@ description: This article describes how to use GET requests.
 
 {% note warning %}
 
-Special characters provided as parameter values should be replaced with the respective escaped sequences based on percent-encoding. For example, instead of the equals sign (`=`), one should use `%3D`.
+If you have any special characters in parameter values, replace them with the respective escaped sequences based on percent-encoding. For example, instead of the equals sign (`=`), use `%3D`.
 
 {% endnote %}
 
-```httpget
-https://yandex.<domain>/search/xml
-  ? [folderid=<folder_ID>]
-  & [apikey=<API_key>]
-  & [query=<search_query_text>]
-  & [lr=<search_region_ID>]
-  & [l10n=<notification_language>]
-  & [sortby=<sorting_type>]
-  & [filter=<filtering_type>]
-  & [maxpassages=<passage_count>]
-  & [groupby=<result_grouping_parameters>]
-  & [page=<page_number>]
-```
+The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.<domain>/search/xml
+    ? [folderid=<folder_ID>]
+    & [apikey=<API key>]
+    & [query=<search_query_text>]
+    & [lr=<search_region_ID>]
+    & [l10n=<notification_language>]
+    & [sortby=<sorting_type>]
+    & [filter=<filtering_type>]
+    & [maxpassages=<number_of_passages>]
+    & [groupby=<result_grouping_options>]
+    & [page=<page_number>]
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.<domain>/search/xml/html
+    ? [folderid=<folder_ID>]
+    & [apikey=<API key>]
+    & [query=<search_query_text>]
+    & [lr=<search_region_ID>]
+    & [l10n=<notification_language>]
+    & [sortby=<sorting_type>]
+    & [filter=<filtering_type>]
+    & [maxpassages=<number_of_passages>]
+    & [groupby=<result_grouping_options>]
+    & [page=<page_number>]
+  ```
+
+{% endlist %}
 
 ### Request parameters {#parameters}
 
@@ -65,15 +89,30 @@ Where:
 
 {% include [page](../../_includes/search-api/page.md) %}
 
-## Sample GET request {#example-get-request}
+## GET request example {#example-get-request}
 
-The following request returns the fifth page of search results for the `<table>` request. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk oblast. Notification language: Russian. A family filter has been applied to the search results. Number of passages: Three. Results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
+The request  below returns the fifth page of search results for the `<table>` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter is applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
-```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
-```
+The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
+  ```
+
+{% endlist %}
 
 #### See also {#see-also}
 
 * [{#T}](./response.md)
+* [{#T}](./html-response.md)
 * [{#T}](../operations/searching.md)

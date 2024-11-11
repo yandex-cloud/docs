@@ -4,9 +4,9 @@ A choropleth map uses different colors or shades to display entire areas and reg
 
 To show polygons on a map, add a [Geopolygon](../dataset/data-types.md#geopolygon) type field to your dataset:
 
-* Create a text field with data like `[[[55.60807, 37.5698], [55.60847, 37.56992], [55.60851, 37.57095]]]`, with polygon point coordinates enclosed in square brackets. You can first prepare data in a database and set the [Geopolygon](../dataset/data-types.md#geopolygon) data type in the dataset description interface.
+* Create a text field with data formatted as `[[[55.60807, 37.5698], [55.60847, 37.56992], [55.60851, 37.57095]]]` for polygon point coordinates enclosed in square brackets. You can first prepare data in a database and set the [Geopolygon](../dataset/data-types.md#geopolygon) data type in the dataset description interface.
 * Use the `GEOPOLYGON(polygon_string)` [function](../function-ref/GEOPOLYGON.md) to create a calculated field with the [Geopolygon](../dataset/data-types.md#geopolygon) data type.
-* If your data contains a field with a city, region, or country name, use the [geopoint/geopolygon reference](https://geointellect.com/files/geo_for_datalens.zip) by a Yandex partner Geointellect.
+* If your data contains a field with names of cities, regions, or countries, use the [geopoint/geopolygon reference](https://geointellect.com/files/geo_for_datalens.zip) by a Yandex partner Geointellect.
 
 Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to download a sample CSV file with Russian region polygons.
 
@@ -14,14 +14,13 @@ Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to down
 
 ![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png)
 
-
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 Polygons (Geopolygons) | Measure of the [Geopolygon](../dataset/data-types.md#geopolygon) type
 Colors | Dimension or measure. Affects the color and intensity of area fill.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. You can set fields with the `String` type to use the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. Used as a filter for the current layer.
 Filters | Dimension or measure. Used as a filter for the entire chart.
 

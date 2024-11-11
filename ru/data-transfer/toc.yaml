@@ -199,6 +199,8 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: '{{ KF }} в {{ DS }}'
             href: tutorials/mkf-to-yds.md
+          - name: '{{ DS }} в {{ KF }}'
+            href: tutorials/yds-to-kafka.md
           - name: '{{ DS }} в {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
           - name: '{{ DS }} в {{ objstorage-name }}'
@@ -401,6 +403,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Октябрь 2024
+        href: release-notes/2410.md
       - name: Сентябрь 2024
         href: release-notes/2409.md
       - name: Август 2024

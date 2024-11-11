@@ -23,9 +23,9 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Create a node group object](#node-group-create) in the {{ managed-k8s-name }} cluster's {{ k8s }} API.
 
-Once you have created a group object, you can [add nodes](#add-node) to and [delete nodes](#remove-node) from the {{ managed-k8s-name }} cluster.
+   Once you have created a group object, you can [add nodes](#add-node) to and [delete nodes](#remove-node) from the {{ managed-k8s-name }} cluster.
 
-If you have connection issues, see the [Troubleshooting](#troubleshooting) section.
+   If you have connection issues, see the [Troubleshooting](#troubleshooting) section.
 
 ## Creating a node group {#node-group-create}
 
@@ -46,21 +46,21 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 - CLI {#cli}
 
-   1. To a YAML file named `ext-nodegroup.yaml`, save a specification of a `NodeGroup` object under the `mks.yandex.cloud/v1alpha1` {{ managed-k8s-name }} API group in the `yandex-system` [namespace](../concepts/index.md#namespace):
+  1. Save the specification of the `NodeGroup` type object for the {{ managed-k8s-name }} group from the `mks.yandex.cloud/v1alpha1` API in `yandex-system` [namespace](../concepts/index.md#namespace) to a YAML file named `ext-nodegroup.yaml`:
 
-      ```yaml
-      apiVersion: mks.yandex.cloud/v1alpha1
-      kind: NodeGroup
-      metadata:
-        name: external-node-group
-        namespace: yandex-system
-      ```
+     ```yaml
+     apiVersion: mks.yandex.cloud/v1alpha1
+     kind: NodeGroup
+     metadata:
+       name: external-node-group
+       namespace: yandex-system
+     ```
 
-   1. Create an external {{ managed-k8s-name }} node group:
+  1. Create an external {{ managed-k8s-name }} node group:
 
-      ```bash
-      kubectl apply -f ext-nodegroup.yaml
-      ```
+     ```bash
+     kubectl apply -f ext-nodegroup.yaml
+     ```
 
 {% endlist %}
 
@@ -85,7 +85,7 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
   kubectl -n yandex-system edit nodegroup external-node-group
   ```
 
-  >For example:
+  >Example:
   >
   >```yaml
   >apiVersion: mks.yandex.cloud/v1alpha1
@@ -105,7 +105,7 @@ Afterwards, you need to [install system components on the connecting servers](#n
 
 Once the system components have been installed, the servers will initiate {{ managed-k8s-name }} cluster connections.
 
-A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes in a `Ready` state become available in the cluster:
+A node connection to a {{ managed-k8s-name }} cluster is complete when new `Ready` nodes become available in the cluster:
 
 {% list tabs group=instructions %}
 
@@ -145,7 +145,7 @@ For an automated installation, create a secret with a private server connection 
 kubectl -n yandex-system create secret generic <secret_name> --from-file=ssh-privatekey=<SSH_key_file_path> --type=kubernetes.io/ssh-auth
 ```
 
-In the `NodeGroup` resource specification, include the name of the relevant secret:
+In the `NodeGroup` resource specification, provide the name of the relevant secret:
 
 {% list tabs group=instructions %}
 
@@ -179,29 +179,29 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
 
 {% endlist %}
 
-Connection as `root` with the specified SSH key must be available on all {{ managed-k8s-name }} external nodes.
+All {{ managed-k8s-name }} external nodes must allow `root` login access with the specified SSH key.
 
-#### Semi-automated install {#semi-automatic-setup}
+#### Semi-automated installation {#semi-automatic-setup}
 
-For a semi-automated installation, set up all {{ managed-k8s-name }} external nodes with the basic component and the configuration that will assure the subsequent installation of the system components.
-1. Creating a NodeGroup object makes a secret available in a {{ managed-k8s-name }} cluster. The secret contains `kubeconfig` to use on connecting servers. Get it using `kubectl` configured to communicate with the {{ managed-k8s-name }} cluster and save it to a file:
+For semi-automated installation, you need to install on all {{ managed-k8s-name }} external nodes the basic component and the configuration required for subsequent installation of the system components.
+1. After you create a NodeGroup object, a secret becomes available in the {{ managed-k8s-name }} cluster. The secret contains `kubeconfig` you will need on the servers you are going to connect. Get the secret using `kubectl` configured to communicate with the {{ managed-k8s-name }} cluster and save it to a file:
 
    ```bash
    kubectl -n yandex-system get secret <NodeGroup_object_name>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
    ```
 
-1. Save the downloaded `kubeconfig` on a connecting server:
+1. Save `kubeconfig` you just got on the server you are connecting:
 
    ```bash
    sudo mkdir -p /etc/maintainer
-   sudo vi /etc/maintainer/kube.config # Use this file to save the contents of `kubeconfig` retrieved in the previous step.
+   sudo vi /etc/maintainer/kube.config # Use this file to save the contents of `kubeconfig` you got in the previous step.
    ```
 
 1. Run the commands below on a connecting server:
 
    ```bash
    sudo mkdir -p /home/kubernetes/bin
-   sudo curl -o /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
+   sudo curl --output /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
    sudo chmod +x /home/kubernetes/bin/maintainer
    sudo /home/kubernetes/bin/maintainer install
    ```
@@ -229,7 +229,7 @@ For a semi-automated installation, set up all {{ managed-k8s-name }} external no
 
 ## Troubleshooting {#troubleshooting}
 
-If there are issues, review the events in the `yandex-system` namespace first:
+If there are any issues, review the events in the `yandex-system` namespace first:
 
 {% list tabs group=instructions %}
 

@@ -9,7 +9,7 @@ To set up federated authentication, follow these steps:
 1. [Add the federation certificate to the IdP server](#add-certificate-idp).
 1. [Set up a SAML application in your IdP](#configure-sso).
 1. [Configure user attribute mapping](#claims-mapping).
-1. [Test the authentication operation](#test-auth).
+1. [Test authentication](#test-auth).
 
 For IdP-specific examples, see our tutorials:
 
@@ -22,13 +22,13 @@ For IdP-specific examples, see our tutorials:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
+  1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
   1. Give your federation a name. It must be unique within the folder.
 
@@ -99,7 +99,7 @@ For IdP-specific examples, see our tutorials:
 
             To learn how to get the IdP server ID, consult the provider's documentation or contact their support.
 
-        * `sso-binding`: Specify the single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
+        * `sso-binding`: Single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
         * `sso-url`: URL of the page the browser redirects the user to for authentication.
 
             To learn how to get the redirect page URL, consult your identity provider's documentation or contact their support.
@@ -254,74 +254,74 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
 1. Add the certificate to the federation:
 
-{% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-- Management console {#console}
+    - {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+      1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
+      1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click the name of the federation you want to add a certificate to.
+      1. Click the row with the federation to add your certificate to.
 
-  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+      1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
-  1. Enter certificate name and description.
+      1. Enter certificate name and description.
 
-  1. Choose how to add a certificate:
+      1. Choose how to add a certificate:
 
-      * To add a certificate as a file, click **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** and specify the path to it.
-      * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method.
+          * To add a certificate as a file, click **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** and specify the path to it.
+          * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method.
 
-  1. Click **{{ ui-key.yacloud_org.actions.add }}**.
+      1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI {#cli}
+    - CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the add certificate command:
+      1. View a description of the add certificate command:
+
+          ```bash
+          yc organization-manager federation saml certificate create --help
+          ```
+
+      1. Add a federation certificate by specifying the certificate file path:
+
+          ```bash
+          yc organization-manager federation saml certificate create --federation-name <federation_name> \
+            --name "<certificate_name>" \
+            --certificate-file <certificate_file_path>
+          ```
+
+    - API {#api}
+
+      1. Create the `body.json` request body file and specify the contents of the certificate in the `data` property:
+
+          ```json
+          {
+            "federationId": "<federation_ID>",
+            "description": "<certificate_description>",
+            "name": "<certificate_name>",
+            "data": "<certificate_content>"
+          }
+          ```
+
+      1. Use the [create](../saml/api-ref/Certificate/create.md) REST API method for the [Certificate](../saml/api-ref/Certificate/index.md) resource or the [FederationService/Create](../../grpc/certificate_service#Create) gRPC call and provide a file with the request parameters in your request.
+
+      Sample cURL request:
 
       ```bash
-      yc organization-manager federation saml certificate create --help
+      export IAM_TOKEN=CggaATEVAgA...
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
-
-  1. Add a federation certificate by specifying the certificate file path:
-
-      ```bash
-      yc organization-manager federation saml certificate create --federation-name <federation_name> \
-        --name "<certificate_name>" \
-        --certificate-file <certificate_file_path>
-      ```
-
-- API {#api}
-
-  1. Create the `body.json` request body file and specify the contents of the certificate in the `data` property:
-
-      ```json
-      {
-        "federationId": "<federation_ID>",
-        "description": "<certificate_description>",
-        "name": "<certificate_name>",
-        "data": "<certificate_content>"
-      }
-      ```
-
-  1. Use the [create](../saml/api-ref/Certificate/create.md) REST API method for the [Certificate](../saml/api-ref/Certificate/index.md) resource or the [FederationService/Create](../../grpc/certificate_service#Create) gRPC call and provide a file with the request parameters in your request.
-
-  Sample cURL request:
-
-  ```bash
-  $ export IAM_TOKEN=CggaATEVAgA...
-  $ curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '@body.json' \
-      "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
-  ```
-
-{% endlist %}
+  {% endlist %}
 
 {% note tip %}
 
@@ -333,10 +333,20 @@ To ensure the authentication is not interrupted when the certificate expires, ad
 
 If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when creating a federation, all authentication requests from {{ yandex-cloud }} will contain a digital signature. The IdP server should be able to verify this signature. To enable this, you will need to add the {{ yandex-cloud }} certificate to the server:
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/organization/icon-federation.svg).
-1. Click the name of the federation you want to add a certificate to.
-1. Use the link in **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** to download the certificate.
+1. Download a {{ yandex-cloud }} certificate:
+
+    {% list tabs group=instructions %}
+
+    - {{ cloud-center }} interface {#cloud-center}
+
+      1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
+
+      1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+      1. Click the row with the required federation. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+
+    {% endlist %}
+
 1. Add the certificate to the IdP server. To learn how to do this, consult the provider's documentation or contact their support.
 
 ## Setting up a SAML application in your IdP {#configure-sso}
@@ -407,7 +417,7 @@ The process for setting up a SAML application is IdP-specific and may vary. Here
 Set up the SAML application for the message to contain:
 
 * The ID from the SAML authentication request sent by {{ yandex-cloud }} in the `Response` and `SubjectConfirmationData` elements of the `InResponseTo` attribute.
-* ACS URL  format was provided in the following elements:
+* ACS URL in the following elements:
   
   * In `Response` of the `Destination` attribute.
   * In `SubjectConfirmationData` of the `Recipient` attribute.
@@ -430,7 +440,7 @@ Set up the SAML application for the message to contain:
 * User's unique ID was specified in the `NameID` element. We recommend using the User Principal Name (UPN) or email address as the ID.
 * Your IdP's redirect URL for user authentication was specified in the `Issuer` element.
 * Signed message was specified in the `SignatureValue` element, and the certificate used to sign the message, in the `KeyInfo` element.
-* Username and email address must be specified in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
+* Make sure to specify the username and email address in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
 
 For more information on how to set up a SAML application, consult you IdP's documentation or contact their support. You can also find examples of IdP-specific setups in our tutorials:
 
@@ -450,7 +460,7 @@ User data | Comment | SAML message elements
 Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>`
 Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
+Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
 Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
 Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in [Base64]({{ link-base64 }}) encoding.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the following parameter:<br>`Name="thumbnailPhoto"`
@@ -487,6 +497,6 @@ Test that federated authentication works properly:
 1. Enter your authentication data. By default, you must enter the UPN and password.
 1. Click **Sign in**.
 
-1. On successful authentication, the IdP server will redirect you to the ACS URL you specified in the server settings, and then, to the management console home page.
+1. On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the server settings, and then, to the management console home page.
 
 Make sure you are logged in to the console as a federated user.

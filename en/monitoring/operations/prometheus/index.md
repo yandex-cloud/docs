@@ -6,6 +6,7 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 # {{ managed-prometheus-full-name }} overview
 
 
+
 {{ managed-prometheus-full-name }} is a monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
 
 {{ prometheus-name }} provides multiple mechanisms for collecting metrics, including [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) for popular programming languages and support for [exporting metrics](https://prometheus.io/docs/instrumenting/exporters/) from third-party systems, like databases or message queues. {{ managed-prometheus-name }} allows you to use best practices of the {{ prometheus-name }} open source community, while ensuring high scalability, availability, and safety with no need to deploy {{ prometheus-name }} clusters and manage the internal monitoring infrastructure on your own. To get started with {{ managed-prometheus-name }}, just install agents that support the metric [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) protocol.
@@ -39,16 +40,17 @@ Long-term metric storage | Not intended for long-term metric storage. [Third-par
 Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions).
 Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported.
 Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) (`recording rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
-Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, you can calculate `alerting rules` from short-term data on local {{ prometheus-name }} instances.
+Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | Existing [alerting rules](alerting-rules.md) (`alerting rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
 Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used.
 
+{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
 
 ## Current limitations {#restrictions}
 
 * The `NaN` value is not supported and is treated as a missing point.
 * The `+Inf`/`-Inf` values may be processed incorrectly.
-* `Alerting rules` are not supported.
-* `Staleness markers`, `exemplars`, and `native histograms` are not supported.
+* For alerting rules (`alerting rules`), the only supported channels are [email](https://prometheus.io/docs/alerting/latest/configuration/#email_config) and [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config). [Dynamic routing](https://prometheus.io/docs/alerting/latest/configuration/#route) is not supported.
+* `staleness markers`, `exemplars`, and `native histograms` are not supported.
 
 ## Quotas and limits {#limits}
 

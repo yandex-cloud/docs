@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/delete.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.Delete {#Delete}
+# SAML Federation API, REST: Federation.Delete {#Delete}
 
 Deletes the specified federation.
 

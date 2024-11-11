@@ -1,11 +1,11 @@
 ---
-title: Как подключиться к виртуальной машине по OS Login
-description: Следуя данной инструкции, вы сможете подключиться к виртуальной машине по OS Login.
+title: Как подключиться к виртуальной машине по {{ oslogin }}
+description: Следуя данной инструкции, вы сможете подключиться к виртуальной машине по {{ oslogin }}.
 ---
 
-# Подключиться к виртуальной машине по OS Login
+# Подключиться к виртуальной машине по {{ oslogin }}
 
-[OS Login](../../../organization/concepts/os-login.md) используется для предоставления пользователям и [сервисным аккаунтам](../../../iam/concepts/users/service-accounts.md) доступа к ВМ по SSH c помощью {{ iam-short-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) используется для предоставления пользователям и [сервисным аккаунтам](../../../iam/concepts/users/service-accounts.md) доступа к ВМ по SSH c помощью {{ iam-short-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -13,11 +13,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-При необходимости [создайте](./os-login-create-vm.md) новую виртуальную машину с поддержкой OS Login или [настройте](./enable-os-login.md) доступ по OS Login для существующей ВМ.
+При необходимости [создайте](./os-login-create-vm.md) новую виртуальную машину с поддержкой {{ oslogin }} или [настройте](./enable-os-login.md) доступ по {{ oslogin }} для существующей ВМ.
 
 {% note info %}
 
-Необходимые роли:
+Необходимые роли для подключения к ВМ по {{ oslogin }}:
 
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключиться с помощью стандартного SSH-клиента {#connect-with-ssh-client}
 
-Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью стандартного [SSH](../../../glossary/ssh-keygen.md)-клиента как по SSH-ключу, [сохраненному](../../../organization/operations/add-ssh.md) в профиле OS Login пользователя или сервисного аккаунта, так и по короткоживущему экспортированному SSH-сертификату пользователя или сервисного аккаунта.
+Подключиться к виртуальной машине с включенным доступом по {{ oslogin }} можно с помощью стандартного [SSH](../../../glossary/ssh-keygen.md)-клиента как по SSH-ключу, [сохраненному](../../../organization/operations/add-ssh.md) в профиле пользователя или сервисного аккаунта в организации, так и по короткоживущему экспортированному SSH-сертификату пользователя или сервисного аккаунта.
 
 {% list tabs group=os_login_type %}
 
@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключиться с помощью YC CLI {#connect-with-yc-cli}
 
-Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью [YC CLI](../../../cli/quickstart.md) как по [SSH](../../../glossary/ssh-keygen.md)-ключу, [сохраненному](../../../organization/operations/add-ssh.md) в профиле OS Login пользователя или сервисного аккаунта, так и по SSH-сертификату пользователя или сервисного аккаунта.
+Подключиться к виртуальной машине с включенным доступом по {{ oslogin }} можно с помощью [YC CLI](../../../cli/quickstart.md) как по [SSH](../../../glossary/ssh-keygen.md)-ключу, [сохраненному](../../../organization/operations/add-ssh.md) в профиле пользователя или сервисного аккаунта в организации, так и по SSH-сертификату пользователя или сервисного аккаунта.
 
 {% list tabs group=os_login_type %}
 
@@ -66,5 +66,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)
 * [{#T}](./os-login-export-certificate.md)
-* [Подключиться к узлу {{ k8s }} через OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)
+* [Подключиться к узлу {{ k8s }} через {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

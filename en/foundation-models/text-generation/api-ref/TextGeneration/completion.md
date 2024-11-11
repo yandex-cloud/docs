@@ -331,10 +331,10 @@ Represents a generated completion alternative, including its content and generat
 ||Field | Description ||
 || message | **[Message](#yandex.cloud.ai.foundation_models.v1.Message2)**
 
-A message containing the content of the alternative. ||
+A message with the content of the alternative. ||
 || status | **enum** (AlternativeStatus)
 
-The generation status of the alternative
+The generation status of the alternative.
 
 - `ALTERNATIVE_STATUS_UNSPECIFIED`: Unspecified generation status.
 - `ALTERNATIVE_STATUS_PARTIAL`: Partially generated alternative.
@@ -471,7 +471,7 @@ An object representing the number of content [tokens](/docs/foundation-models/co
 The number of tokens in the textual part of the model input. ||
 || completionTokens | **string** (int64)
 
-The total number of tokens in the generated completions. ||
+The number of tokens in the generated completion. ||
 || totalTokens | **string** (int64)
 
 The total number of tokens, including all input tokens and all generated tokens. ||

@@ -1,12 +1,13 @@
 To create a federation, use the [create](../../organization/saml/api-ref/Federation/create.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) gRPC API call and provide a file with the request parameters in your request.
 
-Sample request:
+Request example:
 
 ```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer <IAM_token>" \
-  -d '@body.json' \
+curl \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer <IAM_token>" \
+  --data '@body.json' \
   https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 ```
 

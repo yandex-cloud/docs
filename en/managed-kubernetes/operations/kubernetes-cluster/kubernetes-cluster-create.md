@@ -23,7 +23,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
   1. Create [service accounts](../../../iam/operations/sa/create.md):
-     * Service account with the `k8s.clusters.agent` [role](../../security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+     * Service account with the `k8s.clusters.agent` [role](../../security/index.md#yc-api) for the folder where your {{ managed-k8s-name }} cluster will reside. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
      * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/registry.md) [registry](../../../container-registry/concepts/docker-image.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
      You can use the same service account for both operations.

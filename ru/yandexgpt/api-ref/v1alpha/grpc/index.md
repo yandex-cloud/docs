@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/ai/llm/v1alpha/api-ref/v1alpha/grpc/index.md
 
 The service does not operate with resources.
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/llm/v1alpha).
+
+**Service URL**: `https://llm.{{ api-host }}`
 
 #|
 ||Service | Description ||

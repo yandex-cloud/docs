@@ -6,6 +6,7 @@ description: To create a dashboard in {{ monitoring-full-name }}, open the servi
 # Creating a dashboard in {{ monitoring-name }}
 
 
+
 To create a [dashboard](../../concepts/visualization/dashboard.md):
 
 1. On the homepage, click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.

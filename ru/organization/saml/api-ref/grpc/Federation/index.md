@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/index.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService
+# SAML Federation API, gRPC: FederationService
 
 A set of methods for managing federations.
 

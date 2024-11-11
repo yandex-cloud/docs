@@ -3,6 +3,7 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -307,6 +308,7 @@ default:
   link-org-main: https://org.yandex.cloud/
   link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
+  link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport-login: https://passport.yandex.ru/auth
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
@@ -869,8 +871,10 @@ default:
         v1|string: Не тарифицируется
   sku|KZT|backup:
     protected_vms:
+      v2|month|number: 1194
       v2|month|string: "1\_194,00\_₸"
     used_space:
+      v1|month|number: 21
       v1|month|string: "21,00\_₸"
   sku|KZT|cdn:
     api:
@@ -2031,8 +2035,10 @@ default:
         v1|string: Не тарифицируется
   sku|RUB|backup:
     protected_vms:
+      v2|month|number: 238.8
       v2|month|string: "238,80\_₽"
     used_space:
+      v1|month|number: 4.2
       v1|month|string: "4,20\_₽"
   sku|RUB|cdn:
     api:
@@ -3194,8 +3200,10 @@ default:
         v1|string: Не тарифицируется
   sku|USD|backup:
     protected_vms:
+      v2|month|number: 1.9104
       v2|month|string: "1,910400\_$"
     used_space:
+      v1|month|number: 0.0336
       v1|month|string: "0,033600\_$"
   sku|USD|cdn:
     api:
@@ -4032,19 +4040,9 @@ default:
         10|string: "1,600000\_$"
         100|number: 1.12
         100|string: "1,120000\_$"
-        1000|number: 0.4
         1000|string: "0,400000\_$"
         10000|string: "0,200000\_$"
       v1|string: Не тарифицируется
-    waf:
-      requests:
-        v1|pricingRate:
-          '0':
-            01|number: 200
-          1|number: 28
-          10|number: 1.6
-          100|number: 1.12
-          1000|number: 0.4
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -5496,7 +5494,6 @@ default:
           title_tab-members: Участники
         invitation:
           action_send-invitation: Отправить приглашение
-          label_option-actual: Действующие
           label_row-action-delete: Удалить приглашение
           label_row-action-resend: Отправить повторно
         oslogin-profile:
@@ -5572,23 +5569,11 @@ default:
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
-        context:
-          action:
-            create: Создать новую организацию
         federation:
           link:
             download-cert: Скачать сертификат
           section:
             certificates: Сертификаты
-        services:
-          clouds:
-            create: Создать облако
-          service:
-            console:
-              title_ru: Консоль управления Yandex Cloud
-        settings:
-          action:
-            edit: Редактировать данные
         user:
           title_tab-os-login: Профили OS Login
           title_tab-ssh-keys: SSH-ключи
@@ -5599,14 +5584,10 @@ default:
           label_tab-invitations: Приглашения
       pages:
         acl: Права доступа
-        create: Создать организацию
         federations: Федерации
         groups: Группы
-        notifications: Уведомления
         oslogin:
           title: Настройки безопасности
-        raw_services: Облака и сервисы
-        settings: Об организации
         users: Пользователи
     yacloud_portal:
       acl:
@@ -5945,6 +5926,10 @@ default:
         field_server-user: Пользователь
         field_server-zone: Зона доступности
         field_ssh-public-key: Публичный SSH-ключ
+        label_create-network: Создать VRF
+        label_create-server: Заказать сервер
+        label_create-subnetwork: Создать подсеть
+        label_kvm-console: KVM-консоль
         label_networks: VRF
         label_one-month-duration: 1 месяц
         label_public-ip-auto: Автоматически
@@ -6338,6 +6323,8 @@ default:
           label_serverless-containers: Serverless Containers
           label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
+        password-input:
+          label_button-generate: Сгенерировать
         security-group-field:
           label_sg-auto: Автоматически
           label_sg-from-list: Из списка
@@ -6894,6 +6881,7 @@ default:
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
             label_backup: Cloud Backup
+            label_baremetal: BareMetal
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
@@ -7354,6 +7342,7 @@ default:
         field_logging: Запись логов
         label_destination: Назначение
         label_export: Выгрузить логи
+        label_filter-query: Запрос
         label_groups: Группы
         label_loggroup: Лог-группа
         label_minlevel: Минимальный уровень логирования
@@ -8995,11 +8984,19 @@ default:
                         title: Бакет
                       endpoint:
                         title: Эндпоинт
+                      service_account_id:
+                        title: Сервисный аккаунт
                       title: Настройки подключения
                       use_ssl:
                         title: Использовать SSL
                       verify_ssl_cert:
                         title: Проверять SSL-сертификат
+                    OBJECT_STORAGE_UNPARSED_CONTINUE:
+                      title: Продолжать
+                    OBJECT_STORAGE_UNPARSED_FAIL:
+                      title: Прерывать
+                    OBJECT_STORAGE_UNPARSED_RETRY:
+                      title: Повторять
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
                         title: Колонка со временем
@@ -9084,8 +9081,13 @@ default:
                           title: Parquet
                       path_pattern:
                         title: Шаблон пути
+                      path_prefix:
+                        title: Префикс пути
                       result_schema:
                         title: Схема результирующей таблицы
+                    ObjectStorageSourceAdvancedSettings:
+                      unparsed_mode:
+                        title: Тип не определён
                     ObjectStorageTarget:
                       advanced_settings:
                         title: Расширенные настройки
@@ -9987,7 +9989,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.8
+        tag: 1.15.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -10000,7 +10002,7 @@ default:
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
-        tag: 0.5.1
+        tag: 0.5.1-a
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco

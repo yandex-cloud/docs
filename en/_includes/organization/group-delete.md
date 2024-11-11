@@ -1,11 +1,14 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-  1. Select the [group](../../organization/concepts/groups.md) you need and click ![image](../../_assets/console-icons/ellipsis.svg) -> ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+
+  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
+
+  1. In the window that opens, confirm deleting the group.
 
 - CLI {#cli}
 
@@ -30,7 +33,7 @@
       Where:
 
       * `--name`: User group name. This is a required parameter.
-      * `--organization-id`: Organization ID.
+      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
 
 - {{ TF }} {#tf}
 
@@ -54,7 +57,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
      * `description`: Group description. This is an optional parameter.
-     * `organization_id`: ID of the organization to add the group to.
+     * `organization_id`: [ID](../../organization/operations/organization-get-id.md) of the organization to add the group to.
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

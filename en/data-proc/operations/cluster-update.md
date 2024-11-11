@@ -94,11 +94,11 @@ To change {{ dataproc-name }} cluster settings:
         You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
 
 
-    1. To protect a cluster from accidental deletion by a user of your cloud, set the `--deletion-protection` parameter to `true`:
+    1. To protect a cluster from accidental deletion by a user of your cloud, add the `--deletion-protection` parameter:
 
         ```bash
         {{ yc-dp }} cluster update <cluster_name_or_ID> \
-           --deletion-protection=true
+           --deletion-protection
         ```
 
         Enabled protection will not prevent a manual connection to the cluster and deletion of data.
@@ -107,7 +107,7 @@ To change {{ dataproc-name }} cluster settings:
 
         ```bash
         {{ yc-dp }} cluster update <cluster_name_or_ID> \
-           --property "<key_1_prefix>:<key_1>=<value>", "<key_2_prefix>:<key_2>=<value>",..
+           --property "<key_1_prefix>:<key_1>=<value>", "<key_2_prefix>:<key_2>=<value>", ...
         ```
 
         {% note warning %}
@@ -143,6 +143,6 @@ To change {{ dataproc-name }} cluster settings:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

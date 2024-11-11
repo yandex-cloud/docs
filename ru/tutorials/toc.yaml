@@ -34,7 +34,7 @@ items:
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: security/static-key-in-lockbox.md
       - name: >-
-          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: security/sa-oslogin-ansible.md
       - name: Организация защищенного доступа к контенту в {{ cdn-name }}
@@ -432,6 +432,10 @@ items:
           Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
+      - name: >-
+          Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-kafka.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
       - name: Использование схем формата данных с {{ mkf-name }}

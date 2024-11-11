@@ -1,5 +1,5 @@
 ---
-title: Configuring access permissions to a {{ objstorage-full-name }} bucket
+title: Configuring access permissions to an {{ objstorage-full-name }} bucket using {{ iam-name }}
 description: Follow this guide to assign a role for a bucket.
 ---
 
@@ -13,8 +13,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ objstorage-name }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
   1. Click the name of the bucket you want to grant access to.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

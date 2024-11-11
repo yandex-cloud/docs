@@ -1,3 +1,8 @@
+---
+title: Getting a link to download an object from a bucket in {{ objstorage-full-name }}
+description: Follow this guide to get a link to download an object from a bucket in {{ objstorage-name }}.
+---
+
 # Getting a download link
 
 If you have a public bucket, its objects are always available even if no [website hosting](../../concepts/hosting.md) is configured for the bucket. You can get a link by following this guide or generate one yourself. [Read more about the link format](../../concepts/object.md#object-url).

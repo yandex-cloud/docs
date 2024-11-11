@@ -45,4 +45,4 @@ SLICE(ARRAY(1, 2, 3, 4, 5), 3, 1) = [3]
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.

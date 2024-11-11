@@ -140,9 +140,9 @@
 
 {% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
 
-### Включить доступ по OS Login {#enable-oslogin-access}
+### Включить доступ по {{ oslogin }} {#enable-oslogin-access}
 
-Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
+Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [{{ oslogin }}](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
 
 {% list tabs group=instructions %}
 
@@ -152,7 +152,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
   1. В правом верхнем углу экрана нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **Доступ по OS Login**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
@@ -173,7 +173,7 @@
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
 
-  1. Включите доступ по OS Login:
+  1. Включите доступ по {{ oslogin }}:
 
      ```bash
      yc compute instance update first-instance \

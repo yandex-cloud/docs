@@ -116,6 +116,10 @@ items:
         href: tutorials/fault-tolerance.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
+      - name: >-
+          Запуск контейнерного приложения в {{ serverless-containers-full-name
+          }}
+        href: tutorials/deploy-app-container.md
   - name: Концепции
     items:
       - name: Обзор

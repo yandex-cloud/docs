@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы узнаете
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-DSPM находит чувствительную информацию в бакетах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source).
+[Модуль контроля данных](../../concepts/dspm.md) (Data Security Posture Management) находит чувствительную информацию в бакетах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source).
 
 Чтобы создать сканирование:
 

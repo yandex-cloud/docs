@@ -10,8 +10,8 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [Sharding tables](sharding.md)
 * [Data resharding in a cluster](mch-mch-resharding.md)
 * [Using hybrid storage](hybrid-storage.md)
-* [Getting data from {{ mkf-name }}](fetch-data-from-mkf.md)
-* [Getting data from RabbitMQ](fetch-data-from-rabbitmq.md)
+* [Fetching data from {{ mkf-name }}](fetch-data-from-mkf.md)
+* [Fetching data from RabbitMQ](fetch-data-from-rabbitmq.md)
 * [Exchanging data with {{ dataproc-full-name }}](exchange-data-with-dp.md)
 * [Configuring {{ dns-full-name }} for cluster access from other cloud networks](dns-peering.md)
 * [Analyzing {{ objstorage-full-name }} logs using {{ datalens-full-name }}](storage-logs-analysis.md)
@@ -26,6 +26,7 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](greenplum-to-clickhouse.md)
+
 
 To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).
 

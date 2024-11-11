@@ -1,12 +1,17 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) and click the line with the [group](../../organization/concepts/groups.md) name.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
+
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
+  
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-  1. In the **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** window, select users from the list or search by user. You can also add [service accounts](../../iam/concepts/users/service-accounts.md) to a group.
+
+  1. In the window that opens, select the users or [service accounts](../../iam/concepts/users/service-accounts.md). You may want to use the search feature.
+
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 - CLI {#cli}
@@ -33,7 +38,7 @@
       Where:
 
       * `--name`: User group name. This is a required parameter.
-      * `--organization-id`: Organization ID.
+      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
       * `--subject-id`: ID of the member to add to the group.
 
 - {{ TF }} {#tf}

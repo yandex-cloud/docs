@@ -69,7 +69,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
             --subject federatedUser:<user_ID>
          ```
 
-      * Service account:
+      * To a service account:
 
          ```bash
          yc resource-manager <cloud_or_folder> add-access-binding \
@@ -124,19 +124,25 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 To grant access permissions for an organization, you need the `{{ roles-organization-admin }}` role or higher. To learn more about the role sequence, see the [{{ org-full-name }} document](../../../organization/security/index.md#roles-list).
 
+To assign a role for an organization:
+
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-   To assign a role for an organization:
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
-   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select ![icon-acl](../../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
-   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select the group, user, or service account you want to grant access to an organization.
-   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. In the left-hand panel, select ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+
+  1. If the user, service account, or user group already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
+      If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
+
+  1. Click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../../iam/concepts/access-control/roles.md) to assign. You can assign multiple roles.
+
+      You can find the description of the available roles in the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -179,7 +185,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
             --subject federatedUser:<user_ID>
          ```
 
-      * Service account:
+      * To a service account:
 
          ```bash
          yc organization-manager organization add-access-binding \
@@ -206,6 +212,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
             --federation-users <federation_ID>
          ```
 
+
 - {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -227,7 +234,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
       Where:
 
-      * `organization_id`: Organization ID. This is a required parameter.
+      * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required parameter.
       * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
       * `members`: Users getting the role. Specify the following:
 
@@ -329,7 +336,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
             --subject federatedUser:<user_ID>
          ```
 
-      * Service account:
+      * To a service account:
 
          ```bash
          yc <service_name> <resource> add-access-binding \
@@ -444,7 +451,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
             --access-binding role=<role>,subject=federatedUser:<user_ID>
          ```
 
-      * Service account:
+      * To a service account:
 
          ```bash
          yc <service_name> <resource> set-access-bindings \

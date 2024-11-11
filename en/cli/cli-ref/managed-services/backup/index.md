@@ -27,6 +27,7 @@ Syntax:
 	- [yc backup backup list-archives](backup/list-archives.md) — Lists available archives
 	- [yc backup backup delete](backup/delete.md) — Delete backup
 	- [yc backup backup recover](backup/recover.md) — Start recovery of the backup
+	- [yc backup backup get](backup/get.md) — Get full information about backup
 - [yc backup policy](policy/index.md) — Manage policies
 	- [yc backup policy list](policy/list.md) — Lists available policies
 	- [yc backup policy list-applications](policy/list-applications.md) — Lists policy applications

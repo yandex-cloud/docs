@@ -10,18 +10,12 @@ Get information about a point of presence.
 
 Syntax: 
 
-`yc cic point-of-presence get <POINT-OF-PRESENCE-NAME>|<POINT-OF-PRESENCE-ID> [<POINT-OF-PRESENCE-NAME>|<POINT-OF-PRESENCE-ID>...] [Global Flags...]`
+`yc cic point-of-presence get <POINT-OF-PRESENCE-ID> [<POINT-OF-PRESENCE-ID>...] [Global Flags...]`
 
 Aliases: 
 
 - `describe`
 - `show`
-
-#### Flags
-
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>PointOfPresence id.<br/>--name string|
 
 #### Global Flags
 

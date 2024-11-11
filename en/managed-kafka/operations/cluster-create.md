@@ -133,7 +133,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --disk-size <storage_size_in_GB> \
         --assign-public-ip <public_access> \
         --security-group-ids <list_of_security_group_IDs> \
-        --deletion-protection <deletion_protection>
+        --deletion-protection
      ```
 
 
@@ -364,7 +364,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
         --disk-size <storage_size_in_GB> \
         --assign-public-ip <public_access> \
         --security-group-ids <list_of_security_group_IDs> \
-        --deletion-protection <deletion_protection>
+        --deletion-protection
      ```
 
      Where:
@@ -373,8 +373,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      * `--version`: {{ KF }} version, {{ versions.cli.latest }}.
      * `--zone-ids` and `--brokers-count`: Availability zones and number of brokers per zone. Specify one of the available configurations:
 
-       * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`.
-       * `--zone-ids=<one_availability_zone> --brokers-count=3`.
+       * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`
+       * `--zone-ids=<one_availability_zone> --brokers-count=3`
 
      * `--resource-preset`: [Host class](../concepts/instance-types.md).
      * `--disk-type`: [Disk type](../concepts/storage.md).
@@ -495,8 +495,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      * `version`: {{ KF }} version, {{ versions.tf.latest }}.
      * `zones` and `brokers_count`: Availability zones and number of brokers per zone. Specify one of the available configurations:
 
-       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`.
-       * `zones = ["<one_availability_zone>"] brokers_count = 3`.
+       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`
+       * `zones = ["<one_availability_zone>"] brokers_count = 3`
 
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
      * `schema_registry`: Managing data schemas, `true` or `false`.
@@ -573,7 +573,7 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ KF }} cluster copy:
 
@@ -687,7 +687,7 @@ To create an {{ KF }} cluster copy:
      --disk-type {{ disk-type-example }} \
      --assign-public-ip \
      --security-group-ids {{ security-group }} \
-     --deletion-protection true
+     --deletion-protection
   ```
 
 

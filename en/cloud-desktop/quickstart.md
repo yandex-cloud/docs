@@ -26,7 +26,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 ## Getting started {#before-you-begin}
 
 1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it is in `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. Make sure you have the following _minimum_ roles:
     * [organization-manager.admin](../organization/security/index.md#organization-manager-admin) for the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud): To create a user group.
@@ -40,20 +40,26 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport-login }}) as the organization administrator.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![persons](../_assets/console-icons/persons.svg).
-  1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a name for the user group.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+
+  1. In the top-right corner of the page, click ![Circles3Plus](../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
+
+  1. Enter a name and description for the [group](../organization/concepts/groups.md).
 
       The name must be unique within the [organization](../overview/roles-and-resources.md) and follow the naming requirements:
 
       {% include [group-name-format](../_includes/organization/group-name-format.md) %}
 
-  1. Click **{{ ui-key.yacloud_org.entity.group.action_create }}**.
-  1. In the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab that opens, click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-  1. In the **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** window, select the users to deploy a desktop group for.
+  1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
+
+  1. On the page that opens, go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab and click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+
+  1. In the window than opens, select the users to deploy a desktop group for.
+
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 {% endlist %}

@@ -1,18 +1,16 @@
-title: Search API
+title: '{{ search-api-full-name }}'
 description:
   - >-
     Search API is a service that allows you to send requests to the Yandex
-    search database and get responses in XML format. The service is tailored for
-    developers and webmasters, helping them to implement the search feature on
-    individual websites, groups of websites, or across the internet.
-    Additionally, it offers features to monitor website ranking for specific
-    queries in Yandex search results.
+    search database and get responses in XML or HTML format. {{
+    search-api-full-name }} is tailored for developers and webmasters, helping
+    them to implement the search feature on individual websites, groups of
+    websites, or across the internet. Additionally, it offers features to
+    monitor website ranking for specific queries in Yandex search results.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in  <a
-    href="https://yandex.com/legal/cloud_sla_search_api">Service Level for {{
-    search-api-full-name }}</a>.
+    {{ search-api-full-name }} is subject to the <a
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>.
+     {{ search-api-full-name }} service level is defined in the <a href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name }} Service Level</a> document.
   - <h2>Terms of Use and License Agreement</h2>
   - >-
     In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of
@@ -20,10 +18,10 @@ description:
   - >-
     <ul> <li><a href="https://yandex.ru/legal/cloud_terms_search_api">{{
     search-api-full-name }} Terms of Use</a> for residents of Russia and
-    Kazakhstan.</li> <li><a
+    Kazakhstan</li> <li><a
     href="https://yandex.com/legal/cloud_terms_search_api">{{
     search-api-full-name }} Terms of Use</a> for non-residents of Russia and
-    Kazakhstan.</li> </ul>
+    Kazakhstan</li> </ul>
 meta:
   title: Search API
   description: >-
@@ -39,10 +37,7 @@ links:
   - title: How to activate
     description: How to activate
     href: operations/workaround
-  - title: Registration
-    description: Registration
-    href: operations/registration
-  - title: Request for search results
+  - title: Scrollable search results
     description: Scrollable search results
     href: concepts/index
   - title: Pricing policy

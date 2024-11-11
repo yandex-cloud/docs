@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/ai/tts/v3/tts-v3/api-ref/grpc/index.md
 
 The SpeechKit Text To Speech API v3 allows application developers to use speech synthesis technologies. <br>The service does not operate with resources. Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/). <br><strong> API has limitation — the request cannot exceed 250 characters and 24 seconds for synthesis.</strong>
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/tts/v3).
+
+**Service URL**: `https://tts.{{ api-host }}`
 
 #|
 ||Service | Description ||

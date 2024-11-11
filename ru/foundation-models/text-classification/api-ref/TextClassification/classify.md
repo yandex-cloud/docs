@@ -5,7 +5,10 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classif
 
 # Foundation Models Text Classification API, REST: TextClassification.Classify {#Classify}
 
-RPC method for text classification.
+RPC method to classify text with tuned model.
+
+The names of the classes between which the model will be distributing requests
+must be specified during model tuning and are not provided in the request.
 
 ## HTTP request
 
@@ -22,13 +25,18 @@ POST https://llm.{{ api-host }}/foundationModels/v1/textClassification
 }
 ```
 
-Request for the service to classify text.
+Request for the service to classify text with tuned model.
+
+The names of the classes between which the model will be distributing requests must be specified during model tuning;
+therefore, they are not provided in the request.
+
+For examples of usage, see [step-by-step guides](/docs/operations/classifier/additionally-trained).
 
 #|
 ||Field | Description ||
 || modelUri | **string**
 
-The identifier of the classification model. ||
+The [URI](/docs/foundation-models/concepts/classifier/models) of your tuned classifier model. ||
 || text | **string**
 
 Text for classification. ||
@@ -50,28 +58,29 @@ Text for classification. ||
 }
 ```
 
-Response containing classifier predictions.
+Response with classifier predictions.
 
 #|
 ||Field | Description ||
 || predictions[] | **[ClassificationLabel](#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationLabel)**
 
-Result of classification - a list of label-confidence pairs. ||
+The classification results with the `confidence`` values
+for the probability of classifying the request text into each class. ||
 || modelVersion | **string**
 
-Model version (changes with model releases). ||
+The model version changes with each new releases. ||
 |#
 
 ## ClassificationLabel {#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationLabel}
 
-A pair of text label and corresponding confidence used in classification problems.
+A pair of text labels and their corresponding confidence values.
 
 #|
 ||Field | Description ||
 || label | **string**
 
-A label with a class name. ||
+A class name label. ||
 || confidence | **string**
 
-Confidence of item's belonging to a class. ||
+The probability of classifying text into a specific class. ||
 |#

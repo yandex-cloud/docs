@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/create.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.Create {#Create}
+# SAML Federation API, gRPC: FederationService.Create {#Create}
 
 Creates a federation in the specified organization.
 

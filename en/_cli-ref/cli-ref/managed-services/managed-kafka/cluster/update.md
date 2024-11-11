@@ -32,10 +32,10 @@ Syntax:
 |`--zone-ids`|<b>`value[,value]`</b><br/>List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/>Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Storage volume available to a Kafka host.|
+|`--disk-size`|<b>`byteSize`</b><br/>Storage volume available to a Kafka host in GB.|
 |`--disk-type`|<b>`string`</b><br/>Storage type of a Kafka host.|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
-|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host.|
+|`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host in GB.|
 |`--assign-public-ip`|Whether a Kafka brokers should get a public IP address.|
 |`--schema-registry`|Enables managed Schema Registry sevice.|
 |`--compression-type`|<b>`string`</b><br/>Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|

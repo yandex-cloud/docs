@@ -1,3 +1,8 @@
+---
+title: Limiting the maximum size of a bucket in {{ objstorage-full-name }}
+description: Follow this guide to set the maximum size of a bucket in {{ objstorage-full-name }}.
+---
+
 # Limiting the maximum size of a bucket
 
 {{ objstorage-name }} allows you to limit the maximum size of a bucket.
@@ -8,13 +13,13 @@ For example, if you provide the users of your service with the ability to upload
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the name of the bucket you need.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose statistics you want to view.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
+      
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

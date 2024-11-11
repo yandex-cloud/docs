@@ -6,7 +6,7 @@ The Ingress controller installed in the cluster deploys an [L7 load balancer](..
 
 The L7 load balancer automatically health checks the application in this cluster. Depending on the results, the L7 load balancer allows or denies external traffic to the backend ([Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource). For more information, see [Health checks](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
-By default, the {{ alb-name }} Ingress controller receives application health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+By default, the {{ alb-name }} Ingress controller receives application health check requests from the L7 load balancer on TCP port `10501` and health checks the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
 
 In this tutorial, you will configure your own application health checks using the [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resource parameters and open a dedicated port on cluster nodes for these checks in the `NodePort` type [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource parameters.
 
@@ -191,7 +191,7 @@ To build a test application:
    * Main functionality:
 
      ```bash
-     curl -i http://<node_IP_address>:30080/test-path
+     curl --include http://<node_IP_address>:30080/test-path
      ```
 
      Result:
@@ -208,7 +208,7 @@ To build a test application:
    * Application health check:
 
      ```bash
-     curl -i http://<node_IP_address>:30081
+     curl --include http://<node_IP_address>:30081
      ```
 
      Result:
@@ -333,14 +333,14 @@ To create resources:
    Result:
 
    ```bash
-   NAME       CLASS    HOSTS      ADDRESS        PORTS   AGE
+   NAME       CLASS    HOSTS     ADDRESS      PORTS   AGE
    alb-demo   <none>   <domain>   <IP_address>   80      15h
    ```
 
 1. Check that the deployed application is available via the L7 load balancer:
 
    ```bash
-   curl -i http://<domain>/test-path
+   curl --include http://<domain>/test-path
    ```
 
    Result:

@@ -3,26 +3,24 @@ title: How to assign a user as an organization administrator in {{ org-full-name
 description: By following this guide, you can assign a user as an organization administrator.
 ---
 
-# Making a user an organization administrator
+# Assigning a user as organization administrator
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
   1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-  1. Select a user from the list or use the search bar.
+  1. Select the user you want to assign as an administrator. If required, use the search bar.
 
-  1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select one of the [roles](../../iam/concepts/access-control/roles.md):
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select one of the [roles](../../iam/concepts/access-control/roles.md):
 
-      * `organization-manager.admin`
-      * `organization-manager.organizations.owner`
+      * `organization-manager.admin`.
+      * `organization-manager.organizations.owner`.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -42,10 +40,10 @@ description: By following this guide, you can assign a user as an organization a
 
       Where:
 
-      * `--role`: Role ID. Specify one of the roles: `organization-manager.admin` or `organization-manager.organizations.owner`.
+      * `--role`: Role ID. Specify either the `organization-manager.admin` or `organization-manager.organizations.owner` role.
       * `--subject`: User ID.
 
-      For example, assign the administrator role for the organization with the `bpf3crucp1v2********` ID:
+      For example, this command assigns the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       yc organization-manager organization add-access-binding bpf3crucp1v2******** \
@@ -71,24 +69,24 @@ description: By following this guide, you can assign a user as an organization a
 
       Where:
 
-      * `organization_id`: Organization ID.
-      * `role`: Specify one of the roles: `organization-manager.admin` or `organization-manager.organizations.owner`. For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
-      * `userAccount:<user_ID>`: User's Yandex account ID.
+      * `organization_id`: [Organization ID](./organization-get-id.md).
+      * `role`: Specify either the `organization-manager.admin` or `organization-manager.organizations.owner` role. For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
+      * `userAccount:<user_ID>`: Yandex user account ID.
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   The user will thus be assigned the organization administrator role. You can check the new role in the [management console]({{ link-console-main }}).
+  The user will thus be assigned the organization administrator role. You can check the new role in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
   Use the REST API method [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) for the [Organization](../api-ref/Organization/index.md) resource or the gRPC API call [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) and provide the following in the request:
 
   * `organization-manager.admin` or `organization-manager.organizations.owner` [role](../../iam/concepts/access-control/roles.md) ID in the `roleId` parameter for the REST API or `role_id` for the gRPC API.
-  * User ID and type in the `subject` block.
+  * User ID and type in the `subject` section.
 
 {% endlist %}
 

@@ -8,7 +8,7 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
 
 - Management console {#console}
 
-  To view operations with all [{{ k8s }}](../../concepts/index.md#kubernetes-cluster) clusters, in the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}**. The list that opens also includes operations with the clusters that were deleted.
+  To view operations with all [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster), in the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}**. The list that opens also includes operations with the clusters that were deleted.
 
   You can get a list of operations for a specific cluster:
 
@@ -42,7 +42,7 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is provided as text. To get a detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml

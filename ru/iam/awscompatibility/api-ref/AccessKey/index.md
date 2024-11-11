@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/index.md
 ---
 
-# Identity and Access Management API, REST: AccessKey
+# Access Key, REST: AccessKey
 
 A set of methods for managing access keys.
 

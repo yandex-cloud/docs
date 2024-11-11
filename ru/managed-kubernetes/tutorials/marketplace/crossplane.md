@@ -4,8 +4,9 @@
 
 Чтобы создать [виртуальную машину](../../../compute/concepts/vm.md) {{ compute-full-name }} с помощью [приложения Crossplane](/marketplace/products/yc/crossplane), установленного в [кластере {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте ресурсы {{ managed-k8s-name }}](#k8s-create).
-1. [Создайте ресурсы с помощью Crossplane](#create-crossplane-res).
+1. [Создайте ресурсы {{ yandex-cloud }} с помощью Crossplane](#create-crossplane-res).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -84,99 +85,101 @@
 1. [Установите Crossplane в кластер {{ k8s }}](../../operations/applications/crossplane.md).
 1. [Настройте NAT-шлюз для подсети узлов кластера {{ k8s }}](../../../vpc/operations/create-nat-gateway.md).
 
-## Создайте ресурсы с помощью Crossplane {#create-crossplane-res}
+## Создайте ресурсы {{ yandex-cloud }} с помощью Crossplane {#create-crossplane-res}
 
-1. Создайте манифест Crossplane `providerconfig.yml`:
-
-   ```yaml
-   apiVersion: yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: ProviderConfig
-   metadata:
-     name: yc-config
-   spec:
-     credentials:
-       source: Secret
-       secretRef:
-         name: yc-creds
-         namespace: <пространство_имен_для_Crossplane>
-         key: credentials
-   ```
-
-1. Создайте манифест-шаблон `vm-instance-template.yml`, в котором описаны сеть, подсеть и ВМ `crossplane-vm`, создаваемые с помощью Crossplane:
-
-   ```yaml
-   apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Network
-   metadata:
-     name: <NET_NAME>
-     annotations:
-       crossplane.io/external-name: <NET_ID>
-   spec:
-     deletionPolicy: Orphan
-     forProvider:
-       name: <NET_NAME>
-       folderId: <FOLDER_ID>
-   ---
-   apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Subnet
-   metadata:
-     name: <SUBNET_NAME>
-     annotations:
-       crossplane.io/external-name: <SUBNET_ID>
-   spec:
-     deletionPolicy: Orphan
-     forProvider:
-       name: <SUBNET_NAME>
-       networkIdRef:
-         name: <NET_NAME>
-       v4CidrBlocks:
-         - <SUBNET_PREFIX>
-       zone: <ZONE_ID>
-       folderId: <FOLDER_ID>
-   ---
-   apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Instance
-   metadata:
-     name: <VM_NAME>
-   spec:
-     forProvider:
-       name: <VM_NAME>
-       platformId: standard-v2
-       zone: <ZONE_ID>
-       resources:
-         - cores: 2
-           memory: 4
-       bootDisk:
-         - initializeParams:
-             # LEMP stack
-             # yc compute image get --folder-id standard-images --name=lemp-v20220606 --format=json | jq -r .id
-             - imageId: <IMAGE_ID>
-       networkInterface:
-         - subnetIdRef:
-             name: <SUBNET_NAME>
-       folderId: <FOLDER_ID>
-   ```
-
-   Где:
-   * `ZONE_ID` — [зона доступности](../../../overview/concepts/geo-scope.md).
-   * `VM_NAME` — имя ВМ, которая будет создана средствами Crossplane.
-   * `NET_NAME` — имя облачной сети кластера {{ k8s }}.
-   * `SUBNET_NAME` — имя подсети узлов кластера {{ k8s }}.
-   * `SUBNET_ID` — идентификатор подсети.
-   * `NET_ID` — идентификатор сети.
-   * `SUBNET_PREFIX` — CIDR подсети.
-   * `FOLDER_ID` — идентификатор каталога.
-   * `IMAGE_ID` — идентификатор загрузочного образа ВМ. Его можно получить вместе [со списком образов](../../../compute/operations/image-control/get-list.md). В данном примере используется образ [LEMP](/marketplace/products/yc/lemp).
-1. Примените манифест `providerconfig.yml`:
+1. Определите, какие ресурсы вы хотите создать с помощью Crossplane. Чтобы получить список доступных ресурсов, выполните команду:
 
    ```bash
-   kubectl apply -f providerconfig.yml
+   kubectl get crd | grep yandex-cloud.jet.crossplane.io
    ```
 
-1. Примените манифест `vm-instance.yml`:
+1. Определите параметры этих ресурсов. Чтобы посмотреть доступные параметры для конкретного ресурса, выполните команду:
 
    ```bash
-   kubectl apply -f vm-instance.yml
+   kubectl describe crd <имя_ресурса>
+   ```
+
+1. Создайте манифест-шаблон `vm-instance-template.yml`, в котором описаны существующие в каталоге сеть и подсеть, а также новая ВМ `crossplane-vm`, создаваемая с помощью Crossplane:
+
+    ```yaml
+    # Добавление в конфигурацию существующей сети
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Network
+    metadata:
+      name: <имя_существующей_сети>
+      annotations:
+        # Указать провайдеру на существующую сеть
+        crossplane.io/external-name: <идентификатор_существующей_сети>
+    spec:
+      # Запретить удаление существующей сети
+      deletionPolicy: Orphan
+      forProvider:
+        name: <имя_существующей_сети>
+      providerConfigRef:
+        name: default
+    ---
+    # Добавление в конфигурацию существующей подсети
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Subnet
+    metadata:
+      name: <имя_существующей_подсети>
+      annotations:
+        # Указать провайдеру на существующую подсеть
+        crossplane.io/external-name: <идентификатор_существующей_подсети>
+    spec:
+      # Запретить удаление существующей подсети
+      deletionPolicy: Orphan
+      forProvider:
+        name: <имя_существующей_подсети>
+        networkIdRef:
+          name: <имя_существующей_сети>
+        v4CidrBlocks:
+          - <IPv4_CIDR_существующей_подсети>
+      providerConfigRef:
+        name: default
+    ---
+    # Создание ВМ
+    apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Instance
+    metadata:
+      name: crossplane-vm
+    spec:
+      forProvider:
+        name: crossplane-vm
+        platformId: standard-v1
+        zone: {{ region-id }}-a
+        resources:
+          - cores: 2
+            memory: 4
+        bootDisk:
+          - initializeParams:
+              - imageId: fd80bm0rh4rkepi5ksdi
+        networkInterface:
+          - subnetIdRef:
+              name: <имя_существующей_подсети>
+            # Автоматически предоставить ВМ публичный IP-адрес
+            nat: true
+        metadata:
+          ssh-keys: "<публичный_ключ_SSH>"
+      providerConfigRef:
+        name: default
+      # Записать реквизиты для подключения к ВМ в секрет
+      writeConnectionSecretToRef:
+        name: instance-conn
+        namespace: default
+      ```
+
+   В блоке с конфигурацией ВМ:
+   * `zone: {{ region-id }}-a` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет развернута ВМ.
+   * `name: crossplane-vm` — имя ВМ, которая будет создана средствами Crossplane.
+   * `imageId: fd80bm0rh4rkepi5ksdi` — идентификатор загрузочного образа ВМ. Его можно получить вместе [со списком образов](../../../compute/operations/image-control/get-list.md). В данном примере используется образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+
+   Примеры конфигурации ресурсов {{ yandex-cloud }} см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+
+1. Примените манифест `vm-instance-template.yml`:
+
+   ```bash
+   kubectl apply -f vm-instance-template.yml
    ```
 
 1. Проверьте состояние созданных ресурсов:
@@ -193,11 +196,27 @@
    yc compute instance list
    ```
 
+1. Чтобы получить из секрета данные для подключения к ВМ, выполните команду:
+   
+   ```bash
+   kubectl get secret instance-conn -o json | jq -r '.data | map_values(@base64d)'
+   ```
+
+   Ожидаемый результат:
+   
+   ```json
+   {
+     "external_ip": "<публичный_IP-адрес>",
+     "fqdn": "<полное_доменное_имя>",
+     "internal_ip": "<внутренний_IP-адрес>"
+   }
+   ```
+
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. Удалите `crossplane-vm`:
+1. Удалите ВМ `crossplane-vm`:
 
    ```bash
    kubectl delete instance crossplane-vm

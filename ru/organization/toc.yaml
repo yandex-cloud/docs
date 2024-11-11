@@ -267,7 +267,7 @@ items:
                 href: api-ref/grpc/UserSshKey/update.md
               - name: Delete
                 href: api-ref/grpc/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/grpc/index.md
@@ -421,7 +421,7 @@ items:
                 href: api-ref/UserSshKey/update.md
               - name: Delete
                 href: api-ref/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/index.md
