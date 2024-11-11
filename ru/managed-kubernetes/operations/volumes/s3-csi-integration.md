@@ -21,6 +21,8 @@
 
 ## Настройка {{ CSI }} {#configure-csi}
 
+{% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ marketplace-full-name }} {#marketplace}

@@ -1,7 +1,9 @@
 Check that the service is available on the `alb-with-ddos.com` host. To do this, run the following command:
 
 ```bash
-curl -H "Host: alb-with-ddos.com" http://<L7_load_balancer_IP_address>
+curl \
+  --header "Host: alb-with-ddos.com" \
+  http://<L7_load_balancer_IP_address>
 ```
 
 Result:

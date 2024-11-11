@@ -6,12 +6,12 @@
 
 В этом разделе вы узнаете, как работать с отчетом:
 
-* [{#T}](#create-report)
-* [{#T}](#report-pages)
-* [{#T}](#report-widget-settings)
-* [{#T}](#report-settings)
-* [{#T}](#page-settings)
-* [{#T}](#report-export)
+* [Создать отчет](#create-report)
+* [Добавить, переместить или удалить страницы](#report-pages)
+* [Настроить виджеты](#report-widget-settings)
+* [Настроить отчет](#report-settings)
+* [Настроить страницы](#page-settings)
+* [Экспортировать отчет](#report-export)
 
 ## Создать отчет {#create-report}
 

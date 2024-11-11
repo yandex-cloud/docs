@@ -49,7 +49,7 @@ The public IP address of the VM's network interface is mapped to its internal IP
 
 ## Host name and internal FQDN {#hostname}
 
-When creating a VM, it is assigned a host name and internal FQDN that can be used to access one VM from another within the same [cloud network](../../vpc/concepts/network.md).
+When creating a VM, it is assigned a host name and internal FQDN that can be used to access one VM from another within the same [cloud network](../../vpc/concepts/network.md). You can get the FQDN together with [information about the VM](../operations/vm-info/get-info.md).
 
 Once the VM is created, you cannot change its host name and internal FQDN.
 
@@ -76,7 +76,7 @@ Specified host name | VM FQDN
 `hello.world` or `hello.world.` | `hello.world`
 `breathtaking.` | `breathtaking`
 <span style="color: red">`.why`</span> | <span style="color: red">error (FQDN starts with ".")</span>
-<span style="color: red">`.`</span> | <span style="color: red">error (FQDN contains only ".")</span>
+<span style="color: red">`.`</span> | <span style="color: red">error (FQDN contains dots "." only)</span>
 
 
 ## MAC address {#mac-address}

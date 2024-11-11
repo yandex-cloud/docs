@@ -31,15 +31,15 @@
 
 Чтобы упростить сравнение разных значений, повысить наглядность информации, при [создании таблицы](#create-diagram) можно использовать дополнительные настройки:
 
-* [{#T}](#change-columns-names)
-* [{#T}](#hint-column)
-* [{#T}](#sorting-columns)
-* [{#T}](#set-column-width)
-* [{#T}](#column-fixation)
-* [{#T}](#add-totals)
-* [{#T}](#add-column-color)
-* [{#T}](#set-field-color)
-* [{#T}](#add-linear-indicator)
+* [Изменение названия столбцов](#change-columns-names)
+* [Добавление подсказки к заголовкам](#hint-column)
+* [Настройка сортировки в таблице по нескольким столбцам](#sorting-columns)
+* [Настройка ширины столбцов](#set-column-width)
+* [Закрепление столбцов](#column-fixation)
+* [Добавление строки с итогами](#add-totals)
+* [Добавление цвета строк](#add-column-color)
+* [Настройка заливки полей](#set-field-color)
+* [Добавление линейного индикатора в столбец с показателем](#add-linear-indicator)
 
 ## Секции в визарде {#wizard-sections}
 

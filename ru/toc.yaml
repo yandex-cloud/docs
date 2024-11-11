@@ -27,6 +27,8 @@ items:
     href: cloud-desktop/index.yaml
   - name: Cloud Interconnect
     href: interconnect/index.yaml
+  - name: Cloud Router
+    href: cloud-router/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
   - name: Cloud Notification Service

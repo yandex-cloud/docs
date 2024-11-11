@@ -1153,6 +1153,7 @@ default:
   sku|KZT|mdb:
     cluster:
       clickhouse:
+        backup|month|string: ₸9.60
         v1:
           cpu:
             c100|month|string: ₸8208.00
@@ -1265,6 +1266,7 @@ default:
         pg|month|string: ₸65.05
         redis|month|string: ₸65.05
       mongodb:
+        backup|month|string: ₸9.60
         v1:
           cpu:
             c100|month|string: ₸5760.00
@@ -1365,6 +1367,15 @@ default:
         opensearch|month|string: ₸65.05
         pg|month|string: ₸65.05
         redis|month|string: ₸65.05
+      network-ssd-io-m3:
+        ch|month|string: ₸108.90
+        greenplum|month|string: ₸108.90
+        kafka|month|string: ₸108.90
+        mongodb|month|string: ₸108.90
+        mysql|month|string: ₸108.90
+        opensearch|month|string: ₸108.90
+        pg|month|string: ₸108.90
+        redis|month|string: ₸108.90
       network-ssd-nonreplicated:
         ch|month|string: ₸44.00
         elasticsearch|month|string: ₸44.00
@@ -1376,6 +1387,7 @@ default:
         pg|month|string: ₸44.00
         redis|month|string: ₸44.00
       opensearch:
+        backup|month|string: ₸9.60
         v2:
           cpu:
             c100|month|string: ₸6048.00
@@ -1956,6 +1968,9 @@ default:
         cpu|string: ₸9.35
         ram|month|string: ₸1836.00
         ram|string: ₸2.55
+    db:
+      backup:
+        v1|month|string: ₸10.05
     v1:
       serverless:
         requests|pricingRate:
@@ -2318,6 +2333,7 @@ default:
   sku|RUB|mdb:
     cluster:
       clickhouse:
+        backup|month|string: ₽1.92
         v1:
           cpu:
             c100|month|string: ₽1641.60
@@ -2430,6 +2446,7 @@ default:
         pg|month|string: ₽13.01
         redis|month|string: ₽13.01
       mongodb:
+        backup|month|string: ₽1.92
         v1:
           cpu:
             c100|month|string: ₽1152.00
@@ -2530,6 +2547,15 @@ default:
         opensearch|month|string: ₽13.01
         pg|month|string: ₽13.01
         redis|month|string: ₽13.01
+      network-ssd-io-m3:
+        ch|month|string: ₽21.78
+        greenplum|month|string: ₽21.78
+        kafka|month|string: ₽21.78
+        mongodb|month|string: ₽21.78
+        mysql|month|string: ₽21.78
+        opensearch|month|string: ₽21.78
+        pg|month|string: ₽21.78
+        redis|month|string: ₽21.78
       network-ssd-nonreplicated:
         ch|month|string: ₽8.80
         elasticsearch|month|string: ₽8.80
@@ -2541,6 +2567,7 @@ default:
         pg|month|string: ₽8.80
         redis|month|string: ₽8.80
       opensearch:
+        backup|month|string: ₽1.92
         v2:
           cpu:
             c100|month|string: ₽1209.60
@@ -3121,6 +3148,9 @@ default:
         cpu|string: ₽1.87
         ram|month|string: ₽367.20
         ram|string: ₽0.51
+    db:
+      backup:
+        v1|month|string: ₽2.01
     v1:
       serverless:
         requests|pricingRate:

@@ -5,3 +5,4 @@
 - [{#T}](trunk-get-info.md)
 - [{#T}](priv-con-get-info.md)
 - [{#T}](pub-con-get-info.md)
+- [{#T}](../../cloud-router/operations/ri-get-info.md)

@@ -23,7 +23,7 @@ locals {
   domain_zone_name = "my-domain-zone"
 }
 
-# Setting the provider
+# Configuring a provider 
 
 terraform {
   required_providers {
@@ -113,7 +113,7 @@ resource "yandex_compute_instance" "mywebserver" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: yc-user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: yc-user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 

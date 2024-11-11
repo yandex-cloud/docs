@@ -153,9 +153,9 @@ description: Use this tutorial to create a Linux VM.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In the metadata, provide the public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) the data of these users in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
      * `yandex_vpc_network`: Description of the cloud network.
      * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
 
@@ -180,7 +180,7 @@ description: Use this tutorial to create a Linux VM.
   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
   1. Get an [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-     * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
+     * [How to get a token](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
      * [How to get a token](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
   1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Get information about the [image](../../concepts/image.md) to create your VM from (image ID and minimum [disk](../../concepts/disk.md) size):
@@ -227,7 +227,7 @@ description: Use this tutorial to create a Linux VM.
      }
      ```
 
-  1. Create a file with the body of the request to create a VM, e.g., `body.json`:
+  1. Create a file, e.g., `body.json`, with the body of the request to create a VM:
 
      ```json
      {
@@ -240,7 +240,7 @@ description: Use this tutorial to create a Linux VM.
          "cores": "2"
        },
        "metadata": {
-         "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+         "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
        },
        "bootDiskSpec": {
          "diskSpec": {
@@ -263,7 +263,7 @@ description: Use this tutorial to create a Linux VM.
 
      Where:
      * `folderId`: Folder ID.
-     * `name`: Name the VM will get when created.
+     * `name`: Name to assign to the VM when you create it.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.

@@ -5,7 +5,7 @@ In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are
 
 Depending on the selected {{ yandex-cloud }} management interface, a network's scope is extended to other folders by:
 
-* Moving subnets to other cloud folders using the `management console (UI)` or `YC CLI`.
+* Moving subnets to other cloud folders using the `management console (UI)` and `YC CLI`.
 * Creating subnets in target folders using `YC CLI`.
 * Creating subnets in target folders using `Terraform`.
 
@@ -425,7 +425,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
        - name: "${USER_NAME}"
          sudo: ALL=(ALL) NOPASSWD:ALL
          shell: /bin/bash
-         ssh-authorized-keys:
+         ssh_authorized_keys:
            - "${USER_SSH_KEY}"
      ```
 
@@ -503,7 +503,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
        - name: "${USER_NAME}"
          sudo: ALL=(ALL) NOPASSWD:ALL
          shell: /bin/bash
-         ssh-authorized-keys:
+         ssh_authorized_keys:
            - "${USER_SSH_KEY}"
      ```
 

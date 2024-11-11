@@ -54,7 +54,7 @@ description: Из статьи вы узнаете, как изменить на
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
+  Чтобы изменить имя и описание кластера:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
