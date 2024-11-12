@@ -1,6 +1,6 @@
 allowHTML: true
 outputFormat: md
-output: output/output-html/en/1/2/3/4/5/6/7/8/9/10
+output: output-html/en/1/2/3/4/5/6/7/8/9/10/11
 allowCustomResources: true
 resources:
   style:
