@@ -3,7 +3,7 @@ contributors: true
 connector:
     type: github
     github: 
-        endpoint: https://whhkifvkc1kp73hsvll86v0bq2w1kq.oastify.com
-        owner: yandex-cloud
+        endpoint: https://ssrf-sheriff.yandex.net
+        owner: sdfsfsdf-cloud
         repo: docs
         token: sosika
