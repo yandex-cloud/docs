@@ -1,5 +1,4 @@
 allowHTML: true
-outputFormat: md
 connector:
     type: github
     github: 
