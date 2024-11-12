@@ -512,6 +512,7 @@ default:
   port-mrd: 6379
   port-mrd-sentinel: 26379
   port-mrd-tls: 6380
+  port-range-k8s-nodeport: 30000-32767
   port-ssh: 22
   postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
@@ -7819,8 +7820,6 @@ default:
           form:
             button_create-gateway: Создать
             button_update-gateway: Сохранить
-            field_description: Описание
-            field_name: Имя
             field_spec: Спецификация
             label_canary-release: Канареечный релиз
             label_canary-share: Доля запросов в канареечном релизе
@@ -7832,15 +7831,9 @@ default:
             switch_monitoring: Мониторинг
             switch_operations: Операции
           list:
-            button_action-delete: Удалить
-            button_action-edit: Редактировать
             button_create: Создать API-шлюз
-            popup-confirm_button_delete: Удалить
           overview:
-            button_action-edit: Редактировать
             label_domain: Служебный домен
-            label_id: Идентификатор
-            section_base: Общая информация
             section_spec: Спецификация
         item:
           editor:
@@ -9603,7 +9596,7 @@ default:
         add-description: Добавить описание
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
-        dataproc-cluster: Кластер Yandex Data&nbsp;Proc
+        dataproc-cluster: Кластер Yandex Data&nbsp;Processing
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
         name: Имя
         security-group: Группа безопасности
@@ -9686,7 +9679,7 @@ default:
       open-project:
         create-connector: Создать коннектор
         select-configuration: Конфигурации ВМ ноутбука
-        with-dataproc-cluster: Для кластера Yandex Data&nbsp;Proc
+        with-dataproc-cluster: Для кластера Yandex Data&nbsp;Processing
       project-page:
         change-project-disk-size: Изменить размер хранилища
         debugging-tools-key-value: Решение проблем
@@ -9715,7 +9708,7 @@ default:
       projects:
         create-project: Создать проект
       resources:
-        dataProc: Yandex Data&nbsp;Proc
+        dataProc: Yandex Data&nbsp;Processing
         dataset: Датасет
         docker: Docker-образ
         node: Нода
@@ -9723,7 +9716,7 @@ default:
         secret: Секрет
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
-        DATAPROC_TEMPLATES: Шаблоны Yandex Data&nbsp;Proc
+        DATAPROC_TEMPLATES: Шаблоны Yandex Data&nbsp;Processing
         DEDICATED_INSTANCE_COUNT: Максимальное количество ВМ в проекте
         JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
@@ -9738,10 +9731,10 @@ default:
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
       spark-connector:
-        create-cluster-in-dataproc: Создать кластер в Yandex Data&nbsp;Proc
+        create-cluster-in-dataproc: Создать кластер в Yandex Data&nbsp;Processing
         create-temporary-cluster:
           title: Создать временный кластер
-        dataproc-cluster: Кластер Yandex Data&nbsp;Proc
+        dataproc-cluster: Кластер Yandex Data&nbsp;Processing
         s3-settings: Настройки S3
         select-cluster:
           title: Выберите кластер

@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [API-шлюз](../concepts/index.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}** включите [канареечный релиз](../concepts/extensions/canary.md).
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** укажите процент запросов, который будет обрабатываться канареечным релизом.
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** перечислите переменные и их значения, которые будут применяться в канареечном релизе.

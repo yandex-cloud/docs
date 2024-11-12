@@ -97,7 +97,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `speechkit-api-gw`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `speechkit-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте следующую спецификацию, указав [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `speechkit-sa` в параметре `service_account_id`:
 
       {% include [api-gw-yaml-spec](../_tutorials_includes/speechkit-integrarion-via-agi-gw/api-gw-yaml-spec.md) %}

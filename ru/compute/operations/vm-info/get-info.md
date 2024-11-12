@@ -226,22 +226,11 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 ## Настроить параметры сервиса метаданных ВМ {#metadata-options}
 
-Вы можете настроить параметры сервиса метаданных при создании или изменении ВМ.
+Настроить параметры сервиса метаданных вы можете при [создании](../index.md#vm-create) или [изменении](../vm-control/vm-update.md) ВМ.
 
-Доступны следующие настройки:
-* `aws-v1-http-endpoint` — обеспечивает доступ к метаданным с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
-* `aws-v1-http-token` — обеспечивает доступ к учетным данным [{{ iam-name }}](../../../iam/) с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
+Доступны следующие опции:
 
-  {% note info %}
-
-  Формат IMDSv1 имеет ряд недостатков со стороны безопасности, поэтому по умолчанию параметр `aws-v1-http-token` выключен (`disabled`). Наиболее критичный недостаток IMDSv1 — повышенный риск реализации некоторых атак, например [SSRF](https://portswigger.net/web-security/ssrf) (подробнее в [официальном блоге AWS](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/)). Для изменения поведения по умолчанию этого параметра обратитесь в [поддержку]({{ link-console-support }}).
-
-  Наиболее безопасным методом получения токена в {{ yandex-cloud }} является использование [Google Compute Engine](#gce-metadata) формата (он использует дополнительный заголовок для защиты от SSRF).
-
-  {% endnote %}
-
-* `gce-http-endpoint` — обеспечивает доступ к метаданным с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
-* `gce-http-token` — обеспечивает доступ к учетным данным {{ iam-name }} с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
+{% include [metadata-service-settings](../../../_includes/compute/metadata-service-settings.md) %}
 
 Чтобы настроить параметры сервиса метаданных ВМ:
 

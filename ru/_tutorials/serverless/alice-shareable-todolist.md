@@ -35,7 +35,7 @@
 ## Создайте ресурсы {#create-resources}
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-full-name }}.
-1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_id }}** и **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
+1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **{{ ui-key.yacloud.common.id }}** и **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
 1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Оно понадобится при конфигурации проекта.
 1. [Создайте приложение](https://oauth.yandex.ru/) в Яндекс OAuth:
    1. Перейдите на [сайт сервиса](https://oauth.yandex.ru/) и авторизуйтесь.

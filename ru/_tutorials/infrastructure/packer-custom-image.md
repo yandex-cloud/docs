@@ -142,6 +142,7 @@
 1. Создайте конфигурационный файл в формате [HCL](https://github.com/hashicorp/hcl#readme), например `toolbox.pkr.hcl`.
 1. Опишите в конфигурационном файле параметры образа, который необходимо создать:
 
+
     ```hcl
     # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #
@@ -303,6 +304,9 @@
       }
     }
     ```
+
+
+
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
 

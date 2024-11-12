@@ -150,7 +150,7 @@
       * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**, оно потребуется в дальнейшем.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, оно потребуется в дальнейшем.
 
 {% endlist %}
 

@@ -389,7 +389,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `recognizer-bot-api-gw`.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter `recognizer-bot-api-gw`.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
      ```yaml
@@ -413,7 +413,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      * `service_account_id`: `recognizer-bot-sa` service account ID.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value from the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** section. You will need it later.
+  1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value. You will need it later.
 
 - CLI {#cli}
 

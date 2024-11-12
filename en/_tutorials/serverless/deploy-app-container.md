@@ -569,7 +569,7 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `mongo-express-gw` as the API gateway name.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `mongo-express-gw` as the API gateway name.
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
       ```yaml
