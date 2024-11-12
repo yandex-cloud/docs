@@ -1,2 +1,0 @@
-
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about cluster failures. In {{ monitoring-full-name }}, there are two alert thresholds: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).

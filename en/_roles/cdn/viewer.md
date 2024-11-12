@@ -1,1 +1,0 @@
-The `cdn.viewer` role enables viewing info on the folder, [origin groups](../../cdn/concepts/origins.md), [CDN resources](../../cdn/concepts/resource.md), and Cloud CDN [quotas](../../cdn/concepts/limits.md#cdn-quotas).

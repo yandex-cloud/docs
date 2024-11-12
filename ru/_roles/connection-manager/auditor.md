@@ -1,1 +1,0 @@
-Роль `connection-manager.auditor` позволяет просматривать несекретную информацию о [подключениях](../../metadata-hub/concepts/connection-manager.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним. Если роль выдана на облако, то она позволяет просматривать [квоты](../../metadata-hub/concepts/limits.md) сервиса Connection Manager.

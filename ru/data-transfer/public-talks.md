@@ -1,1 +1,0 @@
-{% include [public-talks](../_includes/data-transfer/public-talks.md) %}

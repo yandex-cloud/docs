@@ -1,1 +1,0 @@
-An [IAM token](../../../iam/concepts/authorization/iam-token.md) or [IAM key](../../../iam/concepts/authorization/api-key.md) is used to [authenticate](../../../speechsense/api-ref/authentication.md) the service account.

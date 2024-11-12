@@ -1,1 +1,0 @@
-The table below lists the parameters specific to {{ api-gw-short-name }} API gateways. You can find the description of other parameters in the [OpenAPI 3.0 specification](https://github.com/OAI/OpenAPI-Specification).

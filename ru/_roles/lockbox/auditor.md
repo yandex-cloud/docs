@@ -1,1 +1,0 @@
-Роль `lockbox.auditor` позволяет просматривать информацию о [секретах](../../lockbox/concepts/secret.md#secret) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также информацию о [квотах](../../lockbox/concepts/limits.md#quotas) сервиса Yandex Lockbox и метаинформацию [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).

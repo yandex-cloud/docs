@@ -1,1 +1,0 @@
-The `vpc.gateways.editor` role allows you to create, modify, and delete [NAT gateways](../../../vpc/concepts/gateways.md), as well as connect them to [route tables](../../../vpc/concepts/routing.md#rt-vpc).

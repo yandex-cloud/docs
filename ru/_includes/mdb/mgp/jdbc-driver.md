@@ -1,9 +1,0 @@
-* `com.simba.athena.jdbc.Driver`
-* `com.clickhouse.jdbc.ClickHouseDriver`
-* `com.ibm.as400.access.AS400JDBCDriver`
-* `com.microsoft.sqlserver.jdbc.SQLServerDriver`
-* `com.mysql.cj.jdbc.Driver`
-* `org.postgresql.Driver`
-* `oracle.jdbc.driver.OracleDriver`
-* `net.snowflake.client.jdbc.SnowflakeDriver`
-* `io.trino.jdbc.TrinoDriver`

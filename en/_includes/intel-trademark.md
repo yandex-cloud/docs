@@ -1,1 +1,0 @@
-_Intel is a trademark of Intel Corporation or its subsidiaries._

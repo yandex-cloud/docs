@@ -1,1 +1,0 @@
-If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the user that invoked the container are provided in this header. If this header is missing, the request only transmits the IP address of the user who invoked the container.

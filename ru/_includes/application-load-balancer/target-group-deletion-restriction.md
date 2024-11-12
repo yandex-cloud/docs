@@ -1,1 +1,0 @@
-Если целевая группа используется хотя бы в одной группе бэкендов, удалить ее нельзя. Сначала [удалите](../../application-load-balancer/operations/backend-group-update.md#update-group) ее из всех групп бэкендов.

@@ -1,1 +1,0 @@
-When bringing the number of VMs in the group to the target value, VMs created in excess of the target under the `max_expansion` quota can remain in the group, while those that existed in the group before may be deleted.

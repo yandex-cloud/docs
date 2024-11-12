@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.segments.title }}**: Specify segment host connection information. If you omit these, segment host addresses will be retrieved automatically from the master host housekeeping table.

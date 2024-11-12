@@ -1,1 +1,0 @@
-Для работы с приватным репозиторием вам потребуется [персональный токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token) к [GitHub](https://github.com/).

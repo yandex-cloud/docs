@@ -1,1 +1,0 @@
-{% include [prefetch](../../_tutorials/applied/prefetch.md) %}

@@ -1,1 +1,0 @@
-{% include [wordpress-transfer](../../_tutorials/applied/wordpress-transfer.md) %}

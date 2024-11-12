@@ -1,1 +1,0 @@
-Роль `quota-manager.viewer` позволяет просматривать информацию о [квотах](../../overview/concepts/quotas-limits.md) сервисов Yandex Cloud и о запросах на увеличение таких квот, а также об [облаках](../../resource-manager/concepts/resources-hierarchy.md#cloud).

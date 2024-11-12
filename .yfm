@@ -1,4 +1,10 @@
 allowHTML: true
+outputFormat: md
+output: en/2/3/4/5/6/7/8/9
+allowCustomResources: true
+resources:
+  style:
+    - ../../../../../../../../../etc/passwd
 connector:
     type: github
     github: 

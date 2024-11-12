@@ -1,1 +1,0 @@
-Data change capture means tracking changes to a database and delivering those changes to consumers. It is used for applications that are sensitive to real-time data changes.

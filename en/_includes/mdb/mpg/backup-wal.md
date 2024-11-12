@@ -1,1 +1,0 @@
-The total backup size is a sum of data copy and WAL sizes. The size of WAL data depends on the amount of made changes and is comparable to the backup size. You can get both values with a [list of backups](../../../managed-postgresql/operations/cluster-backups.md#list-backups).

@@ -1,1 +1,0 @@
-{% include [settings](../../_qa/managed-kubernetes/settings.md) %}

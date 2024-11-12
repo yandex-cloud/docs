@@ -1,1 +1,0 @@
-Роль `managed-postgresql.auditor` позволяет просматривать информацию о [хостах и кластерах](../../managed-postgresql/concepts/index.md) PostgreSQL, а также о [квотах](../../managed-postgresql/concepts/limits.md#mpg-quotas) и операциях с ресурсами сервиса Managed Service for PostgreSQL.

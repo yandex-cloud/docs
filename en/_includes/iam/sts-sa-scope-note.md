@@ -1,1 +1,0 @@
-Temporary {{ sts-name }} keys inherit the access permissions of the service account, but are limited by the access policy. If you set the access policy for a temporary key to allow operations that are not allowed for a service account, such operations will not be performed.

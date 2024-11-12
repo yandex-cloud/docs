@@ -1,1 +1,0 @@
-{% include [maxpatrol-siem](../../_tutorials/security/at-maxpatrol-siem.md) %}
