@@ -27,7 +27,7 @@ To connect a domain to an API gateway:
        1. Go to the [management console]({{ link-console-main }}).
        1. Select the folder where the API gateway is located, and in the service list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Select the API gateway.
-       1. You can see the service domain under **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
+       1. You can see the service domain in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 
         Domain names must end in a dot.
 

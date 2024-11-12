@@ -10,6 +10,10 @@
 * [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (поддерживаются не все поля).
 * [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (поддерживаются не все поля).
 
+В виртуальных машинах {{ compute-name }} доступны следующие настройки сервиса метаданных ВМ:
+
+{% include [metadata-service-settings](../../_includes/compute/metadata-service-settings.md) %}
+
 ## Как передать метаданные {#how-to-send-metadata}
 
 Вы можете передать метаданные при создании и [изменении](../operations/vm-control/vm-update.md#change-metadata) ВМ. Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../glossary/ssh-keygen.md).

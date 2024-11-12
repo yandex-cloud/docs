@@ -7810,8 +7810,6 @@ default:
           form:
             button_create-gateway: Create
             button_update-gateway: Save
-            field_description: Description
-            field_name: Name
             field_spec: Specification
             label_canary-release: Canary release
             label_canary-share: Share of requests in canary release
@@ -7823,15 +7821,9 @@ default:
             switch_monitoring: Monitoring
             switch_operations: Operations
           list:
-            button_action-delete: Delete
-            button_action-edit: Edit
             button_create: Create API gateway
-            popup-confirm_button_delete: Delete
           overview:
-            button_action-edit: Edit
             label_domain: Default domain
-            label_id: ID
-            section_base: General information
             section_spec: Specification
         item:
           editor:
@@ -9596,7 +9588,7 @@ default:
         add-description: Add description
         advanced-settings: Advanced settings
         balance: Project balance
-        dataproc-cluster: Yandex Data&nbsp;Proc cluster
+        dataproc-cluster: Yandex Data&nbsp;Processing cluster
         dedicated-vm-inactivity-timeout: Stop inactive VM after
         name: Name
         security-group: Security group
@@ -9679,7 +9671,7 @@ default:
       open-project:
         create-connector: Create connector
         select-configuration: Notebook VM configurations
-        with-dataproc-cluster: With Yandex DataProc cluster
+        with-dataproc-cluster: With Yandex Data&nbsp;Processing cluster
       project-page:
         change-project-disk-size: Change project storage size
         debugging-tools-key-value: Troubleshooting
@@ -9708,7 +9700,7 @@ default:
       projects:
         create-project: Create project
       resources:
-        dataProc: Yandex Data&nbsp;Proc
+        dataProc: Yandex Data&nbsp;Processing
         dataset: Dataset
         docker: Docker
         node: Node
@@ -9716,7 +9708,7 @@ default:
         secret: Secret
       restrictions:
         CHANGING_DISK_SIZE: Changing the size of project storage
-        DATAPROC_TEMPLATES: Yandex Data&nbsp;Proc templates
+        DATAPROC_TEMPLATES: Yandex Data&nbsp;Processing templates
         DEDICATED_INSTANCE_COUNT: Maximum number of VMs in the project
         JUPYTER_TOKEN: Connect external IDEs
         NODES_AND_ALIASES: Deploying models
@@ -9731,10 +9723,10 @@ default:
         community-resources: Community resources
         configurations: Configurations
       spark-connector:
-        create-cluster-in-dataproc: Create cluster in Yandex Data&nbsp;Proc
+        create-cluster-in-dataproc: Create cluster in Yandex Data&nbsp;Processing
         create-temporary-cluster:
           title: Create temporary cluster
-        dataproc-cluster: Yandex Data&nbsp;Proc cluster
+        dataproc-cluster: Yandex Data&nbsp;Processing cluster
         s3-settings: S3 settings
         select-cluster:
           title: Select cluster

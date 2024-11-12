@@ -346,7 +346,7 @@
   1. Перейдите в свой рабочий каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `for-serverless-shortener`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `for-serverless-shortener`.
   1. Скопируйте и вставьте следующий код в блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**:
 
      {% cut "Спецификация" %}

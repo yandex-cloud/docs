@@ -24,8 +24,8 @@ To get started in {{ yandex-cloud }}:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `numbers`.
-   1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `numbers`.
+   1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description.
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
       ```yaml
@@ -245,7 +245,7 @@ Add function information to the API gateway specification.
    To update an API gateway specification:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
    1. In the window that opens, select the API gateway and click ![image](../../_assets/console-icons/ellipsis.svg).
-   1. In the menu that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification.
 
       The `/numbers` method, which uses the `cloud_functions` type `x-yc-apigateway-integration` extension, invokes a function by ID.

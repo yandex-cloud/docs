@@ -13,7 +13,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
    1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the API gateway parameters or OpenAPI specification if needed.
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}

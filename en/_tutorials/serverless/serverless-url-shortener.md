@@ -346,7 +346,7 @@ To publish the service via {{ api-gw-name }}:
   1. Go to your working folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `for-serverless-shortener`.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter `for-serverless-shortener`.
   1. Copy and paste the following code into the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section:
 
      {% cut "Specification" %}
