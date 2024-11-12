@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.overview.button_action-edit }}**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите облачную сеть, в которой будет находиться API-шлюз.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 

@@ -149,7 +149,7 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
       * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) created when [setting up resources](#create-resources).
 
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-   1. Select the created API gateway. Save the name of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field from the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** section. You will need it later.
+   1. Select the created API gateway. Save the name of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field. You will need it later.
 
 {% endlist %}
 

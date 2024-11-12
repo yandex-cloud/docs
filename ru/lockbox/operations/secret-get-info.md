@@ -152,6 +152,8 @@ title: Как получить информацию о секрете в {{ lock
           text_value: example-value
       ```
 
+      {% include [secret-content-base64-cli](../../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -210,6 +212,8 @@ title: Как получить информацию о секрете в {{ lock
 - API {#api}
 
   Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/Payload/get.md).
+
+  {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
 
 {% endlist %}
 

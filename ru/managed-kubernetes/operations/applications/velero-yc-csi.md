@@ -32,18 +32,18 @@
 
    * Если установка Velero будет выполняться в [консоли управления с помощью {{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
 
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<имя_сервисного_аккаунта> \
-               --format=json > sa-key.json
-            ```
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<имя_сервисного_аккаунта> \
+       --format=json > sa-key.json
+     ```
 
    * Если установка Velero будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
 
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<имя_сервисного_аккаунта>
-            ```
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<имя_сервисного_аккаунта>
+     ```
 
 1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 

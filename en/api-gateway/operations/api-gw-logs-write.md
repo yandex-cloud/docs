@@ -14,7 +14,7 @@ description: Follow this guide to configure API gateway logging.
     1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway you want to configure logging for.
-    1. At the top of the page, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.serverless-functions.gateways.overview.button_action-edit }}**.
+    1. At the top of the page, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
         * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
         * `{{ ui-key.yacloud.common.folder }}`: To write logs to the default [log group](../../logging/concepts/log-group.md) for the folder containing the API gateway.

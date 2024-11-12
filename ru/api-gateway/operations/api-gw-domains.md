@@ -27,7 +27,7 @@
        1. Перейдите в [консоль управления]({{ link-console-main }}).
        1. Выберите каталог, в котором находится API-шлюз, и в списке сервисов — **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Выберите API-шлюз.
-       1. Служебный домен будет в блоке **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
+       1. Служебный домен будет в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
 
         Доменные имена должны заканчиваться точкой.
 

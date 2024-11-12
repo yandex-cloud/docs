@@ -32,7 +32,7 @@ To deploy a project:
 ## Create resources {#create-resources}
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
-1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_id }}** and **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field values from the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** section to use them in the configuration.
+1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **{{ ui-key.yacloud.common.id }}** and **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field values to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it when setting up your project.
 1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
    1. Go to the [service website](https://oauth.yandex.com/) and log in.

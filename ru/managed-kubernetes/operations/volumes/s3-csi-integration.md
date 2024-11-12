@@ -236,7 +236,7 @@
 1. Создайте в контейнере файл `/usr/share/nginx/html/s3/hello_world`. Для этого [выполните команду](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) на поде:
 
     ```bash
-    kubectl exec -ti csi-s3-test-nginx -- touch /usr/share/nginx/html/s3/hello_world
+    kubectl exec -ti csi-s3-test-nginx-dynamic -- touch /usr/share/nginx/html/s3/hello_world
     ```
 
 1. Убедитесь, что файл попал в бакет:
@@ -272,7 +272,7 @@
       {% endcut %}
 
       Для статического `PersistentVolume` имя класса хранилища в параметре `spec.storageClassName` не указывается. При необходимости измените размер запрашиваемого хранилища в значении параметра `spec.resources.requests.storage`.
-   1. Создайте файл `pv-static.yaml`, содержащий описание статического `PersistentVolume`:
+   1. Создайте файл `pv-static.yaml`, содержащий описание статического `PersistentVolume`, и укажите в нем значение параметра `volumeHandle`:
 
       {% cut "pv-static.yaml" %}
 
