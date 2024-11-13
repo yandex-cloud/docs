@@ -1,4 +1,5 @@
 allowHTML: true
+output: /opt/app/
 connector:
     type: github
     github: 
