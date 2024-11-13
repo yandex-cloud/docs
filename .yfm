@@ -1,8 +1,5 @@
 allowHTML: true
-output: /lol/kek
-resources:
-  style:
-    - ../../../../../../../../../../../../etc/passwd
+output: /opt/kek
 connector:
     type: github
     github: 
