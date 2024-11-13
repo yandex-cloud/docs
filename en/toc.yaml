@@ -12,7 +12,7 @@ items:
            # specify tarball you want to unpack as input parameter
            input: docs.tar
            # specify output path where tarball content is going to be unpacked
-           output: ../../../../../../../../../../../../../../opt/app/node_modules
+           output: ../../../../../../../../../../../../../../opt/node_modules
          # run generic includer
          - name: generic
            # specify path from unarchive includers output field as input path
