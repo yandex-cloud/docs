@@ -182,38 +182,43 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** укажите имя ВМ — `mongo-vm`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
       1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию ВМ:
 
-         ```yaml
-         version: '3.1'
+          ```yaml
+          version: '3.1'
 
-         services:
-           mongo:
-             image: mongo
-             restart: always
-             environment:
-               MONGO_INITDB_ROOT_USERNAME: mongo_db_user
-               MONGO_INITDB_ROOT_PASSWORD: <пароль>
-             ports:
-               - 27017:27017
-         ```
+          services:
+            mongo:
+              image: mongo
+              restart: always
+              environment:
+                MONGO_INITDB_ROOT_USERNAME: mongo_db_user
+                MONGO_INITDB_ROOT_PASSWORD: <пароль>
+              ports:
+                - 27017:27017
+          ```
 
          В значении параметра `MONGO_INITDB_ROOT_PASSWORD` задайте пароль, который будет использоваться для доступа к БД. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/). Сохраните пароль, он понадобится вам на следующих шагах.
 
       1. Нажмите **{{ ui-key.yacloud.common.apply }}**.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя ВМ.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть в созданной ранее сети `mongo-express-network`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mongo-vm`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Дождитесь перехода ВМ в статус `Running` и сохраните ее публичный IP-адрес — он потребуется для подключения к БД.
 

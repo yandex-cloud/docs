@@ -182,45 +182,37 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Введите имя виртуальной машины: `bastion-host`.
-  1. Выберите зону доступности `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `NAT-инстанс на основе Ubuntu 22.04 LTS` и выберите публичный образ [NAT-инстанс на основе Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**  настройте первый сетевой интерфейс:
 
-     * На вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите продукт **NAT-инстанс на основе Ubuntu 22.04 LTS**.
-     * Нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте первый сетевой интерфейс:
-
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-external-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — нажмите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** и выберите [зарезервированный ранее IP-адрес](#get-static-ip).     
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `secure-bastion-sg`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-external-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — нажмите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и выберите [зарезервированный ранее IP-адрес](#get-static-ip).
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `secure-bastion-sg`.
 
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и настройте второй сетевой интерфейс:
 
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
-     * Разверните блок **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
+      * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * В появившемся поле для ввода укажите `172.16.16.254`.
 
-       * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**.
-       * Нажмите **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**. В открывшемся окне:
+      {% note info %}
 
-         * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** введите адрес `172.16.16.254`.
-         * Нажмите **{{ ui-key.yacloud.common.create }}**.
+      Убедитесь, что первый интерфейс на новой виртуальной машине принадлежит к внешнему сегменту, поскольку шлюз по умолчанию будет автоматически задан именно на этом интерфейсе.
 
-     {% note info %}
+      {% endnote %}
 
-     Проверьте, что первый интерфейс на новой виртуальной машине принадлежит к внешнему сегменту, поскольку шлюз по умолчанию будет автоматически задан именно на этом интерфейсе.
+      Публичный IP-адрес указывается только для внешнего сегмента. Для внутреннего сегмента указывается внутренний статический IP-адрес.
 
-     {% endnote %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-     Публичный IP-адрес указывается только для внешнего сегмента. Для внутреннего сегмента указывается внутренний статический IP-адрес.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `bastion`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** в поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `bastion`.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `bastion-host`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Когда серверная ВМ запустится и перейдет в статус **Running**, вы сможете увидеть назначенный ей публичный IP-адрес в поле **{{ ui-key.yacloud.compute.group.overview.label_instance-address }}**.
@@ -245,26 +237,23 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Введите имя виртуальной машины: `test-vm`.
-  1. Выберите зону доступности `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите произвольную операционную систему.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ с произвольной операционной системой, например [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте сетевой интерфейс:
 
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
+      * Разверните блок **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}** и в поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-     1. Отключите опцию **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
-     1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
-     1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 

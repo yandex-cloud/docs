@@ -16,8 +16,8 @@
 
   ```powershell
   $IAM_TOKEN=yc iam create-token
-  curl.exe \
-    --request GET \
+  curl.exe `
+    --request GET `
     --header "Authorization: Bearer $IAM_TOKEN" `
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   ```

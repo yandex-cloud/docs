@@ -32,28 +32,33 @@
 
 1. Создайте ВМ `dvwa-server` с ОС [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts):
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-   1. В списке сервисов выберите **{{ compute-name }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Введите имя `dvwa-server`. 
-      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts).   
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-   1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+    1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 22.04` и выберите публичный образ [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts).
+    1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   {% note info %}
+        * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+        * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-   При создании ВМ назначаются публичный и внутренний IP-адреса. Запишите их, они понадобятся для доступа к ВМ и настройки межсетевого экрана.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-   {% endnote %}
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `ycuser`.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `dvwa-server`.
+    1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+    {% note info %}
+
+    При создании ВМ назначаются публичный и внутренний IP-адреса. Запишите их, они понадобятся для доступа к ВМ и настройки межсетевого экрана.
+
+    {% endnote %}
 
 1. Подключитесь к ВМ `dvwa-server` по SSH, выполнив в терминале команду:
-   ```bash
-   ssh ycuser@<публичный_IP-адрес_ВМ_dvwa-server>
-   ```
+
+    ```bash
+    ssh ycuser@<публичный_IP-адрес_ВМ_dvwa-server>
+    ```
 
 ## Запустите уязвимое веб-приложение DVWA {#run-dvwa}
 
@@ -87,31 +92,41 @@
 
 1. Создайте ВМ `pt-firewall` из публичного образа [PT Application Firewall](/marketplace/products/pt/pt-application-firewall):
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-      1. В списке сервисов выберите **{{ compute-name }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * Введите имя `pt-firewall`. 
-         * Выберите ту же зону доступности, в которой находится ВМ `dvwa-server`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**. 
-      1. Выберите актуальный образ [PT Application Firewall](/marketplace/products/pt/pt-application-firewall).
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-      1. Активируйте опцию **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
-      1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+        1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `PT Application Firewall` и выберите актуальный образ [PT Application Firewall](/marketplace/products/pt/pt-application-firewall).
+        1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `dvwa-server`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   {% endlist %}
+            * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+            * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-   {% note info %}
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-   При создании ВМ назначаются публичный и внутренний IP-адреса. Рекомендуется [сделать публичный адрес статическим](../../vpc/operations/set-static-ip.md).
+            * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `ycuser`.
+            * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
 
-   {% endnote %}
+                Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
+
+                * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+                * Задайте имя SSH-ключа.
+                * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `pt-firewall`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+        1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+    {% endlist %}
+
+    {% note info %}
+
+    При создании ВМ назначаются публичный и внутренний IP-адреса. Рекомендуется [сделать публичный адрес статическим](../../vpc/operations/set-static-ip.md).
+
+    {% endnote %}
 
 1. Перейдите в [серийную консоль](../../compute/operations/serial-console/index.md) созданной ВМ:
 

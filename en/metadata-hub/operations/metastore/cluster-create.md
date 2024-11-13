@@ -9,6 +9,14 @@ description: Follow this guide to create a {{ metastore-full-name }} cluster.
 
 To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, see [{#T}](../../concepts/metastore.md).
 
+Getting started:
+
+1. [{#T}](#set-up-network).
+1. [{#T}](#set-up-security-groups).
+1. [{#T}](#prepare-access-key).
+
+Next, [create a cluster](#create-cluster).
+
 ## Configure a network {#set-up-network}
 
 [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) in the subnet the cluster will connect to. It is needed for the cluster to interact with {{ yandex-cloud }} services.
@@ -38,6 +46,18 @@ You can specify more detailed rules for your security groups, e.g., to allow tra
 
 {% endnote %}
 
+## (Optional) Prepare a static access key {#prepare-access-key}
+
+To enable a {{ metastore-name }} cluster to work with [{{ objstorage-full-name }}](../../../storage/index.yaml), prepare a [static access key](../../../iam/concepts/authorization/access-key.md):
+
+1. [Create a service account](../../../iam/operations/sa/create.md).
+1. [Assign the required roles](../../../iam/operations/sa/assign-role-for-sa.md) to the service account.
+
+   The roles you need depend on your use case scenario. You can view the service roles in the [{{ metastore-name }} section](../../security/metastore-roles.md) and all the available roles in this [reference](../../../iam/roles-reference.md).
+
+1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+1. Save the ID and secret key. You will not be able to access them later.
+
 ## Create a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
@@ -52,7 +72,7 @@ You can specify more detailed rules for your security groups, e.g., to allow tra
     1. (Optional) Enter a cluster description.
     1. (Optional) Add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md) to break resources into logical groups.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
-    1. To enable a {{ metastore-name }} cluster to interact with {{ objstorage-full-name }}, under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify the **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the [AWS-compatible static access key](../../../iam/concepts/authorization/access-key.md).
+    1. (Optional) Under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the static access key.
     1. If required, enable protection of the cluster from accidental deletion by a user.
 
         {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}

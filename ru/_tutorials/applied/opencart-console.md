@@ -28,48 +28,43 @@
   1. В списке сервисов выберите **{{ compute-short-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.  
-  1. В блоке **Выбор образа/загрузочного диска**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenCart` и выберите публичный образ [OpenCart](/marketplace/products/yc/opencart-3).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
-      * Перейдите на вкладку **Marketplace**.
-      * Нажмите кнопку **Показать все продукты Marketplace**.
-      * В списке публичных [образов](../../compute/concepts/image.md) выберите [OpenCart](/marketplace/products/yc/opencart-3). и нажмите кнопку **Использовать**.
+      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+      * Задайте размер диска `13 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Диски и файловые хранилища** настройте загрузочный [диск](../../compute/concepts/disk.md):
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `SSD`.
-      * Задайте размер диска `13 ГБ`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите следующую конфигурацию:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * **Платформа** — `Intel Ice Lake`.
-      * **Гарантированная доля vCPU** — `20%`.
-      * **vCPU** — `2`.
-      * **RAM** — `4 ГБ`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-  1. В блоке **Сетевые настройки**:
-
-      * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
-
-          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
-          * Если сети нет, нажмите **Создать сеть** и создайте ее:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
-              * Нажмите **Создать сеть**.
+              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * В поле **Публичный адрес** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-    1. В блоке **Доступ** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-        * В поле **Логин** введите предпочтительное имя пользователя, который будет создан на ВМ, например, `ubuntu`.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите предпочтительное имя пользователя, который будет создан на ВМ, например, `ubuntu`.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **Общая информация** введите имя ВМ, например `opencart`. Требования к имени:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите имя ВМ, например `opencart`. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Получите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ — он потребуется далее, чтобы [настроить OpenCart](#configure-opencart). Публичный IP-адрес можно узнать в консоли управления в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
 
 {% endlist %}

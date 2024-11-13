@@ -15,6 +15,12 @@
 1. [Create a bucket](../../../storage/operations/buckets/create.md) named `my-bucket` in {{ objstorage-name }}. It will store the metadata file for import and export.
 1. [Grant](../../../storage/operations/buckets/edit-acl.md) a `READ and WRITE` permission to the `my-account` service account for the bucket named `my-bucket`.
 
+{% note warning %}
+
+Do not assign a [bucket policy](../../../storage/security/policy.md) for the bucket; otherwise, the {{ metastore-name }} cluster will not be able to write any data to the bucket.
+
+{% endnote %}
+
 ## Export data {#export}
 
 {% list tabs group=instructions %}
@@ -44,7 +50,7 @@ To import data to a cluster:
 - Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page.
+   1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
    1. In the window that opens, select the bucket named `my-bucket` and the file the cluster data will be imported from.
    1. Click **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.

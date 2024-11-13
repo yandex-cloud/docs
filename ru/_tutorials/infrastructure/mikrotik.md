@@ -31,24 +31,29 @@
 
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя ВМ, например `mikrotik-router`.
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой есть подсеть. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите параметры:
-   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 ГБ`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите нужную сеть, подсеть и назначьте ВМ публичный IP-адрес из списка или автоматически. Если у вас нет сети и подсети, их можно создать на экране создания ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя.
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cloud Hosted Router` и выберите публичный образ [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      Обратите внимание, что эти данные нужны только для создания ВМ, их нельзя использовать для доступа к роутеру.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС.
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+    Обратите внимание, что эти данные нужны только для создания ВМ, их нельзя использовать для доступа к роутеру.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mikrotik-router`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание виртуальной машины может занять несколько минут. Когда виртуальная машина перейдет в статус `RUNNING`, вы можете зайти на нее.
@@ -73,23 +78,27 @@
 
 Создайте тестовую ВМ в одной подсети с роутером, чтобы проверить возможность подключения между роутером и ВМ.
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя ВМ, например `test-vm`.
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `mikrotik-router`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите параметры:
-   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 ГБ`.
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu` и выберите публичный образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `mikrotik-router`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, в которых находится ВМ `mikrotik-router`.
-   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя.
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md).
+
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, в которых находится ВМ `mikrotik-router`.
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ### Проверьте связь роутера и тестовой ВМ {#test-connection}

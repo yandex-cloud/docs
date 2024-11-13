@@ -55,40 +55,29 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `WordPress` и выберите публичный образ [WordPress](/marketplace/products/yc/wordpress).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     ![create-vm](../../../_assets/tutorials/wordpress/vm-create-1.png)
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В поле **Имя** введите имя ВМ `wordpress`. Требования к имени:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть, в которой вы создали группу безопасности `wordpress`, и [подсеть](../../../vpc/concepts/network.md#subnet), к которой нужно подключить ВМ. Если подсети еще нет, [создайте](../../../vpc/operations/subnet-create.md) ее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `wordpress`.
 
-  1. Выберите зону доступности, в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [WordPress](../../../marketplace/products/yc/wordpress).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-     ![choose-image](../../../_assets/tutorials/wordpress/vm-create-3.png)
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **Вычислительные ресурсы**:
-     * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
-     * Укажите необходимое количество vCPU и объем RAM.
-
-     Для тестирования хватит минимальной конфигурации:
-     * **Платформа** — Intel Ice Lake.
-     * **vCPU** — 2.
-     * **Гарантированная доля vCPU** — 20%.
-     * **RAM** — 1 ГБ.
-  1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-  1. В пункте **Публичный адрес** выберите **Автоматически**.
-
-     ![choose-network](../../../_assets/tutorials/wordpress/vm-create-4.png)
-
-  1. В пункте **Группа безопасности** выберите группу `wordpress`.
-  1. Укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
-
-       Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо создать самостоятельно. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md).
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wordpress`.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете начать настраивать сайт.
 

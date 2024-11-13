@@ -175,7 +175,7 @@
 
 1. [Установите интерфейс командной строки](../../cli/operations/install-cli.md#interactive) {{ yandex-cloud }} (YC CLI).
 1. [Создайте профиль](../../cli/operations/profile/profile-create.md#create) для YC CLI.
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/#kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Проверьте доступность кластера {#check}
 

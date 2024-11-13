@@ -87,7 +87,7 @@ description: '{{ managed-prometheus-full-name }} — система монито
 
 ^1^ Если новые значения не поступают для метрики в течение 60 дней, она считается устаревшей и удаляется. Если новые значения поступают, время хранения метрики не ограничено.
 
-На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** справа находится блок **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}**. С помощью него можно:
+На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** > Воркспейс > **Общая информация** вы можете:
 
 * посмотреть количество записанных метрик;
 * перейти на страницу с сервисными [дашбордами](../../concepts/visualization/dashboard) и посмотреть количество запросов, ошибок и HTTP-статусов в секунду для разных эндпоинтов.

@@ -34,9 +34,9 @@ items:
             href: operations/activate-commercial.md
       - name: Managing payment methods
         items:
-          - name: Linking another bank card
+          - name: Link another bank card
             href: operations/pin-card.md
-          - name: Changing payment method
+          - name: Changing the payment method
             href: operations/change-payment-method.md
       - name: Cost optimization
         items:
@@ -52,15 +52,15 @@ items:
             href: operations/pay-the-bill.md
       - name: Analyzing {{ yandex-cloud }} service usage
         items:
-          - name: Viewing your payment history
+          - name: Viewing payment history
             href: operations/check-bill-history.md
           - name: Viewing usage details in the console
             href: operations/check-charges.md
           - name: Getting expense details by folder
             href: operations/get-folder-report.md
-          - name: Viewing details in {{ datalens-full-name }}
+          - name: Viewing usage details in {{ datalens-full-name }}
             href: operations/dashboard.md
-          - name: Searching for usage details with {{ yq-full-name }}
+          - name: Searching for usage details via {{ yq-full-name }}
             href: operations/query-integration.md
   - name: Concepts
     items:
@@ -70,7 +70,7 @@ items:
         href: concepts/promo-code.md
       - name: Billing threshold
         href: concepts/billing-threshold.md
-      - name: Billing account
+      - name: Billing accounts
         items:
           - name: Overview
             href: concepts/billing-account.md
@@ -112,7 +112,7 @@ items:
         items:
           - name: Billing cycle
             href: payment/billing-cycle-business.md
-          - name: Bank card
+          - name: Credit or debit card
             items:
               - name: Payment procedure
                 href: payment/payment-methods-card-business.md

@@ -89,8 +89,8 @@ description: Следуя данной инструкции, вы сможете
 
           1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md).
           1. Чтобы настроить внутренний IP-адрес виртуальной машины и защиту от DDoS-атак, разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
-              * `{{ ui-key.yacloud.common.label_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-              * `{{ ui-key.yacloud.common.label_list }}` — чтобы выбрать внутренний IP-адрес из списка зарезервированных заранее IP-адресов. При необходимости нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать внутренний IP-адрес в выбранной подсети.
+              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+              * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы вручную задать внутренний IP-адрес ВМ.
           1. При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}**, чтобы запустить процесс переноса ВМ в другую зону доступности.

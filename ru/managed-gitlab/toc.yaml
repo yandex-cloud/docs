@@ -37,7 +37,7 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Установка {{ GL }} Runner на виртуальной машине
+      - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-full-name }}
         href: tutorials/install-gitlab-runner.md
       - name: >-
           Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
