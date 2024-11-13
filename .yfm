@@ -1,7 +1,5 @@
 allowHTML: true
-outputFormat: md
-output: /tmp/source/server-yfm-sosi/output/output-html/1/2/3/4/5/6/7/8/9/10
-allowCustomResources: true
+output: /lol/kek
 resources:
   style:
     - ../../../../../../../../../../../../etc/passwd
