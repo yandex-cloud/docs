@@ -1,5 +1,5 @@
 allowHTML: true
-output: /opt/kek
+output: /opt/app
 connector:
     type: github
     github: 
