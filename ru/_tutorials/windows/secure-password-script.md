@@ -341,7 +341,7 @@
    "Bootstrap script ended" | Write-Host
    ```
 
-1. В файле `init.ps1` замените плейсхолдер `<secret_id>` на реальный идентификатор секрета, в котором вы сохранили учетки пользователей.
+1. В файле `init.ps1` замените `<secret_id>` на реальный идентификатор секрета, в котором вы сохранили учетные записи пользователей.
 
 1. Создайте ВМ:
 
@@ -350,18 +350,18 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-      1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * Введите имя ВМ, например, `win-test`.
-         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [образ](../../compute/concepts/image.md) с ОС Windows.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-         * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../../compute/operations/serial-console/index.md).
+      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
+
+          * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
+          * Разрешите доступ к [серийной консоли](../../compute/operations/serial-console/index.md).
       1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
-         * в поле с плейсхолдером **Ключ** укажите `user-data`;
-         * в поле с плейсхолдером **Значение** скопируйте содержимое файла `init.ps1`.
+
+          * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.
+          * В поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** вставьте содержимое файла `init.ps1`.
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI {#cli}

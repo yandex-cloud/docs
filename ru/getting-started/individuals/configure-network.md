@@ -35,12 +35,25 @@ description: Из статьи вы узнаете, как настроить б
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-    1. Укажите имя виртуальной машины: `web-node-a`.
-    1. Выберите зону доступности `{{ region-id }}-a`.
+    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [Drupal](https://yandex.cloud/ru/marketplace/products/f2e90bncf96u25a9cirp).
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
-    1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
+    1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+        * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `subnet-a`.
+        * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+
+            {% note alert %}
+
+            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+            {% endnote %}
+
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя виртуальной машины: `web-node-a`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
     1. Повторите операции для ВМ `web-node-b` и `web-node-d`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-d`, и подключите к подсетям `subnet-b` и `subnet-d` соответственно.
 
@@ -54,14 +67,27 @@ description: Из статьи вы узнаете, как настроить б
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-    1. Укажите имя виртуальной машины: `vpc`.
-    1. Выберите зону доступности `{{ region-id }}-a`.
+    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [IPSec-инстанс](https://yandex.cloud/ru/marketplace/products/f2e70ohdvsd0jgp2302j).
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите из списка зарезервированный IP-адрес.
-    1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
+    1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+        * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `subnet-a`.
+        * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и выберите из списка зарезервированный IP-адрес.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+
+            {% note alert %}
+
+            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+            {% endnote %}
+
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя виртуальной машины: `vpc`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    
+
 {% endlist %}
 
 ## Настройте маршрутизацию для VPN {#vpn-routing}

@@ -1612,9 +1612,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 24
           5|string: ₸24.00
         cpu|string: Free
         memory|pricingRate:
+          10|number: 16
           10|string: ₸16.00
         memory|string: Free
         provision_enabled:
@@ -1624,6 +1626,7 @@ default:
           cpu|string: ₸9.90
           memory|string: ₸6.60
       invocations|pricingRate:
+        1|number: 80
         1|string: ₸80.00
       invocations|string: Free
     functions:
@@ -2792,9 +2795,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 4.8
           5|string: ₽4.80
         cpu|string: Free
         memory|pricingRate:
+          10|number: 3.2
           10|string: ₽3.20
         memory|string: Free
         provision_enabled:
@@ -2804,6 +2809,7 @@ default:
           cpu|string: ₽1.98
           memory|string: ₽1.32
       invocations|pricingRate:
+        1|number: 16
         1|string: ₽16.00
       invocations|string: Free
     functions:
@@ -3940,9 +3946,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 0.0384
           5|string: $0.038400
         cpu|string: Free
         memory|pricingRate:
+          10|number: 0.0256
           10|string: $0.025600
         memory|string: Free
         provision_enabled:
@@ -3952,6 +3960,7 @@ default:
           cpu|string: $0.015840
           memory|string: $0.010560
       invocations|pricingRate:
+        1|number: 0.128
         1|string: $0.128000
       invocations|string: Free
     functions:
@@ -5443,9 +5452,24 @@ default:
           notification-channels: Notifications
           time-shift: Evaluation delay
       prometheus:
+        alert-manager:
+          config-action:
+            download: Download
+            replace: Replace file
+          upload-config: Upload a configuration file
         approved:
           widget-monitoring:
             title: Monitor writing progress
+        common:
+          action_code: File code
+          action_destroy: Delete
+          action_download: Download file
+          action_replace: Replace file
+        recording-rules:
+          action_add-file: Add file
+        tab:
+          alert-manager-key-value: Alert manager configuration
+          alerting-rules: Managing rules
       service:
         field:
           function: Aggregation function
@@ -5635,6 +5659,7 @@ default:
       marketplace_v2:
         common:
           menu_ticket: Ticket
+          page_action_send-to-moderating: Send for verification
           page_title_roles: Access management
         product:
           page_action_product-create: Add product
@@ -6538,6 +6563,7 @@ default:
             value_source-snapshot: Snapshot
           create:
             action_activate-backup: Connect
+            button_add-ssh-key: Add key
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
@@ -6565,6 +6591,7 @@ default:
             image_value_custom_new: Custom
             image_value_marketplace: Marketplace
             label_add-network-interface: Add network interface
+            placeholder_search_marketplace-product: Product search
             section_access: Access
             section_additional: Additional
             section_backup: Cloud Backup

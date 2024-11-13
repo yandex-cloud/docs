@@ -12,7 +12,7 @@ To get the list of available PublicConnection resources, make a [List](/docs/cic
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}
+GET https://cic-api.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}
 ```
 
 ## Path parameters

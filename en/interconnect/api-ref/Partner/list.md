@@ -10,7 +10,7 @@ Retrieves the list of Partner resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/partners
+GET https://cic-api.{{ api-host }}/cic/v1/partners
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPartnersRequest}

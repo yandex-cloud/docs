@@ -52,6 +52,8 @@ items:
                 href: workflows/api-ref/grpc/Execution/start.md
               - name: Stop
                 href: workflows/api-ref/grpc/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/grpc/Execution/terminate.md
               - name: Get
                 href: workflows/api-ref/grpc/Execution/get.md
               - name: GetHistory
@@ -94,6 +96,8 @@ items:
                 href: workflows/api-ref/Execution/start.md
               - name: Stop
                 href: workflows/api-ref/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/Execution/terminate.md
               - name: Get
                 href: workflows/api-ref/Execution/get.md
               - name: GetHistory

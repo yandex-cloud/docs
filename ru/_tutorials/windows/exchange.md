@@ -135,9 +135,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
@@ -146,16 +144,22 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Укажите необходимое количество vCPU и объем RAM:
-         * **vCPU** — 4.
-         * **Гарантированная доля vCPU** — 100%.
-         * **RAM** — 8 ГБ.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-  1. Нажмите кнопку **Создать ВМ**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `exchange-subnet-a`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ad-vm-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -195,9 +199,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
@@ -206,16 +208,23 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Укажите необходимое количество vCPU и объем RAM:
-         * **vCPU** — 2.
-         * **Гарантированная доля vCPU** — 100%.
-         * **RAM** — 4 ГБ.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного диска `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-d`. В поле **Публичный адрес** выберите вариант **Автоматически**.
-  1. Нажмите кнопку **Создать ВМ**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `exchange-subnet-d`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `fsw-vm`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -418,21 +427,35 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    - Консоль управления {#console}
 
-     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-     1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-a`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-     1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
-     1. В блоке **Диски** укажите размер загрузочного диска 100 ГБ.
-     1. Добавьте еще один SSD-диск размером 250 ГБ с именем `db-a`.
-     1. В блоке **Вычислительные ресурсы**:
-         * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Укажите необходимое количество vCPU и объем RAM:
-            * **vCPU** — 8.
-            * **Гарантированная доля vCPU** — 100%.
-            * **RAM** — 32 ГБ.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-     1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-     1. Нажмите кнопку **Создать ВМ**.
+         * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+         * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+         * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2016 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+         * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+         * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
+
+         * Задайте размер загрузочного [диска](../../compute/concepts/disk.md) `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** и добавьте еще один SSD-диск размером `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` с именем `db-a`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `32 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `exchange-subnet-a`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-exchange-a`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -502,21 +525,34 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    - Консоль управления {#console}
 
-     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-     1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-b`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
-     1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
-     1. В блоке **Диски** укажите размер загрузочного диска 100 ГБ.
-     1. Добавьте еще один SSD-диск размером 250 ГБ с именем `db-b`.
-     1. В блоке **Вычислительные ресурсы**:
-         * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Укажите необходимое количество vCPU и объем RAM:
-            * **vCPU** — 8.
-            * **Гарантированная доля vCPU** — 100%.
-            * **RAM** — 32 ГБ.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-     1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-b`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-     1. Нажмите кнопку **Создать ВМ**.
+         * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+         * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+         * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2016 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+         * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+         * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
+
+         * Задайте размер загрузочного [диска](../../compute/concepts/disk.md) `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** и добавьте еще один SSD-диск размером `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` с именем `db-b`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `32 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `exchange-subnet-b`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-exchange-b`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -834,20 +870,28 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `vm-edge-a`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
-  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Укажите необходимое количество vCPU и объем RAM:
-         * **vCPU** — 4.
-         * **Гарантированная доля vCPU** — 100%.
-         * **RAM** — 8 ГБ.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Автоматически** или выберите адрес из списка зарезервированных.
-  1. Нажмите кнопку **Создать ВМ**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2016 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `exchange-subnet-a`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и адрес из списка зарезервированных, если вы ранее зарезервировали публичный IP-адрес.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-edge-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -875,20 +919,28 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `vm-edge-b`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
-  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Укажите необходимое количество vCPU и объем RAM:
-         * **vCPU** — 4.
-         * **Гарантированная доля vCPU** — 100%.
-         * **RAM** — 8 ГБ.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-b`. В поле **Публичный адрес** выберите вариант **Автоматически** или выберите адрес из списка зарезервированных.
-  1. Нажмите кнопку **Создать ВМ**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2016 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `exchange-subnet-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и адрес из списка зарезервированных, если вы ранее зарезервировали публичный IP-адрес.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-edge-b`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 

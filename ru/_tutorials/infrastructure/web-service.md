@@ -90,7 +90,7 @@
 
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `subnet-1`. 
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Доступ через OS Login**, чтобы [подключаться](../../compute/operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [OS Login](../../organization/concepts/os-login.md) в {{ org-full-name }}.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**, чтобы [подключаться](../../compute/operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [OS Login](../../organization/concepts/os-login.md) в {{ org-full-name }}.
 
         Используя OS Login, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [YC CLI](../../cli/quickstart.md). OS Login позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
 
@@ -293,29 +293,11 @@
         * Выберите подсеть `subnet-a`.
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`. В открывшемся списке выберите зарезервированный IP-адрес.
         * Выберите группу безопасности `vpn-sg`.
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-        * Выберите вариант подключения **SSH-ключ**.
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** задайте имя пользователя.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-            {% note alert %}
-
-            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-
-            {% endnote %}
-
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
-
-            Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
-            * Нажмите кнопку **Добавить ключ**.
-            * Задайте имя SSH-ключа.
-            * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * Выберите срок действия ключа.
-            * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-            SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-            Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `vpn`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

@@ -11,7 +11,6 @@
 `DeleteAccessKey` | Удаление статического ключа
 `DeleteApiKey` | Удаление API-ключа
 `DeleteCertificate` | Удаление сертификата для федерации
-`DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `DeleteFederation` | Удаление федерации
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
 `DeleteServiceAccount` | Удаление сервисного аккаунта

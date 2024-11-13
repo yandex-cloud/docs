@@ -7,14 +7,15 @@ description: Следуя данному руководству, вы сможе
 
 {% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
 
-Правила алертинга позволяют создавать алерты на основе PromQL и отправлять уведомления об их срабатывании.
+Алертинг в {{ managed-prometheus-name }} позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. Настройка алертинга в {{ prometheus-name }} включает создание правил алертинга и настройку Alert manager для обработки и доставки уведомлений.
 
-В {{ managed-prometheus-name }} вы можете использовать ваши существующие файлы с правилами записи ([recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules)) и правилами алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)).
+## Требования к правилам алертинга {#rule-requirements}
+
+В {{ prometheus-name }} вы можете использовать ваши существующие файлы с правилами алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)) на основе PromQL.
 
 Для описания правил поддерживаются все поля из [спецификации](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) YAML-файла. Поддерживается [шаблонизация](https://prometheus.io/docs/prometheus/latest/configuration/template_examples/) аннотаций с помощью переменных `$value` и `$labels`. Итерации и функции не поддерживаются.
 
 В этом разделе описаны особенности работы с правилами алертинга и конфигурацией алерт-менеджера. Способы загрузки и работы с файлами см. в разделе [{#T}](./recording-rules.md).
-
 
 ## Алерт-менеджер
 
@@ -29,89 +30,136 @@ description: Следуя данному руководству, вы сможе
 
 Вы можете использовать правила алертинга, не загружая файл конфигурации. В этом случае они будут рассчитываться и создавать метрики `ALERTS` и `ALERTS_FOR_STATE`, но отправки уведомлений по алертам не будет.
 
-## Создать или заменить файл с правилами алертинга {#create}
+Вы можете управлять файлами с правилами записи через [консоль управления]({{ link-console-main }}) или API.
 
-1. Закодируйте содержимое файла в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+## Предварительная настройка для работы с API {#api-set}
 
-    ```bash
-    cat alerting-rule.yaml
+API представлен набором REST-ресурсов, которые находятся по адресу `https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules`. 
 
-    # groups:
-    #   - name: example
-    #     rules:
-    #     - record: example
-    #       expr: up
+Чтобы начать выполнять запросы:
 
-    base64 -i recording-rule.yaml
+1. Установите [cURL](https://curl.haxx.se/).
+1. [Аутентифицируйтесь](../../api-ref/authentication.md) в API.
+1. [Создайте воркспейс](index.md#access) и скопируйте его идентификатор, чтобы использовать в адресе запросов.
 
-    # Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg==
-    ```
+## Добавление и замена файла с правилами алертинга {#create}
 
-1. Сохраните результат в JSON-файл:
+{% list tabs group=instructions %}
 
-    **body.json**
+- Консоль управления {#console}
 
-    ```json
-    {
-        "name": "alerting-rules",
-        "content" : "Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg=="
-    }
-    ```
+   1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+   1. Выберите или создайте воркспейс.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**.
+   1. Если у вас еще нет загруженных файлов, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** и выберите файл `.yml` с правилами.
+   1. Чтобы добавить еще один файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
+   1. Чтобы заменить существующий файл, справа от него нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}**. 
 
-1. Создайте или замените файл с правилами записи:
+- API {#api}
 
-    ```bash
-    export IAM_TOKEN=<IAM-токен>
+   1. Закодируйте содержимое файла в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
-    ```
+       ```bash
+       cat alerting-rule.yaml
 
-Подробнее о вычислении правил см. в разделе [{#T}](./recording-rules.md).
+       # groups:
+       #   - name: example
+       #     rules:
+       #     - alert: HighRequestLatency
+       #       expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
+       #       for: 10m
+       #       labels:
+       #         severity: page
+       #       annotations:
+       #         summary: High request latency
 
-## Создать или заменить файл с конфигурацией алерт-менеджера {#alert-manager-create}
+       base64 -i alerting-rule.yaml
 
-1. Закодируйте содержимое файла в Base64 согласно RFC 4648:
+       # Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg==
+       ```
 
-    ```bash
-    cat alert-manager.yaml
+   1. Сохраните результат в JSON-файл:
 
-    # receivers:
-    #   - name: 'email'
-    #     email_configs:
-    #       - to: 'alerts@monitoring.org'
-    #   - name: 'telegram'
-    #     telegram_configs:
-    #     - api_url: https://api.telegram.org
+       **body.json**
 
-    base64 -i alert-manager.yaml
+       ```json
+       {
+           "name": "alerting-rules",
+           "content" : "Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg=="
+       }
+       ```
 
-    # cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg==
-    ```
+   1. Создайте или замените файл с правилами алертинга:
 
-1. Сохраните результат в JSON-файл:
+       ```bash
+       export IAM_TOKEN=<IAM-токен>
 
-    **body.json**
+       curl -X PUT \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer ${IAM_TOKEN}" \
+           -d "@body.json"  \
+           "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+       ```
 
-    ```json
-    {
-        "content" : "cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg=="
-    }
-    ```
+Подробнее о действиях с файлами и вычислении правил см. в разделе [{#T}](./recording-rules.md).
 
-1. Создайте или замените файл конфигурации:
+{% endlist %}
 
-    ```bash
-    export IAM_TOKEN=<IAM-токен>
+## Добавление и замена файла с конфигурацией алерт-менеджера {#alert-manager-create}
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/alertmanager"
-    ```
+{% list tabs group=instructions %}
 
-В случае успешного запроса будет возвращен HTTP-код `204`, иначе — текст ошибки. Файл, в котором не удалось найти ни одного соответствия текущим каналам уведомлений в каталоге, не будет принят.
+- Консоль управления {#console}
+
+   1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+   1. Выберите или создайте воркспейс.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alert-manager-key-value }}**.
+   1. Если у вас еще нет загруженного файла конфигурации, нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** и выберите файл `.yml`.
+   1. Чтобы скачать файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.download }}**.
+   1. Чтобы заменить файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.replace }}**. 
+
+- API {#api}
+
+   1. Закодируйте содержимое файла в Base64 согласно RFC 4648:
+
+       ```bash
+       cat alert-manager.yaml
+
+       # receivers:
+       #   - name: 'email'
+       #     email_configs:
+       #       - to: 'alerts@monitoring.org'
+       #   - name: 'telegram'
+       #     telegram_configs:
+       #     - api_url: https://api.telegram.org
+
+       base64 -i alert-manager.yaml
+
+       # cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg==
+       ```
+
+   1. Сохраните результат в JSON-файл:
+
+       **body.json**
+
+       ```json
+       {
+           "content" : "cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg=="
+       }
+       ```
+
+   1. Создайте или замените файл конфигурации:
+
+       ```bash
+       export IAM_TOKEN=<IAM-токен>
+
+       curl -X PUT \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer ${IAM_TOKEN}" \
+           -d "@body.json"  \
+           "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/alertmanager"
+       ```
+
+   В случае успешного запроса будет возвращен HTTP-код `204`, иначе — текст ошибки. Файл, в котором не удалось найти ни одного соответствия текущим каналам уведомлений в каталоге, не будет принят.
+
+{% endlist %}

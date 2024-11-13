@@ -33,36 +33,37 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
-  1. В блоке **Диски** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `SSD` и укажите размер — 40 ГБ.
-  1. Нажмите **Добавить диск**, чтобы добавить дополнительный диск.
-     1. Задайте имя диска.
-     1. Выберите тип `HDD`.
-     1. Укажите размер — 90 ГБ.
-     1. Нажмите **Добавить**.
-  1. В блоке **Вычислительные ресурсы**:
-     * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-     * Укажите необходимое количество vCPU и объем RAM:
-       * **vCPU** — 2.
-       * **Гарантированная доля vCPU** — 100%.
-       * **RAM** — 8 ГБ.
-  1. В блоке **Сетевые настройки**:
-     * Укажите идентификатор [подсети](../../vpc/concepts/network.md#subnet) или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
 
-       Если сети нет, нажмите **Создать сеть** и создайте ее:
-       * В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
-       * Вы можете выбрать функцию **Создать подсети** для автоматического создания подсетей.
-       * Нажмите **Создать**.
+      * Выберите [тип](../../compute/concepts/disk.md#disks_types) загрузочного диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` и задайте размер `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Создайте дополнительный диск:
+          * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+          * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+          * Задайте размер `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
+          * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-       У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав **Добавить подсеть**.
-     * В поле **Публичный адрес** выберите способ назначения адреса **Автоматически**.
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** введите открытую часть [SSH-ключа](../../glossary/ssh-keygen.md). Создать пару SSH-ключей для подключения к ВМ можно по [инструкции](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-  1. Нажмите **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.     
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
  {% endlist %} 
 
