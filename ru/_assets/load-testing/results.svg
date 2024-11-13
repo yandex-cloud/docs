@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true" class="yc-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-        <path d="M15.625 12c.206 0 .375.169.375.375v1.25a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 13.625V2.375C0 2.169.169 2 .375 2h1.25c.206 0 .375.169.375.375V12h13.625z"/>
-        <path d="m6 7.5 5.647-4.562a.375.375 0 0 1 .544.146L15 10.954H3v-5.08a.2.2 0 0 1 .31-.167L6 7.5z"/>
-    </svg>
-</svg>

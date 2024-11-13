@@ -1,5 +1,0 @@
-{% list tabs %}
-
-
-
-{% endlist %}

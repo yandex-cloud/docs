@@ -1,3 +1,0 @@
-После того как ВМ будет запущена (в статусе `RUNNING`), вы можете подключиться к ней по протоколу SSH. Для этого используйте утилиту `ssh` в Linux, macOS и Windows 10/11 или программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) в Windows 7/8.
-
-Для подключения необходимо указать адрес ВМ. Это может быть ее [IP-адрес](../vpc/concepts/address.md) или [FQDN](../vpc/concepts/address.md#fqdn). Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же [виртуальной сети](../vpc/concepts/network.md#network). IP-адрес для подключения можно узнать в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.

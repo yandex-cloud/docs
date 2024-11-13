@@ -1,1 +1,0 @@
-Для установки AWS SDK для JAVA воспользуйтесь [инструкцией](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html) на сайте производителя.

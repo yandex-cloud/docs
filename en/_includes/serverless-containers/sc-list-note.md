@@ -1,1 +1,0 @@
-To find out the name or unique ID of a container, [get](../../serverless-containers/operations/list.md) a list of containers in the folder.

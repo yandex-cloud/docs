@@ -1,1 +1,0 @@
-The [technical support service plan](../../support/pricing.md) applies at the organization level and can only be changed by the organization owner. You can use a single billing account to pay the fixed support fees across multiple organizations that may have different support service plans activated.

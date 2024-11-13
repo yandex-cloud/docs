@@ -1,1 +1,0 @@
-Домены находятся на стадии [Preview](../../overview/concepts/launch-stages.md).

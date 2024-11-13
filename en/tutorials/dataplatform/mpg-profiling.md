@@ -1,1 +1,0 @@
-{% include [profiling](../../_tutorials/dataplatform/mpg-profiling.md) %}

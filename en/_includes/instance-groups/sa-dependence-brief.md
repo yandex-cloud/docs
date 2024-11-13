@@ -1,1 +1,0 @@
-You cannot delete a service account while it is linked to an instance group.

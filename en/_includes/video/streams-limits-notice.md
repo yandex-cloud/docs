@@ -1,1 +1,0 @@
-The service [limits](../../video/concepts/limits.md) the duration and number of simultaneous broadcasts.

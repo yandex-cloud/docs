@@ -1,1 +1,0 @@
-В {{ cloud-desktop-name }} управление доступом реализовано с помощью [разграничения ролей {{ iam-full-name }}](../../cloud-desktop/security/index.md) и [списков управления доступом (ACL)](../../cloud-desktop/concepts/acl.md). См. [пример использования механизмов доступа](../../cloud-desktop/concepts/acl.md#example).

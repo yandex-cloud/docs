@@ -1,1 +1,0 @@
-To find out the name or unique ID of a trigger, [get](../../serverless-containers/operations/trigger-list.md) a list of triggers in the folder.

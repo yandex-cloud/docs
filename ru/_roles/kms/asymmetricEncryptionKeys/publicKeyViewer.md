@@ -1,1 +1,0 @@
-Роль `kms.asymmetricEncryptionKeys.publicKeyViewer` позволяет просматривать информацию об [асимметричных ключевых парах шифрования](../../../kms/concepts/asymmetric-encryption-key.md), а также получать [открытый ключ](../../../kms/concepts/asymmetric-encryption.md#acquire-public-key) ключевой пары шифрования.

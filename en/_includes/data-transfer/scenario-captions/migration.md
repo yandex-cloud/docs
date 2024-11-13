@@ -1,1 +1,0 @@
-Migration: Moving data from one storage to another. Migration often means migrating a database from obsolete local databases to managed cloud ones.

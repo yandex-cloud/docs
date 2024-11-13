@@ -1,1 +1,0 @@
-{% include [http-route](../../_includes/managed-kubernetes/alb-ref/http-route.md) %}

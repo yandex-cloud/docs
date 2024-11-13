@@ -1,2 +1,0 @@
-* через три минуты после передачи последнего пакета в любом направлении;
-* для TCP-соединения — через короткое время после получения пакета [RST](https://ru.wikipedia.org/wiki/Атака_TCP_Reset) или пакета с [флагом FIN](https://ru.wikipedia.org/wiki/Transmission_Control_Protocol).

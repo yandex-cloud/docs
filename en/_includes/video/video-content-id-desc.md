@@ -1,1 +1,0 @@
-Where `https://runtime.video.cloud.yandex.net/player/...` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`. For more information, see [{#T}](../../video/operations/video/get-link.md) and [{#T}](../../video/operations/streams/get-link.md).

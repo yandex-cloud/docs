@@ -1,1 +1,0 @@
-_{{ CH }} is a registered trademark of [ClickHouse, Inc](https://clickhouse.com)._

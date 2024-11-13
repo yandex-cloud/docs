@@ -1,6 +1,0 @@
-State | Description | Suggested actions
-:--- | :--- | :---
-**ALIVE** | Cluster is operating normally. | No action is required.
-**DEGRADED** | Cluster is not running at its full capacity: the state of at least one of the hosts is other than `ALIVE`. | Run the diagnostics:<ul><li>Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab and see which hosts are not working.</li><li>Go to the **{{ ui-key.yacloud.common.operations-key-value }}** tab and make sure all operations are completed.</li><li>Make sure the cluster is not under maintenance.</li></ul>If you cannot find the cause yourself, [contact support]({{ link-console-support }}).
-**DEAD** | The cluster is down: none of its hosts are running. | [Make a support request]({{ link-console-support }}) stating the following:<ul><li>Cluster ID.</li><li>IDs of the last operations performed on it.</li><li>Time the cluster entered the `DEAD` state according to the [availability charts](#monitoring-cluster).</li></ul>
-**UNKNOWN** | Cluster state is unknown. | [Make a support request]({{ link-console-support }}) stating the following:<ul><li>Cluster ID.</li><li>IDs of the last operations performed on it.</li><li>Time the cluster entered the `UNKNOWN` state according to the [availability charts](#monitoring-cluster).</li></ul>

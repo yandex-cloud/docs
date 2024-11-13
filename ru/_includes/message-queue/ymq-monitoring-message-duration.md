@@ -1,2 +1,0 @@
-Рассчитывается как разница между временем получения сообщения с помощью [ReceiveMessage](../../message-queue/api-ref/message/ReceiveMessage) и его удаления с помощью [DeleteMessage](../../message-queue/api-ref/message/DeleteMessage) или [DeleteMessageBatch](../../message-queue/api-ref/message/DeleteMessageBatch).
-Отображается в перцентилях. Линии на графике соответствуют процентам сообщений с самым быстрым временем обработки: 50%, 90%, 95% и 99%.

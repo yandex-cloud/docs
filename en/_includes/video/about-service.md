@@ -1,1 +1,0 @@
-{{ video-full-name }} is a video streaming and hosting service. You can use service [channels](../../video/concepts/index.md#channels) to upload, store, and process your videos to then post them on external resources or launch online broadcasts. Broadcasts and videos are played in an integrated [video player](../../video/concepts/player.md).

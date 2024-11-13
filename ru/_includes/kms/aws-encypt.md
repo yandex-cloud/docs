@@ -1,1 +1,0 @@
-О том, как шифровать и расшифровывать данные с помощью [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) читайте в разделе [{#T}](../../kms/tutorials/encrypt/aws-encryption-sdk.md).

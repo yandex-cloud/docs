@@ -1,1 +1,0 @@
-Меткой {{ tag-preview }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).

@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.native_port.title }}** — укажите номер нативного порта, который сервис {{ data-transfer-name }} будет использовать для подключения.

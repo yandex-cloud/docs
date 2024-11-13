@@ -1,1 +1,0 @@
-Go to [**{{ billing-name }}**]({{ link-console-billing }}).

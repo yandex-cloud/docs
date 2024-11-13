@@ -1,1 +1,0 @@
-In public Linux images provided by {{ yandex-cloud }}, the functionality of connecting over SSH using login and password is disabled by default.

@@ -1,1 +1,0 @@
-To create a VM instance from an existing boot disk, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and select the boot disk you need. To update its settings, click ![image](../../../_assets/console-icons/pencil.svg) next to the disk name.
