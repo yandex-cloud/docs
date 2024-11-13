@@ -82,33 +82,32 @@
 - Консоль управления {#console}
 
   1. [Зарезервируйте](../../vpc/operations/get-static-ip.md) публичный IP-адрес для вашего VPN-сервера.
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Укажите имя виртуальной машины: `vpn-server`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создан VPN-шлюз. Например: `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер диска — `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenVPN Access Server` и выберите публичный образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), например: `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}` и задайте размер `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-
+  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Выберите созданную ранее сеть `my-1c-network` и подсеть, соответствующую выбранной зоне доступности ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `my-1c-network` и подсеть, соответствующую выбранной зоне доступности ВМ.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и зарезервированный ранее публичный IP-адрес из списка.
 
           При настройке VPN-сервера используйте только статический публичный IP-адрес. Динамический IP-адрес может измениться после перезагрузки ВМ, и соединения перестанут работать.
 
       * Поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** оставьте пустым. Создаваемой виртуальной машине будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя ВМ. Например: `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-          Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vpn-server`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Появится окно с информацией о типе тарификации: BYOL (Bring Your Own License). Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -152,14 +151,10 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-
-      * Введите имя ВМ: `server-1c`.
-      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой расположен созданный ранее VPN-сервер.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `CentOS 7` и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой расположен ранее созданный VPN-сервер.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
@@ -168,15 +163,18 @@
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Выберите созданную ранее сеть `my-1c-network` и подсеть, соответствующую выбранной зоне доступности ВМ.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `my-1c-network` и подсеть, соответствующую выбранной зоне доступности ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}.
 
           Публичный адрес потребуется виртуальной машине для настройки программного обеспечения. После завершения настройки ПО вы отвяжете публичный IP-адрес от ВМ, а доступ к ней будет осуществляться через сервер OpenVPN.
       * Поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, оставьте пустым. Создаваемой виртуальной машине будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя ВМ. Например: `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `server-1c`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}

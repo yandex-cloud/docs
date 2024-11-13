@@ -8,6 +8,7 @@
 `CreateOrganization` | Создание организации
 `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
 `CreateUserSshKey` | Создание SSH-ключа пользователя
+`DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `DeleteInvitation` | Удаление приглашения
 `DeleteGroup` | Удаление группы пользователей
 `DeleteMembership` | Удаление пользователя из организации

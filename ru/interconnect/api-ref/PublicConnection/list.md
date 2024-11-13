@@ -10,7 +10,7 @@ Retrieves the list of PublicConnection resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/publicConnections
+GET https://cic-api.{{ api-host }}/cic/v1/publicConnections
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPublicConnectionsRequest}

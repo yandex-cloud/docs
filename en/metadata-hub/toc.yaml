@@ -72,6 +72,10 @@ items:
           Transferring data between {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: tutorials/metastore-import.md
+      - name: >-
+          Transferring logs from {{ metastore-name }} to {{ cloud-logging-name
+          }}
+        href: tutorials/metastore-logging.md
   - name: Concepts
     items:
       - name: About {{ metadata-hub-full-name }}

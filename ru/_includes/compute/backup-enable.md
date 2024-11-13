@@ -1,2 +1,0 @@
-1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-1. (опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](../../backup/operations/policy-vm/create.md) новую политику.

@@ -18,24 +18,24 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Введите имя и описание ВМ. Требования к имени:
-
-        {% include [name-format](../../_includes/name-format.md) %}
-
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [операционную систему, поддерживаемую в {{ backup-name }}](../concepts/vm-connection.md#windows).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
       1. Выберите подсеть, соответствующую выбранной зоне доступности.
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Выберите группу безопасности, настроенную для работы с {{ backup-name }}.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите сервисный аккаунт с ролью `backup.editor`.
+      1. Выберите [группу безопасности](../../vpc/concepts/security-groups.md), настроенную для работы с {{ backup-name }}.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ и описание ВМ. Требования к имени:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+      1. Выберите сервисный аккаунт с ролью `backup.editor`.
+      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. (опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](./policy-vm/create.md) новую политику.
 
   1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

@@ -82,28 +82,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать облачную сеть.
-  1. На [странице каталога]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В блоке **Базовые параметры**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Введите имя `ao-openvpn-test` и описание ВМ.
-      * Выберите зону доступности, в которой находится подсеть `ovpn-left`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `ovpn-network` и подсеть `ovpn-left`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}**:
 
-  1. В блоке **Выбор образа/загрузочного диска** выберите образ для ВМ.
+          * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+          * В появившемся поле для ввода укажите `10.128.0.4`.
 
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-      * Укажите сеть `ovpn-network` и подсеть `ovpn-left`.
-      * В поле **Публичный адрес** выберите **Без адреса**.
-      * В поле **Внутренний адрес** выберите **Вручную** и укажите адрес `10.128.0.4`.
-   
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-     * В поле **Логин** введите имя пользователя [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-     * В поле **SSH-ключ** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Нажмите кнопку **Создать ВМ**.
-
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ao-openvpn-test`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Повторите шаги 1-7 для создания второй ВМ с именем `vm-ovpn-host` и внутренним адресом `10.253.11.110`, которая будет размещена в подсети `ovpn-right`.
 
 {% endlist %}
@@ -114,30 +111,26 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать облачную сеть.
-  1. На [странице каталога]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В блоке **Базовые параметры**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-right`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Введите имя `vm-ovpn-gw` и описание ВМ.
-      * Выберите зону доступности, в которой находится подсеть `ovpn-right`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `ovpn-network` и подсеть `ovpn-right`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-  1. В блоке **Выбор образа/загрузочного диска** выберите образ для ВМ.
+          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
 
-  1. В блоке **Сетевые настройки**:
+      * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * В появившемся поле для ввода укажите `10.253.11.19`.
 
-      * Укажите сеть `ovpn-network` и подсеть `ovpn-right`.
-      * В поле **Публичный адрес** выберите **Вручную** или **Автоматически**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-        Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-      * В поле **Внутренний адрес** выберите **Вручную** и укажите адрес `10.253.11.19`.
-
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-
-     * В поле **Логин** введите имя пользователя [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-     * В поле **SSH-ключ** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-ovpn-gw`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
@@ -149,46 +142,36 @@
 
 - Консоль управления {#console}
 
-  1. На [странице каталога]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-  1. В блоке **Базовые параметры**:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-     * Введите имя `vpn-server` и описание ВМ.
-     * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. В блоке **Выбор образа/загрузочного диска**:
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `ovpn-network` и подсеть `ovpn-left`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-     * Перейдите на вкладку **{{ marketplace-name }}**.
-     * Нажмите кнопку **Посмотреть больше**.
-     * В списке публичных образов выберите [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) и нажмите **Использовать**.
+          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
 
-  1. В блоке **Диски** укажите размер диска — 10 ГБ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если оставить поле пустым, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
+      * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * В появившемся поле для ввода укажите `10.128.0.3`.
 
-  1. В блоке **Вычислительные ресурсы** укажите:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-     * vCPU — 2.
-     * RAM — 2 ГБ.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **Сетевые настройки**:
-
-     * Укажите сеть `ovpn-network` и подсеть `ovpn-left`. 
-     * В поле **Публичный адрес** выберите **Вручную** или **Автоматически**.
-
-       Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
-
-     * В поле **Внутренний адрес** выберите **Вручную** и укажите адрес `10.128.0.3`.
-
-     * Если доступен список **Группы безопасности**, выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если оставить поле пустым, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
-
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-
-     * В поле **Логин** введите имя пользователя [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-     * В поле **SSH-ключ** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Нажмите кнопку **Создать ВМ**.
-
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vpn-server`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Появится окно с информацией о типе тарификации: BYOL (Bring Your Own License).
-
   1. Нажмите **Создать**.
 
 {% endlist %}

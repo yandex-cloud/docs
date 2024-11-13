@@ -202,38 +202,34 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ — `usergate-firewall`.
-  1. Выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
-  1. В блоке **Вычислительные ресурсы**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `UserGate NGFW` и выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     * Выберите [платформу](../../compute/concepts/vm-platforms.md) Intel Ice Lake.
-     * Укажите необходимое количество vCPU и объем RAM:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-       * **vCPU** — 4.
-       * **Гарантированная доля vCPU** — 100%.
-       * **RAM** — 8 ГБ.
+      {% note info %}
 
-       {% note info %}
+      Указанные параметры подойдут для функционального тестирования шлюза. Чтобы рассчитать параметры для более серьезной нагрузки, ознакомьтесь с [официальными рекомендациями](https://www.usergate.com/ru/products/usergate-vm) UserGate.
 
-       Указанные параметры подойдут для функционального тестирования шлюза. Чтобы рассчитать параметры для более серьезной нагрузки, ознакомьтесь с [официальными рекомендациями](https://www.usergate.com/ru/products/usergate-vm) UserGate.
+      {% endnote %}
 
-       {% endnote %}
-   
-  1. В блоке **Сетевые настройки**:
-  
-     * Выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
-     * В поле **Публичный адрес** выберите из списка зарезервированный ранее IP-адрес.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** нажмите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и выберите [зарезервированный ранее](#get-static-ip) IP-адрес.
 
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `usergate-firewall`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    
 - CLI {#cli}
   
@@ -428,7 +424,7 @@
 Вы можете добавить и другие правила для фильтрации трафика. Не рекомендуется совмещать сервисы и приложения в одном правиле. В этом случае правило может не сработать.
 
 
-## Настройте маршрутизацию для подсети {#subnet-routing}.
+## Настройте маршрутизацию для подсети {#subnet-routing}
 
 Создайте [статический маршрут](../../vpc/concepts/routing.md):
 

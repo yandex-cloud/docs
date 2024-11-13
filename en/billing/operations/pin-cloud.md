@@ -9,7 +9,7 @@ description: Follow this guide to link a cloud to a billing account.
 
 ## Requirements for linking a cloud {#bind-roles}
 
-Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure that the [billing account](../concepts/billing-account.md) has been activated (has the `ACTIVE` or `TRIAL_ACTIVE` [status](../concepts/billing-account-statuses.md) and that the user has all of the following [roles](../../iam/concepts/access-control/roles.md):
+Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure that the [billing account](../concepts/billing-account.md) has been activated (has the `ACTIVE` or `TRIAL_ACTIVE` [status](../concepts/billing-account-statuses.md) and the user has all of the following [roles](../../iam/concepts/access-control/roles.md):
 * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the cloud.
 * `billing.accounts.owner` or `editor` for the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
 
@@ -22,12 +22,12 @@ To link a cloud to a billing account or change the billing account a cloud is li
 - {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select a billing account to link the cloud to.
+  1. Select the billing account you want to link the cloud to.
   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
   1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_bind-cloud }}**.
   1. Select the cloud from the list.
   1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** and the added cloud will appear on the list.
-  1. If you are changing the cloud’s billing account, pay any outstanding charges on the old billing account.
+  1. If you are changing the billing account of the cloud, pay any outstanding charges on your previous billing account.
 
 - {{ TF }} {#tf}
 

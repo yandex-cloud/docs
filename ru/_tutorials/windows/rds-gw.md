@@ -199,9 +199,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 - Консоль управления {#console}
 
-     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-     1. В поле **Имя** введите имя виртуальной машины: `my-rds-gw`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
          * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
@@ -209,16 +207,21 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
          * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
          * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
          * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
-     1. В блоке **Вычислительные ресурсы**:
-         * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Укажите необходимое количество vCPU и объем RAM:
-             * **vCPU** — 2
-             * **Гарантированная доля vCPU** — 100%
-             * **RAM** — 4 ГБ
-     1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `rdgw-network`. Выберите подсеть `rdgw-subnet`. В блоке **Публичный адрес** выберите вариант **Автоматически**. Выберите группу безопасности `my-rdgw-sg`.
-     1. Нажмите кнопку **Создать ВМ**.
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `rdgw-network` и подсеть `rdgw-subnet`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `my-rdgw-sg`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-rds-gw`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -394,12 +397,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 1. Создайте ВМ без доступа в интернет, к которой вы будете подключаться во время проверки. 
 
     {% list tabs group=instructions %}
-    
+
     - Консоль управления {#console}
-    
-        1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-        1. В поле **Имя** введите имя виртуальной машины: `test-vm`.
-        1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+
+        1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
         1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
             * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
@@ -407,16 +408,20 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
             * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
             * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
             * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+        1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного диска `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-        1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
-        1. В блоке **Вычислительные ресурсы**:
-            * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-            * Укажите необходимое количество vCPU и объем RAM:
-                * **vCPU** — 2
-                * **Гарантированная доля vCPU** — 100%
-                * **RAM** — 4 ГБ
-        1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `rdgw-network`. Выберите подсеть `rdgw-subnet`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
-        1. Нажмите кнопку **Создать ВМ**.
+            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `rdgw-network` и подсеть `rdgw-subnet`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
         {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 

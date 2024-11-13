@@ -47,7 +47,9 @@ NVIDIA® A100, построенная на базе микроархитекту
 NVIDIA® Tesla® T4, построенная на базе архитектуры [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf), использует тензорные ядра Turing и ядра RT, предоставляет 16 ГБ памяти GDDR6 с [пропускной способностью 300 ГБ/с](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 
+### T4i {#t4i}
 
+T4i использует тензорные ядра и предоставляет 24 ГБ памяти GDDR6 с пропускной способностью 300 ГБ/с.
 
 
 ### Конфигурации виртуальных машин {#config}
@@ -98,6 +100,15 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
   1 | 16 | 16 | 64
   1 | 16 | 32 | 128
 
+
+* Платформа {{ t4i-ice-lake }} (`standard-v3-t4i`):
+
+  Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
+  --- | --- | --- | ---
+  1 | 24 | 4 | 16
+  1 | 24 | 8 | 32
+  1 | 24 | 16 | 64
+  1 | 24 | 32 | 128
 
 
 

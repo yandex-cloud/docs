@@ -12,7 +12,7 @@ To get the list of available TrunkConnection resources, make a [List](/docs/cic/
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
+GET https://cic-api.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
 ```
 
 ## Path parameters

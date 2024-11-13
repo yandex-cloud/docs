@@ -10,7 +10,7 @@ Retrieves the list of TrunkConnection resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections
+GET https://cic-api.{{ api-host }}/cic/v1/trunkConnections
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListTrunkConnectionsRequest}

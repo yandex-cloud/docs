@@ -720,6 +720,7 @@ default:
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
@@ -1618,9 +1619,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 24
           5|string: "24,00\_₸"
         cpu|string: Не тарифицируется
         memory|pricingRate:
+          10|number: 16
           10|string: "16,00\_₸"
         memory|string: Не тарифицируется
         provision_enabled:
@@ -1630,6 +1633,7 @@ default:
           cpu|string: "9,90\_₸"
           memory|string: "6,60\_₸"
       invocations|pricingRate:
+        1|number: 80
         1|string: "80,00\_₸"
       invocations|string: Не тарифицируется
     functions:
@@ -2798,9 +2802,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 4.8
           5|string: "4,80\_₽"
         cpu|string: Не тарифицируется
         memory|pricingRate:
+          10|number: 3.2
           10|string: "3,20\_₽"
         memory|string: Не тарифицируется
         provision_enabled:
@@ -2810,6 +2816,7 @@ default:
           cpu|string: "1,98\_₽"
           memory|string: "1,32\_₽"
       invocations|pricingRate:
+        1|number: 16
         1|string: "16,00\_₽"
       invocations|string: Не тарифицируется
     functions:
@@ -3946,9 +3953,11 @@ default:
     containers:
       compute:
         cpu|pricingRate:
+          5|number: 0.0384
           5|string: "0,038400\_$"
         cpu|string: Не тарифицируется
         memory|pricingRate:
+          10|number: 0.0256
           10|string: "0,025600\_$"
         memory|string: Не тарифицируется
         provision_enabled:
@@ -3958,6 +3967,7 @@ default:
           cpu|string: "0,015840\_$"
           memory|string: "0,010560\_$"
       invocations|pricingRate:
+        1|number: 0.128
         1|string: "0,128000\_$"
       invocations|string: Не тарифицируется
     functions:
@@ -5451,9 +5461,24 @@ default:
           notification-channels: Уведомления
           time-shift: Задержка вычисления
       prometheus:
+        alert-manager:
+          config-action:
+            download: Скачать
+            replace: Заменить файл
+          upload-config: Загрузить файл конфигурации
         approved:
           widget-monitoring:
             title: Мониторить процесс записи
+        common:
+          action_code: Код файла
+          action_destroy: Удалить
+          action_download: Скачать файл
+          action_replace: Заменить файл
+        recording-rules:
+          action_add-file: Добавить файл
+        tab:
+          alert-manager-key-value: Конфигурация Alert manager
+          alerting-rules: Управление правилами
       service:
         field:
           function: Функция агрегации
@@ -5643,6 +5668,7 @@ default:
       marketplace_v2:
         common:
           menu_ticket: Тикет заявки
+          page_action_send-to-moderating: Отправить на проверку
           page_title_roles: Управление доступом
         product:
           page_action_product-create: Добавить продукт
@@ -6546,6 +6572,7 @@ default:
             value_source-snapshot: Снимок
           create:
             action_activate-backup: Подключить
+            button_add-ssh-key: Добавить ключ
             button_create: Создать ВМ
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
@@ -6575,6 +6602,7 @@ default:
             image_value_custom_new: Пользовательский
             image_value_marketplace: Marketplace
             label_add-network-interface: Добавить сетевой интерфейс
+            placeholder_search_marketplace-product: Поиск продукта
             section_access: Доступ
             section_additional: Дополнительно
             section_backup: Cloud Backup

@@ -12,7 +12,7 @@ To get the list of available PrivateConnection resources, make a [List](/docs/ci
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+GET https://cic-api.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
 ```
 
 ## Path parameters

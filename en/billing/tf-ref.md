@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ billing-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/datasource_billing_cloud_binding) | Information about linking a [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) to a [billing account](./concepts/billing-account.md) |
+| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/billing_cloud_binding) | Information about linking a [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) to a [billing account](./concepts/billing-account.md) |

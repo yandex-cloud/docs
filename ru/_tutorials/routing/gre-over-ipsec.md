@@ -140,30 +140,36 @@
 
 ## Создайте две виртуальные машины с Cisco Cloud Services Router {#create-routers}
 
-### Создайте первую ВМ с Cisco Cloud Services Router
+### Создайте первую ВМ с Cisco Cloud Services Router {#create-first-vm}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-a`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. Укажите имя ВМ, например `cisco-router-a`.
-   1. В списке **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите опцию **{{ region-id }}-a**.
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
-      * Укажите необходимое количество vCPU и объем RAM:
-        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить ВМ. 
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа, [созданного ранее](#create-ssh-keys).
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cisco CSR` и выберите публичный образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cisco-router-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы сможете пользоваться серийной консолью.
 
@@ -301,7 +307,7 @@
    Если все настроено верно, вы зайдете на роутер под именем `test-user`. Если соединение не устанавливается, убедитесь, что настройка роутера в серийной консоли выполнена верно: выполнена команда `aaa new-model`, хэши ключей на вашем компьютере и роутере совпадают, авторизация по паролю у тестового пользователя выключена. Если обнаружить проблему не получается, повторите шаги из предыдущих пунктов. 
 1. Перейдите в режим привилегированного пользователя. Для этого введите команду `enable` и пароль. Если все настроено верно, вы сможете конфигурировать роутер.
 
-### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#test-ssh}
+### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#create-second-vm}
 
 1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-b**.
 1. Настройте ВМ так же, как ВМ `cisco-router-a`.
