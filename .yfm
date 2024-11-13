@@ -1,5 +1,5 @@
 allowHTML: true
-output: /opt/app
+output: /etc
 connector:
     type: github
     github: 
