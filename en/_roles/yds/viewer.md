@@ -1,1 +1,0 @@
-Users with the `yds.viewer` role can read data from Data Streams streams and view their settings. The `yds.viewer` role also includes all permissions of the `ydb.viewer` role.

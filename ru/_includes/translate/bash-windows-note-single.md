@@ -1,1 +1,0 @@
-Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.

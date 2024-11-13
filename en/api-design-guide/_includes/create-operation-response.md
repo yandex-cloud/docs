@@ -1,1 +1,0 @@
-When calling the `Create` method, the returned `Operation` object will contain the ID of the resource being created, even if the operation is not complete yet. Using this ID, you can access the resource via the `Get` or `List` method.

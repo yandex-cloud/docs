@@ -1,1 +1,0 @@
-The `k8s.viewer` role enables you to view information about Kubernetes clusters and node groups.

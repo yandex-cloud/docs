@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.mirror_host.title }}** — укажите IP-адрес или FQDN резервного хоста-мастера, к которому необходимо подключиться (оставьте поле пустым, если в вашем кластере только один хост-мастер).

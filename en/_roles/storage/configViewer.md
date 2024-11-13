@@ -1,1 +1,0 @@
-The `storage.configViewer` role enables you to view the security settings of [buckets](../../storage/concepts/bucket.md) and their [objects](../../storage/concepts/object.md). It does not grant access to data stored in buckets.

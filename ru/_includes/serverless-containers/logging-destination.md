@@ -1,1 +1,0 @@
-Если в параметрах ревизии контейнера не указана пользовательская [лог-группа](../../logging/concepts/log-group.md) или логирование не отключено, контейнер автоматически пишет все [логи](../../serverless-containers/concepts/logs.md) в лог-группу по умолчанию для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором он находится.

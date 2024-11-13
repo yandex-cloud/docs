@@ -1,1 +1,0 @@
-The `data-sphere.admin` role is no longer available.

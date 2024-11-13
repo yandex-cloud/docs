@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}** — будут передаваться данные только из перечисленных коллекций. По умолчанию передаются все коллекции.

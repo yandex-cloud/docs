@@ -1,1 +1,0 @@
-{% include [incoming-and-outcoming-traffic-logs](../../compute/how-to/incoming-and-outcoming-traffic-logs.md) %}

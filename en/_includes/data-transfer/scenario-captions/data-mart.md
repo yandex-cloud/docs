@@ -1,1 +1,0 @@
-Uploading data to data marts is a process of transferring prepared data to storage for subsequent visualization.

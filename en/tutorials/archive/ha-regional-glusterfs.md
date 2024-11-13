@@ -1,1 +1,0 @@
-{% include [ha-regional-glusterfs](../../_tutorials/archive/ha-regional-glusterfs.md) %}

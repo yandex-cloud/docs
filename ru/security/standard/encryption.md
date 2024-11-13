@@ -1,1 +1,0 @@
-{% include [data-encryption-and-key-management](../../_includes/security/standard/encryption.md) %}

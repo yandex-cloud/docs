@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleTableFilter.include_tables.title }}**: Data is only transferred from listed tables. This option is specified using regular expressions.

@@ -1,1 +1,0 @@
-(опционально) [Добавьте](../../certificate-manager/operations/index.md) свой сертификат в Certificate Manager или [выпустите](../../certificate-manager/operations/managed/cert-create.md) бесплатный сертификат от Let's Encrypt.

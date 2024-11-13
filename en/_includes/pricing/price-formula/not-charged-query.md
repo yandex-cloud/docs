@@ -1,1 +1,0 @@
-You get any amount of read data under 10GB at no charge every month.

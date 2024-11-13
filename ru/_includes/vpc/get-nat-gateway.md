@@ -1,1 +1,0 @@
-Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../../vpc/api-ref/Gateway/list.md) для ресурса [Gateway](../../vpc/api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../../vpc/api-ref/grpc/Gateway/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.

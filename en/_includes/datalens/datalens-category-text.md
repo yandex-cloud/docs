@@ -1,1 +1,0 @@
-If the values of the categories contain a large amount of text, try to reduce it. Then the signatures on the diagram will look more accurate. You can use string functions in the calculated fields or conditional operators [CASE](../../datalens/function-ref/CASE.md).

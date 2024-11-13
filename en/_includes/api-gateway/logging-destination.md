@@ -1,1 +1,0 @@
-If a custom [log group](../../logging/concepts/log-group.md) is not specified in the API gateway parameters or logging is not turned off, the API gateway automatically writes all logs to the default log group for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) it resides in.

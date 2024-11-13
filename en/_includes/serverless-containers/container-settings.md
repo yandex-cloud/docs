@@ -1,1 +1,0 @@
-Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container }}**, select a container and specify a [service account](../../iam/concepts/users/service-accounts.md) to invoke it under.

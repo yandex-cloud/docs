@@ -1,1 +1,0 @@
-If using an ad blocker (e.g., Adblock Plus, Adguard, or uBlock Origin), disable it in your browser settings and check if that helped the problem.

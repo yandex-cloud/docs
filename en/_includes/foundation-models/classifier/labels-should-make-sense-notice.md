@@ -1,1 +1,0 @@
-Give meaningful names to `label` classes: this is essential for correct classification results. For example, use `chemistry` and `physics` rather than `chm` and `phs` for class names.

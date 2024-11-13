@@ -1,1 +1,0 @@
-{% include [cert-manager-webhook](../../_tutorials/infrastructure/cert-manager-webhook.md) %}

@@ -1,1 +1,0 @@
-To get the address ID, use the [list](../../vpc/api-ref/Address/list) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/List](../../vpc/api-ref/grpc/Address/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.

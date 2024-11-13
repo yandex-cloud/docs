@@ -1,1 +1,0 @@
-To install the AWS CLI, follow the [guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) on the vendor's website.

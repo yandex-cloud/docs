@@ -1,1 +1,0 @@
-{% include [cluster-autoscaler](../../_qa/managed-kubernetes/cluster-autoscaler.md) %}

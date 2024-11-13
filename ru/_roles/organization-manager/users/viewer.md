@@ -1,1 +1,0 @@
-Роль `organization-manager.users.viewer` позволяет просматривать список [пользователей](../../../organization/concepts/membership.md) организации и информацию о них, а также [атрибуты](../../../organization/operations/setup-federation.md#claims-mapping) федеративных пользователей.

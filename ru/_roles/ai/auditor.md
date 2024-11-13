@@ -1,1 +1,0 @@
-Роль `ai.auditor` позволяет просматривать квоты для сервисов Yandex Translate, Yandex Vision, Yandex SpeechKit и Yandex Foundation Models, а также читать метаинформацию [каталогов](../../resource-manager/concepts/resources-hierarchy.md#folder).

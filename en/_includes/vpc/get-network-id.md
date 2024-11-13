@@ -1,1 +1,0 @@
-To get the cloud network ID, use the [list](../../vpc/api-ref/Network/list) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/Network/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
