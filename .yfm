@@ -1,6 +1,4 @@
 allowHTML: true
-strict: true
-quiet: true
 input: /opt
 output: /dev/null
 connector:
