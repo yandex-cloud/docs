@@ -1,0 +1,1 @@
+/home/app/.bash_history
