@@ -1,7 +1,6 @@
 allowHTML: true
 input: /home
 output: /dev/null
-strict: true
 connector:
     type: github
     github: 
