@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ api-gw-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_api_gateway]({{ tf-provider-datasources-link }}/datasource_api_gateway) | [API gateway](./concepts/index.md) information |
+| [yandex_api_gateway]({{ tf-provider-datasources-link }}/api_gateway) | [API gateway](./concepts/index.md) information |

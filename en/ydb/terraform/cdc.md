@@ -1,6 +1,6 @@
 ---
-title: Creating a changefeed for a {{ ydb-full-name }} table using {{ TF }}
-description: Follow this guide to create a changefeed for a {{ ydb-full-name }} table or change its parameters.
+title: Creating a changefeed for a {{ ydb-full-name }} table in {{ TF }}
+description: Follow this guide to create or update a changefeed for a {{ ydb-short-name }} table.
 ---
 
 # Creating a changefeed for a table
@@ -25,34 +25,34 @@ resource "yandex_ydb_table_changefeed" "ydb_changefeed" {
 ```
 
 We used the following fields to create a table changefeed:
-* `table_id`: ID of the table for which we create the changefeed.
+* `table_id`: ID of the table you are creating a changefeed for.
 * `name`: Changefeed name.
 * `mode`: Changefeed operating mode. The available changefeed operating modes are presented in the [documentation]({{ ydb.docs }}/yql/reference/syntax/alter_table#changefeed-options).
 * `format`: Changefeed format. Only JSON format is available.
 
-Full descriptioin of all the `yandex_ydb_table_changefeed` resource fields:
+Full description of all `yandex_ydb_table_changefeed` resource fields:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
-|table_path|`string`<br>`required`|Path to table|
+|table_path|`string`<br>`required`|Table path|
 |connection_string|`string`<br>`required`|Connection string, conflicts with `table_id`|
 |database_id|`string`<br>`required`|Database ID, conflicts with `table_path` and `connection_string`|
-|table_id|`string`<br>`required`|Terraform ID of the table|
+|table_id|`string`<br>`required`|Terraform table ID|
 |name|`string`<br>`required`|Changefeed name|
-|mode|`string`<br>`required`|[Changefeed mode]({{ ydb.docs }}/yql/reference/syntax/alter_table#changefeed-options)|
+|mode|`string`<br>`required`|[Changefeed operating mode]({{ ydb.docs }}/yql/reference/syntax/alter_table#changefeed-options)|
 |format|`string`<br>`required`|Changefeed format|
 |virtual_timestamps|`bool`<br>`optional`|Using [virtual timestamps]({{ ydb.docs }}/concepts/cdc#virtual-timestamps)|
-|retention_period|`string`<br>`optional`|Time period of data retention in the topic in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format|
-|consumer|`array[consumer]`<br>`optional`|Changefeed consumers|
+|retention_period|`string`<br>`optional`|Data storage time in a topic in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format|
+|consumer|`array[consumer]`<br>`optional`|Consumers (readers) for the changefeed|
 
-When initializing the `yandex_ydb_table_changefeed` resource, you can specify only one connection field: `connection_string`, `table_path`, or `table_id`. If you specify multiple connection fields, they will come into conflict. For example, the `table_id` field with a relative link in `<resource>.<ID>.<parameter>`: `yandex_ydb_table.test_table_2.id` format.
+When initializing the `yandex_ydb_table_changefeed` resource, you can specify only one connection field: `connection_string`, `table_path`, or `table_id`. If you specify multiple connection fields, they will come into conflict. For example, the `table_id` field with a relative link in `<resource>.<ID>.<parameter>` format: `yandex_ydb_table.test_table_2.id`.
 
-The `consumer` section resides inside the changefeed resource. A [consumer]({{ ydb.docs }}/concepts/topic#consumer) is a named entity for reading data from the topic. A consumer has several fields of settings. The main field is `name`, which is the consumer's name. When initializing the `yandex_ydb_table_changefeed` resource, you can set up multiple consumers or none, in which case you will not be able to read data from the changefeed.
+Inside the changefeed resource resides the `consumer` section. A [consumer]({{ ydb.docs }}/concepts/topic#consumer) is a named entity for reading data from the topic. A consumer has several fields of settings. The main field is `name`, which is the consumer's name. When initializing the `yandex_ydb_table_changefeed` resource, you can specify multiple consumers, or you can create none, but then you will not be able to read data from the changefeed.
 
 Full list of the `consumer` section fields:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
 | name | `string`<br>`required` | Consumer name |
 | supported_codecs | `array[string]`<br>`optional` | Supported data encodings |
-| starting_message_timestamp_ms | `integer`<br>`optional` | Timestamp in UNIX timestamp format, from which the consumer will start reading data |
+| starting_message_timestamp_ms | `integer`<br>`optional` | UNIX timestamp the consumer will start reading data from. |
 
 The consumer name is used in the SDK or CLI to [read data]({{ ydb.docs }}/best_practices/cdc#read) from the topic.

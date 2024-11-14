@@ -19,7 +19,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs create-queue \
        --queue-name <queue_name> \
@@ -47,7 +47,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Enter a name for the queue: `sample-queue`.
-  
+
         {% include [name](../_includes/message-queue/ymq-name.md) %}
 
      1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
@@ -159,7 +159,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs delete-queue \
        --endpoint <endpoint> \

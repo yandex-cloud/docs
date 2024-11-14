@@ -7036,7 +7036,6 @@ default:
             column_name: Имя
             column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
-          switch_dashboard: Дашборд каталога
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
         label_service-accounts: Сервисные аккаунты

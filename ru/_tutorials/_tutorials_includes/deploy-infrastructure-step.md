@@ -1,6 +1,6 @@
 ## Разверните конфигурацию {#deploy}
 
-В этом примере будут созданы две [виртуальные машины](../../compute/concepts/vm.md): `terraform1` и `terraform2`. Они будут подключены к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Подсеть будет принадлежать [облачной сети](../../vpc/concepts/network.md#network) `network-1`.
+В этом примере будут созданы две [виртуальные машины](../../compute/concepts/vm.md): `terraform1` и `terraform2`. Они будут подключены к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Подсеть будет принадлежать [облачной сети](../../vpc/concepts/network.md#network) `network-1`.
 
 У ВМ будут разные [количества ядер и объемы памяти](../../compute/concepts/vm-platforms.md): 1 ядро и 2 ГБ оперативной памяти у `terraform1` и 2 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) и [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../../glossary/ssh-keygen.md).
 1. Сохраните следующую конфигурацию в файл `example.tf`:
@@ -30,7 +30,7 @@
    }
 
    provider "yandex" {
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ region-id }}-d"
    }
 
    resource "yandex_compute_image" "ubuntu_2004" {
@@ -40,7 +40,7 @@
    resource "yandex_compute_disk" "boot-disk-vm1" {
      name     = "boot-disk-1"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -48,7 +48,7 @@
    resource "yandex_compute_disk" "boot-disk-vm2" {
      name     = "boot-disk-2"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -103,7 +103,7 @@
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ region-id }}-d"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }

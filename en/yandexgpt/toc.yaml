@@ -11,9 +11,9 @@ items:
         href: operations/index.md
       - name: Sending requests in chat mode
         href: operations/create-chat.md
-      - name: Sending requests in prompt mode
+      - name: Sending a request in prompt mode
         href: operations/create-prompt.md
-      - name: Sending requests to fine-tuned models
+      - name: Sending a request to a fine-tuned model
         href: operations/finetune.md
       - name: Sending an asynchronous request
         href: operations/async-request.md
@@ -35,7 +35,7 @@ items:
         href: concepts/embeddings.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: API Reference
+  - name: API references
     items:
       - name: Overview
         href: concepts/api.md

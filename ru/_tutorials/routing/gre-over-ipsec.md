@@ -58,7 +58,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder): `site-a`.
+   1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder): `site-d`.
    1. При желании, добавьте описание каталога.
    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
@@ -70,8 +70,8 @@
    Создайте каталог:
    ```bash
    yc resource-manager folder create \
-   --name site-a \
-   --description "Folder for site-a"
+   --name site-d \
+   --description "Folder for site-d"
    ```
 
 - API {#api}
@@ -87,8 +87,8 @@
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {
          cloud_id    = "<идентификатор облака>"
-         name        = "site-a"
-         description = "Folder for site-a"
+         name        = "site-d"
+         description = "Folder for site-d"
       }
       ```
 
@@ -146,10 +146,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-a`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-d`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cisco CSR` и выберите публичный образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -167,7 +167,7 @@
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cisco-router-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cisco-router-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -183,7 +183,7 @@
   
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. В списке ВМ выберите `cisco-router-a`.
+   1. В списке ВМ выберите `cisco-router-d`.
    1. Перейдите на вкладку ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
    1. Дождитесь полной загрузки операционной системы.
    1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду:
@@ -310,7 +310,7 @@
 ### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#create-second-vm}
 
 1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-b**.
-1. Настройте ВМ так же, как ВМ `cisco-router-a`.
+1. Настройте ВМ так же, как ВМ `cisco-router-d`.
 
 ## Настройте IPsec-протоколы {#ipsec-setup}
 
@@ -352,7 +352,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      crypto ikev2 keyring MY_IKEV2_KEYRING
@@ -367,7 +367,7 @@
      ```bash
      crypto ikev2 keyring MY_IKEV2_KEYRING
         peer SiteA
-        address cisco-router-a
+        address cisco-router-d
         pre-shared-key <секретный_ключ> 
         exit
      ```
@@ -381,7 +381,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      crypto ikev2 profile MY_IKEV2_PROFILE
@@ -400,7 +400,7 @@
      ```bash
      crypto ikev2 profile MY_IKEV2_PROFILE
         match address local interface GigabitEthernet1
-        match identity remote address cisco-router-a
+        match identity remote address cisco-router-d
         authentication remote pre-share
         authentication local pre-share
         keyring local MY_IKEV2_KEYRING
@@ -444,7 +444,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      conf t
@@ -471,7 +471,7 @@
         ip mtu 1400
         ip tcp adjust-mss 1360
         tunnel source GigabitEthernet1
-        tunnel destination cisco-router-a
+        tunnel destination cisco-router-d
         tunnel mode ipsec ipv4
         tunnel protection ipsec profile MY_IPSEC_PROFILE
      ```
@@ -482,7 +482,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      show crypto ikev2 sa remote cisco-router-b
@@ -491,7 +491,7 @@
    - ВМ cisco-router-b
 
      ```bash
-     show crypto ikev2 sa remote cisco-router-a
+     show crypto ikev2 sa remote cisco-router-d
      ```
 
    {% endlist %}
@@ -526,7 +526,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      conf t
@@ -550,7 +550,7 @@
 
    {% list tabs %}
 
-   - ВМ cisco-router-a
+   - ВМ cisco-router-d
 
      ```bash
      router bgp 65001 
@@ -582,7 +582,7 @@
 
 ## Проверьте работу туннеля GRE {#check-tunnel}
 
-Убедитесь, что через туннель отправляются и возвращаются пакеты. Для этого на ВМ `cisco-router-a` выполните:
+Убедитесь, что через туннель отправляются и возвращаются пакеты. Для этого на ВМ `cisco-router-d` выполните:
 
    ```bash
    ping 10.1.1.2 source lo10

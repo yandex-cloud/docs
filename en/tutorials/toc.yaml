@@ -23,6 +23,10 @@ items:
             href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
+      - name: >-
+          Transferring logs from {{ metastore-name }} to {{ cloud-logging-name
+          }}
+        href: security/metastore-logging.md
       - name: Writing load balancer logs to {{ PG }}
         href: security/logging.md
       - name: >-
@@ -151,11 +155,11 @@ items:
                 href: infrastructure-management/vm-autoscale/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/vm-autoscale/terraform.md
-          - name: Scheduled scaling of instance groups
+          - name: Scheduled scaling of an instance group
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
-              Automatically scaling an instance group to process messages from a
-              queue in{{ message-queue-name }}
+              Autoscaling an instance group to process messages enqueued in {{
+              message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
             href: infrastructure-management/updating-under-load.md
@@ -233,8 +237,8 @@ items:
           - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster
-              access from other cloud networks
+              Configuring {{ dns-full-name }} to access a {{ mch-full-name }}
+              cluster from other cloud networks
             href: dataplatform/clickhouse-dns-peering.md
           - name: Integrating {{ dns-name }} and a corporate DNS service
             href: infrastructure-management/dns-integration.md
@@ -346,11 +350,13 @@ items:
             href: ml-ai/recognizer-bot.md
           - name: Deploying a Minecraft server in {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
+          - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
+            href: infrastructure/gta-v-server.md
   - name: Building a data platform
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Deploying the UI for {{ KF }}
+      - name: Deploying the {{ KF }} web interface
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
           Migrating a database from a third-party {{ KF }} cluster to {{
@@ -408,7 +414,7 @@ items:
           Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
-      - name: Configuring Kafka Connect for {{ mkf-name }} clusters
+      - name: Configuring Kafka Connect to use a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -476,7 +482,7 @@ items:
           data-transfer-full-name }}
         href: dataplatform/ydb-to-clickhouse.md
       - name: >-
-          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: >-
@@ -642,7 +648,7 @@ items:
           Migrating a database from a third-party {{ RD }} cluster to {{
           mrd-name }}
         href: dataplatform/redis-data-migration.md
-      - name: Using {{ mrd-name }} clusters as PHP session storage
+      - name: Using a {{ mrd-name }} cluster as a PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
       - name: >-
           Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
@@ -706,12 +712,16 @@ items:
         href: routing/route-switcher.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the next-generation firewall.
+          dedicated DMZ based on the next-generation firewall
         href: routing/high-accessible-dmz.md
       - name: >-
           Cloud infrastructure segmentation with Check Point Next-Generation
           Firewall
         href: routing/network-segmentation-checkpoint.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the UserGate NGFW
+        href: routing/high-accessible-dmz-usergate.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: routing/gre-over-ipsec.md
       - name: Configuring a network for {{ dataproc-name }}
@@ -790,7 +800,7 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: serverless/telegram-bot-serverless.md
-      - name: Developing custom integrations in {{ api-gw-name }}
+      - name: Developing a custom integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: serverless/movies-database.md

@@ -86,7 +86,7 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `sa-function`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
@@ -176,8 +176,9 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `sa-function` service account and click the row with its name.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `sa-function` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm.
@@ -257,7 +258,7 @@ The infrastructure support cost for this scenario includes:
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     Wait for the DB to start. When being created, a database has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
   1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
@@ -280,7 +281,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 1. Edit the `.env` file:
    * `ENDPOINT`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
    * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
-   * `FUNCTION_NAME`: Function name, `func-test-ydb`.
+   * `FUNCTION_NAME`: Function name, which is `func-test-ydb`.
    * `FOLDER_ID`: Folder ID.
    * `SERVICE_ACCOUNT_ID`: `sa-function` service account ID.
 

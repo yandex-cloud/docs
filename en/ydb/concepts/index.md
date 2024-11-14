@@ -5,18 +5,18 @@
 
 To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
-* [{#T}](resources.md)
-* [{#T}](serverless-and-dedicated.md)
-* [{#T}](dynamodb-tables.md)
-* [{#T}](limits.md)
+* [{#T}](resources.md).
+* [{#T}](serverless-and-dedicated.md).
+* [{#T}](dynamodb-tables.md).
+* [{#T}](limits.md).
 
 ## {{ ydb-short-name }} DBMS {#ydb}
 
-[{{ ydb-short-name }}](https://ydb.tech/en) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed for high performance with a typical server being capable of handling tens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data. {{ ydb-short-name }} can operate in both single data center and distributed (cross data center) modes on a cluster of thousands of servers.
+[{{ ydb-short-name }}](https://ydb.tech/en) is a horizontally scalable distributed fault tolerant DBMS. {{ ydb-short-name }} is designed for high performance with a typical server capable of processing tens of thousands of queries per second. The system is natively designed to handle hundreds of petabytes of data. {{ ydb-short-name }} can operate either in a single datacenter or geodistributed (cross-datacenter) configuration on a cluster made up of thousands of servers.
 
 {{ ydb-short-name }} enables online transaction and online analytical processing (OLTP and OLAP).
 
-To work with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/) and the [SDKs]({{ ydb.docs }}/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL]({{ ydb.docs }}/yql/reference/), an SQL dialect. To learn about using the {{ ydb-short-name }} tools for application development, see the [Recommendations]({{ ydb.docs }}/best_practices/) section.
+To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/) and [SDKs]({{ ydb.docs }}/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. The language used for DB queries is [YQL]({{ ydb.docs }}/yql/reference/), a dialect of SQL. For more information about the purpose and best practices of using {{ ydb-short-name }} tools when developing applications, see [Recommendations]({{ ydb.docs }}/best_practices/).
 
 To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
@@ -33,5 +33,5 @@ To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
 ## Service Level Agreement {#sla}
 
-{{ ydb-full-name }} is subject to the [Service Level Agreement](https://yandex.com/legal/cloud_sla). The service level is defined in [Service Level for Yandex {{ ydb-name }}](https://yandex.com/legal/cloud_sla_ydb).
+The service is subject to the [service level agreement](https://yandex.com/legal/cloud_sla). The service level is detailed in the [Yandex {{ ydb-name }} Service Level](https://yandex.com/legal/cloud_sla_ydb) document.
 

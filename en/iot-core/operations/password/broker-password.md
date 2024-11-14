@@ -27,7 +27,7 @@ You can add a password to an existing broker or set it when creating a broker us
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password to an existing broker.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password for an existing broker.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
@@ -36,42 +36,42 @@ You can add a password to an existing broker or set it when creating a broker us
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
+  
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   To add a password:
-   1. Get a list of brokers in the folder:
-
-      ```
-      yc iot broker list
-      ```
-
-      Result:
-      ```
-      +----------------------+-------------------+
-      |          ID          |       NAME        |
-      +----------------------+-------------------+
-      | arenou2oj4********** | my-broker         |
-      +----------------------+-------------------+
-      ```
-   1. Add a password to the broker:
-
-      ```
-      yc iot broker password add --broker-name my-broker --password Passw0rdForBroker
-      ```
-
-      Result:
-      ```
-      	broker_id: arenou2oj4**********
-      id: areuu2hgsv6k********
-      created_at: "2019-12-16T15:32:46.655139Z"
-      ```
+    To add a password: 
+    1. Get a list of brokers in the folder: 
+    
+        ```
+        yc iot broker list
+		```
+		
+		Result:
+		```
+        +----------------------+-------------------+
+        |          ID          |       NAME        |
+        +----------------------+-------------------+
+        | arenou2oj4********** | my-broker         |
+        +----------------------+-------------------+
+        ```    
+    1. Add a password to the broker:
+    
+        ```
+        yc iot broker password add --broker-name my-broker --password Passw0rdForBroker
+        ```
+		
+		Result:
+		```
+		broker_id: arenou2oj4**********
+        id: areuu2hgsv6k********
+        created_at: "2019-12-16T15:32:46.655139Z"
+        ```
 
 - API {#api}
 
-   To add a password to a broker, use the [addPassword](../../broker/api-ref/Broker/addPassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddPassword](../../broker/api-ref/grpc/Broker/addPassword.md) gRPC API call.
+  To add a password to a broker, use the [addPassword](../../broker/api-ref/Broker/addPassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddPassword](../../broker/api-ref/grpc/Broker/addPassword.md) gRPC API call.
 
 {% endlist %}
 
@@ -84,31 +84,31 @@ You can add a password to an existing broker or set it when creating a broker us
    For information about how to set a password for a broker when creating it, see [{#T}](../broker/broker-create.md).
 
 - CLI {#cli}
-
-   {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   Create a broker with a password:
-
-   ```
-   yc iot broker create --name broker-with-pass --password Passw0rdForDevice
-   ```
-
-   Result:
-   ```
-   	done (1s)
-   id: areg96c8lo**********
-   folder_id: b1g88tflru**********
-   created_at: "2019-12-16T15:34:25.563Z"
-   name: broker-with-pass
-   status: ACTIVE
-   log_group_id: ckghhil3b5**********
-   ```
+  
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    
+    Create a broker with a password:       
+    
+    ```
+    yc iot broker create --name broker-with-pass --password Passw0rdForDevice
+    ```
+	
+	Result:
+	```
+	done (1s)
+    id: areg96c8lo**********
+    folder_id: b1g88tflru**********
+    created_at: "2019-12-16T15:34:25.563Z"
+    name: broker-with-pass
+    status: ACTIVE
+    log_group_id: ckghhil3b5**********
+    ```
 
 - API {#api}
 
-   To set a password for a broker when creating it, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md) gRPC API call.
+  To set a password for a broker when creating it, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -125,48 +125,48 @@ You can add a password to an existing broker or set it when creating a broker us
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
 - CLI {#cli}
-
-   {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   To get a list of passwords:
-   1. Get a list of brokers in the folder:
-
-      ```
-      yc iot broker list
-      ```
-
-      Result:
-      ```
-      +----------------------+--------------------+
-      |          ID          |        NAME        |
-      +----------------------+--------------------+
-      | areg96c8lo********** | broker-with-pass   |
-      | arenou2oj4********** | my-broker          |
-      +----------------------+--------------------+
-      ```
-   1. Get a list of broker passwords:
-
-      ```
-      yc iot broker password list --broker-name broker-with-pass
-      ```
-
-      Result:
-      ```
-      	+----------------------+---------------------+
-      |          ID          |     CREATED AT      |
-      +----------------------+---------------------+
-      | are0gffs95********** | 2019-12-16 15:34:25 |
-      +----------------------+---------------------+
-      ```
+  
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    
+    To get a list of passwords:  
+    1. Get a list of brokers in the folder: 
+    
+        ```
+        yc iot broker list
+		```
+		
+		Result:
+		```
+        +----------------------+--------------------+
+        |          ID          |        NAME        |
+        +----------------------+--------------------+
+        | areg96c8lo********** | broker-with-pass   |
+        | arenou2oj4********** | my-broker          |
+        +----------------------+--------------------+
+        ```
+    1. Get a list of broker passwords: 
+    
+        ```
+        yc iot broker password list --broker-name broker-with-pass
+        ```
+		
+		Result:
+		```
+		+----------------------+---------------------+
+        |          ID          |     CREATED AT      |
+        +----------------------+---------------------+
+        | are0gffs95********** | 2019-12-16 15:34:25 |
+        +----------------------+---------------------+
+        ```
 
 - API {#api}
 
-   To get a list of broker passwords, use the [listPasswords](../../broker/api-ref/Broker/listPasswords.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/ListPasswords](../../broker/api-ref/grpc/Broker/listPasswords.md) gRPC API call.
+  To get a list of broker passwords, use the [listPasswords](../../broker/api-ref/Broker/listPasswords.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/ListPasswords](../../broker/api-ref/grpc/Broker/listPasswords.md) gRPC API call.
 
 {% endlist %}
-
+   
 ## Deleting a broker password {#delete}
 
 {% list tabs group=instructions %}
@@ -177,51 +177,51 @@ You can add a password to an existing broker or set it when creating a broker us
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
-   1. In the row with the password you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
-
-   {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   To delete a password:
-   1. Get a list of broker passwords:
-
-      ```
-      yc iot broker password list --broker-name broker-with-pass
-      ```
-
-      Result:
-      ```
-      	+----------------------+---------------------+
-      |          ID          |     CREATED AT      |
-      +----------------------+---------------------+
-      | are0gffs95********** | 2019-12-16 15:34:25 |
-      +----------------------+---------------------+
-      ```
-   1. Delete the password:
-
-      ```
-      yc iot broker password delete --broker-name broker-with-pass --password-id are0gffs957e********
-      ```
-   1. Make sure that the password was deleted:
-
-      ```
-      yc iot broker password list --broker-name broker-with-pass
-      ```
-
-      Result:
-      ```
-      +----+------------+
-      | ID | CREATED AT |
-      +----+------------+
-      +----+------------+
-      ```
+  
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    
+    To delete a password:  
+    1. Get a list of broker passwords: 
+    
+        ```
+        yc iot broker password list --broker-name broker-with-pass
+        ```
+		
+		Result:
+		```
+		+----------------------+---------------------+
+        |          ID          |     CREATED AT      |
+        +----------------------+---------------------+
+        | are0gffs95********** | 2019-12-16 15:34:25 |
+        +----------------------+---------------------+
+        ```
+    1. Delete the password: 
+    
+        ```
+        yc iot broker password delete --broker-name broker-with-pass --password-id are0gffs957e********
+        ```
+    1. Make sure that the password was deleted: 
+        
+        ```
+        yc iot broker password list --broker-name broker-with-pass
+        ```
+		
+		Result:
+		```
+		+----+------------+
+        | ID | CREATED AT |
+        +----+------------+
+        +----+------------+
+        ```
 
 - API {#api}
 
-   To delete a broker password, use the [deletePassword](../../broker/api-ref/Broker/deletePassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeletePassword](../../broker/api-ref/grpc/Broker/deletePassword.md) gRPC API call.
+  To delete a broker password, use the [deletePassword](../../broker/api-ref/Broker/deletePassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeletePassword](../../broker/api-ref/grpc/Broker/deletePassword.md) gRPC API call.
 
 {% endlist %}

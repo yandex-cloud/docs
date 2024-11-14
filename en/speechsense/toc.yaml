@@ -14,7 +14,13 @@ items:
           - name: Uploading chat conversations
             href: operations/data/upload-chat-text.md
           - name: Searching data
-            href: operations/data/search-data.md
+            items:
+              - name: Overview
+                href: operations/data/search-data.md
+              - name: Data search via the gRPC API
+                href: operations/data/search-data-grpc.md
+              - name: Data search via the REST API
+                href: operations/data/search-data-rest.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
           - name: Viewing related dialogs
@@ -43,7 +49,7 @@ items:
             href: operations/project/create.md
           - name: Adding a user to a project
             href: operations/project/add-user-to-project.md
-          - name: Deleting a project
+          - name: Delete project
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
@@ -81,6 +87,8 @@ items:
             href: concepts/reports/index.md
           - name: Evaluation form
             href: concepts/reports/evaluation-form.md
+          - name: Comparison
+            href: concepts/reports/comparison.md
           - name: Usage details
             href: concepts/reports/details.md
           - name: Neuroparameters
@@ -123,6 +131,30 @@ items:
                 href: api-ref/grpc/Talk/search.md
               - name: Get
                 href: api-ref/grpc/Talk/get.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/Talk/index.md
+              - name: Upload
+                href: api-ref/Talk/upload.md
+              - name: UploadText
+                href: api-ref/Talk/uploadText.md
+              - name: Search
+                href: api-ref/Talk/search.md
+              - name: Get
+                href: api-ref/Talk/get.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management

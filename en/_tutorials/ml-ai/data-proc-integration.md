@@ -82,7 +82,8 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console {#console}
 
    1. Go to `data-folder`.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
@@ -205,7 +206,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
       `Compute` and `Data` subcluster roles are different: you can deploy data storage components on `Data` subclusters and data processing components on `Compute` subclusters. The `Compute` subcluster storage is only used to temporarily store processed files.
    1. For each subcluster, you can configure:
       * Number of hosts.
-      * [Host class](../../data-proc/concepts/instance-types.md): Platform and computing resources available to the host.
+      * [Host class](../../data-proc/concepts/instance-types.md), i.e., the platform and computing resources available to the host.
       * Storage size and type.
       * Subnet of the network where the cluster is located.
    1. For `Compute` subclusters, you can specify the [autoscaling](../../data-proc/concepts/autoscaling.md) parameters.

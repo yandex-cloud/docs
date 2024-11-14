@@ -108,8 +108,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
-       * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-       * `system:group:federation:<federation_ID>:users`: [Identity federation](../../../organization/concepts/add-federation.md) ID to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+       * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+       * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -131,7 +131,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -315,7 +315,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -464,7 +464,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```

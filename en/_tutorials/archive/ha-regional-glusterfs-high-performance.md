@@ -15,7 +15,7 @@ To configure a high-performance file system:
 1. [Test the solution performance](#test-glusterfs-performance).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
+ 
 ## Prepare your cloud {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -39,7 +39,8 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -47,7 +48,7 @@ The infrastructure support costs include:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the command below to create a service account, specifying the `sa-glusterfs` name:
+      Run the command below to create a service account, specifying `sa-glusterfs` as its name:
 
       ```bash
       yc iam service-account create --name sa-glusterfs
@@ -75,11 +76,11 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. On the management console [home page]({{ link-console-main }}), select the folder.
+      1. On the management console [home page]({{ link-console-main }}), select a folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-glusterfs` service account in the list and click ![image](../../_assets/options.svg).
+      1. Find the `sa-glusterfs` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
+      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog that opens and select the `admin` role.
 
    - CLI {#cli}
 
@@ -106,7 +107,7 @@ The infrastructure support costs include:
          ```
          yc iam key create \
          --service-account-id <service_account_ID> \
-         --folder-id <id_of_folder_with_service_account> \
+         --folder-id <ID_of_folder_with_service_account> \
          --output key.json
          ```
          Where:
@@ -140,7 +141,7 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: File with the authorized key of the service account.
+         * `service-account-key`: File with the service account authorized key.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
@@ -167,7 +168,7 @@ The infrastructure support costs include:
     git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
     cd ./yc-distributed-ha-storage-with-glusterfs
     ```
-1. Edit the `variables.tf` file, specifying the parameters of the deployed resources:
+1. Edit the `variables.tf` file, specifying the parameters of the resources you are deploying:
 
    {% note warning %}
 
@@ -188,12 +189,12 @@ The infrastructure support costs include:
 
       {% endnote %}
 
-   1. If you specified a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_the_public_SSH_key>`.
+   1. If you specified a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_public_SSH_key>`.
    1. If you need enhanced performance without guaranteed data durability, you can use [non-replicated SSDs](../../compute/concepts/disk.md#nr-disks). For this, in `disk_type`, change `default` to `network-ssd-nonreplicated`. In addition, make sure the `default` value under `disk_size` is a multiple of 93.
 
 ## Deploy your resources {#deploy-resources}
    
-   1. Run {{ TF }} initialization:
+   1. Initialize {{ TF }}:
       ```bash
       terraform init
       ```
@@ -271,7 +272,7 @@ The infrastructure support costs include:
       clush -w gluster01 'for i in {2..9}; do gluster peer probe gluster0$i; done'
       clush -w gluster01 'for i in {10..30}; do gluster peer probe gluster$i; done'
       ```
-   1. Create a `vol0` folder in each storage VM and configure availability and fault tolerance by connecting to the `stripe-volume` shared folder:
+   1. Create a `vol0` folder in each data storage VM and configure availability and fault tolerance by connecting to the `stripe-volume` shared folder:
       ```bash
       clush -w @gluster mkdir -p /bricks/brick1/vol0
       export STRIPE_NODES=$(nodeset -S':/bricks/brick1/vol0 ' -e @gluster)

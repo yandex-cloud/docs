@@ -95,7 +95,7 @@
    ```hcl
    variable "zone" {
      type    = string
-     default = "{{ region-id }}-a"
+     default = "{{ region-id }}-d"
    }
 
    variable "network" {

@@ -12,7 +12,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg)and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. To the right of the name of the device to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -60,7 +60,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -87,7 +87,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

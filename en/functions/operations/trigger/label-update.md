@@ -9,23 +9,23 @@ description: Follow this guide to update a trigger label in {{ sf-name }}.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To update a trigger label, run the command:
+    To update a trigger label, run the command:
 
-   {% note warning %}
+    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the one transmitted in the request.
+    The existing `labels` will be completely overwritten by the ones you provide in your request.
 
-   {% endnote %}
+    {% endnote %}
 
-   ```bash
-   yc serverless trigger update <trigger_name> --labels <key>=<value>
-   ```
+    ```bash
+    yc serverless trigger update <trigger_name> --labels <key>=<value>
+    ```
 
-   Result:
+    Result:
 
    ```text
    id: a1s9q2li6t**********
@@ -52,71 +52,71 @@ description: Follow this guide to update a trigger label in {{ sf-name }}.
 
 - {{ TF }} {#tf}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   To change a trigger label:
+  To change a trigger label:
 
-   1. Open the {{ TF }} configuration file and change the `labels` section in the trigger description:
+  1. Open the {{ TF }} configuration file and change the `labels` section in the trigger description:
 
-      ```hcl
-      ...
-      resource "yandex_function_trigger" "my_trigger" {
-        name   = "some_name"
-        labels = {
-          tf-label    = "tf-label-value"
-          empty-label = ""
-        }
-        description = "any description"
-        timer {
-          cron_expression = "* * * * ? *"
-        }
-        function {
-          id = "tf-test"
-        }
-      }
-      ...
-      ```
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name   = "some_name"
+	     labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
 
-      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Check the configuration using this command:
+  1. Check the configuration using this command:
 
-      ```
-      terraform validate
-      ```
+     ```
+     terraform validate
+     ```
+     
+     If the configuration is correct, you will get this message:
+     
+     ```
+     Success! The configuration is valid.
+     ```
 
-      If the configuration is correct, you will get this message:
+  1. Run this command:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     terraform plan
+     ```
+  
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Run this command:
+  1. Apply the configuration changes:
 
-      ```
-      terraform plan
-      ```
+     ```
+     terraform apply
+     ```
+     
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
 
-   1. Apply the configuration changes:
-
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
-
-      ```
-      yc serverless trigger get <trigger_ID>
-      ```
+     ```
+     yc serverless trigger get <trigger_ID>
+     ```
 
 - API {#api}
 
-   To update a trigger label, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
+  To update a trigger label, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
 
 {% endlist %}

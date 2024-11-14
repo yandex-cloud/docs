@@ -38,7 +38,7 @@ To update a movie record in the `Series` table:
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -122,7 +122,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -181,13 +181,13 @@ To update a movie record in the `Series` table:
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps03.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesItemOps03.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -221,7 +221,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -298,7 +298,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -406,7 +406,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -484,7 +484,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -534,13 +534,13 @@ To update a movie record in the `Series` table:
           return_values: 'UPDATED_NEW'
         }
 
-        puts "Updating table '#{table_name}' with information about " \
+        puts "Updating the '#{table_name}' table with information about " \
           "'#{title} (#{series_id})'..."
 
         if table_item_updated?(dynamodb_client, table_item)
           puts 'Table updated.'
         else
-          puts 'Couldn’t update table.'
+          puts 'Couldn't update table.'
         end
       end
 
@@ -560,7 +560,7 @@ To update a movie record in the `Series` table:
       Result:
 
       ```text
-      Updating table 'Series' with information about 'Supernatural (3)'...
+      Updating the 'Series' table with information about 'Supernatural (3)'...
       Record updated with 'info' attributes:
       series_info: Supernatural is an American television series created by Eric Kripke
       rating: 8.0
@@ -597,13 +597,13 @@ To increase the `rating` atomic counter for a series:
       cd SeriesItemOps04
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -687,7 +687,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -740,13 +740,13 @@ To increase the `rating` atomic counter for a series:
 
       Use the `updateItem` method to increase or decrease the value of an existing attribute independently of other write requests (all write requests are applied in the order they are received).
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps04.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesItemOps04.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -780,7 +780,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -853,7 +853,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -956,7 +956,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1034,7 +1034,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1089,7 +1089,7 @@ To increase the `rating` atomic counter for a series:
         if table_item_updated?(dynamodb_client, table_item)
           puts 'Table updated.'
         else
-          puts 'Couldn’t update table.'
+          puts 'Couldn't update table.'
         end
       end
 
@@ -1142,13 +1142,13 @@ To update a record in the `Series` table when the condition is met:
       cd SeriesItemOps05
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1232,7 +1232,7 @@ To update a record in the `Series` table when the condition is met:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1295,7 +1295,7 @@ To update a record in the `Series` table when the condition is met:
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps05.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesItemOps05.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -1352,7 +1352,7 @@ To update a record in the `Series` table when the condition is met:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1456,7 +1456,7 @@ To update a record in the `Series` table when the condition is met:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1583,7 +1583,7 @@ To update a record in the `Series` table when the condition is met:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1688,7 +1688,7 @@ To update a record in the `Series` table when the condition is met:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1739,7 +1739,7 @@ To update a record in the `Series` table when the condition is met:
           return_values: 'UPDATED_NEW'
         }
 
-        puts "Updating table '#{table_name}' with information about " \
+        puts "Updating the '#{table_name}' table with information about " \
           "'#{title} (#{series_id})'..."
 
         if table_item_updated?(dynamodb_client, table_item)
@@ -1765,7 +1765,7 @@ To update a record in the `Series` table when the condition is met:
       Result:
 
       ```text
-      Updating table 'Series' with information about 'Supernatural (3)'...
+      Updating the 'Series' table with information about 'Supernatural (3)'...
       Error updating record: Condition not satisfied
       Couldn't update table.
       ```
@@ -1781,7 +1781,7 @@ To update a record in the `Series` table when the condition is met:
       Run the program again. Now the operation is successful:
 
       ```text
-      Updating table 'Series' with information about 'Supernatural (3)'...
+      Updating the 'Series' table with information about 'Supernatural (3)'...
       Record updated with 'info' attributes:
       rating: 9.0
       release_date: 2005-09-13

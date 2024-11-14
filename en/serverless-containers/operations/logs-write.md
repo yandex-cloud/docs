@@ -12,7 +12,7 @@
     1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
         * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
-        * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the folder the container is in.
+        * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the container where the address is located.
             1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
         * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
             1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
@@ -119,7 +119,7 @@
         resource "yandex_serverless_container" "<container_name>" {
           name               = "<container_name>"
           service_account_id = "<service_account_ID>"
-          memory             = <RAM_amount>
+          memory             = <RAM_size>
           image {
             url = "<Docker_image_URL>"
           }

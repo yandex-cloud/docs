@@ -116,7 +116,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as: [HashiCorpVault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as: [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, take the following security measures:
 
@@ -176,7 +176,7 @@ To control a VM's runtime environment (e.g., to enable access from the VM to a s
 
 {% endlist %}
 
-#### 3.5 Principles of protection against side-channel attacks are followed {#side-chanel-protection}
+#### 3.5 Principles of protection against side-channel attacks are incorporated {#side-chanel-protection}
 
 To ensure the best protection against CPU level side-channel attacks (such as Spectre or Meltdown):
 
@@ -212,7 +212,7 @@ Access to {{ objstorage-name }} resources is verified at three levels:
 
 In {{ iam-short-name }}, a bucket inherits the same access permissions as those of the folder and cloud where it is located. For more information, see [{#T}](../../../storage/concepts/acl.md#inheritance). Therefore, we recommend that you only assign the minimum required roles to certain buckets or objects in {{ objstorage-name }}.
 
-Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP, issue granular permissions to objects, and so on.
+Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP, grant granular rights permissions to objects, and so on.
 
 With ACLs, you can grant access to an object bypassing {{ iam-short-name }} verification and bucket policies. We recommend setting strict ACLs for buckets.
 
@@ -226,7 +226,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
   1. In the list of services, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
-  1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
+  1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -427,7 +427,7 @@ We recommend prohibiting internet access to databases that contain critical data
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to the "Guides and solutions to use".
 
 - Checking if managed databases have SGs {#db-check}
 
@@ -443,7 +443,7 @@ We recommend prohibiting internet access to databases that contain critical data
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -525,7 +525,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -569,7 +569,7 @@ Do not enable access to databases containing critical data from the management c
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -677,11 +677,11 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 
 {% endlist %}
 
-#### 3.20 Special aspects of time synchronization in {{ sf-name }} are considered {#ntp-functions}
+#### 3.20 Specifics of time synchronization in {{ sf-name }} are considered {#ntp-functions}
 
 The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the {{ compute-short-name }} documentation, [Configuring clock synchronization](../../../compute/tutorials/ntp.md).
 
-#### 3.21 Special aspects of header management in {{ sf-name }} are considered {#http-functions}
+#### 3.21 Specifics of header management in {{ sf-name }} are considered {#http-functions}
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 #### 3.22 {{ serverless-containers-short-name }}/{{ sf-name }} uses the {{ vpc-short-name }} internal network {#vpc-functions}
@@ -777,7 +777,7 @@ When setting up database permissions, use the principle of least privilege.
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 

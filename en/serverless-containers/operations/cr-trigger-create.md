@@ -45,7 +45,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
@@ -71,7 +71,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
-      --retry-interval <time_between_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
       --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
@@ -133,7 +133,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"
@@ -173,9 +173,9 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
         * [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger:
 
           * `create_image`: Trigger will invoke the container when a new Docker image is created in the registry. The possible values are `true` or `false`.
-          * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. The possible values are `true` or `false`.
-          * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. The possible values are `true` or `false`.
-          * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. The possible values are `true` or `false`.
+          * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. It can either be `true` or `false`.
+          * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. It can either be `true` or `false`.
+          * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. It can either be `true` or `false`.
 
         {% include [tf-batch-params-events](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 

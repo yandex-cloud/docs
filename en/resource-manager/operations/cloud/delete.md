@@ -8,7 +8,7 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
-  1. In the top-right corner of the page, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}**.
   1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `Delete now`. The default cloud deletion delay is 7 days.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -33,7 +33,7 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -42,7 +42,7 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```

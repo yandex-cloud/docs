@@ -45,7 +45,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
@@ -72,9 +72,9 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       --batch-cutoff <maximum_timeout> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_repeat_attempts> \
-      --retry-interval <time_between_repeat_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --retry-attempts <number_of_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -137,8 +137,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
        container {
          id                 = "<container_ID>"
          service_account_id = "<service_account_ID>"
-         retry_attempts     = "<number_of_repeat_attempts>"
-         retry_interval     = "<time_between_repeat_attempts>"
+         retry_attempts     = "<number_of_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        object_storage {
          bucket_id    = "<bucket_ID>"
@@ -151,7 +151,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
          batch_size   = "<event_group_size>"
        }
        dlq {
-         queue_id           = "<dead_letter_queue_ID>"
+         queue_id           = "<dead-letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
      }
@@ -184,7 +184,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create resources:
 

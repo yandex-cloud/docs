@@ -13,7 +13,7 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select a function.
   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-  1. In block **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, select or create a new [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
+  1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** section, select or create a new [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
      * `storage.viewer` to only read data from the mounted bucket.
      * `storage.uploader` to read and write data from/to the mounted bucket.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}** and specify:
@@ -36,7 +36,7 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
     --function-name=<function_name> \
     --runtime <runtime_environment> \
     --entrypoint <entry_point> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --source-path <path_to_ZIP_archive> \
     --service-account-id <service_account_ID>
@@ -74,7 +74,7 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
         user_hash          = "<function_hash>"
         runtime            = "<runtime_environment>"
         entrypoint         = "<entry_point>"
-        memory             = "<RAM_amount>"
+        memory             = "<RAM_size>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
         content {
@@ -104,7 +104,7 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check the function update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc serverless function version get <function_version_ID>

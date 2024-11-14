@@ -40,7 +40,7 @@ The cost of resources includes:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account: `s3-copy-fn`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles.
@@ -67,7 +67,7 @@ The cost of resources includes:
         name: s3-copy-fn
         ```
 
-        Save the `id` of the `s3-copy-fn` service account and the folder where it was created (`folder_id`).
+        Save the ID of the `s3-copy-fn` service account (`id`) and the ID of the folder where it was created (`folder_id`).
 
      1. Assign the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles to the service account:
 
@@ -179,12 +179,12 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the service account.
-  1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Choose a service account and click the row with its name.
-  1. On the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+  1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and private key.
+  1. Save the ID and secret key.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -219,7 +219,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
      Where `service_account_id` is the `s3-copy-fn` service account ID.
 
-     For more information about the `yandex_iam_service_account_static_access_key` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
@@ -265,7 +265,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a secret in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `s3-static-key`.
@@ -503,18 +503,18 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
      1. Specify the entry point: `handler.sh`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-          * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`.
-          * `DST_BUCKET`: Name of the backup bucket to copy files to.
+          * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`
+          * `DST_BUCKET`: Name of the backup bucket to copy files to
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
-          * `AWS_ACCESS_KEY_ID`: `key_id` of the `s3-static-key` secret.
-          * `AWS_SECRET_ACCESS_KEY`: `secret` key of the `s3-static-key` secret.
+          * `AWS_ACCESS_KEY_ID`: `key_id` of the `s3-static-key` secret
+          * `AWS_SECRET_ACCESS_KEY`: `secret` key of the `s3-static-key` secret
       
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -694,7 +694,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-     * Enter the trigger name: `bucket-to-bucket-copying`.
+     * Enter a name for the trigger: `bucket-to-bucket-copying`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}**.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
@@ -758,7 +758,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
      resource "yandex_function_trigger" "my_trigger" {
        name        = "bucket-to-bucket-copying"
        object_storage {
-          bucket_id = "<budget_ID>"
+          bucket_id = "<bucket_ID>"
           create    = true
        }
        function {

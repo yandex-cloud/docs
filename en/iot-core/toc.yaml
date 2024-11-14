@@ -109,7 +109,7 @@ items:
             href: concepts/topic/subtopic.md
           - name: Using topics
             href: concepts/topic/usage.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md

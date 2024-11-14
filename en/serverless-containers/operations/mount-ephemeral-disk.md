@@ -33,7 +33,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
     --container-name=<container_name> \
     --environment <runtime_environment> \
     --image <container_image_path> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --service-account-id <service_account_ID> \
     --mount type=ephemeral-disk,mount-point=<mount_point>,size=<disk_size>
@@ -48,9 +48,9 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
   * `--execution-timeout`: Maximum container execution time before timeout.
   * `--service-account-id`: Service account ID.
   * `--mount`: Ephemeral disk mounting parameters:
-    * `type=ephemeral-disk`: Type of mounted file system.
+    * `type=ephemeral-disk`: Type of the file system being mounted.
     * `mount-point`: Name of the mount point. Directory the disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted ephemeral disks will become unavailable. To mount the ephemeral disk correctly, provide the full absolute path to the mount point.
-    * `size`: Ephemeral disk size in GB. e.g., `size=5GB`.
+    * `size`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
 - {{ TF }} {#tf}
 
@@ -65,7 +65,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
       ```hcl
       resource "yandex_serverless_container" "ephemeral_storage_container" {
         name               = "<container_name>"
-        memory             = "<RAM_amount>"
+        memory             = "<RAM_size>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
         content {
@@ -97,7 +97,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the container update and its new configurations using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  You can check the container's update and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc serverless container version get <container_ID>

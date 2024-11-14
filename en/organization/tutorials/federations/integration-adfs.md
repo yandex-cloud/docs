@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../concepts/add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (AD FS) for authentication in the cloud.
+With an [identity federation](../../concepts/add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (AD FS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -129,7 +129,7 @@ To create a federation:
         * `issuer`: ID of the IdP server to use for authentication.
 
             Enter the link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
-
+        
         * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
         * `sso_url`: URL of the page the browser has to redirect the user to for authentication.
 
@@ -145,8 +145,8 @@ To create a federation:
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
-          * `encrypted_assertions`: For signing authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          * `encrypted_assertions`: For signing authentication queries. 
+            If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -312,7 +312,7 @@ To add a certificate to a federation:
       }
       ```
 
-  1. Send the add certificate request:
+  1. Send the add certificate query:
 
       ```bash
       export IAM_TOKEN=CggaAT********
@@ -391,7 +391,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
-    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click `<parameter>` to select the groups to get the access permission. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
+    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click `<parameter>` to select the groups to allow access for. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
     ![image](../../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -437,7 +437,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
     1. Specify what the server will return as the name ID to uniquely identify the user. To do this, add a line to the **Mapping of LDAP attributes** list:
 
-        In the **LDAP Attribute** column, select an attribute for a unique and fixed user ID: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or **E-Mail-Addresses**.
+        In the **LDAP Attribute** column, select an attribute for a unique and fixed ID of a federation user: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or **E-Mail-Addresses**.
 
         In the **Outgoing Claim Type** column, select **Name ID**.
 
@@ -467,7 +467,7 @@ The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended f
 1. Start PowerShell.
 
 1. Connect the Active Directory Module for Windows PowerShell with the command:
-
+   
    ```
    Import-Module ActiveDirectory
    ```

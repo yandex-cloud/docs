@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ org-full-name }}'
-description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ org-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ org-name }}.
 ---
 
 # {{ TF }} reference for {{ org-full-name }}
@@ -27,8 +27,8 @@ The following {{ TF }} provider resources are supported for {{ org-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/datasource_organizationmanager_group) | [User group](./concepts/groups.md) information |
-| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/datasource_organizationmanager_os_login_settings) | Information on configuring access via [OS Login](./concepts/os-login.md) |
-| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation) | Information about a [SAML-compatible identity federation](./concepts/add-federation.md) |
-| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) information |
-| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/datasource_organizationmanager_user_ssh_key) | Information about a user SSH key |
+| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/organizationmanager_group) | [User group](./concepts/groups.md) information |
+| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/organizationmanager_os_login_settings) | Information on configuring access via [OS Login](./concepts/os-login.md) |
+| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation) | Information about a [SAML-compatible identity federation](./concepts/add-federation.md) |
+| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) information |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/organizationmanager_user_ssh_key) | Information about a user SSH key |

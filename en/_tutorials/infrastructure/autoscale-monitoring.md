@@ -42,7 +42,7 @@ The infrastructure cost includes:
   1. Create a service account named `queue-autoscale-sa` and assign it the `editor` role for `example-folder`.
   
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `queue-autoscale-sa`.
      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -77,9 +77,9 @@ The infrastructure cost includes:
      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet parameters:
      
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`.
         
      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -345,14 +345,15 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      {% cut "How do I find out the service account ID" %}
      
      {% list tabs group=instructions %}
-     
+
      - Management console {#console}
-     
-       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-       1. In the list of service accounts, select `queue-autoscale-sa`.
+
+       1. In the [management console]({{ link-console-main }}), select `example-folder`.
+       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+       1. Select the `queue-autoscale-sa` service account from the list that opens.
        1. Copy the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}**.
-     
+
      - CLI {#cli}
      
        Run the following command:
@@ -522,7 +523,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   
      * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `queue-autoscale-ig`.
-     * Select the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** : `queue-autoscale-sa`.
+     * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
@@ -548,29 +549,29 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify the following values:
   
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `1`
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `1`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify the following values:
   
-     * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}**: `0`
-     * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}**: `5`
-     * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}**: `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}**: `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}**: `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}**: `1`
+     * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}**: `0`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}**: `5`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}**: `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}**: `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}**: `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}**: `1`.
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following values:
   
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`
-     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: `queue` as the key and `queue-autoscale-queue` as the value
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`
-     * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: `queue` as the key and `queue-autoscale-queue` as the value.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`.
      
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

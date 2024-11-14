@@ -34,7 +34,7 @@
 
 1. Облачная сеть {{ yandex-cloud }} также состоит из двух подсетей:
 
-   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
    * `172.16.4.0/24`: subnet4, зона доступности `{{ region-id }}-b`.
 
     В этих подсетях размещены DNS-серверы {{ yandex-cloud }}: `172.16.3.2` и `172.16.4.2`.

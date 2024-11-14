@@ -27,7 +27,7 @@ Your changes will apply within five minutes.
 
   {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
-  1. View a description of the CLI command for updating trigger parameters:
+  1. See the description of the CLI command for updating trigger parameters:
 
       ```bash
       yc serverless trigger update <trigger_type> --help

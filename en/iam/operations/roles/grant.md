@@ -134,7 +134,7 @@ To assign a role for an organization:
 
   1. In the left-hand panel, select ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. If the user, service account, or user group already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. If the user, service account, or user group you need already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
       If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
 

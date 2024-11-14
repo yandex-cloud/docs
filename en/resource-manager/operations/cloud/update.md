@@ -7,7 +7,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
-  1. In the top-right corner of the page, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 
 	 {% include [name-format.md](../../../_includes/name-format.md) %}
@@ -20,7 +20,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
   To rename a cloud created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the part with the cloud description.
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the cloud description fragment.
 
       {% cut "Example cloud description in {{ TF }} configuration" %}
 
@@ -35,7 +35,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -44,7 +44,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```

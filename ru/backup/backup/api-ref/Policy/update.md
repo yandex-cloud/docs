@@ -163,7 +163,7 @@ Required field. Archive compression level.
 - `OFF` ||
 || format | **enum** (Format)
 
-Required field. Format of the Acronis backup archive.
+Required field. Format of the Cyberprotect backup archive.
 
 - `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
@@ -767,7 +767,7 @@ Required field. Archive compression level.
 - `OFF` ||
 || format | **enum** (Format)
 
-Required field. Format of the Acronis backup archive.
+Required field. Format of the Cyberprotect backup archive.
 
 - `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.

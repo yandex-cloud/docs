@@ -20,7 +20,7 @@ To export audit logs of a cloud:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles-list) for the cloud whose audit logs will be collected:
+      * [`audit-trails.viewer`](../security/index.md#roles-list) for the cloud to collect audit logs from.
 
         ```bash
         yc resource-manager cloud add-access-binding \
@@ -30,8 +30,8 @@ To export audit logs of a cloud:
         ```
 
         Where:
-        * `--role`: Role being assigned.
-        * `--id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
+        * `--role`: Role you want to assign.
+        * `--id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to collect audit logs from.
         * `--service-account-id`: Service account ID.
 
       * [`yds.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
@@ -44,14 +44,14 @@ To export audit logs of a cloud:
         ```
 
         Where:
-        * `--role`: Role being assigned.
+        * `--role`: Role you want to assign.
         * `--id`: ID of the folder to host the trail.
         * `--service-account-id`: Service account ID.
 
     {% endlist %}
 
 1. On the [Access permissions]({{ link-console-access-management }}) page, make sure you have the following roles:
-    * `iam.serviceAccounts.user` for a service account.
+    * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
     * `audit-trails.viewer` for the cloud whose audit logs will be collected.
     * `yds.viewer` for the data stream in {{ yds-name }}.
@@ -109,7 +109,7 @@ To create a trail that exports audit logs from the cloud:
         --name <trail_name> \
         --description "<trail_description>" \
         --service-account-id <service_account_ID> \
-        --destination-yds-stream <data_stream_name> \
+        --destination-yds-stream <stream_name> \
         --destination-yds-database-id <YDB_DB_ID> \
         --filter-from-cloud-id <cloud_ID> \
         --filter-some-folder-ids <cloud_folder_list>
@@ -270,34 +270,35 @@ To create a trail that exports audit logs from the cloud:
         name = "<trail_name>"
         folder_id   = "<folder_ID>"
         description = "<trail_description>"
+        
         labels = {
           key = "value"
         }
-
+        
         service_account_id = "<service_account_ID>"
-
+        
         data_stream_destination {
-          stream_name   = "<data_stream_name>"
+          stream_name   = "<stream_name>"
           database_id = "<YDB_DB_ID>"
         }
-
+        
         filter {
           path_filter {
             some_filter {
               resource_id   = "<organization_ID>"
               resource_type = "<parent_resource_type>"
               any_filters {
-                  resource_id   = "<cloud_1_ID>"
+                  resource_id   = "<ID_of_cloud_1>"
                   resource_type = "<child_resource_type>"
               }
               any_filters {
-                  resource_id   = "<cloud_2_ID>"
+                  resource_id   = "<ID_of_cloud_2>"
                   resource_type = "<child_resource_type>"
               }
             }
           }
           event_filters {
-            service = "<service_1_ID>"
+            service = "<ID_of_service_1>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"
@@ -310,7 +311,7 @@ To create a trail that exports audit logs from the cloud:
             }
           }
           event_filters {
-            service = "<service_2_ID>"
+            service = "<ID_of_service_2>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"
@@ -334,13 +335,13 @@ To create a trail that exports audit logs from the cloud:
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc audit-trails trail get <trail_name>

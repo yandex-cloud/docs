@@ -14,7 +14,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry name in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click the ![image](../../../_assets/console-icons/ellipsis.svg)icon and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -44,7 +44,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
   To update the name of a registry created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the device description.
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the registry description fragment.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -57,7 +57,7 @@ To access a registry, use its unique ID or name. For information about how to fi
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -84,7 +84,7 @@ To access a registry, use its unique ID or name. For information about how to fi
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify the updated registry name in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -108,7 +108,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry description in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click the ![image](../../../_assets/console-icons/ellipsis.svg)icon and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -141,7 +141,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
   To update the description of a registry created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the device description.
+  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the registry description fragment.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -154,7 +154,7 @@ To access a registry, use its unique ID or name. For information about how to fi
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -181,7 +181,7 @@ To access a registry, use its unique ID or name. For information about how to fi
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify the updated registry description in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -213,7 +213,7 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the registry label to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click the ![image](../../../_assets/console-icons/ellipsis.svg)icon and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -265,7 +265,7 @@ You can perform the following actions related to registry labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -292,7 +292,7 @@ You can perform the following actions related to registry labels:
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -316,7 +316,7 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry label in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click the ![image](../../../_assets/console-icons/ellipsis.svg)icon and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -328,7 +328,7 @@ You can perform the following actions related to registry labels:
 
   {% note warning %}
 
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  The existing `labels` will be completely overwritten by the ones you provide in your request.
 
   {% endnote %}
 
@@ -354,7 +354,7 @@ You can perform the following actions related to registry labels:
 
   To update the label of a registry created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and update the label value in the `labels` section, in the fragment with the registry description.
+  1. Open the {{ TF }} configuration file and edit the label value in the `labels` section, in the registry description fragment.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -369,7 +369,7 @@ You can perform the following actions related to registry labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -396,7 +396,7 @@ You can perform the following actions related to registry labels:
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -420,7 +420,7 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry label from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click the ![image](../../../_assets/console-icons/ellipsis.svg)icon and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -450,7 +450,7 @@ You can perform the following actions related to registry labels:
 
   To delete the label of a registry created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the value of the label in the `labels` section, in the fragment with the registry description. To delete all labels, delete the entire `labels` section.
+  1. Open the {{ TF }} configuration file and delete the label value in the `labels` section, in the registry description fragment. To delete all labels, delete the entire `labels` section.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -465,7 +465,7 @@ You can perform the following actions related to registry labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -492,7 +492,7 @@ You can perform the following actions related to registry labels:
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
 

@@ -7,7 +7,7 @@ description: In this tutorial, you will create and run a workflow.
 
 {% note info %}
 
-{{ sw-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
+{{ sw-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 
@@ -27,7 +27,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-function`.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` [role](../../iam/concepts/access-control/roles.md).
@@ -60,9 +60,9 @@ To get started in {{ yandex-cloud }}:
                 };
             };
             ```
-        1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in these fields:
+        1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in the field:
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
@@ -91,9 +91,9 @@ To get started in {{ yandex-cloud }}:
                 };
             };
             ```
-        1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in these fields:
+        1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in the field:
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

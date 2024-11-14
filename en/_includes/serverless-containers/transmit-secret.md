@@ -73,7 +73,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
         ```hcl
         resource "yandex_serverless_container" "test-container" {
           name               = "<container_name>"
-          memory             = <memory_amount>
+          memory             = <memory_size>
           service_account_id = "<service_account_ID>"
           secrets {
             id                   = "<secret_ID>"
@@ -106,7 +106,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the function update and configuration in the [management console]({{ link-console-main }}).
+    You can check the function's update settings in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

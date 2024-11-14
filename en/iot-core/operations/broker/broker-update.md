@@ -52,7 +52,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
   To update the name of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -65,7 +65,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -92,7 +92,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can check the updated broker name in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
@@ -150,7 +150,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
   To update the description of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -163,7 +163,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -190,7 +190,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can check the updated broker description in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
@@ -275,7 +275,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -302,7 +302,7 @@ You can perform the following actions with broker labels:
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -339,7 +339,7 @@ You can perform the following actions with broker labels:
 
   {% note warning %}
 
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  The existing `labels` will be completely overwritten by the ones you provide in your request.
 
   {% endnote %}
 
@@ -365,7 +365,7 @@ You can perform the following actions with broker labels:
 
   To update the label of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and update the label value in the `labels` section, in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the label value in the `labels` section, in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -380,7 +380,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -407,7 +407,7 @@ You can perform the following actions with broker labels:
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -462,7 +462,7 @@ You can perform the following actions with broker labels:
 
   To delete the label of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the value of the label in the `labels` section, in the fragment with the broker description. To delete all labels, delete the entire `labels` section.
+  1. Open the {{ TF }} configuration file and delete the label value in the `labels` section, in the broker description fragment. To delete all labels, delete the entire `labels` section.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -477,7 +477,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -504,7 +504,7 @@ You can perform the following actions with broker labels:
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 

@@ -116,7 +116,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -197,7 +197,7 @@ To add a new record to the `Series` table:
 - Python {#python}
 
   1. Create the `SeriesItemOps01.py` file, for example, using `nano`:
-  
+
       ```bash
       nano SeriesItemOps01.py
       ```
@@ -206,7 +206,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -270,7 +270,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -353,7 +353,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -395,7 +395,7 @@ To add a new record to the `Series` table:
       ```
 
       The primary key is required. This code adds a record with a primary key (`series_id` and `title`) and attributes inside `info`. The `info` section stores JSON code with additional information about the series.
-  
+
   1. Run the program:
 
       ```bash
@@ -421,7 +421,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -436,7 +436,7 @@ To add a new record to the `Series` table:
         puts "Error uploading series '#{table_item[:item][:title]} " \
           "(#{table_item[:item][:series_id]})': #{e.message}"
       end
-      
+
       def run_me
         region = '{{ region-id }}'
         table_name = 'Series'

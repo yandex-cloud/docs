@@ -21,7 +21,7 @@ items:
             href: operations/cloud/delete-cancel.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
-          - name: Retrieving a cloud ID
+          - name: Getting a cloud ID
             href: operations/cloud/get-id.md
           - name: Switch clouds
             href: operations/cloud/switch-cloud.md
@@ -179,7 +179,7 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

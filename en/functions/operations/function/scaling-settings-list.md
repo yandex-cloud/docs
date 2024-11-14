@@ -32,7 +32,7 @@ description: Follow this guide to view function scaling settings.
     yc serverless function list-scaling-policies --id=<function_ID>
     ```
 
-    Where `--id` is the ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
+    Where `--id` is the function ID. To find out the ID, [request](./function-list.md) a list of functions.
 
     Result:
 
@@ -46,7 +46,7 @@ description: Follow this guide to view function scaling settings.
 
 - API {#api}
 
-    To view function scaling settings, use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md) gRPC API call.
+    To view any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

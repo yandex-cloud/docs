@@ -1,33 +1,39 @@
 title: '{{ speechsense-full-name }}'
 description:
   - >-
-    {{ speechsense-full-name }} is a service that will help your business
-    organize contact center analytics.
+    {{ speechsense-full-name }} is a service that can help your business get
+    contact center analytics going.
   - >-
-    {{ speechsense-full-name }} is based on Yandex Cloud ML technologies. {{
-    speechkit-full-name }} recognizes speech, collects dialog statistics and
-    identifies keywords, and {{ yagpt-full-name }} helps you write a resume.
+    {{ speechsense-full-name }} is built around Yandex's Cloud ML technologies:
+    {{ speechkit-full-name }} will perform speech recognition, collect dialog
+    statistics, and identify keywords, whereas {{ yagpt-full-name }} will help
+    summarize the data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_speechsense">Service Level for {{
-    speechsense-full-name }}</a>.
+    {{ speechsense-full-name }} is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. {{
+    speechsense-full-name }} service level is detailed in the <a
+    href="https://yandex.com/legal/cloud_sla_speechsense/">{{
+    speechsense-full-name }} Service Level</a> document.
   - >-
-    For terms of use, see the <a href
-    ="https://yandex.com/legal/cloud_terms_speechsense">{{ speechsense-full-name
-    }} Terms of Use</a>.
+    For terms of use, see the <a
+    href="https://yandex.com/legal/cloud_terms_speechsense">{{
+    speechsense-full-name }} Terms of Use</a>.
 meta:
   title: '{{ speechsense-full-name }}'
 links:
   - title: Getting started
-    description: How to setup workspace
+    description: >-
+      Upload the first record of the agent's dialog with a customer to {{
+      speechsense-full-name }}
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
-    href: operations/
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/index
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/resources-hierarchy
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Set up access permissions to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

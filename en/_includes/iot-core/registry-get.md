@@ -59,7 +59,7 @@
      * `output "registry_params"`: Output variable that contains information about the registry creation timestamp:
        * `value`: Returned value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_iot_core_registry` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_iot_core_registry).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_iot_core_registry` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/iot_core_registry).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -11,7 +11,7 @@ To create an additional cloud:
 
 - Management console {#console}
 
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure your [billing account](../../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure your [billing account](../../../billing/concepts/billing-account.md) status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
 
   1. Go to the [management console]({{ link-console-main }}).
 
@@ -29,7 +29,7 @@ To create an additional cloud:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource and specify the cloud in the `cloud_id` field.
+  To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource indicating the cloud in the `cloud_id` field.
 
   1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -48,9 +48,9 @@ To create an additional cloud:
       Where:
 
       * `name`: Cloud name. The naming requirements are as follows:
-
+      
         {% include [name-format.md](../../../_includes/name-format.md) %}
-
+        
       * `organization_id`: Organization [ID](../../../organization/operations/organization-get-id.md). {{ TF }} allows you to create a cloud only for an existing organization.
       * `billing_account_id`: Billing account ID.
       * `cloud_id`: [ID](../../../resource-manager/operations/cloud/get-id.md) of the cloud to link to the billing account.

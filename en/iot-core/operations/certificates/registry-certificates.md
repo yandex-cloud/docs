@@ -8,7 +8,7 @@ For devices and registries to begin exchanging data and commands, you need to [l
 - [Adding a certificate to a registry](registry-certificates.md#add-cert)
 - [Deleting a registry certificate](registry-certificates.md#delete-cert)
 
-To access a [registry](../../concepts/index.md#registry), use its unique ID or name. For information on retrieving the unique registry ID or name, see [{#T}](../registry/registry-list.md).
+To access a [registry](../../concepts/index.md#registry), use its unique ID or name. For information about how to find the unique ID or name, see [{#T}](../registry/registry-list.md).
 
 ## Getting a list of registry certificates {#registry-certificates-list}
 
@@ -42,41 +42,41 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Add a certificate to the registry:
+  Add a certificate to the registry:
 
-   ```
-   yc iot registry certificate add \
-     --registry-name my-registry \ # Registry name.
-     --certificate-file registry-cert.pem # Path to the public part of the certificate.
-   ```
-
-   Result:
-   ```
-   registry_id: b91ki3851hab********
-   fingerprint: 589ce1605...
-   certificate_data: |
-     -----BEGIN CERTIFICATE-----
-     MIIE/jCCAuagAw...
-     -----END CERTIFICATE-----
-   created_at: "2019-05-29T16:40:48.230Z"
-   ```
+  ```
+  yc iot registry certificate add \
+    --registry-name my-registry \ # Registry name.
+    --certificate-file registry-cert.pem # Path to the public part of the certificate.
+  ```
+  
+  Result:
+  ```
+  registry_id: b91ki3851hab********
+  fingerprint: 589ce1605...
+  certificate_data: |
+    -----BEGIN CERTIFICATE-----
+    MIIE/jCCAuagAw...
+    -----END CERTIFICATE-----
+  created_at: "2019-05-29T16:40:48.230Z"
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To add a certificate to a registry created using {{ TF }}:
 
-   To add a certificate to a registry created using {{ TF }}:
+  1. In the configuration file, describe the parameters of the resources you want to create:
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
-
-      * `yandex_iot_core_registry`: Registry parameters:
-         * `name`: Registry name.
-         * `description`: Registry description.
-         * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+     * `yandex_iot_core_registry`: Registry parameters:
+       * `name`: Registry name.
+       * `description`: Registry description.
+       * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
       Example registry description in the {{ TF }} configuration:
 
@@ -93,9 +93,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -107,22 +107,22 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
+     
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
-
-      You can verify registry certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can verify registry certificates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry certificate list --registry-name <registry_name>
@@ -130,7 +130,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API {#api}
 
-   To add a certificate to a registry, use the [addCertificate](../../api-ref/Registry/addCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddCertificate](../../api-ref/grpc/Registry/addCertificate.md) gRPC API call.
+  To add a certificate to a registry, use the [addCertificate](../../api-ref/Registry/addCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddCertificate](../../api-ref/grpc/Registry/addCertificate.md) gRPC API call.
 
 {% endlist %}
 
@@ -146,28 +146,28 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the row with the certificate in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. Delete a registry certificate:
+  1. Delete a registry certificate:
 
       ```
       yc iot registry certificate delete --registry-name my-registry --fingerprint 0f...
       ```
 
-   1. Make sure the certificate was deleted:
+  1. Make sure the certificate was deleted:
 
       ```
       yc iot registry certificate list --registry-name my-registry
-      ```
-
-      Result:
-
-      ```
+	    ```
+	  
+	    Result:
+	  
+	    ```
       +-------------+------------+
       | FINGERPRINT | CREATED AT |
       +-------------+------------+
@@ -176,13 +176,13 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To delete the certificate of a registry created using {{ TF }}:
+  To delete the certificate of a registry created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and delete the value of the certificate in the `certificates` block, in the fragment with the registry description. To remove all certificates, delete the entire `certificates` block.
+  1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` section, in the registry description fragment. To remove all certificates, delete the entire `certificates` section.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -199,9 +199,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
@@ -213,22 +213,22 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
+     
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
-
-      You can verify registry certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can verify registry certificates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry certificate list --registry-name <registry_name>
@@ -236,6 +236,6 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API {#api}
 
-   To delete a registry certificate, use the [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeleteCertificate](../../api-ref/grpc/Registry/deleteCertificate.md) gRPC API call.
+  To delete a registry certificate, use the [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeleteCertificate](../../api-ref/grpc/Registry/deleteCertificate.md) gRPC API call.
 
 {% endlist %}

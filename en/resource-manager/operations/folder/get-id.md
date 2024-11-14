@@ -10,11 +10,11 @@ description: In this tutorial, you will learn how to get a folder ID in {{ yande
 - Management console {#console}
 
   1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate [folder](../../concepts/resources-hierarchy.md#folder) from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
-
+  
   1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
-
+  
   You can also get the folder ID from the folder page URL in the management console:
-
+  
   ```text
   {{ link-console-main }}/folders/<folder_ID>
   ```

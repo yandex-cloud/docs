@@ -13,7 +13,7 @@ items:
             href: operations/organizations-overview.md
           - name: Creating an organization
             href: operations/enable-org.md
-          - name: Getting organization ID
+          - name: Getting an organization ID
             href: operations/organization-get-id.md
           - name: Editing organization data
             href: operations/org-profile.md
@@ -39,19 +39,19 @@ items:
         items:
           - name: Overview
             href: operations/manage-groups.md
-          - name: Create group
+          - name: Creating a group
             href: operations/create-group.md
           - name: Adding members
             href: operations/add-member-group.md
           - name: Editing a group
             href: operations/edit-group.md
-          - name: Setting up permissions to manage a group
+          - name: Configuring group management access
             href: operations/access-manage-group.md
           - name: Granting permissions to a group
             href: operations/access-group.md
           - name: Deleting members
             href: operations/delete-member-group.md
-          - name: Delete a group
+          - name: Deleting a group
             href: operations/delete-group.md
       - name: Managing identity federations
         items:

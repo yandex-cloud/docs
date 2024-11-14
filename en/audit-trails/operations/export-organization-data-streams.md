@@ -20,7 +20,7 @@ To export organization audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * `audit-trails.viewer` for the organization whose audit logs will be collected:
+      * `audit-trails.viewer` for the organization whose audit logs you will collect:
 
         ```
         yc organization-manager organization add-access-binding \
@@ -31,7 +31,7 @@ To export organization audit logs:
 
         Where:
         * `--role`: Role you want to assign.
-        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources audit logs will be collected.
+        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources you will collect audit logs.
         * `--service-account-id`: Service account ID.
 
       * `yds.writer` for the folder to host the trail:
@@ -53,7 +53,7 @@ To export organization audit logs:
 1. On the [Access permissions]({{ link-console-access-management }}) page, make sure you have the following roles:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the organization whose audit logs will be collected.
+    * `audit-trails.viewer` for the organization whose audit logs you will collect.
     * `yds.viewer` for the data stream in {{ yds-name }}.
 
 
@@ -110,10 +110,10 @@ To create a trail that exports organization audit logs:
         --name <trail_name> \
         --description "<trail_description>" \
         --service-account-id <service_account_ID> \
-        --destination-yds-stream <data_stream_name> \
+        --destination-yds-stream <stream_name> \
         --destination-yds-database-id <YDB_DB_ID> \
         --filter-from-organisation-id <organization_ID> \
-        --filter-some-cloud-ids <list_of_all_clouds_in_the_organization>
+        --filter-some-cloud-ids <list_of_clouds_in_organization>
       ```
 
       Where:
@@ -271,18 +271,18 @@ To create a trail that exports organization audit logs:
         name = "<trail_name>"
         folder_id   = "<folder_ID>"
         description = "<trail_description>"
-
+        
         labels = {
           key = "value"
         }
-
+        
         service_account_id = "<service_account_ID>"
-
+        
         data_stream_destination {
-          stream_name   = "<data_stream_name>"
+          stream_name   = "<stream_name>"
           database_id = "<YDB_DB_ID>"
         }
-
+        
         filter {
           path_filter {
             some_filter {
@@ -341,8 +341,8 @@ To create a trail that exports organization audit logs:
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc audit-trails trail get <trail_name>

@@ -21,6 +21,10 @@ items:
         href: domains/iam-checklist.md
       - name: Kubernetes security
         href: domains/kubernetes.md
+      - name: >-
+          Reference architecture for cloud infrastructure in isolated mode
+          without internet access
+        href: domains/architecture-isolated.md
   - name: Standard for securing Yandex Cloud infrastructure 1.2
     items:
       - name: All sections on one page

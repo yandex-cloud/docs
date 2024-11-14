@@ -35,8 +35,8 @@ The infrastructure support costs include:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder to create a service account in.
-    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the service account: `my-db-function-service-account`.
     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` and `{{ roles-editor }}` [roles](../../iam/concepts/access-control/roles.md).
@@ -188,7 +188,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format. For example:
+The sensor outputs the result in JSON format, e.g.:
 
 ```json
 {
@@ -283,9 +283,9 @@ After creating the function, you will be automatically redirected to the **{{ ui
 
     1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select `my-db-function-service-account`.
 
-    1. Add environment variables:
+    1. Add these environment variables:
 
-        * `VERBOSE_LOG`: Parameter displaying detailed information about the function. Enter `True`.
+        * `VERBOSE_LOG`: Parameter displaying detailed information about the function. Type in `True`.
         * `DB_HOSTNAME`: Name of the {{ PG }} database host to connect to.
         * `DB_PORT`: Port to connect to.
         * `DB_NAME`: Name of the database to connect to.
@@ -297,7 +297,7 @@ After creating the function, you will be automatically redirected to the **{{ ui
         1. In the [management console]({{ link-console-main }}), select the folder where you created the cluster.
         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Select the `my-pg-database` cluster.
-        1.  In the line with the database you need, click the ![image](../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+        1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. On the **PowerShell** tab, find a sample connection string.
         1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.common.value }}** field for the function environment variables.
 
@@ -319,7 +319,7 @@ The trigger will accept copies of messages from the device topic and pass them t
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger,
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_description }}** field, enter a description for the trigger.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}**.
 

@@ -33,7 +33,7 @@ Linking a {{ backup-full-name }} policy to a VM is available for [{{ TF }} provi
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare files with the infrastructure description:
 
     {% list tabs group=infrastructure_description %}
@@ -99,7 +99,7 @@ To create an infrastructure using {{ TF }}:
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
     * [Security group](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [VM image](../../compute/concepts/image.md) data: [yandex_compute_image]({{ tf-provider-datasources-link }}/datasource_compute_image).
+    * [VM image](../../compute/concepts/image.md) data: [yandex_compute_image]({{ tf-provider-datasources-link }}/compute_image).
     * VM boot [disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
     * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
     * [Backup policy](../../backup/concepts/policy.md): [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy). You can create a new policy or use one of those generated automatically upon service activation.

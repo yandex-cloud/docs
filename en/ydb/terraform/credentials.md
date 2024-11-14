@@ -7,11 +7,11 @@ description: Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} us
 
 To authenticate in {{ yandex-cloud }} and manage {{ ydb-short-name }} databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and work in {{ TF }} with {{ ydb-short-name }}, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
 
-You can create and set up a service account by following these steps:
-1. In the management console, select the folder to create a service account in.
+You can [create](../../iam/operations/sa/create.md) and set up a service account by following these steps:
 
-1. In the **Service accounts** tab, click `Create service account`.
-
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Enter a name for the service account.
     * The name must be 3 to 63 characters long.
     * The name may contain lowercase Latin letters, numbers, and hyphens.
@@ -20,10 +20,10 @@ You can create and set up a service account by following these steps:
 
 1. Click **Create**.
 
-Go to **Service account** and create an authorized key for {{ TF }} authentication in {{ yandex-cloud }}:
+Go to **Service account** and create an authorized key for {{ TF }}authentication in {{ yandex-cloud }}:
 1. Click `Create new key` and select `Create authorized key`.
 
-1. Enter the **Key description** (optional) and click **Create**.
+1. Enter the **Key description** (optional) and click **Create**. 
 
 1. Click **Download key file** to download the key file locally.
 

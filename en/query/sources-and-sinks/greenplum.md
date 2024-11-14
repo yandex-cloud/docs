@@ -79,6 +79,16 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ GP }} a
 
 {% include [!](_includes/predicate_pushdown.md) %}
 
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Int16`|
+|`Int32`|
+|`Int64`|
+|`Float`|
+|`Double`|
+
 ## Supported data types {#supported_types}
 
 In a {{ GP }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented by means of the `attnotnull` attribute in the [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ GP }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional](https://ydb.tech/docs/ru/yql/reference/types/optional) types. 

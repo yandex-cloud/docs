@@ -4,9 +4,9 @@ The [JSON](https://en.wikipedia.org/wiki/JSON) data format is used for storing a
 
 Below are basic operations with data in this format:
 
-* Check the existence of the `name` object.
-* Retrieve the value of the `age` object.
-* Query object data.
+* Checking the existence of the `name` object.
+* Retrieving the value of the `age` object.
+* Querying data from an object.
 
 ```sql
 $json = CAST(@@{
@@ -23,12 +23,12 @@ $json = CAST(@@{
 }@@ AS Json);
 
 SELECT
-    JSON_EXISTS($json, "$.friends[*].name"), -- Checking if the name object exists,
-    JSON_VALUE($json, "$.friends[0].age"), -- Getting the age object value
-    JSON_QUERY($json, "$.friends[0]"); -- Querying the object data.
+    JSON_EXISTS($json, "$.friends[*].name"), -- Checking the existence of the `name` object.
+    JSON_VALUE($json, "$.friends[0].age"),   -- Retrieving the value of the `age` object.
+    JSON_QUERY($json, "$.friends[0]");       -- Querying data from an object.
 ```
 
-Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
 ## Escaping quotes in JSON {#escaping-json}
@@ -43,14 +43,14 @@ VALUES
 ;
 ```
 
-To insert the first string value, a `raw string` and the escape method with `\"` are used. To insert the second string, escaping with `\\\"` is used.
+To insert the first string value, a `raw string` and the `\"` escape method are used. To insert the second string, the `\\\"` escape method is used.
 
-We recommend using a `raw string` and `\"` as the escape method, since it is more visual.
+We recommend using a `raw string` and the `\"` escape method as it is more visual.
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select).
-* [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists).
-* [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value).
-* [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator.
+* [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists) function.
+* [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value) function.
+* [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query) function.
 * [Functions for JSON]({{ ydb.docs }}/yql/reference/builtins/json).

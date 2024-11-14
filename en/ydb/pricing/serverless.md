@@ -8,9 +8,9 @@
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users do not have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as recovery from a backup, are charged extra.
+When you use {{ ydb-name }} in serverless mode, you are billed for each request made to the database. Users do not have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as recovery from a backup, are charged extra.
 
-## What goes into the cost of using {{ ydb-name }} Serverless mode {#rules}
+## What goes into the cost of using {{ ydb-name }} in serverless mode {#rules}
 
 When using {{ ydb-name }} in Serverless mode, you pay for the following:
 * Data operations.
@@ -26,7 +26,7 @@ Other consumed resources to be additionally paid for:
 
 ### Data operations and request units {#rules-ru}
 
-The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
+The serverless mode of Yandex {{ ydb-name }} supports multiple ways to work with data:
 * YQL is an SQL-like language for accessing relational tables that is supported by the [SDK]({{ ydb.docs }}/reference/ydb-sdk/), [CLI]({{ ydb.docs }}/reference/ydb-cli/), and the {{ ydb-short-name }} management console.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 

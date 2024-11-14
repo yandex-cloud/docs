@@ -104,10 +104,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `{{ region-id }}-a`:
+     1. Создайте подсеть в зоне `{{ region-id }}-d`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-d
         ```
 
         Результат выполнения команды:
@@ -117,7 +117,7 @@
         folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:34:32.561702Z"
         network_id: enpabce123hd********
-        zone_id: {{ region-id }}-a
+        zone_id: {{ region-id }}-d
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -144,7 +144,7 @@
 
      1. Создайте сеть:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
-     1. Создайте подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b`:
+     1. Создайте подсети в зонах `{{ region-id }}-d` и `{{ region-id }}-b`:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
    {% endlist %}
@@ -165,7 +165,7 @@
      1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
         * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `group-for-load`.
         * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `for-load`.
-     1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-a` и `{{ region-id }}-b`.
+     1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-d` и `{{ region-id }}-b`.
      1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.

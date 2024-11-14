@@ -24,5 +24,5 @@ The following {{ TF }} provider resources are supported for {{ ml-platform-name 
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_datasphere_community]({{ tf-provider-datasources-link }}/datasource_datasphere_community) | [Community](concepts/community.md) information |
-| [yandex_datasphere_project]({{ tf-provider-datasources-link }}/datasource_datasphere_project) | [Project](concepts/project.md) information |
+| [yandex_datasphere_community]({{ tf-provider-datasources-link }}/datasphere_community) | [Community](concepts/community.md) information |
+| [yandex_datasphere_project]({{ tf-provider-datasources-link }}/datasphere_project) | [Project](concepts/project.md) information |

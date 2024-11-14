@@ -14,7 +14,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Select the API gateway you need.
-  1. Go to ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** for the selected API gateway.
+  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** panel for the selected API gateway.
 
      You will see a list of operations with the selected API gateway.
 
@@ -24,7 +24,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ api-gw-name }} resource, run this command:
+  To get a list of operations for an {{ api-gw-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is provided as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc serverless api-gateway list-operations <API_gateway_name_or_ID> --format yaml

@@ -1,5 +1,5 @@
 ---
-title: '{{ speechsense-name }} guides'
+title: Guides on using {{ speechsense-name }}
 description: The page contains all guides for {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
 ---
 
@@ -9,7 +9,12 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
-* [{#T}](data/search-data.md)
+
+* Searching data:
+
+  * [{#T}](data/search-data-grpc.md)
+  * [{#T}](data/search-data-rest.md)
+
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 

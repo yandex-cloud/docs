@@ -71,14 +71,14 @@
      1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      
-  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
      1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
      
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `queue-autoscale-subnet-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `queue-autoscale-subnet-d`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-d`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
         
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -162,20 +162,20 @@
      name: queue-autoscale-network
      ```
 
-  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d`:
 
      ```bash
-     yc vpc subnet create queue-autoscale-subnet-a \
+     yc vpc subnet create queue-autoscale-subnet-d \
        --network-name queue-autoscale-network 
        --range 192.168.1.0/24 
-       --zone {{ region-id }}-a
+       --zone {{ region-id }}-d
      ```
      
      Где:
 
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-a`.
+     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-d`.
 
      Результат:
 
@@ -183,9 +183,9 @@
      id: e1lnabc23r1c********
      folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:29:12.450858436Z"
-     name: queue-autoscale-subnet-a
+     name: queue-autoscale-subnet-d
      network_id: enpabce123hd********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 192.168.1.0/24
      ```
@@ -206,7 +206,7 @@
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
-  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
   
 {% endlist %}
 
@@ -415,7 +415,7 @@
      
      {% endcut %}
      
-   * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-a`.
+   * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-d`.
    
      {% cut "Как узнать идентификатор подсети" %}
      
@@ -426,14 +426,14 @@
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
+       1. В списке подсетей найдите `queue-autoscale-subnet-d` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
             
      - CLI {#cli}
      
        Выполните следующую команду:
        
        ```bash
-       yc vpc subnet get queue-autoscale-subnet-a
+       yc vpc subnet get queue-autoscale-subnet-d
        ```
        
        Результат:
@@ -442,9 +442,9 @@
        id: e1lnabc23r1c********
        folder_id: b0g12ga82bcv********
        created_at: "2021-10-04T16:29:12.450858436Z"
-       name: queue-autoscale-subnet-a
+       name: queue-autoscale-subnet-d
        network_id: enpabce123hd********
-       zone_id: {{ region-id }}-a
+       zone_id: {{ region-id }}-d
        v4_cidr_blocks:
        - 192.168.1.0/24
        ```
@@ -525,7 +525,7 @@
      * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `queue-autoscale-ig`.
      * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
      
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите`{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите`{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
   
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
@@ -605,7 +605,7 @@
   
      * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
-     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-a`.
+     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-d`.
      
        {% cut "Как узнать идентификатор сети" %}
             
@@ -661,7 +661,7 @@
     
      * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
-     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-a`.
+     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-d`.
      
        {% cut "Как узнать идентификатор сети" %}
             
@@ -741,6 +741,6 @@
 1. [Удалите](../../compute/operations/instance-groups/delete.md) группу виртуальных машин `queue-autoscale-ig`.
 1. [Удалите](../../compute/operations/image-control/delete.md) образ из семейства `queue-autoscale-image`.
 1. [Удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь `queue-autoscale-queue`.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `queue-autoscale-subnet-a`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `queue-autoscale-subnet-d`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `queue-autoscale-network`.
 1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт `queue-autoscale-sa`.

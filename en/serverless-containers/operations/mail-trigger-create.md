@@ -11,17 +11,17 @@ To create a trigger, you need:
     * [Create a container](../../serverless-containers/operations/create.md).
     * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
 
-* (Optional) A [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
     
     * To invoke a container.
-    * (Optional) To write to a dead-letter queue.
-    * (Optional) To upload objects to buckets.
+    * Optionally, to write to a dead-letter queue.
+    * Optionally, to upload objects to buckets.
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* (Optional) [Bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
+* Optionally, a [bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -41,11 +41,11 @@ To create a trigger, you need:
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * (Optional) Enter a trigger name and description.
+        * Optionally, enter a trigger name and description.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
     
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
       
         {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
@@ -57,7 +57,7 @@ To create a trigger, you need:
 
         {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
@@ -76,15 +76,15 @@ To create a trigger, you need:
     ```bash
     yc serverless trigger create mail \
       --name <trigger_name> \
-      --batch-size <message_batch_size> \
+      --batch-size <message_group_size> \
       --batch-cutoff <maximum_timeout> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retries> \
-      --retry-interval <time_between_retry_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --retry-attempts <number_of_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -142,17 +142,17 @@ To create a trigger, you need:
          container {
            id                 = "<container_ID>"
            service_account_id = "<service_account_ID>"
-           retry_attempts     = <number_of_retries>
-           retry_interval     = <time_between_retry_attempts>
+           retry_attempts     = <number_of_retry_attempts>
+           retry_interval     = <interval_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
            service_account_id    = "<service_account_ID>"
            batch_cutoff          = <maximum_timeout>
-           batch_size            = <message_batch_size>
+           batch_size            = <message_group_size>
          }
          dlq {
-           queue_id           = "<dead_letter_queue_ID>"
+           queue_id           = "<dead-letter_queue_ID>"
            service_account_id = "<service_account_ID>"
          }
        }

@@ -1,7 +1,7 @@
 # Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall
 
 
-Using this tutorial, you will deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall). The infrastructure elements are hosted in two [availability zones](../../overview/concepts/geo-scope.md) and grouped by purpose into individual [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). This solution enables you to publish generally available web resources, such as front-end applications, in a DMZ that is isolated from the internal infrastructure and ensures security and high availability of the entire perimeter.
+Using this tutorial, you will deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall). The infrastructure elements are hosted in two [availability zones](../../overview/concepts/geo-scope.md) and grouped by purpose into individual [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). This solution enables you to publish generally available web resources, such as front-end applications, in a DMZ that is isolated from the internal infrastructure and ensures security and high availability of the entire perimeter.
 
 The solution diagram is given below.
 
@@ -135,7 +135,8 @@ All the steps described below are completed in the Linux terminal.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
       The name format requirements are as follows:

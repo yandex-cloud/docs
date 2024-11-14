@@ -27,10 +27,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.
+      1. Go back to the [management console]({{ link-console-main }}) and open the folder you created the service account in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
       1. Select the registry and click the row with its name.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -125,7 +125,7 @@ Create a VM with a public IP address and link the service account you created to
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
-        * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+        * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Not to assign a public IP address.
         * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
       * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.

@@ -70,11 +70,11 @@
 
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
      
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
   
      ```bash
-     yc vpc subnet create usergate-subnet-{{ region-id }}-a \
-       --zone {{ region-id }}-a \
+     yc vpc subnet create usergate-subnet-{{ region-id }}-d \
+       --zone {{ region-id }}-d \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
@@ -85,9 +85,9 @@
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-{{ region-id }}-a
+     name: usergate-subnet-{{ region-id }}-d
      network_id: enptrcle5q3d********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
@@ -96,7 +96,7 @@
 
 - {{ TF }} {#tf}
 
-  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-a`:
+  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-d`:
 
      ```hcl
      resource "yandex_vpc_network" "usergate-network" {
@@ -104,8 +104,8 @@
      }
 
      resource "yandex_vpc_subnet" "usergate-subnet" {
-       name           = "usergate-subnet-{{ region-id }}-a"
-       zone           = "{{ region-id }}-a"
+       name           = "usergate-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
@@ -137,7 +137,7 @@
 - API {#api}
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
 
 {% endlist %}
 
@@ -347,7 +347,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}
@@ -355,7 +355,7 @@
   Выполните команду:
 
   ```bash
-  yc vpc address create --external-ipv4 zone={{ region-id }}-a
+  yc vpc address create --external-ipv4 zone={{ region-id }}-d
   ```
 
   Результат:
@@ -366,7 +366,7 @@
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: {{ region-id }}-a
+    zone_id: {{ region-id }}-d
     requirements: {}
   reserved: true
   ```
@@ -383,7 +383,7 @@
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `UserGate NGFW` и выберите публичный образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -399,7 +399,7 @@
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-d`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и в появившемся списке выберите зарезервированный ранее IP-адрес.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите из списка группу `usergate-sg`.
 
@@ -429,8 +429,8 @@
        --name usergate-proxy \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-a \
-       --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
+       --zone {{ region-id }}-d \
+       --network-interface subnet-name=usergate-subnet-{{ region-id }}-d,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь_к_открытой_части_SSH-ключа> \
      ```
@@ -442,7 +442,7 @@
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-proxy
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      platform_id: standard-v2
      resources:
        memory: "8589934592"
@@ -481,7 +481,7 @@
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-a"
+       zone     = "{{ region-id }}-d"
        size     = "110"
        image_id = "<идентификатор_образа_UserGate_NGFW>"
      }
@@ -489,7 +489,7 @@
      resource "yandex_compute_instance" "usergate-proxy" {
        name        = "usergate-proxy"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-a"
+       zone        = "{{ region-id }}-d"
        hostname    = "usergate"
        resources {
          cores         = 4

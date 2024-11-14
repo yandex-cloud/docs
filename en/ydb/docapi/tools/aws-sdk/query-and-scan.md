@@ -45,7 +45,7 @@ To extract data using `query` from the `Series` table:
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -129,7 +129,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -194,19 +194,19 @@ To extract data using `query` from the `Series` table:
 
       {% note info %}
 
-      `valueMap` is used for substituting values. This is required since you cannot use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
+      `valueMap` is used for substituting values. This is required since you cannot use literals directly in expressions, including in `KeyConditionExpression`. The above code uses `:sd`.
 
       {% endnote %}
 
       First, you create the `querySpec` object, which describes query parameters, and then provide this object to the `query` method.
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesQuery01.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesQuery01.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -235,7 +235,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -291,7 +291,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -352,7 +352,7 @@ To extract data using `query` from the `Series` table:
 
       {% note info %}
 
-      `ExpressionAttributeValues` is used for substituting values. This is required since you cannot use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
+      `ExpressionAttributeValues` is used for substituting values. This is required since you cannot use literals directly in expressions, including in `KeyConditionExpression`. The above code uses `:sd`.
 
       {% endnote %}
 
@@ -384,7 +384,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -450,7 +450,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -543,13 +543,13 @@ To find a series with the partition key 3 and the title starting with a `T` in t
       cd SeriesQuery02
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -633,7 +633,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -697,13 +697,13 @@ To find a series with the partition key 3 and the title starting with a `T` in t
       }
       ```
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesQuery02.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesQuery02.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -731,7 +731,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -788,7 +788,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -875,7 +875,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -889,7 +889,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       var docClient = new AWS.DynamoDB.DocumentClient();
 
-      console.log("Series with id 3 and title starting with Т:");
+      console.log("Series with id 3 and title starting with T:");
 
       var params = {
           TableName : "Series",
@@ -944,7 +944,7 @@ To find a series with the partition key 3 and the title starting with a `T` in t
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1035,13 +1035,13 @@ To extract data using `scan` from the `Series` table:
       cd SeriesScan
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1125,7 +1125,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1182,13 +1182,13 @@ To extract data using `scan` from the `Series` table:
 
       The above code scans the `Series` table and outputs series with the `series_id` attribute from 1 to 3. All other elements are discarded.
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesScan.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesScan.jar` file in the `target/release/` folder.
 
   1. Run the application:
 
@@ -1218,7 +1218,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1302,7 +1302,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1378,7 +1378,7 @@ To extract data using `scan` from the `Series` table:
       Result:
 
       ```text
-      Scanning the table Series.
+      Scanning the Series table.
       3: House of Cards
       3: The Office
       3: True Detective
@@ -1398,7 +1398,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1482,7 +1482,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
 
       {% endnote %}
 
@@ -1496,7 +1496,7 @@ To extract data using `scan` from the `Series` table:
           if result.items.count.zero?
             puts 'No suitable series found (yet)...'
           else
-            puts "#{result.items. count} suitable series found (so far):"
+            puts "No #{result.items.count} suitable series found (yet):"
             result.items.each do |movie|
               puts "#{movie["title"]} (#{movie["series_id"].to_i}), " \
                 "Rating: #{movie["info"]["rating"].to_f}"
@@ -1537,7 +1537,7 @@ To extract data using `scan` from the `Series` table:
           }
         }
 
-        puts "Searching for series in table '#{table_name} ' with id from #{start_id} to #{end_id}..."
+        puts "Searching for series in table '#{table_name}' with id from #{start_id} to #{end_id}..."
 
         scan_for_items_from_table(dynamodb_client, scan_condition)
       end

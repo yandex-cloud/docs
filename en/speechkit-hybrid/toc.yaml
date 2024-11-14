@@ -57,7 +57,7 @@ items:
             href: api-ref/stt/v3/grpc/stt_service.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ sk-hybrid-name }} administration'
+  - name: '{{ sk-hybrid-name }} releases'
     href: release-notes.md
 base: en/speechkit-hybrid
 deepBase: 2

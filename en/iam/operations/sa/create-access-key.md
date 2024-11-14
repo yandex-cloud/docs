@@ -11,12 +11,13 @@ To create a static access key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Choose a service account and click the row with its name.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. Select the service account to create a static access key for.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and private key.
+  1. Save the ID and secret key.
 
       {% note alert %}
 
@@ -91,7 +92,7 @@ To create a static access key:
      * `description`: Key description. This is an optional parameter.
      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
 
-     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
@@ -173,5 +174,5 @@ Add a description when creating an access key.
 #### See also {#see-also}
 
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
-* [{#T}](assign-role-for-sa.md)
+* [{#T}](assign-role-for-sa.md).
 * [{#T}](../../tutorials/static-key-in-lockbox.md)

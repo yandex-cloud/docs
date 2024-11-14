@@ -69,7 +69,7 @@
           folder_id: b1g681qpemb4********
       ```
 
-   - API {#api}
+    - API {#api}
 
       Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 

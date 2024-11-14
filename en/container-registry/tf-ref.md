@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ container-registry-full-name }}'
-description: This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}.
 ---
 
 # {{ TF }} reference for {{ container-registry-full-name }}
@@ -26,5 +26,5 @@ The following {{ TF }} provider resources are supported for {{ container-registr
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_container_registry]({{ tf-provider-datasources-link }}/datasource_container_registry) | [Registry](./concepts/registry.md) information |
-| [yandex_container_registry_ip_permission]({{ tf-provider-datasources-link }}/datasource_container_registry_ip_permission) | [Registry access](./operations/registry/registry-access.md) information |
+| [yandex_container_registry]({{ tf-provider-datasources-link }}/container_registry) | [Registry](./concepts/registry.md) information |
+| [yandex_container_registry_ip_permission]({{ tf-provider-datasources-link }}/container_registry_ip_permission) | [Registry access](./operations/registry/registry-access.md) information |

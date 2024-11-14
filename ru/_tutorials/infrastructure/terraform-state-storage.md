@@ -133,7 +133,7 @@
    }
 
    provider "yandex" {
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ region-id }}-d"
    }
 
    data "terraform_remote_state" "vpc" {
@@ -163,7 +163,7 @@
    resource "yandex_compute_disk" "boot-disk-vm3" {
      name     = "boot-disk-3"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }

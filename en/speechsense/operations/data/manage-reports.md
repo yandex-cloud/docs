@@ -3,6 +3,7 @@
 You can use [{{ speechsense-name }} reports](../../concepts/reports/index.md) to analyze dialogs between agents and customers and evaluate agents' performance. Build a report:
 
 * [Evaluation form](#build-an-evaluation-form): To analyze several evaluation parameters.
+* [Comparison](#build-a-comparison-report): To compare multiple evaluation parameters over time.
 * [Details](#build-a-details-report): To analyze changes in a single evaluation parameter over time.
 
 If you want to use a reason, topic, or dialog outcome as a filter or evaluation parameter, [use a neuroparameter in your report](#apply-neuro-parameter).
@@ -50,6 +51,32 @@ To switch from a report to a dialog list:
 1. In the report chart, click the rectangle of the evaluation parameter you need. This will open a list of dialogs according to the active filters and the parameter you selected.
 1. Go to the dialog of your choice. Its page will show detailed info about the dialog, e.g, the agent's performance data in the form of dialog summary, agent and customer tags, transcript of the audio recognized using {{ speechsense-name }}.
 
+## Building a _Comparison_ report {#build-a-comparison-report}
+
+1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
+1. Go to the space you need and select a project.
+1. Go to the **Reports** tab.
+1. Click **Create report** → **Comparison**.
+1. In the window that opens, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**, and select the one you need.
+
+   For more information about the parameters and how to generate a report based on them, see [{#T}](../../concepts/reports/comparison.md#parameter).
+
+1. Specify what data you want to get: total of evaluation parameter values, average, minimum, or maximum value of the evaluation parameter.
+
+   In the **Comparison** report, you can only select numerical evaluation parameters. If you select a [tag](../../concepts/tags.md) as a parameter, the total, average, minimum, or maximum number of times the tag was assigned to dialogs will be counted for the specified period.
+
+1. To add more evaluation parameters, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.
+1. Specify how to group the report data. For example, you can group it by agent, customer, or dialog subject. The list of available grouping options depends on the [connection](../../operations/connection/create.md) metadata. You can get different data slices based on the way you group data. The grouping you select only affects how the data is displayed in the table.
+1. Select the report generation period.
+1. (Optional) Use the ![image](../../../_assets/console-icons/plus.svg) button next to the **Period** field to select the filters to screen dialogs for the report. For more information about filters, see [{#T}](../../concepts/reports/comparison.md#filters).
+
+   If you want to pick dialogs by their content, [use a neuroparameter](#apply-neuro-parameter) as a filter.
+
+1. Click **Create report**.
+1. To reuse the report, click **Save report**. Specify its name and, optionally, a description.
+
+   The report will be available in the selected project in the **Reports** tab.
+
 ## Building the _Details_ report {#build-a-details-report}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
@@ -65,7 +92,7 @@ To switch from a report to a dialog list:
 
    In the **Details** report, you can only select numerical evaluation parameters. If you select a [tag](../../concepts/tags.md) as a parameter, the total, average, minimum, or maximum number of times the tag was assigned to dialogs will be counted for the specified period.
 
-1. Specify how to group the report data. For example, you can group by product, agent, or customer. Different grouping settings produce different data cross-sections.
+1. Specify how to group the report data. For example, you can group it by agent, customer, or dialog subject. The list of available grouping options depends on the [connection](../../operations/connection/create.md) metadata. You can get different data slices based on the way you group data.
 1. Select the report generation period.
 1. (Optional) Use the ![image](../../../_assets/console-icons/plus.svg) button next to the **Period** field to select the filters to screen dialogs for the report. For more information about filters, see [{#T}](../../concepts/reports/details.md#filters).
 

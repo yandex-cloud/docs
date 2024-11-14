@@ -37,14 +37,14 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a [bucket](../../storage/concepts/bucket.md) in, e.g., `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
-   1. On the bucket creation page:
-      * Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
-      * In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-      * For the other parameters, leave the default settings.
-   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md), e.g., `example-folder`.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+    1. On the bucket creation page:
+        * Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+        * In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+        * Leave the default values for other parameters.
+    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -57,15 +57,15 @@ Create a service account named `trail-sa`:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `trail-sa`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+    1. Specify **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `trail-sa`.
+    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-Use the same method to create a service account named `bucket-yq-sa`.
+Similarly, create a service account named `bucket-yq-sa`.
 
 
 ### Assign rights to service accounts {#grant-roles}
@@ -75,67 +75,67 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
+  
+    1. The `audit-trails.viewer` role for an organization:
 
-   1. The `audit-trails.viewer` role to the organization:
+        ```bash
+        yc organization-manager organization add-access-binding \
+        --role audit-trails.viewer \
+        --id <organization_ID> \
+        --service-account-id <service_account_ID>
+        ```
 
-      ```bash
-      yc organization-manager organization add-access-binding \
-      --role audit-trails.viewer \
-      --id <organization_ID> \
-      --service-account-id <service_account_ID>
-      ```
+        Where `--service-account-id` is the `trail-sa` service account ID.
 
-      Where `--service-account-id` is the ID of the `trail-sa` service account.
+        Result:
 
-      Result:
+        ```text
+        done (1s)
+        ```
 
-      ```text
-      done (1s)
-      ```
+        For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
 
-      For more information about the `yc resource-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
+    1. The `storage.uploader` role for a folder:
 
-   1. The `storage.uploader` role to `example-folder`:
+        ```bash
+        yc resource-manager folder add-access-binding example-folder \
+          --role storage.uploader \
+          --subject serviceAccount:<service_account_ID>
+        ```
 
-      ```bash
-      yc resource-manager folder add-access-binding example-folder \
-        --role storage.uploader \
-        --subject serviceAccount:<service_account_ID>
-      ```
+        Where `--subject` is the `trail-sa` service account ID.
 
-      Where `--subject` is the ID of the `trail-sa` service account.
+        Result:
 
-      Result:
+        ```text
+        done (1s)
+        ```
 
-      ```text
-      done (1s)
-      ```
-
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+        For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
 {% endlist %}
 
-Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-folder`:
+Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example-folder`:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
+  
+    ```bash
+    yc resource-manager folder add-access-binding example-folder \
+        --role storage.viewer \
+        --subject serviceAccount:<service_account_ID>
+    ```
 
-   ```bash
-   yc resource-manager folder add-access-binding example-folder \
-       --role storage.viewer \
-       --subject serviceAccount:<service_account_ID>
-   ```
+    Where `--subject` is the `bucket-yq-sa` service account ID.
 
-   Where `--subject` is the ID of the `bucket-yq-sa` service account.
+    Result:
 
-   Result:
+    ```text
+    done (1s)
+    ```
 
-   ```text
-   done (1s)
-   ```
-
-   For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+    For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -146,23 +146,23 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the [previously created](#create-backet) bucket.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created](#create-backet) earlier.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -175,17 +175,17 @@ A connection must be created only the first time a trail is connected to {{ yq-s
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-   1. Select the `logsyq` trail.
-   1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
-   1. Create a connection.
-      * Select the **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**: `bucket-yq-sa`.
-      * For the other parameters, leave the default settings.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
+    1. In the [management console]({{ link-console-main }}), select `example-folder`.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. Select the `logsyq` trail.
+    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+    1. Create a connection.
+        * Select **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.
+        * Leave the default values for other parameters.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 
-   You will go to the page for creating a query to trail logs.
+  You will go to the page for creating a query to trail logs.
 
 {% endlist %}
 
@@ -198,73 +198,73 @@ Open the page to create an analytical query to {{ at-name }} logs:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder with a trail.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-   1. Select the trail for which a [connection to {{ yq-short-name }}](#trail-yq) is configured.
-   1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
+    1. In the [management console]({{ link-console-main }}), select a folder with a trail.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. Select the trail for which a [connection to {{ yq-short-name }}](#trail-yq) is configured.
+    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
 
 {% endlist %}
 
-Execute event queries to bind `audit-trails-logsyq-object_storage`:
+Run event queries to bind `audit-trails-logsyq-object_storage`:
 
 1. Deleting a folder:
 
-   1. From the list, select query **1. Find out who deleted a folder**.
-   1. Edit the query by specifying the folder ID:
+    1. Select this query from the list: **1. Find out who deleted the folder**.
+    1. Edit the query by specifying the folder ID:
 
-      ```SQL
-      SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
-      WHERE
-          JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder'
-          and JSON_VALUE(data, "$.details.folder_name") = '<folder_ID>'
-          LIMIT 100;
-      ```
+        ```SQL
+        SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
+        WHERE
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder'
+            and JSON_VALUE(data, "$.details.folder_name") = '<folder_ID>'
+            LIMIT 100;
+        ```
 
-   1. Click **Execute**.
+    1. Click **Execute**.
 
 1. Enabling access via the serial console:
 
-   1. From the list, select query **6. Changing a VM: Adding access to the serial console**.
-   1. Edit the query by specifying the number of displayed records:
+    1. Select this query from the list: **6. Changing a VM: Adding serial console access**.
+    1. Edit the query by specifying the number of displayed records:
 
-      ```SQL
-      SELECT * FROM bindings.`<audit-trails-logsyq-object_storage>`
-      WHERE
-          JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.compute.UpdateInstance'
-          and JSON_VALUE(data, "$.details.metadata_serial_port_enable") = '1'
-          LIMIT <number_of_records>;
-      ```
+        ```SQL
+        SELECT * FROM bindings.`<audit-trails-logsyq-object_storage>`
+        WHERE
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.compute.UpdateInstance'
+            and JSON_VALUE(data, "$.details.metadata_serial_port_enable") = '1'
+            LIMIT <number_of_records>;
+        ```
 
-   1. Click **Execute**.
+    1. Click **Execute**.
 
 1. Changing access rights to an {{ objstorage-name }} bucket:
 
-   1. From the list, select query **11. Suspicious activities with the {{ at-name }} log repository ({{ objstorage-name }} Bucket)**.
-   1. Edit the query by specifying the number of displayed records:
+    1. Select this query from the list: **11. Suspicious activity with the {{ at-name }} log repository ({{ objstorage-name }} bucket)**.
+    1. Edit the query by specifying the number of displayed records:
 
-      ```SQL
-      SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
-      WHERE
-          (JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketAclUpdate'
-          or JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate')
-          LIMIT <number_of_records>;
-      ```
+        ```SQL
+        SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
+        WHERE
+            (JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketAclUpdate'
+            or JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate')
+            LIMIT <number_of_records>;
+        ```
 
-   1. Click **Execute**.
+    1. Click **Execute**.
 
 1. Assigning administrator rights:
 
-   1. From the list, select query **20. Assigning admin rights (for resources: folder, cloud)**.
-   1. Edit the query by specifying the number of displayed records:
+    1. Select this query from the list: **20. Assigning admin permissions (for a folder and cloud)**.
+    1. Edit the query by specifying the number of displayed records:
 
-      ```SQL
-      SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
-      WHERE
-          JSON_VALUE(data, "$.details.access_binding_deltas.access_binding.role_id") = 'admin'
-          LIMIT <number_of_records>;
-      ```
+        ```SQL
+        SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
+        WHERE
+            JSON_VALUE(data, "$.details.access_binding_deltas.access_binding.role_id") = 'admin'
+            LIMIT <number_of_records>;
+        ```
 
-   1. Click **Execute**.
+    1. Click **Execute**.
 
 
 ## How to delete the resources you created {#clear-out}

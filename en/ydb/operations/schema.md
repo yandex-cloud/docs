@@ -20,40 +20,40 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Select the database to create a table in.
-   1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
-   1. Configure the table settings:
-      * Table **{{ ui-key.yacloud.ydb.table.form.field_name }}**. Must be unique within the database.
-      * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: `{{ ui-key.yacloud.ydb.table.form.label_row-table }}`.
-   1. Add columns:
-      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
-      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
-      * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
-   1. Set up [secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes) if needed.
-      * Secondary index **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
-      * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}**: One or more columns that make up a key for creating a secondary index.
-   1. Set up the [partitioning]({{ ydb.docs }}/concepts/datamodel) policy.
-      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-none }}`: The table is not partitioned.
-      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-uniform }}`: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **{{ ui-key.yacloud.ydb.table.form.field_uniform-partitions }}** field.
-      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}`: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
-   1. Configure automatic partitioning:
-      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size }}**: If enabled, a partition is split into two when a certain data size is reached.
-      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-load }}**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
-   1. Configure advanced table settings:
-      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size-mb }}**: Threshold data size at which auto partitioning by size is triggered.
-      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-min }}**: Number of partitions in the table below which no partition merge by size or load is performed.
-      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-max }}**: Number of partitions in the table above which no splitting by size or load is performed.
-      * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
-   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Select the database to create a table in.
+  1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
+  1. Configure the table settings:
+     * Table **{{ ui-key.yacloud.ydb.table.form.field_name }}**. Must be unique within the database.
+     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: `{{ ui-key.yacloud.ydb.table.form.label_row-table }}`.
+  1. Add columns:
+     * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
+     * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
+     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
+  1. If necessary, set up [secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes):
+     * Secondary index **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
+     * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}**: One or more columns that make up a key for creating a secondary index.
+  1. Configure the [partitioning]({{ ydb.docs }}/concepts/datamodel) policy:
+     * `{{ ui-key.yacloud.ydb.table.form.value_partitions-none }}`: The table is not partitioned.
+     * `{{ ui-key.yacloud.ydb.table.form.value_partitions-uniform }}`: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **{{ ui-key.yacloud.ydb.table.form.field_uniform-partitions }}** field.
+     * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}`: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
+  1. Configure automatic partitioning:
+     * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size }}**: If enabled, a partition is split into two when a certain data size is reached.
+     * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-load }}**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
+  1. Configure advanced table settings:
+     * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size-mb }}**: Threshold data size at which auto partitioning by size is triggered.
+     * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-min }}**: Number of partitions in the table below which no partition merge by size or load is performed.
+     * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-max }}**: Number of partitions in the table above which no splitting by size or load is performed.
+     * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, YDB uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
+  1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
-   To create row-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
+  To create row-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
 
 
 - {{ TF }} {#tf}
 
-   You can learn how to create a row-oriented table using {{ TF }} in [{#T}](../terraform/row-tables.md).
+   To learn how to create a row-oriented table using {{ TF }}, see [{#T}](../terraform/row-tables.md).
 
 {% endlist %}
 
@@ -63,30 +63,31 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - Management console {#console}
 
-   {% note info %}
+  {% note info %}
 
-   Document tables are only available in {{ ydb-name }} serverless mode.
+  Document tables are only available in {{ ydb-name }} serverless mode.
 
-   {% endnote %}
+  {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Select the database to create a table in.
-   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
-   1. Configure the table settings:
-      * Table **{{ ui-key.yacloud.ydb.table.form.field_name }}**. Must be unique within the database.
-      * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: `{{ ui-key.yacloud.ydb.table.form.label_document-table }}`.
-   1. Add columns:
-      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
-      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
-      * **{{ ui-key.yacloud.ydb.table.form.column_shard }}**: A simple primary key that consists of a single attribute. {{ ydb-short-name }} uses the partition key value as an input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
-      * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key, but must contain different values for the sort key.
-   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Select the database to create a table in.
+  1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
+  1. Configure the table settings:
+     * Table **{{ ui-key.yacloud.ydb.table.form.field_name }}**. Must be unique within the database.
+     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: `{{ ui-key.yacloud.ydb.table.form.label_document-table }}`.
+  1. Add columns:
+     * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
+     * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
+     * **{{ ui-key.yacloud.ydb.table.form.column_shard }}**: Simple primary key that consists of one attribute. {{ ydb-short-name }} uses the partition key value as an input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
+     * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key, but must contain different values for the sort key.
+  1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
 - {{ TF }} {#tf}
 
-   You can learn how to create a document table using {{ TF }} in [{#T}](../terraform/dynamodb-tables.md).
+   To learn how to create a document table using {{ TF }}, see [{#T}](../terraform/dynamodb-tables.md).
 
 {% endlist %}
+
 
 ## Changing the table structure {#alter-table}
 
@@ -112,7 +113,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
       * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size-mb }}**: Threshold data size at which auto partitioning by size is triggered.
       * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-min }}**: Number of partitions in the table below which no partition merge by size or load is performed.
       * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-max }}**: Number of partitions in the table above which no splitting by size or load is performed.
-      * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
+      * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, YDB uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
    1. Click **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
 
 - {{ TF }} {#tf}
@@ -141,11 +142,11 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - {{ TF }} {#tf}
 
-   See {{ TF }} for the description of the table entities that you can change using [{#T}](../terraform/dynamodb-tables.md).
+   See [{#T}](../terraform/dynamodb-tables.md) for the description of the table entities that you can change using {{ TF }}.
 
 {% endlist %}
 
-To alter row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
+To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
 
 ## Deleting a table {#drop-table}
 
@@ -184,7 +185,7 @@ To alter row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }
 {% endlist %}
 
 
-To drop row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
+To edit row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
 
 ## Creating and deleting directories {#directories}
 
@@ -192,9 +193,9 @@ To drop row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Select the database to create a directory in.
-   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_directory }}** on the right side of the page.
-   1. Enter the directory name and click **{{ ui-key.yacloud.ydb.browse.dialogs.button_create-directory }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Select the database to create a directory in.
+  1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_directory }}** on the right side of the page.
+  1. Enter the directory name and click **{{ ui-key.yacloud.ydb.browse.dialogs.button_create-directory }}**.
 
 {% endlist %}

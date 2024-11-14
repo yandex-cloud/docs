@@ -16,7 +16,7 @@ Check the configuration of the S3 client you previously used to upload objects t
 {% list tabs %}
 
 - AWS CLI
-
+   ```
    aws s3 cp --endpoint-url=https://storage.yandexcloud.net \
      s3://<bucket-name>/ \
      s3://<bucket-name>/ \
@@ -26,9 +26,9 @@ Check the configuration of the S3 client you previously used to upload objects t
      --content-type="application/javascript" \
      --metadata-directive="REPLACE" \
      --recursive
-
+   ```
 - s3cmd
-
+   ```
    s3cmd put --recursive \
      --exclude "*" \
      --include "*.js" \
@@ -38,7 +38,7 @@ Check the configuration of the S3 client you previously used to upload objects t
      --acl-public \
      /path/to/local/directory \
      s3://<bucket-name>/
-
+   ```
 {% endlist %}
 
 ## If the issue persists {#if-issue-still-persists}

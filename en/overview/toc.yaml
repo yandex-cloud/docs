@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: '{{ yandex-cloud }}'
+  - name: '{{ yandex-cloud }} platform'
     expanded: true
     items:
       - name: Platform architecture
@@ -31,7 +31,7 @@ items:
   - name: '{{ yandex-cloud }} services'
     expanded: true
     items:
-      - name: List of services
+      - name: Service list
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md
@@ -62,5 +62,19 @@ items:
         href: platform-comparison/gcp.md
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
+      - name: Equivalents for VMware
+        items:
+          - name: Comparison with VMware
+            href: platform-comparison/vmware/index.md
+          - name: Resource and role model
+            href: platform-comparison/vmware/resource-role-model.md
+          - name: Computing infrastructure
+            href: platform-comparison/vmware/computing-infrastructure.md
+          - name: Data storage subsystem
+            href: platform-comparison/vmware/storage-subsystem.md
+          - name: Network
+            href: platform-comparison/vmware/network-subsystem.md
+          - name: Management, monitoring, and billing tools
+            href: platform-comparison/vmware/management-tools.md
 base: en/overview
 deepBase: 2

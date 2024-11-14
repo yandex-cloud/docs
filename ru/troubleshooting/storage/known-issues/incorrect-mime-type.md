@@ -16,7 +16,7 @@
 {% list tabs %}
 
 - AWS CLI
-    
+    ```
     aws s3 cp --endpoint-url=https://storage.yandexcloud.net \
     s3://<bucket-name>/ \
     s3://<bucket-name>/ \
@@ -26,9 +26,9 @@
     --content-type="application/javascript" \
     --metadata-directive="REPLACE" \
     --recursive
-
+    ```
 - s3cmd
-    
+    ```
     s3cmd put --recursive \
     --exclude "*" \
     --include "*.js" \
@@ -38,7 +38,7 @@
     --acl-public \
     /path/to/local/directory \
     s3://<bucket-name>/
-
+    ```
 {% endlist %}
 
 ## Если проблема осталась {#if-issue-still-persists}

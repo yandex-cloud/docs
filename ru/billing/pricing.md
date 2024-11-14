@@ -71,7 +71,7 @@ editable: false
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
 * [{{ speechkit-full-name }}](../speechkit/pricing.md)
     * [Синтез речи](../speechkit/pricing.md#prices-tts)
-    * [{{ brand-voice-name }}}](../speechkit/pricing.md#brand-voice)
+    * [{{ brand-voice-name }}](../speechkit/pricing.md#brand-voice)
     * [Распознавание речи](../speechkit/pricing.md#prices-stt)
 * [{{ speechsense-full-name }}](../speechsense/pricing.md)
     * [Анализ аудиозаписей диалогов](../speechsense/pricing.md#speech)
