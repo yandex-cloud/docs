@@ -1,2 +1,0 @@
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**​. The values may range from 1 to 60 seconds. The default value is 1 second.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**​. The values may range from 1 to 100. The default value is 1.

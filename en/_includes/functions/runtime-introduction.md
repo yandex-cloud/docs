@@ -1,1 +1,0 @@
-The service provides several [runtime environments](../../functions/concepts/runtime/index.md) with different versions. We do not recommend using obsolete versions of runtime environments.

@@ -1,1 +1,0 @@
-Воспользуйтесь методом REST API [update](../../smartwebsecurity/api-ref/SecurityProfile/update.md) для ресурса [SecurityProfile](../../smartwebsecurity/api-ref/SecurityProfile/) или вызовом gRPC API [SecurityProfileService/Update](../../smartwebsecurity/api-ref/grpc/SecurityProfile/update.md).

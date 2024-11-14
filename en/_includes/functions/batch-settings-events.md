@@ -1,2 +1,0 @@
-* `--batch-size`: Event batch size. Optional parameter. The values may range from 1 to 10. The default value is 1.
-* `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups events for a period not exceeding `batch-cutoff` and sends them to a function. The number of events cannot exceed `batch-size`.

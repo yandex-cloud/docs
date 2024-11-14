@@ -1,2 +1,0 @@
-* [Add](../../datalens/security/add-new-user.md) a user to an organization or cloud and grant them access to a dashboard or chart.
-* [Export](../../datalens/qa/connections.md#uploading-data-logs-api) data to a [{{ mch-short-name }}](../../managed-clickhouse/) cluster and use a connection to the {{ CH }} database as a source. To learn more about {{ mch-short-name }} pricing, see [Pricing](../../managed-clickhouse/pricing.md).

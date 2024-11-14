@@ -1,1 +1,0 @@
-If you do not have the AWS CLI yet, [install and configure it](../storage/tools/aws-cli.md).

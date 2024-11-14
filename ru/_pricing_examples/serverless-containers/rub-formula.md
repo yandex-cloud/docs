@@ -1,1 +1,0 @@
-Стоимость в месяц = {{ sku|RUB|serverless.containers.compute.memory|pricingRate.10|string }} × Объем памяти (ГБ) × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.compute.cpu|pricingRate.5|string }} × Количество ядер × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.invocations|pricingRate.1|string }} × Количество миллионов вызовов

@@ -1,1 +1,0 @@
-Работа со {{ speechkit-name }} осуществляется через API или [Playground](../../speechkit/quickstart/index.md#tts-playground). Подробнее о принципах работы API {{ yandex-cloud }} см. в документе [Концепции API](../../api-design-guide/).

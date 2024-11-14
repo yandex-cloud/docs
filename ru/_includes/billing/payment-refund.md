@@ -1,1 +1,0 @@
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг {{ yandex-cloud }}, [обратитесь]({{ link-console-support }}) в {{ support-center-name }} или отправьте письмо на адрес [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

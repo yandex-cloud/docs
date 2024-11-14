@@ -1,2 +1,0 @@
-1. Create a directory with any name, for example, `cloud-terraform`. It will store the {{ TF }} configuration files.
-1. Create a configuration file with the `.tf` extension in this directory, for example, `example.tf`.

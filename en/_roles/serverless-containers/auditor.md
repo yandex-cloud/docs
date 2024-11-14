@@ -1,1 +1,0 @@
-The `serverless-containers.auditor` role enables viewing info on [containers](../../serverless-containers/concepts/container.md), except for the info on the [revision](../../serverless-containers/concepts/container.md#revision) [environment variables](../../serverless-containers/concepts/runtime.md#environment-variables).

@@ -1,1 +1,0 @@
-We are gradually [deprecating](../../overview/concepts/ru-central1-c-deprecation.md) the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md). For more information about development plans for availability zones and migration options, see [this Yandex Cloud blog post](/blog/posts/2022/03/az-deprecation-notice).

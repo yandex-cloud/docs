@@ -1,3 +1,0 @@
-### Why is dataset materialization not available? {#where-is-materialization}
-
-Materialization is no longer supported. We recommend using a database directly. If the DB responds to {{ datalens-name }} analytical queries too slowly, build data marts, e.g., based on [{{ mch-full-name }}](../../managed-clickhouse/). You can use [{{ data-transfer-full-name }}](../../data-transfer/) to upload your data.

@@ -1,1 +1,0 @@
-You get the first 100,000,000 transferred strings at no charge every month.

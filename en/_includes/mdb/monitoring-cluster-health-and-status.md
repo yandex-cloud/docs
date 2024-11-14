@@ -1,1 +1,0 @@
-The _{{ ui-key.yacloud.mdb.cluster.overview.label_health }}_ of a cluster shows the health of its hosts, while the _{{ ui-key.yacloud.mdb.cluster.overview.label_status }}_ shows whether the cluster is started, stopped, or is at an intermediate stage.

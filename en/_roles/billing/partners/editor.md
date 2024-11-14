@@ -1,1 +1,0 @@
-The `billing.partners.editor` role is assigned for a [billing account](../../../billing/concepts/billing-account.md). It grants permission to edit information about a [partner](../../../partner/program/var.md) and their products in the [partner product catalog](../../../partner/program/var-tools.md#catalog).

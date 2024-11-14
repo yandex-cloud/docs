@@ -1,3 +1,0 @@
-The `billing.accounts.editor` role is assigned for a [billing account](../../../billing/concepts/billing-account.md). It grants permission to get [payment invoices](../../../billing/concepts/bill.md), activate [promo codes](../../../billing/concepts/promo-code.md), link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) and [services](../../../overview/concepts/services.md) to the billing account, [export details](../../../billing/operations/get-folder-report.md), create [budgets](../../../billing/concepts/budget.md), generate [reconciliation reports](../../../billing/concepts/act.md#reconciliation-report), and [reserve resources](../../../billing/concepts/cvos.md).
-
-This role also includes the `billing.accounts.viewer` permissions.

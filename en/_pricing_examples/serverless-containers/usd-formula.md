@@ -1,1 +1,0 @@
-Monthly cost = {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }} × Memory (GB) × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }} × Number of cores × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }} × Millions of invocations

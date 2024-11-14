@@ -1,1 +1,0 @@
-{% include [respons](../_includes/security/respons.md) %}

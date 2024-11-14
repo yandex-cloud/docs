@@ -1,1 +1,0 @@
-Если вы используете образ на основе Windows, [сбросьте](../../compute/operations/vm-control/vm-reset-password.md) пароль после создания ВМ.

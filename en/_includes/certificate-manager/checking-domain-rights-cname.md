@@ -1,1 +1,0 @@
-For a successful DNS domain rights check based on a `CNAME` record, make sure the `_acme-challenge` subdomain of the domain name you are checking has no [resource records](../../dns/concepts/resource-record.md) created, except `CNAME`. For example, for the `_acme-challenge.example.com.` domain name there should only be a CNAME record and no TXT record.

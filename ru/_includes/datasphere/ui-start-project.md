@@ -1,1 +1,0 @@
-Чтобы запустить проект, нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.

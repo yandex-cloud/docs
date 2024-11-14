@@ -1,1 +1,0 @@
-Если сертификат пока не добавлен в {{ certificate-manager-name }}, укажите секрет {{ k8s }} с сертификатом в поле `secretName`. Тогда Ingress-контроллер {{ alb-name }} автоматически добавит сертификат в {{ certificate-manager-name }}.

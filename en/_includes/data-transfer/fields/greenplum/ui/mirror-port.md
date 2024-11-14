@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.mirror_port.title }}**: Specify the port for {{ data-transfer-name }} to use to connect to the standby master host (leave the field empty if there is only one master host in your cluster).

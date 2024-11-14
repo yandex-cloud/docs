@@ -1,1 +1,0 @@
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `key:test message` messages to the topic. The consumer application displays messages sent to the topic.

@@ -1,1 +1,0 @@
-Для защиты ваших веб-приложений от внешних угроз в {{ sws-full-name }} реализован [Web Application Firewall (WAF)](../../glossary/waf.md).

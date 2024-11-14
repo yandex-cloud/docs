@@ -1,1 +1,0 @@
-You can get files from a publicly available bucket using a public link via both HTTP and HTTPS even if the bucket has no website hosting [configured](../../storage/operations/hosting/setup.md). In this case, a cloud-level certificate from [GlobalSign](https://www.globalsign.com) will be used for HTTPS access.

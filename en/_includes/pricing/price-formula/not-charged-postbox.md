@@ -1,1 +1,0 @@
-You get the first 2,000 outbound emails at no charge every month.

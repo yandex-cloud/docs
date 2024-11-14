@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}** — укажите имя базы данных. Если значение не указывать, будет использовано имя базы данных источника.

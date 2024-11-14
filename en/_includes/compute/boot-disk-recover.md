@@ -1,1 +1,0 @@
-You cannot recover a boot disk of an existing VM from a snapshot or image. However, you can create a new VM to recover a boot disk from a snapshot. To recover a boot disk on an existing VM, use [{{ backup-full-name }}](../../backup/index.yaml).

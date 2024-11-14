@@ -1,1 +1,0 @@
-You can find information about all available and upcoming {{ yandex-cloud }} courses [here](/training).

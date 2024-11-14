@@ -1,1 +1,0 @@
-When deleting a {{ managed-k8s-name }} cluster, {{ compute-name }} disks attached to `PersistentVolumes` are not deleted automatically.

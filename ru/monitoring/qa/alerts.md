@@ -1,1 +1,0 @@
-{% include [alerts](../../_qa/monitoring/alerts.md) %}

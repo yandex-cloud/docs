@@ -1,1 +1,0 @@
-{% include [autoscale-monitoring](../../_tutorials/infrastructure/autoscale-monitoring.md) %}

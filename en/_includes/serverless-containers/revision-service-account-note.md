@@ -1,3 +1,0 @@
-If a [registry](../../container-registry/concepts/registry.md) or [repository](../../container-registry/concepts/repository.md) containing the Docker image is not [public](../../container-registry/qa/index.md#public-registry), you need to specify a [service account](../../iam/concepts/users/service-accounts.md) with [permission](../../iam/operations/sa/assign-role-for-sa.md) to download the Docker image in the revision settings. For example, the `container-registry.images.puller` role to the folder or registry containing the Docker image.
-
-If a service account is specified in the revision settings, the user or the service account creating the revision must have the `iam.serviceAccounts.user` role. It confirms the right to use the service account.

@@ -1,1 +1,0 @@
-{% include [quickstart-android](../../../../_tutorials/security/quickstart-android.md) %}

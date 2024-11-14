@@ -1,1 +1,0 @@
-{% include [licensing](../../_qa/compute/licensing.md) %}

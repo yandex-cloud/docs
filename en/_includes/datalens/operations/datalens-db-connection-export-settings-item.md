@@ -1,1 +1,0 @@
-**Disable data export**: When this option is enabled, the export data button will be hidden in the charts based on this connection. However, you will still be able to copy chart data and take screenshots.

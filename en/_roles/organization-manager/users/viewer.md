@@ -1,1 +1,0 @@
-The `organization-manager.users.viewer` role allows viewing the list of organization [users](../../../organization/concepts/membership.md) and info on them, as well as viewing federated users' [attributes](../../../organization/operations/setup-federation.md#claims-mapping).

@@ -1,1 +1,0 @@
-Если HTTP-роутер используется хотя бы в одном балансировщике, удалить его нельзя. Сначала [удалите](../../application-load-balancer/operations/application-load-balancer-update.md) его из всех балансировщиков.

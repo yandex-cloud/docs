@@ -1,1 +1,0 @@
-You can work with placement groups with the [partition placement](../../compute/concepts/placement-groups.md#partition) strategy using the [CLI](../../cli/quickstart.md) and [API](../../compute/api-ref/).

@@ -1,2 +1,0 @@
-* [Добавьте](../../datalens/security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../../datalens/qa/connections.md#uploading-data-logs-api) данные в кластер [{{ mch-short-name }}](../../managed-clickhouse/) и используйте подключение к БД {{ CH }} в качестве источника. С тарифами сервиса {{ mch-short-name }} можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).

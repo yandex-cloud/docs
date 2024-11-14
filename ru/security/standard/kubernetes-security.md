@@ -1,1 +1,0 @@
-{% include [kubernetes-security](../../_includes/security/standard/kubernetes-security.md) %}

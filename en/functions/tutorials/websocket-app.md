@@ -1,1 +1,0 @@
-{% include [websocket-app](../../_tutorials/serverless/websocket-app.md) %}

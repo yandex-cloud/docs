@@ -1,1 +1,0 @@
-The `yq.admin` role allows you to manage any Query resources, including those labeled as private. The `yq.admin` role includes all permissions of the `yq.editor` role.

@@ -1,1 +1,0 @@
-_© 2024 Linux Foundation. All rights reserved. The Linux Foundation owns and uses registered trademarks. For a list of Linux Foundation trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

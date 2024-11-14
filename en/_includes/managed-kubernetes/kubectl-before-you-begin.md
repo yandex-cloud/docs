@@ -1,1 +1,0 @@
-Before you start, [install kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) and [configure it to work with the created {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).

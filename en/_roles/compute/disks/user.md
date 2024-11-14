@@ -1,1 +1,0 @@
-The `compute.disks.user` role allows you to view a list of [disks](../../../compute/concepts/disk.md) and information on them, as well as use disks to create new resources, such as [instances](../../../compute/concepts/vm.md).

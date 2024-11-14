@@ -1,1 +1,0 @@
-Роль `marketplace.publishers.reportViewer` позволяет просматривать отчеты по [продуктам Marketplace](../../../marketplace/concepts/product.md) в [профиле партнера](../../../marketplace/quickstart.md#registration).

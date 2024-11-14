@@ -1,1 +1,0 @@
-{% include [tracker-cloud-function](../../_tutorials/tracker/tracker-cloud-function.md) %}

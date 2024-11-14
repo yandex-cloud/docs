@@ -1,1 +1,0 @@
-{% include [troubleshooting](../../_qa/compute/troubleshooting.md) %}

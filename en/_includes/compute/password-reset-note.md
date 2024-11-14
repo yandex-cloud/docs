@@ -1,1 +1,0 @@
-If you are using a Windows image, [reset](../../compute/operations/vm-control/vm-reset-password.md) the password after creating a VM.

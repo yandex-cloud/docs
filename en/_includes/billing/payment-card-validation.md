@@ -1,1 +1,0 @@
-To make sure your bank card is valid, we will hold a small amount on your account. This amount will not be charged and will become available once the verification is complete. The amount of time required to release the funds held depends on your bank.

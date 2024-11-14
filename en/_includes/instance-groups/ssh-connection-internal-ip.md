@@ -1,3 +1,0 @@
-Each VM of the group will have а [public IP address](../../vpc/concepts/address.md#public-addresses) assigned. This way, you can easily [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the group VM over SSH when checking the result.
-
-If you create an instance group without public IP addresses, you can still connect to a group VM over SSH by specifying its [internal IP address](../../vpc/concepts/address.md#internal-addresses) or [FQDN](../../vpc/concepts/address.md#fqdn) instead of the public IP address. However, you can only make such a connection from another virtual machine that has a public IP address and is located in the same {{ yandex-cloud }} [cloud network](../../vpc/concepts/network.md#network) as the group VM.

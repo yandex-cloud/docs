@@ -1,1 +1,0 @@
-{% include [general](../../_qa/managed-kubernetes/general.md) %}

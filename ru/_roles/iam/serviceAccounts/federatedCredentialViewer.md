@@ -1,1 +1,0 @@
-Роль `iam.serviceAccounts.federatedCredentialViewer` позволяет просматривать список [привязок](../../../iam/concepts/workload-identity.md#federated-credentials) в [федерациях сервисных аккаунтов](../../../iam/concepts/workload-identity.md) и информацию о таких привязках.

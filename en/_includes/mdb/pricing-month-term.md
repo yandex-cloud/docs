@@ -1,1 +1,0 @@
-The monthly usage rate is based on 720 hours a month.

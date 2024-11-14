@@ -1,1 +1,0 @@
-You cannot delete a service account used to manage an instance group while it is linked to this group. First, [update](../../compute/operations/instance-groups/update.md) the service account in the instance group settings or [delete](../../compute/operations/instance-groups/delete.md) the instance group and then delete the service account.

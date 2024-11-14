@@ -1,6 +1,0 @@
-### Как {{ datalens-short-name }} находит связанные объекты при миграции? {#related-objects-migration}
-
-Поиск связей зависит от выбранного типа [миграции](../../datalens/workbooks-collections/migrations.md):
-
-* При миграции [переносом](../../datalens/workbooks-collections/migrations.md#migration-transfer) {{ datalens-short-name }} находит связанные объекты рекурсивно по всем связям. Поэтому миграцию можно начать с любого объекта. Например, с дашборда. {{ datalens-short-name }} найдет все связанные чарты, датасеты и подключения. Затем для найденных объектов также выполнит поиск связей. В итоге все найденные объекты предложит сложить в один [воркбук](../../datalens/workbooks-collections/index.md).
-* При миграции [копированием](../../datalens/workbooks-collections/migrations.md#migration-copy) {{ datalens-short-name }} выполняет поиск связанных объектов вниз по [иерархии](../../datalens/concepts/index.md#component-interrelation). Копирование можно начать с любого объекта. Оригинал объекта сохраняется в папке, а его копию и копии всех найденных объектов {{ datalens-short-name }} предложит сложить в один воркбук.

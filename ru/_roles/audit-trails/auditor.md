@@ -1,1 +1,0 @@
-Роль `audit-trails.auditor` позволяет просматривать список [трейлов](../../audit-trails/concepts/trail.md) и информацию о них, а также об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../audit-trails/concepts/limits.md#audit-trails-quotas) сервиса Audit Trails.

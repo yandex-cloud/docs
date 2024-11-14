@@ -1,1 +1,0 @@
-If you attached local disks to your VM, [partition and mount them](../../compute/operations/vm-control/vm-attach-disk.md#mount) after the VM is created.

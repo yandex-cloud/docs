@@ -1,1 +1,0 @@
-To better safeguard your resources from unauthorized access, enable Yandex ID [two-factor authentication](https://yandex.com/support/passport/authorization/twofa.html). Also, request users you add to your organization to enable it.

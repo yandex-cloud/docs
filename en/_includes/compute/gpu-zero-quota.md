@@ -1,1 +1,0 @@
-By default, the cloud has a zero [quota](../../compute/concepts/limits.md#compute-quotas) for creating VMs with GPUs. You can request a quota increase in the [management console]({{ link-console-quotas }}). To do this, you need the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher.

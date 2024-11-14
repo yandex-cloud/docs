@@ -1,1 +1,0 @@
-Для корректной работы агента {{ backup-name }} ВМ должна соответствовать [минимальным требованиям](../../backup/concepts/vm-connection.md#requirements).

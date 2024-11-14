@@ -1,1 +1,0 @@
-To use the examples, install [cURL](https://curl.haxx.se).

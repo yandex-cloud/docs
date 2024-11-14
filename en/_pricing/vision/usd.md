@@ -1,9 +1,0 @@
-| Service | Price per unit, without VAT |
-|---|---|
-| Printed text recognition | $0.001040 |
-| Table recognition | $0.009600 |
-| Document recognition (passport) | $0.005600 |
-| Document recognition (driver's license) | $0.005600 |
-| Document recognition (vehicle registration certificate) | $0.005600 |
-| Handwriting recognition | $0.012000 |
-| License plate recognition | $0.001040 |

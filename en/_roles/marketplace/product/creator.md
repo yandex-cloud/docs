@@ -1,1 +1,0 @@
-The `marketplace.product.creator` role enables creating [Marketplace products](../../../marketplace/concepts/product.md) in the [partner profile](../../../marketplace/quickstart.md#registration) and managing access to such products.

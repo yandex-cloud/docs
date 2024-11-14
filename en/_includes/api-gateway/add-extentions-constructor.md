@@ -1,1 +1,0 @@
-To add the [x-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/index.md#integration) to a specification, you can use the [specification constructor](../../api-gateway/operations/spec-constructor/index.md).

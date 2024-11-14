@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.OnPremiseKafka.pem_file_content.title }}**: If encryption of transmitted data is required, e.g., to meet the [PCI DSS]({{ link-pci-dss-en }}) requirements, upload the [certificate](../../../../../managed-kafka/operations/connect/index.md#get-ssl-cert) file or add its contents as text.

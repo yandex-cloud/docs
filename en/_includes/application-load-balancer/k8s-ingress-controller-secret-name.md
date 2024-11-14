@@ -1,1 +1,0 @@
-If a certificate is not added to {{ certificate-manager-name }} yet, specify a {{ k8s }} secret containing the certificate in the `secretName` field. {{ alb-name }} Ingress controller will automatically add the certificate to {{ certificate-manager-name }}.

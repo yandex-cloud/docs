@@ -1,1 +1,0 @@
-Роль `compute.osAdminLogin` позволяет подключаться к [виртуальным машинам](../../compute/concepts/vm.md) при помощи SSH-сертификатов или SSH-ключей через [OS Login](../../organization/concepts/os-login.md) с возможностью выполнять команды от имени суперпользователя (`sudo`).

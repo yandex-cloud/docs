@@ -1,1 +1,0 @@
-Роль `connection-manager.user` позволяет использовать [подключения](../../metadata-hub/concepts/connection-manager.md) в ресурсах других сервисов облака, интегрированных с Connection Manager, например: в Data Transfer, DataLens, WebSQL и др.

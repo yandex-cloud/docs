@@ -1,1 +1,0 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.OnPremiseGreenplum.mirror_host.title }}**: Specify the IP address or FQDN of the standby master host to connect to (leave the field empty if your cluster only has one master host).

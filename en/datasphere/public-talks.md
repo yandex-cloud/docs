@@ -1,1 +1,0 @@
-{% include [public-talks](../_includes/datasphere/public-talks.md) %}

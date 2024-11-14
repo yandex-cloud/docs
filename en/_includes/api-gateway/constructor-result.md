@@ -1,1 +1,0 @@
-The **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field will display the OpenAPI specification with the specified parameter values.

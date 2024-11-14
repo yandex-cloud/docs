@@ -1,1 +1,0 @@
-The `ai.vision.user` role allows you to use Yandex Vision OCR to [analyze images](../../../vision/concepts/ocr/index.md), as well as view info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), and [quotas](../../../vision/concepts/limits.md#vision-quotas).

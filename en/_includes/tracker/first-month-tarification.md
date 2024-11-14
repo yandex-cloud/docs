@@ -1,1 +1,0 @@
-The fee for the first month is proportional to the number of days left until the end of the month.

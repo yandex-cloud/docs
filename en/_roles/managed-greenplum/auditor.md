@@ -1,1 +1,0 @@
-The `managed-greenplum.auditor` role allows you to view information about [Greenplum® clusters and hosts](../../managed-greenplum/concepts/index.md), as well as [quotas](../../managed-greenplum/concepts/limits.md#quotas) and resource operations for Managed Service for Greenplum®.

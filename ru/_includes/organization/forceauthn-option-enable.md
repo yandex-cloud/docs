@@ -1,1 +1,0 @@
-Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**, чтобы задать значение `true` для параметра [ForceAuthn](../../organization/saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции IdP-провайдер запрашивает у пользователя аутентификацию по истечении сессии в {{ yandex-cloud }}.

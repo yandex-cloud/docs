@@ -1,1 +1,0 @@
-{% include [versions](../../_includes/security/standard/versions.md) %}

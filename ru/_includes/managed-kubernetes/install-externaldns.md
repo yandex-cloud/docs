@@ -1,1 +1,0 @@
-(Опционально) [Установите ExternalDNS c плагином для {{ dns-full-name }}](../../managed-kubernetes/operations/applications/externaldns.md), чтобы автоматически создать [DNS-запись](../../dns/concepts/resource-record.md) в [{{ dns-full-name }}](../../../dns/) при создании Ingress-контроллера.

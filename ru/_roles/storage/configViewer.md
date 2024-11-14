@@ -1,1 +1,0 @@
-Роль `storage.configViewer` позволяет просматривать настройки безопасности [бакетов](../../storage/concepts/bucket.md) и [объектов](../../storage/concepts/object.md) в них, но не дает доступа к данным внутри бакета.

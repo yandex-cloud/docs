@@ -1,1 +1,0 @@
-{% include [metrics-export](../../_qa/monitoring/metrics-export.md) %}

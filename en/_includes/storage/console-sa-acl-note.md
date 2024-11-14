@@ -1,1 +1,0 @@
-In the management console, you can only grant permissions to service accounts created in the same directory as the bucket. You can grant permissions to service accounts belonging to other directories using the YC CLI (only for the ACL bucket), AWS CLI, {{ TF }}, or API.

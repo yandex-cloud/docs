@@ -1,1 +1,0 @@
-The `speech-sense.spaces.creator` role allows you to create spaces in SpeechSense.

@@ -1,1 +1,0 @@
-You can only use HTTP and HTTPS in a link.

@@ -1,1 +1,0 @@
-Роль `kms.asymmetricSignatureKeys.publicKeyViewer` позволяет просматривать информацию о [ключевых парах электронной подписи](../../../kms/concepts/asymmetric-signature-key.md), а также получать открытый ключ ключевой пары электронной подписи.

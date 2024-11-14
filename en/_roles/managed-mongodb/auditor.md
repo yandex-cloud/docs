@@ -1,1 +1,0 @@
-The `managed-mongodb.auditor` role allows you to view information about [MongoDB hosts and clusters](../../managed-mongodb/concepts/index.md), as well as [quotas](../../managed-mongodb/concepts/limits.md#mmg-quotas) and resource operations for Managed Service for MongoDB.

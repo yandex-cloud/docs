@@ -1,1 +1,0 @@
-You can also view image IDs in the [management console]({{ link-console-main }}) when creating a VM or on the image page in [{{ marketplace-name }}](/marketplace), under **Product IDs**.

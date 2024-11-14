@@ -1,1 +1,0 @@
-[Security groups](../../../vpc/concepts/security-groups.md) which contain [rules](../../../managed-kubernetes/operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster and its node groups.

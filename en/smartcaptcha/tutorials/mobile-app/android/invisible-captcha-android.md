@@ -1,1 +1,0 @@
-{% include [invisible-captcha-android](../../../../_tutorials/invisible-captcha-android.md) %}

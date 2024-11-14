@@ -1,1 +1,0 @@
-If you are creating a VM instance from an existing boot disk, update the settings of that disk in the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab under **{{ ui-key.yacloud.compute.instances.create.section_image }}** at the top of the form.

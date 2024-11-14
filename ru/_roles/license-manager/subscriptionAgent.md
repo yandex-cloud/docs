@@ -1,1 +1,0 @@
-Роль `license-manager.subscriptionAgent` позволяет [привязывать](../../marketplace/operations/users/lock-subscription.md) подписки к ресурсам, приложениям или сервисам, а также просматривать информацию о [подписках](../../marketplace/concepts/users/subscription.md) и их привязках к ресурсам, приложениям или сервисам.

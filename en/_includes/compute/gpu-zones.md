@@ -1,1 +1,0 @@
-You can create VMs on {{ v100-broadwell }}, {{ v100-cascade-lake }}, {{ a100-epyc }} and {{ t4-ice-lake }} in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones.

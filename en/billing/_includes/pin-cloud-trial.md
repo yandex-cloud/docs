@@ -1,1 +1,0 @@
-Each cloud in {{ yandex-cloud }} must be linked to a single billing account. If you relink an existing cloud, you are effectively transferring it between billing accounts. For legal entities, you cannot relink a cloud and your [DataSphere](../../datasphere/), [Tracker](../../tracker/), and [DataLens](../../datalens/) services from a paid account to a trial period account.

@@ -1,1 +1,0 @@
-Within a single user account, all payers must pay in the same currency.

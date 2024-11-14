@@ -1,1 +1,0 @@
-The `ai.speechkit-tts.user` role allows you to use Yandex SpeechKit for [speech synthesis](../../../speechkit/tts/index.md), as well as view info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), and [quotas](../../../speechkit/concepts/limits.md#speechkit-quotas).

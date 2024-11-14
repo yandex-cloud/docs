@@ -1,1 +1,0 @@
-Роль `billing.partners.editor` назначается на [платежный аккаунт](../../../billing/concepts/billing-account.md) и дает право редактировать информацию о [партнере](../../../partner/program/var.md) и его продуктах в [партнерском каталоге](../../../partner/program/var-tools.md#catalog).

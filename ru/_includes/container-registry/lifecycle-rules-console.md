@@ -1,4 +1,0 @@
-* **{{ ui-key.yacloud.cr.registry.label_tag-regexp }}** — тег Docker-образа для фильтрации. Поддерживаются регулярные выражения языка Java. Например, выражение `test.*` позволяет получить все образы с тегами, начинающимися на `test`.
-* **{{ ui-key.yacloud.cr.registry.label_untagged }}** — флаг для применения правила к Docker-образам без тегов.
-* **{{ ui-key.yacloud.cr.registry.label_expire-period-days }}** — время, через которое Docker-образ может попадать под политику удаления.
-* **{{ ui-key.yacloud.cr.registry.label_retained-top }}** — количество Docker-образов, которые не будут удалены, даже если подходят по правилу.

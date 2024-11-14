@@ -1,1 +1,0 @@
-Роль `managed-redis.auditor` позволяет просматривать информацию о [хостах и кластерах](../../managed-redis/concepts/index.md) Redis, а также о [квотах](../../managed-redis/concepts/limits.md#mrd-quotas) и операциях с ресурсами сервиса Managed Service for Redis.

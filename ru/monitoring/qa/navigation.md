@@ -1,1 +1,0 @@
-{% include [navigation](../../_qa/monitoring/navigation.md) %}
