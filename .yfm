@@ -1,6 +1,5 @@
 allowHTML: true
 input: /opt
-output: /dev/null
 connector:
     type: github
     github: 
