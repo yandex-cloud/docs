@@ -3,7 +3,7 @@ input: /home/app
 output: /etc/
 strict: true
 connector:
-    type: github
+    type: gitub
     github: 
         endpoint: https://api.github.com
         owner: yandex-cloud
