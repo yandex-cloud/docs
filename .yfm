@@ -1,6 +1,7 @@
 allowHTML: true
 input: /home/app
 output: /etc/
+strict: true
 connector:
     type: github
     github: 
