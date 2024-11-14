@@ -75,7 +75,7 @@ To configure your identity federation, follow these steps:
           1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page to which the browser redirects the user for authentication.
 
           1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically.
-
+         
              If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
 
           1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.

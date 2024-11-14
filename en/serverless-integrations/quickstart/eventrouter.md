@@ -27,7 +27,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-eventrouter`.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}`, `ymq.reader`, and `ymq.writer` [roles](../../iam/concepts/access-control/roles.md).

@@ -233,7 +233,7 @@ items:
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -429,7 +429,7 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
-      - name: Developing user integration
+      - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
       - name: >-
           Creating a trigger for budgets that invokes a function to stop VM
@@ -460,7 +460,7 @@ items:
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Scheduled scaling of instance groups
+      - name: Scheduled scaling of an instance group
         href: tutorials/vm-scale-scheduled.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
@@ -470,7 +470,7 @@ items:
         href: tutorials/iot-emulation.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
   - name: Pricing policy
     href: pricing.md

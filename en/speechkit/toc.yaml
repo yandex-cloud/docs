@@ -75,7 +75,7 @@ items:
         href: hybrid-speechkit/system-requirements.md
       - name: '{{ sk-hybrid-name }} documentation'
         href: ../speechkit-hybrid/
-  - name: API Reference
+  - name: API references
     items:
       - name: Overview
         href: concepts/api.md
@@ -105,6 +105,8 @@ items:
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview
@@ -131,6 +133,8 @@ items:
                     href: stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview

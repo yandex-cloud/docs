@@ -38,7 +38,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Digitizing image archives in {{ vision-name }}
+      - name: Recognizing text in image archives in {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Telegram bot for text recognition in images
         href: tutorials/recognizer-bot.md
@@ -50,7 +50,7 @@ items:
         href: concepts/ocr/template-recognition.md
       - name: Supported languages
         href: concepts/ocr/supported-languages.md
-      - name: Restrictions in the current version
+      - name: Limitations in the current version
         href: concepts/ocr/known-issues.md
       - name: Image classification
         stage: preview
@@ -72,7 +72,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API Reference
+  - name: API references
     items:
       - name: Authentication with the API
         href: api-ref/authentication.md

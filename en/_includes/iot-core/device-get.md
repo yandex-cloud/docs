@@ -10,18 +10,18 @@
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the device details.
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../cli-install.md) %}
-
+  
   {% include [default-catalogue](../default-catalogue.md) %}
   1. View the description of the CLI command to get information about a device:
-
+	
       ```bash
       yc iot device get --help
       ```
 
   1. Get detailed information about a device by specifying its name or ID:
-
+  
       ```bash
       yc iot device get <device_name>
       ```
@@ -60,7 +60,7 @@
      * `output "device_params"`: Output variable containing information about the registry the device belongs to:
        * `value`: Returned value.
 
-     You can replace `registry_id` with any other parameter to get the information you need. For more information about the `yandex_iot_core_device` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_iot_core_device).
+     You can replace `registry_id` with any other parameter to get the information you need. For more information about the `yandex_iot_core_device` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/iot_core_device).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

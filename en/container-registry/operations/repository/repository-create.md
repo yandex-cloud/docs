@@ -17,46 +17,45 @@ To create a repository:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Describe the properties of the `yandex_container_repository` resource in a configuration file:
+  1. Describe the parameters of the `yandex_container_repository` resource in the configuration file:
 
-      ```hcl
-      resource "yandex_container_registry" "my-registry" {
-        name = "test-registry"
-      }
+     ```hcl
+     resource "yandex_container_registry" "my-registry" {
+       name = "test-registry"
+     }
 
-      resource "yandex_container_repository" "my-repository" {
-        name = "${yandex_container_registry.my-registry.id}/<repository_name>"
-      }
+     resource "yandex_container_repository" "my-repository" {
+       name = "${yandex_container_registry.my-registry.id}/<repository_name>"
+     }
 
-      output "my-registry-id" {
-        value = yandex_container_registry.my-registry.id
-      }
+     output "my-registry-id" {
+       value = yandex_container_registry.my-registry.id
+     }
 
-      output "my-repository-name" {
-        value = yandex_container_repository.my-repository.name
-      }
-      ```
+     output "my-repository-name" {
+       value = yandex_container_repository.my-repository.name
+     }
+     ```
 
-      Where `name` is the repository name in `<registry_ID>/<repository_name>` format. You can retrieve the [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
+     Where `name` is the repository name in `<registry_ID>/<repository_name>` format. You can retrieve [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
 
-      For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository).
+  1. Create resources:
 
-   1. Create resources:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
-
-      ```bash
-      yc container repository list --registry-id <registry_ID>
-      ```
+     ```bash
+     yc container repository list --registry-id <registry_ID>
+     ```
 
 - API {#api}
 
-   To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/Repository/upsert.md) gRPC API call.
+  To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/Repository/upsert.md) gRPC API call.
 
 {% endlist %}

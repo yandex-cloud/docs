@@ -1,9 +1,9 @@
 ---
-title: Which terms and definitions are used in {{ yq-full-name }}
+title: Terms and definitions in {{ yq-full-name }}
 description: In this tutorial, you will learn about the terms and definitions used in {{ yq-name }}.
 ---
 
-# Terms and definitions in {{ yq-name }}
+# {{ yq-name }} terms and definitions
 
 ## Connection {#connection}
 
@@ -25,7 +25,7 @@ You can only create data bindings for file-based data sources, i.e., to {{ objst
 
 ## Query {#query}
 
-A _query_ is an expression that is written in [YQL]({{ ydb.docs }}/yql/reference/syntax/), an SQL dialect, and used for data operations. A query consists of YQL statements and information about a [connection](#connection) or [binding](#binding). When using a connection, you need to specify a [data schema](#schema).
+A _query_ is an expression for operations with data, written in an SQL dialect called [YQL]({{ ydb.docs }}/yql/reference/syntax/). A query consists of YQL statements and information about a [connection](#connection) or [binding](#binding). When using a connection, you need to specify a [data schema](#schema).
 
 Using {{ yq-full-name }} queries, you can perform [batch](batch-processing.md) and [streaming](./stream-processing.md) data processing.
 

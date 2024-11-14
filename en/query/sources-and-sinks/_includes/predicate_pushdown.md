@@ -2,24 +2,10 @@
 
 Filter pushdown is possible when using:
 
-| Description | Example |
+|Description|Example|
 |---|---|
-| Filters of the `IS NULL`/`IS NOT NULL` type | `WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL` |
-| `OR`, `NOT`, `AND` logical conditions | `WHERE column IS NULL OR column2 is NOT NULL` |
-| `=`, `<>`, `<`, `<=`, `>`, `>=` comparison conditions with other columns or constants | `WHERE column3 > column4 OR column5 <= 10` |
+|Filters like `IS NULL`/`IS NOT NULL`|`WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL`|
+|Logical conditions `OR`, `NOT`, or `AND` |`WHERE column IS NULL OR column2 is NOT NULL`|
+|Conditions `=`, `<>`, `<`, `<=`, `>`, `>=` for comparison with other columns or constants |`WHERE column3 > column4 OR column5 <= 10`|
 
 Supported data types for filter pushdown:
-
-| Data type {{ yq-full-name }} |
-|----|
-| `BOOL` |
-| `INT8` |
-| `UINT8` |
-| `INT16` |
-| `UINT16` |
-| `INT32` |
-| `UINT32` |
-| `INT64` |
-| `UINT64` |
-| `FLOAT` |
-| `DOUBLE` |

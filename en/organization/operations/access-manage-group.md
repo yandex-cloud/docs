@@ -3,7 +3,7 @@ title: How to set up access to manage a user group in {{ org-full-name }}
 description: Follow this guide to set up access to manage a user group in {{ org-name }}.
 ---
 
-## Setting up permissions to manage a group {#access-manage-group}
+## Configuring group management access {#access-manage-group}
 
 You can grant access to a user group to:
 
@@ -24,9 +24,9 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) as the organization administrator or owner.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
-  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name.
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
   
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
@@ -34,7 +34,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
   
   1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. You may want to use the search feature.
   
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles that you need to assign to the group.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles to assign to the group.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

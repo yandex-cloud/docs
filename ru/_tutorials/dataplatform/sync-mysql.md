@@ -49,8 +49,8 @@
       ```bash
       yc compute instance create \
          --name magento \
-         --zone {{ region-id }}-a \
-         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
+         --zone {{ region-id }}-d \
+         --network-interface subnet-name=default-{{ region-id }}-d,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_ed25519.pub
@@ -95,8 +95,8 @@
 1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера.
 1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером:
 
-   * Зона доступности — `{{ region-id }}-a`.
-   * Подсеть — `default-{{ region-id }}-a`.
+   * Зона доступности — `{{ region-id }}-d`.
+   * Подсеть — `default-{{ region-id }}-d`.
 
 1. Нажмите кнопку **Создать кластер**.
 Подробнее о создании кластера см. раздел [Как начать работать с {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).

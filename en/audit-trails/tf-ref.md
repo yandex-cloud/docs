@@ -22,4 +22,4 @@ The following {{ TF }} provider resources are supported for {{ at-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_audit_trails_trail]({{ tf-provider-datasources-link }}/datasource_audit_trails_trail) | Information about a [trail](./concepts/trail.md) |
+| [yandex_audit_trails_trail]({{ tf-provider-datasources-link }}/audit_trails_trail) | Information about a [trail](./concepts/trail.md) |

@@ -14,7 +14,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-  The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To do this, click ![***](../../../_assets/console-icons/ellipsis.svg) to the right of the folder and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+  The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/console-icons/ellipsis.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 - CLI {#cli}
   
@@ -33,6 +33,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
       ```bash
       yc resource-manager folder delete <folder_ID>
       ```
+      
       To display the details of an operation in progress before it is completed, set the `--async` flag.
 
 - {{ TF }} {#tf}
@@ -57,7 +58,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
+     For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. In the command line, go to the folder with the {{ TF }} configuration file.
 
@@ -65,9 +66,9 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
      ```
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```
      Success! The configuration is valid.
      ```
@@ -76,14 +77,14 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
      ```
      terraform plan
      ```
-
+  
      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the folder deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:

@@ -16,7 +16,7 @@ To access a device, use its unique ID or name. For information about how to get 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -46,7 +46,7 @@ To access a device, use its unique ID or name. For information about how to get 
 
   To update the name of a device created using {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the part with the device description:
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the device description fragment:
 
       Example device description in the {{ TF }} configuration:
 
@@ -59,7 +59,7 @@ To access a device, use its unique ID or name. For information about how to get 
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -112,7 +112,7 @@ To access a device, use its unique ID or name. For information about how to get 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -144,7 +144,7 @@ To access a device, use its unique ID or name. For information about how to get 
 
   To update the name of a device created using {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the part with the device description.
+  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the device description fragment.
 
       Example device description in the {{ TF }} configuration:
 
@@ -157,7 +157,7 @@ To access a device, use its unique ID or name. For information about how to get 
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

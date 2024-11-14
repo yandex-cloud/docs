@@ -6,7 +6,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 To create a trigger, you need:
 
-* A function that the trigger will invoke. If you do not have a function:
+* A function to be invoked by the trigger. If you do not have a function:
 
     * [Create a function](../function/function-create.md).
     * [Create a function version](../function/version-manage.md).
@@ -17,11 +17,11 @@ To create a trigger, you need:
 
     * To invoke a function.
     * To read from the stream that activates the trigger when data is sent there.
-    * (Optional) To write to the dead-letter queue.
+    * Optionally, to write to a dead-letter queue.
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* The stream that activates the trigger when it receives data.   If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md). 
+* A stream that will activate the trigger as soon as it receives data.  If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md). 
 
 ## Creating a trigger {#trigger-create}
 
@@ -52,13 +52,13 @@ To create a trigger, you need:
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. The values may range from 1 to 60 seconds. The default value is 1 second.
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
+        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
         {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
@@ -78,15 +78,15 @@ To create a trigger, you need:
     yc serverless trigger create yds \
       --name <trigger_name> \
       --database <database_location> \
-      --stream <data_stream_name> \
+      --stream <stream_name> \
       --batch-size <message_group_size> \
       --batch-cutoff <maximum_timeout> \
       --stream-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_repeat_attempts> \
-      --retry-interval <time_between_repeat_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --retry-attempts <number_of_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -97,9 +97,9 @@ To create a trigger, you need:
 
       To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
-    * `--stream`: {{ yds-name }} data stream name.
-    * `--batch-size`: Message group size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+    * `--stream`: Name of the {{ yds-name }} stream.
+    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
     * `--stream-service-account-id`: ID of the service account with permissions to read from the stream and write to it.
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
@@ -148,18 +148,18 @@ To create a trigger, you need:
        function {
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
-         retry_attempts     = "<number_of_repeat_attempts>"
-         retry_interval     = "<time_between_repeat_attempts>"
+         retry_attempts     = "<number_of_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        data_streams {
-         stream_name        = "<data_stream_name>"
+         stream_name        = "<stream_name>"
          database           = "<database_location>"
          service_account_id = "<service_account_ID>"
          batch_cutoff       = "<maximum_timeout>"
          batch_size         = "<message_group_size>"
        }
        dlq {
-         queue_id           = "<dead_letter_queue_ID>"
+         queue_id           = "<dead-letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
      }
@@ -171,15 +171,15 @@ To create a trigger, you need:
      
      * `data_streams`: Trigger parameters:
 
-         * `stream_name`: {{ yds-name }} data stream name.
+         * `stream_name`: Name of the {{ yds-name }} stream.
          * `database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
 
              To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
          * `service_account_id`: Service account with permissions to read from and write to the {{ yds-name }} stream.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
-         * `batch_size`: Message group size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 

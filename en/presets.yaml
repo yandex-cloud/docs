@@ -572,6 +572,7 @@ default:
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
+  roles-speechsense-data-viewer: Data viewer
   roles-speechsense-editor: Editor
   roles-speechsense-viewer: Viewer
   roles-translate-user: ai.translate.user
@@ -7025,7 +7026,6 @@ default:
             column_name: Name
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
-          switch_dashboard: Folder dashboard
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
         label_service-accounts: Service accounts

@@ -63,6 +63,6 @@ To enable normalization, set the `text_normalization=TEXT_NORMALIZATION_ENABLED`
 | :----- | :------|
 | Representing dates and time in numeric format | `text_normalization=TEXT_NORMALIZATION_ENABLED` |
 | Converting numbers from dictionary to numeric format | `text_normalization=TEXT_NORMALIZATION_ENABLED` |
-| Formatting phone numbers | `text_normalization=TEXT_NORMALIZATION_ENABLED` To disable this level only, additionally specify `phone_formatting_mode=PHONE_FORMATTING_MODE_DISABLED`. |
+| Formatting phone numbers | `text_normalization=TEXT_NORMALIZATION_ENABLED`. To disable this level only, additionally specify `phone_formatting_mode=PHONE_FORMATTING_MODE_DISABLED`. |
 | Profanity masking | `profanity_filter=true` with `text_normalization` enabled |
 | Capitalizing the beginning of a sentence and proper nouns. Adding punctuation marks | `literature_text=true` with `text_normalization` enabled |

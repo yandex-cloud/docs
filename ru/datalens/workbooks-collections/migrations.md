@@ -44,7 +44,7 @@
 
 {% note warning %}
 
-Копирование подключений [Файлы](../operations/connection/create-file.md) и [Google Sheets](../operations/connection/create-google-sheets.md) недоступно.
+Копирование подключений [Файлы](../operations/connection/create-file.md), [Google Sheets](../operations/connection/create-google-sheets.md) и [Яндекс Документы](../operations/connection/create-yadocs.md) недоступно.
 
 {% endnote %}
 

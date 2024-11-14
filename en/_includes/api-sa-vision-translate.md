@@ -20,7 +20,8 @@ To set up authorization on behalf of a service account:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-api`.
 
       The name format requirements are as follows:
@@ -215,7 +216,7 @@ To set up authorization on behalf of a service account:
 
 Now you can send requests to {{ vision-full-name }} and {{ translate-full-name }} services on behalf of your service account.
 
-Enter the API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:
+Enter your API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:
 
 ```yaml
 Authorization: Api-Key <API_key>

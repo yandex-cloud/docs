@@ -1,11 +1,11 @@
 ---
-title: Getting {{ yandex-cloud }} organization ID
-description: In this guide, you will learn how to get {{ yandex-cloud }} organization ID.
+title: Getting a {{ yandex-cloud }} organization ID
+description: In this guide, you will learn how to get a {{ yandex-cloud }} organization ID.
 ---
 
-# Getting organization ID
+# Getting an organization ID
 
-In {{ yandex-cloud }}, each organization gets a unique ID. With this ID, you can perform all kinds of operations with the organization itself and the resources created inside it.
+Each organization in {{ yandex-cloud }} is assigned a unique ID. With this ID, you can perform various operations with both the organization and its internal resources.
 
 To find out the organization ID:
 
@@ -15,17 +15,17 @@ To find out the organization ID:
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}).
 
-      On the {{ cloud-center }} home page that opens, there is general info about your organization. 
+      On the {{ cloud-center }} home page that opens, you can view general info about your organization. 
 
-  1. You can find the organization ID below the organization's name in the center of the screen. Click ![copy](../../_assets/console-icons/copy.svg) to the right of the ID to copy it.
+  1. You can find the organization ID below the organization name in the center of the screen. Click ![copy](../../_assets/console-icons/copy.svg) to the right of the ID to copy it.
 
-      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) between them. To do this, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization in the top-left corner of the screen and select another one.
+      If you have multiple organizations, you can [switch](./manage-organizations.md#switch-to-another-org) between them. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select the one you need.
 
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. To view a list of organizations available to you, run this command:
+  1. To view a list of available organizations, run this command:
 
       ```bash
       yc organization-manager organization list

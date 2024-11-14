@@ -84,7 +84,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         1. Выберите сервис **{{ vpc-short-name }}** в каталоге, где требуется создать подсеть.
         1. Нажмите на имя облачной сети.
         1. Нажмите кнопку **Добавить подсеть**.
-        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-a`).
+        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-d`).
         1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
         1. Нажмите кнопку **Создать подсеть**.
    
@@ -93,7 +93,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       ```
       yc vpc subnet create `
         --name rdgw-subnet `
-        --zone {{ region-id }}-a `
+        --zone {{ region-id }}-d `
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
@@ -108,7 +108,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
       network_id: qqppl6fduhct76qkjh6s
-      zone_id: {{ region-id }}-a
+      zone_id: {{ region-id }}-d
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
@@ -207,7 +207,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
          * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
          * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
          * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
-     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
@@ -249,7 +249,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
          --memory 4 `
          --cores 2 `
          --platform standard-v3 `
-         --zone {{ region-id }}-a `
+         --zone {{ region-id }}-d `
          --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
          --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
          --metadata-from-file user-data=setpass
@@ -263,7 +263,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T10:51:58Z"
       name: my-rds-gw
-      zone_id: {{ region-id }}-a
+      zone_id: {{ region-id }}-d
       platform_id: standard-v3
       resources:
       memory: "4294967296"
@@ -408,7 +408,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
             * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
             * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
             * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
-        1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+        1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
         1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного диска `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
@@ -436,7 +436,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --memory 4 `
         --cores 2 `
         --platform standard-v3 `
-        --zone {{ region-id }}-a `
+        --zone {{ region-id }}-d `
         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.4 `
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
         --metadata-from-file user-data=setpass
@@ -450,7 +450,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
-      zone_id: {{ region-id }}-a
+      zone_id: {{ region-id }}-d
       platform_id: standard-v3
       resources:
       memory: "4294967296"

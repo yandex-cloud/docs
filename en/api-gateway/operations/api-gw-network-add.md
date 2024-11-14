@@ -13,12 +13,12 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-   1. Select the API gateway.
-   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
-   1. In the **{{ ui-key.yacloud.vpc.label_network }}** field, specify a cloud network to host your API gateway.
-   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
+    1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Select the API gateway.
+    1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+    1. In the **{{ ui-key.yacloud.vpc.label_network }}** field, specify a cloud network to host your API gateway.
+    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
 - API {#api}
 

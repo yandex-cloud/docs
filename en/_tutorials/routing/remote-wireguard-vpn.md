@@ -55,7 +55,8 @@ The infrastructure support costs include:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account, e.g., `sa-firezone`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -88,11 +89,11 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-     1. On the management console [home page]({{ link-console-main }}), select the folder.
+     1. On the management console [home page]({{ link-console-main }}), select a folder.
      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-     1. Find the `sa-firezone` service account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
+     1. Find the `sa-firezone` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-     1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `admin` role.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `admin` role.
 
    - CLI {#cli}
 
@@ -166,7 +167,7 @@ The infrastructure support costs include:
 
 ## Prepare a domain {#prepare-domain}
 
-You will need a domain to use for Firezone and Keycloak VMs. Make sure to first delegate this domain to Yandex Cloud from the domain registrar. To do this, specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your user area on your registrar's website.
+You will need a domain to use for Firezone and Keycloak VMs. Make sure to first delegate this domain to Yandex Cloud from the domain registrar. To do this, specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your registrar's website.
 
 ## Deploy Firezone and Keycloak {#deploy-firezone}
 
@@ -183,7 +184,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
    * In the `domain` section, specify your domain name (second and first-level, separated with a period) for the Firezone and Keycloak VMs. In this example, we use `example.com` as domain.
    * In the `folder_id` section, specify the ID of the folder to host your resources, such as `b1grj7grr1kn********`.
    * In the `vpc_id` section, specify the ID of the cloud network to host your resources, such as `enp48c1ndilt********`.
-   * In the `trusted_ip_for_mgmt` section, list public IPs/subnets to allow SSH connections to the Firezone and Keycloak VMs from, such as `["A.A.A.A/32", "B.B.B.0/24"]`.
+   * In the `trusted_ip_for_mgmt` section, list public IPs/subnets to allow SSH connections to the Firezone and Keycloak VMs from, e.g., `["A.A.A.A/32", "B.B.B.0/24"]`.
    * In the `admin_email` section, enter the admin email address (username) to access the Firezone admin web interface, e.g., `admin@example.com`.
    * In the `email` section enter the user email address to add to Firezone after successful authentication in Keycloak, e.g., `user@example.com`.
    * You can leave other properties unchanged or edit them as you see fit, except `image_folder_id` and `image_name`.
@@ -197,22 +198,22 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
    {% cut "See reference information about the amount of resources" %}
 
-   | Resource | Amount |
-   | ------------------------------------------- | ---------- |
-   | Virtual machines | 2 |
-   | VM instance vCPUs | 4 |
-   | VM instance RAM | 12 GB |
-   | Disks | 2 |
-   | SSD size | 110 GB |
-   | Subnets | 2 |
-   | Static public IP addresses | 2 |
-   | Security groups | 2 |
-   | Certificate Manager certificate | 1 |
-   | DNS zone | 1 |
-   | Managed Service for PostgreSQL cluster | 1 |
-   | SSD storage capacity for PostgreSQL cluster | 10 GB |
-   | Number of vCPUs for PostgreSQL cluster | 2 |
-   | Amount of RAM for PostgreSQL cluster | 8 |
+      | Resource                                      | Amount |
+      | ------------------------------------------- | ---------- |
+      | Virtual machines                          | 2          |
+      | VM vCPUs                      | 4          |
+      | VM RAM                       | 12 GB      |
+      | Disks                                       | 2          |
+      | SSD size                            | 110 GB     |
+      | Subnets                                     | 2          |
+      | Static public IP addresses             | 2          |
+      | Security groups                         | 2          |
+      | Certificate Manager certificate              | 1          |
+      | DNS zone                                    | 1          |
+      | Managed Service for PostgreSQL cluster      | 1          |
+      | SSD storage capacity for PostgreSQL cluster | 10 GB      |
+      | Number of vCPUs for PostgreSQL cluster     | 2          |
+      | Amount of RAM for PostgreSQL cluster        | 8          |
 
    {% endcut %}
 
@@ -321,8 +322,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 1. Log in to the Firezone admin interface using the admin credentials from the `terraform output firezone_admin_credentials` command output in the `main` directory.
 1. Go to the **SETTINGS / Defaults** section to change the default values.
 1. In the **Allowed IPs** field, specify the cloud subnet IP addresses (as a comma-separated list of subnet IPs/masks) for VPN clients to route traffic to a VPN tunnel, e.g.: `192.168.1.0/24, 192.168.2.0/24`.
-1. In the **DNS Servers** field, specify the DNS server addresses to be used by the VPN clients, 
-   e.g.: `192.168.1.2, 192.168.2.2`.
+1. In the **DNS Servers** field, specify the DNS server addresses to be used by the VPN clients, e.g.: `192.168.1.2, 192.168.2.2`.
    If these DNS addresses are not to be reassigned on the client side, delete information in this field. 
 1. You can also change the default properties for the VPN client `keepalive` interval and `MTU` size. The default `MTU` is 1280 bytes; you can increase it to 1440 bytes.
 1. Click **Save** to apply the settings.
@@ -331,10 +331,10 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 1. Activate the **Auto disable VPN** setting. This will allow disabling a user's VPN connections when the user is removed in the Identity Provider (in this case, Keycloak).
 1. Click **Add OpenID Connect Provider** to add Keycloak.
 1. In the **OIDC Configuration** section, fill in the following fields:
-   - **Config ID**: `keycloak`.
-   - **Label**: `Keycloak`.
-   - **OIDC scopes**: `openid email profile offline_access`.
-   - **Client ID**: `firezone`.
+   - **Config ID**: `keycloak`
+   - **Label**: `Keycloak`
+   - **OIDC scopes**: `openid email profile offline_access`
+   - **Client ID**: `firezone`
    - **Client secret**: `client_secret` from the `terraform output keycloak_config_for_firezone` output in the `keycloak-config` directory (specify the value without quotes).
    - **Discovery Document URI**: `discovery_document_uri` from the `terraform output keycloak_config_for_firezone` output in the `keycloak-config` directory (specify the value without quotes).
    - **Redirect URI**: Leave it blank.
@@ -355,7 +355,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
    {% note warning %}
 
-   Do not close the window until you download the configuration file or scan the QR code. You will not be able to view the device's VPN configuration in the Firezone web interface once you close the window.
+      Do not close the window until you download the configuration file or scan the QR code. You will not be able to view the device's VPN configuration in the Firezone web interface once you close the window.
 
    {% endnote %}
 

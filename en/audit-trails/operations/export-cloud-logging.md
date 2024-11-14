@@ -30,7 +30,7 @@ To export audit logs of a cloud:
 
         Where:
 
-        * `--role`: Role being assigned.
+        * `--role`: Role you want to assign.
         * `--id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to collect audit logs from.
         * `--service-account-id`: Service account ID.
 
@@ -277,16 +277,17 @@ To create a trail that exports audit logs from the cloud:
         name = "<trail_name>"
         folder_id   = "<folder_ID>"
         description = "<trail_description>"
-
+        
         labels = {
           key = "value"
         }
-
+        
         service_account_id = "<service_account_ID>"
+        
         logging_destination {
           log_group_id = "<log_group_ID>"
         }
-
+        
         filter {
           path_filter {
             some_filter {
@@ -345,8 +346,8 @@ To create a trail that exports audit logs from the cloud:
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc audit-trails trail get <trail_name>

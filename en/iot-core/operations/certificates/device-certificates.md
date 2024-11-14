@@ -96,7 +96,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -151,7 +151,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the line with the certificate you need, click ![image](../../../_assets/console-icons/ellipsis.svg)and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -187,7 +187,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   To delete the certificate of a device created using {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` section, where the device description is located. To remove all certificates, delete the entire `certificates` section.
+  1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` section, in the device description fragment. To remove all certificates, delete the entire `certificates` section.
 
       Example device description in the {{ TF }} configuration:
 
@@ -204,7 +204,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

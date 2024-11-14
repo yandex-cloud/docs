@@ -53,7 +53,8 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
           The name format requirements are as follows:
@@ -107,7 +108,7 @@ The infrastructure support costs include:
           * `description`: Service account description. This is an optional parameter.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-          For more information about the `yandex_iam_service_account` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Make sure the configuration files are correct.
 
@@ -177,7 +178,7 @@ The infrastructure support costs include:
           Where:
 
           * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
-          * `role`: Role being assigned. This is a required parameter.
+          * `role`: Role you want to assign. This is a required parameter.
           * `member`: User or service account getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
           For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
@@ -347,7 +348,7 @@ Delete the folder with the resources required for interactive debugging of {{ sf
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-cloud }}), select the `live-debug` folder. 
+  1. In the [management console]({{ link-console-cloud }}), select `live-debug`. 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Click **{{ ui-key.yacloud.common.delete }}**.

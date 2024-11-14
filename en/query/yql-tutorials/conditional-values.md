@@ -15,22 +15,21 @@ SELECT
 FROM
     `tutorial-analytics`
 GROUP BY                                -- CASE checks the list of conditions
-    CASE                                -- and returns one of multiple possible
-        WHEN trip_distance > 10         -- expressions or with any operator
-        THEN "long"                     -- that supports this expression. For example, you can use
-        ELSE "short"                    -- in a SELECT
-    END AS distance_type                -- and with the IN, WHERE, and ORDER BY operators.
+    CASE                                -- and returns one of several possible
+        WHEN trip_distance > 10         -- expressions or an expression with any operator
+        THEN "long"                     -- that supports the expression in question. For example, you can use CASE in
+        ELSE "short"                    -- SELECT expressions
+    END AS distance_type                -- and with operators like IN, WHERE, and ORDER BY.
                                         -- You can run GROUP BY
-                                        -- for an arbitrary expression.
-                                        -- The result will be available in a SELECT
+                                        -- for any expression.
+                                        -- Result is available in SELECT
                                         -- via an alias specified using AS.
 ```
 
-Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
 ## See also {#see-also}
-
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select).
 * [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by).
-* [CASE]({{ ydb.docs }}/yql/reference/syntax/expressions#case).
+* [CASE]({{ ydb.docs }}/yql/reference/syntax/expressions#case) operator.

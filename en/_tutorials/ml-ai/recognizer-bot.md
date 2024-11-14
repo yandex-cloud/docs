@@ -541,7 +541,7 @@ curl --request POST \
 Where:
 
 * `<bot_token>`: Telegram bot token.
-* `<API_gateway_domain>`: `recognizer-bot-api-gw` API gateway service domain.
+* `<API_gateway_domain>`: `recognizer-bot-api-gw` API gateway's service domain.
 
 Result:
 

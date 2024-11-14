@@ -25,9 +25,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-     1. In the window that opens:
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. In the window that opens:
         * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
         * To assign the service account the `editor` role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
         * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -71,7 +70,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `yc-auto-network` as the network name.

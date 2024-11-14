@@ -35,7 +35,7 @@ To create a connection to {{ ydb-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) to use for connecting to `{{ ydb-name }}` clusters and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
@@ -59,6 +59,22 @@ Where:
 ## Filter pushdown {#predicate_pushdown}
 
 {% include [!](_includes/predicate_pushdown.md) %}
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
+|`String`|
+|`Utf8`|
 
 ## Supported data types {#supported_types}
 
@@ -107,4 +123,3 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
 | `Optional<Json>` | `Optional<Json>` |
-

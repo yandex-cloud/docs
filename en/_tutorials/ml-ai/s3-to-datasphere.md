@@ -69,7 +69,8 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `datasphere-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `storage.editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -85,12 +86,13 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `datasphere-sa` service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `datasphere-sa` service account.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the static key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and private key. After you close the dialog, the private key value will become unavailable.
+  1. Save the ID and secret key. After you close the dialog, the private key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -126,7 +128,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -174,7 +176,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -208,7 +210,7 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
    1. Enter the secret key value in the terminal.
    1. Specify the region by entering `{{ region-id }}` in the terminal.
    1. Specify the endpoint by entering `{{ s3-storage-host }}` in the terminal.
-   1. You can leave the default values for all other settings by pressing **Enter** to skip them.
+   1. You can leave all other settings at their defaults by pressing **Enter** to skip them.
 
 {% note info %}
 
@@ -251,7 +253,7 @@ To connect to the bucket from {{ ml-platform-name }}, you need an [S3 connector]
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
    * In the **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** field, click **{{ ui-key.yc-ui-datasphere.common.create }}**. In the window that opens, enter the secret name and the secret key being used to connect to storage.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once connected, the bucket will be available in the {{ jlab }}Lab UI in the list on the ![S3 Mounts](../../_assets/console-icons/bucket.svg)**S3 Mounts** tab, and you will be able to view it as a file system.
+1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket will be listed on the ![S3 Mounts](../../_assets/console-icons/bucket.svg) **S3 Mounts** tab in the {{ jlab }}Lab interface, and you will be able to view it as a file system.
 
 ## Train the model {#train-model}
 
@@ -285,7 +287,7 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
    data.head()
    ```
 
-   To get the `diabetes_data.csv` file path, open the ![S3 Mounts](../../_assets/console-icons/bucket.svg) **S3 Mounts** tab, right-click it, and select **Copy path**.
+   To get the `diabetes_data.csv` file path, open the ![S3 Mounts](../../_assets/console-icons/bucket.svg) **S3 Mounts** tab, right-click the file, and select **Copy path**.
 1. Separate training factors from the target variable:
 
    ```python
@@ -293,7 +295,7 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
    y = data['Diabetes_binary']
    ```
 
-1. Divide the sample into training and test ones:
+1. Split the sample into training and test ones:
 
    ```python
    X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.75, random_state=42)

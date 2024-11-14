@@ -41,38 +41,38 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your registry in.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-      1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-      1. Specify a name for the registry.
-      1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a registry in.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
+     1. Specify a name for the registry.
+     1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
    - CLI {#cli}
 
-      Run this command:
+     Run this command:
 
-      ```bash
-      yc container registry create --name my-reg
-      ```
+     ```bash
+     yc container registry create --name my-reg
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      done
-      id: crpd50616s9a********
-      folder_id: b1g88tflru0e********
-      name: my-reg
-      status: ACTIVE
-      created_at: "2019-01-09T14:34:06.601Z"
-      ```
+     ```text
+     done
+     id: crpd50616s9a********
+     folder_id: b1g88tflru0e********
+     name: my-reg
+     status: ACTIVE
+     created_at: "2019-01-09T14:34:06.601Z"
+     ```
 
    - {{ TF }} {#tf}
 
-      See [How to create an infrastructure using {{ TF }}](#terraform).
+     See [How to create an infrastructure using {{ TF }}](#terraform) for details.
 
    - API {#api}
 
-      Use the [create](../api-ref/Registry/create.md) method for the [Registry](../api-ref/Registry/) resource.
+     Use the [create](../api-ref/Registry/create.md) method for the [Registry](../api-ref/Registry/) resource.
 
    {% endlist %}
 
@@ -82,45 +82,45 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder to create a service account in.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `container-registry.images.scanner`.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. Enter a name for the service account.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `container-registry.images.scanner` role.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
-      1. Create a service account:
+     1. Create a service account:
 
-         ```bash
-         yc iam service-account create --name service-acc
-         ```
+        ```bash
+        yc iam service-account create --name service-acc
+        ```
 
-         Result:
+        Result:
 
-         ```text
-         id: ajelabcde12f********
-         folder_id: b0g12ga82bcv********
-         created_at: "2021-05-17T14:32:18.900092Z"
-         name: service-acc
-         ```
+        ```text
+        id: ajelabcde12f********
+        folder_id: b0g12ga82bcv********
+        created_at: "2021-05-17T14:32:18.900092Z"
+        name: service-acc
+        ```
 
-      1. Assign the role to the service account:
+     1. Assign the role to the service account:
 
-         ```bash
-         yc resource-manager folder add-access-binding <folder_id> \
-           --role container-registry.images.scanner \
-           --subject serviceAccount:<service_account_ID>
-         ```
+        ```bash
+        yc resource-manager folder add-access-binding <folder_ID> \
+          --role container-registry.images.scanner \
+          --subject serviceAccount:<service_account_ID>
+        ```
 
    - {{ TF }} {#tf}
 
-      See [How to create an infrastructure using {{ TF }}](#terraform).
+     See [How to create an infrastructure using {{ TF }}](#terraform) for details.
 
    - API {#api}
 
-      Use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/) resource and [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) for [Folder](../../resource-manager/api-ref/Folder/).
+     Use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/) resource and [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) for [Folder](../../resource-manager/api-ref/Folder/).
 
    {% endlist %}
 
@@ -135,98 +135,98 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-   1. Enter `scan-on-push` as the function name, and add a function description.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Go to **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** and create a version of the function:
-      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
-         * Select the `Bash` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-         * Select how you want to edit the function: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
-         * In the function edit window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**. In the window that opens, enter `handler.sh` as the file name and click **{{ ui-key.yacloud.common.create }}**.
-         * Copy the following code to the `handler.sh` file:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+  1. Enter a name, e.g., `scan-on-push`, and description for the function.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Go to **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** and create a version of the function:
+     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
+        * Select the `Bash` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+        * Select how you want to edit the function: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+        * In the function edit window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**. In the window that opens, enter `handler.sh` as the file name and click **{{ ui-key.yacloud.common.create }}**.
+        * Copy the following code to the `handler.sh` file:
 
-            ```bash
-            DATA=$(cat | jq -sr '.[0].messages[0].details')
-            ID=$(echo $DATA | jq -r '.image_id')
-            NAME=$(echo $DATA | jq -r '.repository_name')
-            TAG=$(echo $DATA | jq -r '.tag')
-            yc container image scan --id ${ID} --async 1>&2
-            ```
+          ```bash
+          DATA=$(cat | jq -sr '.[0].messages[0].details')
+          ID=$(echo $DATA | jq -r '.image_id')
+          NAME=$(echo $DATA | jq -r '.repository_name')
+          TAG=$(echo $DATA | jq -r '.tag')
+          yc container image scan --id ${ID} --async 1>&2
+          ```
 
-         * Specify the entry point: `handler.sh`.
-      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `Scanner`
-      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+        * Specify the entry point: `handler.sh`.
+     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `scanner`.
+     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
-   1. Create a function named `scan-on-push`:
+  1. Create a function named `scan-on-push`:
 
-      ```bash
-      yc serverless function create --name=scan-on-push
-      ```
+     ```bash
+     yc serverless function create --name=scan-on-push
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      id: d4ejb1799eko********
-      folder_id: aoek49ghmknn********
-      created_at: "2021-17-05T14:07:32.134Z"
-      name: scan-on-push
-      log_group_id: eolm8aoq9vcp********
-      http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
-      status: ACTIVE
-      ```
+     ```text
+     id: d4ejb1799eko********
+     folder_id: aoek49ghmknn********
+     created_at: "2021-17-05T14:07:32.134Z"
+     name: scan-on-push
+     log_group_id: eolm8aoq9vcp********
+     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
+     status: ACTIVE
+     ```
 
-   1. Create the `handler.sh` file and paste the following code to it:
+  1. Create the `handler.sh` file and paste the following code to it:
 
-      {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+     {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-   1. Create a version of the `scan-on-push` function:
+  1. Create a version of the `scan-on-push` function:
 
-      ```bash
-      yc serverless function version create \
-        --function-name=scan-on-push \
-        --runtime bash \
-        --entrypoint handler.sh \
-        --memory 128m \
-        --execution-timeout 60s \
-        --source-path handler.sh \
-        --service-account-id <service_account_ID>
-      ```
+     ```bash
+     yc serverless function version create \
+       --function-name=scan-on-push \
+       --runtime bash \
+       --entrypoint handler.sh \
+       --memory 128m \
+       --execution-timeout 60s \
+       --source-path handler.sh \
+       --service-account-id <service_account_ID>
+     ```
 
-      Where:
-      * `--function-name`: Name of the function you want to create a version of.
-      * `--runtime`: Runtime environment.
-      * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
-      * `--memory`: Amount of RAM.
-      * `--execution-timeout`: Maximum function execution time before the timeout is reached.
-      * `--source-path`: File with the function code.
-      * `--service-account-id`: Service account ID.
+     Where:
+     * `--function-name`: Name of the function whose version you want to create.
+     * `--runtime`: Runtime environment.
+     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
+     * `--memory`: Amount of RAM.
+     * `--execution-timeout`: Maximum function running time before the timeout is reached.
+     * `--source-path`: File with the function code.
+     * `--service-account-id`: Service account ID.
 
-      Result:
+     Result:
 
-      ```text
-      done (1s)
-      id: d4egi3pmsd1q********
-      function_id: d4e275oj7jtp********
-      ...
-      tags:
-      - $latest
-      log_group_id: ckg6nb0c7uf1********
-      ```
+     ```text
+     done (1s)
+     id: d4egi3pmsd1q********
+     function_id: d4e275oj7jtp********
+     ...
+     tags:
+     - $latest
+     log_group_id: ckg6nb0c7uf1********
+     ```
 
 - {{ TF }} {#tf}
 
-   See [How to create an infrastructure using {{ TF }}](#terraform).
+  See [How to create an infrastructure using {{ TF }}](#terraform) for details.
 
 - API {#api}
 
-   Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) methods for the [Function](../../functions/functions/api-ref/Function/) resource.
+  Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) methods for the [Function](../../functions/functions/api-ref/Function/) resource.
 
 {% endlist %}
 
@@ -238,57 +238,57 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-      * Enter a name and description for the trigger.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry to push the Docker image to.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}` [event](../../functions/concepts/trigger/cr-trigger.md#event).
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-      * Select the `scan-on-push` function.
-      * Specify the [function version tag](../../functions/concepts/function.md#tag): `$latest`.
-      * Specify the `invoker` service account to invoke the function.
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
+  1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+     * Enter a name and description for the trigger.
+     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
+     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry to push the Docker image to.
+     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}` [event](../../functions/concepts/trigger/cr-trigger.md#event).
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
+     * Select the `scan-on-push` function.
+     * Specify the [function version tag](../../functions/concepts/function.md#tag): `$latest`.
+     * Specify the `invoker` service account which will invoke the function.
+  1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-   To create a trigger, run the command:
+  To create a trigger, run the command:
 
-   ```bash
-   yc serverless trigger create container-registry \
-     --name <trigger_name> \
-     --registry-id <registry_ID> \
-     --events 'create-image-tag' \
-     --invoke-function-id <function_ID> \
-     --invoke-function-service-account-id <service_account_ID>
-   ```
+  ```bash
+  yc serverless trigger create container-registry \
+    --name <trigger_name> \
+    --registry-id <registry_ID> \
+    --events 'create-image-tag' \
+    --invoke-function-id <function_ID> \
+    --invoke-function-service-account-id <service_account_ID>
+  ```
 
-   Where:
-   * `--name`: Trigger name.
-   * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
-   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
-   * `--invoke-function-id`: Function ID.
-   * `--invoke-function-service-account-id`: ID of the service account with the permissions to invoke the function.
+  Where:
+  * `--name`: Trigger name.
+  * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
+  * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
+  * `--invoke-function-id`: Function ID.
+  * `--invoke-function-service-account-id`: ID of the service account with the permissions to invoke the function.
 
-   Result:
+  Result:
 
-   ```text
-   id: a1spt834cjmk********
-   folder_id: b1g86q4m5vej********
-   created_at: "2021-05-18T20:42:54.898949653Z"
-   ...
-         function_tag: $latest
-         service_account_id: aje1insoe23e********
-   status: ACTIVE
-   ```
+  ```text
+  id: a1spt834cjmk********
+  folder_id: b1g86q4m5vej********
+  created_at: "2021-05-18T20:42:54.898949653Z"
+  ...
+        function_tag: $latest
+        service_account_id: aje1insoe23e********
+  status: ACTIVE
+  ```
 
 - API {#api}
 
-   Use the [Create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/) resource.
+  Use the [Create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/) resource.
 
 {% endlist %}
 
@@ -301,71 +301,71 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
    - Using the Docker credential helper {#docker}
 
-      1. Configure Docker to use `docker-credential-yc`:
+     1. Configure Docker to use `docker-credential-yc`:
 
-         ```bash
-         yc container registry configure-docker
-         ```
+        ```bash
+        yc container registry configure-docker
+        ```
 
-         Result:
+        Result:
 
-         ```text
-         Credential Helper is configured in '/home/<user>/.docker/config.json'
-         ```
+        ```text
+        Credential helper is configured in '/home/<user>/.docker/config.json'
+        ```
 
-         Settings are saved in the current user's profile.
+        Settings are saved in the current user's profile.
 
-         {% note warning %}
+        {% note warning %}
 
-         Credential Helper only works when using Docker without `sudo`. Configuring Docker to run as the current user without using `sudo` is described in the [official Docker documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+        The credential helper only works if you use Docker without `sudo`. To learn how to configure Docker to run under the current user without `sudo`, see the [official Docker documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
-         {% endnote %}
+        {% endnote %}
 
-      1. Make sure that Docker is configured.
+     1. Make sure that Docker is configured.
 
-         The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
+        The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
 
-         ```json
-         "{{ registry }}": "yc"
-         ```
+        ```json
+        "{{ registry }}": "yc"
+        ```
 
-      1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
+     1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
    - Using an OAuth token {#oauth-token}
 
-      1. If you do not have an [OAuth token](../../iam/concepts/authorization/oauth-token.md) yet, get one by following [this link]({{ link-cloud-oauth }}).
-      1. Run this command:
+     1. If you do not have an [OAuth token](../../iam/concepts/authorization/oauth-token.md) yet, get one at [this link]({{ link-cloud-oauth }}).
+     1. Run this command:
 
-         ```bash
-         echo <OAuth_token> | docker login --username oauth --password-stdin {{ registry }}
-         ```
+        ```bash
+        echo <OAuth_token> | docker login --username oauth --password-stdin {{ registry }}
+        ```
 
-         Result:
+        Result:
 
-         ```text
-         Login succeeded
-         ```
+        ```text
+        Login Succeeded
+        ```
 
    - Using an {{ iam-full-name }} token {#iam-token}
 
-      {% note info %}
+     {% note info %}
 
-      {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
+     {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
-      {% endnote %}
+     {% endnote %}
 
-      1. [Get](../../iam/operations/iam-token/create.md) an [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
-      1. Run this command:
+     1. [Get](../../iam/operations/iam-token/create.md) an [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
+     1. Run this command:
 
-         ```bash
-         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
-         ```
+        ```bash
+        yc iam create-token | docker login --username iam --password-stdin {{ registry }}
+        ```
 
-         Result:
+        Result:
 
-         ```text
-         Login succeeded
-         ```
+        ```text
+        Login Succeeded
+        ```
 
    {% endlist %}
 
@@ -408,37 +408,37 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
 ## Check the result {#check-result}
 
-1. View the `scan-on-push` function logs and make sure that it was executed.
+1. View the logs of the `scan-on-push` function and make sure it has executed.
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-      1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list }}** section and select the `scan-on-push` function.
-      1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the time period. The default time period is 1 hour.
+     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list }}** section and select the `scan-on-push` function.
+     1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the time period. The default time period is one hour.
 
    - CLI {#cli}
 
-      {% include [function-list-note](../../_includes/functions/function-list-note.md) %}
+     {% include [function-list-note](../../_includes/functions/function-list-note.md) %}
 
-      View the function execution log:
+     View the function execution log:
 
-      ```bash
-      yc serverless function logs scan-on-push
-      ```
+     ```bash
+     yc serverless function logs scan-on-push
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Version: b09i2s85a0c1********
-      2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa0********
-      2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
-      2021-05-18 09:29:25  START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Version: b09i2s85a0c1********
-      2021-05-18 09:29:26  END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f********
-      2021-05-18 09:29:26  REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
-      ...
-      ```
+     ```text
+     2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Version: b09i2s85a0c1********
+     2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa0********
+     2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     2021-05-18 09:29:25  START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Version: b09i2s85a0c1********
+     2021-05-18 09:29:26  END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f********
+     2021-05-18 09:29:26  REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     ...
+     ```
 
    {% endlist %}
 
@@ -448,29 +448,29 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the parent folder for the registry containing the Docker image.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-      1. Select the registry where you pushed your Docker image.
-      1. Open the repository with the Docker image.
-      1. Select the relevant Docker image and check the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** parameter value.
+     1. In the [management console]({{ link-console-main }}), select the parent folder of the registry containing the Docker image.
+     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. Select the registry where you pushed your Docker image.
+     1. Open the repository with the Docker image.
+     1. Select the relevant Docker image and check the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** parameter value.
 
    - CLI {#cli}
 
-      To view scans by Docker image, run the command:
+     To view scans by Docker image, run the command:
 
-      ```bash
-      yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>
-      ```
+     ```bash
+     yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      +----------------------+----------------------+---------------------+--------+--------------------------------+
-      |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
-      +----------------------+----------------------+---------------------+--------+--------------------------------+
-      | crpu20rpdc2f******** | crpqmsqp5mtb******** | 2021-05-18 14:34:02 | READY  | medium:6, low:13, negligible:3 |
-      +----------------------+----------------------+---------------------+--------+--------------------------------+
-      ```
+     ```text
+     +----------------------+----------------------+---------------------+--------+--------------------------------+
+     |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
+     +----------------------+----------------------+---------------------+--------+--------------------------------+
+     | crpu20rpdc2f******** | crpqmsqp5mtb******** | 2021-05-18 14:34:02 | READY  | medium:6, low:13, negligible:3 |
+     +----------------------+----------------------+---------------------+--------+--------------------------------+
+     ```
 
    {% endlist %}
 
@@ -494,41 +494,41 @@ To set up automatic Docker image scan on push using {{ TF }}:
 
    - Ready-made archive {#ready}
 
-      1. Create a directory for files.
-      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
-      1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
+     1. Create a folder for files.
+     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
+     1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
 
    - Manually {#manual}
 
-      1. Create a directory for configuration files.
-      1. In the directory, create a configuration file named `image-auto-scan.tf`:
+     1. Create a folder for configuration files.
+     1. In the directory, create a configuration file named `image-auto-scan.tf`:
 
-         {% cut "image-auto-scan.tf" %}
+        {% cut "image-auto-scan.tf" %}
 
-         {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
+        {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
 
-         {% endcut %}
+        {% endcut %}
 
-      1. Create the `image-auto-scan.auto.tfvars` file with user data:
+     1. Create a file with user data named `image-auto-scan.auto.tfvars`:
 
-         {% cut "image-auto-scan.auto.tfvars" %}
+        {% cut "image-auto-scan.auto.tfvars" %}
 
-         {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
+        {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
 
-         {% endcut %}
+        {% endcut %}
 
-      1. Prepare a ZIP archive with the function code.
-         1. Create the `handler.sh` file and paste the following code to it:
+     1. Prepare a ZIP archive with the function code.
+        1. Create the `handler.sh` file and paste the following code to it:
 
-            {% cut "handler.sh" %}
+           {% cut "handler.sh" %}
 
-            {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
+           {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
 
-            {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+           {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-            {% endcut %}
+           {% endcut %}
 
-         1. Create a ZIP archive named `function.zip` with the `handler.sh` file.
+        1. Create a ZIP archive named `function.zip` with the `handler.sh` file.
 
    {% endlist %}
 
@@ -537,7 +537,7 @@ To set up automatic Docker image scan on push using {{ TF }}:
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/yandex_resourcemanager_folder_iam_member)
    * [yandex_container_registry]({{ tf-provider-resources-link }}/yandex_container_registry)
    * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
-1. In the `image-auto-scan.auto.tfvars` file, set the user-defined parameters:
+1. In the `image-auto-scan.auto.tfvars` file, set the following user-defined parameters:
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) to create the infrastructure in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the infrastructure in.
 1. Create resources:

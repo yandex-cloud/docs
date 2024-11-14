@@ -19,7 +19,6 @@ To clear a node, check the following parameters:
 * `affinity`/`antiaffinity`/`nodeselector`/`tolopogyspread` does not hinder the pod movement. 
 * The pods are managed by a controller (deployment, stateful set).
 * The PodDisruptionBudget will not be exceeded after the node removal.
-* The pods have the `"cluster-autoscaler.kubernetes.io/safe-to-evict": "false" annotation`.
 
 You can manually find the relevant node and check the pods (including pods from kube-system). Remove them manually if needed.
 

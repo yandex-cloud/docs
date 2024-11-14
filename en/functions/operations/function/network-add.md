@@ -42,10 +42,10 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<listener_name>`.
+    * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function running time before the timeout is reached.
-    * `--source-version-id`: ID of the function version whose code you want to copy.
+    * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--network-id`: ID of a cloud network where the function will be executed.
 
 - API {#api}

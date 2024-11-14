@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Handling errors
         href: operations/error.md
-      - name: Uploading audit logs to {{ cloud-logging-name }}
+      - name: Exporting audit logs to {{ cloud-logging-name }}
         items:
           - name: Organization
             href: operations/export-organization-logging.md
@@ -17,7 +17,7 @@ items:
             href: operations/export-cloud-logging.md
           - name: Folder
             href: operations/export-folder-logging.md
-      - name: Uploading audit logs to {{ yds-name }}
+      - name: Exporting audit logs to {{ yds-name }}
         items:
           - name: Organization
             href: operations/export-organization-data-streams.md
@@ -25,7 +25,7 @@ items:
             href: operations/export-cloud-data-streams.md
           - name: Folder
             href: operations/export-folder-data-streams.md
-      - name: Uploading audit logs to {{ objstorage-name }}
+      - name: Exporting audit logs to {{ objstorage-name }}
         items:
           - name: Organization
             href: operations/export-organization-bucket.md
@@ -43,13 +43,13 @@ items:
         href: tutorials/search-bucket.md
       - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}
         href: tutorials/search-cloud-logging.md
-      - name: Setting up alerts in {{ monitoring-name }}
+      - name: Alert settings in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
       - name: Exporting audit logs to SIEM systems
         items:
-          - name: Uploading audit logs to {{ mos-full-name }}
+          - name: Exporting audit logs to {{ mos-full-name }}
             href: tutorials/trails-logs-opensearch.md
           - name: Exporting audit logs to MaxPatrol SIEM
             href: tutorials/maxpatrol.md

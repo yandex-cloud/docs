@@ -19,8 +19,7 @@
 * Поды на этом узле не имеют локального хранилища;
 * Перемещению пода не мешают `affinity`, `antiaffinity`, `nodeselector` или `tolopogyspread`;
 * Поды управляются контроллером: деплоймент, стейтфулсет;
-* [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) после удаления узла не будет превышен;
-* Поды имеют аннотацию `"cluster-autoscaler.kubernetes.io/safe-to-evict": "false"`.
+* [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) после удаления узла не будет превышен.
 
 Вы можете вручную найти нужный узел и проверить поды, в том числе поды из `kube-system`. При необходимости удалите их вручную.
 

@@ -79,7 +79,7 @@
      resource "yandex_serverless_container" "test-container" {
        name               = "<container_name>"
        cores              = "<number_of_cores>"
-       memory             = "<memory_amount>"
+       memory             = "<memory_size>"
        concurrency        = "<concurrent_requests>"
        service_account_id = "<service_account_ID>"
        image {
@@ -103,7 +103,7 @@
      * `args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default CMD value from the Docker image will be used.
      * `work_dir`: Allows you to change the working directory of a container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to folders.
 
-     For more information about the `yandex_serverless_container` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Create resources:
 

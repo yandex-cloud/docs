@@ -14,7 +14,7 @@ All actions with {{ sf-name }} resources are logged as a list of operations. Eac
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Select the function you need.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected function.
+  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
 
      You will see a list of operations with the selected function.
 
@@ -24,7 +24,7 @@ All actions with {{ sf-name }} resources are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ sf-name }} resource, run this command:
+  To get a list of operations for an {{ sf-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>

@@ -31,7 +31,7 @@ description: Follow this guide to delete function scaling settings.
 
     Where:
 
-    * `--id`: ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
+    * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
     * `--tag`: Function version [tag](../../concepts/function.md#tag).
 
 - {{ TF }} {#tf}
@@ -45,7 +45,7 @@ description: Follow this guide to delete function scaling settings.
     1. In the configuration file, describe the parameters of the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
-         * `function_id`: ID of the function.
+         * `function_id`: Function ID.
          * `policy`: Scaling settings:
            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
            * `policy.0.zone_instances_limit`: Number of function instances. Set the `0` value.
@@ -101,7 +101,7 @@ description: Follow this guide to delete function scaling settings.
 
 - API {#api}
 
-   To remove function scaling settings, use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
+    To delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

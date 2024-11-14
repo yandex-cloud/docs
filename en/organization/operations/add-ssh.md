@@ -23,7 +23,7 @@ To add a public SSH key to an OS Login profile:
  
   1. From the list, select the user whose {{ oslogin }} profile you want to add an SSH key to.
   
-      Use the filter or search as needed.
+      Use the filter or search feature as needed.
 
   1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
   
@@ -64,7 +64,7 @@ To add a public SSH key to an OS Login profile:
       +----------------------+-------------------------+-------------------------+
       ```
 
-  1. Get the required user ID by specifying the organization ID you got earlier:
+  1. Get the required user ID by specifying the organization ID you obtained earlier:
 
       ```bash
       yc organization-manager user list \
@@ -97,7 +97,7 @@ To add a public SSH key to an OS Login profile:
 
       Where:
 
-      * `--organization-id`: Previously obtained organization [ID](./organization-get-id.md).
+      * `--organization-id`: Organization [ID](./organization-get-id.md) you got earlier.
       * `--name`: Uploaded key name.
       * `--subject-id`: Previously obtained ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `--data`: Contents of a public SSH key.

@@ -7,9 +7,10 @@ You can get information about a service account: its name and ID, creation and l
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Choose a service account and click the row with its name.
-  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list parameters of the service account:
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the service account you need.
+  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list the service account's parameters:
 
      * **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** of the service account as a string in `aje9sb6ffd2u********` format.
      * **{{ ui-key.yacloud.iam.folder.service-accounts.column_name }}**.
@@ -40,7 +41,7 @@ You can get information about a service account: its name and ID, creation and l
   +----------------------+------------------+-------------------------------+
   ```
 
-  Get information about the service account you need using the `get` command:
+  Get information about a service account using the `get` command:
 
   ```bash
   yc iam service-account get <service_account_ID>
@@ -60,7 +61,7 @@ You can get information about a service account: its name and ID, creation and l
 
   * `id`: Service account ID.
   * `folder_id`: Folder ID.
-  * `created_at`: Creation date and time of the service account.
+  * `created_at`: Service account creation date and time.
   * `name: service-account`: Service account name.
   * `last_authenticated_at`: Last authentication date and time.
 
@@ -93,6 +94,6 @@ You can get information about a service account: its name and ID, creation and l
       }
       ```
 
-      You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
+     You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
 
 {% endlist %}

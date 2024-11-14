@@ -207,7 +207,7 @@ When creating a version, set the following parameters:
         * `bucketName`: Name of the bucket where you uploaded the ZIP archive with the function code and required dependencies.
         * `objectName`: [Key of the bucket object](../../../storage/concepts/object.md#key) that contains the function code.
 
-    1. Run the following query:
+    1. Run this request:
 
         ```bash
         export IAM_TOKEN=<IAM_token>
@@ -237,7 +237,7 @@ When creating a version, set the following parameters:
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the  [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

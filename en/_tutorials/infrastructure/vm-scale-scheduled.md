@@ -22,7 +22,7 @@ We will use a [folder](../../resource-manager/concepts/resources-hierarchy.md#fo
 
 ### Required paid resources {#paid-resources}
 
-The cost of the infrastructure includes:
+The infrastructure cost includes:
 * Using a [VM](../../compute/concepts/vm.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
@@ -36,11 +36,11 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `vm-scale-scheduled-sa`.
-  1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [roles](../../iam/concepts/access-control/roles.md):
+  1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following [roles](../../iam/concepts/access-control/roles.md):
      * `compute.admin`: To manage the instance group.
      * `iam.serviceAccounts.user`: To link the service account to instances in the group.
      * `{{ roles-functions-invoker }}`: To call the {{ sf-name }} function.
@@ -84,7 +84,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
          --folder-name example-folder
        ```
 
-     * `{{ roles-functions-invoker }}` to invoke the {{ sf-name }} function:
+     * `{{ roles-functions-invoker }}`: To call the {{ sf-name }} function:
 
        ```bash
        yc resource-manager folder add-access-binding example-folder \
@@ -213,7 +213,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -222,28 +222,28 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
      * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `vm-scale-scheduled-sa`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the following configuration:
-       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
        * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** field, select `vm-scale-scheduled-network`.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select `vm-scale-scheduled-sa`.
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. Make up a name.
+       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. You can come up with any username you like.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify the following configuration:
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: `2`
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**: `2`
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}**: `2`
-     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `2`
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: `2`. 
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**: `2`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}**: `2`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `2`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
      * In the **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}** field, select `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`.
-     * Set **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** to `2`.
+     * Specify **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** `2`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -374,7 +374,7 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands that
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. At the top right, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `vm-scale-scheduled-function`.
@@ -474,7 +474,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. At the top right, click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -531,11 +531,11 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the `vm-scale-scheduled-ig` group.
-  1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, etc. You can also check if the instance group has been updated by opening ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, etc. You can also check if the instance group has been updated by opening the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}
 
@@ -586,7 +586,7 @@ To set up scaling for your instance group using {{ TF }}:
 
    - Ready-made archive {#ready}
 
-     1. Create a directory for files.
+     1. Create a folder for files.
      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/vm-scale-scheduled-terraform.zip) (2 KB).
      1. Unpack the archive to the directory. As a result, it should contain the `vm-scale-scheduled.tf` configuration file and the `vm-scale-scheduled-function.zip` archive with the {{ sf-name }} function code.
 

@@ -41,7 +41,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `yds-functions`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `yds.editor` and `{{ roles-functions-invoker }}` [roles](../../iam/concepts/access-control/roles.md).
@@ -52,7 +52,7 @@ The infrastructure support costs include:
 
 ## Configure a {{ ydb-name }} database {#ydb}
 
-You can use any DBMS suitable for analytical tasks as an event storage. In this tutorial, we use the {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). If you use another DBMS, the SQL query for creating a table and the code for loading events into that table may be different.
+You can use any DBMS suitable for analytical tasks as event storage. In this tutorial, we use the {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). If you use another DBMS, the SQL query for creating a table and code for loading events into that table may be different.
 
 
 ### Create a database {#create-db}
@@ -273,9 +273,9 @@ To create a function, you will need the function code and DB connection details.
 
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `yds-functions`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `yds-functions`
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
               Key | Description | Sample value
@@ -310,10 +310,10 @@ To create a function, you will need the function code and DB connection details.
 
 ## Send emails {#send-letters}
 
-1. [Create](../../postbox/quickstart.md#service-account-and-keys) the `postbox-user` service account with the `postbox.sender` role and static access keys.
+1. [Create](../../postbox/quickstart.md#service-account-and-keys) a service account named `postbox-user` with the `postbox.sender` role and static access keys.
 1. [Send](../../postbox/quickstart.md#send-test-letter) several test emails using the address you created [earlier](#address).
 1. Make sure the emails were sent: check the inbox of the address you sent the emails to.
-1. Make sure data is delivered to services:
+1. Make sure data is delivered to the services:
 
     {% list tabs group=instructions %}
 
@@ -447,7 +447,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. Click **Create dashboard**.
-  1. Add the `Events by day`, `List of events`, and other charts you created earlier to your dashboard:
+  1. Add the `Events by day`, `Event list`, and other charts you created earlier to your dashboard:
 
       1. In the bottom panel, click **Chart**.
       1. In the **Chart** field of the window that opens, click **Select** and select `Events by day`.

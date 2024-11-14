@@ -35,7 +35,7 @@ A method for generating an image based on a textual description.
 
 Request for the service to generate an image.
 
-For examples of usage, see [step-by-step guide](/docs/operations/yandexart/request).
+For examples of usage, see [step-by-step guide](/docs/foundation-models/operations/yandexart/request).
 
 #|
 ||Field | Description ||

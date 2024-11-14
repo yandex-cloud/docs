@@ -9,44 +9,44 @@ description: Follow this guide to create a registry.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your registry in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
-   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
+  1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
+  1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Registry **{{ ui-key.yacloud.common.name }}**, e.g., `my-registry`.
       * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
       * **{{ ui-key.yacloud.common.password }}** that you will use to access the registry. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
 
-         {% include [password-save](../../../_includes/iot-core/password-save.md) %}
+          {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
       * (Optional) To assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
 
-   1. (Optional) Add a [certificate](../certificates/create-certificates.md):
+  1. (Optional) Add a [certificate](../certificates/create-certificates.md):
 
       * To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
-         1. Click **Attach file**.
-         1. Select the file with the public key of the certificate and click **Open**.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+        1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+        1. Click **Attach file**.
+        1. Select the file with the public key of the certificate and click **Open**.
+        1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+        1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+        1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+        1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Create a registry:
+  1. Create a registry:
 
       ```bash
       yc iot registry create --name <registry_name>
@@ -67,7 +67,7 @@ description: Follow this guide to create a registry.
       log_group_id: ckghotead**********
       ```
 
-   1. (Optional) Assign the registry a password for authentication using a [username and password](../../concepts/authorization.md#log-pass):
+  1. (Optional) Assign the registry a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
       yc iot registry password add --registry-name <registry_name>
@@ -86,7 +86,7 @@ description: Follow this guide to create a registry.
       created_at: "2019-05-27T13:44:06.923Z"
       ```
 
-   1. (Optional) Add a certificate to the registry for authentication using [certificates](../../concepts/authorization.md#certs):
+  1. (Optional) Add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot registry certificate add \
@@ -97,7 +97,7 @@ description: Follow this guide to create a registry.
       Where:
 
       * `--registry-name`: Registry name.
-      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
+      * `--certificate-file`: Path to the public key of the certificate, e.g., `cert.pem`.
 
       Result:
 
@@ -113,27 +113,27 @@ description: Follow this guide to create a registry.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+   
+  {% note info %}
 
-   {% note info %}
+  To add certificates to a registry, [generate](../certificates/create-certificates.md) them in advance.
 
-   To add certificates to a registry, [generate](../certificates/create-certificates.md) them in advance.
+  {% endnote %}
 
-   {% endnote %}
+  To create a device registry: 
+     
+  1. In the configuration file, describe the parameters of the resource to create:
 
-   To create a device registry:
+     * `yandex_iot_core_registry`: Registry parameters:
 
-   1. In the configuration file, describe the parameters of the resource to create:
-
-      * `yandex_iot_core_registry`: Registry parameters:
-
-         * `name`: Registry name
-         * `description`: Registry description
-         * `labels`: Registry labels in `key:value` format
-         * `passwords`: List of registry passwords for authentication using a [username and password](../../concepts/authorization.md#log-pass).
-         * `certificates`: List of registry certificates for authentication using [certificates](../../concepts/authorization.md#certs).
+        * `name`: Registry name.
+        * `description`: Registry description.
+        * `labels`: Registry labels in `key:value` format.
+        * `passwords`: List of registry passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
+        * `certificates`: List of registry certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
       {% note info %}
 
@@ -167,36 +167,36 @@ description: Follow this guide to create a registry.
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
-
-   1. Make sure the configuration files are correct.
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      
+  1. Make sure the configuration files are correct.
       1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
-         ```
-         terraform plan
-         ```
+          ```
+          terraform plan
+          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy cloud resources.
+  1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
+   
+          ```
+          terraform apply
+          ```
 
       1. Confirm that you want to create the resources.
+      
+          All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-         ```bash
-         yc iot registry list
-         ```
+          ```bash
+          yc iot registry list
+          ```
 
 - API {#api}
 
-   To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/Registry/create.md) gRPC API call.
+  To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/Registry/create.md) gRPC API call.
 
 {% endlist %}

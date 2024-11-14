@@ -8,7 +8,7 @@
 
   1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
 
-  1. In the window that opens, confirm deleting the group.
+  1. In the window that opens, confirm the group deletion.
 
 - CLI {#cli}
 
@@ -62,7 +62,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group list-memebers \

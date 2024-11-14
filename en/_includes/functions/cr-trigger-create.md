@@ -41,7 +41,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
      {% include [function-settings](function-settings.md) %}
 
-  1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+  1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
      {% include [repeat-request.md](repeat-request.md) %}
 
@@ -68,8 +68,8 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
     --batch-cutoff <maximum_timeout> \
     --invoke-function-id <function_ID> \
     --invoke-function-service-account-id <service_account_ID> \
-    --retry-attempts <number_of_repeat_attempts> \
-    --retry-interval <time_between_repeat_attempts> \
+    --retry-attempts <number_of_retry_attempts> \
+    --retry-interval <interval_between_retry_attempts> \
     --dlq-queue-id <dead-letter_queue_ID> \
     --dlq-service-account-id <service_account_ID>
   ```
@@ -131,8 +131,8 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
         function {
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
-          retry_attempts     = "<number_of_repeat_attempts>"
-          retry_interval     = "<time_between_repeat_attempts>"
+          retry_attempts     = "<number_of_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"
@@ -172,7 +172,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
-      For more information about the `yandex_function_trigger` resource properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create resources:
 

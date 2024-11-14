@@ -40,7 +40,7 @@ items:
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: >-
-          Migrating databases from {{ mmy-full-name }} using {{
+          Migrating a database from {{ mmy-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
       - name: >-
@@ -69,6 +69,10 @@ items:
         href: tutorials/opensearch-to-ydb.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using
+          {{ data-transfer-full-name }}
+        href: tutorials/mpg-ydb-replication.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}
@@ -141,7 +145,7 @@ items:
                 href: docapi/tools/aws-cli/update-item.md
               - name: Data selections
                 href: docapi/tools/aws-cli/query.md
-              - name: Deletе the resources you created
+              - name: Delete the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
           - name: Working with the AWS SDK
             items:
@@ -371,7 +375,7 @@ items:
                 href: api-ref/StorageType/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Working with YDB via {{ TF }}
     items:

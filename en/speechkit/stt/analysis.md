@@ -10,7 +10,7 @@ Audio classifiers are only supported for Russian speech.
 
 {% endnote %}
 
-You can apply classifiers both to intermediate and final recognition results. To enable a classifier, define the [`recognition_classifier`](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.RecognitionClassifierOptions) parameter in the session options. Classifier results will arrive in a separate message immediately after the [events](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse) specified in the classifier settings. For classifiers, these may be the events of the `partial`, `eou_update`, or `final` type.
+You can apply classifiers both to intermediate and final recognition results. To enable a classifier, set the [`recognition_classifier`](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.RecognitionClassifierOptions) parameter in the session options. The results of classifier positives will arrive in a separate message right after the [events](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse) specified in the classifier settings. For classifiers, these may be the events of the `partial`, `eou_update`, or `final` type.
 
 {{ speechkit-name }} supports the following classifiers:
 
@@ -30,29 +30,29 @@ You can apply classifiers both to intermediate and final recognition results. To
 
 - Python {#python}
 
-   ```python
-   session_options = stt_pb2.StreamingRequest(
-     session_options=stt_pb2.StreamingOptions(
-       recognition_model="general",
+  ```python
+  session_options = stt_pb2.StreamingRequest(
+    session_options=stt_pb2.StreamingOptions(
+      recognition_model="general",
 
-       # Classifier settings
-       recognition_classifier=stt_pb2.RecognitionClassifierOptions(
-         classifiers=[
-           # Detect insults in utterances
-           stt_pb2.RecognitionClassifier(
-             classifier="insult",
-             triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
-           ),
-           # Detect profanity in utterances
-           stt_pb2.RecognitionClassifier(
-             classifier="profanity",
-             triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
-           ),
-         ]
-       )
-     )
-   )
-   ```
+      # Classifier settings
+      recognition_classifier=stt_pb2.RecognitionClassifierOptions(
+        classifiers=[
+          # Detecting insults in utterances
+          stt_pb2.RecognitionClassifier(
+            classifier="insult",
+            triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
+          ),
+          # Detecting profanity in utterances
+          stt_pb2.RecognitionClassifier(
+            classifier="profanity",
+            triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
+          ),
+        ]
+      )
+    )
+  )
+  ```
 
 {% endlist %}
 

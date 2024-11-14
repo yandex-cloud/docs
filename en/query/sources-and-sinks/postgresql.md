@@ -36,7 +36,7 @@ To create a connection to {{ mpg-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ PG }} cluster.
       * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) to use when working with the {{ PG }} database.
@@ -50,7 +50,7 @@ You need a service account to detect {{ mpg-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -67,7 +67,7 @@ Where:
 
 ## Limitations {#limits}
 
-There are several restrictions when working with {{ PG }} clusters.
+Some limitations apply when working with {{ PG }} clusters.
 
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
@@ -78,9 +78,19 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} a
 
 {% include [!](_includes/predicate_pushdown.md) %}
 
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Int16`|
+|`Int32`|
+|`Int64`|
+|`Float`|
+|`Double`|
+
 ## Supported data types {#supported_types}
 
-In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented as the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
+In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented by means of the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
 
 The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
@@ -109,4 +119,3 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `character varying` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `text` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `json` | `Optional<Json>` | |
-

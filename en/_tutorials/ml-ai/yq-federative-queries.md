@@ -41,7 +41,7 @@ The cost of supporting the infrastructure for running federated queries in this 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -52,16 +52,17 @@ The cost of supporting the infrastructure for running federated queries in this 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
-      * `datasphere.community-project.editor`: To run {{ ml-platform-name }} computations.
-      * `yq.editor`: To send {{ yq-name }} queries.
-      * `storage.viewer`: To view the contents of the {{ objstorage-name }} bucket and objects.
-      * `managed-clickhouse.viewer`: To view the contents of the {{ mch-name }} cluster.
-      * `managed-postgresql.viewer`: To view the contents of the {{ mpg-name }} cluster.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Enter a name for the service account, e.g., `yq-sa`.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
+     * `datasphere.community-project.editor`: To run {{ ml-platform-name }} computations.
+     * `yq.editor`: To run {{ yq-name }} queries.
+     * `storage.viewer`: To view the contents of the {{ objstorage-name }} bucket and objects.
+     * `managed-clickhouse.viewer`: To view the contents of the {{ mch-name }} cluster.
+     * `managed-postgresql.viewer`: To view the contents of the {{ mpg-name }} cluster.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -83,12 +84,13 @@ To allow the service account to send {{ yq-name }} queries, create an [authorize
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Select the `yq-sa` service account.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-   1. Select the encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
+  1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `yq-sa` service account.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. Select the encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
 {% endlist %}
 
@@ -99,7 +101,7 @@ To get an authorized key from the notebook, create a [secret](../../datasphere/c
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the secret name: `yq_access_key`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `yq_access_key`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the full contents of the downloaded file with the authorized key.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
@@ -128,23 +130,23 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
-   1. Create a file named `visits.csv` and put a table with purchase dates in it:
+  1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Create a file named `visits.csv` and add a table with purchase dates to it:
 
-      ```text
-      date|persons_id|item_id
-      2024-05-14 12:12:00|1|2
-      2024-05-15 13:13:00|2|1
-      ```
+     ```text
+     date|persons_id|item_id
+     2024-05-14 12:12:00|1|2
+     2024-05-15 13:13:00|2|1
+     ```
 
-   1. Go to the created bucket and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
-   1. In the window that opens, select `visits.csv` and click **Open**.
-   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. Go to the created bucket and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. In the window that opens, select `visits.csv` and click **Open**.
+  1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
 
 {% endlist %}
 
@@ -153,20 +155,20 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 {% list tabs group=instructions %}
 
 - Management console {#console}
+  
+  1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. Enter a name for the connection, e.g., `storage-connection`.
+  1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
+  1. In the **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** field, select `{{ ui-key.yql.yq-connection-form.private.button-text }}` and set the parameters:
 
-   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-   1. Enter a name for the connection, e.g., `storage-connection`.
-   1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
-   1. In the **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** field, select `{{ ui-key.yql.yq-connection-form.private.button-text }}` and set the parameters:
-
-      * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**: `data-folder`.
-      * **{{ ui-key.yql.yq-connection-form.bucket.input-label }}**: Select the created bucket.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
-
-   1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+     * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**: `data-folder`.
+     * **{{ ui-key.yql.yq-connection-form.bucket.input-label }}**: Select the created bucket.
+     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
+  
+  1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 {% endlist %}
 
@@ -180,33 +182,33 @@ To create a data binding:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
-   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
-   1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+  1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
+  1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
-      * **{{ ui-key.yql.yq-binding-form.connection-type.title }}**: Select **{{ ui-key.yql.yq-connection.action_object-storage }}**.
-      * **{{ ui-key.yql.yq-binding-form.connection.title }}**: Select `storage-connection`.
+     * **{{ ui-key.yql.yq-binding-form.connection-type.title }}**: Select **{{ ui-key.yql.yq-connection.action_object-storage }}**.
+     * **{{ ui-key.yql.yq-binding-form.connection.title }}**: Select `storage-connection`.
 
-   1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
+  1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
+  
+     1. Enter a name for the binding, e.g., `visits`.
+     1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to the table](../../query/sources-and-sinks/object-storage.md#path_format) in the bucket: `/visits.csv`.
+  
+  1. Under **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**:
+     
+     * **{{ ui-key.yql.yq-binding-form.binding-format.title }}**: Select `csv_with_names`.
+     * **{{ ui-key.yql.yq-binding-form.binding-format-settings-delimiter.title }}**: `|`.
 
-      1. Enter a name for the binding, e.g., `visits`.
-      1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to the table](../../query/sources-and-sinks/object-storage.md#path_format) in the bucket: `/visits.csv`.
+  1. Under **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**, add three columns with the following names and data types:
 
-   1. Under **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**:
-
-      * **{{ ui-key.yql.yq-binding-form.binding-format.title }}**: Select `csv_with_names`.
-      * **{{ ui-key.yql.yq-binding-form.binding-format-settings-delimiter.title }}**: `|`.
-
-   1. Under **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**, add three columns with the following names and data types:
-
-      * `date`: `DATETIME`
-      * `person_id`: `INT32`
-      * `items_id`: `INT32`
-
-   1. To verify that the specified data is correct, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**. Your table should appear below.
-   1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
+     * `date`: `DATETIME`
+     * `person_id`: `INT32`
+     * `items_id`: `INT32`
+  
+  1. To verify that the specified data is correct, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**. Your table should appear below.
+  1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 {% endlist %}
 
@@ -228,23 +230,23 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster, e.g., `clickhouse`.
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name, e.g., `clickhouse`.
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list.
       * Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Select the `yq-sa` service account.
       * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** options.
 
-   1. You may leave default values for the other settings.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. For other settings, you can leave their default values.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
 
@@ -256,23 +258,23 @@ The {{ mch-name }} table will contain the names of the items.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the `clickhouse` cluster page, and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
-   1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
-   1. In the input window on the right, sequentially run the following SQL queries:
+  1. Open the `clickhouse` cluster page in the [management console]({{ link-console-main }}) and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
+  1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
+  1. In the input window on the right, sequentially run the following SQL queries:
 
-      ```sql
-      CREATE TABLE items(id INT, description VARCHAR) ENGINE=MergeTree ORDER BY id;
-      ```
+     ```sql
+     CREATE TABLE items(id INT, description VARCHAR) ENGINE=MergeTree ORDER BY id;
+     ```
+ 
+     ```sql
+     INSERT INTO items(id, description) VALUES(1, 'Refrigerator')
+     ```
+ 
+     ```sql
+     INSERT INTO items(id, description) VALUES(2, 'TV')
+     ```
 
-      ```sql
-      INSERT INTO items(id, description) VALUES(1, 'Refrigerator')
-      ```
-
-      ```sql
-      INSERT INTO items(id, description) VALUES(2, 'TV')
-      ```
-
-   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
 
 {% endlist %}
 
@@ -281,24 +283,24 @@ The {{ mch-name }} table will contain the names of the items.
 {% list tabs group=instructions %}
 
 - Management console {#console}
+  
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. Enter a name for the connection, e.g., `clickhouse`.
+  1. Select the **{{ ui-key.yql.yq-connection.action_clickhouse }}** connection type.
+  1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
-   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-   1. Enter a name for the connection, e.g., `clickhouse`.
-   1. Select the **{{ ui-key.yql.yq-connection.action_clickhouse }}** connection type.
-   1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+     * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `clickhouse` cluster.
+     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the `yq-sa` service account.
+     * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** you specified when creating the cluster.
 
-      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `clickhouse` cluster.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the `yq-sa` service account.
-      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** specified when you created the cluster.
-
-   1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+  1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. For example:
+To check the connection, run a query in the notebook cell, e.g.:
 
 ```sql
 %yq SELECT * FROM clickhouse.items
@@ -316,16 +318,16 @@ Any running {{ mpg-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster, e.g., `postgresql`.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
-      * Specify the **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, e.g., `db1`.
-      * Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
-   1. You may leave default values for the other settings.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name, e.g., `postgresql`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
+     * Specify the **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, e.g., `db1`.
+     * Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. For other settings, you can leave their default values.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
 
@@ -337,21 +339,21 @@ The {{ mpg-name }} table will contain the names of the customers.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the `postgresql` cluster page, and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
-   1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
-   1. In the input window on the right, sequentially run the following SQL queries:
+  1. Open the `postgresql` cluster page in the [management console]({{ link-console-main }}) and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
+  1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
+  1. In the input window on the right, sequentially run the following SQL queries:
 
-      ```sql
-      CREATE TABLE persons(person_id INT, name VARCHAR);
-      ```
-
-      ```sql
-      INSERT INTO persons(person_id, name) values(1, 'Ivan')
-      ```
-
-      ```sql
-      INSERT INTO persons(person_id, name) values(2, 'Peter')
-      ```
+     ```sql
+     CREATE TABLE persons(person_id INT, name VARCHAR);
+     ```
+ 
+     ```sql
+     INSERT INTO persons(person_id, name) values(1, 'Ivan')
+     ```
+ 
+     ```sql
+     INSERT INTO persons(person_id, name) values(2, 'Peter')
+     ```
 
 {% endlist %}
 
@@ -360,25 +362,25 @@ The {{ mpg-name }} table will contain the names of the customers.
 {% list tabs group=instructions %}
 
 - Management console {#console}
+  
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. Enter a name for the connection, e.g., `postgresql`.
+  1. Select the **{{ ui-key.yql.yq-connection.action_postgersql }}** connection type.
+  1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
-   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-   1. Enter a name for the connection, e.g., `postgresql`.
-   1. Select the **{{ ui-key.yql.yq-connection.action_postgersql }}** connection type.
-   1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+     * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `postgresql` cluster.
+     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
+     * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: `db1`.
+     * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** you specified when creating the cluster.
 
-      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `postgresql` cluster.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
-      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: `db1`.
-      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** specified when you created the cluster.
-
-   1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+  1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. For example:
+To check the connection, run a query in the notebook cell, e.g.:
 
 ```sql
 %yq SELECT * FROM postgresql.persons

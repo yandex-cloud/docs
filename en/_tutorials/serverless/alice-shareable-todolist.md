@@ -14,7 +14,7 @@ To deploy a project:
 
 ## Prepare the environment {#prepare}
 
-1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) repository using Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
@@ -59,16 +59,16 @@ The `variables.json` file contains the project deployment configuration. To crea
 cp variables-template.json variables.json
 ```
 
-Set the project parameters in the `variables.json` file:
+In the `variables.json` file, set the project parameters:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
-* `oauth-client-id`: ID of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `database-endpoint`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+* `oauth-client-id`: ID of the app registered in [Yandex OAuth](https://oauth.yandex.com/).
+* `database-endpoint`: Endpoint, the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
 * `database`: Database location, the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
 * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
 * `storage-bucket`: Name of the bucket you created for storing static data.
-* `gateway-id`: ID of the API gateway.
+* `gateway-id`: API gateway ID.
 
 ### Create a secure-config.json file {#set-variables-secure-config}
 
@@ -79,9 +79,9 @@ cp secure-config-template.json secure-config.json
 ```
 
 Substitute the values from the variables:
-* `oauth_secret`: Password of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `hash`: Base64-encoded random 64-byte string, e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`.
-* `block`: Base64-encoded random 32-byte string, e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`.
+* `oauth_secret`: Password of the app registered in [Yandex OAuth](https://oauth.yandex.com/).
+* `hash`: Base64-encoded random 64-byte string (e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`).
+* `block`: Base64-encoded random 32-byte string (e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`).
 
 You can generate random values at [generate.plus](https://generate.plus/en/base64).
 
@@ -103,7 +103,7 @@ To create tables in the database, run the command:
 
 Use {{ TF }} to automate your operations. Before you start, [initialize it](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
-To do this, go to the folder with the `app.tf` config file and run the command:
+To do this, in the folder with the `app.tf` configuration file, run the following command:
 
 ```bash
 terraform init
@@ -211,7 +211,7 @@ log_group_id: ckg57bweoekk********
 1. Go to the [Yandex Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
 1. Click **Create dialog** and select the **Alice skill** dialog type.
 1. In the **Skill name** field, set **To-do lists**.
-1. Under **Backend**, select **{{ yandex-cloud }} function** and choose the `todo-list-alice` function that you previously created in {{ sf-name }} from the list.
+1. Under **Backend**, select **{{ yandex-cloud }} function**. In the list, choose the `todo-list-alice` function that you previously created in {{ sf-name }}.
 1. Enable **Use data storage in the skill**.
 
 Set the other parameters as you wish. For example, you can specify different word forms to activate the skill and choose a voice or skill access type.
@@ -268,7 +268,7 @@ Done, I've added "milk" to the "grocery"
 
 What list should I add "bread" to?
 
-	Grocery
+	Products
 
 Done, I've added "bread" to the "grocery"
 
@@ -276,7 +276,7 @@ Done, I've added "bread" to the "grocery"
 
 What list should I add "eggs" to?
 
-	Grocery
+	Products
 
 Done, I've added "eggs" to the "grocery"
 

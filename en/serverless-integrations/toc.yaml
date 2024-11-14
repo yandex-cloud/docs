@@ -30,7 +30,7 @@ items:
             href: concepts/eventrouter/bus.md
           - name: Connector
             href: concepts/eventrouter/connector.md
-          - name: Statement
+          - name: Rule
             href: concepts/eventrouter/rule.md
       - name: Quotas and limits
         href: concepts/limits.md

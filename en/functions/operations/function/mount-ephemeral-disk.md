@@ -16,7 +16,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
   1. Select a function.
   1. In the left-hand menu, select ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
   1. Under **Ephemeral disk**, click **Add ephemeral disk** and fill in these fields:
-      * **Mount point**: Name of the mount point. The directory with the mounted ephemeral disk will be accessible at `/function/storage/<mount_point>`.
+      * **Mount point**: Name of the mount point. Use this path to access the directory in which the ephemeral disk is mounted: `/function/storage/<mount_point>`.
       * **Disk size**: Memory size you want to allocate for the ephemeral disk you are mounting.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -33,7 +33,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
     --function-name=<function_name> \
     --runtime <runtime_environment> \
     --entrypoint <entry_point> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --source-path <path_to_ZIP_archive> \
     --service-account-id <service_account_ID> \
@@ -51,7 +51,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
   * `--service-account-id`: Service account ID.
   * `--mount`: Ephemeral disk mounting parameters:
     * `type=ephemeral-disk`: Type of the file system being mounted.
-    * `mount-point`: Name of the mount point. The directory with the mounted disk will be accessible at `/function/storage/<mount_point>`.
+    * `mount-point`: Name of the mount point. Use this path to access the directory in which the disk is mounted: `/function/storage/<mount_point>`.
     * `size`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
 - {{ TF }} {#tf}
@@ -70,7 +70,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
         user_hash          = "<function_hash>"
         runtime            = "<runtime_environment>"
         entrypoint         = "<entry_point>"
-        memory             = "<RAM_amount>"
+        memory             = "<RAM_size>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
         content {
@@ -89,7 +89,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
       Where:
 
       * `mounts`: Ephemeral disk mounting parameters:
-        * `name`: Name of the mount point. The directory with the mounted disk will be accessible at `/function/storage/<mount_point>`.
+        * `name`: Name of the mount point. Use this path to access the directory in which the disk is mounted: `/function/storage/<mount_point>`.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
@@ -98,7 +98,7 @@ description: Follow this guide to mount an ephemeral disk to a function in {{ sf
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check the function update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc serverless function version get <function_version_ID>

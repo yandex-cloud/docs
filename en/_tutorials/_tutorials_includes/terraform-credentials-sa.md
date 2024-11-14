@@ -9,7 +9,8 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
-     1. In the **Service accounts** tab, click **Create service account**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account.
 
         The name format requirements are as follows:
@@ -22,7 +23,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Run the command to create a service account:
+     Run the following command to create a service account:
 
      ```bash
      yc iam service-account create --name <service_account_name>

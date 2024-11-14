@@ -13,14 +13,14 @@ In the flow chart used in this example, a NAT instance called `NAT-A` is the mai
 
 {% cut "Description of scheme elements" %}
 
-| Element name | Description |
-| ----------- | ----------- |
-| NAT-A, NAT-B | NAT instances that provide cloud resource access to the internet through translation of the resources' internal IP addresses to the NAT instances' public IPs. |
-| VPC: demo | {{ vpc-name }} network |
-| private-a | Subnet in the `{{ region-id }}-a` availability zone for hosting resources that require access to the internet. |
-| public-a, public-b | Subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones hosting the NAT instances. |
-| public ip a, public ip b | NAT instance public IPs. |
-| NLB | Internal network load balancer required for the route-switcher module to run; it checks whether the NAT instances are available by performing health checks on port TCP 22. |
+   | Element name | Description |
+   | ----------- | ----------- |
+   | NAT-A, NAT-B | NAT instances that provide cloud resource access to the internet through translation of the resources' internal IP addresses to the NAT instances' public IPs. |
+   | VPC: demo | {{ vpc-name }} network |
+   | private-a | Subnet in the `{{ region-id }}-a` availability zone for hosting resources that require access to the internet. |
+   | public-a, public-b | Subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones hosting the NAT instances. |
+   | public ip a, public ip b | NAT instance public IPs. |
+   | NLB | Internal network load balancer required for the route-switcher module to run; it checks whether the NAT instances are available by performing health checks on port TCP 22. |
 
 {% endcut %}
 
@@ -73,7 +73,8 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -110,9 +111,9 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. On the management console [home page]({{ link-console-main }}), select the folder.
+      1. On the management console [home page]({{ link-console-main }}), select a folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
+      1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **Add role** in the dialog box that opens and select the `admin` role.
 
@@ -227,7 +228,7 @@ The infrastructure support cost includes:
       ```
 
       Where:
-      `<workstation_external_IP_address>` is your workstation public IP address. 
+      `<workstation_external_IP_address>` is your workstation's public IP address. 
 
       To find out the external IP of your workstation, run:
 
@@ -368,12 +369,12 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Select `nat-a` from the list, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+      1. Select the `nat-a` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
    - CLI {#cli}
 
-      1. View a description of the CLI command to stop a VM:
+      1. See the description of the CLI command to stop a VM:
 
          ```bash
          yc compute instance stop --help
@@ -410,12 +411,12 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Select `nat-a` from the list, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+      1. Select the `nat-a` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}
 
-      1. View a description of the CLI command to stop a VM:
+      1. See the description of the CLI command to stop a VM:
 
          ```bash
          yc compute instance start --help
@@ -447,12 +448,12 @@ The infrastructure support cost includes:
 
 To stop paying for the resources you created, run the command:
 
-```bash
-terraform destroy
-```
+  ```bash
+  terraform destroy
+  ```
+  
+  {% note warning %}
 
-{% note warning %}
+  {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, load balancer, etc.
 
-{{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, load balancer, etc.
-
-{% endnote %}
+  {% endnote %}

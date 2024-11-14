@@ -9,8 +9,8 @@ description: By following this guide, you can assign a user as an organization a
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
-
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
   1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
@@ -39,7 +39,7 @@ description: By following this guide, you can assign a user as an organization a
       ```
 
       Where:
-
+      
       * `--role`: Role ID. Specify either the `organization-manager.admin` or `organization-manager.organizations.owner` role.
       * `--subject`: User ID.
 
@@ -78,7 +78,7 @@ description: By following this guide, you can assign a user as an organization a
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
+     
   The user will thus be assigned the organization administrator role. You can check the new role in the [management console]({{ link-console-main }}).
 
 - API {#api}

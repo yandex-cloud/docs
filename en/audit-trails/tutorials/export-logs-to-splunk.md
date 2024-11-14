@@ -92,7 +92,7 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the bucket you want to configure encryption for.
+  1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing key or create a new one:
@@ -110,7 +110,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account. The naming requirements are as follows:
 
@@ -179,7 +179,7 @@ To create the trail, make sure you have the following roles:
 
    * `iam.serviceAccounts.user` for the service account.
    * `audit-trails.editor` for the folder to host the trail.
-   * `audit-trails.viewer` for the folder to collect audit logs from.
+   * `audit-trails.viewer` for the folder from which audit logs will be collected.
    * `storage.viewer` for the bucket or folder.
 
 {% list tabs group=instructions %}
@@ -326,7 +326,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
    index="main" authentication.subject_type="SERVICE_ACCOUNT" | stats count by event_type
    ```
 
-1. To visualize the results, go to the **Visualization** tab and select a suitable format (`LineChart`, `PieChart`, etc.):
+1. To visualize the results, go to the **Visualization** tab and select a suitable format (`LineChart`, `PieChart`, and so on):
 
    Data visualization example:
 

@@ -80,7 +80,7 @@ To enable OS Login access at the organization level:
 
       Where:
 
-      * `--organization-id`: Previously obtained organization ID.
+      * `--organization-id`: Organization ID you got earlier.
       * `--ssh-certificates-enabled`: Access via OS Login using SSH certificates. This option allows you to connect to a VM with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
 
           To disable this option, provide the `false` value in the `--ssh-certificates-enabled=false` parameter.

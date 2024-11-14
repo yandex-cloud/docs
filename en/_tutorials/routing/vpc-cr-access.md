@@ -17,7 +17,7 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses to which the VPC cloud network translates their internal IP addresses. | 
 | `DNS zones and A records` | The `{{ s3-storage-host }}.` and `{{ registry }}.` internal DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers. |
 | `test-registry` | Registry in {{ container-registry-name }}. |
-| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` stands for registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
+| `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` is the registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
 | `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones. |
 | `test-cr-vm` | Test VM to verify access to {{ container-registry-name }}. |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM. |
@@ -32,7 +32,7 @@ With these records, traffic from cloud resources to {{ container-registry-short-
 
 To deploy a NAT instance, an [image from Marketplace](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) is used that translates the source and target IP addresses to ensure traffic routing to the {{ container-registry-short-name }} and {{ objstorage-short-name }} public IP addresses.
 
-By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope), you can ensure fault-tolerant access to {{ container-registry-short-name }}. By increasing the number of NAT instances, you can scale the solution up when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
+By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope), you can ensure fault-tolerant access to {{ container-registry-short-name }}. By increasing the number of NAT instances, you can scale the solution up if the workload increases. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 
 Only the cloud resources that use this solution can access the registry. The [registry access policy](../../container-registry/operations/registry/registry-access.md) allows registry actions only from public IP addresses of NAT instances. You cannot access the registry from other IP addresses. You can disable this limitation by specifying a parameter in {{ TF }}, if required.
 
@@ -102,7 +102,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -250,7 +251,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Parameter<br>name | Needs<br>editing | Description | Type | Example |
+   | Name<br>name | Needs<br>editing | Description | Type | Example |
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `b1gentmqf1ve9uc54nfh` |
    | `vpc_id` | - | ID of the cloud network for which access to {{ container-registry-short-name }} is set up. If not specified, such network will be created. | `string` | `enp48c1ndilt42veuw4x` |
@@ -297,7 +298,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% cut "Viewing information on deployed resources" %}
 
-   | Parameter | Description | Sample value |
+   | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
    | `cr_nlb_ip_address` | IP address of the internal load balancer for {{ container-registry-short-name }} | `10.10.1.100` |
    | `cr_registry_id` | Registry ID in {{ container-registry-short-name }} | `crp1r4h00mj*********` |
@@ -351,10 +352,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    hello-world   latest    9c7*********   9 months ago   13.3kB
    ```
 
-1. Assign to the Docker image a URL in this format: `{{registry}}/<registry_ID>/<Docker_image_name>:<tag>`. The registry ID will be obtained from the test VM environment variable:
+1. Assign a URL to the Docker image using the following format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`. The registry ID will be obtained from the test VM environment variable:
 
    ```bash
-   docker tag hello-world {{registry}}/$REGISTRY_ID/hello-world:demo
+   docker tag hello-world {{ registry }}/$REGISTRY_ID/hello-world:demo
 
    docker image list
    ```
@@ -398,7 +399,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 * When deploying NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
-* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only in the pre-scheduled period of time. While applying changes, traffic handling may be interrupted.
+* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only during a pre-scheduled time window. While applying changes, traffic handling may be interrupted.
 * If the `CPU steal time` metric of a NAT instance shows a high value as the {{ container-registry-name }} load goes up, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
 * If you are using your own DNS server, create type `A` resource records in its settings in the following format:
 

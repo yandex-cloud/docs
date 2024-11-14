@@ -440,7 +440,7 @@ Set up the SAML application for the message to contain:
 * User's unique ID was specified in the `NameID` element. We recommend using the User Principal Name (UPN) or email address as the ID.
 * Your IdP's redirect URL for user authentication was specified in the `Issuer` element.
 * Signed message was specified in the `SignatureValue` element, and the certificate used to sign the message, in the `KeyInfo` element.
-* Make sure to specify the username and email address in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
+* Username and email address must be specified in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
 
 For more information on how to set up a SAML application, consult you IdP's documentation or contact their support. You can also find examples of IdP-specific setups in our tutorials:
 

@@ -344,8 +344,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       1. Specify the zone settings consistent with your domain:
 
          1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a period. For example, the `example.com.` zone name corresponds to the `example.com` domain. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-         1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
-         1. **{{ ui-key.yacloud.common.name }}**: `my-domain-zone`
+         1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
+         1. **{{ ui-key.yacloud.common.name }}**: `my-domain-zone`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -381,7 +381,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
     {% endlist %}
 
-1. Delegate your domain to {{ dns-name }}. To do this, in your domain registrar's account, specify the addresses of these DNS servers in your domain settings: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
+1. Delegate your domain to {{ dns-name }}. To do this, in your personal account with your domain registrar, specify the DNS server addresses: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
 1. In your DNS zone, create an A resource record pointing to the public IP address of the previously created VM with a web server:
 
@@ -589,8 +589,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             ```
 
             Where:
-            * `<dns_challenge_value>`: Value saved in the previous step that is required to check you rights to the relevant domain using a CNAME record.
-            * `<subdomain>`: Name you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will look as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
+            * `<dns_challenge_value>`: Value saved in the previous step that is required to check permissions for the relevant domain using a CNAME record.
+            * `<subdomain>`: Name that you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will appear as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
 
             Result:
 
@@ -985,7 +985,7 @@ The content on the new CDN resource will be accessible only via [signed links](.
 
       Where:
       * `<subdomain>`: Subdomain created for the CDN resource. For example, for the `cdn.example.com` domain name, specify `cdn`.
-      * `<cname_value>`: `cname` value for the CDN resource you obtained in the previous step.
+      * `<cname_value>`: `cname` value for the CDN resource, as you obtained in the previous step.
 
       Result:
 
@@ -1190,7 +1190,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
     <body>
 
       <h2>Secure link generator</h2>
-      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The content at this link is available only to the user the link was generated for by the website (verified by IP address).</p>
+      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The referenced content is available only to the user the link was generated for by the website (verified by IP address).</p>
       <br>
 
       <?php

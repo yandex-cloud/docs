@@ -204,8 +204,8 @@ Add users to the IdP server:
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
-          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          * `encrypted_assertions`: For signing authentication queries. 
+            If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -339,7 +339,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
   Use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
 
-  1. Create a request body. In the `data` property, specify the contents of the certificate:
+  1. Generate the query body. In the `data` property, specify the contents of the certificate:
 
       ```json
       {
@@ -349,7 +349,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
       }
       ```
 
-  1. Send the request to add the certificate:
+  1. Send the add certificate query:
 
       ```bash
       export IAM_TOKEN=CggaAT********
@@ -513,7 +513,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-On successful authentication, the IdP server will redirect you to the ACS URL you specified in the {{ microsoft-idp.entra-id-short }} settings and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the {{ microsoft-idp.entra-id-short }} settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

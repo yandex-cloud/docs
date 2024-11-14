@@ -5,13 +5,13 @@
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
-
+  
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
   
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-
-  1. In the window that opens, select the users or [service accounts](../../iam/concepts/users/service-accounts.md). You may want to use the search feature.
-
+  
+  1. In the window that opens, select the needed users or [service accounts](../../iam/concepts/users/service-accounts.md). You may want to use the search feature.
+  
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 - CLI {#cli}
@@ -67,7 +67,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group list-memebers \

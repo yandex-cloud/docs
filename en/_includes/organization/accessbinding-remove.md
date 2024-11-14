@@ -5,19 +5,19 @@
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
-  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the [group](../../organization/concepts/groups.md) name.
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
   
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
-  1. To revoke roles:
+  1. To revoke a role:
 
-      1. In the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
+      1. In the row with the required user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
 
-      1. Click ![image](../../_assets/console-icons/xmark.svg) next to the roles you want to revoke.
+      1. Click ![image](../../_assets/console-icons/xmark.svg) next to each role you want to revoke.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-acl }}**. Confirm the action.
+  1. To revoke all roles, in the row with the required user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-acl }}**. Confirm the action.
 
 - CLI {#cli}
 

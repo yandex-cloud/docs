@@ -94,7 +94,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
            document.getElementById("shortened").innerHTML = `<a href=${url}>${url}</a>`
          })
          .catch(error => {
-           document.getElementById("shortened").innerHTML = `<p>An error (${error}) occurred. Try again.</p>`
+           document.getElementById("shortened").innerHTML = `<p>An error (${error}) occurred. Please try again later.</p>`
          })
        }
      </script>
@@ -125,7 +125,7 @@ To create a service account for the service components to interact:
 - Management console {#console}
 
   1. Go to your working folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `serverless-shortener`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -153,7 +153,7 @@ To create a {{ ydb-name }} database and configure it to store URLs:
   1. Wait until the database starts.
 
      While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
-  1. Click the name of the created database.
+  1. Click the name of the database you created.
 
      Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value, you will need it in the next steps.
   1. In the left-hand panel, select the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
@@ -361,7 +361,7 @@ To publish the service via {{ api-gw-name }}:
          get:
            x-yc-apigateway-integration:
              type: object_storage
-             bucket: <bucket_name>#<-- bucket name
+             bucket: <bucket_name> # <-- bucket name
              object: index.html # <-- HTML file name
              presigned_redirect: false
              service_account: <service_account_id> # <-- service account ID

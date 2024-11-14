@@ -16,12 +16,13 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
   To update a service account:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the service account and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the line with the service account you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
   1. Change the name of your service account.
 
      The name format requirements are as follows:
-
+      
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Change the description of your service account.
@@ -44,7 +45,7 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
       ```bash
       yc iam service-account list
       ```
-
+      
       Result:
 
       ```text
@@ -63,9 +64,9 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
         --new-name my-service-account \
         --description "this is my service account"
       ```
-
+      
       The name format requirements are as follows:
-
+      
       {% include [name-format](../../../_includes/name-format.md) %}
 
 - {{ TF }} {#tf}
@@ -89,9 +90,9 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
      ```bash
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```text
      Success! The configuration is valid.
      ```
@@ -100,14 +101,14 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
      ```bash
      terraform plan
      ```
-
+  
      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```bash
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check whether the service account has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
