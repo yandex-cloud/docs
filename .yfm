@@ -1,6 +1,7 @@
 allowHTML: true
 strict: true
 quiet: true
+output: /dev/null
 connector:
     type: github
     github: 
