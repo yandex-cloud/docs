@@ -1,9 +1,9 @@
 allowHTML: true
-input: /home/app
-output: /etc/
+input: /home
+output: /dev/null
 strict: true
 connector:
-    type: gitub
+    type: github
     github: 
         endpoint: https://api.github.com
         owner: yandex-cloud
