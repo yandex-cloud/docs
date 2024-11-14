@@ -1,1 +1,1 @@
-/opt/app/package.json
+/home/app/package.json

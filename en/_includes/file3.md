@@ -1,1 +1,1 @@
-/home/app/.bash_history
+/home/app/index.js
