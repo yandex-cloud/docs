@@ -1,10 +1,10 @@
 ---
-title: Pricing rules for the {{ ydb-full-name }} mode with dedicated instances
+title: Pricing policy for the {{ ydb-full-name }} mode with dedicated instances
 description: "In this tutorial, you will learn about\_the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
 editable: false
 ---
 
-# Pricing rules for the {{ ydb-name }} mode with dedicated instances
+# Pricing policy for the {{ ydb-name }} mode with dedicated instances
 
 
 
@@ -53,7 +53,7 @@ The price covers one month of use. The minimum billing unit is 1 GB per hour (e.
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} Provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

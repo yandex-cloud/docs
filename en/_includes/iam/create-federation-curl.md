@@ -1,6 +1,6 @@
-To create a federation, use the [create](../../organization/saml/api-ref/Federation/create.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) gRPC API call and provide a file with the request parameters in your request.
+To create a federation, use the [create](../../organization/saml/api-ref/Federation/create.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) gRPC API call and provide a file with the query parameters in your query.
 
-Request example:
+Query example:
 
 ```bash
 curl \
@@ -22,4 +22,4 @@ Response example:
  }
 ```
 
-The `federationId` property contains the ID of the federation you created; make sure to save it, you will need it later.
+The `federationId` property contains the ID of the federation you created. Make sure to save it as you will need it later.

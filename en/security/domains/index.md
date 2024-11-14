@@ -5,6 +5,14 @@ description: In this tutorial, you will learn about the security recommendations
 
 # All recommendations
 
+## Checklists {#checklists}
+
 * [{#T}](iaas-checklist.md)
 * [{#T}](iam-checklist.md)
 * [{#T}](kubernetes.md)
+ 
+
+## General recommendations {#general-recommendations}
+
+* [{#T}](architecture-isolated.md)
+

@@ -17,7 +17,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the appropriate device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Add an alias:
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Fill in the fields: enter an alias (e.g., `events`) and topic type after `$devices/<device_ID>` (e.g., `events`).<br/>You can now use `events` instead of `$devices/<device_ID>/events`.
+      1. Fill in the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`.<br/>You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
       1. Repeat the steps for each alias you add.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -86,7 +86,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -113,7 +113,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
 

@@ -50,7 +50,7 @@ In the {{ TF }} code, data sources are defined using the `data` block.
     * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
         * `value`: Returned value.
 
-    For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
+    For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_image).
 
 1. Create resources:
 

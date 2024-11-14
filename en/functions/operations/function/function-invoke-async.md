@@ -43,7 +43,7 @@ description: Follow this guide to configure and invoke a function asynchronously
       --memory <RAM_size> \
       --execution-timeout <execution_timeout> \
       --source-version-id <version_ID> \
-      --async-max-retries <number_of_retries> \
+      --async-max-retries <number_of_retry_attempts> \
       --async-service-account-id <service_account_ID> \
       --async-success-ymq-arn <message_queue> \
       --async-success-sa-id <service_account_ID> \
@@ -55,7 +55,7 @@ description: Follow this guide to configure and invoke a function asynchronously
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
+    * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
@@ -87,7 +87,7 @@ description: Follow this guide to configure and invoke a function asynchronously
        service_account_id = "<service_account_ID>"
 
        async_invocation {
-         retries_count       = "<number_of_retries>"
+         retries_count       = "<number_of_retry_attempts>"
          service_account_id  = "<service_account_ID>"
          ymq_failure_target {
            service_account_id = "<service_account_ID>"
@@ -119,7 +119,7 @@ description: Follow this guide to configure and invoke a function asynchronously
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check the function update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc serverless function version get <function_version_ID>

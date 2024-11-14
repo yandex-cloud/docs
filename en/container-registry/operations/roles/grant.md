@@ -17,7 +17,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select a group, user, or [service account](../../../iam/concepts/users/service-accounts.md).
-  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select a role from the list.
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -36,7 +36,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
       --user-account-id <user_ID>
     ```
 
-  * [Service account](../../../iam/concepts/users/service-accounts.md):
+  * [To a service account](../../../iam/concepts/users/service-accounts.md):
 
     ```bash
     yc container <resource> add-access-binding <resource_name_or_ID> \
@@ -81,7 +81,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
      * The `yandex_container_registry_iam_binding` resource parameters to assign the role for the [registry](../../concepts/registry.md):
 
        ```
-       resource "yandex_container_registry_iam_binding" “registry_name" {
+       resource "yandex_container_registry_iam_binding" "registry_name" {
          registry_id = "<registry_ID>"
          role        = "<role>"
        

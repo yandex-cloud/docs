@@ -20,7 +20,7 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
 - API {#api}
 
-  Use the `listOperations` REST API method for the relevant resource or the gRPC API call `<service>/ListOperations`.
+  Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
   For example, for a registry, use either the [listOperations](../api-ref/Registry/listOperations.md) REST API method for the [Registry](../api-ref/Registry/index.md) resource or the [RegistryService/ListOperations](../api-ref/grpc/Registry/listOperations.md) gRPC API call.
 

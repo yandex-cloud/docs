@@ -72,7 +72,8 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. Go to `data-folder`.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image to create a node.
@@ -94,8 +95,9 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 - Management console {#console}
 
   1. Go to `data-folder`.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `sa-for-datasphere` service account and click the row with its name.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `sa-for-datasphere` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm.
@@ -226,7 +228,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`.
-1. [Create a secret](../../datasphere/operations/data/secrets.md) named `iam-secret` including an IAM token of your user account.
+1. [Create a secret](../../datasphere/operations/data/secrets.md) named `iam-secret` containing the IAM token of your user account.
 1. Create a secret named `key-for-sa` to store the full contents of the authorized key file for the `sa-for-datasphere` service account.
 1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the node settings:
    1. Enter `triton` as the node name in the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** field.

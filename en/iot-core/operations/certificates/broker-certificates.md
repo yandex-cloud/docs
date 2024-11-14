@@ -105,7 +105,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -132,7 +132,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify broker certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -157,7 +157,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the line with the certificate you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -195,7 +195,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
   To delete a broker certificate created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the value of the certificate in the `certificates` block, in the fragment with the broker description. To remove all certificates, delete the entire `certificates` block.
+  1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` block, in the broker description fragment. To remove all certificates, delete the entire `certificates` section.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -212,7 +212,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -239,7 +239,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify broker certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 

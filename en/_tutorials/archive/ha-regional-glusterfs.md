@@ -15,7 +15,7 @@ To configure a file system with high availability:
 1. [Test the solution for availability and fault tolerance](#test-glusterfs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
+ 
 ## Prepare your cloud {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -39,7 +39,8 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -179,11 +180,11 @@ The infrastructure support costs include:
    1. In `disk_size`, change `default` to `30`.
    1. In `client_cpu_count`, change `default` to `2`.
    1. In `storage_cpu_count`, change `default` to `2`.
-   1. If you specified a name other than the default one when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_the_public_SSH_key>`.
+   1. If you specified a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_public_SSH_key>`.
 
 ## Deploy your resources {#deploy-resources}
    
-   1. Initialize the {{ TF }} project:
+   1. Initialize {{ TF }}:
       ```bash
       terraform init
       ```
@@ -318,7 +319,7 @@ The infrastructure support costs include:
       EOF
       ```
    
-   1. Make sure that the file is available on all three client VMs:
+   1. Make sure the file is available on all three client VMs:
       ```bash
       clush -w @clients sha256sum /mnt/test.txt
       ```
@@ -336,12 +337,12 @@ The infrastructure support costs include:
 
         1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. Select the `gluster02` VM from the list, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+        1. Select the `gluster02` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
         1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
       - CLI {#cli}
 
-        1. View a description of the CLI command to stop a VM:
+        1. See the description of the CLI command to stop a VM:
 
            ```bash
            yc compute instance stop --help
@@ -392,7 +393,7 @@ The infrastructure support costs include:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, delete them:
-```bash
-terraform destroy -auto-approve
-```
+To stop paying for the resources created, delete them:
+   ```bash
+   terraform destroy -auto-approve
+   ```

@@ -6,7 +6,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to invoke a {{
 
 To create a trigger, you need:
 
-* A function that the trigger will invoke. If you do not have a function:
+* A function to be invoked by the trigger. If you do not have a function:
 
     * [Create a function](../../../functions/operations/function/function-create.md).
     * [Create a function version](../../../functions/operations/function/version-manage.md).
@@ -16,12 +16,12 @@ To create a trigger, you need:
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
     
     * To invoke a function.
-    * (Optional) To write to a dead-letter queue.
-    * (Optional) To upload objects to buckets.
+    * Optionally, to write to a dead-letter queue.
+    * Optionally, to upload objects to buckets.
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* (Optional) [Bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* Optionally, a [bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -41,11 +41,11 @@ To create a trigger, you need:
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * (Optional) Enter a trigger name and description.
+        * Optionally, enter a trigger name and description.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
       
         {% include [mail-trigger-attachements](../../../_includes/functions/mail-trigger-attachements.md) %}
 
@@ -59,11 +59,11 @@ To create a trigger, you need:
 
         {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -78,15 +78,15 @@ To create a trigger, you need:
     ```bash
     yc serverless trigger create mail \
       --name <trigger_name> \
-      --batch-size <message_batch_size> \
+      --batch-size <message_group_size> \
       --batch-cutoff <maximum_timeout> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retry_invocation_attempts> \
+      --retry-attempts <number_of_retry_attempts> \
       --retry-interval <interval_between_retry_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -143,19 +143,19 @@ To create a trigger, you need:
        resource "yandex_function_trigger" "my_trigger" {
          name = "<trigger_name>"
          function {
-           id                 = "<function_ID”>
+           id                 = "<function_ID>"
            service_account_id = "<service_account_ID>"
-           retry_attempts     = <number_of_retry_invocation_attempts>
+           retry_attempts     = <number_of_retry_attempts>
            retry_interval     = <interval_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
            service_account_id    = "<service_account_ID>"
            batch_cutoff          = <maximum_timeout>
-           batch_size            = <message_batch_size>
+           batch_size            = <message_group_size>
          }
          dlq {
-           queue_id           = "<dead_letter_queue_ID>"
+           queue_id           = "<dead-letter_queue_ID>"
            service_account_id = "<service_account_ID>"
          }
        }
@@ -170,7 +170,7 @@ To create a trigger, you need:
            * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional parameter.
            * `service_account_id`: ID of the service account authorized to upload objects to the {{ objstorage-name }} bucket. This is an optional parameter.
            * `batch_cutoff`: Maximum timeout. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
-           * `batch_size`: Message group size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+           * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 

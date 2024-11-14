@@ -32,7 +32,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` [role](../../iam/concepts/access-control/roles.md).
@@ -69,7 +69,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
      1. Create a service account named `for-load`:
          Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
-     1. Assign the `editor` role to the service account in the current folder:
+     1. Assign the service account the `editor` role for the current folder:
          Use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
@@ -80,7 +80,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder you want to create a network in.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `yc-auto-network`.
@@ -164,7 +164,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
         * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `group-for-load`.
-        * Select the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}**: `for-load`.
+        * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `for-load`.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
         * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
@@ -191,7 +191,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         * Enable **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
         * In the **{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** field, specify `load-generator`.
      1. Click **{{ ui-key.yacloud.common.create }}**.
-
+ 
 
    - CLI {#cli}
 
@@ -245,7 +245,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - API {#api}
 
-     1. Get the ID of the `container-optimized-image` latest version in the `standard-images` family:
+     1. Get the ID of the latest `container-optimized-image` version in the `standard-images` family:
          Use the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) gRPC API call.
      1. Create an instance group based on the following specification:
 
@@ -254,7 +254,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          Use the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call.
 
    {% endlist %}
-
+   
 1. Make sure that the instance group was created:
 
    {% list tabs group=instructions %}
@@ -319,7 +319,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    - CLI {#cli}
 
      1. Get the ID of the `load-generator` target group:
-
+     
         ```bash
         yc load-balancer target-group get load-generator | grep "^id"
         ```
@@ -331,7 +331,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         ```
         
      1. Create a network load balancer:
-
+     
         ```bash
         yc load-balancer network-load-balancer create \
           --name load-generator \
@@ -356,7 +356,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
      1. Create a load balancer using the [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/create.md) gRPC API call.
      1. Add a listener to the load balancer using the [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/addListener.md) gRPC API call.
-     1. Attach the target group to the load balancer using the [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md) gRPC API call.
+     1. Connect the target group to the load balancer using the [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md) gRPC API call.
      1. Add the load balancer to the instance group using the [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/addTargets.md) gRPC API call.
 
    {% endlist %}
@@ -378,7 +378,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      ```
 
      Command result:
-
+     
 
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
@@ -387,8 +387,8 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      | b0ruab1ccvpd******** | load-generator | {{ region-id }}     | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
-
-
+     
+     
 
    - API {#api}
 
@@ -401,19 +401,19 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 1. Get the IP address of the load balancer that you created:
 
    {% list tabs group=instructions %}
-
+   
    - Management console {#console}
-
+   
      1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** of the `load-generator` load balancer.
-
+     
    - CLI {#cli}
-
+   
      ```bash
      yc load-balancer network-load-balancer get load-generator | grep "address"
      ```
-
+     
      Command result:
 
      ```bash
@@ -421,11 +421,11 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      ```
      
    - API {#api}
-
+   
      Use the [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Get](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/get.md) gRPC API call.
-
+     
    {% endlist %}
-
+     
 1. Run the command to create a load:
 
    ```bash
@@ -440,7 +440,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    Running 20m test @ http://84.252.133.110/sleep
      20 threads and 20 connections
    ```
-
+   
    Proceed to the next step without waiting for the command to complete.
 
 ## Update the instance group under load {#update-spec}
@@ -463,13 +463,13 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 - CLI {#cli}
 
    1. In the `specification.yaml` specification, enter the new disk size of 35 GB and save the file:
-
+   
       ```yaml
       ...
       size: 35G
       ...
       ```
-
+   
    1. Update the instance group:
 
       ```bash
@@ -487,17 +487,17 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       service_account_id: ajehbk07uus3********
       status: ACTIVE
       ```
-
+      
 - API {#api}
 
   1. In the specification, enter the new disk size of 35 GB:
-
+     
      ```yaml
      ...
      size: 35G
      ...
      ```
-
+  
   1. To update the `load-generator` instance group based on the new specification, use the [updateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/updateFromYaml.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/UpdateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md) gRPC API call.
 
 {% endlist %}
@@ -540,8 +540,9 @@ To delete the created resources:
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-      1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. To the right of the `yc-auto-sa` line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. In the list that opens, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}** in the row with the `yc-auto-sa` service account.
       1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Delete the network and subnets:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network and subnets.
@@ -565,13 +566,13 @@ To delete the created resources:
    yc vpc subnet delete yc-auto-subnet-2
    yc vpc network delete yc-auto-network
    ```
-
+  
 - API {#api}
 
-  1. To delete the `load-generator` load balancer, use the [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/delete.md) gRPC API call.
+  1. Delete the `load-generator` load balancer using the [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/delete.md) gRPC API call.
   1. Delete the `load-generator` instance group using the [delete](../../compute/instancegroup/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../compute/instancegroup/api-ref/grpc/InstanceGroup/delete.md) gRPC API call.
   1. Delete the `yc-auto-sa` service account using the [delete](../../iam/api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../iam/api-ref/grpc/ServiceAccount/delete.md) gRPC API call.
-  1. Delete `yc-auto-subnet-1` and `yc-auto-subnet-2` using the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/Subnet/delete.md) gRPC API call.
-  1. Delete `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/Network/delete.md) gRPC API call.
+  1. Delete the `yc-auto-subnet-1` and `yc-auto-subnet-2` subnets using the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/Subnet/delete.md) gRPC API call.
+  1. Delete the `yc-auto-network` network using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/Network/delete.md) gRPC API call.
 
 {% endlist %}

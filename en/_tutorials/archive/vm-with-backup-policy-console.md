@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service is activated in.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for [the service account](../../iam/concepts/users/service-accounts.md): `backup-sa`.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](../../backup/security/index.md#backup-editor).
@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
 
-  1. Assign the service account the `backup.editor` role for the folder:
+  1. Assign the `backup.editor` role for the folder to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -439,7 +439,7 @@ You can create a new policy or use one of those automatically generated upon ser
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Enter a name for the VM: `backup-instance`.
   1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select `Ubuntu 22.04`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Select the`cloud-network-{{ region-id }}-d` subnet.

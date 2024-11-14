@@ -10,8 +10,8 @@ The **Details** report shows how the values of the evaluation parameter change o
 
 To generate the **Details** report, specify the following settings:
 
-* [Evaluation parameter](#parameter): Report shows changes in its values.
-* [Filters](#filters): Applied to dialogs in the report.
+* [Evaluation parameter](#parameter): Report will show changes in this parameter values.
+* [Filters](#filters): Apply to dialogs in the report.
 
 With the settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-a-details-report). It will present the evaluation parameter values for multiple data cross-sections in [chart and table](#display) form.
 
@@ -29,13 +29,13 @@ In the report, you can select an evaluation parameter of one of the following ty
 
 {% include [description-of-parameters](../../../_includes/speechsense/reports/parameters.md) %}
 
-### Report filtering {#filters}
+### Filtering in the report {#filters}
 
 {% include notitle [filters](../../../_includes/speechsense/reports/filters.md) %}
 
-## Visualizing and using data in reports {#display}
+## Visualizing and using the report data {#display}
 
-A report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface as a chart and table, as well as download it in CSV format.
+The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
 
 The available **Details** report formats include:
 

@@ -53,7 +53,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 {% list tabs group=programming_language %}
 
-- Step-by-step guide {#instruction}
+- Guide {#instruction}
 
   Generate the parts that make up a JWT:
   * `header`: Base64Url-encoded JWT headers.
@@ -66,7 +66,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   header.payload.signature
   ```
 
-  **1.1. Generating header**
+  **1.1. Generating a header**
 
   A service account's JWT header must contain the following fields:
   * `typ`: Token type, the value is always `JWT`.
@@ -85,7 +85,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Save the result as a Base64Url-encoded string.
 
-  **1.2. Generating payload**
+  **1.2. Generating a payload**
 
   A service account's JWT payload must contain the following fields:
   * `iss`: ID of the service account whose key the JWT is signed with.
@@ -106,9 +106,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Save the result as a Base64Url-encoded string.
 
-  **1.3. Generating signature**
+  **1.3. Generating a signature**
 
-  Create a signature using the private key obtained when [creating authorized keys](../authorized-key/create.md). For the signature, use a string consisting of the header and payload separated by a dot (`.`):
+  Create a signature using the private key obtained when [creating authorized keys](../authorized-key/create.md). For the signature, use a string consisting of the header and payload separated by a period (`.`):
 
   ```
   header.payload
@@ -127,7 +127,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   - The required data is read from the JSON file obtained when creating the authorized key.
 
   Install the `PyJWT` and `cryptography` modules to use `PS256` algorithm:
-
+  
   ```bash
   pip3 install PyJWT
   pip3 install cryptography
@@ -138,7 +138,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import jwt
   import json
 
-  # Reading your private key from a JSON file
+  # Reading a private key from a JSON file
   with open('<JSON_file_with_keys>', 'r') as f:
     obj = f.read()
     obj = json.loads(obj)
@@ -162,10 +162,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
       headers={'kid': key_id}
     )
 
-  #Writing your key to a file
+  #Writing a key to a file
   with open('jwt_token.txt', 'w') as j:
      j.write(encoded_token)
-
+     
   # Printing to console
   print(encoded_token)
 
@@ -255,7 +255,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
     using Org.BouncyCastle.Crypto.Parameters;
     using Org.BouncyCastle.OpenSsl;
     using Org.BouncyCastle.Security;
-
+    
     namespace ConsoleApp
     {
         class Program
@@ -265,12 +265,12 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
                 var serviceAccountId = "<service_account_ID>";
                 var keyId = "<public_key_ID>";
                 var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-
+    
                 var headers = new Dictionary<string, object>()
                 {
                     { "kid", keyId }
                 };
-
+    
                 var payload = new Dictionary<string, object>()
                 {
                     { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
@@ -355,7 +355,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   ```go
   package main
-
+  
   import (
   	"crypto/rsa"
   	"encoding/json"
@@ -653,13 +653,13 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md) gRPC API call.
 
-  Request example with cURL for the `create` REST API method:
+  Example of request using cURL for the `create` REST API method:
 
   ```curl
   curl \
       --request POST \
       --header 'Content-Type: application/json' \
-      --data '{"jwt": "<JWT>"}' \
+      --data '{"jwt": "<JWT_token>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 

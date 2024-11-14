@@ -17,11 +17,11 @@ items:
         href: operations/compromised-credentials.md
       - name: Users
         items:
-          - name: Adding a user
+          - name: Add user
             href: operations/users/create.md
           - name: Getting user information
             href: operations/users/get.md
-          - name: Deleting a user
+          - name: Delete user
             href: operations/users/delete.md
       - name: User groups
         items:
@@ -672,7 +672,7 @@ items:
                           workload/oidc/workload-identity/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

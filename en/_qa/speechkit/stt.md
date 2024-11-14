@@ -14,7 +14,7 @@ If the issue is systematic (tens of percent of the total number of speech recogn
 
 
 
-If you have any issues, please contact [support]({{ link-console-support }}) and provide files and a description.
+If you have any issues, please contact [support]({{ link-console-support }}) and provide files and description.
 
 
 #### Two channels were recognized as one / How to recognize each channel separately {#two-channels}
@@ -23,7 +23,7 @@ You can recognize multi-channel audio files only using [asynchronous recognition
 
 Check the format of your recording:
 
-* For LPCM, use the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter set to 2.
+* For LPCM, the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter should equal 2.
 * Do not specify this parameter for MP3 and OggOpus, since the number of channels is already stated in the file. The file will be automatically split into the appropriate number of recordings.
 
 The recognized text in the response is separated by the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
@@ -34,11 +34,11 @@ You can recognize multi-channel audio files only using [asynchronous recognition
 
 During speech recognition, text is not split by voice, but you can place the voices in different channels and separate the recognized text in the response with the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
 
-You can specify the number of channels in a request using the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter.
+The number of channels can be specified in a request using the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter.
 
 #### Incomplete audio recognition {#incomplete}
 
-If you recognize streaming audio, try using different API versions: [API v1](../../{{ speechkit-slug }}/stt/api/streaming-api.md) or [API v3](../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/).
+If recognizing streaming audio, try using different API versions: [API v1](../../{{ speechkit-slug }}/stt/api/streaming-api.md) or [API v3](../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/).
 
 To recognize an audio file, try different [models](../../{{ speechkit-slug }}/stt/models.md).
 
@@ -93,8 +93,8 @@ Interruptions or delays during [streaming recognition](../../{{ speechkit-slug }
 
 This error means that the maximum allowed duration of a recognition session has been exceeded. In this case, you need to reopen the session.
 
-For streaming recognition, the [maximum session duration](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits) is {{ stt-streaming-audioLength }}. This is a technical limitation due to the {{ yandex-cloud }} architecture and it cannot be changed.
+For streaming recognition, [the maximum session duration](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits) is {{ stt-streaming-audioLength }}. This is a technical limitation due to the {{ yandex-cloud }} architecture and it cannot be changed.
 
 #### What goes into the usage cost? {#stt-cost}
 
-For usage cost calculation examples, pricing rules, and effective prices, see [{#T}](../../{{ speechkit-slug }}/pricing.md).
+For examples of calculating the usage cost, pricing rules, and effective prices, see [{#T}](../../{{ speechkit-slug }}/pricing.md).

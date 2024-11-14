@@ -6,7 +6,7 @@
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
   
-  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
+  1. In the row with the [group](../../organization/concepts/groups.md) you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
 
   1. Enter a new name or description for the group.
 
@@ -33,7 +33,7 @@
       ```bash
       yc organization-manager group update \
         --name <group_name> \
-        --new-name <new_group_name> \
+        --new-name <new_name_for_group> \
         --organization-id <organization_ID> \
         --description <group_description>
       ```
@@ -76,7 +76,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group get \

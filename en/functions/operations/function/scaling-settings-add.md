@@ -59,7 +59,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         Where:
 
-        * `--id`: ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
+        * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
         * `--tag`: Function version [tag](../../concepts/function.md#tag).
         * `--zone-instances-limit`: Number of function instances.
         * `--zone-requests-limit`: Number of calls in progress.
@@ -92,7 +92,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         * `--function-name`: Name of the function whose version you want to create.
         * `--runtime`: Function [runtime environment](../../concepts/index.md).
-        * `--entrypoint`: Entry point in the following format: `file_name_without_extension>.<handler_name>`.
+        * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
         * `--memory`: Amount of RAM.
         * `--concurrency`: Maximum number of calls processed concurrently by a single function instance.
         * `--execution-timeout`: Maximum function running time before the timeout is reached.
@@ -133,7 +133,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
          * `name`: Function name.
          * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
-         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<handler_name>`.
+         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
          * `memory`: Amount of memory allocated for the function, in MB.
          * `concurrency`: [Maximum number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency).
          * `execution_timeout`: Maximum function running time before the timeout is reached.
@@ -141,7 +141,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
        * `yandex_function_scaling_policy`: Description of function scaling settings.
-         * `function_id`: ID of the function.
+         * `function_id`: Function ID.
          * `policy`: Scaling settings:
            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
            * `policy.0.zone_instances_limit`: Number of function instances.
@@ -158,7 +158,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         resource "yandex_function" "test-function" {
             name               = "<function_name>"
-            user_hash          = "<digest>"
+            user_hash          = "<hash>"
             runtime            = "<runtime_environment>"
             entrypoint         = "<entry_point>"
             memory             = "128"
@@ -219,7 +219,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - API {#api}
 
-   To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
+    To configure any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
 
     To set the number of calls processed concurrently by a single function instance (`concurrency`), create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call. Add the `concurrency` field to the request body.
 

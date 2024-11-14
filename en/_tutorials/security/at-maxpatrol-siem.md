@@ -32,14 +32,14 @@ The infrastructure support cost includes:
 
 On behalf of a service account, the trail will gather logs from all the organization's resources and upload them to a {{ yds-name }} data stream.
 
-Create a service account in the same folder where you are going to create the trail, e.g., in `example-folder`:
+Create a service account in the same folder where you create the trail, e.g., in `example-folder`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `maxpatrol-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -74,7 +74,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
+  
   1. The `audit-trails.viewer` role for an organization:
 
       ```bash
@@ -98,7 +98,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
 
       For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
 
-   1. The `yds.editor` role to `example-folder`:
+  1. The `yds.editor` role for a folder:
 
       ```bash
       yc resource-manager folder add-access-binding example-folder \
@@ -130,9 +130,10 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Choose the `maxpatrol-sa` service account and click the row with its name.
+  1. In the [management console]({{ link-console-main }}), select `example-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. Select the `maxpatrol-sa` service account from the list that opens.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** on the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -279,7 +280,7 @@ The trail will collect management audit logs for all your organization's resourc
 
 ### Create accounts {#static-key-account}
 
-You can use accounts to store secrets. Create accounts named `static-key-id` and `static-key-private` to save your ID and [private access key](#create-static-keys) in:
+You can use accounts to store secrets. Create accounts named `static-key-id` and `static-key-private` to store your ID and [private access key](#create-static-keys):
 
 1. Log in to the MaxPatrol SIEM web interface.
 1. Under **Data collection**, click **Accounts**.
@@ -303,11 +304,11 @@ Create and run a data collection job with the {{ yds-full-name }} profile:
 1. On the **Create data collection task** page, specify the parameters below:
     1. **Name**: `YDS-logs-task`.
     1. **Profile**: `{{ yds-full-name }}`.
-    1. In the hierarchy list, select **Run scenario**.
+    1. In the hierarchy list, select **Run script**.
     1. Under **Connection**, specify:
         * **Account**: `static-key-id`.
         * **Access upgrade account**: `static-key-private`.
-    1. **Scenario execution parameters**:
+    1. **Script runtime parameters**:
         * **database**: `<maxpatrol-db_ID>`
         * **folder**: `<cloud_ID_for_example-folder>`
         * **region_name**: `{{ region-id }}`.

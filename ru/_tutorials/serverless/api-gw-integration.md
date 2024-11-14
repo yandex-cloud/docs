@@ -266,7 +266,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
      cloud_id    = "<идентификатор_облака>"
      folder_id   = "<идентификатор_каталога>"
      oauth_token = "<OAuth-токен>"
-     zone        = "{{ region-id }}-a"
+     zone        = "{{ region-id }}-d"
    }
 
    module "crud-api" {

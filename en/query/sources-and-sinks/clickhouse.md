@@ -35,7 +35,7 @@ To create a connection to {{ mch-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}` role](../../managed-clickhouse/security.md#managed-clickhouse-viewer), and use it to connect to `{{ mch-name }}` clusters.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
@@ -48,7 +48,7 @@ You need a service account to detect {{ mch-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -66,7 +66,7 @@ Where:
 
 ## Limitations {#limits}
 
-There are several restrictions when working with {{ CH }} clusters.
+Some limitations apply when working with {{ CH }} clusters.
 
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
@@ -76,6 +76,20 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} a
 ## Filter pushdown {#predicate_pushdown}
 
 {% include [!](_includes/predicate_pushdown.md) %}
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
 
 ## Supported data types {#supported_types}
 
@@ -100,7 +114,7 @@ The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other d
 | `Float64` | `Double` | |
 | `Date` | `Utf8` | |
 | `Date32` | `Utf8` | |
-| `Datetime` | `Utf8` | |
+| `DateTime` | `Utf8` | |
 | `DateTime64` | `Utf8` | |
 | `String` | `String` | |
 | `FixedString` | `String` | Null `FixedString` bytes are transferred to `String` without changes. |

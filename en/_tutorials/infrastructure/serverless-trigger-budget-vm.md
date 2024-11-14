@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources includes:
-* Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Download a project {#download}
@@ -40,7 +40,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the service account: `service-account-for-budget`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles to the service account.
@@ -110,7 +110,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
            --subject serviceAccount:<service_account_ID>
 
         yc resource-manager folder add-access-binding <folder_ID> \
-           --role  \
+           --role {{ roles-functions-invoker }} \
            --subject serviceAccount:<service_account_ID>
         ```
 
@@ -151,12 +151,12 @@ zip src.zip index.go go.mod
         1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.
         1. Specify the entry point: `index.StopComputeInstances`.
         1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`.
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                 * `FOLDER_ID` : ID of the folder to stop the VMs in.
-                * `TAG`: `target-for-stop`.
+                * `TAG`: `target-for-stop`
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -174,7 +174,7 @@ zip src.zip index.go go.mod
         created_at: "2022-12-07T10:44:13.156Z"
         name: function-for-budget
         log_group_id: ckg6bie2rtgd********
-        http_invoke_url: https:///d4eiqjdbqt7s********
+        http_invoke_url: https://{{ sf-url }}/d4eiqjdbqt7s********
         status: ACTIVE
         ```
 
@@ -254,7 +254,7 @@ zip src.zip index.go go.mod
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * Enter the trigger name: `vm-stop-trigger`.
+        * Enter a name for the trigger: `vm-stop-trigger`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
@@ -284,8 +284,8 @@ zip src.zip index.go go.mod
 
     * `--name`: Trigger name.
     * `--billing-account-id`: [Billing account](../../billing/concepts/billing-account.md) ID.
-    * `--budget-id`: `vm-budget` budget ID.
-    * `--invoke-function-id`: `function-for-budget` function ID.
+    * `--budget-id`: `vm-budget` ID.
+    * `--invoke-function-id`: `function-for-budget` ID.
     * `--invoke-function-service-account-id`: `service-account-for-budget` service account ID.
 
     Result:
@@ -328,7 +328,7 @@ zip src.zip index.go go.mod
         yc compute instance create \
            --name target-instance-1 \
            --labels target-for-stop=true \
-           --zone -a \
+           --zone {{ region-id }}-a \
            --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
            --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
            --ssh-key ~/.ssh/<key_name>.pub
@@ -353,7 +353,7 @@ zip src.zip index.go go.mod
         name: target-instance-1
         labels:
           target-for-stop: "true"
-        zone_id: -a
+        zone_id: {{ region-id }}-a
         platform_id: standard-v2
         resources:
           memory: "2147483648"

@@ -77,7 +77,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `grafana-plugin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `logging.reader` role.
@@ -104,9 +104,9 @@ The cost of resources includes a fee for logging operations and log storage in a
      name: grafana-plugin
      ```
 
-     Save the `id` of the `grafana-plugin` service account and the folder where it was created (`folder_id`).
+     Save the ID of the `grafana-plugin` service account (`id`) and the ID of the folder where it was created (`folder_id`).
 
-  1. Assign the `logging.reader` role for the folder to the service account:
+  1. Assign the service account the `logging.reader` role for the folder:
 
      ```bash
      yc resource-manager folder add-access-binding <folder_ID> \
@@ -191,8 +191,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `grafana-plugin` service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `grafana-plugin` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm.
@@ -265,7 +266,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam key list --service-account-id <service_account_ID>
@@ -275,7 +276,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   To create an access key, use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/Key/create.md) gRPC API call.
 
-  Sample request using cURL for the `create` REST API method:
+  Example of request using cURL for the `create` REST API method:
 
   ```bash
   curl --request POST \
@@ -399,7 +400,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc logging group list

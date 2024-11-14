@@ -17,11 +17,11 @@ To create a trigger, you need:
 
     * To invoke a container.
     * To read from the stream that activates the trigger when data is sent there.
-    * (Optional) To write to the dead-letter queue.
+    * Optionally, to write to a dead-letter queue.
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* The stream that will activate the trigger when it receives data.   If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md). 
+* A stream that will activate the trigger as soon as it receives data.  If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md). 
 
 ## Creating a trigger {#trigger-create}
 
@@ -52,11 +52,11 @@ To create a trigger, you need:
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. The values may range from 1 to 60 seconds. The default value is 1 second.
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
+        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
@@ -82,8 +82,8 @@ To create a trigger, you need:
       --stream-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retries> \
-      --retry-interval <interval_between_retries> \
+      --retry-attempts <number_of_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
       --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
@@ -97,7 +97,7 @@ To create a trigger, you need:
 
     * `--stream`: Stream name.
     * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of the data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of the data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
     * `--stream-service-account-id`: ID of the service account with permissions to read from the stream and write to it.
     
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
@@ -145,8 +145,8 @@ To create a trigger, you need:
        container {
          id                 = "<container_ID>"
          service_account_id = "<service_account_ID>"
-         retry_attempts     = "<number_of_retries>"
-         retry_interval     = "<interval_between_retries>"
+         retry_attempts     = "<number_of_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        data_streams {
          stream_name        = "<stream_name>"

@@ -45,7 +45,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. In the configuration file, describe the parameters of the resources you want to create:
-
+    
      ```hcl
      resource "yandex_iam_service_account" "sa" {
        name        = "<service_account_name>"
@@ -58,8 +58,8 @@ A service account is created inside a [folder](../../../resource-manager/concept
      * `description`: Service account description. This is an optional parameter.
      * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-     For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
-
+     For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+    
   1. Make sure the configuration files are correct.
 
      1. In the command line, go to the folder where you created the configuration file.
@@ -82,7 +82,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
      1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
         The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
+        
         ```bash
         yc iam service-account list
         ```
@@ -137,6 +137,6 @@ Create a service account with the following name and description:
 
 #### See also {#see-also}
 
-* [{#T}](assign-role-for-sa.md)
-* [{#T}](set-access-bindings.md)
-* [{#T}](../../concepts/users/service-accounts.md#sa-key)
+* [{#T}](assign-role-for-sa.md).
+* [{#T}](set-access-bindings.md).
+* [{#T}](../../concepts/users/service-accounts.md#sa-key).

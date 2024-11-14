@@ -63,15 +63,15 @@ cp variables-template.json variables.json
 ```
 
 Задайте параметры проекта в файле `variables.json`:
-*  `folder-id` — идентификатор каталога в облаке.
-*  `domain` — служебный домен API-шлюза.
-*  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс OAuth](https://oauth.yandex.ru/).
-*  `database-endpoint` — эндпоинт: первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-*  `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
-*  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
-*  `secure-config-path` — путь к файлу секретов.
-*  `storage-bucket` — имя созданного бакета для хранения статических данных.
-*  `gateway-id` — идентификатор API-шлюза.
+* `folder-id` — идентификатор каталога в облаке.
+* `domain` — служебный домен API-шлюза.
+* `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс OAuth](https://oauth.yandex.ru/).
+* `database-endpoint` — эндпоинт: первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+* `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+* `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
+* `secure-config-path` — путь к файлу секретов.
+* `storage-bucket` — имя созданного бакета для хранения статических данных.
+* `gateway-id` — идентификатор API-шлюза.
 
 ### Создайте файл secure-config.json {#set-variables-secure-config}
 

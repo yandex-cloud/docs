@@ -98,7 +98,7 @@ To create an API key:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc iam key list --service-account-id <service_account_ID>
@@ -127,8 +127,8 @@ To create an API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
-  * `scope`: scope for the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
-  * `expiresAt`: expiration date and time for the key with restricted access. This is an optional parameter.
+  * `scope`: Scope of the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 

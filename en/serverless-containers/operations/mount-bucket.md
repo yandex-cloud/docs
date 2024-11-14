@@ -8,7 +8,7 @@ description: Follow this guide to mount a bucket to a {{ serverless-containers-n
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+    
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
@@ -16,7 +16,7 @@ description: Follow this guide to mount a bucket to a {{ serverless-containers-n
     1. In the **{{ ui-key.yacloud.serverless-containers.section_parameters }}** section, select or create a new [service account](../../iam/concepts/users/service-accounts) with one of these roles:
        * `storage.viewer` to only read data from the mounted bucket.
        * `storage.uploader` to read and write data from/to the mounted bucket.
-    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
     1. Specify the following in the field:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}**: Mount path. Use this path to access the directory in which the bucket is mounted.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Name of the bucket you want to mount. Alternatively, you can create a new bucket.

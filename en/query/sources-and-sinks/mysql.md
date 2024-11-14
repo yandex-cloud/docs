@@ -49,7 +49,7 @@ You need a service account to detect {{ mmy-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mmy-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mmy-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -74,6 +74,20 @@ There are several limitations when working with {{ MY }} clusters.
 ## Filter pushdown {#predicate_pushdown}
 
 {% include [!](_includes/predicate_pushdown.md) %}
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
 
 ## Supported data types {#supported_types}
 

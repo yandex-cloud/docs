@@ -24,7 +24,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ serverless-containers-name }} resource, run this command:
+  To get a list of operations for an {{ serverless-containers-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -75,7 +75,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
 - API {#api}
 
-  Use the `listOperations` REST API method for the relevant resource or this gRPC API call: `<service>/ListOperations`.
+  Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
   For example, for a container, use either the [listOperations](../containers/api-ref/Container/listOperations.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListOperations](../containers/api-ref/grpc/Container/listOperations.md) gRPC API call.
 

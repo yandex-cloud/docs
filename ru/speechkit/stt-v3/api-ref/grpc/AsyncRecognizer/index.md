@@ -13,4 +13,5 @@ A set of methods for async voice recognition.
 ||Method | Description ||
 || [RecognizeFile](recognizeFile.md) |  ||
 || [GetRecognition](getRecognition.md) |  ||
+|| [DeleteRecognition](deleteRecognition.md) |  ||
 |#

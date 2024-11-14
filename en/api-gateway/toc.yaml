@@ -111,7 +111,7 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
-      - name: Developing user integration
+      - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md

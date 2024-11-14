@@ -1,6 +1,6 @@
-# Cloud infrastructure segmentation with Check Point Next-Generation Firewall
+# Cloud infrastructure segmentation with Check Point Next-Generation Firewall 
 
-This guide describes how to deploy a secure network infrastructure based on Check Point Next-Generation Firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing applications are placed; whereas the MGMT segment hosts the cloud infrastructure management resources. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
+This guide describes how to deploy a secure network infrastructure based on Check Point Next-Generation Firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing services are placed and the MGMT segment hosts resources used to manage the cloud infrastructure. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
 
 If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
 
@@ -68,8 +68,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | ----------- | ----------- |
 | Folders | 3 |
 | Virtual machines | 4 |
-| VM instance vCPUs | 12 |
-| VM instance RAM | 20 GB |
+| VM vCPUs | 12 |
+| VM RAM | 20 GB |
 | Disks | 4 |
 | SSD size | 240 GB |
 | HDD size | 20 GB |
@@ -132,7 +132,8 @@ All the steps described below are completed in the Linux terminal.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
       The name format requirements are as follows:
@@ -212,7 +213,7 @@ All the steps described below are completed in the Linux terminal.
       cd ~
       ```
 
-   1. Create a directory named `terraform` and open it:
+   1. Create a folder named `terraform` and open it:
    
       ```bash
       mkdir terraform
@@ -232,7 +233,7 @@ All the steps described below are completed in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the directory with the executable to the `PATH` variable:
+   1. Add the path to the folder with the executable to the `PATH` variable:
       
       ```bash
       export PATH=$PATH:~/terraform
@@ -271,7 +272,7 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` script directory:
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` script folder:
    
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint.git
@@ -334,7 +335,7 @@ All the steps described below are completed in the Linux terminal.
 
          Where:
 
-         * `service-account-key`: File with the authorized service account key.
+         * `service-account-key`: File with the service account authorized key.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
@@ -376,12 +377,12 @@ All the steps described below are completed in the Linux terminal.
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Parameter<br>name | Needs<br>editing | Description | Type | Example |
+   | Name<br>name | Needs<br>editing | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
    | `az_name` | - | Yandex Cloud <a href="https://yandex.cloud/en/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` | `["mgmt", "public", "dmz"]` |
-   | `subnet_prefix_list` | - | List of subnet network prefixes consistent with the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
+   | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
    | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as public_app_port or a different one. | `number` | `8080` |
    | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs/subnets trusted to access the jump VM. Used in the inbound rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
@@ -392,7 +393,7 @@ All the steps described below are completed in the Linux terminal.
 
    {% note warning %}
 
-   We recommend you to specify additional segments ahead of time if you are going to need them later, because a VM with a NGFW image in the cloud does not support adding new network interfaces once it is created.
+   We recommend specifying additional segments in advance if you may need them later on, since a cloud-based NGFW VM does not support adding new network interfaces after it is created.
 
    {% endnote %}
 
@@ -426,7 +427,7 @@ All the steps described below are completed in the Linux terminal.
 
    {% cut "Viewing information on deployed resources" %}
 
-   | Parameter | Description | Sample value |
+   | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
    | `dmz-web-server_ip_address` | DMZ web server IP for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall. | `10.160.1.100` |
    | `fw-mgmt-server_ip_address` | Firewall management server IP | `192.168.1.100` |
@@ -461,7 +462,7 @@ To set up the VPN tunnel:
 
 1. [Install](https://download.wireguard.com/windows-client/wireguard-installer.exe) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-network-segmentation-with-checkpoint` directory.
+1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-network-segmentation-with-checkpoint` folder.
    To find the directory created in a Linux subsystem, e.g., Ubuntu, type the file path in the dialog box address bar:
 
    ```bash
@@ -488,7 +489,7 @@ To set up the VPN tunnel:
 To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point) solution, install and run the SmartConsole GUI client:
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
-1. Sign in with `admin` for username and `admin` for password.
+1. Sign in using the `admin` username and the `admin` password.
 1. In the Gaia Portal interface that opens, download the SmartConsole GUI client. To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole access password:
@@ -497,7 +498,7 @@ To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point
    terraform output fw_smartconsole_mgmt-server_password
    ```
 
-1. Open SmartConsole and sign in with `admin` for username, `192.168.1.100` for the management server IP, and your SmartConsole password.
+1. Open SmartConsole and sign in with the `admin` username, `192.168.1.100` management server IP address, and SmartConsole password.
 
 ### Add the firewall gateway {#add-gateway}
 
@@ -524,7 +525,7 @@ Add the FW firewall gateway to the management server using the Wizard:
 Configure the `eth0` network interface:
 
 1. In the **Gateways & Servers** tab, open the FW gateway setup dialog. To to this, double-click on the added FW in the list.
-1. In the **Topology** table on the **Network Management** tab, select the `eth0` interface, click **Edit** and then click **Modify...** in the window that opens.
+1. In the **Network Management** tab, the **Topology** table, select the `eth0` interface, click **Edit** and then click **Modify...** in the window that opens.
 1. Under **Security Zone**, activate **Specify Security Zone** and select **InternalZone**.
 
 In the same way, configure the `eth1` and `eth2` network interfaces:
@@ -672,7 +673,7 @@ To set up the NAT tables of the FW gateway:
 ## Requirements for production deployment {#deployment-requirements}
 
 * If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
-* Make sure to change the passwords provided in `check-init...yaml` files via the metadata service:
+* Make sure to change the passwords sent in the `check-init...yaml` files via the metadata service:
    * SIC password for connecting the firewall and the firewall management server.
    * Check Point SmartConsole password.
    * Admin user password for the firewall management server. You can change this password in Gaia Portal.
@@ -693,4 +694,4 @@ To stop paying for the resources you created, run this command:
    ```
    {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, folders, etc.
 
-As the resources you created reside in folders, a faster way to delete all resources is to delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-network-segmentation-with-checkpoint` directory on your PC.
+As the resources you created reside in folders, a faster way to delete all resources is to delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-network-segmentation-with-checkpoint` folder on your PC.

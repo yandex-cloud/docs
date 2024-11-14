@@ -7,7 +7,7 @@ In this scenario, you will learn to emulate multiple [devices](../../iot-core/co
 * Pressure
 * CO<sub>2</sub> level
 
-Each sensor sends its readings in JSON format. Here is an example:
+Each sensor sends its readings in JSON format, e.g.:
 
 ```json
 {
@@ -56,35 +56,35 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
 
 ## Describe the infrastructure {#set-configuration}
 
-1. Create the `iot-terraform` directory. It will store the {{ TF }} configuration files.
-1. [Download](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) the archive with the files required to run the script and unpack it to `iot-terraform`.
+1. Create the `iot-terraform` folder. It will store the {{ TF }} configuration files.
+1. [Download](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) an archive with the files you need for this scenario and unpack it to the `iot-terraform` directory.
 
    The archive contains:
    * `common.tf`: {{ TF }} provider settings.
-   * `files.tf`: Code file parameters to publish from the local folder.
-   * `function.tf`: Parameters of a [function](../../functions/concepts/function.md) to write emulated messages to devices.
+   * `files.tf`: Parameters for publishing code files from the local directory.
+   * `function.tf`: Parameters of the [function](../../functions/concepts/function.md) used to write emulated messages to devices.
    * `iot_core.tf`: Parameters of the [registry](../../iot-core/concepts/index.md#registry) where the devices are located.
    * `output.tf.tf`: Output variables.
    * `publish`: Files required to create a function.
-   * `service_account.tf`: Parameters of the [service account](../../iam/concepts/users/service-accounts.md)created by the script.
+   * `service_account.tf`: Parameters of the [service account](../../iam/concepts/users/service-accounts.md) being created in this scenario.
    * `trigger.tf`: Parameters of the [trigger](../../functions/concepts/trigger/index.md) to invoke a function with a specified timeout.
-   * `variables.tf`: Variables used and their values.
-1. Edit the `variables.tf` file, specifying the following emulation parameters:
+   * `variables.tf`: Applicable variables and their values.
+1. Edit the `variables.tf` file specifying the following emulation parameters:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) for {{ yandex-cloud }} access.
    * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
    * `device_count`: Number of emulated devices.
 
-      {% note info %}
+     {% note info %}
 
-      To emulate the operation of over 1000 devices, you need to increase [quotas](../../iot-core/concepts/limits.md) by making a request to technical support.
+     To emulate the operation of over 1000 devices, you need to increase [quotas](../../iot-core/concepts/limits.md) by making a request to technical support.
 
-      {% endnote %}
+     {% endnote %}
 
-   * `subtopic_for_publish`: [Subtopic](../../iot-core/concepts/topic/subtopic.md) in the following format: `$devices/<device_ID>/events/<subtopic>`.
-   * `publish_execution_timeout`: Message send timeout in seconds.
-   * `publish_cron_expression`: Schedule for sending messages to an MQTT topic as a cron expression. By default, messages send every minute.
+   * `subtopic_for_publish`: [Subtopic](../../iot-core/concepts/topic/subtopic.md) in `$devices/<device_ID>/events/<subtopic>` format.
+   * `publish_execution_timeout`: Timeout for sending messages in seconds.
+   * `publish_cron_expression`: Schedule for sending messages to an MQTT topic as a cron expression. By default, messages are sent every minute.
 
    You can leave the remaining files unchanged.
 
@@ -156,33 +156,34 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
 
 - Management console {#console}
 
-   1. Delete the registry:
-      1. Go to your working [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-      1. To the right of the registry you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-      1. Click **{{ ui-key.yacloud.common.delete }}**.
-   1. Delete the devices:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-      1. Select the registry.
-      1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
-      1. To the right of the device you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-      1. Click **{{ ui-key.yacloud.common.delete }}**.
-   1. Delete the function:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-      1. To the right of the function you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
-      1. Click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
-   1. Delete the trigger:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-      1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
-      1. To the right of the trigger you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-      1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
-   1. Delete the service account:
-      1. Go to your working folder.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. To the right of the service account you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
+  1. Delete the registry:
+     1. Go to your working [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. To the right of the registry you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+     1. Click **{{ ui-key.yacloud.common.delete }}**.
+  1. Delete the devices:
+     1. Go to your working folder.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. Select the registry.
+     1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+     1. To the right of the device you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+     1. Click **{{ ui-key.yacloud.common.delete }}**.
+  1. Delete the function:
+     1. Go to your working folder.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. To the right of the function you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
+     1. Click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
+  1. Delete the trigger:
+     1. Go to your working folder.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
+     1. To the right of the trigger you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
+  1. Delete the service account:
+     1. Go to your working folder.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+     1. In the row with the name of the service account you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
 
 {% endlist %}

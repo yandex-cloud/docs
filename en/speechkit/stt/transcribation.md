@@ -39,8 +39,8 @@ The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognit
 
 1. Send an API request to recognize a file via the [gRPC API](../stt-v3/api-ref/grpc/AsyncRecognizer) or [REST API](../stt-v3/api-ref/AsyncRecognizer/index.md). In the body of the request, provide the link to the audio file. In the HTTP header, specify your authentication credentials:
 
-   * `Authorization: Bearer <IAM_token>` for authentication with an IAM token.
-   * `Authorization: Api-Key <API_key>` for authentication with an API key.
+   * `Authorization: Bearer <IAM_token>`: IAM token used for authentication.
+   * `Authorization: Api-Key <API_key>`: For authentication with the API key.
 
    The response to the request returns the ID of the recognition operation. Save it: you will need it for the next request.
 

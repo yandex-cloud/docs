@@ -23,7 +23,7 @@ Year,Manufacturer,Model,Price
 1999,Chevy,"Venture «Extended Edition»",4900.00
 ```
 
-{% cut "Sample request" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT
@@ -63,7 +63,7 @@ Year    Manufacturer    Model   Price
 1999    Chevy   "Venture «Extended Edition»"    4900.00
 ```
 
-{% cut "Sample request" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT
@@ -119,7 +119,7 @@ Example of correct data (each line contains a separate object in JSON format, bu
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-{% cut "Sample query" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT
@@ -153,7 +153,7 @@ This format allows reading raw data as is. The data read this way can be process
 
 Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
 
-{% cut "Sample query" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT
@@ -193,7 +193,7 @@ Example of correct data (represented as a list of JSON objects):
 ```
 
 
-{% cut "Sample request" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT
@@ -233,7 +233,7 @@ Data compression algorithms supported in Parquet files:
 - LZ4_RAW
 
 
-{% cut "Sample query" %}
+{% cut "Request example" %}
 
 ```sql
 SELECT

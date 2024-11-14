@@ -385,7 +385,7 @@ To set up log transfer:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view records in the log group, run the command:
+    To view records in the log group, run this command:
     ```bash
     yc logging read --folder-id=<folder_ID>
     ```

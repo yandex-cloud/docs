@@ -2,7 +2,7 @@
 
 {{ ml-platform-name }} allows you to deploy and run services based on a [model](../../datasphere/concepts/models/index.md) trained in the project.
 
-In this tutorial, you will deploy a service from an ONNX model. The `fast-neural-style-mosaic-onnx` model transforms an image as per the style specified. The model is taken from the [ONNX model repository](https://github.com/onnx/models/).
+In this tutorial, you will deploy a service from an ONNX model. The `fast-neural-style-mosaic-onnx` model transforms an image as per the specified style. The model is taken from the [ONNX model repository](https://github.com/onnx/models/).
 
 1. [Prepare your infrastructure](#infra).
 1. [Create a model](#create-model).
@@ -43,7 +43,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -54,12 +54,13 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 - Management console {#console}
 
-   1. Go to the `data-folder` folder.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `datasphere-sa`.
+   1. Go to `data-folder`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter a name for the service account, e.g., `datasphere-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
-      * `vpc.user` to use the {{ ml-platform-name }} network.
-      * `datasphere.user` to send requests to the node.
+      * `vpc.user`: To use the {{ ml-platform-name }} network.
+      * `datasphere.user`: To send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -113,9 +114,9 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
 
 1. [Create secrets](../../datasphere/operations/data/secrets.md#create) to test your node:
 
-   * `IAM_SECRET` with [IAM token](../../iam/concepts/authorization/iam-token.md) value.
-   * `NODE_ID` with node ID.
-   * `FOLDER_ID` with [folder ID](../../resource-manager/operations/folder/get-id.md).
+   * `IAM_SECRET`: [IAM token](../../iam/concepts/authorization/iam-token.md) value.
+   * `NODE_ID`: Node ID.
+   * `FOLDER_ID`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -179,7 +180,7 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
    ```python
    import tritonclient.http as httpclient
 
-   model="<DataSphere_model_ID>"
+   model="<model_ID_in_DataSphere>"
 
    # request model config with model ready status
    print(f"""model_name: {model},\n

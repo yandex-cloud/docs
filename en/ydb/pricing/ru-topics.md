@@ -26,10 +26,10 @@ The TopicAPI is used when working with the {{ ydb-short-name }} SDK and CLI. It 
 1. Each data read or write method call, that is, opening a data read or write stream, costs 1 RU.
 1. Within each streaming data transfer method (session) opened, a certain volume of transferred (written or read) data is accumulated. Once this volume exceeds the established block limits, 1 RU is additionally charged per block. The block sizes for reads and writes differ:
 
-   | Direction | Block size |
-   --- | ---
-   | Reads | 8 KB |
-   | Writes | 4 KB |
+    Traffic | Block size
+    --- | ---
+    Reads | 8 KB
+    Writes | 4 KB
 
 **Calculation example**
 
@@ -47,10 +47,10 @@ The DataStreamsAPI is used when accessing a topic through the data streams inter
 1. Each data read or write method call for transferring or receiving a new data block costs 1 RU.
 1. The volume of data blocks transferred in a request to the write method or received in response to the read method call is calculated. The block sizes for reads and writes differ:
 
-   | Direction | Block size |
-   --- | ---
-   | Reads | 8 KB |
-   | Writes | 4 KB |
+    Traffic | Block size
+    --- | ---
+    Reads | 8 KB
+    Writes | 4 KB
 
 1. 1 RU is charged for each complete data block transferred.
 
@@ -67,10 +67,10 @@ The KafkaAPI does not support streaming reads and writes. To transfer each data 
 1. Each data read or write method call to transfer or receive the next data block costs 1 RU (effective as of July 1, 2024).
 1. The volume of data blocks transferred in a request to the write method or received in response to the read method call is calculated. The block sizes for read and write operations differ:
 
-   | Direction | Block size |
-   --- | ---
-   | Reads | 8 KB |
-   | Writes | 4 KB |
+    Direction | Block size
+    --- | ---
+    Reads | 8 KB
+    Writes | 4 KB
 
 1. 1 RU is charged for each complete data block transferred.
 

@@ -12,8 +12,9 @@ To create an [authorized key](../../concepts/authorization/key.md):
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose a service account and click the row with its name.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+   1. In the list that opens, select the service account to create an authorized key for.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
@@ -67,7 +68,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
          service_account_id = "<service_account_ID>"
          description        = "<key_description>"
          key_algorithm      = "<key_generation_algorithm>"
-         pgp_key            = "<pgp_key>"
+         pgp_key            = "<PGP_key>"
        }
        ```
 
@@ -94,7 +95,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
 
        1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
+       All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
        ```
        yc iam key list --service-account-id <service_account_ID>
@@ -104,7 +105,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
 
   To create an access key, use the [create](../../api-ref/Key/create.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Create](../../api-ref/grpc/Key/create.md) gRPC API call.
 
-  Sample request using cURL for the `create` REST API method:
+  Example of request using cURL for the `create` REST API method:
 
   ```bash
   curl \
@@ -118,7 +119,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
   Where:
 
   * `<IAM_token>`: IAM token of the user with permissions to create keys for the specified service account.
-  * `<service_account_ID>`: ID of the service account for which the keys are created.
+  * `<service_account_id>`: `ID` of the service account for which the keys are created.
 
   If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the key value again.
 
@@ -142,4 +143,4 @@ To create an [authorized key](../../concepts/authorization/key.md):
 
 #### What's next {#what-is-next}
 
-* [Get an IAM token for your service account](../iam-token/create-for-sa.md).
+* [Get an IAM token for the service account](../iam-token/create-for-sa.md).

@@ -8,10 +8,10 @@ Before you start, install the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/referenc
 
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 ## Get connection details {#endpoint-and-path}
 
@@ -21,21 +21,21 @@ To get the database connection details:
 
 - Management console {#console}
 
-   1. Go to the [management console]({{ link-console-main }}).
-   1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Select the DB you want to get the endpoint and path for.
-
+  1. Go to the [management console]({{ link-console-main }}).
+  1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Select the DB you want to get the endpoint and path for.
+      
       * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
-         > For example, the endpoint for a DB in Serverless mode is `{{ ydb.ep-serverless }}` and in Dedicated mode is `{{ ydb.ep-dedicated }}`.
+          >For example, the endpoint for a DB in Serverless mode is `{{ ydb.ep-serverless }}` and in Dedicated mode is `{{ ydb.ep-dedicated }}`.
       * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
-
-         > Sample DB path: `{{ ydb.path-serverless }}`.
+      
+          >Example of a DB path: `{{ ydb.path-serverless }}`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   1. {% include [cli-install](../../_includes/cli-install.md) %}
-   1. Get a list of databases in the folder:
+  1. {% include [cli-install](../../_includes/cli-install.md) %}
+  1. Get a list of databases in the folder:
 
       ```bash
       yc ydb database list
@@ -54,29 +54,29 @@ To get the database connection details:
 
       DB connection details are specified in the `ENDPOINT` column.
 
-      > For example, for a Serverless database:
-      > * Endpoint: `{{ ydb.ep-serverless }}`.
-      > * Path: `{{ ydb.path-serverless }}`.
+      >For example, for a Serverless database:
+      >* Endpoint: `{{ ydb.ep-serverless }}`.
+      >* Path: `{{ ydb.path-serverless }}`.
       >
-      > For a Dedicated database:
-      > * Endpoint: `{{ ydb.ep-dedicated }}`.
-      > * Path: `{{ ydb.path-dedicated }}`.
+      >For a Dedicated database:
+      >* Endpoint: `{{ ydb.ep-dedicated }}`.
+      >* Path: `{{ ydb.path-dedicated }}`.
 
 - API {#api}
 
-   Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/Database/get.md) gRPC API call and provide the database ID in the `databaseId` request parameter.
+  Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/Database/get.md) gRPC API call and provide the database ID in the `databaseId` query parameter.
 
-   Database connection details are specified in the `endpoint` parameter.
+  Database connection details are specified in the `endpoint` parameter.
 
-   > For example, for a Serverless database:
-   > * Endpoint: `{{ ydb.ep-serverless }}`.
-   > * Path: `{{ ydb.path-serverless }}`.
-   >
-   > For a Dedicated database:
-   > * Endpoint: `{{ ydb.ep-dedicated }}`.
-   > * Path: `{{ ydb.path-dedicated }}`.
+  >For example, for a Serverless database:
+  >* Endpoint: `{{ ydb.ep-serverless }}`.
+  >* Path: `{{ ydb.path-serverless }}`.
+  >
+  >For a Dedicated database:
+  >* Endpoint: `{{ ydb.ep-dedicated }}`.
+  >* Path: `{{ ydb.path-dedicated }}`.
 
-   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
+  {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
 {% endlist %}
 
@@ -96,54 +96,54 @@ Set up the selected mode:
 
 - OAuth token
 
-   Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
+  Get an OAuth token by sending a [query]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
 
-   To avoid entering it every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+  To avoid entering this parameter every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
-   Check that the connection is correct by requesting user information:
+  Check that the connection is correct by requesting user information:
 
-   ```bash
-   {{ ydb.cli }} \
-     --endpoint <endpoint> \
-     --database <name> \
-     --yc-token-file <path> \
-     discovery whoami
-   ```
+  ```bash
+  {{ ydb.cli }} \
+    --endpoint <endpoint> \
+    --database <name> \
+    --yc-token-file <path> \
+    discovery whoami
+  ```
 
-   * `--endpoint`: DB endpoint.
-   * `--database`: DB path.
-   * `--yc-token-file`: Path to the OAuth token file.
+  * `--endpoint`: DB endpoint.
+  * `--database`: Path to DB.
+  * `--yc-token-file`: Path to the OAuth token file.
 
-   > Command example:
-   >
-   > ```bash
-   > {{ ydb.cli }} \
-   >  --endpoint {{ ydb.ep-serverless }} \
-   >  --database {{ ydb.path-serverless }} \
-   >  --yc-token-file oauth-token.txt \
-   >  discovery whoami
-   > ```
-   >
-   > Result:
-   >
-   > ```text
-   > User SID: aje6o75au36h********@as
-   > ```
+  >Command example:
+  >
+  >```bash
+  >{{ ydb.cli }} \
+  >  --endpoint {{ ydb.ep-serverless }} \
+  >  --database {{ ydb.path-serverless }} \
+  >  --yc-token-file oauth-token.txt \
+  >  discovery whoami
+  >```
+  >
+  >Result:
+  >
+  >```text
+  >User SID: aje6o75au36h********@as
+  >```
 
 
 - IAM token
 
-   1. Use the [{{ yandex-cloud }} CLI](../../cli/) to get an IAM token:
+  1. Use the [{{ yandex-cloud }} CLI](../../cli/) to get an IAM token:
 
       ```bash
       yc iam create-token
       ```
 
-   1. Save the token to a file.
-   1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
+  1. Save the token to a file.
+  1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
-      To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
-   1. Check that the connection is correct by requesting user information:
+      To avoid entering this parameter every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up of a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+  1. Check that the connection is correct by requesting user information:
 
       ```bash
       {{ ydb.cli }} \
@@ -154,30 +154,30 @@ Set up the selected mode:
       ```
 
       * `--endpoint`: DB endpoint.
-      * `--database`: DB path.
+      * `--database`: Path to DB.
       * `--iam-token-file`: Path to the IAM token file.
 
-      > Command example:
+      >Command example:
       >
-      > ```bash
-      > {{ ydb.cli }} \
+      >```bash
+      >{{ ydb.cli }} \
       >  --endpoint {{ ydb.ep-serverless }} \
       >  --database {{ ydb.path-serverless }} \
       >  --iam-token-file iam-token.txt \
       >  discovery whoami
-      > ```
+      >```
       >
-      > Result:
+      >Result:
       >
-      > ```text
-      > User SID: aje6o75au36h********@as
-      > ```
+      >```text
+      >User SID: aje6o75au36h********@as
+      >```
 
 - Authorized access key
 
-   1. {% include [cli-install](../../_includes/cli-install.md) %}
-   1. [Create](../../iam/operations/sa/create.md) a service account to access your DB. The service account must be in the same folder as the database and have the `viewer` or `viewer` + `editor` role depending on what access to the DB is required.
-   1. Use the [{{ yandex-cloud }} CLI](../../cli/) to create an authorized key for the service account:
+  1. {% include [cli-install](../../_includes/cli-install.md) %}
+  1. [Create](../../iam/operations/sa/create.md) a service account to access your DB. The service account must be in the same folder as the database and have the `viewer` or `viewer` + `editor` role depending on what access to the DB is required.
+  1. Use the [{{ yandex-cloud }} CLI](../../cli/) to create an authorized key for the service account:
 
       ```bash
       yc iam key create \
@@ -185,14 +185,14 @@ Set up the selected mode:
         --output <path>
       ```
 
-      * `--service-account-name`: Name of the service account.
-      * `--output`: Path to the file with the authorized key.
+      * `--service-account-name`: Service account name.
+      * `--output`: Path to authorized key file.
 
-   1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
+  1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
 
-      To avoid entering it every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+      To avoid entering this parameter every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
-   1. Check that the connection is correct by requesting user information:
+  1. Check that the connection is correct by requesting user information:
 
       ```bash
       {{ ydb.cli }} \
@@ -203,59 +203,59 @@ Set up the selected mode:
       ```
 
       * `--endpoint`: DB endpoint.
-      * `--database`: DB path.
+      * `--database`: Path to DB.
       * `--sa-key-file`: Path to the file with the private key and public key ID.
 
       Command example:
 
-      > ```bash
-      > {{ ydb.cli }} \
+      >```bash
+      >{{ ydb.cli }} \
       >  --endpoint {{ ydb.ep-serverless }} \
       >  --database {{ ydb.path-serverless }} \
       >  --sa-key-file sa-key-file.txt \
       >  discovery whoami
-      > ```
+      >```
       >
-      > Result:
+      >Result:
       >
-      > ```text
-      > User SID: aje6o75au36h********@as
-      > ```
+      >```text
+      >User SID: aje6o75au36h********@as
+      >```
 
 - Metadata service
 
-   When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. The {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
+  When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
 
-   To avoid entering it every time you run commands, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+  To avoid entering this parameter every time you run a command, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
-   Check that the connection is correct by requesting user information:
+  Check that the connection is correct by requesting user information:
 
-   ```bash
-   {{ ydb.cli }} \
-     --endpoint <endpoint> \
-     --database <name> \
-     --use-metadata-credentials \
-     discovery whoami
-   ```
+  ```bash
+  {{ ydb.cli }} \
+    --endpoint <endpoint> \
+    --database <name> \
+    --use-metadata-credentials \
+    discovery whoami
+  ```
 
-   * `--endpoint`: DB endpoint.
-   * `--database`: DB path.
-   * `--use-metadata-credentials`: Use the metadata service.
+  * `--endpoint`: DB endpoint.
+  * `--database`: Path to DB.
+  * `--use-metadata-credentials`: Use the metadata service.
 
-   > Command example:
-   >
-   > ```bash
-   > {{ ydb.cli }} \
-   >  --endpoint {{ ydb.ep-serverless }} \
-   >  --database {{ ydb.path-serverless }} \
-   >  --use-metadata-credentials \
-   >  discovery whoami
-   > ```
-   >
-   > Result:
-   >
-   > ```text
-   > User SID: aje6o75au36h********@as
-   > ```
+  >Command example:
+  >
+  >```bash
+  >{{ ydb.cli }} \
+  >  --endpoint {{ ydb.ep-serverless }} \
+  >  --database {{ ydb.path-serverless }} \
+  >  --use-metadata-credentials \
+  >  discovery whoami
+  >```
+  >
+  >Result:
+  >
+  >```text
+  >User SID: aje6o75au36h********@as
+  >```
 
 {% endlist %}

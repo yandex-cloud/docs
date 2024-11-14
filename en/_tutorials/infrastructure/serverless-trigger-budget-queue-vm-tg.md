@@ -3,7 +3,7 @@
 
 In this tutorial, you will create a serverless infrastructure that will stop running virtual machines when [budget](../../billing/concepts/budget.md) thresholds are exceeded and send Telegram notifications to the user.
 
-The [budget trigger](../../functions/concepts/trigger/budget-trigger.md) will invoke the {{ sf-name }} [function](../../functions/concepts/function.md), and this function will stop the {{ compute-name }} [virtual machines](../../compute/concepts/vm.md#project) and send a message to the {{ message-queue-full-name }} [queue](../../message-queue/concepts/queue.md).
+The [budget trigger](../../functions/concepts/trigger/budget-trigger.md) will invoke the {{ sf-name }} [function](../../functions/concepts/function.md), and this function will stop the {{ compute-name }} [virtual machines](../../compute/concepts/vm.md#project) and send a message to the {{ message-queue-full-name }} [queue](../../message-queue/concepts/queue.md). 
 
 The [{{ message-queue-name }} trigger](../../functions/concepts/trigger/ymq-trigger.md) will provide the queued messages to the second {{ sf-name }} function, which will send Telegram notifications via a dedicated bot.
 
@@ -57,7 +57,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify the name: `service-account-for-budget`.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_roles }}** field, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -101,7 +101,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           Where:
 
           * `<folder_name>`: Name of your folder in {{ yandex-cloud }}.
-          * `<service_account_ID>`: Previously saved service account [ID](../../iam/operations/sa/get-id.md).
+          * `<service_account_ID>`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the service account.
 
           Result:
 
@@ -133,8 +133,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. Select the `service-account-for-budget` service account.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. Select the `service-account-for-budget` service account from the list that opens.
       1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. If required, specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Save the ID and private key.
@@ -264,8 +265,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, specify:
-      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`
-      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`
+      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`.
+      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`.
 
       Leave the other parameters unchanged.
 
@@ -444,7 +445,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - API {#api}
 
-      To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+     To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
 
       To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
@@ -693,9 +694,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - API {#api}
 
-      To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+     To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
 
-      To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+     To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
     {% endlist %}
 

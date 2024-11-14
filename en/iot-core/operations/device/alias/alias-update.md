@@ -26,7 +26,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
     
     {% note warning %}
     
-    The existing set of `topic_aliases` is completely overwritten by the one transmitted in the request.
+    The existing `topic_aliases` will be completely overwritten by the ones you provide in your request.
     
     {% endnote %}
     
@@ -53,7 +53,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
   To update an alias created with {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and update the alias value in the `aliases` section, in the fragment with the device description.
+  1. Open the {{ TF }} configuration file and edit the alias value in the `aliases` section, in the device description fragment.
 
       Example device description in the {{ TF }} configuration:
 
@@ -71,7 +71,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       }
       ```
 
-      For more information about the `yandex_iot_core_device` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -98,7 +98,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       terraform apply
       ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
 

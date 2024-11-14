@@ -1,4 +1,4 @@
-# Questions and answers about {{ ydb-name }}
+# FAQ about {{ ydb-name }}
 
 This page shows answers to the questions about {{ ydb-name }}. For frequently asked questions about {{ ydb-short-name }}, see the [documentation]({{ ydb.docs }}/faq/).
 
@@ -6,7 +6,7 @@ This page shows answers to the questions about {{ ydb-name }}. For frequently as
 
 ### How do secondary indexes impact the cost of a query?
 
-Operations with indexes are estimated according to the same rules as operations with tables. They are reflected in the request statistics and included in the total indicators that are used to calculate the cost in request units (RUs). For more information, see the [pricing policy for the serverless {{ ydb-short-name }} API](pricing/ru-yql.md).
+Operations with indexes are estimated according to the same rules as operations with tables. They are reflected in the request statistics and included in the total indicators that are used to calculate the cost in request units (RUs). For more information, see the [pricing policy for {{ ydb-short-name }} API serverless mode](pricing/ru-yql.md).
 
 When reading data from a table using an index, the request statistics will show the number of rows read from the index and their volume.
 
@@ -26,6 +26,6 @@ Check the throughput in the {{ ydb-short-name }} cluster settings and increase i
 
 The error is related to the exceeding of the [quota](concepts/limits.md#ydb-quotas) for [RU (Request Unit)](concepts/serverless-and-dedicated.md#capacity) consumption per second.
 
-You can change quotas for individual databases in their settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you find your cloud quota insufficient, [contact the support service]({{ link-console-support }}).
+You can change quotas for an individual database in its settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you find your cloud quota insufficient, [contact support]({{ link-console-support }}).
 
 To prevent users from unscheduled RU consumption, we recommend setting a [limit on maximum consumption](concepts/serverless-and-dedicated.md#capacity).

@@ -10,12 +10,10 @@ description: Follow this guide to delete an API key.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Choose a service account and click the row with its name.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** list, find an API key to delete.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the key row.
-  1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+  1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the line with the API key to delete, and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
+  1. In the window that opens, confirm the deletion.
 
 - CLI {#cli}
 
@@ -87,7 +85,7 @@ description: Follow this guide to delete an API key.
 
         1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam key list --service-account-id <service_account_ID>

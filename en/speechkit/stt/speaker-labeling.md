@@ -2,7 +2,7 @@
 
 In recognition results, the [API v3](../stt-v3/api-ref/grpc/Recognizer/index.md) can specify which speaker uttered each recognized phrase.
 
-Speaker labeling is only available for recognition in the `FULL_DATA` mode for mono records. Recognition results may not feature more than two speakers.
+Speaker labeling is only available for recognition in `FULL_DATA` mode for mono records. Recognition results may not feature more than two speakers.
 
 To enable speaker labeling, use the following session parameters:
 
@@ -13,7 +13,7 @@ To enable speaker labeling, use the following session parameters:
   ```python
   recognize_options = stt_pb2.StreamingOptions(
     speaker_labeling=stt_pb2.SpeakerLabelingOptions(
-      # Enable speaker labeling
+      # Enabling speaker labeling
         speaker_labeling=stt_pb2.SpeakerLabelingOptions.SPEAKER_LABELING_ENABLED
     ),
     recognition_model=stt_pb2.RecognitionModelOptions(
@@ -32,7 +32,7 @@ To enable speaker labeling, use the following session parameters:
 
 {% endlist %}
 
-You will see `channel_tag` labels in recognition results, with the values of either 0 or 1. Each value refers to a single speaker. You can process the results as follows:
+You will see `channel_tag` labels in recognition results, set to 0 or 1. Each value refers to a single speaker. You can process the results as follows:
 
 {% list tabs group=programming_language %}
 

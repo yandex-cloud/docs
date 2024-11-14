@@ -42,7 +42,7 @@ When you add environment variables, a new version of the function is created. Yo
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
+    * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-version-id`: ID of the function version from which you want to copy the code.

@@ -1,6 +1,6 @@
 # Data pattern processing
 
-A **data pattern** is a combination of events, as well as conditions and correlations between these events, used to track various regularities and detect events. Pattern searching is used for analyzing and monitoring event streams in real time, enabling prompt response to changes and making crucial decisions. In data analysis systems, a data pattern builds a rule by which the system determines whether the incoming event stream meets certain criteria; this results in triggering specific actions or notifications.
+A **data pattern** is a combination of events, as well as conditions and correlations between these events, used to track various regularities and detect events. Pattern searching is used for analyzing and monitoring event streams in real time, enabling prompt response to changes and making crucial decisions. In data analysis systems, a data pattern builds a rule by which the system figures out whether the incoming event stream meets certain criteria, thus triggering some actions or notifications.
 
 Here is a hands-on example of pattern processing in a data stream produced by an IoT device, where pressing its buttons triggers certain events. Let's assume you need to find and process the following sequence of button clicks: `button 1`, `button 2`, and `button 3`. The data is transmitted as JSON strings, which are distributed across the `ts` and `button` columns of `input_stream` using [data bindings](glossary.md#binding).
 
@@ -52,7 +52,7 @@ Here is a brief description of the SQL syntax elements of the `MATCH_RECOGNIZE` 
 * [`PATTERN`](#pattern): Pattern to search for across the data. It consists of variables and search rules of the pattern described in `<search_pattern>`. `PATTERN` works similarly to [regular expressions](https://en.wikipedia.org/wiki/Regular_expressions).
 * [`ONE ROW PER MATCH`](#rows_per_match): Determines the amount of output data for each hit match.
 * [`AFTER MATCH SKIP TO NEXT ROW`](#after_match_skip_to_next_row): Defines the method of moving to the point of the next match search.
-* [`MEASURES`](#measures): Specifies the list of output columns. Each column from the `<expression_1> [AS] <name_of_column_1> [ ... , <expression_N> [AS] <name_of_column_N>]` list is an independent construct that sets output columns and describes expressions for their computation.
+* [`MEASURES`](#measures): Specifies the list of output columns. Each column of the `<expression_1> [AS] <name_of_column_1> [ ... , <expression_N> [AS] <name_of_column_N>]` list is an independent construct that sets output columns and describes expressions for their computation.
 * [`ORDER BY`](#order_by): Determines sorting of input data. Pattern search is performed within the data sorted according to the list of columns or expressions listed in `<expression_1> [AS] <name_of_column_1> [ ... , <expression_N> [AS] <name_of_column_N>]`.
 * [`PARTITION BY`](#partition_by) divides the input data flow as per the specified rules in accordance with `<pattern_1> [ ... , <pattern_N>]`. Pattern search is performed independently in each part.
 
@@ -63,7 +63,7 @@ Here is a brief description of the SQL syntax elements of the `MATCH_RECOGNIZE` 
 DEFINE <variable_1> AS <expression_1>[, <variable_2> AS <expression_2>, ...]
 ```
 
-`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions. For example, one can use such expressions as `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
+`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions.  For example, one can use such expressions as `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
 
 In your SQL statements, make sure to specify the variable name for which you are searching for matches. For instance, in the following SQL command, you need to specify the variable name for which the calculation is being performed (`A`), for the `button = 1` condition:
 
@@ -111,27 +111,27 @@ If a variable used in the `PATTERN` section has not been previously described in
 
 {% endnote %}
 
-`PATTERN` also enables using [quantifiers](https://en.wikipedia.org/wiki/Regular_expression#Quantification). In regular expressions, they determine the number of repetitions of an element or subsequence in the matched pattern. Let’s use the `A`, `B`, `C`, and `D` variables from the `DEFINE` section to explain how quantifiers work. Here is the list of supported quantifiers:
+You can use [quantifiers](https://en.wikipedia.org/wiki/Regular_expression#Quantification) in `PATTERN`. In regular expressions, they determine the number of repetitions of an element or subsequence in the matched pattern. Let’s use the `A`, `B`, `C`, and `D` variables from the `DEFINE` section to explain how quantifiers work. Here is the list of supported quantifiers:
 
-| Quantifier | Description |
+|Quantifier|Description|
 |----|-----|
-| `A+` | One or more occurrences of `A` |
-| `A*` | Zero or more occurrences of `A` |
-| `A?` | Zero or one occurrence of `A` |
-| `B{n}` | Exactly `n` occurrences of `B` |
-| `C{n, m}` | From `n` to `m` occurrences of `C` (`m` inclusive) |
-| `D{n,}` | At least `n` occurrences of `D` |
-| `(A\|B)` | Occurrence of `A` or `B` in the data |
-| `(A\|B){,m}` | No more than `m` occurrences of `A` or `B` (`m` inclusive) |
+|`A+`|One or more occurrences of `A`|
+|`A*`|Zero or more occurrences of `A`|
+|`A?`|Zero or one occurrence of `A`|
+|`B{n}`|Exactly `n` occurrences of `B`|
+|`C{n, m}`|From `n` to `m` occurrences of `C` (`m` inclusive)|
+|`D{n,}`|At least `n` occurrences of `D`|
+|`(A\|B)`|Occurrence of `A` or `B` in the data|
+|`(A\|B){,m}`|No more than `m` occurrences of `A` or `B` (`m` inclusive)|
 
 
 Supported pattern search sequences:
 
-| Supported sequences | Syntax | Description |
+|Supported sequences|Syntax|Description|
 |---|---|----|
-| Sequence | `A B+ C+ D+` | The system searches for the exact specified sequence, the occurrence of other variables within the sequence is not allowed. The pattern search is performed in the order of the pattern variables. |
-| One of | `A \| B \| C` | Variables are listed in any order with a pipe (`\|`) between them. The search is performed for any variable from the specified list. |
-| Grouping | `(A \| B)+ \| C` | Variables inside round brackets are considered a single group. In this case, quantifiers apply to the entire group. |
+|Sequence|`A B+ C+ D+`|The system searches for the exact specified sequence, the occurrence of other variables within the sequence is not allowed. The pattern search is performed in the order of the pattern variables.|
+|One of|`A \| B \| C`|Variables are listed in any order with a pipe `\|`) between them. The search is performed for any variable from the specified list.|
+|Grouping|`(A \| B)+ \| C`|Variables inside round brackets are considered a single group. In this case, quantifiers apply to the entire group.|
 
 
 #### **Example** {#pattern-example}

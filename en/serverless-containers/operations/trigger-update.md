@@ -12,28 +12,28 @@ Your changes will apply within five minutes.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-   1. Select the trigger whose parameters you want to update.
-   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
-   1. Edit the trigger parameters and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. Select the trigger whose parameters you want to update.
+  1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit the trigger parameters and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
+  {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-   1. View a description of the CLI command for updating trigger parameters:
+  1. See the description of the CLI command for updating trigger parameters:
 
       ```bash
       yc serverless trigger update <trigger_type> --help
       ```
 
-   1. Update the trigger parameters, e.g., rename it:
+  1. Update the trigger parameters, e.g., rename it:
 
       ```bash
       yc serverless trigger update <trigger_type> <trigger_name> \
@@ -70,11 +70,11 @@ Your changes will apply within five minutes.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and update the parameters of the `function_trigger` resource:
+  1. Open the {{ TF }} configuration file and update the parameters of the `function_trigger` resource:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -86,11 +86,11 @@ Your changes will apply within five minutes.
         container {
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
-          retry_attempts     = <number_of_retry_invocation_attempts>
+          retry_attempts     = <number_of_retry_attempts>
           retry_interval     = <interval_between_retry_attempts>
         }
         dlq {
-          queue_id           = "<DLQ_ID>"
+          queue_id           = "<dead-letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -100,23 +100,23 @@ Your changes will apply within five minutes.
 
       * `name`: Timer name. The name format is as follows:
 
-         {% include [name-format](../../_includes/name-format.md) %}
+          {% include [name-format](../../_includes/name-format.md) %}
 
       * `timer`: Trigger parameters:
-         * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
+          * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+          * `payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
 
       * `container`: Settings for the container that will be activated by the trigger:
 
-         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
-         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -128,6 +128,6 @@ Your changes will apply within five minutes.
 
 - API {#api}
 
-   To update parameters of a trigger, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
+  To update parameters of a trigger, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
 
 {% endlist %}

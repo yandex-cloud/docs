@@ -130,7 +130,7 @@ items:
         href: concepts/vulnerability-scanner.md
       - name: '{{ sf-name }} trigger'
         href: concepts/trigger.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md

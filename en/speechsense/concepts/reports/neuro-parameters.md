@@ -4,7 +4,7 @@
 
 In reports, a _neuroparameter_ is a dialog property. {{ speechsense-name }} uses it for semantic analysis to determine whether a dialog matches this property. Let's assume you specified a particular topic as a neuroparameter. {{ speechsense-name }} will check whether that topic was mentioned in the dialog.
 
-As a neuroparameter, you can select a reason, topic, or outcome suggested by {{ speechsense-name }} as a possible option. You can also specify your own property, in which case it will not depend on the choice between reasons, topics, or outcomes.
+As a neuroparameter, you can select a reason, topic, or outcome suggested by {{ speechsense-name }} as a possible option. You can also specify your own property; in this case, it will not depend on the choice between reasons, topics, or outcomes.
 
 For reports, {{ speechsense-name }} divides dialogs into two groups: those that match the specified property and those that do not. You choose which group to use in the report.
 
@@ -16,7 +16,7 @@ The neuroparameter application method depends on the report type:
 
    In each report, a neuroparameter can only be used once: either as a parameter or as a filter.
 
-* [Detailing](details.md): Neuroparameters are only available as dialog filters. You can only set a single filter with a neuroparameter.
+* [Comparison](comparison.md) and [Detailing](details.md): Neuroparameters are only available as dialog filters. You can only set a single filter with a neuroparameter.
 
 To use neuroparameters, there must be at least 100 dialogs in the sample for the report. There are no restrictions on the maximum number; however, if the sample contains more than 1,000 dialogs, not all of them will be analyzed. {{ speechsense-name }} will randomly select only 1,000 dialogues for analysis.
 

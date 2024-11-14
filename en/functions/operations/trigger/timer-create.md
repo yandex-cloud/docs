@@ -14,7 +14,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder you want to create a trigger in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -37,7 +37,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
     	{% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
     	{% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
@@ -60,9 +60,9 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
       --payload <message> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retry_invocation_attempts> \
+      --retry-attempts <number_of_retry_attempts> \
       --retry-interval <interval_between_retry_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -115,7 +115,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
        function {
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
-         retry_attempts     = "<number_of_retry_invocation_attempts>"
+         retry_attempts     = "<number_of_retry_attempts>"
          retry_interval     = "<interval_between_retry_attempts>"
        }
        timer {
@@ -123,7 +123,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
          payload         = "<message>"
        }
        dlq {
-         queue_id           = "<dead_letter_queue_ID>"
+         queue_id           = "<dead-letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
      }

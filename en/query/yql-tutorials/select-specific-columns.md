@@ -6,26 +6,26 @@ For example:
 
 * Select data from the `age`, `last_visit_time`, and `region` columns.
 * Rename `region` to `area`.
-* Update the `release_date` column type from `Int32` to `DateTime`
+* Change the `release_date` column type from `Int32` to `DateTime`.
 
 ```sql
 SELECT
-    VendorID,                           -- Column names (VendorID, trip_distance)
-    trip_distance,                      -- are separated by commas.
-    fare_amount AS fare,                -- Using AS, you can rename columns
-    (total_amount/1000) AS total_amount_thousand_dollars, -- or name an arbitrary expression,
-    CAST(VendorID as Uint32) AS vendorID -- using CAST, you can update the data type.
+    VendorID,                           -- List column names (VendorID, trip_distance)
+    trip_distance,                      -- separated by commas.
+    fare_amount AS fare,                -- You can use AS to rename columns
+    (total_amount/1000) AS total_amount_thousand_dollars, -- or give a name to any expression.
+    CAST(VendorID as Uint32) AS vendorID -- Use CAST to change data type.
 FROM
     `tutorial-analytics`
 LIMIT 10
 ```
 
-Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
 #### See also {#see-also}
 
-* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
 * [YQL data types]({{ ydb.docs }}/yql/reference/types/)
 * [Type casting in YQL]({{ ydb.docs }}/yql/reference/types/cast)
 * [Functions for dates]({{ ydb.docs }}/yql/reference/udf/list/datetime)

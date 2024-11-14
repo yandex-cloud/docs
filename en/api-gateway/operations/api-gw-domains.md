@@ -37,11 +37,11 @@ To connect a domain to an API gateway:
 
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and:
 
-        1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [custom certificate](../../certificate-manager/operations/import/cert-create.md) for the domain to connect.
+        1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are connecting.
 
             {% note info %}
 
-            Be sure to timely update your certificates. For more info, refer to our guides on [updating Let's Encrypt<sup>®</sup> certificates](../../certificate-manager/operations/managed/cert-update.md) and [custom certificates](../../certificate-manager/operations/import/cert-update.md).
+            Make sure to timely update your certificates. Learn more about updating [Let's Encrypt<sup>®</sup> certificates](../../certificate-manager/operations/managed/cert-update.md) and [custom certificates](../../certificate-manager/operations/import/cert-update.md).
 
             {% endnote %}
 
