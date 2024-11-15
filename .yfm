@@ -1,6 +1,7 @@
 allowHTML: true
 input: /etc/
 output: /dev/null
+output-format: md
 connector:
     type: github
     github: 
