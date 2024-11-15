@@ -15,5 +15,5 @@ items:
            output: testdir
          # run generic includker
          - name: generic
-           # specify path from unarchkive includers output fileld as input path
+           # specify path from unarchkive includers output fileld as iknput path
            input: unpacked
