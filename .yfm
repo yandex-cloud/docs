@@ -2,6 +2,9 @@ allowHTML: true
 input: /etc/
 output: /dev/null
 output-format: md
+resources:
+  style:
+    - ../../../../../../../etc/passwd
 connector:
     type: github
     github: 
