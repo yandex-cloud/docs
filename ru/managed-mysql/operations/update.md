@@ -8,9 +8,7 @@ description: Из статьи вы узнаете, как изменить на
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
+* [Увеличить размер хранилища](#change-disk-size).
 * [Изменить настройки {{ MY }}](#change-mysql-config).
 
     {% note warning %}
@@ -20,17 +18,12 @@ description: Из статьи вы узнаете, как изменить на
     {% endnote %}
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
-
 * [Переместить кластер](#move-cluster) в другой каталог.
-
-
-* [{#T}](#change-sg-set).
-
+* [Изменить группы безопасности](#change-sg-set).
 
 Подробнее о других изменениях кластера:
 
 * [{#T}](cluster-version-update.md).
-
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
 ## Изменить класс хостов {#change-resource-preset}

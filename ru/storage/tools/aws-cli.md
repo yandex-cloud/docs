@@ -1,3 +1,8 @@
+---
+title: AWS Command Line Interface (AWS CLI)
+description: Из статьи вы узнаете, что такое AWS Command Line Interface (AWS CLI), как его установить и настроить, а также ознакомитесь с особенностями AWS CLI при работе с {{ objstorage-name }} и примерами операций.
+---
+
 # AWS Command Line Interface (AWS CLI)
 
 

@@ -17,6 +17,8 @@ items:
             href: operations/community/manage-community-labels.md
           - name: Управление ограничениями сообщества
             href: operations/community/manage-community-config.md
+          - name: Создать сервисного агента
+            href: operations/community/create-ssa.md
           - name: Добавить ссылку для сообщества
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт

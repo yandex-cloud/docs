@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mgp-full-name }}
+description: Из статьи вы узнаете про метрики {{ mgp-name }}.
 editable: false
 ---
 

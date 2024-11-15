@@ -20,6 +20,8 @@ description: Управление доступом в сервисе идент�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+На [сервисный аккаунт](../concepts/users/service-accounts.md) роль можно назначить в [консоли управления]({{ link-console-main }}), а также через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/iam/service-account/add-access-binding.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

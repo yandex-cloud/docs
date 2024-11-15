@@ -1,3 +1,8 @@
+---
+title: '{{ ddos-protection-full-name }} в {{ vpc-full-name }}'
+description: Из статьи вы узнаете, что такое {{ ddos-protection-name }} и расширенная защита.
+---
+
 # {{ ddos-protection-full-name }} в {{ vpc-name }}
 
 

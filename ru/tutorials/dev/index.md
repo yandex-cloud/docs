@@ -16,3 +16,4 @@
 * [Запуск внешних агентов для нагрузочного тестирования](../testing/loadtesting-external-agent.md)
 * [Нагрузочный тест с помощью JMeter](../testing/loadtesting-jmeter.md)
 * [Получение статистики запросов к объектам {{ objstorage-full-name }} с использованием {{ yq-full-name }}](../testing/server-logs-yq.md)
+* [Вызов нагрузочного тестирования из {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)

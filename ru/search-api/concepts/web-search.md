@@ -19,9 +19,9 @@ description: В данном разделе вы узнаете об особе�
 
 Имена полей тела запроса различаются в [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/): в REST API используется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase), в gPRC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
 
@@ -43,9 +43,9 @@ description: В данном разделе вы узнаете об особе�
 
 В ответ на отложенный запрос {{ search-api-name }} возвращает [объект Operation](../../api-design-guide/concepts/operation.md) в следующем формате:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```json
   {

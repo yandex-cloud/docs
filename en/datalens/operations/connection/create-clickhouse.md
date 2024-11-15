@@ -55,6 +55,8 @@ To create a {{ CH }} connection:
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
+     
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Click **Check connection** to make sure the parameters are correct.
 

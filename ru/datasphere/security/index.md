@@ -20,7 +20,7 @@ description: Управление доступом в сервисе, предо
 * [{#T}](../operations/projects/add-user.md).
 * [Поделиться ресурсами с участниками сообщества](../operations/index.md#share).
 
-Также вы можете [назначить права доступа](../../organization/security/index.md) через интерфейс {{ org-name }}.
+Также вы можете назначить права доступа через [интерфейс {{ org-name }} в {{ cloud-center }}]({{ link-org-cloud-center }}), с помощью [{{ TF }}]({{ tf-provider-link }}) и [API {{ yandex-cloud }}](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

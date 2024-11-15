@@ -26,9 +26,9 @@ For more information about selectors, see [{#T}](./selector.md).
 
 ## Text {#text}
 
-A widget represented as text. It lets you place things like a set of links or explanatory captions on a dashboard. The [Markdown markup language](https://ru.wikipedia.org/wiki/Markdown) is supported.
-For more information about Markdown, see [{#T}](./markdown.md).
+Text widget. A text-only dashboard element for links, captions, and other similar content. Supports [Markdown](https://ru.wikipedia.org/wiki/Markdown).
+For more information about Markdown markup, see [{#T}](./markdown.md).
 
 ## Title {#title}
 
-A widget represented as a heading. It lets you differentiate charts by meaning and divide them into groups within a single dashboard page.
+Heading widget. Allows separating similarly themed charts and grouping them within a single dashboard page. Only for text data.

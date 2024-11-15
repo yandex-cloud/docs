@@ -1,3 +1,8 @@
+---
+title: Сопоставление с Microsoft Azure
+description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы Microsoft Azure.
+---
+
 # Сопоставление с Microsoft Azure
 
 

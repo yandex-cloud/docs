@@ -6,10 +6,10 @@ description: В этой инструкции вы научитесь созда
 # Как начать работать с {{ mos-name }}
 
 Чтобы начать работу с сервисом:
-1. [{#T}](#create-cluster).
-1. [{#T}](#configure-security-groups).
-1. [{#T}](#connect).
-1. [{#T}](#dashboards-connect).
+1. [Создайте кластер](#create-cluster).
+1. [Настройте группы безопасности](#configure-security-groups).
+1. [Подключитесь к кластеру](#connect).
+1. [Подключитесь к {{ OS }} Dashboards](#dashboards-connect).
 
 
 ## Перед началом работы {#before-you-begin}

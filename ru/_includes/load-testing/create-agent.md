@@ -34,7 +34,7 @@
 
         {% note info %}
 
-        Процесс создания агента может остановиться на статусе `Initializing connection`, если не выполнены условия:
+        Если процесс создания агента остановился на статусе `Initializing connection`, проверьте выполнение условий:
         * У агента есть [доступ](../../load-testing/operations/security-groups-agent.md) к `loadtesting.{{ api-host }}:443` и [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
         * В целевой подсети настроен NAT-шлюз.
         * У сервисного аккаунта, который назначен агенту, есть необходимые [роли](../../load-testing/operations/create-agent.md#infrastructure-prepare).

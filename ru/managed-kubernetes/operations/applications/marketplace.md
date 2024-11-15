@@ -1,3 +1,8 @@
+---
+title: Основы работы с {{ marketplace-full-name }}
+description: Следуя данной инструкции, вы научитесь работать с {{ marketplace-name }}.
+---
+
 # Основы работы с {{ marketplace-name }}
 
 

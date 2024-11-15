@@ -22,9 +22,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Чтобы создать канал, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [create-channel-rest-api-command](../../_includes/video/create-channel-rest-api-command.md) %}
 
@@ -94,9 +94,9 @@ description: 'В данном разделе вы научитесь работ�
 
 1. Выполните команду:
 
-    {% list tabs group=api_type %}
+    {% list tabs group=instructions %}
 
-    - REST API {#rest-api}
+    - REST API {#api}
 
       {% include [register-video-rest-api-command](../../_includes/video/register-video-rest-api-command.md) %}
 
@@ -138,9 +138,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Убедитесь, что видеофайл был загружен полностью. Для этого выполните команду, указав сохраненный ранее идентификатор видео (`videoId`):
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [verify-video-upload-rest](../../_includes/video/verify-video-upload-rest.md) %}
 
@@ -228,9 +228,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Чтобы получить ссылку на видеоплеер, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [get-video-link-rest](../../_includes/video/get-video-link-rest.md) %}
 

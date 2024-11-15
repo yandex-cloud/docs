@@ -1,3 +1,8 @@
+---
+title: Датасеты
+description: На странице представлены вопросы и ответы про датасеты.
+---
+
 # Датасеты
 
 {% include [how-to-change-source-data](../../_qa/datalens/change-source-data.md) %}

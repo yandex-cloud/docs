@@ -18,7 +18,7 @@ description: Управление доступом в сервисе {{ metadata
 
 Роль можно назначить на [организацию](../../organization/quickstart.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [подключение](../concepts/connection-manager.md). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-Роль на подключение можно назначить в консоли управления.
+Роль на подключение можно назначить в [консоли управления]({{ link-console-main }}).
 
 ## Какие роли действуют в сервисе {{ metadata-hub-name }} {#roles-list}
 

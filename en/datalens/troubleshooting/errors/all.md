@@ -13,6 +13,7 @@ Error code | Description |
 [ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
 [ERR.DS_API.DB](ERR-DS_API-DB.md) | Error executing a query in the data source |
 [ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
+[ERR.DS_API.DB.CANNOT_PARSE](ERR-DS_API-DB-CANNOT_PARSE.md) | Cannot parse |
 [ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
 [ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
 [ERR.DS_API.DB.CHYT.AUTH_FAILED](ERR-DS_API-DB-CHYT-AUTH_FAILED.md) | Authentication failed |

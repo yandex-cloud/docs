@@ -1,3 +1,8 @@
+---
+title: Как выбрать версию {{ forms-full-name }}
+description: Из статьи вы узнаете, как выбрать версию {{ forms-name }}.
+---
+
 # Как выбрать версию {{ forms-full-name }}
 
 

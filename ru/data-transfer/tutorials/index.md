@@ -1,3 +1,8 @@
+---
+title: Практические руководства {{ data-transfer-full-name }}
+description: Различные сценарии использования {{ data-transfer-name }} в {{ yandex-cloud }}.
+---
+
 # Практические руководства {{ data-transfer-name }}
 
 

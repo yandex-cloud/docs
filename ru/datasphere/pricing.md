@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ ml-platform-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ ml-platform-name }}.
 editable: false
 ---
 

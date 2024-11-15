@@ -1,6 +1,1 @@
-default:
-  region: ru
-  lang: ru
-  audience: external
-  product: yandex-cloud
-  s3-storage-host: storage.yandexcloud.net
+{}

@@ -1,3 +1,8 @@
+---
+title: Шифрование в {{ compute-full-name }}
+description: Из статьи вы узнаете про варианты шифрования в {{ compute-name }} и использование пользовательских ключей {{ kms-short-name }}.
+---
+
 # Шифрование в {{ compute-name }}
 
 

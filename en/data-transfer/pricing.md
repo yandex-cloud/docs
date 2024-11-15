@@ -58,21 +58,7 @@ The number of data rows transferred from {{ PG }} to {{ CH }} during the reporti
 
 
 
-CPU cost:
-
-> 24 * 2 * $0.01048 = $0.50304
-
-RAM cost:
-
-> 24 * 4 * $0.0028 = $0.2688
-
-Data transfer cost:
-
-> (500 - 100) * $0.0216 = $8.64
-
-**Total cost**:
-
-> $0.50304 + $0.2688 + $8.64 = $9.41184
+{% include [usd-copy](../_pricing_examples/data-transfer/usd-copy.md) %}
 
 
 ### Replicating data from {{ PG }} to {{ PG }} {#replication}
@@ -81,21 +67,7 @@ The number of data rows transferred from {{ PG }} to {{ PG }} during the reporti
 
 
 
-CPU cost:
-
-> 30 * 24 * 12 * $0.01048 = $90.5472
-
-RAM cost:
-
-> 30 * 24 * 24 * $0.0028 = $48.384
-
-Data transfer cost:
-
-Free of charge, as 50,000,000 rows is less than the free usage quota.
-
-**Total cost**:
-
-> $90.5472 + $48.384 = $138.9312
+{% include [usd-replication](../_pricing_examples/data-transfer/usd-replication.md) %}
 
 
 ## See also {#see-also}

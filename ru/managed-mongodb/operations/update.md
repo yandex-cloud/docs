@@ -7,19 +7,12 @@ description: Следуя данной инструкции, вы сможете
 
 После создания кластера вы можете:
 
-- [Изменить класс хостов](#change-resource-preset).
-
-- [{#T}](#change-disk-size).
-
-- [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
-
-- [Изменить дополнительные настройки кластера](#change-additional-settings).
-
-- [Переместить кластер](#move-cluster) в другой каталог.
-
-
-- [{#T}](#change-sg-set).
-
+* [Изменить класс хостов](#change-resource-preset).
+* [Увеличить размер хранилища](#change-disk-size).
+* [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
+* [Переместить кластер](#move-cluster) в другой каталог.
+* [Изменить группы безопасности](#change-sg-set).
 
 Если вы хотите переместить кластер в другую зону доступности, обратитесь к [инструкции](host-migration.md). В результате вы перенесете хосты кластера.
 

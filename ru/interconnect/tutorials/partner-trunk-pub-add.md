@@ -1,14 +1,16 @@
 ---
 title: Как cоздать новое партнерское транковое подключение и публичное соединение в нем в {{ interconnect-full-name }}
 description: Следуя данной инструкции, вы сможете cоздать новое партнерское транковое подключение и публичное соединение в нем.
+canonical: '{{ link-docs }}/tutorials/routing/partner-trunk-pub-add'
 ---
 
 # Создать новое партнерское транковое подключение и публичное соединение в нем
 
 Процесс подключения услуги {{ interconnect-full-name }} можно логически разделить на этапы:
+
 1. [Организация партнерского транкового подключения](#trunk-create).
 1. [Организация публичное соединения в созданном подключении](#pub-create).
 
-{% include [cic-partner-trunk-add](../../_includes/interconnect/partner-trunk-add.md) %}
+{% include [cic-partner-trunk-add](../../_tutorials/routing/partner-trunk-add.md) %}
 
-{% include [cic-pub-add](../../_includes/interconnect/pub-add.md) %}
+{% include [cic-pub-add](../../_tutorials/routing/pub-add.md) %}

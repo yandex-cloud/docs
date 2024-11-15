@@ -48,6 +48,8 @@ To create a {{ PG }} connection:
 
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-postgresql.png)
+
      Click **Check connection** to make sure the parameters are correct.
 
    - {{ connection-manager-name }} {#conn-man}

@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ websql-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ websql-name }}.
 editable: false
 ---
 

@@ -8,19 +8,13 @@ description: Следуя данной инструкции, вы сможете
 
 После создания кластера вы можете:
 
-* [{#T}](#change-name-and-description).
-
-* [{#T}](#change-public-access).
-
-* [{#T}](#change-additional-settings).
-
-* [{#T}](#change-gp-settings).
-
-* [{#T}](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
-* [Настроить серверы {{ GP }} согласно документации {{ GP }}](#change-gp-settings).
+* [Изменить имя и описание кластера](#change-name-and-description).
+* [Изменить настройку публичного доступа](#change-public-access).
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
+* [Изменить настройки регламентных операций технического обслуживания](#change-background-settings).
+* [Изменить настройки {{ GP }}](#change-gp-settings) согласно документации {{ GP }}.
+* [Изменить класс хостов](#change-resource-preset).
+* [Увеличить размер хранилища](#change-disk-size)
 
 Если вы хотите переместить кластер в другую зону доступности, [восстановите его из резервной копии](cluster-backups.md#restore). Во время восстановления укажите новую зону доступности. В результате вы перенесете хосты кластера.
 

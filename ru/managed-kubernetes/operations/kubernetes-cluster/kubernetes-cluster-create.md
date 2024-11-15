@@ -1,3 +1,8 @@
+---
+title: Создание кластера {{ managed-k8s-full-name }}
+description: Следуя данной инструкции, вы сможете создать кластер {{ managed-k8s-name }}.
+---
+
 # Создание кластера {{ managed-k8s-name }}
 
 

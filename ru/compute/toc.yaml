@@ -383,8 +383,14 @@ items:
             href: tutorials/vm-autoscale/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-autoscale/terraform.md
-      - name: Масштабирование группы ВМ по расписанию
-        href: tutorials/vm-scale-scheduled.md
+      - name: Масштабирование группы виртуальных машин по расписанию
+        items:
+          - name: Обзор
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
@@ -408,7 +414,13 @@ items:
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Привязка доменного имени к ВМ с веб-сервером
-        href: tutorials/bind-domain-vm.md
+        items:
+          - name: Обзор
+            href: tutorials/bind-domain-vm/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: Маршрутизация через NAT-инстанс

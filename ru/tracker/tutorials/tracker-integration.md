@@ -1,4 +1,6 @@
 ---
+title: Интеграция {{ tracker-full-name }} с {{ GL }}
+description: Следуя данному руководству, вы сможете интегрировать {{ tracker-name }} с {{ GL }}.
 canonical: '{{ link-docs }}/tutorials/dev/gitlab-tracker-integration'
 ---
 

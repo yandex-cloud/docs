@@ -1,3 +1,8 @@
+---
+title: Установка HashiCorp Vault с поддержкой {{ kms-full-name }}
+description: Следуя данной инструкции, вы сможете установить HashiCorp Vault с поддержкой {{ kms-full-name }}.
+---
+
 # Установка HashiCorp Vault с поддержкой {{ kms-name }}
 
 

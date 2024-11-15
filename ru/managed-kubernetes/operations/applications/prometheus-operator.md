@@ -1,3 +1,8 @@
+---
+title: Установка Prometheus Operator с поддержкой {{ monitoring-full-name }}
+description: Следуя данной инструкции, вы сможете установить Prometheus Operator с поддержкой {{ monitoring-name }}.
+---
+
 # Установка Prometheus Operator с поддержкой {{ monitoring-full-name }}
 
 

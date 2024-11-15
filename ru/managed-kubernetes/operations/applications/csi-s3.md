@@ -1,3 +1,8 @@
+---
+title: Установка Container Storage Interface для S3
+description: Следуя данной инструкции, вы сможете установить Container Storage Interface для S3.
+---
+
 # Установка Container Storage Interface для S3
 
 

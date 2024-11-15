@@ -21,9 +21,35 @@ description: Управление доступом в сервисе предо�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-В консоли управления, через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-{% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на следующие ресурсы:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/compute/index.md) вы можете назначить роли на следующие ресурсы:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  {% include notitle [compute-resources-tf](../../_includes/iam/resources-with-access-control/compute-tf.md) %}
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

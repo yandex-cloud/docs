@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ metadata-hub-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ metadata-hub-name }}.
 editable: false
 ---
 

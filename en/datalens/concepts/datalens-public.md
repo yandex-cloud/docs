@@ -11,8 +11,7 @@ Before publishing data, make sure that:
 * You have the `{{ permission-admin }}` permission to published charts, dashboards, and related objects.
 * Your charts and dashboards do not contain any personal data or trade secrets. Access to published data is not restricted.
 * The connection your objects run on top of supports data publication. You cannot publish data from the following connections:
-
-  * [Google BigQuery](../operations/connection/create-big-query.md)
+  
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
@@ -50,12 +49,7 @@ The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-adm
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
 1. Under **Publication**, click **View published**.
-
-   ![screen06](../../_assets/datalens/concepts/datalens-public/screen06.png)
 
 ## Sharing a chart based on Yandex Metrica or AppMetrica data {#metrica-share}
 
@@ -80,15 +74,10 @@ To disable object publication:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
 1. Under **Publication**:
 
    1. View a list of published objects that will no longer be publicly accessible. To do this, click **View published**.
    1. Disable **Publication**.
-
-   ![screen07](../../_assets/datalens/concepts/datalens-public/screen07.png)
 
 #### See also: {#see-also}
 

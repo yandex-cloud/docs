@@ -400,6 +400,8 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
   microsoft-idp:
+    ad-full: Microsoft Active Directory
+    ad-short: Active Directory
     adfs-abbreviated: AD FS
     adfs-full: Microsoft Active Directory Federation Services
     adfs-short: Active Directory Federation Services
@@ -537,6 +539,7 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-connection-manager-user: connection-manager.user
   roles-connection-manager-viewer: connection-manager.viewer
+  roles-cr-images-scanner: container-registry.images.scanner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datalens-admin: datalens.admin
@@ -999,11 +1002,14 @@ default:
   sku|KZT|datatransfer:
     compute:
       cpu:
+        v1|number: 6.55
         v1|string: "6,55\_₸"
       ram:
+        v1|number: 1.75
         v1|string: "1,75\_₸"
     rows:
       v1|pricingRate:
+        100|number: 13.5
         100|string: "13,50\_₸"
   sku|KZT|dns:
     requests:
@@ -1144,9 +1150,11 @@ default:
   sku|KZT|lockbox:
     api:
       v1:
+        get|number: 17.28
         get|string: "17,28\_₸"
     storage:
       v1:
+        active_secrets|month|number: 90
         active_secrets|month|string: "90,00\_₸"
   sku|KZT|logging:
     ingested:
@@ -1676,6 +1684,7 @@ default:
         cold|string: "4,85\_₸"
         ice|string: "9,70\_₸"
         standard|pricingRate:
+          10|number: 1.95
           10|string: "1,95\_₸"
         standard|string: Не тарифицируется
       head:
@@ -1693,6 +1702,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 7.65
             100|string: "7,65\_₸"
             1024|string: "6,40\_₸"
             102400|string: "5,75\_₸"
@@ -1728,9 +1738,11 @@ default:
         ice|string: "11,80\_₸"
       used_space:
         cold|month|string: "5,35\_₸"
+        ice|month|number: 2.675
         ice|month|string: "2,6750\_₸"
         standard|month|string: Не тарифицируется
         standard|pricingRate:
+          720|month|number: 10.0499
           720|month|string: "10,0499\_₸"
   sku|KZT|support:
     organization:
@@ -2182,11 +2194,14 @@ default:
   sku|RUB|datatransfer:
     compute:
       cpu:
+        v1|number: 1.31
         v1|string: "1,31\_₽"
       ram:
+        v1|number: 0.35
         v1|string: "0,35\_₽"
     rows:
       v1|pricingRate:
+        100|number: 2.7
         100|string: "2,70\_₽"
   sku|RUB|dns:
     requests:
@@ -2327,9 +2342,11 @@ default:
   sku|RUB|lockbox:
     api:
       v1:
+        get|number: 3.456
         get|string: "3,4560\_₽"
     storage:
       v1:
+        active_secrets|month|number: 18
         active_secrets|month|string: "18,00\_₽"
   sku|RUB|logging:
     ingested:
@@ -2859,6 +2876,7 @@ default:
         cold|string: "0,97\_₽"
         ice|string: "1,94\_₽"
         standard|pricingRate:
+          10|number: 0.39
           10|string: "0,39\_₽"
         standard|string: Не тарифицируется
       head:
@@ -2876,6 +2894,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 1.53
             100|string: "1,53\_₽"
             1024|string: "1,28\_₽"
             102400|string: "1,15\_₽"
@@ -2911,9 +2930,11 @@ default:
         ice|string: "2,36\_₽"
       used_space:
         cold|month|string: "1,07\_₽"
+        ice|month|number: 0.535
         ice|month|string: "0,5350\_₽"
         standard|month|string: Не тарифицируется
         standard|pricingRate:
+          720|month|number: 2.01
           720|month|string: "2,01\_₽"
   sku|RUB|support:
     organization:
@@ -3360,15 +3381,19 @@ default:
         v1|string: Не тарифицируется
   sku|USD|datalens:
     users:
+      v1|number: 7.92
       v1|string: "7,920000\_$"
   sku|USD|datatransfer:
     compute:
       cpu:
+        v1|number: 0.01048
         v1|string: "0,010480\_$"
       ram:
+        v1|number: 0.0028
         v1|string: "0,002800\_$"
     rows:
       v1|pricingRate:
+        100|number: 0.0216
         100|string: "0,021600\_$"
   sku|USD|dns:
     requests:
@@ -3508,9 +3533,11 @@ default:
   sku|USD|lockbox:
     api:
       v1:
+        get|number: 0.027648
         get|string: "0,027648\_$"
     storage:
       v1:
+        active_secrets|month|number: 0.144
         active_secrets|month|string: "0,144000\_$"
   sku|USD|logging:
     ingested:
@@ -4008,6 +4035,7 @@ default:
         cold|string: "0,007760\_$"
         ice|string: "0,015520\_$"
         standard|pricingRate:
+          10|number: 0.00312
           10|string: "0,003120\_$"
         standard|string: Не тарифицируется
       head:
@@ -4025,6 +4053,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 0.01224
             100|string: "0,012240\_$"
             1024|string: "0,010240\_$"
             102400|string: "0,009200\_$"
@@ -4060,9 +4089,11 @@ default:
         ice|string: "0,018880\_$"
       used_space:
         cold|month|string: "0,008560\_$"
+        ice|month|number: 0.00428
         ice|month|string: "0,004280\_$"
         standard|month|string: Не тарифицируется
         standard|pricingRate:
+          720|month|number: 0.01608
           720|month|string: "0,016080\_$"
   sku|USD|support:
     organization:
@@ -9598,6 +9629,7 @@ default:
         resume: Продолжить
         save: Сохранить
         select: Выбрать
+        settings-key-value: Настройки
         shared-with-project-resources: Доступные
         spaces: Сообщества
         spark-connector: Коннектор Spark
@@ -9757,6 +9789,11 @@ default:
       spaces-page:
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
+        ssa:
+          add-service-account:
+            button: Добавить сервисный аккаунт
+          settings:
+            title: Сервисный агент
       spark-connector:
         create-cluster-in-dataproc: Создать кластер в Yandex Data&nbsp;Processing
         create-temporary-cluster:

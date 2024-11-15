@@ -54,6 +54,8 @@ To create a {{ MY }} connection:
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql.png)
+
      Click **Check connection** to make sure the parameters are correct.
 
    - {{ connection-manager-name }} {#conn-man}

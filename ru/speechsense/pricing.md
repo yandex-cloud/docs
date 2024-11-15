@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ speechsense-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ speechsense-name }}.
 editable: false
 ---
 

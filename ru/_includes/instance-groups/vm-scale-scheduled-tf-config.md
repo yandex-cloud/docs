@@ -1,11 +1,19 @@
 ```hcl
-locals {
-  token            = "<OAuth-_или_IAM-токен>"
-  cloud_id         = "<идентификатор_облака>"
-  folder_id        = "<идентификатор_каталога>"
-  username         = "<имя_пользователя_ВМ>"
-  ssh_key_path     = "<путь_к_публичному_SSH-ключу>"
+# Объявление переменных для конфиденциальных параметров
+
+variable "folder_id" {
+  type = string
 }
+
+variable "username" {
+  type = string
+}
+
+variable "ssh_key_path" {
+  type = string
+}
+
+# Настройка провайдера
 
 terraform {
   required_providers {
@@ -17,32 +25,34 @@ terraform {
 }
 
 provider "yandex" {
-  token     = local.token
-  cloud_id  = local.cloud_id
-  folder_id = local.folder_id
+  folder_id = var.folder_id
 }
+
+# Создание сервисного аккаунта и назначение ему ролей
 
 resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
   name      = "vm-scale-scheduled-sa"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-compute" {
-  folder_id = "<идентификатор_каталога>"
+  folder_id = var.folder_id
   role      = "compute.admin"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-iam" {
-  folder_id = "<идентификатор_каталога>"
+  folder_id = var.folder_id
   role      = "iam.serviceAccounts.user"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-functions" {
-  folder_id = "<идентификатор_каталога>"
-  role      = "{{ roles-functions-invoker }}"
+  folder_id = var.folder_id
+  role      = "functions.functionInvoker"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
+
+# Создание облачной сети и подсетей
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {
   name = "vm-scale-scheduled-network"
@@ -62,9 +72,13 @@ resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-b" {
   network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
 }
 
+# Создание образа
+
 resource "yandex_compute_image" "vm-scale-scheduled-image" {
   source_family = "ubuntu-2004-lts"
 }
+
+# Создание группы ВМ
 
 resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
   name               = "vm-scale-scheduled-ig"
@@ -102,7 +116,7 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: ${local.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${local.ssh_key_path}")}"
+      user-data = "#cloud-config\nusers:\n  - name: ${var.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
     }
   }
 
@@ -125,6 +139,8 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
   ]
 }
 
+# Создание функции
+
 resource "yandex_function" "vm-scale-scheduled-function" {
   name               = "vm-scale-scheduled-function"
   runtime            = "bash"
@@ -142,13 +158,15 @@ resource "yandex_function" "vm-scale-scheduled-function" {
   environment = {
     IG_NAME      = yandex_compute_instance_group.vm-scale-scheduled-ig.name
     IG_BASE_SIZE = "2"
-    FOLDER_ID    = local.folder_id
+    FOLDER_ID    = var.folder_id
   }
 
   depends_on = [
     yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-functions
   ]
 }
+
+# Создание тригера
 
 resource "yandex_function_trigger" "vm-scale-scheduled-trigger" {
   name = "vm-scale-scheduled-trigger"

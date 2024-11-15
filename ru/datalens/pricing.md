@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ datalens-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ datalens-name }}.
 editable: false
 ---
 

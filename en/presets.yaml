@@ -533,6 +533,7 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-connection-manager-user: connection-manager.user
   roles-connection-manager-viewer: connection-manager.viewer
+  roles-cr-images-scanner: container-registry.images.scanner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datalens-admin: datalens.admin
@@ -993,11 +994,14 @@ default:
   sku|KZT|datatransfer:
     compute:
       cpu:
+        v1|number: 6.55
         v1|string: ₸6.55
       ram:
+        v1|number: 1.75
         v1|string: ₸1.75
     rows:
       v1|pricingRate:
+        100|number: 13.5
         100|string: ₸13.50
   sku|KZT|dns:
     requests:
@@ -1138,9 +1142,11 @@ default:
   sku|KZT|lockbox:
     api:
       v1:
+        get|number: 17.28
         get|string: ₸17.28
     storage:
       v1:
+        active_secrets|month|number: 90
         active_secrets|month|string: ₸90.00
   sku|KZT|logging:
     ingested:
@@ -1670,6 +1676,7 @@ default:
         cold|string: ₸4.85
         ice|string: ₸9.70
         standard|pricingRate:
+          10|number: 1.95
           10|string: ₸1.95
         standard|string: Free
       head:
@@ -1687,6 +1694,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 7.65
             100|string: ₸7.65
             1024|string: ₸6.40
             102400|string: ₸5.75
@@ -1722,9 +1730,11 @@ default:
         ice|string: ₸11.80
       used_space:
         cold|month|string: ₸5.35
+        ice|month|number: 2.675
         ice|month|string: ₸2.6750
         standard|month|string: Free
         standard|pricingRate:
+          720|month|number: 10.0499
           720|month|string: ₸10.0499
   sku|KZT|support:
     organization:
@@ -2176,11 +2186,14 @@ default:
   sku|RUB|datatransfer:
     compute:
       cpu:
+        v1|number: 1.31
         v1|string: ₽1.31
       ram:
+        v1|number: 0.35
         v1|string: ₽0.35
     rows:
       v1|pricingRate:
+        100|number: 2.7
         100|string: ₽2.70
   sku|RUB|dns:
     requests:
@@ -2321,9 +2334,11 @@ default:
   sku|RUB|lockbox:
     api:
       v1:
+        get|number: 3.456
         get|string: ₽3.4560
     storage:
       v1:
+        active_secrets|month|number: 18
         active_secrets|month|string: ₽18.00
   sku|RUB|logging:
     ingested:
@@ -2853,6 +2868,7 @@ default:
         cold|string: ₽0.97
         ice|string: ₽1.94
         standard|pricingRate:
+          10|number: 0.39
           10|string: ₽0.39
         standard|string: Free
       head:
@@ -2870,6 +2886,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 1.53
             100|string: ₽1.53
             1024|string: ₽1.28
             102400|string: ₽1.15
@@ -2905,9 +2922,11 @@ default:
         ice|string: ₽2.36
       used_space:
         cold|month|string: ₽1.07
+        ice|month|number: 0.535
         ice|month|string: ₽0.5350
         standard|month|string: Free
         standard|pricingRate:
+          720|month|number: 2.01
           720|month|string: ₽2.01
   sku|RUB|support:
     organization:
@@ -3354,15 +3373,19 @@ default:
         v1|string: Free
   sku|USD|datalens:
     users:
+      v1|number: 7.92
       v1|string: $7.920000
   sku|USD|datatransfer:
     compute:
       cpu:
+        v1|number: 0.01048
         v1|string: $0.010480
       ram:
+        v1|number: 0.0028
         v1|string: $0.002800
     rows:
       v1|pricingRate:
+        100|number: 0.0216
         100|string: $0.021600
   sku|USD|dns:
     requests:
@@ -3502,9 +3525,11 @@ default:
   sku|USD|lockbox:
     api:
       v1:
+        get|number: 0.027648
         get|string: $0.027648
     storage:
       v1:
+        active_secrets|month|number: 0.144
         active_secrets|month|string: $0.144000
   sku|USD|logging:
     ingested:
@@ -4002,6 +4027,7 @@ default:
         cold|string: $0.007760
         ice|string: $0.015520
         standard|pricingRate:
+          10|number: 0.00312
           10|string: $0.003120
         standard|string: Free
       head:
@@ -4019,6 +4045,7 @@ default:
       network:
         inet:
           egress|pricingRate:
+            100|number: 0.01224
             100|string: $0.012240
             1024|string: $0.010240
             102400|string: $0.009200
@@ -4054,9 +4081,11 @@ default:
         ice|string: $0.018880
       used_space:
         cold|month|string: $0.008560
+        ice|month|number: 0.00428
         ice|month|string: $0.004280
         standard|month|string: Free
         standard|pricingRate:
+          720|month|number: 0.01608
           720|month|string: $0.016080
   sku|USD|support:
     organization:
@@ -9590,6 +9619,7 @@ default:
         resume: Resume
         save: Save
         select: Select
+        settings-key-value: Settings
         shared-with-project-resources: Shared
         spaces: Communities
         spark-connector: Spark connector
@@ -9749,6 +9779,11 @@ default:
       spaces-page:
         community-resources: Community resources
         configurations: Configurations
+        ssa:
+          add-service-account:
+            button: Add service account
+          settings:
+            title: Service agent
       spark-connector:
         create-cluster-in-dataproc: Create cluster in Yandex Data&nbsp;Processing
         create-temporary-cluster:

@@ -1,6 +1,9 @@
 ---
+title: Импортировать задачу
+description: Из статьи вы узнаете про импорт задач из других систем управления проектами, формат запроса и ответа.
 sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
 ---
+
 # Импортировать задачу
 
 

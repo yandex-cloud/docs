@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mtr-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mtr-name }}.
 editable: false
 noIndex: true
 ---

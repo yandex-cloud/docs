@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для по
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [пользовательский сертификат](../concepts/imported-certificate.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+На [пользовательский сертификат](../concepts/imported-certificate.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/add-access-binding.md) или [API](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

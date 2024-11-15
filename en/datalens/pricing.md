@@ -23,17 +23,17 @@ Service plans offer different feature sets and [cost](#prices) differently.
 
 **Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------
-Creating [charts](./concepts/chart/index.md) and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) 
-[Data model description](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)
-[Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)
-[Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) 
+Creating [charts](./concepts/chart/index.md) and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Data model description](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Authentication](./security/add-new-user.md) | Yandex ID | Yandex ID, corporate accounts / SSO¹
-[Report builder](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+[Report builder](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Secure chart and dashboard embedding](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
-{{ datalens-name }} usage statistics | General ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Advanced ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash))
-[SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+[Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+{{ datalens-name }} usage statistics | General ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Advanced ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash)) 
+[SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
 Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
 
 {% note info %}
@@ -52,11 +52,41 @@ If you change to the _Business_ plan, the price for the first month will be prop
 
 {% endnote %}
 
-A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md).
+A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset.
+
+The number of billable users is calculated on a monthly basis. Each month, active users are counted anew based on activity. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
+
+{% cut "Cost calculation example" %}
+
+Let’s assume an organization has 5 Business plan users of {{ datalens-name }} whose activity over three months was as follows:
+
+* In June, `user_1`, `user_2`, and `user_3` were active. The fee for June will be:
+  
+
+
+  {% include [usd-example](../_pricing_examples/datalens/usd-users-1.md) %}
+
+
+* In July, `user_2` and `user_3` were active. The fee for July will be:
+
+
+
+  {% include [usd-example](../_pricing_examples/datalens/usd-users-2.md) %}
+
+
+* In August, `user_1`, `user_2`, `user_3`, `user_4`, and `user_5` were active. The fee for August will be:
+
+
+
+  {% include [usd-example](../_pricing_examples/datalens/usd-users-3.md) %}
+
+
+{% endcut %}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}
+
 

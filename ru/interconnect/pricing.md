@@ -1,3 +1,9 @@
+---
+title: Правила тарификации для {{ interconnect-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ interconnect-name }}.
+editable: false
+---
+
 # Правила тарификации для {{ interconnect-name }}
 
 

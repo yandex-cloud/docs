@@ -21,33 +21,9 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
 | Returns information about a community | [Get](grpc/Community/get.md) | [get](Community/get.md) |
 | Returns a list of communities in the specified organization | [List](grpc/Community/list.md) | [list](Community/list.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Creating a community:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"organization_id": "<organization_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.CommunityService/Create
-    ```
-
-  **Example**. Viewing a list of communities in an organization:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"organization_id": "<organization_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.CommunityService/List
-    ```
-
-  For more information about the `CommunityService` calls, see the [API documentation](grpc/Community/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Creating a community:
 
@@ -71,6 +47,31 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
 
   For more information about the `Community` methods, see the [API documentation](Community/index.md).
 
+
+- gRPC API {#grpc-api}
+
+  **Example**. Creating a community:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"organization_id": "<organization_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.CommunityService/Create
+    ```
+
+  **Example**. Viewing a list of communities in an organization:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"organization_id": "<organization_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.CommunityService/List
+    ```
+
+   For more information about the `CommunityService` calls, see the [API documentation](grpc/Community/index.md).
+
 {% endlist %}
 
 ## Working with projects {#project}
@@ -86,33 +87,10 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
 | Returns information about a project | [Get](grpc/Project/get.md) | [get](Project/get.md) |
 | Retrieves the list of projects in the specified community | [List](grpc/Project/list.md) | [list](Project/list.md) |
 
-{% list tabs group=api_type %}
 
-- gRPC {#grpc-api}
+{% list tabs group=instructions %}
 
-  **Example**. Creating a project:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"community_id": "<community_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/Create
-    ```
-
-  **Example**. Viewing a list of folder projects:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"community_id": "<community_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/List
-    ```
-
-  For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Creating a project:
 
@@ -136,6 +114,30 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
 
   For more information about the `Project` methods, see the [API documentation](Project/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Example**. Creating a project:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"community_id": "<community_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/Create
+    ```
+
+  **Example**. Viewing a list of folder projects:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"community_id": "<community_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/List
+    ```
+
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+
 {% endlist %}
 
 ## Working with notebooks {#notebook}
@@ -147,25 +149,9 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 | Runs the specified notebook | [Execute](grpc/Project/execute.md) | [execute](Project/execute.md) |
 
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Running the whole notebook:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"project_id": "<project_ID>", "target": "notebook_id", "notebook_id": "<notebook_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/Execute
-    ```
-
-  To get the notebook ID, follow the [{#T}](../operations/projects/get-notebook-cell-ids.md) guide.
-
-  For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Running the whole notebook:
 
@@ -180,6 +166,22 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
   To get the notebook ID, follow the [{#T}](../operations/projects/get-notebook-cell-ids.md) guide.
 
   For more information about the `Project` methods, see the [API documentation](Project/index.md).
+
+- gRPC API {#grpc-api}
+
+  **Example**. Running the whole notebook:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"project_id": "<project_ID>", "target": "notebook_id", "notebook_id": "<notebook_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/Execute
+    ```
+
+  To get the notebook ID, follow the [{#T}](../operations/projects/get-notebook-cell-ids.md) guide.
+
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -197,33 +199,9 @@ Each resource has its own group of API methods implemented in {{ ml-platform-nam
 | Deactivates an S3 connector | [Deactivate](grpc/S3/deactivate.md) | [deactivate](S3/deactivate.md) |
 | Activates a Docker image | [Activate](grpc/DockerImage/activate.md) | [activate](DockerImage/activate.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Activating a dataset:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d "{\"project_id\": \"<project_ID>\", \"dataset_id\": \"<dataset_ID>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.DatasetService/Activate
-    ```
-
-  **Example**. Deactivating a dataset:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d "{\"project_id\": \"<project_ID>\", \"dataset_id\": \"<dataset_ID>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.DatasetService/Deactivate
-    ```
-
-  For more information about the `DatasetService` calls, see the [API documentation](grpc/Dataset/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Activating a dataset:
 
@@ -247,6 +225,30 @@ Each resource has its own group of API methods implemented in {{ ml-platform-nam
 
   For more information about the `Dataset` methods, see the [API documentation](Dataset/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Example**. Activating a dataset:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d "{\"project_id\": \"<project_ID>\", \"dataset_id\": \"<dataset_ID>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Activate
+    ```
+
+  **Example**. Deactivating a dataset:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d "{\"project_id\": \"<project_ID>\", \"dataset_id\": \"<dataset_ID>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Deactivate
+    ```
+
+  For more information about the `DatasetService` calls, see the [API documentation](grpc/Dataset/index.md).
+
 {% endlist %}
 
 ### Adding and deleting resources {#add-remove}
@@ -262,33 +264,9 @@ To enable your project to use another project's resources, you need to [share](.
 | Adds a resource to a project | [AddResource](grpc/Project/addResource.md) | [addResource](Project/addResource.md) |
 | Deletes a resource from a project | [RemoveResource](grpc/Project/removeResource.md) | [removeResource](Project/removeResource.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Adding a resource to a project:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d "{\"project_id\": \"<project_ID>\", \"resource_id\": \"<resource_ID>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/AddResource
-    ```
-
-  **Example**. Deleting a resource from a project:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d "{\"project_id\": \"<project_ID>\", \"resource_id\": \"<resource_ID>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
-    ```
-
-  For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Adding a resource to a project:
 
@@ -312,6 +290,30 @@ To enable your project to use another project's resources, you need to [share](.
 
   For more information about the `Project` methods, see the [API documentation](Project/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Example**. Adding a resource to a project:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d "{\"project_id\": \"<project_ID>\", \"resource_id\": \"<resource_ID>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/AddResource
+    ```
+
+  **Example**. Deleting a resource from a project:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d "{\"project_id\": \"<project_ID>\", \"resource_id\": \"<resource_ID>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
+    ```
+
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+
 {% endlist %}
 
 ## Access management {#access}
@@ -327,33 +329,9 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 | Sets up access to a community | [SetAccessBindings](grpc/Community/setAccessBindings.md) | [setAccessBindings](Community/setAccessBindings.md) |
 | Updates access to a community | [UpdateAccessBindings](grpc/Community/updateAccessBindings.md) | [updateAccessBindings](Community/updateAccessBindings.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Viewing a list of access permissions for a project:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"resource_id": "<project_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
-    ```
-
-  **Example**. Return a list of access permissions for a community:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"resource_id": "<community_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
-    ```
-
-  For more information about the [ProjectService](grpc/Project/index.md) and [CommunityService](grpc/Community/index.md) methods, see the API documentation.
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Viewing a list of access permissions for a project:
 
@@ -375,6 +353,31 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 
   For more information about the [Project](Project/index.md) and [Community](Community/index.md) methods, see the API documentation.
 
+
+- gRPC API {#grpc-api}
+
+  **Example**. Viewing a list of access permissions for a project:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"resource_id": "<project_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
+    ```
+
+  **Example**. Return a list of access permissions for a community:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"resource_id": "<community_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
+    ```
+
+   For more information about the [ProjectService](grpc/Project/index.md) and [CommunityService](grpc/Community/index.md) methods, see the API documentation.
+
 {% endlist %}
 
 ## Managing consumption limits {#limits}
@@ -386,23 +389,9 @@ You can use the API to set up consumption limits for a project (`ProjectService`
 | Returns a project's balance | [GetUnitBalance](grpc/Project/getUnitBalance.md) | [getUnitBalance](Project/getUnitBalance.md) |
 | Sets a project's balance | [SetUnitBalance](grpc/Project/setUnitBalance.md) | [setUnitBalance](Project/setUnitBalance.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Example**. Getting a project's balance:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM_token>" \
-      -d '{"project_id": "<project_ID>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
-    ```
-
-  For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Example**. Getting a project's balance:
 
@@ -414,5 +403,19 @@ You can use the API to set up consumption limits for a project (`ProjectService`
     ```
 
   For more information about the `Project` methods, see the [API documentation](Project/index.md).
+
+- gRPC API {#grpc-api}
+
+  **Example**. Getting a project's balance:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM_token>" \
+      -d '{"project_id": "<project_ID>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
+    ```
+
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 {% endlist %}

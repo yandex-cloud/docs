@@ -1,5 +1,5 @@
 ---
-title: Gateway API для {{ managed-k8s-name }}
+title: Gateway API для {{ managed-k8s-full-name }}
 description: '{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в кластерах {{ managed-k8s-full-name }} — Gateway API.'
 ---
 

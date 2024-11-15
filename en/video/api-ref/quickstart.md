@@ -22,9 +22,9 @@ To use the examples, install [cURL](https://curl.haxx.se) and [gRPCurl](https://
 
 To create a channel, run this command:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
@@ -152,9 +152,9 @@ Save the new channel's ID (`channelId` value) as you will need it later.
 
 1. To create a video, run this command:
 
-    {% list tabs group=api_type %}
+    {% list tabs group=instructions %}
 
-    - REST API {#rest-api}
+    - REST API {#api}
 
       ```bash
       curl \
@@ -298,9 +298,9 @@ Where:
 
 Check that the video has been fully uploaded. To do this, run the following command by specifying the video ID (`videoId`) you saved earlier:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
@@ -426,9 +426,9 @@ To complete the upload, you need to know the `offset` position the previous uplo
 
 To get a link to the video player, run this command:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \ 
@@ -447,6 +447,7 @@ To get a link to the video player, run this command:
     }' \
     video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/GetPlayerURL
   ```
+  
 {% endlist %}
 
 Where:

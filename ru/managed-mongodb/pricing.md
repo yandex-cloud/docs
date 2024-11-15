@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mmg-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mmg-name }}.
 editable: false
 ---
 

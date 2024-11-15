@@ -6,6 +6,8 @@
 * [генерации текста](../concepts/yandexgpt/index.md) от {{ yagpt-name }};
 * работа с [эмбеддингами](../concepts/embeddings.md);
 * работа с [классификаторами на базе {{ yagpt-name }}](../concepts/classifier/index.md);
+* создание ассистентов;
+* [генерация изображений](../concepts/yandexart/index.md) от {{ yandexart-name }};
 * интеграция с [LangСhain](https://www.langchain.com/).
 
 Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).

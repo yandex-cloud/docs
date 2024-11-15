@@ -46,7 +46,7 @@ To simplify the comparison of different values and make the information easier t
 Wizard<br/> section| Description
 ----- | ----
 Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
-Colors | Measure. Affects shading of all cells within a row. It may only contain one measure.
+Colors | Measure. Affects color fill of all cells within a row. It may only contain one measure.
 Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of fields in the section affects the sorting order of the table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.
 
@@ -82,7 +82,7 @@ To create a table:
 ### Adding a tooltip to a table header {#hint-column}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
-1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
+1. In the window that opens, enable the **Tooltip** option, enter the text in the field below, and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
 
 When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
@@ -101,7 +101,7 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
    * `%`: Column width as a percentage of the table's total width.
    * `px`: Column width in pixels.
 
-   The `%` and `px` options allow you to break text within cells by word. This may increase the number of rows in a cell.
+   The `%` and `px` options allow you to break text within cells by word. Thus the number of rows in a cell may grow.
 
    {% cut "Example of column width settings" %}
 
@@ -134,7 +134,9 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 
 {% note info %}
 
-Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
+* Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
+* If the **Pagination** option is selected, the **Total** row is placed on the last page.
+* If a table consists of a single entry, the **Total** row is not displayed.
 
 {% endnote %}
 
@@ -144,10 +146,12 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 1. In the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. Set up colors:
 
-    * **Gradient type**: Select two or three colors.
-      * Gradient color: Select a color palette for the gradient from the list.
-      * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
-    * **Set threshold values**: Set numeric thresholds for each color.
+   * **Gradient type**: Select two or three colors.
+
+     * Gradient color: Select a color palette for the gradient from the list.
+     * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
+
+   * **Set threshold values**: Set numeric thresholds for each color.
 
 ### Setting the field fill color {#set-field-color}
 
@@ -208,7 +212,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 1. Click **Apply**.
 
-{% cut "Sample chart with a linear indicator" %}
+{% cut "Example of a chart with a linear indicator" %}
 
 ![image](../../_assets/datalens/operations/chart/table-linear-indicator.png)
 
@@ -220,7 +224,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 * Use tables for their intended purpose only. Do not replace all data visualization types with them.
 * Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and readable.
-* Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
+* Enable the display of totals at the bottom of a table.
 
   {% cut "Table with totals and pagination" %}
 
@@ -231,17 +235,17 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space. 
 
   {% cut "Setting up auto height" %}
-
+  
   ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
 
   {% endcut %}
-
+  
   If you use a filter, the table height will automatically adapt to the number of rows.
-
+  
   {% cut "Using a filter with the auto height option enabled" %}
-
+  
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
-
+  
   ![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png)
 
   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
@@ -252,18 +256,18 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
-  * Subtotal amount of sales by product category: `CategorySales` measure with the `SUM(SUM([Sales]) WITHIN [ProductCategory])` formula.
-  * Total sales: `TotalSales` measure with the `SUM(SUM([Sales]) TOTAL)` formula.
+  * Sales subtotal by product category: `CategorySales` with the `SUM(SUM([Sales]) WITHIN [ProductCategory])` formula.
+  * Total sales: `TotalSales` with the `SUM(SUM([Sales]) TOTAL)` formula.
 
-    {% cut "Sample table" %}
+    {% cut "Table example" %}
 
     ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
 
     {% endcut %}
 
-  * Maximum order count per month grouped by product category: `MaxCountByCategory` measure with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
+  * Maximum order count per month grouped by product category: `MaxCountByCategory` with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
 
-    {% cut "Sample table" %}
+    {% cut "Table example" %}
 
     ![table-count](../../_assets/datalens/visualization-ref/table-chart/table-count.png)
 
@@ -280,4 +284,4 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   {% endcut %}
 
-* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the **Units** drop-down list, you will see the `10.3 M` value rather than `10,345,234.23`. If you set the `Precision` field to `2`, you will see `123.12` rather than `123.1234`.
+* When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.

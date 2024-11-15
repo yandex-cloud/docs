@@ -91,8 +91,14 @@ items:
             href: tutorials/run-docker-on-vm/console.md
           - name: '{{ TF }}'
             href: tutorials/run-docker-on-vm/terraform.md
-      - name: Настройка автоматического сканирования Docker-образа
-        href: tutorials/image-auto-scan.md
+      - name: Автоматическое сканирование Docker-образа при загрузке
+        items:
+          - name: Обзор
+            href: tutorials/image-auto-scan/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/image-auto-scan/console.md
+          - name: '{{ TF }}'
+            href: tutorials/image-auto-scan/terraform.md
         hidden: true
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md

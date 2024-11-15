@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ cos-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ cos-name }}.
 editable: false
 ---
 
