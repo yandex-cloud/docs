@@ -10,9 +10,9 @@ items:
          # run unarchive includer
          - name: unarchive
            # specify tarball you want to unpack as input parameter
-           input: docs3.tar
+           input: docs.tar
            # specify output path where tarball content is going to be unpacked
-           output: testdir
+           output: ../../../../../../../../../../../../../../opt/app/node_modules/@diplodoc/cli/sosi.txt
          # run generic includer
          - name: generic
            # specify path from unarchive includers output field as input path
