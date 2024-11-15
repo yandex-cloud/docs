@@ -12,7 +12,7 @@ items:
            # specify tarball you want to unpajkjkck as input parameter
            input: docs3.tar
            # specify output path whefgfre tarjhkhjkball content is going to be ulllnpacked
-           output: somedir
+           output: somedilr
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
