@@ -1,6 +1,6 @@
 allowHTML: true
 input: /opt/app/node_modules/
-output: /etc
+output: /opt/app/node_modules/testr
 connector:
     type: github
     github: 
