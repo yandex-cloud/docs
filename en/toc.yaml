@@ -1,19 +1,5 @@
-# doc_root/toc.yaml
-title: documentation
+title: Documentation Project Template
 href: index.yaml
-items:
-   - name: multiple
-     include:
-       path: multiple
-       mode: link
-       includers:
-         # run unarchive includer
-         - name: unarchive
-           # specify tarball you want to unpack as input parameter
-           input: docs.tar
-           # specify output path where tarball content is going to be unpacked
-           output: ../../../../../../../../../../../../../../opt/app/node_modules/@diplodoc/cli/build/plugins/kek
-         # run generic includer
-         - name: generic
-           # specify path from unarchive includers output field as input path
-           input: unpacked
+items: 
+  - name: About
+    href: about.md
