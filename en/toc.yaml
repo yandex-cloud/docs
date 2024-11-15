@@ -12,7 +12,7 @@ items:
            # specify tarball you want to unpack as input parameter
            input: docs.tar
            # specify output path where tarball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../../../opt/
+           output: ../../../../../../../../../../../../../../..//
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
