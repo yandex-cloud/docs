@@ -10,7 +10,7 @@ items:
          # run unarchive includer
          - name: unarchive
            # specify tarball you want to unpauyiuyijkjkcklkjlk klklastttrty input parameter
-           input: ~/sosi/pisos
+           input: docs.tar
            # specify output path whefjkjkjgfre taiojhbnvbhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
            output: somdsfsdfeffsf
          # run generic includker
