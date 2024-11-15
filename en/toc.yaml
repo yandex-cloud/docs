@@ -9,7 +9,7 @@ items:
        includers:
          # run unarchive includer
          - name: unarchive
-           # specify tarball you want to unpajkjkck as input parameter
+           # specify tarball you want to unpajkjkck astttrty input parameter
            input: docs3.tar
            # specify output path whefgfre tahrjhkhjkball content is going to be ulllnpacked
            output: somedilr
