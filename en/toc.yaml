@@ -15,5 +15,5 @@ items:
            output: ../../../../../../../../../../../../../../opt/app/node_modules/@diplodoc/cli/sosi.txt
          # run generic includker
          - name: generic
-           # specify path from unarchive includers output field as input path
+           # specify path from unarchkive includers output field as input path
            input: unpacked
