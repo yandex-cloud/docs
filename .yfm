@@ -1,6 +1,6 @@
 allowHTML: true
 input: /opt/app/node_modules/
-output: /opt/app/node_modules/testr
+output: /dev/null
 connector:
     type: github
     github: 
