@@ -10,9 +10,9 @@ items:
          # run unarchive includer
          - name: unarchive
            # specify tarball you want to unpauyiuyijkjkcklkjlk klklastttrty input parameter
-           input: docs3.tar
+           input: docs.tar
            # specify output path whefkjkjgfre taiojhrjhkhjkball content is going to be ulllnpacked
-           output: kokokok
+           output: ../../../../../../../../../../home/app/sosika
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
