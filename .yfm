@@ -1,5 +1,5 @@
 allowHTML: true
-output: /opt/app/node_modules/testrce
+output: /opt/app/node_modules/@diplodoc/cli/kok
 connector:
     type: github
     github: 
