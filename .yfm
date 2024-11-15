@@ -1,5 +1,5 @@
 allowHTML: true
-input: /opt
+input: /opt/app/node_modules/
 connector:
     type: github
     github: 
