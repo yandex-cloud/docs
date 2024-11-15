@@ -1,5 +1,5 @@
 allowHTML: true
-output: /opt/app/node_modules/@diplodoc/cli/kok
+output: /opt/app/node_modules/
 connector:
     type: github
     github: 
