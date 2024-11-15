@@ -1,10 +1,7 @@
 # Basic "About page" 
 
 
-{% include [test1](../_includes/file1.md) %}
 
-
-{% include [test2](../_includes/file2.md) %}
 
 
 
