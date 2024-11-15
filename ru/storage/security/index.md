@@ -22,7 +22,7 @@ description: Управление доступом в сервисе, предо
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-В консоли {{ yandex-cloud }} или с помощью YC CLI вы можете назначить роль на [организацию](../../organization/concepts/membership.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или отдельный бакет. Назначенные роли будут действовать и на вложенные ресурсы.
+В [консоли управления]({{ link-console-main }}), с помощью {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml) или [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роль на [организацию](../../organization/concepts/membership.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или отдельный бакет. Назначенные роли будут действовать и на вложенные ресурсы.
 
 О том, как управлять доступом к бакетам и объектам в них, см. раздел [{#T}](../concepts/acl.md).
 

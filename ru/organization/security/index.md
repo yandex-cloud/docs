@@ -12,7 +12,7 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-С помощью [интерфейса {{ cloud-center }}]({{ cloud-center-link }}), [YC CLI](../../cli/quickstart.md) или [API {{ yandex-cloud }}](../../api-design-guide/index.yaml) роль можно назначить на отдельные ресурсы сервиса:
+С помощью [интерфейса {{ cloud-center }}]({{ cloud-center-link }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/organization-manager/index.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-link }}) роль можно назначить на отдельные ресурсы сервиса:
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 

@@ -22,7 +22,7 @@ The private part of an authorized {{ yandex-cloud }} key starts with `PLEASE DO 
 The following services support authentication based on authorized keys:
 
 
-* [{{ datalens-full-name }}](../../../datalens/operations/connection/create-big-query.md)
+
 * [{{ kms-full-name }}](../../../kms/tutorials/index.md)
 * [{{ maf-full-name }}](../../../managed-airflow/tutorials/data-proc-automation.md)
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/tutorials/index.md)

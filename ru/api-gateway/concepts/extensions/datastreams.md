@@ -1,3 +1,8 @@
+---
+title: Расширение x-yc-apigateway-integration:cloud_datastreams
+description: Из статьи вы узнаете, для чего нужно расширение x-yc-apigateway-integration:cloud_datastreams, какие оно поддерживает параметры, как выглядит его спецификация.
+---
+
 # Расширение x-yc-apigateway-integration:cloud_datastreams
 
  Расширение `x-yc-apigateway-integration:cloud_datastreams` позволяет обращаться к {{ yds-full-name }} для выполнения операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts). На данный момент поддерживается только операция [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). 

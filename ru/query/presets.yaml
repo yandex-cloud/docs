@@ -3,4 +3,3 @@ default:
   audience: external
   backend_name: YDB
   feature_join: true
-  link-console-billing: https://billing.yandex.cloud/accounts

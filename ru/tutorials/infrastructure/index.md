@@ -14,7 +14,7 @@ description: Различные сценарии использования си
 * [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-full-name }}](../web/application-load-balancer-website.md)
 * [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../infrastructure-management/vm-autoscale/index.md)
-* [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled.md)
+* [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled/index.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Обновление группы ВМ под нагрузкой](../infrastructure-management/updating-under-load.md)
 * [Создание триггера для бюджетов, который вызывает функцию {{ sf-full-name }} для остановки ВМ](../infrastructure-management/serverless-trigger-budget-vm.md)

@@ -1,6 +1,5 @@
 You cannot embed private objects based on the following connections: {#unsupported-connections}
-
-  * [Google BigQuery](../../datalens/operations/connection/create-big-query.md)
+  
   * [Snowflake](../../datalens/operations/connection/create-snowflake.md)
   * [Metrica](../../datalens/operations/connection/create-metrica-api.md)
   * [AppMetrica](../../datalens/operations/connection/create-appmetrica.md)

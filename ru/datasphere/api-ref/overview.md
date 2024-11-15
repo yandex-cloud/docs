@@ -21,33 +21,9 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Возвращает информацию о сообществе | [Get](grpc/Community/get.md) | [get](Community/get.md) |
 | Возвращает список сообществ в указанной организации | [List](grpc/Community/list.md) | [list](Community/list.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Пример**. Создание нового сообщества:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.CommunityService/Create
-    ```
-
-  **Пример**. Вывод списка сообществ в организации:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.CommunityService/List
-    ```
-
-  Подробную информацию о вызовах `CommunityService` см. в [API-документации](grpc/Community/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Пример**. Создание нового сообщества:
 
@@ -71,6 +47,30 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Подробную информацию о методах `Community` см. в [API-документации](Community/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Пример**. Создание нового сообщества:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"organization_id": "<идентификатор_организации>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.CommunityService/Create
+    ```
+
+  **Пример**. Вывод списка сообществ в организации:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"organization_id": "<идентификатор_организации>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.CommunityService/List
+    ```
+
+  Подробную информацию о вызовах `CommunityService` см. в [API-документации](grpc/Community/index.md).
+
 {% endlist %}
 
 ## Работа с проектом {#project}
@@ -86,33 +86,9 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Возвращает информацию о проекте | [Get](grpc/Project/get.md) | [get](Project/get.md) |
 | Возвращает список проектов в указанном сообществе | [List](grpc/Project/list.md) | [list](Project/list.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Пример**. Создание нового проекта:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/Create
-    ```
-
-  **Пример**. Вывод списка проектов в каталоге:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/List
-    ```
-
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Пример**. Создание нового проекта:
 
@@ -136,6 +112,30 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Пример**. Создание нового проекта:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"community_id": "<идентификатор_сообщества>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/Create
+    ```
+
+  **Пример**. Вывод списка проектов в каталоге:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"community_id": "<идентификатор_сообщества>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/List
+    ```
+
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+
 {% endlist %}
 
 ## Работа с ноутбуком {#notebook}
@@ -147,25 +147,9 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Запускает заданный ноутбук | [Execute](grpc/Project/execute.md) | [execute](Project/execute.md) |
 
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Пример**. Запуск всего ноутбука:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"project_id": "<идентификатор_проекта>", "target": "notebook_id", "notebook_id": "<идентификатор_ноутбука>"}' \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/Execute
-    ```
-
-  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
-
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Пример**. Запуск всего ноутбука:
 
@@ -180,6 +164,22 @@ description: Управление ресурсами {{ ml-platform-full-name }}
   Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+
+- gRPC API {#grpc-api}
+
+  **Пример**. Запуск всего ноутбука:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"project_id": "<идентификатор_проекта>", "target": "notebook_id", "notebook_id": "<идентификатор_ноутбука>"}' \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/Execute
+    ```
+
+  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
+
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -197,33 +197,9 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Деактивирует коннектор S3 | [Deactivate](grpc/S3/deactivate.md) | [deactivate](S3/deactivate.md) |
 | Активирует Docker-образ | [Activate](grpc/DockerImage/activate.md) | [activate](DockerImage/activate.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Пример**. Активация датасета:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.DatasetService/Activate
-    ```
-
-  **Пример**. Деактивация датасета:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.DatasetService/Deactivate
-    ```
-
-  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/Dataset/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Пример**. Активация датасета:
 
@@ -247,6 +223,30 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Подробную информацию о методах `Dataset` см. в [API-документации](Dataset/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Пример**. Активация датасета:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Activate
+    ```
+
+  **Пример**. Деактивация датасета:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Deactivate
+    ```
+
+  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/Dataset/index.md).
+
 {% endlist %}
 
 ### Добавление и удаление ресурсов {#add-remove}
@@ -262,33 +262,9 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Добавляет ресурс в проект | [AddResource](grpc/Project/addResource.md) | [addResource](Project/addResource.md) |
 | Удаляет ресурс из проекта | [RemoveResource](grpc/Project/removeResource.md) | [removeResource](Project/removeResource.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
-
-  **Пример**. Добавление ресурса в проект:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/AddResource
-    ```
-
-  **Пример**. Удаление ресурса из проекта:
-
-    ```bash
-    grpcurl \
-      -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
-      datasphere.{{ api-host }}:443 \
-      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
-    ```
-
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
-
-- REST {#rest-api}
+- REST API {#api}
 
   **Пример**. Добавление ресурса в проект:
 
@@ -312,6 +288,30 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
 
+- gRPC API {#grpc-api}
+
+  **Пример**. Добавление ресурса в проект:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/AddResource
+    ```
+
+  **Пример**. Удаление ресурса из проекта:
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
+    ```
+
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+
 {% endlist %}
 
 ## Управление доступами {#access}
@@ -327,9 +327,31 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Устанавливает доступ к сообществу | [SetAccessBindings](grpc/Community/setAccessBindings.md) | [setAccessBindings](Community/setAccessBindings.md) |
 | Обновляет доступ к сообществу | [UpdateAccessBindings](grpc/Community/updateAccessBindings.md) | [updateAccessBindings](Community/updateAccessBindings.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
+- REST API {#api}
+
+  **Пример**. Вывод списка доступов к проекту:
+
+    ```bash
+    curl \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --request GET \
+      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
+    ```
+
+  **Пример**. Вывод списка доступов к сообществу:
+
+    ```bash
+    curl \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --request GET \
+      "https://datasphere.{{ api-host }}/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
+    ```
+
+  Подробную информацию о методах см. в API-документации [Project](Project/index.md) и [Community](Community/index.md).
+
+- gRPC API {#grpc-api}
 
   **Пример**. Вывод списка доступов к проекту:
 
@@ -353,28 +375,6 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Подробную информацию о методах см. в API-документации [ProjectService](grpc/Project/index.md) и [CommunityService](grpc/Community/index.md).
 
-- REST {#rest-api}
-
-  **Пример**. Вывод списка доступов к проекту:
-
-    ```bash
-    curl \
-      --header "Authorization: Bearer <IAM-токен>" \
-      --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
-    ```
-
-  **Пример**. Вывод списка доступов к сообществу:
-
-    ```bash
-    curl \
-      --header "Authorization: Bearer <IAM-токен>" \
-      --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
-    ```
-
-  Подробную информацию о методах см. в API-документации [Project](Project/index.md) и [Community](Community/index.md).
-
 {% endlist %}
 
 ## Управление ограничениями вычислений {#limits}
@@ -386,9 +386,22 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 | Возвращает баланс проекта | [GetUnitBalance](grpc/Project/getUnitBalance.md) | [getUnitBalance](Project/getUnitBalance.md) |
 | Устанавливает баланс проекта | [SetUnitBalance](grpc/Project/setUnitBalance.md) | [setUnitBalance](Project/setUnitBalance.md) |
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- gRPC {#grpc-api}
+- REST API {#api}
+
+  **Пример**. Получение баланса проекта:
+
+    ```bash
+    curl \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --request GET \
+      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
+    ```
+
+  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+
+- gRPC API {#grpc-api}
 
   **Пример**. Получение баланса проекта:
 
@@ -401,18 +414,5 @@ description: Управление ресурсами {{ ml-platform-full-name }}
     ```
 
   Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
-
-- REST {#rest-api}
-
-  **Пример**. Получение баланса проекта:
-
-    ```bash
-    curl \
-      --header "Authorization: Bearer <IAM-токен>" \
-      --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
-    ```
-
-  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
 
 {% endlist %}

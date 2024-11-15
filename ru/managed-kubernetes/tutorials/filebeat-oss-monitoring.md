@@ -1,3 +1,8 @@
+---
+title: Мониторинг кластера {{ managed-k8s-full-name }} с помощью Filebeat OSS
+description: Следуя данному руководству, вы сможете настроить мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS.
+---
+
 # Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
 
 

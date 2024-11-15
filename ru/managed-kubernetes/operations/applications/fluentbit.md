@@ -1,3 +1,8 @@
+---
+title: Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}
+description: Следуя данной инструкции, вы сможете установить Fluent Bit с плагином для {{ cloud-logging-name }}.
+---
+
 # Установка Fluent Bit с плагином для {{ cloud-logging-name }}
 
 

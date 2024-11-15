@@ -123,3 +123,8 @@ datasphere project job get --id <идентификатор_задания>
 ```bash
 datasphere --log-dir <новая_директория>
 ```
+
+#### См. также {#see-also}
+
+* [{#T}](../../operations/projects/work-with-jobs.md)
+* [{#T}](../../operations/projects/use-job-results.md)

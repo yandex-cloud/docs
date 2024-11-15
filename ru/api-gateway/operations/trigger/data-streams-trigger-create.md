@@ -1,3 +1,8 @@
+---
+title: Создать триггер для {{ yds-full-name }}, который отправляет сообщения в WebSocket-соединения
+description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения, а также проверить результат его работы.
+---
+
 # Создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения
 
  Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).

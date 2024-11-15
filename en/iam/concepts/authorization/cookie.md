@@ -9,4 +9,4 @@ description: In this tutorial, you will learn about the cookies used by {{ yande
 
 In each service's console, e.g., [management console]({{ link-console-main }}) or [{{ cloud-center }}]({{ cloud-center-link }}), cookies are independent of each other.
 
-All cookies are linked to a single logical session initiated by [{{ auth-main-host }}]({{ auth-main-host }}).
+All cookies are linked to a single logical session initiated by [{{ auth-main-host }}](https://{{ auth-main-host }}).

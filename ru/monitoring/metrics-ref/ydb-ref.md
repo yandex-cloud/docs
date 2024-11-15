@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ ydb-full-name }}
+description: Из статьи вы узнаете про метрики {{ ydb-name }}.
 editable: false
 ---
 

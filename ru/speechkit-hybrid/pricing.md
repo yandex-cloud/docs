@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ sk-hybrid-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ sk-hybrid-name }}.
 editable: false
 ---
 

@@ -8,4 +8,4 @@
 * [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-full-name }}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](sa-oslogin-ansible.md)
-* [{#T}](protected-access-to-content.md)
+* [{#T}](protected-access-to-content/index.md)

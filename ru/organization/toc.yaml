@@ -7,6 +7,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Подписать пользователя на уведомления
+        href: operations/subscribe-user-for-notifications.md
       - name: Управление организациями
         items:
           - name: Обзор
@@ -33,8 +35,6 @@ items:
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
-          - name: Подписать пользователя на уведомления
-            href: operations/subscribe-user-for-notifications.md
       - name: Управление группами пользователей
         items:
           - name: Обзор

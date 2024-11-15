@@ -29,6 +29,8 @@ items:
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: tutorials/loadtesting-grpc.md
       - name: >-

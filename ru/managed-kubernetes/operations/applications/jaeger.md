@@ -1,3 +1,8 @@
+---
+title: Установка Jaeger over {{ ydb-short-name }} Backend
+description: Следуя данной инструкции, вы сможете установить Jaeger over {{ ydb-short-name }} Backend.
+---
+
 # Установка Jaeger over {{ ydb-short-name }} Backend
 
 

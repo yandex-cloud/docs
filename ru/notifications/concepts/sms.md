@@ -1,3 +1,8 @@
+---
+title: SMS в {{ cns-full-name }}
+description: Из статьи вы узнаете про SMS в {{ cns-name }}, типы отправителей и песочницу.
+---
+
 # SMS в {{ cns-full-name }}
 
 

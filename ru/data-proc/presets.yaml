@@ -2,9 +2,6 @@ default:
   region: ru
   lang: ru
   product: yandex-cloud
-  api-host: api.cloud.yandex.net
-  link-console-cloud: https://console.yandex.cloud/cloud
-  s3-storage-host: storage.yandexcloud.net
   dp-libs:
     iceberg:
       dp20:

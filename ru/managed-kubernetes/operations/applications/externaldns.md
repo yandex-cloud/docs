@@ -1,3 +1,8 @@
+---
+title: Установка ExternalDNS c плагином для {{ dns-full-name }}
+description: Следуя данной инструкции, вы сможете установить ExternalDNS c плагином для {{ dns-name }}.
+---
+
 # Установка ExternalDNS c плагином для {{ dns-full-name }}
 
 

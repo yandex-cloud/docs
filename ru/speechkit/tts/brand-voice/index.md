@@ -1,3 +1,8 @@
+---
+title: '{{ brand-voice-full-name }}'
+description: 'Из статьи вы узнаете про технологию {{ brand-voice-name }} и три ее направления: {{ brand-voice-premium }}, {{ brand-voice-core }} и {{ brand-voice-cc }}.'
+---
+
 # {{ brand-voice-full-name }}
 
 

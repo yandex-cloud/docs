@@ -19,9 +19,9 @@ description: Следуя данной инструкции, вы научите
 
 ## Сформируйте поисковый запрос {#form-request}
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   1. Создайте файл с телом запроса (например, `body.json`):
 
@@ -103,9 +103,9 @@ description: Следуя данной инструкции, вы научите
 
 Чтобы убедиться в успешном выполнении запроса:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   Выполните HTTP-запрос:
 
@@ -181,9 +181,9 @@ description: Следуя данной инструкции, вы научите
 
 1. Получите результат:
 
-    {% list tabs group=api_type %}
+    {% list tabs group=instructions %}
 
-    - REST API {#rest-api}
+    - REST API {#api}
 
       ```bash
       curl \

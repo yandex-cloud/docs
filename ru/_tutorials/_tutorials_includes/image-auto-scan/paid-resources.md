@@ -1,0 +1,3 @@
+В стоимость поддержки инфраструктуры входят:
+* плата за хранение Docker-образа в [реестре](../../../container-registry/concepts/registry.md), сканер уязвимостей и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../../container-registry/pricing.md));
+* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы {{ sf-full-name }}](../../../functions/pricing.md)).

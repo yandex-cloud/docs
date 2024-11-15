@@ -74,7 +74,13 @@ items:
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
       - name: Организация защищенного доступа к контенту
-        href: tutorials/protected-access-to-content.md
+        items:
+          - name: Обзор
+            href: tutorials/protected-access-to-content/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: tutorials/protected-access-to-content/terraform.md
   - name: Концепции
     items:
       - name: Обзор сервиса

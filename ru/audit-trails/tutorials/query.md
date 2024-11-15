@@ -1,3 +1,8 @@
+---
+title: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+description: Следуя данному руководству, вы сможете выполнять поиск событий {{ yandex-cloud }} в {{ yq-name }}.
+---
+
 # Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
 
 

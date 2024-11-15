@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ load-testing-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ load-testing-name }}.
 editable: false
 ---
 

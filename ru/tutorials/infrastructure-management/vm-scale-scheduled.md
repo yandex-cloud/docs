@@ -1,1 +1,0 @@
-{% include [vm-scale-scheduled](../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

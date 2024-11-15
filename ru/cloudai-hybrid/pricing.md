@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ cloudml-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ cloudml-name }}.
 editable: false
 noIndex: true
 ---

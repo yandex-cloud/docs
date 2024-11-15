@@ -1,13 +1,13 @@
-For example, if the price per 1 GB of data in ice storage per month is $0.004280, and a 3 GB object was in ice storage from January 1 through September 20 (8 months and 20 days), your storage charge will be calculated as follows:
+For example, if the price per 1 GB of data in ice storage per month is {{ sku|USD|storage.bucket.used_space.ice|month|string }}, and a 3 GB object was in ice storage from January 1 through September 20 (8 months and 20 days), your storage charge will be calculated as follows:
 
 > Total from January 1 through September 20
 >
-> : _A_ = 3 × (8 + (20 / 30)) × $0.004280 = (3 × 260 / 30) × $0.004280 = $0.111280
+> : _A_ = 3 × (8 + (20 / 30)) × {{ sku|USD|storage.bucket.used_space.ice|month|string }} = (3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|string }} = {% calc [currency=USD] (3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|number }} %}
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × $0.004280) − _A_ = $0.154080 − $0.111280= = $0.042800
+> : _B_ = (3 × 12 × {{ sku|USD|storage.bucket.used_space.ice|month|string }}) − _A_ = {% calc [currency=USD] 3 × 12 × {{ sku|USD|storage.bucket.used_space.ice|month|number }} %} − {% calc [currency=USD] (3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|number }} %} = {% calc [currency=USD] (3 × 12 × {{ sku|USD|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|number }}) %}
 >
 > Total
 >
-> : _A_ + _B_ = $0.154080
+> : _A_ + _B_ = {% calc [currency=USD] ((3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|number }}) + ((3 × 12 × {{ sku|USD|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) × {{ sku|USD|storage.bucket.used_space.ice|month|number }})) %}

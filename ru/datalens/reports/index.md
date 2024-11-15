@@ -1,3 +1,8 @@
+---
+title: Отчеты в {{ datalens-full-name }}
+description: Из статьи вы узнаете, что такое отчеты в {{ datalens-full-name }} и ознакомитесь с особенностями виджетов отчета.
+---
+
 # Отчеты в {{ datalens-name }}
 
 

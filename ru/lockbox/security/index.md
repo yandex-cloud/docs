@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для хр
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [секрет](../concepts/secret.md) роль можно назначить в консоли управления, через YC CLI или API {{ yandex-cloud }}.
+На [секрет](../concepts/secret.md) роль можно назначить в [консоли управления]({{ link-console-main }}), а также через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/lockbox/secret/add-access-binding.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

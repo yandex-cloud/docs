@@ -1,3 +1,8 @@
+---
+title: Установка Filebeat OSS
+description: Следуя данной инструкции, вы сможете установить Filebeat OSS.
+---
+
 # Установка Filebeat OSS
 
 

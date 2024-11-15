@@ -6,5 +6,5 @@ Connection to source with specified login and password failed.
 
 To fix this error:
 
-* Verify that the credentials (login and password) that you entered are correct: you might have entered them in Russian or with the `Caps Lock` on, or you might have entered an extra character or copied the information with an extra space.
+* Make sure your credentials (username and password) are correct; you might have used a wrong keyboard layout, had `Caps Lock` on, typed in an extra character, or pasted the credentials with an extra space. If you need to, check the username and password with the DB administrator.
 * Use any DB client to verify that you can connect to the source with the login and password entered.

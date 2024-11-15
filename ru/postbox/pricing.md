@@ -1,3 +1,9 @@
+---
+title: Правила тарификации для {{ postbox-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ postbox-name }}.
+editable: false
+---
+
 # Правила тарификации для {{ postbox-name }}
 
 

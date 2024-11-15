@@ -4,10 +4,10 @@
 
 Вы можете:
 
-* [{#T}](#add-rules).
-* [{#T}](#edit-rules).
-* [{#T}](#replace-rule).
-* [{#T}](#delete-rule).
+* [Добавить правила](#add-rules).
+* [Изменить правила](#edit-rules).
+* [Переместить правило](#replace-rule).
+* [Удалить правило](#delete-rule).
 
 {% note warning %}
 

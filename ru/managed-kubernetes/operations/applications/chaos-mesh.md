@@ -1,3 +1,8 @@
+---
+title: Установка Chaos Mesh
+description: Следуя данной инструкции, вы сможете установить Chaos Mesh.
+---
+
 # Установка Chaos Mesh
 
 

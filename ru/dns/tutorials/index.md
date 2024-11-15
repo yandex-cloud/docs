@@ -10,7 +10,7 @@ description: Различные сценарии использования {{ d
 * [{#T}](dns-integration.md)
 * [{#T}](mdb-dns-peering.md)
 * [{#T}](cert-manager-webhook.md)
-* [{#T}](bind-domain-vm.md)
+* [{#T}](bind-domain-vm/index.md)
 * [{#T}](prefetch.md)
 * [{#T}](tls-termination/index.md)
 * [{#T}](storage-vpc-access.md)
