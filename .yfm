@@ -4,5 +4,5 @@ connector:
     type: github
     github: 
         endpoint: https://api.github.com
-        owner: yandex-cloud
+        owner: yanldex-cloud
         repo: docs
