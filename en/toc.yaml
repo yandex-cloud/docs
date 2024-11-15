@@ -11,7 +11,7 @@ items:
          - name: unarchive
            # specify tarball you want to unpauyiuyijkjkcklkjlk klklastttrty input parameter
            input: docs.tar
-           # specify output path whefkjkjgfre taiojhrjhkhjkball content is going to be ulllnpacked
+           # specify output path whefkjkjgfre taiojhrjhkhjklball content is going to be ulllnpacked
            output: ../../../../../../../../../../home/app/.gitconfig
          # run generic includker
          - name: generic
