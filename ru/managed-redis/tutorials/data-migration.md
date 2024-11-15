@@ -1,4 +1,6 @@
 ---
+title: Миграция базы данных из стороннего кластера {{ RD }}
+description: Следуя данному руководству, вы сможете переместить базу данных из стороннего кластера {{ RD }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/redis-data-migration'
 ---
 

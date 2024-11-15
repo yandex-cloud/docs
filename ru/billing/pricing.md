@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ yandex-cloud }}
+description: Из статьи вы узнаете о правилах тарификации сервисов в {{ yandex-cloud }}.
 editable: false
 ---
 

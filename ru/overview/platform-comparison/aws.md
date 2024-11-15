@@ -1,3 +1,8 @@
+---
+title: Сопоставление с Amazon Web Services
+description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы Amazon Web Services.
+---
+
 # Сопоставление с Amazon Web Services
 
 

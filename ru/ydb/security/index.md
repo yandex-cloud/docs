@@ -32,10 +32,33 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роль можно назначить на отдельные ресурсы сервиса. Список таких ресурсов зависит от интерфейсов {{ yandex-cloud }}, через которые назначаются роли:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-* в консоли управления можно назначать роли только на [СУБД YDB](../concepts/index.md#ydb);
-* через YC CLI или API {{ yandex-cloud }} — на СУБД и ее резервную копию.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на [СУБД YDB](../concepts/index.md#ydb).
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/ydb/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [СУБД YDB](../concepts/index.md#ydb)
+  * Резервная копия СУБД YDB
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-resources-link }}/ydb_database_iam_binding) вы можете назначить роли на [СУБД YDB](../concepts/index.md#ydb).
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [СУБД YDB](../concepts/index.md#ydb)
+  * Резервная копия СУБД YDB
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

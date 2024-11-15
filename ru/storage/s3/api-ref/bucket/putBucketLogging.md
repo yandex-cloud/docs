@@ -1,3 +1,8 @@
+---
+title: Метод putBucketLogging
+description: Из статьи вы узнаете, что такое метод putBucketLogging, как выглядит его запрос и ответ.
+---
+
 # Метод putBucketLogging
 
 

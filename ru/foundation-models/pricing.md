@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ foundation-models-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ foundation-models-name }}.
 editable: false
 ---
 

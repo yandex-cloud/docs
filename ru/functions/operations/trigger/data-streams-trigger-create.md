@@ -1,3 +1,8 @@
+---
+title: Создать триггер для {{ yds-full-name }}, который вызывает функцию {{ sf-full-name }}
+description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}.
+---
+
 # Создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).

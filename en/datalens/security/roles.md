@@ -34,11 +34,11 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 ## Roles for workbooks and collections {#workbooks-collections-roles}
 
-These roles are valid for users who adopted the new {{ datalens-short-name }} object storage mechanism: [workbooks and collections](../workbooks-collections/index.md). The roles allow you to define the level of access to each workbook or collection for a user or a user group.
+These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). The roles allow you to configure access level to each workbook or collection for a user or user group.
 
 ### Roles for workbooks {#workbook-roles}
 
-You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for workbooks.
+You can [assign](../workbooks-collections/security.md#wb-coll-grant) roles for workbooks to a user.
 
 #### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
 
@@ -58,7 +58,7 @@ You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user role
 
 {% note info %}
 
-The author of a workbook is automatically assigned the `datalens.workbooks.admin` (`Admin`) role for the workbook.
+The workbook author automatically gets the `datalens.workbooks.admin` (`Admin`) role for the workbook as soon as it is created.
 
 {% endnote %}
 
@@ -84,6 +84,6 @@ You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user role
 
 {% note info %}
 
-The role granted for a collection applies to all collections and their workbooks. The author of a collection is automatically assigned the `datalens.collections.admin` (`Admin`) role for the collection.
+The role granted for a collection applies to all collections and their workbooks. The collection author automatically gets the `datalens.collections.admin` (`Admin`) role for the collection as soon as it is created.
 
 {% endnote %}

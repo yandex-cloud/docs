@@ -1,8 +1,9 @@
 ---
 title: Как добавить публичное соединение в прямое или партнерское транковое подключение
 description: Следуя данной инструкции, вы сможете добавить публичное соединение в прямое или партнерское транковое подключение.
+canonical: '{{ link-docs }}/tutorials/routing/pub-add'
 ---
 
 # Добавить публичное соединение в прямое или партнерское транковое подключение
 
-{% include [cic-pub-add](../../_includes/interconnect/pub-add.md) %}
+{% include [cic-pub-add](../../_tutorials/routing/pub-add.md) %}

@@ -1,3 +1,8 @@
+---
+title: Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
+description: Следуя данной инструкции, вы сможете установить cert-manager c плагином {{ dns-name }} ACME webhook.
+---
+
 # Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
 
 

@@ -15,8 +15,10 @@ To create a {{ ytsaurus-name }} CHYT connection:
    * **Raw SQL level**: Select the SQL query access level for the user.
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
 
+   ![image](../../../_assets/datalens/operations/connection/connection-ytsaurus.png)
 
-1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+
+1. (Optional) Test the connection. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 

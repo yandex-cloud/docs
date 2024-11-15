@@ -9,11 +9,11 @@ Unlike line charts, this type of chart assumes that different periods are compar
 
 Year |	Sales|	
 -----|---------| 
-2022|	6М|	
-2021|	28М|	
-2020|	18М|	
-2019|	9М| 
-2018|	1М|
+2022|	6M |	
+2021|	28M|	
+2020|	18M |	
+2019|	9M | 
+2018|	1M |
 
 {% endcut %}
 
@@ -32,18 +32,18 @@ A chart with grouping lets you compare two or more measures: for example, the nu
 
 Year |	Delivery|	Pickup
 -----|---------| ----------|
-2022|	2М|	4М
-2021|	8М|	19М
-2020|	5М|	13М
-2019|	3М| 6М
-2018|	331К|	918К
+2022|	2M |	4M
+2021|	8M |	19M
+2020|	5M |	13M
+2019|	3M | 6M
+2018|	331K |	918K
 
 {% endcut %}
 
 ### Stacked {#stacked}
 
-This chart shows the ratio of internal segments by period. Segments are placed one above the other: the base of each subsequent segment is the outermost boundary of the previous one.
-Since the sum of all segments is equal to the total length of a column, when column totals are important this type of chart is used.
+This chart depicts the ratio of internal segments by period or category. The segments are stacked one on top of the other, i.e., the base of the above segment is the top side of the one below.
+Since the sum of all segments is equal to the overall column length, the stacked chart is used when you need to visualize the total column values.
 
 ![bar-chart-stacked](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-stacked.png)
 
@@ -51,21 +51,21 @@ Since the sum of all segments is equal to the total length of a column, when col
 
 Year |	Delivery|	Pickup
 -----|---------| ----------|
-2022|	2М|	4М
-2021|	8М|	19М
-2020|	5М|	13М
-2019|	3М| 6М
-2018|	331К|	918К
+2022|	2M |	4M
+2021|	8M |	19M
+2020|	5M |	13M
+2019|	3M | 6M
+2018|	331K |	918K
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 X | Dimensions You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). 
-Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis.
+Colors | Dimension, measure, [Measure Names or Measure Values](../concepts/chart/measure-values.md) field. Affects the column color. To delete `Measure Names` and `Measure Values`, click the ![image](../../_assets/datalens/cross.svg) icon or remove measures from the Y axis.
 Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Labels | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25.
@@ -73,7 +73,7 @@ Filters | Dimension or measure. Used as a filter. A filter can be overridden by 
 
 ## Creating a column chart {#create-diagram}
 
-To create a bar chart:
+To create a column chart:
 
 
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
@@ -81,9 +81,9 @@ To create a bar chart:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
+1. Click **Create chart** → **Chart in Wizard**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
-1. Select **Bar chart** as the chart type.
+1. Select **Column chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as columns on the Y-axis.
 
@@ -93,22 +93,22 @@ By default, a stacked chart is displayed if you have multiple measures.
 
 To display an X-axis grouped column chart:
 
-1. Go to the column chart that you created.
+1. Open a bar chart or [create](#create-diagram) a new one.
 1. Depending on the number of measures in the **Y** section, follow these steps:
 
    {% list tabs group=indicators_number %}
 
     - Single measure {#one}
 
-      1. Check if there is a dimension in the **Colors** section.
+      1. Drag a dimension that you want to group the chart columns by to the **Color** section.
       1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
 
       ![one-measure](../../_assets/datalens/visualization-ref/bar-chart/one-measure.png)
 
     - Two or more measures {#more}
 
-      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
-      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **X** section. The sequence of dimensions affects the grouping order.
+      1. Drag the `Measure Names` dimension to the **Color** section.
+      1. Drag the `Measure Names` dimension to the **X** section. The sequence of dimensions affects the grouping order.
 
       ![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png)
 
@@ -118,7 +118,7 @@ To display an X-axis grouped column chart:
 
 To color columns in a chart based on the value of a measure:
 
-1. Go to the column chart that you created.
+1. Open a column chart or create a new one.
 1. Depending on the number of measures in the **Y** section, follow the steps below:
 
    {% list tabs group=indicators_number %}
@@ -127,15 +127,15 @@ To color columns in a chart based on the value of a measure:
 
      Copy the measure from the **Y** section to the **Colors** section.
 
-     Columns in the chart will take on colors as a function of the measure values.
+     The colors of the columns in the chart will apply based on the measure values.
 
      ![image](../../_assets/datalens/operations/chart/column-colors-1.png)
 
    - Two or more measures {#more}
 
-     Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
+     Drag the `Measure Values` measure to the **Color** section.
 
-     The columns in the chart will take on colors depending on the values of all the measures listed in the **Y** section.
+     The colors of the columns in the chart will apply based on the values of all the measures listed in the **Y** section.
 
      ![image](../../_assets/datalens/operations/chart/column-colors-2.png)
 

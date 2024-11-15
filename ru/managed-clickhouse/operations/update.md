@@ -7,32 +7,19 @@ description: Следуя данной инструкции, вы сможете
 
 После создания кластера вы можете:
 
-
 * [Изменить настройки сервисного аккаунта](#change-service-account).
-
-
-* [{#T}](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
-* [{#T}](#SQL-management).
-
+* [Изменить класс хостов](#change-resource-preset).
+* [Увеличить размер хранилища](#change-disk-size).
+* [Включить управление пользователями и базами данных через SQL](#SQL-management).
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
-
 * [Переместить кластер](#move-cluster) в другой каталог.
-
-
 * [Изменить группы безопасности кластера](#change-sg-set).
-
-
 * [Изменить настройки гибридного хранилища](#change-hybrid-storage).
 
 Подробнее о других изменениях кластера:
 
 * [Перенос кластера в другую зону доступности](host-migration.md).
-
 * [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
-
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).
 
 

@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ cdn-full-name }}
+description: Из статьи вы узнаете про метрики {{ cdn-name }}.
 editable: false
 ---
 

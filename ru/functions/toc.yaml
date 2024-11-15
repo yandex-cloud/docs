@@ -464,8 +464,14 @@ items:
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Масштабирование группы ВМ по расписанию
-        href: tutorials/vm-scale-scheduled.md
+      - name: Масштабирование группы виртуальных машин по расписанию
+        items:
+          - name: Обзор
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
       - name: Мониторинг состояния географически распределенных устройств
         href: tutorials/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях

@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ cloud-desktop-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ cloud-desktop-name }}.
 editable: false
 ---
 

@@ -1,3 +1,8 @@
+---
+title: Сеть в {{ data-transfer-full-name }}
+description: Из статьи вы узнаете про сеть в {{ data-transfer-full-name }}.
+---
+
 # Сеть в {{ data-transfer-full-name }}
 
 

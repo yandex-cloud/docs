@@ -1,8 +1,8 @@
 # Combined chart ![](../../_assets/datalens/combined.svg)
 
-Combined chart is a separate type of visualization consisting of layers. Each layer is represented with its own chart type. You can combine [line charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
+Combined chart is a separate type of visualization consisting of layers. Each layer is represented by a chart type of its own. You can combine [line charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
 
-Features:
+Specifics:
 
 * The **X**, **Sort**, and **Filters** sections are the same for all layers.
 * You can add, delete, reorder and rename layers.
@@ -22,23 +22,23 @@ A combined chart is often used for plan/actual comparison. You can show the plan
 
 {% cut "Source table" %}
 
-| Year | Category | Plan | Sales |
+|Year|Category|Plan|Sales|
 |-----|-----|-----|-----|
-| 2018 | Household cleaners | 435.53 | 449 |
-| 2018 | Household goods | null | null |
-| 2018 | Home appliances | null | null |
-| 2019 | Household cleaners | 503255 | 512282 |
-| 2019 | Household goods | 1457502 | 1483733 |
-| 2019 | Home appliances | 2237228.4 | 2331805 |
-| 2020 | Household cleaners | 1623124 | 1644668 |
-| 2020 | Household goods | 4495448 | 4535567 |
-| 2020 | Home appliances | 6711462.8 | 7046605 |
-| 2021 | Household cleaners | 2686134 | 2737436 |
-| 2021 | Household goods | 7794310 | 7836228 |
-| 2021 | Home appliances | 11329663.6 | 11910983 |
-| 2022 | Household cleaners | 2512031 | 2652918 |
-| 2022 | Household goods | 7013145 | 7382385 |
-| 2022 | Home appliances | 11327092 | 11461881 |
+|2018|Household cleaners|435.53|449|
+|2018|Household goods|null|null|
+|2018|Home appliances|null|null|
+|2019|Household cleaners|503255|512282|
+|2019|Household goods|1457502|1483733|
+|2019|Home appliances|2237228.4|2331805|
+|2020|Household cleaners|1623124|1644668|
+|2020|Household goods|4495448|4535567|
+|2020|Home appliances|6711462.8|7046605|
+|2021|Household cleaners|2686134|2737436|
+|2021|Household goods|7794310|7836228|
+|2021|Home appliances|11329663.6|11910983|
+|2022|Household cleaners|2512031|2652918|
+|2022|Household goods|7013145|7382385|
+|2022|Home appliances|11327092|11461881|
 
 {% endcut %}
 
@@ -52,10 +52,10 @@ You can display additional lines calculated using [window functions](../../datal
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Section<br/> section| Description
 ----- | ----
-| X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers. |
-| Layer section | Allows you to add, delete, reorder, and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select. |
+X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers.
+Layer section | Allows you to add, delete, reorder, and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select.<br/><br/> You can manage data display in the chart layers using the legend. To do this, click individual legend elements or select multiple elements by holding the `Ctrl`/`Cmd` key. You can enable or disable the legend in the chart settings. For more information, see [{#T}](../concepts/chart/settings.md#common-settings).
 
 ## Creating a combined chart {#create-diagram}
 
@@ -70,8 +70,6 @@ To create a combined chart:
 1. Click **Create chart** → **Chart**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select **Combined chart** as your chart type.
-
-
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Select a layer chart type: line chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer, if required.
 1. Create a chart of the appropriate type:

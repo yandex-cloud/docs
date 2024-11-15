@@ -1,3 +1,8 @@
+---
+title: Сопоставление с Google Cloud Platform
+description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы Google Cloud Platform.
+---
+
 # Сопоставление с Google Cloud Platform
 
 

@@ -1,7 +1,7 @@
 # HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
 
 
-{{ load-testing-name }} можно использовать для тестирования сервиса со ступенчатой нагрузкой по протоколу HTTPS с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
+{{ load-testing-name }} можно использовать для тестирования сервиса со ступенчатой нагрузкой по протоколу [HTTPS](../../glossary/ssl-certificate.md) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
 
 Чтобы провести нагрузочное тестирование:
 1. [Подготовьте облако к работе](#before-begin).
@@ -9,7 +9,7 @@
 1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Создайте агент](#create-agent).
 1. [Подготовьте файл с тестовыми данными](#test-file).
-1. [Запустите тест](#run-test).
+1. [Создайте и запустите тест](#run-test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -24,6 +24,8 @@
 На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса {{ load-testing-name }} не тарифицируется.
 
 ## Подготовьте цель тестирования {#target-prepare}
+
+В качестве цели тестирования [создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm) из публичного образа Linux.
 
 В этом примере будет тестироваться сервис с [внутренним IP-адресом](../../vpc/concepts/address.md#internal-addresses) `172.17.0.10` в той же [подсети](../../vpc/concepts/network.md#subnet), где будет размещен агент.
 
@@ -70,17 +72,17 @@
    /test?param1=1&param2=2 get_test
    ```
 
-   Обратите внимание на заголовок `Connection: Close` — каждое соединение будет закрываться после запроса. Для приложения и генератора нагрузки такой режим тяжелее. Если не нужно закрывать соединения, следует указать значение `Keep-Alive`.
+   Параметр `Host` определяет IP-адрес цели тестирования. Параметр `Connection: Close` указывает, будет ли соединение закрываться после каждого запроса. Для приложения и генератора нагрузки такой режим тяжелее. В случае, если нет необходимости закрывать соединения, выберите значение `Keep-Alive`.
 
    Также указаны два запроса, отмеченные тегами `index` и `get_test`. Генератор будет повторять их по очереди в пределах заданного [профиля нагрузки](../../load-testing/concepts/load-profile.md).
 1. Сохраните тестовые данные в файл `data.uri`.
 
-## Запустите тест {#run-test}
+## Создайте и запустите тест {#run-test}
 
 1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. В параметре **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`.
-1. В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.
+1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.
 1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}** выберите способ настройки: **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** или **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
 1. В зависимости от выбранного способа задайте параметры теста:
 

@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ prometheus-name }} connection in {{ datalens-full-name }}
-description: Follow this guide to create a {{ prometheus-name }} connection.
+description: Follow this guide to create a connection to {{ prometheus-name }}.
 ---
 
 # Creating a {{ prometheus-name }} connection
@@ -19,7 +19,9 @@ To create a {{ prometheus-name }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
 
-1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+   ![image](../../../_assets/datalens/operations/connection/connection-prometheus.png)
+
+1. (Optional) Test the connection. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 

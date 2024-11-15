@@ -4,16 +4,18 @@
 По этому руководству вы развернете автомасштабируемый [gRPC](https://grpc.io/docs/)-сервис в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) [{{ alb-full-name }}](../../application-load-balancer/) и проведете нагрузочное тестирование сервиса.
 
 Чтобы развернуть сервис и осуществить нагрузочное тестирование:
-1. [Подготовьте облако к работе](#prepare-cloud).
+
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте цель тестирования](#prepare-target).
 1. [Подготовьте домен](#prepare-domain).
 1. [Установите Ingress](#install-ingress).
 1. [Настройте горизонтальное автомасштабирование подов](#configure-autoscaling).
 1. [Проведите нагрузочное тестирование gRPC-сервиса](#load-testing).
 
-По окончании тестирования [удалите созданные ресурсы](#clear-out), если они больше не нужны.
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте облако к работе {#prepare-cloud}
+
+## Подготовьте облако к работе {#before-you-begin}
 
 1. Зарегистрируйте [доменное имя](../../dns/concepts/resource-record.md) для вашего сайта.
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
@@ -22,25 +24,26 @@
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Подготовьте кластер {{ managed-k8s-name }}](../../managed-kubernetes/quickstart.md) к работе.
-1. [Установите Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
-1. Установите Ingress-контроллер:
-   1. [Создайте](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для Ingress-контроллера.
-   1. [Установите](../../application-load-balancer/operations/k8s-ingress-controller-install.md) Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}.
+1. [Подготовьте](../../managed-kubernetes/quickstart.md) кластер {{ managed-k8s-name }} к работе.
+1. [Установите](../../managed-kubernetes/operations/applications/metrics-provider.md) Metrics Provider в пространство имен `kube-public`.
+1. [Установите](../../application-load-balancer/operations/k8s-ingress-controller-install.md) ALB Ingress Controller.
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+
+* плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+
 
 
 ## Подготовьте цель тестирования {#prepare-target}
 
 В этой инструкции в качестве цели тестирования будет использоваться gRPC-сервис.
+
 1. Сохраните следующую спецификацию для создания приложения в файле `grpc-server.yaml`:
 
    ```yaml
@@ -72,7 +75,7 @@
                        values:
                          - grpc-app
                  topologyKey: "kubernetes.io/hostname"
-   
+
          containers:
            - name: grpc-app
              image: {{ registry }}/crp6a9o7k9q5rrtt2hoq/grpc-test-server
@@ -107,6 +110,7 @@
    kubectl apply -f grpc-server.yaml
    ```
 
+
 ## Подготовьте домен {#prepare-domain}
 
 1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону DNS и делегируйте домен.
@@ -119,6 +123,7 @@
 
 1. [Добавьте](../../certificate-manager/operations/managed/cert-create.md) [сертификат](../../certificate-manager/concepts/managed-certificate.md) от `Let's Encrypt®`.
 1. [Пройдите](../../certificate-manager/operations/managed/cert-validate.md) процедуры проверки прав на домен.
+
 
 ## Установите Ingress {#install-ingress}
 
@@ -160,15 +165,18 @@
    ```
 
    Где:
+
    * `ingress.alb.yc.io/subnets` — список идентификаторов [подсетей](../../vpc/concepts/network.md#subnet) через запятую.
    * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета.
 
      При значении `auto` Ingress-контроллер получит [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) автоматически. При удалении Ingress-контроллера IP-адрес также будет удален из облака.
-   * `ingress.alb.yc.io/security-groups` — идентификатор группы безопасности, созданной при [подготовке облака к работе](#prepare-cloud). Если в вашем облаке не включены группы безопасности, удалите эту аннотацию.
+
+   * `ingress.alb.yc.io/security-groups` — идентификатор группы безопасности, созданной при [подготовке облака к работе](#before-you-begin). Если в вашем облаке не включены группы безопасности, удалите эту аннотацию.
    * `secretName` — указание на [TLS-сертификат](../../certificate-manager/concepts/index.md) из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
    Подробнее см. [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
+
 1. Создайте ресурс `Ingress`:
 
    ```bash
@@ -189,11 +197,14 @@
    ```
 
    Где:
+
    * `<имя_сайта>` — доменное имя, которому соответствует TLS-сертификат.
    * `<IP-адрес>` — IP-адрес сайта.
 
-   В столбце ADDRESS должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи [пода](../../managed-kubernetes/concepts/index.md#pod) `yc-alb-ingress-controller-*`.
+   В столбце `ADDRESS` должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи [пода](../../managed-kubernetes/concepts/index.md#pod) `yc-alb-ingress-controller-*`.
+
 1. Если вы не устанавливали [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [создайте](../../dns/operations/resource-record-create.md) в {{ dns-name }} [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный адрес балансировщика. При использовании ExternalDNS c плагином для {{ dns-name }} запись создастся автоматически.
+
 
 ## Настройте горизонтальное автомасштабирование подов {#configure-autoscaling}
 
@@ -201,34 +212,35 @@
 
    ```yaml
    ### HPA.
-   apiVersion: autoscaling/v2beta2
+   apiVersion: autoscaling/v2
    kind: HorizontalPodAutoscaler
    metadata:
      name: grpc-app
    spec:
      scaleTargetRef:
-      apiVersion: apps/v1
-      kind: Deployment
-      name: grpc-app
+       apiVersion: apps/v1
+       kind: Deployment
+       name: grpc-app
      minReplicas: 1
      maxReplicas: 10
      metrics:
-      - type: External
-        external:
+       - type: External
+         external:
          metric:
            name: "load_balancer.requests_count_per_second"
            selector:
-            matchLabels:
-              service: "application-load-balancer"
-              load_balancer: <идентификатор_балансировщика>
-              code: "total"
-              backend_group: <идентификаторы_группы_бэкендов>
+             matchLabels:
+               service: "application-load-balancer"
+               load_balancer: <идентификатор_балансировщика>
+               code: "total"
+               backend_group: <идентификаторы_группы_бэкендов>
          target:
            type: AverageValue
            averageValue: 2
    ```
 
    Где:
+
    * `load_balancer` — идентификатор L7-балансировщика.
    * `backend_group` — идентификатор [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).
 
@@ -245,14 +257,18 @@
    kubectl apply -f hpa.yaml
    ```
 
+
 ## Проведите нагрузочное тестирование gRPC-сервиса {#load-testing}
 
 1. Создайте сервисный аккаунт:
+
    1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `sa-loadtest` в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где будет размещаться [агент](../../load-testing/concepts/agent.md), с которого будет подаваться [нагрузка](../../load-testing/concepts/index.md).
    1. [Назначьте](../../iam/operations/roles/grant.md) [роли](../../iam/concepts/access-control/roles.md) сервисному аккаунту:
+
       * `loadtesting.generatorClient` — позволяет запускать агент, тест на агенте и загружать результаты в хранилище.
       * `compute.admin` — позволяет управлять [виртуальной машиной](../../compute/concepts/vm.md) в [{{ compute-full-name }}](../../compute/).
       * `vpc.user` — позволяет подключаться к сетевым ресурсам [{{ vpc-full-name }}](../../vpc/) и использовать их.
+
 1. [Создайте и настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису [{{ load-testing-full-name }}](../../load-testing/).
 1. [Создайте](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) агент тестирования.
 1. Подготовьте файл с [тестовыми данными](../../load-testing/concepts/payload.md) `ammo.json`:
@@ -271,7 +287,7 @@
      enabled: true
      package: yandextank.plugins.Pandora
      config_content:
-      pools:
+       pools:
        - id: Gun
          gun:
            type: grpc
@@ -291,16 +307,16 @@
          startup:
            - type: once
              times: 1000
-      log:
-        level: debug
-      monitoring:
-        expvar:
+       log:
+         level: debug
+       monitoring:
+         expvar:
          enabled: true
          port: 1234
    autostop:
-      enabled: true
-      package: yandextank.plugins.Autostop
-      autostop:
+       enabled: true
+       package: yandextank.plugins.Autostop
+       autostop:
          - limit (5m)
    uploader:
      enabled: true
@@ -311,24 +327,26 @@
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-   Где `target` — название вашего сайта и порт (для HTTPS: 443).
 1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите сохраненный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+
      * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и загрузите подготовленный ранее файл `load.yaml`.
+
 1. Наблюдайте за прохождением теста:
-   1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
+
+   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Выберите ваш тестовый кластер {{ managed-k8s-name }}.
    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
-   1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.
+   1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Выберите созданный L7-балансировщик.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
-   1. Просмотрите графики нагрузки за время работы теста. 
+   1. Просмотрите графики нагрузки за время работы теста.
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 1. Если вы настраивали [CNAME-записи](../../dns/concepts/resource-record.md#cname) в {{ dns-name }}, [удалите зону DNS](../../dns/operations/zone-delete.md).

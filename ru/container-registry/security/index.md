@@ -20,10 +20,36 @@ description: Управление доступом в сервисе для хр
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роль можно назначить на отдельные ресурсы сервиса. Список таких ресурсов зависит от интерфейсов {{ yandex-cloud }}, через которые назначаются роли:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-* в консоли управления можно назначать роли только на [реестр](../concepts/registry.md);
-* через YC CLI или API {{ yandex-cloud }} — на реестр и [репозиторий](../concepts/repository.md).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на [реестр](../concepts/registry.md).
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/container/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Реестр](../concepts/registry.md)
+  * [Репозиторий](../concepts/repository.md)
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Реестр](../concepts/registry.md)
+  * [Репозиторий](../concepts/repository.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Реестр](../concepts/registry.md)
+  * [Репозиторий](../concepts/repository.md)
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

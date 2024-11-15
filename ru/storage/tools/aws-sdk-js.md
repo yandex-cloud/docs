@@ -1,3 +1,8 @@
+---
+title: AWS SDK для JavaScript
+description: Из статьи вы узнаете, что такое AWS SDK для JavaScript, как его установить и настроить, а также ознакомитесь с примерами кода.
+---
+
 # AWS SDK для JavaScript
 
 

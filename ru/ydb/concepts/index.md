@@ -1,3 +1,8 @@
+---
+title: Обзор {{ ydb-full-name }}
+description: Из статьи вы узнаете про СУБД {{ ydb-short-name }} и соглашение об уровне обслуживания.
+---
+
 # Обзор {{ ydb-full-name }}
 
 

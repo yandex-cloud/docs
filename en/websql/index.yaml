@@ -1,33 +1,32 @@
 title: Yandex WebSQL
 description:
   - >-
-    Yandex WebSQL is a Yandex Cloud service that will allow you to connect to
-    managed database clusters, work with databases, tables and schemas, and
-    execute queries. The service works in the browser, does not require
-    additional authorization and offers convenient hints for working with SQL
-    commands.
+    Yandex WebSQL is a Yandex Cloud service that allows you to connect to
+    managed database clusters, work with DBs, tables, and schemas, and run
+    queries. It is a web-based tool that requires no additional authorization
+    and simplifies working with SQL commands by suggesting prompts.
   - >-
     Yandex WebSQL supports integration with Yandex MetaData Hub at the user
     folder level. Connections created in WebSQL automatically appear in MetaData
     Hub Connection Manager and vice versa.
   - >-
-    Yandex WebSQL supports the following database versions: <ul> <li>PostgreSQL:
-    12 and higher.</li> <li>MySQL: 5 and higher.</li> <li>ClickHouse®: 23 and
-    higher.</li> <li>Redis (non-sharded clusters only): 6 and higher.</li> </ul>
+    Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12
+    and higher</li> <li>MySQL: 5 and higher</li> <li>ClickHouse®: 23 and
+    higher</li> <li>Redis (non-sharded clusters only): 6 and higher</li> </ul>
 meta:
   title: Yandex WebSQL
 links:
   - title: Getting started
-    description: Connect to the database
+    description: Connect to a database
     href: quickstart
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about basic concepts and how the service works
+    description: Learn more about how it works
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations

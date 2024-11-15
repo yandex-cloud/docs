@@ -66,7 +66,13 @@ items:
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: tutorials/cert-manager-webhook.md
       - name: Привязка доменного имени к ВМ с веб-сервером
-        href: tutorials/bind-domain-vm.md
+        items:
+          - name: Обзор
+            href: tutorials/bind-domain-vm/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
       - name: Терминирование TLS-соединений

@@ -86,3 +86,5 @@
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+Количество статических публичных IP-адресов [ограничено](../concepts/limits.md#vpc-quotas). Если установленного квотой количества вам недостаточно, направьте запрос на увеличение квоты в [техническую поддержку]({{ link-console-support }}).

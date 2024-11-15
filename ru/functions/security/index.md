@@ -20,7 +20,7 @@ description: Управление доступом сервиса для зап�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [функцию](../concepts/function.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+На [функцию](../concepts/function.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/serverless/function/add-access-binding.md), [API](../api-ref/functions/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/function_iam_binding).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

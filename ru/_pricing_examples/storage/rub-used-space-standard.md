@@ -1,3 +1,3 @@
-Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет 2,01&nbsp;₽, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
+Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }}, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
 
-> (23 − 1) × 2,01&nbsp;₽ = 22 × 2,01&nbsp;₽ = 44,22&nbsp;₽
+> (23 − 1) × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} = 22 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} = {% calc [currency=RUB] 22 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %}

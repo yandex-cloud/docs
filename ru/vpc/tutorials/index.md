@@ -22,7 +22,6 @@ description: Различные сценарии использования {{ v
 * [Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в другую зону доступности](hdfs-cluster-migration.md)
 * [Сеть между каталогами (Multi-folder-VPC)](multi-folder-vpc.md)
 * [Настройка сети для {{ dataproc-full-name }}](dataproc-nat-instance.md)
-* [Сеть между каталогами (Multi-folder-VPC)](multi-folder-vpc.md)
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Check Point NGFW](high-accessible-dmz.md)
 * [Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall](network-segmentation-checkpoint.md)
 * [Подключение к {{ objstorage-name }} из {{ vpc-name }}](storage-vpc-access.md)

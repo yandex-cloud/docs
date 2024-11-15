@@ -5,6 +5,10 @@ description: Из статьи вы узнаете, как работать с {
 
 # Инструкции по работе с {{ org-full-name }}
 
+## Настройка уведомлений {#setup-notifications}
+
+* [{#T}](subscribe-user-for-notifications.md).
+
 ## Управление организациями {#manage-orgs}
 
 * [{#T}](enable-org.md).
@@ -20,7 +24,6 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](add-role.md).
 * [{#T}](edit-account.md).
 * [{#T}](leave-organization.md).
-* [{#T}](subscribe-user-for-notifications.md).
 
 ## Управление группами пользователей {#manage-groups}
 

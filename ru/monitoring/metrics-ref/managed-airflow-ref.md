@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ maf-full-name }}
+description: Из статьи вы узнаете про метрики {{ maf-name }}.
 editable: false
 ---
 

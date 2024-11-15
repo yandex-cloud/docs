@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mmg-full-name }}
+description: Из статьи вы узнаете про метрики {{ mmg-name }}.
 editable: false
 ---
 

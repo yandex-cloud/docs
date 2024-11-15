@@ -1,3 +1,8 @@
+---
+title: Интеграция с {{ container-registry-full-name }}
+description: Следуя данному руководству, вы сможете настроить интеграцию с {{ container-registry-name }}.
+---
+
 # Интеграция с {{ container-registry-name }}
 
 

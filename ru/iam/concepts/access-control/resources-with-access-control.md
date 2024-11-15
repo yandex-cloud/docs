@@ -14,88 +14,227 @@ description: Из статьи вы узнаете, на какие ресурс
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления и интерфейсы сервисов {#console}
 
-  **{{ container-registry-name }}**
-  * [Реестр](../../../container-registry/operations/roles/grant.md)
+  **{{ billing-name }}**
+  * [Платежный аккаунт](../../../billing/concepts/billing-account.md)
 
-  **{{ compute-name }}**
+  **{{ cloud-desktop-full-name }}**
+  * [Группа рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md)
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
 
   {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
-  **{{ iam-name }}**
+  **{{ container-registry-full-name }}**
+  * [Реестр](../../../container-registry/concepts/registry.md)
+
+  **{{ datalens-full-name }}**
+  * [Воркбук](../../../datalens/workbooks-collections/index.md)
+  * [Коллекция](../../../datalens/workbooks-collections/index.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Проект](../../../datasphere/security/index.md)
+  * [Сообщество](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
   * [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
 
-  **{{ kms-name }}**
+  **{{ kms-full-name }}**
 
   {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
-  **{{ ydb-name }}**
-  * [СУБД YDB](../../../ydb/operations/manage-databases.md#add-access-binding)
+  **{{ lockbox-full-name }}**
+  * [Секрет](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
 
   **{{ metadata-hub-full-name }}**
   * [Подключение к управляемым базам данных](../../../metadata-hub/operations/connection-access.md) в {{ connection-manager-full-name }}
 
-  **{{ objstorage-name }}**
+  **{{ objstorage-full-name }}**
   * [Бакет](../../../storage/operations/buckets/iam-access.md)
 
-  **{{ resmgr-name }}**
+  **{{ resmgr-full-name }}**
   * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
   * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
 
-  **{{ lockbox-name }}**
-  * [Секрет](../../../lockbox/operations/secret-access.md)
+  **{{ speechsense-full-name }}**
+  * [Пространство](../../../speechsense/concepts/resources-hierarchy.md#space)
+  * [Проект](../../../speechsense/concepts/resources-hierarchy.md#project)
+
+  **{{ websql-full-name }}**
+  * [Сохраненный запрос](../../../websql/concepts/index.md#saved-queries)
+  * [Запрос из истории](../../../websql/concepts/index.md#query-log)
 
 - CLI {#cli}
 
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
+  **{{ api-gw-full-name }}**
+  * [API-шлюз](../../../api-gateway/concepts/index.md)
 
-- {{ TF }} {#tf}
+  **{{ at-full-name }}**
+  * [Трейл](../../../audit-trails/concepts/trail.md)
 
-  **{{ container-registry-name }}**
-  * [Реестр](../../../container-registry/operations/roles/grant.md)
-  * [Репозиторий](../../../container-registry/operations/roles/grant.md)
+  **{{ certificate-manager-full-name }}**
+  * [Пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md)
 
-  **{{ ml-platform-name }}**
-  * [Проект](../../../datasphere/security/index.md)
-  * [Сообщество](../../../datasphere/security/index.md)
+  **{{ cloud-desktop-full-name }}**
+  * [Группа рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md)
 
-  **{{ dns-name }}**
+  **{{ dns-full-name }}**
   * [Зона DNS](../../../dns/operations/zone-access.md)
 
-  **{{ sf-name }}**
+  **{{ sf-full-name }}**
   * [Функция](../../../functions/operations/function/role-add.md)
 
-  **{{ compute-name }}**
+  **{{ cloud-logging-full-name }}**
+  * [Лог-группа](../../../logging/concepts/log-group.md)
+  * [Приемник логов](../../../logging/operations/create-sink.md)
 
-  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
-
-  **{{ iam-name }}**
-  * [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
-
-  **{{ kms-name }}**
-
-  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
-
-  **{{ lockbox-name }}**
-  * [Секрет](../../../lockbox/operations/secret-access.md)
-
-  **{{ resmgr-name }}**
-  * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
-
-  **{{ serverless-containers-name }}**
-  * [Контейнер](../../../serverless-containers/operations/role-add.md)
-
-  **{{ ydb-name }}**
-  * [СУБД YDB](../../../ydb/security/index.md)
-
-  **{{ org-name }}**
+  **{{ org-full-name }}**
 
   {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Реестр](../../../container-registry/concepts/registry.md)
+  * [Репозиторий](../../../container-registry/concepts/repository.md)
+
+  **{{ iam-full-name }}**
+  * [Сервисный аккаунт](../../../iam/operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Секрет](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+  * Резервная копия СУБД YDB
+
+  **{{ resmgr-full-name }}**
+  * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Контейнер](../../../serverless-containers/operations/role-add.md)
+
+- {{ TF }} {#tf}
+
+  **{{ dns-full-name }}**
+  * [Зона DNS](../../../dns/operations/zone-access.md)
+
+  **{{ sf-full-name }}**
+  * [Функция](../../../functions/operations/function/role-add.md)
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Реестр](../../../container-registry/concepts/registry.md)
+  * [Репозиторий](../../../container-registry/concepts/repository.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Проект](../../../datasphere/security/index.md)
+  * [Сообщество](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
+  * [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Секрет](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+
+  **{{ resmgr-full-name }}**
+  * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Контейнер](../../../serverless-containers/operations/role-add.md)
+
 - API {#api}
 
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
+  **{{ api-gw-full-name }}**
+  * [API-шлюз](../../../api-gateway/concepts/index.md)
+
+  **{{ at-full-name }}**
+  * [Трейл](../../../audit-trails/concepts/trail.md)
+
+  **{{ certificate-manager-full-name }}**
+  * [Пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md)
+
+  **{{ billing-name }}**
+  * [Платежный аккаунт](../../../billing/concepts/billing-account.md)
+
+  **{{ cloud-desktop-full-name }}**
+  * [Группа рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md)
+
+  **{{ dns-full-name }}**
+  * [Зона DNS](../../../dns/operations/zone-access.md)
+
+  **{{ sf-full-name }}**
+  * [Функция](../../../functions/operations/function/role-add.md)
+
+  **{{ cloud-logging-full-name }}**
+
+  {% include notitle [logging-resources](../../../_includes/iam/resources-with-access-control/logging.md) %}
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Реестр](../../../container-registry/concepts/registry.md)
+  * [Репозиторий](../../../container-registry/concepts/repository.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Проект](../../../datasphere/security/index.md)
+  * [Сообщество](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
+  * [Сервисный аккаунт](../../../iam/operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Секрет](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+  * Резервная копия СУБД YDB
+
+  **{{ resmgr-full-name }}**
+  * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Контейнер](../../../serverless-containers/operations/role-add.md)
 
 {% endlist %}

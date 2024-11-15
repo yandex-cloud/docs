@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ backup-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ backup-name }}.
 editable: false
 ---
 

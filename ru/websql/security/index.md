@@ -21,7 +21,7 @@ description: Управление доступом в сервисе для ра
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роли можно назначать на опубликованные сохраненные запросы и запросы из истории.
+Кроме того, в [интерфейсе {{ websql-name }}]({{ websql-link }}) роли можно назначать на опубликованные [сохраненные запросы](../concepts/index.md#saved-queries) и [запросы из истории](../concepts/index.md#query-log).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

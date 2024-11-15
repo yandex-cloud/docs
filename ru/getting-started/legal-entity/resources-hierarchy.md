@@ -56,7 +56,7 @@
 - Консоль управления {#console}
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
@@ -128,10 +128,11 @@
 
 - Консоль управления {#console}
 
-  1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **Роли в каталогах** и нажмите значок ![image](../../_assets/console-icons/plus.svg).
-  1. Выберите необходимую роль из списка.
+  1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+  1. Перейдите на вкладку [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-iam-users }}).
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив нужного пользователя и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**.
+  1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимую роль из списка.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -248,9 +249,7 @@
 
 - Консоль управления {#console}
 
-  Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
-
-  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **Настроить роли**.
+  Назначьте пользователю несколько ролей по [инструкции выше](#access-to-user).
 
 - CLI {#cli}
 

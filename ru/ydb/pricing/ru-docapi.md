@@ -1,3 +1,9 @@
+---
+title: Правила оценки стоимости запросов к {{ ydb-short-name }} через Document API
+description: В статье содержатся правила оценки стоимости запросов к {{ ydb-name }} через Document API.
+editable: false
+---
+
 # Правила оценки стоимости запросов к {{ ydb-short-name }} через Document API
 
 

@@ -13,3 +13,7 @@ description: Различные сценарии использования {{ n
 * [{#T}](./dns-integration.md)
 * [{#T}](./exchange.md)
 * [{#T}](./mssql-alwayson-lb.md)
+* [{#T}](./route-switcher.md)
+* [{#T}](./storage-vpc-access.md)
+* [{#T}](./updating-under-load.md)
+* [{#T}](./vpc-cr-access.md)

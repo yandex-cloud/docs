@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ maf-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ maf-name }}.
 editable: false
 ---
 

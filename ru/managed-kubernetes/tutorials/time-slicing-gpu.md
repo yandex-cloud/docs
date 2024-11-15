@@ -1,3 +1,8 @@
+---
+title: Установка Time-Slicing GPUs
+description: Следуя данному руководству, вы сможете установить Time-Slicing GPUs.
+---
+
 # Установка Time-Slicing GPUs
 
 

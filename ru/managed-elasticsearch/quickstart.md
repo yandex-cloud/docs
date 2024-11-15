@@ -9,15 +9,10 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы начать работу с сервисом:
 
-1. [{#T}](#cluster-create).
-
-
-1. [{#T}](#configuring-security-groups).
-
-
-1. [{#T}](#connect).
-
-1. [{#T}](#connect-kibana).
+1. [Создайте кластер](#cluster-create).
+1. [Настройте группы безопасности](#configuring-security-groups).
+1. [Подключитесь к кластеру](#connect).
+1. [Подключитесь к Kibana](#connect-kibana).
 
 
 ## Перед началом работы {#before-you-begin}

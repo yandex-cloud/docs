@@ -29,9 +29,9 @@ description: Вы научитесь отправлять метрики пот�
 
 Для проверки выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
@@ -83,9 +83,9 @@ description: Вы научитесь отправлять метрики пот�
 
 Чтобы отправить метрику, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
