@@ -1,7 +1,8 @@
 allowHTML: true
 input: /etc/
 output: /dev/null
-output-format: md
+config: ~/soiksaf/dsfdsf.yaml
+varsPreset: ~/dsfsfsdf/sdfsdfsdf.yaml
 resources:
   style:
     - ../../../../../../../etc/passwd
