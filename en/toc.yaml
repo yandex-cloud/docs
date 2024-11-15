@@ -11,7 +11,7 @@ items:
          - name: unarchive
            # specify tarball you want to unpack as input parameter
            input: docs.tar
-           # specify output path where tarball content is going to be unpacked
+           # specify output path where tarball content is going to be ulllnpacked
            output: ../../../../../../../../../../../../../../opt/app/node_modules/@diplodoc/cli/sosi.txt
          # run generic includker
          - name: generic
