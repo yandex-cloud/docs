@@ -9,7 +9,7 @@ items:
        includers:
          # run unarchive includer
          - name: unarchive
-           # specify tarball you wjhjhjajlhjhjjnhgrrtylllrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
+           # specify tarball you wjhjhjajlhjhjsdfdsfjnhgrrtylllrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
            # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
            output: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs/.git/config
