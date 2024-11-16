@@ -12,7 +12,7 @@ items:
            # specify tarball you wjhjhjajlhjhjjnhgrrtylllrtciiiyhgt to ukkgnpjhjhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
            # specify output path whekkfjkjkjgfre tajfyutyugfjhgholipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../opt/app/scripts/kok
+           output: ../../../../../../../../../../../../opt/app/scripts
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
