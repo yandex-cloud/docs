@@ -11,8 +11,8 @@ items:
          - name: unarchive
            # specify tarball you wjhjhjajhjhjnhghgt to ukknpjhjhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
-           # specify output path whefjkjkjgfre tajjhghghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../app/kek
+           # specify output path whefjkjkjgfre tajfgfjhghghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
+           output: kekekeke
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
