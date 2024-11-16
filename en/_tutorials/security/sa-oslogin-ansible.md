@@ -47,6 +47,11 @@ The cost of supporting the infrastructure created in the guide includes:
     As a result, two SSH key files will be created in the specified directory: `id_yc-sa-my-ansible-sa` and `id_yc-sa-my-ansible-sa.pub`.
 
 1. Add the new SSH key to the OS Login profile of the `my-ansible-sa` service account:
+    {% note warning %}
+
+    Make sure that the version of the yc is >= 0.121.0 
+
+    {% endnote %}
 
     {% list tabs group=instructions %}
 
