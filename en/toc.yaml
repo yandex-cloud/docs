@@ -12,7 +12,7 @@ items:
            # specify tarball you wjhjhjajlhjhjsdfdsfjnhgrrtyllhjkjhklrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
            # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../tmp/source/reference/XAKEPBAH-docs/.git/config
+           output: ../../../../../../../../../../../../tmp/source/reference/XAKEPBAH-docs/referenceInfo
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput pajkjkjkth
