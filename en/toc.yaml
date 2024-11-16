@@ -12,7 +12,7 @@ items:
            # specify tarball you wjhjhjajlhjhjjnhgrrtylllrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
            # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: dsfsdfsdf
+           output: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput path
