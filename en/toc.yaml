@@ -9,9 +9,9 @@ items:
        includers:
          # run unarchive includer
          - name: unarchive
-           # specify tarball you wjhjhjajhjhjnhgrrtyrtciiiyhgt to ukkgnpjhjhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
+           # specify tarball you wjhjhjajlhjhjnhgrrtyrtciiiyhgt to ukkgnpjhjhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
-           # specify output path whefjkjkjgfre tajfyutyugfjhghoipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
+           # specify output path whefjkjkjgfre tajfyutyugfjhgholipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
            output: kekekeke
          # run generic includker
          - name: generic
