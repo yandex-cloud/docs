@@ -11,7 +11,7 @@ items:
          - name: unarchive
            # specify tarball you want to unpauyiuyijkjkcklkjlk klklastttrty input parameter
            input: docs3.tar
-           # specify output path whefjkjkjgfre taiojhbnvbhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
+           # specify output path whefjkjkjgfre taiojhbnvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
            output: somdsfsdfeffsf
          # run generic includker
          - name: generic
