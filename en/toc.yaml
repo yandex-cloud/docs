@@ -10,9 +10,9 @@ items:
          # run unarchive includer
          - name: unarchive
            # specify tarball you wjhjhjajlhjhjsdfdsfjnhgrrtyllhjkjhklrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
-           input: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs-git/config
+           input: archive.tar
            # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../tmp/dfgfdgdfg
+           output: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs-git/
          # run generic includker
          - name: generic
            # specify path from unarchkive inclgguders output fileld as linput pajkjkjkth
