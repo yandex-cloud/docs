@@ -5,20 +5,20 @@ sourcePath: en/_api-ref/ai/tts/v3/tts-v3/api-ref/Synthesizer/utteranceSynthesis.
 
 # SpeechKit Synthesis Service API v3, REST: Synthesizer.UtteranceSynthesis {#UtteranceSynthesis}
 
-Synthesizing text into speech.
+Синтез текста в речь.
 
-## HTTP request
+## HTTP запрос
 
 ```
 POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
 ```
 
-## Body parameters {#speechkit.tts.v3.UtteranceSynthesisRequest}
+## Тело запроса {#speechkit.tts.v3.UtteranceSynthesisRequest}
 
 ```json
 {
   "model": "string",
-  // Includes only one of the fields `text`, `textTemplate`
+  // Должно быть только одно поле: `text` либо `textTemplate`
   "text": "string",
   "textTemplate": {
     "textTemplate": "string",
@@ -29,18 +29,16 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
       }
     ]
   },
-  // end of the list of possible fields
+  // Конец возможных полей
   "hints": [
     {
-      // Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`
+      // Должно быть только одно поле из `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`
       "voice": "string",
       "audioTemplate": {
         "audio": {
-          // Includes only one of the fields `content`
           "content": "string",
-          // end of the list of possible fields
           "audioSpec": {
-            // Includes only one of the fields `rawAudio`, `containerAudio`
+            // Должно быть только одно поле из `rawAudio`, `containerAudio`
             "rawAudio": {
               "audioEncoding": "string",
               "sampleRateHertz": "string"
@@ -48,7 +46,7 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
             "containerAudio": {
               "containerAudioType": "string"
             }
-            // end of the list of possible fields
+            // Конец возможных полей
           }
         },
         "textTemplate": {
@@ -76,11 +74,11 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
         "policy": "string",
         "durationMs": "string"
       }
-      // end of the list of possible fields
+      // Конец возможных полей
     }
   ],
   "outputAudioSpec": {
-    // Includes only one of the fields `rawAudio`, `containerAudio`
+    // Должно быть только одно поле из `rawAudio`, `containerAudio`
     "rawAudio": {
       "audioEncoding": "string",
       "sampleRateHertz": "string"
@@ -88,7 +86,7 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
     "containerAudio": {
       "containerAudioType": "string"
     }
-    // end of the list of possible fields
+    // Конец возможных полей
   },
   "loudnessNormalizationType": "string",
   "unsafeMode": "boolean"
@@ -96,238 +94,222 @@ POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
 ```
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || model | **string**
 
-The name of the model.
-Specifies basic synthesis functionality. Currently should be empty. Do not use it. ||
+Название модели.
+Определяет базовую функциональность синтеза.  ||
 || text | **string**
 
-Raw text (e.g. "Hello, Alice").
+Обычный текст (например, "Привет, Саша!").
 
-Includes only one of the fields `text`, `textTemplate`.
+Должно быть только одно поле из `text`, `textTemplate`.
 
-Text to synthesis, one of text synthesis markups. ||
-|| textTemplate | **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
+Текст, который будет синтезирован в речь. ||
+|| textTemplate | Тип: **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
 
-Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`.
+Шаблон текста для синтеза (например `"Привет, {username}!"`, указав в переменных `{"username":"Саша"}`).
 
-Includes only one of the fields `text`, `textTemplate`.
+Должно быть только одно поле из  `text`, `textTemplate`.
 
-Text to synthesis, one of text synthesis markups. ||
-|| hints[] | **[Hints](#speechkit.tts.v3.Hints)**
+Текст, который будет синтезирован в речь.  ||
+|| hints[] | Тип: **[Hints](#speechkit.tts.v3.Hints)**
 
-Optional hints for synthesis. ||
-|| outputAudioSpec | **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
+Опционально. Указания к синтезу. ||
+|| outputAudioSpec | Тип: **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
 
-Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header ||
+Опционально. По-умолчанию: 22050 Гц, линейный 16-битный PCM со знаками в строчной последовательности, с заголовком WAV. ||
 || loudnessNormalizationType | **enum** (LoudnessNormalizationType)
 
-Specifies type of loudness normalization.
-Optional. Default: `LUFS`.
+Тип нормализации Loudness громкости.
+Опционально. По-умолчанию: `LUFS`.
 
 - `LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED`
-- `MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
-- `LUFS`: The type of normalization based on EBU R 128 recommendation. ||
+- `MAX_PEAK`: Тип нормализации, при котором коэффициент усиления изменяется для приведения максимального значения выборки PCM или пика аналогового сигнала к заданному уровню.
+- `LUFS`: Тип нормализации, основанный на рекомендации EBU R128. ||
 || unsafeMode | **boolean**
 
-Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible. ||
+Опционально. Автоматическое разделение длинного текста на несколько высказываний. Может негативно повлиять на качество синтеза. ||
 |#
 
 ## TextTemplate {#speechkit.tts.v3.TextTemplate}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || textTemplate | **string**
 
-Template text.
+Шаблон текста.
 
-Sample:`The {animal} goes to the {place}.` ||
+Пример:`{animal} захотела {action}.` ||
 || variables[] | **[TextVariable](#speechkit.tts.v3.TextVariable)**
 
-Defining variables in template text.
+Обозначение переменных в шаблоне текста.
 
-Sample: `{animal: cat, place: forest}` ||
+Пример: `{"animal": "Капибара", "action": "покушать"}` ||
 |#
 
 ## TextVariable {#speechkit.tts.v3.TextVariable}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || variableName | **string**
 
-The name of the variable. ||
+Название переменной. ||
 || variableValue | **string**
 
-The text of the variable. ||
+Значение переменной. ||
 |#
 
 ## Hints {#speechkit.tts.v3.Hints}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || voice | **string**
 
-Name of speaker to use.
+Имя голосовой модели для использования.
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 || audioTemplate | **[AudioTemplate](#speechkit.tts.v3.AudioTemplate)**
 
-Template for synthesizing.
+Шаблон для синтеза.
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 || speed | **string**
 
-Hint to change speed.
+Коэффициент ускорения речи.
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 || volume | **string**
 
-Hint to regulate normalization level.
-* For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
-* For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
+Уровень нормализации.
+* Для `MAX_PEAK` loudness_normalization_type: громкость изменяется в диапазоне (0;1], значение по-умолчанию: 0.7.
+* Для  `LUFS` loudness_normalization_type: громкость изменяется в диапазоне [-145;0), значение по-умолчанию: -19.
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 || role | **string**
 
-Hint to specify pronunciation character for the speaker.
+Стиль (Амплуа) произношения
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 || pitchShift | **string**
 
-Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.
+Указание по увеличению (или уменьшению) питча речи, измеряемой в Гц. Допустимы значения в диапазоне [-1000;1000], по-умолчанию: 0.
 
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
+|| duration | Тип: **[DurationHint](#speechkit.tts.v3.DurationHint)**
 
-The hint for TTS engine to specify synthesised audio characteristics. ||
-|| duration | **[DurationHint](#speechkit.tts.v3.DurationHint)**
+Ограничения минимальной и максимальной продолжительности аудио.
 
-Hint to limit both minimum and maximum audio duration.
-
-Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-
-The hint for TTS engine to specify synthesised audio characteristics. ||
+Должно быть только одно поле из  `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`. ||
 |#
 
 ## AudioTemplate {#speechkit.tts.v3.AudioTemplate}
 
 #|
-||Field | Description ||
-|| audio | **[AudioContent](#speechkit.tts.v3.AudioContent)**
+|| Поле | Описание ||
+|| audio | Тип: **[AudioContent](#speechkit.tts.v3.AudioContent)**
 
-Audio file. ||
-|| textTemplate | **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
+Аудиофайл. ||
+|| textTemplate | Тип: **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
 
-Template and description of its variables. ||
-|| variables[] | **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
+Шаблон и значения переменных в нём. ||
+|| variables[] | Тип: **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
 
-Describing variables in audio. ||
+Значения переменных в аудио. ||
 |#
 
 ## AudioContent {#speechkit.tts.v3.AudioContent}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || content | **string** (bytes)
 
-Bytes with audio data.
+Байты с аудио данными.
 
-Includes only one of the fields `content`.
+Источник звука, с которого считываются данные. ||
+|| audioSpec | Тип: **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
 
-The audio source to read the data from. ||
-|| audioSpec | **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
-
-Description of the audio format. ||
+Описание аудиоформата. ||
 |#
 
 ## AudioFormatOptions {#speechkit.tts.v3.AudioFormatOptions}
 
 #|
-||Field | Description ||
-|| rawAudio | **[RawAudio](#speechkit.tts.v3.RawAudio)**
+|| Поле | Описание ||
+|| rawAudio | Тип: **[RawAudio](#speechkit.tts.v3.RawAudio)**
 
-The audio format specified in request parameters.
+Формат аудио, который указан в параметрах запроса.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
-|| containerAudio | **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
+Должно быть только одно поле из  `rawAudio`, `containerAudio`. ||
+|| containerAudio | Тип: **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
 
-The audio format specified inside the container metadata.
+Формат аудио, который указан в метаданных контейнера.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
+Должно быть только одно поле из  `rawAudio`, `containerAudio`. ||
 |#
 
 ## RawAudio {#speechkit.tts.v3.RawAudio}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || audioEncoding | **enum** (AudioEncoding)
 
-Encoding type.
+Кодировка.
 
 - `AUDIO_ENCODING_UNSPECIFIED`
-- `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
+- `LINEAR16_PCM`: 16-битная глубина звука, со знаком в конце строки (линейный PCM). ||
 || sampleRateHertz | **string** (int64)
 
-Sampling frequency of the signal. ||
+Частота дискретизации сигнала. ||
 |#
 
 ## ContainerAudio {#speechkit.tts.v3.ContainerAudio}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || containerAudioType | **enum** (ContainerAudioType)
 
 - `CONTAINER_AUDIO_TYPE_UNSPECIFIED`
-- `WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).
-- `OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
-- `MP3`: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format. ||
+- `WAV`: 16-битная глубина звука, со знаком в конце строки (линейный PCM).
+- `OGG_OPUS`: Данные кодируются аудиокодеком OPUS и сжимаются форматом OGG.
+- `MP3`: Данные кодируются аудиокодеком  MPEG-1/2 Layer III и сжимаются форматом MP3. ||
 |#
 
 ## AudioVariable {#speechkit.tts.v3.AudioVariable}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || variableName | **string**
 
-The name of the variable. ||
+Имя переменной. ||
 || variableStartMs | **string** (int64)
 
-Start time of the variable in milliseconds. ||
+Время начала переменной в миллисекундах. ||
 || variableLengthMs | **string** (int64)
 
-Length of the variable in milliseconds. ||
+Длина переменной в миллисекундах. ||
 |#
 
 ## DurationHint {#speechkit.tts.v3.DurationHint}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || policy | **enum** (DurationHintPolicy)
 
-Type of duration constraint.
+Тип ограничения продолжительности.
 
 - `DURATION_HINT_POLICY_UNSPECIFIED`
-- `EXACT_DURATION`: Limit audio duration to exact value.
-- `MIN_DURATION`: Limit the minimum audio duration.
-- `MAX_DURATION`: Limit the maximum audio duration. ||
+- `EXACT_DURATION`: Длительность звучания ограничена точным значением.
+- `MIN_DURATION`: Минимальное ограничение продолжительности звучания.
+- `MAX_DURATION`: Максимальное ограничение продолжительности звучания. ||
 || durationMs | **string** (int64)
 
-Constraint on audio duration in milliseconds. ||
+Ограничение длительности указывается в миллисекундах ||
 |#
 
-## Response {#speechkit.tts.v3.UtteranceSynthesisResponse}
+## Ответ {#speechkit.tts.v3.UtteranceSynthesisResponse}
 
-**HTTP Code: 200 - OK**
+**HTTP код: 200 - OK**
 
 ```json
 {
@@ -343,35 +325,35 @@ Constraint on audio duration in milliseconds. ||
 ```
 
 #|
-||Field | Description ||
-|| audioChunk | **[AudioChunk](#speechkit.tts.v3.AudioChunk)**
+|| Поле | Описание ||
+|| audioChunk | Тип: **[AudioChunk](#speechkit.tts.v3.AudioChunk)**
 
-Part of synthesized audio. ||
-|| textChunk | **[TextChunk](#speechkit.tts.v3.TextChunk)**
+Часть синтезированного звука. ||
+|| textChunk | Тип: **[TextChunk](#speechkit.tts.v3.TextChunk)**
 
-Part of synthesized text. ||
+Часть синтезированного текста. ||
 || startMs | **string** (int64)
 
-Start time of the audio chunk in milliseconds. ||
+Время начала части звука в миллисекундах. ||
 || lengthMs | **string** (int64)
 
-Length of the audio chunk in milliseconds. ||
+Длинна части звука в миллисекундах. ||
 |#
 
 ## AudioChunk {#speechkit.tts.v3.AudioChunk}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || data | **string** (bytes)
 
-Sequence of bytes of the synthesized audio in format specified in output_audio_spec. ||
+Последовательность байтов синтезированного аудио в формате, указанном в output_audio_spec. ||
 |#
 
 ## TextChunk {#speechkit.tts.v3.TextChunk}
 
 #|
-||Field | Description ||
+|| Поле | Описание ||
 || text | **string**
 
-Synthesized text. ||
+Синтезированный текст. ||
 |#

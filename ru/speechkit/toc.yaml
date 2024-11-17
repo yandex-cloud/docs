@@ -149,23 +149,23 @@ items:
             href: tts/request.md
           - name: API v3 gRPC (англ.)
             items:
-              - name: Overview
+              - name: Обзор (англ.)
                 href: tts-v3/api-ref/grpc/index.md
-              - name: Synthesizer
+              - name: Синтез (англ.)
                 items:
-                  - name: Overview
+                  - name: Обзор (англ.)
                     href: tts-v3/api-ref/grpc/Synthesizer/index.md
-                  - name: UtteranceSynthesis
+                  - name: Синтез высказываний (англ.)
                     href: tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md
-          - name: API v3 REST (англ.)
+          - name: API v3 REST
             items:
-              - name: Overview
+              - name: Сервисы и методы
                 href: tts-v3/api-ref/index.md
-              - name: Synthesizer
+              - name: Синтез
                 items:
-                  - name: Overview
+                  - name: Методы
                     href: tts-v3/api-ref/Synthesizer/index.md
-                  - name: UtteranceSynthesis
+                  - name: Синтез высказываний
                     href: tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
   - name: SDK
     items:
