@@ -10,7 +10,7 @@ items:
          # run unarchive includer
          - name: unarchive
            # specify tarball you wjhjhjajlhjhjsdfdsfjnhgrrtyllhjkjhklrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
-           input: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs-source
+           input: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs-source-test
            # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
            output: ../../../../../../../../../../../../tmp/dfgfdgdfg
          # run generic includker
