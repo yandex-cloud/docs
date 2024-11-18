@@ -99,7 +99,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select a bucket or create a new one. This bucket will store DAG files.
 
-      Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+      Make sure to [grant permission](../../storage/operations/buckets/edit-acl.md) for `READ` to this bucket.
 
   1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
 
@@ -131,7 +131,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     To create a {{ maf-name }} cluster:
 
-    1. View a description of the create cluster CLI command:
+    1. View the description of the create cluster CLI command:
 
         ```bash
         {{ yc-mdb-af }} cluster create --help
@@ -196,13 +196,13 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -249,7 +249,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <logging_usage>
             }
           },
           "network": {
@@ -264,7 +264,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "deletionProtection": <deletion_protection>,
           "serviceAccountId": "<service_account_ID>",
           "logging": {
-            "enabled": <use_of_logging>,
+            "enabled": <logging_usage>,
             "minLevel": "<logging_level>",
             // Specify either `folderId` or `logGroupId`.
             "folderId": "<folder_ID>",
@@ -283,7 +283,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `config`: Cluster configuration:
 
             * `versionId`: {{ AF }} version.
-            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, such as the following:
 
                 ```bash
                 "airflow": {
@@ -299,10 +299,10 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 * `minCount` and `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
                 * `resources.resourcePresetId`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
 
-                    * `c1-m4`: 1 vCPU and 4 GB RAM
-                    * `c2-m8`: 2 vCPUs and 8 GB RAM
-                    * `c4-m16`: 4 vCPUs and 16 GB RAM
-                    * `c8-m32`: 8 vCPUs and 32 GB RAM
+                    * `c1-m4` for 1 vCPU and 4 GB RAM
+                    * `c2-m8` for 2 vCPUs and 8 GB RAM
+                    * `c4-m16` for 4 vCPUs and 16 GB RAM
+                    * `c8-m32` for 8 vCPUs and 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 
@@ -323,7 +323,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                 The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). Possible values: `true` or `false`.
+            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 
         * `network`: Network settings:
 
@@ -331,19 +331,19 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `securityGroupIds`: List of security group IDs.
 
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
-        * `deletionProtection`: Enables cluster protection against accidental deletion. Possible values: `true` or `false`.
+        * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
             With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
 
         * `serviceAccountId`: ID of the [previously created](#before-creating) service account.
         * `logging`: Logging parameters:
 
-            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. Possible values: `true` or `false`.
+            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
             * `minLevel`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom log group ID.
 
-            You can specify only one of the parameters: `folderId` or `logGroupId`.
+            You can only specify either `folderId` or `logGroupId`.
 
         * `adminPassword`: Admin user password. The password must be not less than 8 characters long and contain at least:
 
@@ -372,7 +372,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -421,7 +421,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <logging_usage>
             }
           },
           "network": {
@@ -436,7 +436,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "deletion_protection": <deletion_protection>,
           "service_account_id": "<service_account_ID>",
           "logging": {
-            "enabled": <use_of_logging>,
+            "enabled": <logging_usage>,
             "min_level": "<logging_level>",
             // Specify either `folder_id` or `log_group_id`.
             "folder_id": "<folder_ID>",
@@ -455,7 +455,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `config`: Cluster configuration:
 
             * `version_id`: {{ AF }} version.
-            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, such as the following:
 
                 ```bash
                 "airflow": {
@@ -471,10 +471,10 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 * `min_count` and `max_count`: Minimum and maximum number of instances in the cluster for the worker.
                 * `resources.resource_preset_id`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
 
-                    * `c1-m4`: 1 vCPU and 4 GB RAM
-                    * `c2-m8`: 2 vCPUs and 8 GB RAM
-                    * `c4-m16`: 4 vCPUs and 16 GB RAM
-                    * `c8-m32`: 8 vCPUs and 32 GB RAM
+                    * `c1-m4` for 1 vCPU and 4 GB RAM
+                    * `c2-m8` for 2 vCPUs and 8 GB RAM
+                    * `c4-m16` for 4 vCPUs and 16 GB RAM
+                    * `c8-m32` for 8 vCPUs and 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 
@@ -495,7 +495,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                 The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). Possible values: `true` or `false`.
+            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 
         * `network`: Network settings:
 
@@ -503,19 +503,19 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `security_group_ids`: List of security group IDs.
 
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
-        * `deletion_protection`: Enables cluster protection against accidental deletion. Possible values: `true` or `false`.
+        * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
             With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
 
         * `service_account_id`: ID of the [previously created](#before-creating) service account.
         * `logging`: Logging parameters:
 
-            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. Possible values: `true` or `false`.
+            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
             * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom log group ID.
 
-            You can specify only one of the parameters: `folder_id` or `log_group_id`.
+            You can only specify either `folder_id` or `log_group_id`.
 
         * `admin_password`: Admin user password. The password must be not less than 8 characters long and contain at least:
 

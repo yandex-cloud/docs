@@ -1,4 +1,4 @@
-# Creating a {{ MG }} cluster
+# Creating an {{ MG }} cluster
 
 A {{ MG }} cluster is one or more database hosts across which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
 
@@ -53,7 +53,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information on how backups consume storage space, see [Backups](../concepts/backup.md).
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -114,7 +114,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View a description of the create cluster CLI command:
+  1. View the description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-mg }} cluster create --help
@@ -277,7 +277,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -319,7 +319,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 You can create a {{ MG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ MG }} cluster copy:
+To create an {{ MG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -404,15 +404,15 @@ To create a {{ MG }} cluster copy:
   Create a {{ mmg-name }} cluster with the following test specifications:
 
 
-  * Name: `mymg`.
-  * Environment: `production`.
-  * Network: `{{ network-name }}`.
-  * Security group ID: `{{ security-group }}`.
-  * One `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * One user: `user1`, password: `user1user1`.
-  * One database: `db1`.
-  * Protection against accidental cluster deletion.
+  * Name: `mymg`
+  * Environment: `production`
+  * Network: `{{ network-name }}`
+  * Security group ID: `{{ security-group }}`
+  * Host: `{{ host-class }}`, subnet:`b0rcctk2rvtr********`, availability zone: `{{ region-id }}-a`
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+  * User: `user1`, password: `user1user1`
+  * Database: `db1`
+  * Protection against accidental cluster deletion: Enabled
 
 
   Run the following command:
@@ -445,11 +445,11 @@ To create a {{ MG }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * Network: `mynet`.
   * Host class: `{{ host-class }}`.
-  * Number of `host` blocks: 1.
+  * Number of `host` blocks: One.
   * Subnet: `mysubnet`. Network settings:
 
-    * Availability zone: `{{ region-id }}-a`
-    * Range: `10.5.0.0/24`
+    * Availability zone: `{{ region-id }}-a`.
+    * Range: `10.5.0.0/24`.
 
 
   * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
@@ -564,7 +564,7 @@ Cluster test specifications:
 Network specifications:
 
 * Network: `mynet`.
-* Security group `mymg-sg` with `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
+* Security group: `mymg-sg` with `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
 
 * Subnet: `mysubnet`.
 * Availability zone: `{{ region-id }}-a`.

@@ -13,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Updating the {{ RD }} version
             href: operations/cluster-version-update.md
@@ -35,7 +35,7 @@ items:
             href: operations/connect/non-sharded.md
           - name: Connecting to a sharded cluster
             href: operations/connect/sharded.md
-          - name: Queries to {{ websql-full-name }}
+          - name: Queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
       - name: Sharding and fault-tolerance
         items:

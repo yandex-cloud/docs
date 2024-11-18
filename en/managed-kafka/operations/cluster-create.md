@@ -52,7 +52,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
-       You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
+       You cannot change the disk type for an {{ mkf-name }} cluster once you create it.
      * Select the storage size to use for data.
 
 
@@ -111,7 +111,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   To create a {{ mkf-name }} cluster:
 
-  1. View a description of the create {{ mkf-name }} cluster CLI command:
+  1. View the description of the create {{ mkf-name }} cluster CLI command:
 
      ```bash
      {{ yc-mdb-kf }} cluster create --help
@@ -281,7 +281,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
+     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -342,7 +342,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
   To create a {{ mkf-name }} cluster:
 
-  1. View a description of the create {{ mkf-name }} cluster CLI command:
+  1. View the description of the create {{ mkf-name }} cluster CLI command:
 
      ```bash
      {{ yc-mdb-kf }} cluster create --help
@@ -513,7 +513,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
+     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -573,7 +573,7 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ KF }} cluster copy:
 

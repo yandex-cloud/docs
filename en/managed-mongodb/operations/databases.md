@@ -24,7 +24,7 @@ You can add and remove databases, as well as view information about them.
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -67,7 +67,7 @@ You can add and remove databases, as well as view information about them.
 
   {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   {{ mmg-short-name }} runs the create database operation.
 
@@ -106,7 +106,7 @@ You can add and remove databases, as well as view information about them.
 
   * ID of the cluster where you want to create a database, in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * Database settings in the `databaseSpec` parameter.
-
+  
   To allow access to the created database, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call.
 
 {% endlist %}
@@ -134,7 +134,7 @@ You can add and remove databases, as well as view information about them.
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

@@ -7,6 +7,29 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.139.0 (18.11.24) {#version0.139.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* В команду `yc desktops desktop` добавлен параметр `user-account-id`. Удален праметр `subject`.
+* Добавлена команда `yc desktops image` для управления образами рабочих столов.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Исправлена регрессия в Docker Credential helper, приводившая к невозможности выбора профиля не по умолчанию.
+
+##### {{ compute-name }} {#compute}
+
+* В команды `yc compute disk create` и `yc compute instance create` добавлены параметры `kms-key-id` и `kms-key-name` для поддержки шифрования дисков.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+* В команду `yc serverless container revision deploy` добавлен параметр `--runtime`, позволяющий задать режим работы контейнера (`http` или `task`).
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.138.0 (06.11.24) {#version0.138.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -19,8 +42,6 @@ description: На странице представлены релизы YC CLI,
 
 * Команды `yc cic point-of-presence get` и `yc cic partner get` теперь работают только с ID без флагов.
 * Для `trunk-connection`, `private-connection` и `public-connection` в {{ interconnect-name }} и для `routing-instance` в Cloud Router исправлен формат результата команды `list` — удалена часть полей и преобразованы форматы отображения.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.137.0 (01.11.24) {#version0.137.0}
 

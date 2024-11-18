@@ -128,7 +128,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View a description of the create {{ mes-name }} cluster CLI command:
+  1. View the description of the create {{ mes-name }} cluster CLI command:
 
      ```bash
      {{ yc-mdb-es }} cluster create --help
@@ -164,8 +164,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      * `--host`: Host parameters:
         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-        * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
-        * `type`: Host type: `datanode` or `masternode`.
+        * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
+        * `type`: Host role: `datanode` or `masternode`.
      * `--datanode-resource-preset`: Host class with the Data node role.
      * `--datanode-disk-size`: Storage size in GB for hosts with the Data node role.
      * `--datanode-disk-type`: Storage type for hosts with the Data node role.
@@ -190,7 +190,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+    
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -272,7 +272,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      * `host`: Host parameters:
         * `name`: Host name.
         * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
-        * `type`: Host type: `DATA_NODE` or `MASTER_NODE`.
+        * `type`: Host role: `DATA_NODE` or `MASTER_NODE`.
         * `assign_public_ip`: Public access to the host, `true` or `false`.
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
 
@@ -280,8 +280,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
-     For more information about resources you can create with {{ TF }}, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
-   1. Make sure the settings are correct.
+     For more information about the resources you can create with {{ TF }}, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -451,13 +451,13 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
   * `--deletion-protection`: {{ mes-name }} cluster deletion protection. You cannot delete a {{ mes-name }} cluster with this option enabled.
   * Cloud ID: `{{ tf-cloud-id }}`.
   * Folder ID: `{{ tf-folder-id }}`.
-  * Network: New `mynet` network.
+  * New `mynet` network.
 
 
   * Security group: New `es-sg` security group allowing connections from the internet to the {{ mes-name }} cluster on ports 443 (Kibana) and 9200 ({{ ES }}).
 
 
-  * Hosts: One publicly available `{{ host-class }}` host with the _Data node_ role, subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. `mysubnet` will have the `10.5.0.0/24` range.
+  * Hosts: One publicly available `{{ host-class }}` host with the _Data node_ role, subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. Range for `mysubnet`: `10.5.0.0/24`.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * `esadminpwd` password for the `admin` user.
 

@@ -5,7 +5,9 @@ description: This section contains {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+## September 2024 {#sep-2024}
+
+Added automatic increase of disk size. In the [cluster settings](operations/update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. You can choose to immediately increase the disk size or to increase it during the next maintenance window.
 
 ## April 2024 {#apr-2024}
 

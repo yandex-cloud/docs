@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ mes-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_elasticsearch_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_elasticsearch_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_elasticsearch_cluster]({{ tf-provider-datasources-link }}/mdb_elasticsearch_cluster) | [Cluster](./concepts/index.md) information |

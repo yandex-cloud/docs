@@ -25,11 +25,11 @@ You can add, rename, and remove databases, as well as view information about the
   {{ yc-mdb-pg }} database list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -48,7 +48,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -105,7 +105,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
 
-         For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+          For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
 
       * Collation and character set locales.
 
@@ -160,7 +160,7 @@ You can add, rename, and remove databases, as well as view information about the
 
         For a complete list of editable fields in the {{ mpg-name }} cluster database configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
-    1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation and character set locales (the default ones are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
+    1. Add the `yandex_mdb_postgresql_database` resource: If necessary, specify the required collation and character set locales (the default ones are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
         ```hcl
         resource "yandex_mdb_postgresql_database" "<DB_name>" {
@@ -176,7 +176,7 @@ You can add, rename, and remove databases, as well as view information about the
 
         Where:
           * `owner`: Username of the owner that must be specified in the `yandex_mdb_postgresql_user` resource.
-          * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). Default value: `unspecified`.
+          * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -196,7 +196,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -249,7 +249,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -342,7 +342,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -372,13 +372,13 @@ You can add, rename, and remove databases, as well as view information about the
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [DB list in your cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/update.md#responses) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -442,7 +442,7 @@ You can add, rename, and remove databases, as well as view information about the
 
   1. Find the `yandex_mdb_postgresql_database` resource of the DB you need.
 
-  1. Add the `deletion_protection` parameter. The possible values are `true`, `false`, or `unspecified` (inherits the value from the cluster). Default value: `unspecified`.
+  1. Add the `deletion_protection` parameter. The possible values are `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
         ```hcl
         resource "yandex_mdb_postgresql_database" "<DB_name>" {
@@ -462,7 +462,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -496,7 +496,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -572,7 +572,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -595,7 +595,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -614,7 +614,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

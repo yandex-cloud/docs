@@ -22,4 +22,4 @@ Response example:
  }
 ```
 
-The `federationId` property contains the ID of the federation you created. Make sure to save it as you will need it later.
+The `federationId` property contains the ID of the federation you created. Save it for later use.

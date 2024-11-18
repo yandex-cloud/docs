@@ -36,7 +36,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -57,7 +57,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -102,7 +102,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ CH }} cluster, run the following command:
+  To get information about the {{ CH }} cluster, run the following command:
 
   ```
   {{ yc-mdb-ch }} cluster get <cluster_name_or_ID>
@@ -112,7 +112,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -131,7 +131,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -209,7 +209,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
+  You can request a [list of clusters in the folder](cluster-list.md#list-clusters) to get the cluster ID and name.
 
   By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
@@ -237,7 +237,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -256,7 +256,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -286,7 +286,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
+1. [Get a list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 

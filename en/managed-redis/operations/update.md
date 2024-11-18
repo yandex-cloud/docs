@@ -56,7 +56,7 @@ Learn more about other cluster updates:
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -146,7 +146,7 @@ If the relevant setting is disabled (by default), {{ RD }} uses IP addresses as 
 
     To enable or disable the use of FQDNs instead of IP addresses:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -250,7 +250,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -365,7 +365,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To increase storage size of {{ RD }} hosts:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -519,7 +519,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -564,7 +564,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+    * List of cluster configuration fields to update, in the `updateMask` parameter.
 
     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -636,7 +636,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To move a cluster:
 
-    1. View a description of the CLI move cluster command:
+    1. View the description of the CLI move cluster command:
 
         ```bash
         {{ yc-mdb-rd }} cluster move --help
@@ -681,7 +681,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help

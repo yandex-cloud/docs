@@ -1649,10 +1649,12 @@ default:
         provision_enabled|string: "6,00\_₸"
         provisioned_request|string: "11,50\_₸"
         v1|pricingRate:
+          10|number: 27.35
           10|string: "27,35\_₸"
         v1|string: Не тарифицируется
       invocations:
         v1|pricingRate:
+          1|number: 80
           1|string: "80,00\_₸"
         v1|string: Не тарифицируется
   sku|KZT|smart_captcha:
@@ -2841,10 +2843,12 @@ default:
         provision_enabled|string: "1,20\_₽"
         provisioned_request|string: "2,30\_₽"
         v1|pricingRate:
+          10|number: 5.47
           10|string: "5,47\_₽"
         v1|string: Не тарифицируется
       invocations:
         v1|pricingRate:
+          1|number: 16
           1|string: "16,00\_₽"
         v1|string: Не тарифицируется
   sku|RUB|smart_captcha:
@@ -4000,10 +4004,12 @@ default:
     functions:
       compute:
         v1|pricingRate:
+          10|number: 0.04376
           10|string: "0,043760\_$"
         v1|string: Не тарифицируется
       invocations:
         v1|pricingRate:
+          1|number: 0.128
           1|string: "0,128000\_$"
         v1|string: Не тарифицируется
   sku|USD|smart_captcha:
@@ -8069,6 +8075,7 @@ default:
           label_arl-profile: Профиль ARL
           label_default-action: Действие для базового правила по умолчанию
           section_security-rules: Правила безопасности
+        label_profiles-list: Профили безопасности
         label_search-rule-type: 'Тип правила:'
         overview:
           action_attach-to-host: Подключить к хосту
@@ -8087,21 +8094,26 @@ default:
           label_waf-rule: Web Application Firewall
           title_connected-to-the-hosts: Подключенные хосты
           title_security-rules: Правила безопасности
+          title_waf-profile: Профиль WAF
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
         title_profiles: Профили безопасности
         waf:
           action_exclusion-rule-add-rules: Добавить правила
+          action_setup-base-rules: Настроить набор базовых правил
           field_analyze-request-body: Инспектировать тело запроса
           field_logging: Запись логов
           field_max-request-body-size: Максимальный размер тела запроса
           label_action-edit-settings: Настроить набор базовых правил
           label_analyze-request-body-action-deny: Блокировать запрос
           label_analyze-request-body-action-ignore: Не анализировать тело запроса
+          label_anomaly-medium: Умеренный — 25 и выше
           label_anomaly-threshold: Порог аномальности
           label_create-exclusion-rule: Создать правило-исключение
           label_create-profile: Создать профиль WAF
+          label_exclusion-rules: Правила-исключения
           label_paranoia-level: Уровень паранойи
+          label_paranoia-option-2: 2 и ниже
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
           section_analyze-request: Анализ запроса
@@ -8112,6 +8124,7 @@ default:
           value_exclude-all-yes: Все правила
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
+        field_security-rule_priority: Приоритет
         label_additional-challenge: Дополнительное задание
         label_allowed-sites: Список хостов
         label_captcha-settings-list: Список капч
@@ -10081,7 +10094,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.35.5
+        tag: 0.42.1
     yc_external-secrets:
       helmChart:
         name: >-
@@ -10147,7 +10160,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
-        tag: 0.1.12
+        tag: 0.1.13
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns

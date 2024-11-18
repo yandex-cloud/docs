@@ -23,5 +23,5 @@ The following {{ TF }} provider resources are supported for {{ mmy-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_cluster) | [Cluster](./concepts/index.md) information |
-| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_user) | Database user information |
+| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/mdb_mysql_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/mdb_mysql_user) | Database user information |

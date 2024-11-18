@@ -41,7 +41,7 @@ Learn more about other cluster updates:
 
     To change the name and description of a cluster:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -151,7 +151,7 @@ We recommend changing broker host class only when there is no active workload on
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -221,7 +221,7 @@ We recommend changing broker host class only when there is no active workload on
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * [Broker host class](../concepts/instance-types.md) in the `configSpec.kafka.resources.resourcePresetId` parameter.
   * Number of broker hosts in the `configSpec.brokersCount` parameter.
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -259,7 +259,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -312,7 +312,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * {{ ZK }} [host class](../concepts/instance-types.md) in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -341,7 +341,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -409,7 +409,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
   - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
   - List of security group IDs in the `securityGroupIds` parameter.
   - Public access settings in the `configSpec.assignPublicIp` parameter.
-  - List of settings to update, in the `updateMask` parameter.
+  - List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -442,7 +442,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -568,7 +568,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     To update the {{ KF }} settings:
 
-    1. View a description of the CLI update cluster settings command:
+    1. View the description of the CLI update cluster settings command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -636,7 +636,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         * `configSpec.kafka.kafkaConfig_2_8`: If you are using {{ KF }} `2.8`.
         * `configSpec.kafka.kafkaConfig_3`: If you are using {{ KF }} `3.x`.
 
-    * List of settings to update, in the `updateMask` parameter.
+    * List of settings to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -655,7 +655,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     To move a cluster:
 
-    1. View a description of the CLI move cluster command:
+    1. View the description of the CLI move cluster command:
 
         ```bash
         {{ yc-mdb-kf }} cluster move --help

@@ -12,27 +12,27 @@ You can add and delete users as well as manage their individual settings and dat
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
-
+  
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To get a list of cluster users, run the following command:
-
+  
   ```
   {{ yc-mdb-mg }} user list \
     --cluster-name <cluster_name>
   ```
-
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
+  
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  
 - API {#api}
-
+  
   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/User/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -65,19 +65,19 @@ You can add and delete users as well as manage their individual settings and dat
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To create a user in a cluster:
-
+  
   1. See the description of the create user CLI command:
-
+  
      ```
      {{ yc-mdb-mg }} user create --help
      ```
-
+  
   1. Specify the user properties in the create command:
      ```
      {{ yc-mdb-mg }} user create <username> \
@@ -86,10 +86,10 @@ You can add and delete users as well as manage their individual settings and dat
        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
        --permission database=<other_DB_name>,role=<role>,...
      ```
-
+  
      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -162,19 +162,19 @@ You can add and delete users as well as manage their individual settings and dat
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To change a user's password or list of roles:
-
+  
   1. See the description of the CLI's update user command:
-
+  
      ```
      {{ yc-mdb-mg }} user update --help
      ```
-
+  
   1. Specify the user properties in the update command:
      ```
      {{ yc-mdb-mg }} user update <username> \
@@ -183,17 +183,17 @@ You can add and delete users as well as manage their individual settings and dat
        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
        --permission database=<other_DB_name>,role=<role>,...
      ```
-
+  
      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
   To grant a user access to a database with a defined list of roles:
 
   1. View a description of the CLI command to grant users permissions:
-
+  
      ```
      {{ yc-mdb-mg }} user grant-permission --help
      ```
-
+  
   1. Specify the properties of the user in the grant permissions command:
 
      ```bash
@@ -206,11 +206,11 @@ You can add and delete users as well as manage their individual settings and dat
   To revoke user database access:
 
   1. View a description of the CLI command to revoke users' permissions:
-
+  
      ```
      {{ yc-mdb-mg }} user revoke-permission --help
      ```
-
+  
   1. Specify the properties of the user in the revoke permissions command:
 
      ```bash
@@ -279,21 +279,21 @@ You can add and delete users as well as manage their individual settings and dat
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the user you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-
+  
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To remove a user, run:
-
+  
   ```
   {{ yc-mdb-mg }} user delete <username> \
     --cluster-name <cluster_name>
   ```
-
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -301,7 +301,7 @@ You can add and delete users as well as manage their individual settings and dat
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the `yandex_mdb_mongodb_user` resource with the description of the user you need.
+    1. Delete the `yandex_mdb_mongodb_user` resource with the user's description.
 
     1. Make sure the settings are correct.
 
@@ -314,7 +314,7 @@ You can add and delete users as well as manage their individual settings and dat
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 - API {#api}
-
+  
   To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/User/delete.md) gRPC API call and provide the following in the request:
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

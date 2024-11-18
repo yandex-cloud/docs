@@ -44,7 +44,7 @@ description: This section contains {{ at-name }} release notes.
 
   {% cut "{{ compute-name }}" %}
 
-  [Data events](./concepts/format-data-plane.md):
+  [Management events](./concepts/format.md):
 
   Event | Description
   --- | ---

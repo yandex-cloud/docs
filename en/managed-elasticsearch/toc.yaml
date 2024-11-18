@@ -21,15 +21,15 @@ items:
                 href: operations/saml-authentication.md
           - name: Updating parameters
             items:
-              - name: Changing cluster settings
+              - name: Updating cluster settings
                 href: operations/cluster-update.md
-              - name: Updating {{ ES }} version and edition
+              - name: Updating the {{ ES }} version and edition
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/cluster-plugins.md
               - name: Managing extensions
                 href: operations/cluster-extensions.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing hosts
             href: operations/cluster-hosts.md
@@ -53,7 +53,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Migration to {{ mes-name }} using snapshots
+      - name: Migrating to {{ mes-name }} using snapshots
         href: tutorials/migration-via-snapshots.md
       - name: >-
           Migrating data from a third-party {{ ES }} cluster using the Reindex

@@ -18,3 +18,4 @@ Maximum time-to-live of an idle web socket connection | 10 minutes
 Number of [user networks](../../api-gateway/concepts/networking.md##user-network) per cloud | 1
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger | 256 KB
+Maximum number of [domains](../../api-gateway/concepts/index.md#domains) you can connect to a single API gateway | 20

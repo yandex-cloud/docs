@@ -13,7 +13,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
       To use this method, enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster.
 
-   * [Session settings](#session). During a session, you can provide {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
+   * [Session settings](#session). During a session, you can specify {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
 
       This method is not suitable for all SQL editors: in some of them, every query runs in a separate session. Check the characteristics of your SQL editor before configuring a session.
 
@@ -28,7 +28,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 - SQL {#sql}
 
    1. [Connect](connect/clients.md) to the database in the cluster.
-   1. Run the following query:
+   1. Run this request:
 
       ```sql
       SELECT name, description, value FROM system.settings;
@@ -119,7 +119,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -151,7 +151,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -306,7 +306,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 - SQL {#sql}
 
    1. [Connect](connect/clients.md) to the database in the cluster.
-   1. Run the following query:
+   1. Run this request:
 
       ```sql
       SET <username> SETTINGS <list_of_{{ CH }}_settings>;
@@ -351,7 +351,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          ```bash
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --user <username> \
-                           --database <db_name> \
+                           --database <DB_name> \
                            --port 9000 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>
@@ -364,7 +364,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --secure \
                            --user <username> \
-                           --database <db_name> \
+                           --database <DB_name> \
                            --port 9440 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>

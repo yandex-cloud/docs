@@ -5,11 +5,19 @@ description: This section contains {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+## September 2024 {#sep-2024}
+
+* {{ mgp-name }} is now available in the Kazakhstan [region](../overview/concepts/region.md).
+
+* Added the new **{{ ui-key.yacloud.mdb.cluster.switch_network }}** and **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** sections with plots for the respective metrics to the ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab in the management console. For more information, see [{#T}](operations/monitoring.md).
+
+
+* Added the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** option to cluster settings. It enables you to run YQL queries from [{{ yq-full-name }}](../query/concepts/index.md) to a {{ mgp-name }} database.
+
 
 ## June 2024 {#jun-2024}
 
-Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources for accessing external tables. {{ tag-con }} {{ tag-api }}
+Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources for accessing external tables.
 
 ## February 2024 {#feb-2024}
 
@@ -25,7 +33,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * Added support for [incremental backups](concepts/backup.md).
 * Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All users of the platform can get a discount up to 22% starting from August 1, 2023. The cost of services will not change during the whole period of the offer.
 * Added [PXF metrics](metrics.md#managed-greenplum-pxf-metrics) to {{ monitoring-full-name }}.
-* Added logs for PXF and the Odyssey connection manager. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Added logs for PXF and the Odyssey connection manager.
 * Added [audit logs](at-ref.md) in {{ at-full-name }}.
 
 ## Q2 2023 {#q2-2023}
@@ -37,21 +45,21 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 ## Q4 2022 {#q4-2022}
 
-* You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments. {{ tag-cli }} {{ tag-api }}
-* You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.100.0). {{ tag-cli }}
+* You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
+* You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
-* Improved the algorithm for creating clusters via the wizard: {{ tag-con }}
+* Improved the algorithm for creating clusters via the wizard:
     * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.
     * If the amount of data you specify is large, the wizard will prompt you to create a cluster on dedicated hosts.
 
 ## Q3 2022 {#q3-2022}
 
-* Added the ability to change the administrator password. {{ tag-cli }}
-* You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
+* You can now change the administrator password.
+* You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
 * Added support for the [postgis]({{gp.docs.vmware}}/5/greenplum-database/ref_guide-extensions-postGIS.html) extension.
-* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.94.0). {{ tag-cli }}
+* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI releases](../cli/release-notes.md#version0.94.0).
 * Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.
 * Added the `gp_cancel_backend` function to forcibly stop user queries.
 * Added the `gp_terminate_backend` function to forcibly terminate user DB connections.
@@ -59,7 +67,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 ## Q2 2022 {#q2-2022}
 
-* Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available. {{ tag-cli }}
+* Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available.
 * You can now migrate databases from/to {{ mgp-name }} using {{ data-transfer-full-name }}. See the [documentation](../data-transfer/concepts/index.md#connectivity-matrix) for available targets and sources. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.
 * Added support for the [pgcrypto]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-pgcrypto.html) extension.
 * [Optimized](https://github.com/wal-g/wal-g/pull/1257) backup creation through special processing of append-only segments.

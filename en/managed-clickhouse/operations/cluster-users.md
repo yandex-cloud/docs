@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to manage {{ mch-name }} clust
 
 {{ mch-name }} provides two ways for you to manage users and their individual settings:
 
-* Using native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* Using native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API . Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
 
 {% note warning %}
@@ -29,7 +29,7 @@ To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_
 
 {% note warning %}
 
-You cannot disable the SQL user management setting once it is enabled.
+Once enabled, you cannot disable the SQL user management setting.
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ In a cluster with user management via SQL enabled:
 
 * User management via standard {{ yandex-cloud }} interfaces (management console, CLI, API, {{ TF }}) is unavailable.
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* Users are managed under the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
+* User management is performed using the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
 For more information about managing users via SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
@@ -63,7 +63,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -142,7 +142,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      ...
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
@@ -236,7 +236,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -304,7 +304,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     ```bash
     {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-      --admin-password <new_password_for_admin_user>
+      --admin-password <new_admin_user_password>
     ```
 
     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -372,7 +372,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Set up user permissions to access certain databases:
+  1. Configure user permissions to access certain databases:
      1. To grant access to the required databases:
         1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
         1. Repeat the previous step until all the required databases are selected.
@@ -399,7 +399,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --permissions=<DB_list>
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command grants the user access rights to the databases listed.
 
@@ -419,7 +419,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
        ...
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command overwrites all existing user quota settings with the new ones you provided to the command.
      Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that have not changed.
@@ -436,7 +436,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --settings=<list_of_{{ CH }}_settings>
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and does not reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
@@ -575,7 +575,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -583,7 +583,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the user block with a description of the required `user` from the {{ mch-name }} cluster description.
+    1. Delete the `user` block with the user's description from the {{ mch-name }} cluster description.
 
     1. Make sure the settings are correct.
 

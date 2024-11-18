@@ -46,10 +46,10 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
     It may contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
   * `--cluster-name`: Cluster name.
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
   * `--host`: Host parameters:
     * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-    * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet).
+    * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name.
 
 
 - {{ TF }} {#tf}
@@ -63,7 +63,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. Add the `CLICKHOUSE` type `host` block with the `shard_name` field filled to the {{ mch-name }} cluster description or change existing hosts:
+  1. Add the `CLICKHOUSE`-type `host` section with the `shard_name` field filled to the {{ mch-name }} cluster description or change existing hosts:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -124,7 +124,7 @@ Use the copy data schema option only if the schema is the same on all cluster sh
   {{ yc-mdb-ch }} shards list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -169,7 +169,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
      * `<shard_name>`: Can be requested with a [list of shards in the cluster](#list-shards).
      * `--cluster-name`: Cluster name.
 
-       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--weight`: Shard weight. The minimum value is `0`.
 
      When the operation is complete, the CLI displays information about the changed shard.
@@ -180,7 +180,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * Shard name in the `shardName` parameter.
   * Shard settings in the `configSpec` parameter.
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -200,7 +200,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 

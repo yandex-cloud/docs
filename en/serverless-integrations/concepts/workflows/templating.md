@@ -1,3 +1,19 @@
+---
+title: Templating in {{ sw-full-name }}
+description: Templating in {{ sw-name }} stands for dynamic generation of field values in a YaWL specification.
+keywords:
+  - workflows
+  - workflow
+  - WF
+  - workflow
+  - YaWL specification
+  - templating
+  - templater
+  - template
+  - template
+---
+
+
 # Templating
 
 For the [YaWL specification](#yawl.md) fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is jq. For more information, see the [jq documentation](https://jqlang.github.io/jq/manual/).

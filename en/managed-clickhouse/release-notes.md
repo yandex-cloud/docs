@@ -5,15 +5,13 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
-
-## July 2024 {#jule-2024}
+## July 2024 {#jul-2024}
 
 * New {{ CH }} version is now available: [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
-* Now you can automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when adding [{{ ZK }} hosts](./operations/zk-hosts.md). This greatly simplifies migration to a fault-tolerant configuration for single-host clusters.
+* Now you can automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when [adding {{ ZK }} hosts](./operations/zk-hosts.md). This greatly simplifies migration to a fault-tolerant configuration for single-host clusters.
 * Now you can delete [backups](./concepts/backup.md) manually.
 
-## June 2024 {#june-2024}
+## June 2024 {#jun-2024}
 
 New {{ CH }} version is now available: [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
 
@@ -49,7 +47,7 @@ New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/wha
 * New {{ CH }} versions are now available: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
 * You can now create {{ ZK }} hosts with [non-replicated SSD storage](concepts/storage.md).
 * You can now set up {{ ZK }} hosts when restoring a cluster from a backup.
-* You can now set up hybrid storage when restoring a cluster from a backup. {{ tag-con }} {{ tag-api }}
+* You can now set up hybrid storage when restoring a cluster from a backup.
 * You can now run SQL queries from your browser using a [built-in SQL editor](./operations/connect/clients.md#inline-editor).
 * Added **Data parts**, **Databases**, **Inode usage**, **Rows of MergeTree tables**, and **Tables** charts on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) page.
 * The **Failed insert queries per host**, **Failed queries per host**, and **Failed select queries per host** charts now show the percentage of failed queries rather than their number.
@@ -85,7 +83,7 @@ New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/wha
 ## Q1 2022 {#q1-2022}
 
 * A new version is available: {{ CH }} 22.3 LTS ([revision list](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
-* Added an option to restore an entire sharded cluster from a backup. {{ tag-cli }} {{ tag-api }}
-* Added an option to change the settings that enable public access to a host. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Added an option to restore an entire sharded cluster from a backup.
+* Added an option to change the settings that enable public access to a host.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

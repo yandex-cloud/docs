@@ -1,6 +1,6 @@
 ---
-title: How to manage access rights to {{ yandex-cloud }} resources. Step-by-step guides
-description: Step-by-step guides on how to manage access rights to {{ yandex-cloud }} resources. In this article, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will get into more detail about IAM tokens, authorized keys, and API keys.
+title: How to manage access permissions to {{ yandex-cloud }} resources. Step-by-step guides
+description: Step-by-step guides on how to manage access permissions to {{ yandex-cloud }} resources. In this article, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will get into more detail about IAM tokens, authorized keys, and API keys.
 ---
 
 # Step-by-step guides for {{ iam-name }}
@@ -8,7 +8,7 @@ description: Step-by-step guides on how to manage access rights to {{ yandex-clo
 
 ## Publicly available secrets {#credentials}
 
-- [Processing the secrets that have become publicly available](compromised-credentials.md)
+- [Processing secrets that have become publicly available](compromised-credentials.md)
 
 
 ## Users {#users}
@@ -69,3 +69,9 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](authorized-key/create.md)
 - [{#T}](authorized-key/delete.md)
 
+## Service control {#service-control}
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+- [{#T}](service-control/list-get.md)
+- [{#T}](service-control/enable-disable.md)

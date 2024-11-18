@@ -156,6 +156,10 @@ Error example:
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [indexation](../../_includes/data-transfer/troubles/elastic-opensearch/indexation.md) %}
+
+{% include [mapper-parsing-exception](../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}

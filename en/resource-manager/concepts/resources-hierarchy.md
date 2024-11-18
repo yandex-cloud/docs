@@ -5,13 +5,9 @@ description: All {{ yandex-cloud }} resources, such as VMs, disks, or networks, 
 
 # {{ yandex-cloud }} resource hierarchy
 
-
 The {{ resmgr-name }} resource model is shown in the chart. Most {{ yandex-cloud }} services are based on this model.
 
-
 ![image](../../_assets/YC-resource-model-en.svg)
-
-
 
 All {{ yandex-cloud }} resources, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [networks](../../vpc/concepts/network.md#network), are placed in [folders](#folder). When creating a resource, its folder is specified.
 
@@ -19,13 +15,13 @@ Each folder belongs to a single [cloud](#cloud). There are no folders outside a 
 
 A [cloud](#cloud) belongs to an organization.
 
-Organizations do not interact with each other. The resources of an organization cannot interact with the resources of another organization using {{ yandex-cloud }} tools. Organization management is performed by [{{ org-full-name }}](../../organization/).
+Organizations do not interact with each other. The resources of an organization cannot interact with the resources of another organization using {{ yandex-cloud }} tools. Organizations are managed with [{{ org-full-name }}](../../organization/).
 
 Within your organization, you can configure access permissions for a resource at the following [levels](#access-rights-inheritance):
 * Organization.
 * Cloud.
 * Folder.
-* Individual resource if the service supports access control at this level.
+* Individual resource if the relevant service supports such granular access management.
 
 By default, a new user (organization member) has no access to the resources residing in the organization's clouds. Access permissions must be granted explicitly by assigning a role specifically for a resource or its folder, cloud, or organization.
 
@@ -65,25 +61,40 @@ When a user ([subject](../../iam/concepts/access-control/index.md#subject)) perf
 
 Resource access permissions are inherited as follows:
 * Organization access permissions apply to the organization's resources:
-   * [Federations](../../iam/concepts/federations.md).
-   * Groups.
-   * Organization clouds.
+  * [Federations](../../iam/concepts/federations.md).
+  * Groups.
+  * Organization clouds.
 * Permissions to access the cloud apply to all folders within the cloud.
 * Folder access permissions apply to all resources in the folder.
 
-> For example, for an organization named `myorganization` with the following hierarchy:
-> * `Mycloud` cloud:
->    * `Robots` folder:
->       * `Alice` service account.
->       * `Bob` service account.
+>Example for an organization named `myorganization` with the following hierarchy:
+>* `mycloud` cloud:
+>  * `robots` folder:
+>    * `Alice` service account
+>    * `Bob` service account
 >
-> If you assign a user the `resource-manager.viewer` role for the organization, they can view a list of all clouds, folders, and resources in the organization, but cannot manage them.
->
-> If you additionally assign them the `{{ roles-editor }}` role for the `mycloud` cloud, they can manage all the cloud resources, including the `Alice` and `Bob` service accounts, but cannot grant other users access to them.
->
-> The `{{ roles-admin }}` role for the `robots` folder allows the user to manage all the resources in the folder, including the `Alice` and `Bob` service accounts.
+> A user with the `resource-manager.viewer` role for an organization will see a list of all its clouds, folders, and resources but will not be able to manage them.
+> 
+> An additional `{{ roles-editor }}` role for a cloud named `mycloud` will enable the user to manage all the cloud's resources, including the `Alice` and `Bob` service accounts, but not to grant another user access to them.
+> 
+> The `{{ roles-admin }}` role for the `robots` folder will allow the user to manage all the folder's resources, including `Alice` and `Bob`.
 
-For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. If the folder access permissions are missing, {{ iam-name }} checks the cloud and organization access permissions.
+For some resources, you cannot assign a role directly, in which case a role should be assigned for a folder, cloud, or organization. If the folder access permissions are missing, {{ iam-name }} checks the cloud and organization access permissions.
+
+## Deleting {{ resmgr-name }} resources {#deleting-resources}
+
+You can delete a [cloud](../operations/cloud/delete.md) or [folder](../operations/folder/delete.md). When deleting one, you can specify whether to delete it immediately or after a certain delay. The default deletion delay is seven days. Throughout this period, the resources will be stopped, and the cloud/folder status will change to `PENDING_DELETION`.
+
+Once the delay period ends, the cloud/folder status will change to `DELETING`. This status means it is being permanently deleted, which can take up to 72 hours. As a result, all resources created in the cloud/folder will be deleted together with it.
+
+### Reasons why a folder cannot be deleted {#inability-to-delete}
+
+The deletion of a folder in the `DELETING` status can be canceled by the system. Possible causes:
+
+* The folder contains a {{ vpc-full-name }} [IP address](../../vpc/concepts/address.md) currently used by a [VM](../../compute/concepts/vm.md) in another folder.
+* The folder contains deletion protected managed database clusters.
+
+In which case the deletion will be stopped, the folder will regain its `ACTIVE` status, and the user will get a message stating why the folder could not be deleted. Yet some folder resources may still be deleted: these will not be restored after the deletion is canceled. Other resources may end up intact: these will remain billable.
 
 #### See also {#see-also}
 

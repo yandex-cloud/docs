@@ -71,7 +71,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-    1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
+    1. Locate the user's `yandex_mdb_postgresql_user` resource.
     1. Add the `grants` attribute with the list of required roles:
   
         ```hcl
@@ -93,7 +93,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -145,7 +145,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

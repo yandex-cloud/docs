@@ -19,7 +19,7 @@ There are several ways to perform the migration:
 
    This is a more difficult option, as you will need to create and configure the infrastructure. However, it allows you to avoid idle time. You can maintain two clusters with up-to-date data until you delete the original one.
 
-### Migrating a single-host cluster using {{ yandex-cloud }} interfaces {#interfaces}
+### Migrating a single-host cluster using {{ yandex-cloud }} interfaces {#yandex-cloud-interfaces}
 
 To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cluster:
 
@@ -32,7 +32,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
    - Management console {#console}
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-      1. In the row with the cluster, click ![image](../../_assets/console-icons/ellipsis.svg) and then select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+      1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, specify a new availability zone.
       1. Specify a subnet in the new availability zone if the zone has more than one subnet.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -94,7 +94,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * New availability zone in the `configSpec.zoneId` parameter.
       * New subnet in the `subnetIds` parameter if the new availability zone has more than one subnet.
-      * List of settings to update, in the `updateMask` parameter.
+      * List of settings to update in the `updateMask` parameter.
 
       {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -140,7 +140,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+      1. In the [management console]({{ link-console-main }}), go to the relevant folder.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab. The **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** column lists the availability zones for each host.
 
@@ -150,13 +150,13 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
       {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
       ```
 
-      The availability zone is specified in the command output, in the `ZONE ID` column.
+      The availability zone is specified in the command output under `ZONE ID`.
 
    - API {#api}
 
-      Use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      Use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` query parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-      The availability zone is specified in the response under `hosts[].zoneId` .
+      The availability zone is specified in the response under `hosts[].zoneId`.
 
    {% endlist %}
 
@@ -172,7 +172,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
    - Management console {#console}
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-      1. In the row with the cluster, click ![image](../../_assets/console-icons/ellipsis.svg) and then select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+      1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, specify a new set of availability zones. Their number must not decrease.
 
          {% note warning %}
@@ -279,7 +279,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
          If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
-      * List of settings to update, in the `updateMask` parameter.
+      * List of settings to update in the `updateMask` parameter.
 
       {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -322,7 +322,7 @@ Let's assume your cluster comprises the hosts:
 
 You need to migrate {{ KF }} hosts to the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
 
-No hosts initially reside in the `{{ region-id }}-d` zone, but there is a single subnet, so you need not specify a subnet when performing the migration.
+No hosts initially reside in the `{{ region-id }}-d` zone. But there is only one subnet in it, so you need not specify a subnet when performing the migration.
 
 #### There are no hosts and there are multiple subnets in the target availability zone {#several-subnets}
 

@@ -63,7 +63,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about an {{ OS }} cluster, run the following command:
+  To get information about the {{ OS }} cluster, run the following command:
 
   ```bash
   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
@@ -157,7 +157,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the cluster.
-1. Copy the operation ID.
+1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 
    {% list tabs group=instructions %}

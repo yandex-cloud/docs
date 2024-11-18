@@ -1,13 +1,19 @@
 ---
 title: Getting started with {{ er-full-name }}
-description: In this guide, you will create a bus and use it to transmit data.
+description: Follow this guide to create a bus and transmit data through it.
+keywords:
+  - eventrouter
+  - event router
+  - bus
+  - connector
+  - rule
 ---
 
 # Getting started with {{ er-name }}
 
 {% note info %}
 
-{{ er-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
+{{ er-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

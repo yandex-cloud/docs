@@ -154,7 +154,7 @@
 
 #### 8.9 Используется профиль безопасности {{ sws-full-name }} {#use-sws}
 
-[{{ sws-full-name }}](../../../smartwebsecurity/quickstart/index.md) — сервис для защиты от [DDoS-атак](../../../glossary/ddos.md) и ботов на прикладном уровне L7 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). {{ sws-name }} [подключается](../../../smartwebsecurity/quickstart.md) к {{ alb-full-name }}.
+[{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) — сервис для защиты от [DDoS-атак](../../../glossary/ddos.md) и ботов на прикладном уровне L7 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). {{ sws-name }} [подключается](../../../smartwebsecurity/quickstart.md) к {{ alb-full-name }}.
 
 Функциональность сервиса сводится к проверке HTTP-запросов к защищаемому ресурсу на соответствие [правилам](../../../smartwebsecurity/concepts/rules.md), заданным в [профиле безопасности](../../../smartwebsecurity/concepts/profiles.md). В зависимости от результатов проверки запросы пропускаются на защищаемый ресурс, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) для дополнительной верификации.
 
@@ -190,7 +190,7 @@
 
 **Инструкции и решения по выполнению:**
 
-[Создание профиля WAF и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart/quickstart-waf.md).
+[Создание профиля WAF и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
 #### 8.11 Используется Advanced Rate Limiter {#use-arl}
 
@@ -210,7 +210,7 @@
 
 **Инструкции и решения по выполнению:**
 
-[Создание профиля ARL и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart/quickstart-arl.md).
+[Создание профиля ARL и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
 
 #### 8.12 Настроены правила ревью кода {#setup-code-review}
 

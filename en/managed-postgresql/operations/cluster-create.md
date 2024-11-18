@@ -22,7 +22,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 ## Creating a cluster {#create-cluster}
 
-To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }}](../../iam/operations/roles/grant.md) documentation.
 
 {% list tabs group=instructions %}
 
@@ -97,7 +97,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for the host, click ![image](../../_assets/console-icons/pencil.svg).
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for a host, click ![image](../../_assets/console-icons/pencil.svg).
 
 
      When configuring the hosts, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
@@ -137,7 +137,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View a description of the create cluster CLI command:
+  1. View the description of the create cluster CLI command:
 
      ```bash
      {{ yc-mdb-pg }} cluster create --help
@@ -312,7 +312,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
@@ -331,7 +331,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -371,7 +371,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                      "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
                    },
                    "performanceDiagnostics": {
-                     "enabled": <enable_statistics_collection:_true_or_false>,
+                     "enabled": <activate_statistics_collection:_true_or_false>,
                      "sessionsSamplingInterval": "<session_sampling_interval>",
                      "statementsSamplingInterval": "<statement_sampling_interval>"
                    }
@@ -394,7 +394,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                          "databaseName": "<DB_name>"
                        }
                      ],
-                     "login": <allow_user_to_connect_to_DB:_true_or_false>
+                     "login": <permission_for_user_to_connect_to_DB:_true_or_false>
                    },
                    { <similar_configuration_for_user_2> },
                    { ... },
@@ -419,7 +419,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be placed in.
+     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -438,7 +438,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
 
-       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -450,22 +450,22 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
-         * `sessionsSamplingInterval`: Session sampling interval. Possible values: `1` to `86400` seconds.
-         * `statementsSamplingInterval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
+         * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
+         * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
-     * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
+     * `databaseSpecs`: Database settings as an array of elements,  one for each DB. Each element has the following structure:
 
        * `name`: DB name.
        * `owner`: DB owner username. It must match one of the usenames specified in the request.
 
-     * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+     * `userSpecs`: User settings as an array of elements,  one for each user. Each element has the following structure:
 
        * `name`: Username.
        * `password`: User password.
        * `permissions.databaseName`: Name of the database the user gets access to.
        * `login`: User permission to connect to the DB.
 
-     * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+     * `hostSpecs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -475,7 +475,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -517,7 +517,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                  "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
                },
                "performance_diagnostics": {
-                 "enabled": <enable_statistics_collection:_true_or_false>,
+                 "enabled": <activate_statistics_collection:_true_or_false>,
                  "sessions_sampling_interval": "<session_sampling_interval>",
                  "statements_sampling_interval": "<statement_sampling_interval>"
                }
@@ -540,7 +540,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                      "database_name": "<DB_name>"
                    }
                  ],
-                 "login": <allow_user_to_connect_to_DB:_true_or_false>
+                 "login": <permission_for_user_to_connect_to_DB:_true_or_false>
                },
                { <similar_configuration_for_user_2> },
                { ... },
@@ -567,7 +567,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be placed in.
+     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -586,7 +586,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
 
-       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -597,9 +597,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled`: Enabling statistics collection.
-         * `sessions_sampling_interval`: Session sampling interval. Possible values: `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
+         * `enabled`: Enables statistics collection.
+         * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
      * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
 
@@ -633,7 +633,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ PG }} cluster copy:
 
@@ -720,15 +720,15 @@ To create an {{ PG }} cluster copy:
   Create a {{ mpg-name }} cluster with the following test specifications:
 
 
-  * Name: `mypg`.
-  * Environment: `production`.
-  * Network: `default`.
-  * Security group: `{{ security-group }}`.
-  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * User: `user1`, password: `user1user1`.
-  * Database: `db1`, owner: `user1`.
-  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
+  * Name: `mypg`
+  * Environment: `production`
+  * Network: `default`
+  * Security group: `{{ security-group }}`
+  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+  * User: `user1`, password: `user1user1`
+  * Database: `db1`, owner: `user1`
+  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
 
 
   Run the following command:

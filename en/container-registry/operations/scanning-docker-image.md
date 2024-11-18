@@ -6,7 +6,7 @@ description: Follow this guide to scan a Docker image for vulnerabilities.
 # Scanning Docker images for vulnerabilities
 
 
-You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) pushed to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:
+You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/registry.md) pushed to a [registry](../concepts/docker-image.md) for vulnerabilities. You can do this:
 * [{#T}](#manual).
 * [{#T}](#automatically).
 * [{#T}](#scheduled).

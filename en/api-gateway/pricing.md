@@ -1,6 +1,6 @@
 ---
 title: '{{ api-gw-full-name }} pricing policy'
-description: This article describes the {{ api-gw-name }} pricing policy.
+description: This article provides the {{ api-gw-name }} pricing policy.
 editable: false
 ---
 
@@ -26,7 +26,7 @@ In {{ api-gw-name }}, you are charged for the number of requests to the created 
 
 
 
-Cost per month = $0.96 × Number of millions of requests
+Cost per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} × Request count (in millions)
 
 
 {% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}
@@ -47,9 +47,9 @@ Cost per month = $0.96 × Number of millions of requests
 
 {% include [usd.md](../_pricing/api-gateway/usd.md) %}
 
-You pay for the actual number of invocations.
+You pay for the actual number of calls.
 
-> For example, given that 1,000,000 calls cost $0.960000, 10,000 calls in excess of the free amount will cost $0.009600.
+> For example, 10,000 calls in excess of the free amount will cost {% calc [currency=USD] {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, if one million calls costs {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }}.
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

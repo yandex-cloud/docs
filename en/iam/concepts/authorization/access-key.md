@@ -10,13 +10,13 @@ It consists of two parts:
 
 Both parts are used in requests to the AWS-compatible API. A key ID is specified in open format. A secret key is used to sign request parameters and is not specified in the request.
 
-The secret key is stored by the user on their own. {{ yandex-cloud }} gives access to it only while the [static key is being created](../../operations/sa/create-access-key.md).
+It is the client's responsibility to store the secret key. {{ yandex-cloud }} gives access to it only when [creating a static key](../../operations/sa/create-access-key.md).
 
-Static keys do not expire.
+A static key has no expiration date.
 
 {% note alert %}
 
-Make sure no third party has access to the secret key. Keep your key in a secure location. If the key becomes known to a third party, [reissue](../../operations/compromised-credentials.md#access-key-reissue) it.
+Make sure no third party has access to your secret key. Keep your key in a secure location. If your key has become known to a third party, [reissue](../../operations/compromised-credentials.md#access-key-reissue) it.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
 ### Secret key {#private-key}
 
-A secret consists of 40 characters and always starts with `YC`. Other characters may include:
+A secret key consists of 40 characters and always starts with `YC`. Other characters may include:
 
 * Latin letters
 * Numbers
@@ -56,6 +56,7 @@ The following services support authentication based on static access keys:
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
+* [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
 
 #### See also {#see-also}
 

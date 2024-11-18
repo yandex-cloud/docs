@@ -5,11 +5,10 @@ description: This section contains {{ maf-name }} release notes.
 
 # {{ maf-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
-
 ## September 2024 {#sep-2024}
 
-On September 16, 2024, {{ maf-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage and its use is now charged according to the [pricing policy](pricing.md).
+* On July 16, 2024, {{ maf-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).
+* Added the ability to run operations on an {{ AF }} cluster using the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-services/managed-airflow/index.md), [{{ TF }}](tf-ref.md), and [API](api-ref/authentication.md).
 
 ## June 2024 {#jun-2024}
 

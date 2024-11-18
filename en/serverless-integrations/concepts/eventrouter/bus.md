@@ -1,3 +1,17 @@
+---
+title: '{{ er-full-name }} bus'
+description: A {{ er-name }} bus is a logical entity that groups events and links connectors to rules.
+keywords:
+  - eventrouter
+  - event router
+  - bus
+  - Bus
+  - Event Bus
+  - event bus
+  - connector
+  - rule
+---
+
 # Bus
 
 A _bus_ is a logical entity that groups events and links [connectors](connector.md) sending events to the bus from external sources to [rules](rule.md) that process events and deliver them to targets.

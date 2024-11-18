@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ mgp-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_greenplum_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | [Cluster](./concepts/index.md) information |

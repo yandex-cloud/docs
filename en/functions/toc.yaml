@@ -303,6 +303,8 @@ items:
     items:
       - name: Overview
         href: lang/bash/index.md
+      - name: Managing dependencies
+        href: lang/bash/dependencies.md
       - name: Request handler
         href: lang/bash/handler.md
       - name: Logging

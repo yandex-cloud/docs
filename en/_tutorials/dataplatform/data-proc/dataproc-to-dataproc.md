@@ -63,8 +63,8 @@ Prepare the infrastructure:
     1. Specify the following in the `dataproc-to-dataproc.tf` file:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
-        * `input-bucket`: Name of the input datа bucket.
-        * `output-bucket`: Name of the output datа bucket.
+        * `input-bucket`: Name of the input data bucket.
+        * `output-bucket`: Name of the output data bucket.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -83,11 +83,17 @@ Prepare the infrastructure:
 
 {% endlist %}
 
+{% note warning %}
+
+Do not assign a [bucket policy](../../../storage/security/policy.md) for the bucket; otherwise, the {{ metastore-name }} cluster will not be able to write any data to the bucket.
+
+{% endnote %}
+
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in the `dataproc-network` network.
 
-1. Add the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value [to the cluster settings](../../../data-proc/operations/cluster-update.md).
+1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
@@ -134,7 +140,7 @@ In the `dataproc-source` cluster, create a test table named `countries` and uplo
 
         1. In the input bucket, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
-    1.[Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/create-table.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
+    1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/create-table.py`.
 
     1. Wait for the job to complete and make sure the output bucket's `countries` folder contains the `part-00000-...` file.
 
@@ -182,7 +188,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
         1. In the script, specify the name of the output bucket the CSV file with the `countries` table will be saved to.
         1. [Upload](../../../storage/operations/objects/upload.md#simple) the `obtain-table.py` file to the source data bucket's `scripts` folder.
 
-    1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/obtain-table.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
+    1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/obtain-table.py`.
     1. Wait for the job to complete and make sure the output bucket contains the `csv` folder with a table in CSV format.
 
 {% endlist %}
@@ -198,13 +204,13 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     - Manually {#manual}
 
-      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
-      1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
-      1. [Subnet](../../../vpc/operations/subnet-delete.md).
-      1. [Route table](../../../vpc/operations/delete-route-table.md).
-      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
-      1. [Cloud network](../../../vpc/operations/network-delete.md).
-      1. [Service account](../../../iam/operations/sa/delete.md).
+        1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
+        1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
+        1. [Subnet](../../../vpc/operations/subnet-delete.md).
+        1. [Route table](../../../vpc/operations/delete-route-table.md).
+        1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Cloud network](../../../vpc/operations/network-delete.md).
+        1. [Service account](../../../iam/operations/sa/delete.md).
 
     - {{ TF }} {#tf}
 

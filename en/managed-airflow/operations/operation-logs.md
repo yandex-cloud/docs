@@ -26,7 +26,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
 
 ## Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
+1. [Get a list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 

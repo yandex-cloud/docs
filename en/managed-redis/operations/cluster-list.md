@@ -61,7 +61,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about a {{ RD }} cluster, run the following command:
+  To get information about the {{ RD }} cluster, run the following command:
   
   ```bash
   {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>

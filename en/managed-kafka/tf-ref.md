@@ -24,7 +24,7 @@ The following {{ TF }} provider resources are supported for {{ mkf-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_cluster) | [{{ KF }} cluster](./concepts/index.md) information |
-| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_connector) | [Connector](./concepts/connectors.md) information |
-| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_topic) | [Topic](./concepts/topics.md) information |
-| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_user) | [User](./concepts/managed-schema-registry.md#msr-auth) information |
+| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/mdb_kafka_cluster) | [{{ KF }} cluster](./concepts/index.md) information |
+| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/mdb_kafka_connector) | [Connector](./concepts/connectors.md) information |
+| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/mdb_kafka_topic) | [Topic](./concepts/topics.md) information |
+| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/mdb_kafka_user) | [User](./concepts/managed-schema-registry.md#msr-auth) information |

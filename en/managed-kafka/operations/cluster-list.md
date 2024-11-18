@@ -66,7 +66,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about an {{ KF }} cluster, run the following command:
+  To get information about the {{ KF }} cluster, run the following command:
 
   ```
   {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
@@ -160,7 +160,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
+1. [Get a list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 

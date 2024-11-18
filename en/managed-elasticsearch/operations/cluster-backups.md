@@ -254,8 +254,8 @@ When creating a new cluster, set all required parameters.
             * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
 
-            * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet). Specify the name if two or more subnets are created in the selected availability zone.
-            * `assign-public-ip`: Flag set if [public access](../concepts/network.md#public-access-to-a-host) is required for the host: `true` or `false`.
+            * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify if two or more subnets are created in the selected availability zone.
+            * `assign-public-ip`: Flag to set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required. It can be either `true` or `false`.
 
 
             * `type`: [Host role](../concepts/hosts-roles.md): `datanode` or `masternode`.
@@ -284,7 +284,7 @@ When creating a new cluster, set all required parameters.
 
     To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
-    * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+    * ID of the backup you need, in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
     * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
     * Cluster environment in the `environment` parameter.
     * Cluster configuration in the `configSpec` parameter.
