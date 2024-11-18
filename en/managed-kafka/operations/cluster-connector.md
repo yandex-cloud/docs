@@ -15,7 +15,7 @@ You can:
 * [Import a connector to {{ TF }}](#import).
 * [Delete a connector](#delete).
 
-## Getting a list of connectors {#list}
+## Get a list of connectors {#list}
 
 {% list tabs group=instructions %}
 
@@ -143,7 +143,7 @@ You can:
 
   To create a [MirrorMaker](#settings-mm2) connector:
 
-  1. View a description of the CLI command to create a connector:
+  1. View the description of the CLI command to create a connector:
 
       ```bash
       {{ yc-mdb-kf }} connector-mirrormaker create --help
@@ -180,7 +180,7 @@ You can:
 
   To create an [S3 Sink](#settings-s3) connector:
 
-  1. View a description of the CLI command to create a connector:
+  1. View the description of the CLI command to create a connector:
 
       ```bash
       {{ yc-mdb-kf }} connector-s3-sink create --help
@@ -312,7 +312,7 @@ Specify the MirrorMaker connector parameters:
       {% endnote %}
 
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a source.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Сomma-separated list of the FQDNs of the source cluster broker hosts with the port numbers for connection. e.g., `broker1.example.com:9091,broker2.example.com`.
+    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the source cluster broker hosts with the port numbers for connection. e.g., `broker1.example.com:9091,broker2.example.com`.
 
        {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -327,7 +327,7 @@ Specify the MirrorMaker connector parameters:
   * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, specify the parameters for connecting to the target cluster:
     * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Target cluster prefix in the connector settings.
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a target.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Сomma-separated list of the FQDNs of the target cluster broker hosts with the port numbers for connection.
+    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the target cluster broker hosts with the port numbers for connection.
 
        {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -478,7 +478,7 @@ Specify the S3 Sink connector parameters:
 
     * `--file-max-records`: Maximum number of records that can be written to a single file in an S3-compatible storage.
     * `--bucket-name`: Name of the S3-compatible storage bucket to write data to.
-    * `--storage-endpoint`: Endpoint for storage access (to be requested from the storage provider) e.g.: `{{ s3-storage-host }}`.
+    * `--storage-endpoint`: Endpoint for storage access (to be requested from the storage provider). Example: `{{ s3-storage-host }}`.
     * `--region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
 
@@ -510,7 +510,7 @@ Specify the S3 Sink connector parameters:
         * **bucket_name**: Name of the bucket to write data to.
         * **external_s3**: External S3-compatible storage connection parameters:
 
-            * **endpoint**: Endpoint for storage access (to find out from storage provider). e.g.: `{{ s3-storage-host }}`.
+            * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
             * **region**: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
 
@@ -540,7 +540,7 @@ Specify the S3 Sink connector parameters:
 
     To edit a [MirrorMaker](#settings-mm2) connector:
 
-    1. View a description of the CLI command to edit a connector:
+    1. View the description of the CLI command to edit a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-mirrormaker update --help
@@ -561,7 +561,7 @@ Specify the S3 Sink connector parameters:
 
     To update the [S3 Sink](#settings-s3) connector:
 
-    1. View a description of the CLI command to edit a connector:
+    1. View the description of the CLI command to edit a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-s3-sink update --help
@@ -658,7 +658,7 @@ Specify the S3 Sink connector parameters:
 
     To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/Connector/update.md) gRPC API call and provide the following in the request:
 
-    * ID of the cluster you want to update a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * The ID of the cluster to update a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector settings in the `connectorSpec` parameter.
 
 {% endlist %}

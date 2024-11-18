@@ -1,0 +1,1 @@
+Service access to resources can be managed by users with the [admin](../../resource-manager/security/index.md#resource-manager-admin) or [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) roles for the cloud.

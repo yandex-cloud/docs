@@ -5,6 +5,10 @@ description: This section contains {{ mgl-name }} release notes.
 
 # {{ mgl-full-name }} release notes
 
+## September 2024 {#sep-2024}
+
+Now you can manage {{ GLR }} agents from the {{ yandex-cloud }} management console. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
+
 ## July 2024 {#jul-2024}
 
 On July 1, 2024, the [approval rules](concepts/approval-rules.md) feature entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md#prices-instance).

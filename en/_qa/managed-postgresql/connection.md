@@ -3,7 +3,7 @@
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
 * From {{ yandex-cloud }} virtual machines located in the same cloud network. If the host is not publicly accessible, there is no need to use SSL for connections from such virtual machines.
-* From a container in [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). If the host is not publicly accessible, the container must be located in the same cloud network.
+* From the container in [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). If the host is not publicly accessible, the container must be located in the same cloud network.
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
@@ -24,6 +24,25 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web
 The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
 For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
+
+#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+
+Here is the full text of the error:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+
+To fix this error:
+
+* Make sure the corporate network settings do not block the check.
+* Run the command with the `--ssl-no-revoke` parameter.
+
+  ```powershell
+  mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+  ```
 
 #### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 

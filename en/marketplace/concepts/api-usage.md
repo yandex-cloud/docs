@@ -12,7 +12,7 @@ For the specification of the service plan-based billing API, see [{#T}](../api-r
 * To create a pricing plan for a product with custom metrics, submit a request in the {{ marketplace-short-name }} partner's account. Use the `skuId` assigned to the plan to send product consumption records.
 * During installation, your application must verify the user has enough permissions to work with it and that sending consumption events is possible. To do this, send the [write](../api-ref/ImageProductUsage/write.md) request with the `validateOnly: true` parameter.
 * The application should take into account that an attempt to send consumption events may fail.
-* Before you list your product, we recommend testing its integration with the API using the demo product ID and SKU: `product_id: {{ mp-test-product-id }}` and `sku_id: {{ mp-test-sku-id }}`.
+* Before you list your product, we recommend testing its integration with the API using the demo product ID and SKU: `productId: {{ mp-test-product-id }}` and `skuId: {{ mp-test-sku-id }}`. For examples of working with the API, see [{#T}](../api-ref/quickstart.md).
 
 ## Integration testing {#test}
 

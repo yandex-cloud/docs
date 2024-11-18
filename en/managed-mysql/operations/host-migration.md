@@ -3,7 +3,7 @@
 
 {{ mmy-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -34,10 +34,10 @@
          --cluster-name <cluster_name> \
          --host zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<host_public_access:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -49,7 +49,7 @@
            host {
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <host_public_access:_true_or_false>
            }
          }
          ```
@@ -64,12 +64,68 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+            --data '{
+                      "hostSpecs": [
+                        {
+                          "zoneId": "<availability_zone>",
+                          "subnetId": "<new_subnet_ID>",
+                          "assignPublicIp": <host_public_access:_true_or_false>
+                        }
+                      ]
+                    }'
+         ```
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#responses) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "host_specs": [
+                    {
+                      "zone_id": "<availability_zone>",
+                      "subnet_id": "<new_subnet_ID>",
+                      "assign_public_ip": <host_public_access:_true_or_false>
+                    }
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
+         ```
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 
@@ -91,7 +147,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -112,12 +168,55 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter.
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/hosts:batchDelete' \
+            --data '{
+                      "hostNames": [
+                        "<host_FQDN>"
+                      ]
+                    }'
+         ```
+
+         Where `hostNames` is an array with the host to delete.
+
+         Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+
+      1. View the [server response](../api-ref/Cluster/deleteHosts.md#responses) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "host_names": [
+                    "<host_FQDN>"
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mysql.v1.ClusterService.DeleteHosts
+         ```
+
+         Where `host_names` is an array with the host to delete.
+
+         Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+
+      1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 

@@ -98,7 +98,7 @@ When new minor versions are released, the cluster software is updated after a sh
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, {{ mmg-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
+One month after the database version becomes deprecated, automatically sends email notifications to the owners of DB clusters created with this version.
 
 New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
@@ -110,7 +110,7 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mongodb/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-mongodb/pricing.md) section.
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-mongodb/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -130,6 +130,10 @@ By default, backups are stored for seven days.
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully accessible during the backup window.
+
+#### Can I change the retention period of automatic backups? {#backup-retain-days}
+
+You can set the retention period for automatic backups when [creating](../../managed-mongodb/operations/cluster-create.md) or [modifying](../../managed-mongodb/operations/update.md#change-additional-settings) a cluster.
 
 #### What metrics and processes can be tracked using monitoring? {#monitoring}
 
@@ -152,8 +156,8 @@ Monitoring can be performed with a minimum granularity of five seconds.
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 

@@ -59,7 +59,7 @@ Roles are assigned to subjects. There are the following subject types:
 
     Subject ID: `serviceAccount:<service_account_ID>`.
 
-    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account, e.g., `serviceAccount:ajevnu4u2q3m********`.
+    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account. For example, `serviceAccount:ajevnu4u2q3m********`.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
@@ -127,6 +127,14 @@ Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in
 
 * You cannot assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account) and then assign roles to it.
 
+## Managing service access to a user’s cloud resources {#service-control}
+
+{{ iam-full-name }} allows you to manage [service access](../service-control.md) to a user’s cloud resources by [enabling](../../operations/service-control/enable-disable.md#enable) or [disabling](../../operations/service-control/enable-disable.md#disable) the relevant services.
+
+Service control is the whole of the access permissions needed to create and operate the service's resources in the user's cloud. Such access permissions are assigned to special service accounts, [service agents](../service-control.md#service-agent), which the service uses to access the user's resources in the cloud.
+
+The user cannot directly create or delete service agents. All the required service agents with the appropriate access permissions are automatically created when you enable a service and get deleted when you disable it.
+
 #### See also {#see-also}
 
 For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
@@ -139,3 +147,4 @@ Step-by-step guides and examples:
 * [{#T}](../../operations/sa/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [{#T}](../../operations/service-control/enable-disable.md)

@@ -34,7 +34,7 @@ To deploy a project:
 1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **{{ ui-key.yacloud.common.id }}** and **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field values to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it when setting up your project.
-1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
+1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
    1. Go to the [service website](https://oauth.yandex.com/) and log in.
    1. Click **Create new client**.
    1. Select the desired name for the client app and upload an icon.
@@ -45,7 +45,7 @@ To deploy a project:
       Please note that the specified `receive-token` URL may be unavailable until the current specification is uploaded to the API gateway. The specification will be uploaded during the project's deployment.
    1. Under **Permissions**, expand **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
 
-   For more information about the Yandex OAuth features, see the [documentation](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
+   For more information about the Yandex OAuth features, see the [documentation](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
 
 ## Set the project variables {#set-variables}
 

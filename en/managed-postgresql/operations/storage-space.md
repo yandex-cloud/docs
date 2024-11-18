@@ -105,7 +105,7 @@ To disable the read-only mode:
 
     To increase the cluster storage size:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -229,7 +229,7 @@ To disable the read-only mode:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       Only one parameter is provided in this case.
+       In this case, only one parameter is provided.
 
      * `config_spec.resources.disk_size`: New storage size in bytes.
 
@@ -276,7 +276,7 @@ To disable the read-only mode:
 
     To set up automatic increase of storage size:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help

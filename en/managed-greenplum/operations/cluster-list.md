@@ -43,7 +43,7 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get information about a {{ GP }} cluster, run the following command:
+    To get information about the {{ GP }} cluster, run the following command:
 
     ```bash
     {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>

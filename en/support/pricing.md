@@ -25,7 +25,7 @@ The cost depends on the service plan selected. The plan you choose covers your o
 
 Service plan | Basic           | Business                       | Premium 
 --- |-------------------|------------------------------|--------
- **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Contact us
+ **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Upon request
 
 
 {% note info %}

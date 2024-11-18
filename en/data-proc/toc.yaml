@@ -1,4 +1,4 @@
-title: Yandex Data Processing
+title: Yandex Data Proc
 href: index.yaml
 items:
   - name: Getting started
@@ -33,7 +33,7 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
-          - name: Setting up {{ IBRG }}
+          - name: Setup {{ IBRG }}
             href: operations/apache-iceberg.md
           - name: Delta Lake
             items:
@@ -124,14 +124,14 @@ items:
               - name: Shared use of tables through {{ metastore-name }}
                 href: tutorials/dataproc-to-dataproc.md
               - name: >-
-                  Transferring metadata between {{ dataproc-name }} clusters
-                  using {{ metastore-name }}
+                  Transferring data between {{ dataproc-name }} clusters using
+                  {{ metastore-name }}
                 href: tutorials/metastore-import.md
           - name: Exchanging data with {{ mch-name }}
             href: tutorials/exchange-data-with-mch.md
-          - name: Importing data from a {{ mmy-name }} cluster using Sqoop
+          - name: Importing data from {{ mmy-name }} clusters using Sqoop
             href: tutorials/sqoop-mmy.md
-          - name: Importing data from a {{ mpg-name }} cluster using Sqoop
+          - name: Importing data from {{ mpg-name }} clusters using Sqoop
             href: tutorials/sqoop-mpg.md
           - name: Integration with {{ ml-platform-name }}
             href: tutorials/datasphere-integration.md
@@ -175,7 +175,7 @@ items:
         href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
-      - name: '{{ IBRG }} in {{ dataproc-name }}'
+      - name: '{{ IBRG }} to {{ dataproc-name }}'
         href: concepts/apache-iceberg.md
       - name: Delta Lake in {{ dataproc-name }}
         href: concepts/deltalake.md

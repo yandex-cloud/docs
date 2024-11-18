@@ -1,6 +1,6 @@
 ---
 title: Updating {{ OS }} cluster settings
-description: After creating an {{ OS }} cluster, you can edit its service settings.
+description: After creating a {{ OS }} cluster, you can edit its service settings.
 keywords:
   - OpenSearch settings
   - OpenSearch cluster settings
@@ -182,7 +182,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
     ```bash
     {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
-       --max-clause-count <number_of_boolean_clauses> \
+       --max-clause-count <number_of_Boolean_expressions> \
        --fielddata-cache-size <JVM_heap_size> \
        --reindex-remote-whitelist <host_address>:<port>
     ```
@@ -200,7 +200,7 @@ If the cluster already uses a service account to access objects from {{ objstora
     To change {{ OS }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * New maximum allowed number of boolean clauses in the `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount` parameter. For more information, see the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
+    * New maximum allowed number of Boolean expressions in the `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount` parameter. For more information, see the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
     * New JVM heap size allocated for the fielddata data structure in the `configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize` parameter. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
     * New list of remote hosts whose indexes contain documents to copy for reindexing, in the `configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist` parameter. For more information, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
@@ -256,7 +256,7 @@ If the cluster already uses a service account to access objects from {{ objstora
         * To allow maintenance at any time, specify `--maintenance schedule=anytime`.
         * To specify the preferred maintenance start time, specify `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
 
-            Possible `weekday` values: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
+            Possible `weekday` values: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, or `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
 
     * `--delete-protection`: Cluster protection from accidental deletion by a user.
 
@@ -288,7 +288,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
         * `type`: `ANYTIME` to allow maintenance at any time or `WEEKLY` to perform maintenance every week.
         * `hour`: Maintenance completion hour, UTC. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
-        * `day`: Day of week for maintenance. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+        * `day`: Day of week for maintenance. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
 
     1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -299,7 +299,7 @@ If the cluster already uses a service account to access objects from {{ objstora
         }
         ```
 
-        Where `deletion_protection` means cluster deletion protection.
+        Where `deletion_protection` means deletion protection for the cluster.
 
         {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

@@ -28,7 +28,7 @@ Manage schema versions with {{ schema-registry-name }}.
 
   1. Install [cURL](https://curl.haxx.se).
   1. [Log in](../api-ref/authentication.md) to perform operations in the API.
-  1. [In the settings of the created namespace](../operations/update-name-space.md) copy its ID.
+  1. [In the new namespace settings](../operations/update-name-space.md), copy its ID.
   1. Use the POST API method to upload and register the schema for a subject. Provide the following in the request: 
      
       * `subject`: Subject name for uploading schemas.
@@ -36,7 +36,7 @@ Manage schema versions with {{ schema-registry-name }}.
       * `schemaType`: Schema type: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/), or [Protobuf](https://protobuf.dev/).
 
       
-     ```bash
+      ```bash
       curl \
         --request POST "https://<namespace_ID>.schema-registry.yandexcloud.net/v1/namespace"\
         --header "accept: application/json" \

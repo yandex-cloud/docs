@@ -13,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: MongoDB version upgrade
             href: operations/cluster-version-update.md

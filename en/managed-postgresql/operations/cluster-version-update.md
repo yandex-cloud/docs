@@ -1,14 +1,14 @@
-# Upgrading the {{ PG }} version
+# {{ PG }} version upgrade
 
 You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 {% note info %}
 
-You cannot upgrade a regular cluster version to versions optimized for _1С:Enterprise_ (e.g., from version 14 to version 14-1c).
+You cannot upgrade a regular cluster version to versions optimized for _1C:Enterprise_ (e.g., from version 14 to version 14-1c).
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, upgrading the {{ PG }} version from 11 to 15 is performed in the following sequence: 11 → 12 → 13 → 14 → 15.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, for {{ PG }}, the upgrade sequence from version 11 to 15 is: 11 → 12 → 13 → 14 → 15.
 
 You can upgrade to version 16 only using {{ data-transfer-full-name }}. To do so, [create a version 16 cluster](cluster-create.md#create-cluster) and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
@@ -116,7 +116,7 @@ Make sure this does not affect your applications:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -152,7 +152,7 @@ Make sure this does not affect your applications:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

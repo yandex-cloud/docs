@@ -50,7 +50,7 @@ Deleting a cluster will delete all users and DBs in that cluster, including the 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,7 +69,7 @@ Deleting a cluster will delete all users and DBs in that cluster, including the 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

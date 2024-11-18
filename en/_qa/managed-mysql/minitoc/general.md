@@ -8,9 +8,9 @@
 
 * [How do I get started with {{ mmy-short-name }}?](#quickstart)
 
-* [How many database hosts can a cluster contain?](#how-many-hosts)
+* [How many database hosts can there be in one cluster?](#how-many-hosts)
 
-* [How can I access a running database host?](#db-access)
+* [How can I access a running DB host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
@@ -22,13 +22,15 @@
 
 * [What happens when a DBMS version becomes deprecated?](#dbms-deprecated)
 
-* [How is usage cost calculated for a database host?](#db-cost)
+* [How do you calculate usage cost for a database host?](#db-cost)
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
 * [Is database host backup enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during backup?](#backup-window)
+* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
+
+* [Can I change the retention period of automatic backups?](#backup-retain-days)
 
 * [What metrics and processes can be tracked using monitoring?](#monitoring)
 

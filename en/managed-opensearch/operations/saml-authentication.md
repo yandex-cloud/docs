@@ -92,7 +92,7 @@ Incorrect settings may cause the cluster to fail.
         * `true` in the `enabled` parameter.
         * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
         * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
-        * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
+        * URI of the SP Entity ID (Audience URI) application in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
         * URL of the {{ OS }} host with the `DASHBOARDS` role, in the `dashboardsUrl` parameter.
         * (Optional) SAML response parameter that stores the roles, in the `rolesKey` parameter.
         * (Optional) SAML response parameter that stores the subject, in the `subjectKey` parameter.

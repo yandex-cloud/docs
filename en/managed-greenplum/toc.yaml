@@ -359,7 +359,7 @@ items:
                 href: api-ref/ResourcePreset/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md
@@ -371,7 +371,7 @@ items:
         href: qa/general.md
       - name: Connection
         href: qa/connection.md
-      - name: Backup
+      - name: Backups
         href: qa/backup.md
       - name: Updating a cluster
         href: qa/update.md

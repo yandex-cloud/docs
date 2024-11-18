@@ -10,9 +10,9 @@
 
 * [How do I get started with {{ mch-short-name }}?](#quickstart})
 
-* [How many database hosts can a cluster contain?](#how-many-hosts)
+* [How many database hosts can there be in one cluster?](#how-many-hosts)
 
-* [How can I access a running database host?](#db-access)
+* [How can I access a running DB host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
@@ -28,10 +28,12 @@
 
 * [What happens when a DBMS version becomes deprecated?](#dbms-deprecated)
 
-* [How is usage cost calculated for a database host?](#db-cost)
+* [How do you calculate usage cost for a database host?](#db-cost)
 
 * [How much does it cost to use my cluster?](#cluster-cost)
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
+
+* [How can I fix the no permission error when connecting a service account to the cluster?](#attach-service-account)
 
 * [How do I get the logs of my actions in the services?](#logs)

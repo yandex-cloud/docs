@@ -1,6 +1,16 @@
 ---
 title: Quotas and limits in {{ si-name }}
-description: '{{ si-name }} has limits and quotas for the number of functions, number of instances of a single function in each availability zone, and number of concurrent function calls for all functions in each availability zone. For more information about the service restrictions, read this article.'
+description: '{{ si-name }} has limits and quotas for the number of active workflow runs, buses, connectors, and rules per cloud, step and run execution times, input and output data sizes, number of targets per rule, and the size of messages sent to the bus. For more information about the service restrictions, read this article.'
+keywords:
+  - workflows
+  - workflow
+  - WF
+  - eventrouter
+  - event router
+  - workflow
+  - bus
+  - connector
+  - rule
 ---
 
 # Quotas and limits in {{ si-name }}

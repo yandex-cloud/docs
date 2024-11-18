@@ -110,7 +110,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
          --assign-public-ip=<public_access_to_cluster>
       ```
 
-      Where `assign-public-ip` is public access to the cluster, true or false.
+      Where `assign-public-ip` is the public access to the cluster, true or false.
 
 - API {#api}
 
@@ -144,12 +144,14 @@ If you enabled public access to the cluster but cannot access it from the inter
     1. Change additional cluster settings:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) settings:
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-            
+        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+
 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -182,7 +184,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
   To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -191,11 +193,11 @@ If you enabled public access to the cluster but cannot access it from the inter
     1. Run the following command with a list of settings to update:
 
 
-
         ```bash
         {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
-            --datalens-access=<access_from_DataLens> \
+            --datalens-access=<access_from_{{ datalens-name }}> \
+            --yandexquery-access=<access_from_Yandex_Query> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
@@ -204,12 +206,17 @@ If you enabled public access to the cluster but cannot access it from the inter
         ```
 
 
+
+
     You can change the following settings:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access`: Enables access from [{{ datalens-full-name }}](../../datalens/concepts/index.md). The default value is `false`.
-        
+
+    * `--datalens-access`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
+
+    * `--yandexquery-access`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
+
 
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
@@ -229,13 +236,17 @@ If you enabled public access to the cluster but cannot access it from the inter
     To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Public access settings in the `config.assignPublicIp` parameter.
-    * Backup window settings in the `config.backupWindowStart` parameter.
-    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
-        
+    * Public access in the `config.assignPublicIp` parameter.
+    * Backup window in the `config.backupWindowStart` parameter.
 
-    * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+    * Cluster access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
+    * Cluster access from [{{ yq-full-name }}](../../query/concepts/index.md) in the `config.access.yandexQuery` parameter.
+
+
+
+    * [Maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+    * Cluster deletion protection in the `deletionProtection` parameter.
 
         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -268,10 +279,10 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New parameter values for the `configSpec.backgroundActivities.analyzeAndVacuum` object:
 
-        * `start.hours`: Start hour of the `VACUUM` operation in UTC. The values range from `0` to `23`, the default one is `19`.
-        * `start.minutes`: Start minute of the `VACUUM` operation in UTC. The values range from `0` to `59`, the default one is `0`.
-        * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
-        * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
+        * `start.hours`: Start hour of the `VACUUM` operation in UTC. Values range from `0` to `23`, the default one is `19`.
+        * `start.minutes`: Start minute of the `VACUUM` operation in UTC. Values range from `0` to `59`, the default one is `0`.
+        * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. Values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
+        * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. Values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
 
     * List of cluster configuration fields to update in the `updateMask` parameter.
 
@@ -329,7 +340,7 @@ You can change the DBMS settings of the hosts in your cluster.
     To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
     * New values ​​in the `configSpec.greenplumConfig_<version>` parameter.
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+    * List of cluster configuration fields to update, in the `updateMask` parameter.
 
         {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -361,13 +372,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Request a list of available classes (the `ZONE IDS` column lists the availability zones where you can select the appropriate class):
+  1. Request a list of available classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
      * For master hosts:
 
         ```bash

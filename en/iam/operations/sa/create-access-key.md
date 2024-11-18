@@ -174,5 +174,5 @@ Add a description when creating an access key.
 #### See also {#see-also}
 
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
-* [{#T}](assign-role-for-sa.md).
+* [{#T}](assign-role-for-sa.md)
 * [{#T}](../../tutorials/static-key-in-lockbox.md)

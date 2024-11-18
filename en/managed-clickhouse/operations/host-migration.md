@@ -12,7 +12,7 @@
    Non-replicated tables will be lost during migration.
 
 1. If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, [enable fault tolerance](zk-hosts.md#add-zk) using {{ ZK }} hosts. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -44,10 +44,10 @@
          --host type=clickhouse,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<host_public_access:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -60,7 +60,7 @@
              type             = "CLICKHOUSE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <host_public_access:_true_or_false>
            }
          }
          ```
@@ -102,7 +102,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -136,7 +136,7 @@
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -163,10 +163,10 @@
          --host type=zookeeper,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<host_public_access:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -179,7 +179,7 @@
              type             = "ZOOKEEPER"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <host_public_access:_true_or_false>
            }
          }
          ```
@@ -211,7 +211,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 

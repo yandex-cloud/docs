@@ -4,5 +4,5 @@ grpcurl \
   -d '{
     "thumbnailId": "<идентификатор_обложки>"
   }' \
-  video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL
+  video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
 ```

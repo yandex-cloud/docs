@@ -1,5 +1,5 @@
 
-# Technical support procedure
+# Technical support terms
 
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources consumed during the month. For more information about the plans, see the [Pricing policy](pricing.md).
 
@@ -12,17 +12,17 @@ Depending on your service plan, you can contact technical support using one of t
 The expected response time is shown in the table below.
 
 
-| Channel | Basic | Business | Premium |
+| Channel                                                                  | Basic                                       | Business                                                                | Premium                                                               |
 |----------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
-|                                                                                  | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
-| Request to [Support Center](support-center.md) | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat, [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
+|                                                                                  | For personal and research projects     | For professional projects                                                   | For business projects with stringent fault tolerance requirements.   |
+| Request to [Support Center](support-center.md)                                   | Standard: 24 hours<br>Increase quotas: 30 minutes | Standard: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Standard: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
+| Chat, [Telegram](tg-chat.md)                                                      | 15 minutes                                      | 5 minutes                                                               | 5 minutes, a messenger of your choice                                         |
 
 
 
-Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for the request type.
+Only a {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) can create a request in the support center. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ as the request type.
 
-Regardless of your service plan, you can request the following from technical support:
+Regardless of your service plan, you can request the following:
 
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
@@ -38,22 +38,22 @@ The list of services offered under the Premium plan is not exhaustive and may be
 
 {% endnote %}
 
-| Request type | Basic | Business | Premium |
+| Request type                                                                                                                                                             | Basic                             | Business                              | Premium                             |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Diagnose errors in {{ yandex-cloud }} services and fix problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Ask questions related to payments for resources | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address FAQs (including general questions like **How does this work?** and **What is it?**) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Consult and provide assistance configuring {{ yandex-cloud }} services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Inquire about your data in {{ yandex-cloud }}, including personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide general recommendations about the architecture |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for fixing problems with operating systems and their components |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) |                                     |                                     | ![image](../_assets/common/yes.svg) |
-| Directly consult with a dedicated support engineer on architecture-related tasks based on your {{ yandex-cloud }} service usage scenario |                                     |                                     | ![image](../_assets/common/yes.svg) |
-| Personal technical manager |                                     |                                     | ![image](../_assets/common/yes.svg) |
+| Restore access to the management console                                                                                                                               | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide links to documentation                                                                                                                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Diagnose errors in {{ yandex-cloud }} services and fix problems not related to third-party software                                  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Ask questions related to payments for resources                                                                                                                    | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address FAQs (including general ones like _How does it work?_ and _What is it?_) about {{ yandex-cloud }} services and features. | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Consult and provide assistance configuring {{ yandex-cloud }} services                                                                                                  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Inquire about your data in {{ yandex-cloud }}, including personal data                                                                                       | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for service recovery in the event of a critical incident                                                                                 | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide general recommendations about the architecture                                                                                                                                         |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information)                                                 |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for fixing problems with operating systems and their components                                                                                            |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving)                                               |                                     |                                     | ![image](../_assets/common/yes.svg) |
+| Directly consult with a dedicated support engineer on architecture-related tasks based on your {{ yandex-cloud }} service usage scenario                                           |                                     |                                     | ![image](../_assets/common/yes.svg) |
+| Personal technical manager                                                                                                                                         |                                     |                                     | ![image](../_assets/common/yes.svg) |
 
 
 

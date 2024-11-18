@@ -53,7 +53,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - API {#api}
 
-    Use the [get](../api-ref/Cluster/get.md) API method and provide the cluster ID in the `clusterId` request parameter.
+    Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with a [list of clusters in the folder](#list).
 
@@ -137,8 +137,8 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
-1. Copy the operation ID.
+1. [Get a list of operations](#get-operations) for the cluster.
+1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 
    {% list tabs group=instructions %}

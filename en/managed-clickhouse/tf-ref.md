@@ -21,6 +21,6 @@ The following {{ TF }} provider resources are supported for {{ mch-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_clickhouse_cluster) | [Cluster](concepts/index.md) information |
+| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/mdb_clickhouse_cluster) | [Cluster](concepts/index.md) information |
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

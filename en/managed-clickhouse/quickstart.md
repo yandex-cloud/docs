@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mch-full-name }}
-description: In this tutorial, you will learn how to create a {{ CH }} cluster and connect to it.
+description: Follow this guide to create a {{ CH }} cluster and connect to it.
 ---
 
 # Getting started with {{ mch-name }}
@@ -18,7 +18,10 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mch.editor }} role or higher](security.md#roles-list) for creating a cluster.
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) for creating a cluster.
+
+   To link the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
 1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based [VM](../compute/concepts/vm.md) in the same [network](../vpc/concepts/network.md#network) as the DB cluster.
    * To connect to the cluster from the internet, request public access to hosts when creating the cluster.
@@ -30,7 +33,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -69,7 +72,7 @@ To get started with the service:
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Use the {{ CH }} CLI to connect:
-   1. Specify the path to the `{{ crt-local-file-root }}` SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+   1. Specify the path to the `{{ crt-local-file-root }}` SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), in the `<caConfig>` element:
 
       ```xml
       <config>

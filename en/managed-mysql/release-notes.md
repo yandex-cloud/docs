@@ -5,7 +5,11 @@ description: This section contains {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## September 2024 {#sep-2024}
+
+Added the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** option to cluster settings. It enables you to run YQL queries from [{{ yq-full-name }}](../query/concepts/index.md) to a {{ mgp-name }} database.
+
 
 ## May 2024 {#may-2024}
 
@@ -23,7 +27,7 @@ description: This section contains {{ mmy-name }} release notes.
 
 ## Q4 2022 {#q4-2022}
 
-* The status of a host on the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** page now changes to `READ-ONLY` in the management console if data writes to the host are disabled. {{ tag-con }}
+* The status of a host on the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** page in the management console now changes to `READ-ONLY` if data writes to the host are disabled.
 * You can now [move a cluster](operations/update.md#move-cluster) to a different folder using {{ TF }}.
 * Added new DBMS settings:
 
@@ -35,20 +39,20 @@ description: This section contains {{ mmy-name }} release notes.
 
 ## Q3 2022 {#q3-2022}
 
-* Added the `Free space` plot on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and an `Inode usage` plot on the [host monitoring](operations/monitoring.md#monitoring-hosts) page. {{ tag-con }}
+* Added the `Free space` plot to the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and the `Inode usage` plot to the [host monitoring](operations/monitoring.md#monitoring-hosts) page.
 * Added the [Binlog transaction dependency tracking](concepts/settings-list.md#setting-binlog-transaction-dependency-tracking) setting.
 
 ## Q2 2022 {#q2-2022}
 
-* Removed the `database` and `user` sections in the {{ TF }} configuration files and added the `yandex_mdb_mysql_database` and `yandex_mdb_mysql_user` resources instead. {{ tag-tf }}
+* Removed the `database` and `user` sections in the {{ TF }} configuration files and added the `yandex_mdb_mysql_database` and `yandex_mdb_mysql_user` resources instead.
 * Added the [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level) setting.
 * Accelerated the process of restoring replicas from a backup by using WAL-G with subsequent synchronization of data from the master host.
-* Fixed the display of long queries on the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** tab. {{ tag-con }}
+* Fixed the display of long queries on the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** tab.
 
 ## Q1 2022 {#q1-2022}
 
-* You can now edit the [Innodb strict mode](concepts/settings-list.md#setting-strict-mode), [Max digest length](concepts/settings-list.md#setting-max-digest-length), and [Max sp recursion depth](concepts/settings-list.md#setting-max-sp-recursion-depth) settings. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
-* Added a section on {{ MY }} cluster performance in {{ TF }}. {{ tag-tf }}
-* You can now manage the settings of the performance diagnostics service. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
+* You can now edit the [Innodb strict mode](concepts/settings-list.md#setting-strict-mode), [Max digest length](concepts/settings-list.md#setting-max-digest-length), and [Max sp recursion depth](concepts/settings-list.md#setting-max-sp-recursion-depth) settings.
+* Added a section for diagnostics of {{ MY }} cluster performance in {{ TF }}.
+* You can now manage the settings of the performance diagnostics service.
 * Updated the master failover mechanism: you can no longer switch to a replica that is lagging far behind or change the master if there is no quorum. The maximum lag for a replica is set by the [Mdb priority choice max lag](concepts/settings-list.md#setting-mdb-priority-choice-max-lag) setting.
-* You can now set a priority for selecting a master host if the master changes. {{ tag-con }} {{ tag-cli }}
+* You can now set a priority for selecting a master host if the master changes.

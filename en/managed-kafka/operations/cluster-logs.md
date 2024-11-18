@@ -28,7 +28,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View a description of the CLI command to view cluster logs:
+    1. View the description of the CLI command to view cluster logs:
 
         ```bash
         {{ yc-mdb-kf }} cluster list-logs --help

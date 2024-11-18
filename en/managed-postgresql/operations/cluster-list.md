@@ -38,7 +38,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -59,7 +59,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -103,7 +103,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ PG }} cluster, run the following command:
+  To get information about the {{ PG }} cluster, run the following command:
 
   ```bash
   {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
@@ -113,7 +113,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -132,7 +132,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -230,7 +230,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -249,7 +249,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -278,7 +278,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
+1. [Get a list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 

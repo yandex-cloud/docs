@@ -11,14 +11,11 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 {{ mch-short-name }} only works with readable models uploaded to {{ objstorage-full-name }}:
 
 
+1. To bind your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 1. [Upload](../../storage/operations/objects/upload.md) the trained model file to {{ objstorage-full-name }}.
-
-1. Configure access to the model file using a [service account](../../iam/concepts/users/service-accounts.md):
-
-    1. [Connect a service account to a cluster](s3-access.md#connect-service-account).
-    1. [Assign](s3-access.md#configure-acl) the service account the `storage.viewer` role.
-    1. In the bucket ACL, [grant](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the account.
-
+1. [Connect a service account to a cluster](s3-access.md#connect-service-account). Use your [service account](../../iam/concepts/users/service-accounts.md) to configure access permissions for the model file.
+1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
+1. In the bucket's ACL, [add the `READ` permission](../../storage/operations/buckets/edit-acl.md) to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the model file.
 
 
@@ -43,7 +40,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
     {{ yc-mdb-ch }} ml-model list --cluster-name=<cluster_name>
     ```
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -129,7 +126,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
       --uri=<link_to_model_file_in_Object_Storage>
     ```
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -183,8 +180,8 @@ To apply the model to data stored in a {{ CH }} cluster:
 1. Execute an SQL query in the format:
 
    ```sql
-   SELECT
-       catboostEvaluate('<model_file_path>',
+   SELECT 
+       catboostEvaluate('<model_file_path>', 
                      <column_1_name>,
                      <column_2_name>,
                      ...
@@ -194,8 +191,8 @@ To apply the model to data stored in a {{ CH }} cluster:
 
 As the `catboostEvaluate()` function arguments, specify the following:
 
-* Path to the model file formatted as `/var/lib/clickhouse/models/<model_name>.bin`.
-* Names of columns containing the input data.
+   * Path to the model file in `/var/lib/clickhouse/models/<model_name>.bin` format.
+   * Names of columns containing the input data.
 
 The result of the query execution will be a column with model predictions for each row of the source table.
 
@@ -217,7 +214,7 @@ To update the contents of a model that is already connected to the cluster:
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
-    1. Select the model you need. Then click ![image](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
+    1. Select the appropriate model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
 - CLI {#cli}
 
@@ -295,7 +292,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
-    1. Select the model you need. Then click ![image](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. Select the appropriate model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -357,9 +354,9 @@ To upload data to {{ CH }} and test the model:
 
 1. In the [management console]({{ link-console-main }}), add the test model:
 
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}**: `ML_MODEL_TYPE_CATBOOST`
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: `ml_test`
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host-mch }}/catboost_model.bin`
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}**: `ML_MODEL_TYPE_CATBOOST`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: `ml_test`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host-mch }}/catboost_model.bin`.
 
 
 1. [Download the file with data](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) to analyze.
@@ -390,7 +387,7 @@ To upload data to {{ CH }} and test the model:
 1. Upload the data to the table:
 
     ```sql
-    INSERT INTO ml_test_table FROM INFILE '<file_path>/train.csv' FORMAT CSVWithNames;
+    INSERT INTO ml_test_table FROM INFILE '<path_to_file>/train.csv' FORMAT CSVWithNames;
     ```
 
 1. Test the model:

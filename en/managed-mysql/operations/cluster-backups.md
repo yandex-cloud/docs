@@ -7,7 +7,7 @@ description: You can create backups and restore clusters from existing MySQL bac
 
 You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [Backups](../concepts/backup.md).
 
-{{ mmy-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window).
+{{ mmy-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Getting a list of backups {#list-backups}
 
@@ -46,13 +46,97 @@ You can create backups and restore clusters from existing backups, including poi
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To get a list of backups for all the {{ mmy-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+  1. To get a list of cluster backups:
+
+      1. Use the [Cluster.listBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/backups'
+          ```
+
+          You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure the request was successful.
+
+  1. To get a list of backups for all the clusters in a folder:
+
+      1. Use the [Backup.list](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-mdb }}/managed-mysql/v1/backups' \
+              --url-query folderId=<folder_ID>
+          ```
+
+
+          You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+      1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. To get a list of cluster backups:
+
+      1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "cluster_id": "<cluster_ID>"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.mysql.v1.ClusterService.ListBackups
+          ```
+
+          You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+  1. To get a list of backups for all the clusters in a folder:
+
+      1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/backup_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "folder_id": "<folder_ID>"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.mysql.v1.BackupService.List
+          ```
+
+
+          You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+      1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -84,11 +168,51 @@ You can create backups and restore clusters from existing backups, including poi
 
   You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API {#api}
+- REST API {#api}
 
-  To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To find out the ID, [retrieve a list of backups](#list-backups).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Backup.get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/backups/<backup_ID>'
+      ```
+
+      You can get the backup ID together with a [list of backups](#list-backups).
+
+  1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/backup_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "backup_id": "<backup_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.BackupService.Get
+      ```
+
+      You can get the backup ID together with a [list of backups](#list-backups).
+
+  1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure the request was successful.
 
 {% endlist %}
 
@@ -126,11 +250,52 @@ You can create backups and restore clusters from existing backups, including poi
 
       You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Backup) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:backup'
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Backup) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Backup
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -289,7 +454,7 @@ For a new cluster, you should set all the parameters that are required at creati
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         restore {
-          backup_id = "<backup_name>"
+          backup_id = "<backup_ID>"
           time      = "<time>"
         }
       }
@@ -346,13 +511,158 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
-  * Time point to which you want to restore the cluster, in the `time` parameter.
-  * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Create a file named `body.json` and add the following contents to it:
+
+      ```json
+      {
+          "backupId": "<backup_ID>",
+          "time": "<time>",
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "configSpec": {
+              "version": "<{{ PG }}_version>",
+              "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+              }
+          },
+          "hostSpecs": [
+              {
+                  "zoneId": "<availability_zone>",
+                  "subnetId": "<subnet_ID>",
+                  "assignPublicIp": <public_host_address:_true_or_false>
+              }
+          ]
+      }
+      ```
+
+      Where:
+
+      * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
+      * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
+      * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Environment:
+
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRODUCTION`: For stable versions of your apps.
+
+      * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
+      * `configSpec`: Cluster settings:
+
+          * `version`: {{ MY }} version.
+          * `resources`: Cluster resources:
+
+              * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+              * `diskSize`: Disk size in bytes.
+              * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+      * `hostSpecs`: Settings for the cluster hosts as an array of elements,  one for each host. Each element has the following structure:
+
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore' \
+          --data "@body.json"
+      ```
+
+  1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
+
+      ```json
+      {
+          "backup_id": "<backup_ID>",
+          "time": "<time>",
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "config_spec": {
+              "version": "<{{ MY }}_version>",
+              "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+              }
+          },
+          "host_specs": [
+              {
+                  "zone_id": "<availability_zone>",
+                  "subnet_id": "<subnet_ID>",
+                  "assign_public_ip": <public_host_address:_true_or_false>
+              }
+          ]
+      }
+      ```
+
+      Where:
+
+      * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
+      * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
+      * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Environment:
+
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRODUCTION`: For stable versions of your apps.
+
+      * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
+      * `config_spec`: Cluster settings:
+
+          * `version`: {{ MY }} version.
+          * `resources`: Cluster resources:
+
+              * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+              * `disk_size`: Disk size in bytes.
+              * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+      * `host_specs`: Settings for the cluster hosts as an array of elements, one for each host. Each element has the following structure:
+
+          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Restore \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -416,15 +726,253 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * New backup start time in the `configSpec.backupWindowStart` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.backupWindowStart",
+                    "configSpec": {
+                      "backupWindowStart": {
+                        "hours": "<hours>",
+                        "minutes": "<minutes>",
+                        "seconds": "<seconds>",
+                        "nanos": "<nanoseconds>"
+                      }
+                    }
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.backupWindowStart`: [Backup](../concepts/backup.md) window settings.
+
+          In this parameter, specify the backup start time. Possible values:
+
+          * `hours`: Between `0` and `23` hours.
+          * `minutes`: Between `0` and `59` minutes.
+          * `seconds`: Between `0` and `59` seconds.
+          * `nanos`: Between `0` and `999999999` nanoseconds.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.backup_window_start"
+                  ]
+                },
+                "config_spec": {
+                  "backup_window_start": {
+                    "hours": "<hours>",
+                    "minutes": "<minutes>",
+                    "seconds": "<seconds>",
+                    "nanos": "<nanoseconds>"
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
+
+          In this parameter, specify the backup start time. Possible values:
+
+          * `hours`: Between `0` and `23` hours.
+          * `minutes`: Between `0` and `59` minutes.
+          * `seconds`: Between `0` and `59` seconds.
+          * `nanos`: Between `0` and `999999999` nanoseconds.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure the request was successful.
+
+{% endlist %}
+
+## Setting a retention period for automatic backups {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To set a retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
+
+    ```bash
+    {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+       --backup-retain-period-days=<retention_period_in_days>
+    ```
+
+  The possible values range from `7` to `60`. The default value is `7`.
+
+  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mmy-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+    1. To set a retention period for automatic backups, add to the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
+          ...
+          backup_window_start: <retention_period_in_days>
+        }
+        ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }}  provider documentation]({{ tf-provider-mmy }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.backupRetainPeriodDays",
+                    "configSpec": {
+                      "backupRetainPeriodDays": <retention_period_in_days>
+                    }
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
+
+          The values range from `7` to `60`. The default value is `7`.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.backup_retain_period_days"
+                  ]
+                },
+                "config_spec": {
+                  "backup_retain_period_days": <number_of_days>
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `config_spec.backup_retain_period_days`: Automatic backup retention period.
+
+          The values range from `7` to `60`. The default value is `7`.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -456,15 +1004,83 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
   You can request the host name with a [list of cluster hosts](hosts.md#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
-  * Host name in the `updateHostSpecs.hostName` parameter. It may be retrieved with a [list of hosts in the cluster](hosts.md#list).
-  * New host priority value in the `updateHostSpecs.backupPriority` parameter.
-  * List of cluster configuration fields to update (in this case, `updateHostSpecs.hostName`and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/hosts:batchUpdate' \
+          --data '{
+                    "updateHostSpecs": [
+                      {
+                        "updateMask": "backupPriority",
+                        "hostName": "<host_FQDN>",
+                        "backupPriority": "<host_backup_priority>"
+                      }
+                    ]
+                  }'
+      ```
+
+      Where `update_host_specs` is the array of hosts you are prioritizing. One array element contains settings for a single host and has the following structure:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+      * `hostName`: [FQDN of the host being changed](connect.md#fqdn).
+      * `backupPriority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/updateHosts.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_host_specs": [
+                  {
+                    "update_mask": {
+                      "paths": [
+                        "backup_priority"
+                      ]
+                    },
+                    "host_name": "<host_FQDN>",
+                    "backup_priority": "<host_backup_priority>"
+                  }
+                ]
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.UpdateHosts
+      ```
+
+      Where `update_host_specs` is the array of hosts you are prioritizing. One array element contains settings for a single host and has the following structure:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+      * `host_name`: [FQDN of the host being changed](connect.md#fqdn).
+      * `backup_priority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

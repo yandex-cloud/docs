@@ -154,6 +154,12 @@ Prepare the infrastructure:
 
 {% endlist %}
 
+{% note warning %}
+
+Do not assign a [bucket policy](../../../storage/security/policy.md) for the bucket; otherwise, the {{ metastore-name }} cluster will not be able to write any data to the bucket.
+
+{% endnote %}
+
 ## Create a test table {#create-table}
 
 In the `dataproc-source` cluster, create a test table named `countries`:
@@ -286,14 +292,14 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     - Manually {#manual}
 
-      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
-      1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
-      1. [Route table](../../../vpc/operations/delete-route-table.md)
-      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
-      1. [Security group](../../../vpc/operations/security-group-delete.md)
-      1. [Subnet](../../../vpc/operations/subnet-delete.md)
-      1. [Network](../../../vpc/operations/network-delete.md)
-      1. [Service account](../../../iam/operations/sa/delete.md)
+        1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
+        1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
+        1. [Route table](../../../vpc/operations/delete-route-table.md)
+        1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
+        1. [Security group](../../../vpc/operations/security-group-delete.md)
+        1. [Subnet](../../../vpc/operations/subnet-delete.md)
+        1. [Network](../../../vpc/operations/network-delete.md)
+        1. [Service account](../../../iam/operations/sa/delete.md)
 
     - {{ TF }} {#tf}
 

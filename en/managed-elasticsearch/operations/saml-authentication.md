@@ -31,32 +31,32 @@ To set up SAML authentication:
 1. Create an application on the IdP side.
 1. Specify the **Assertion Consumer Service (ACS) URL**.
 
-   Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
+    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
-   ```
-   https://c-<{{ ES }} cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
-   ```
+    ```
+    https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
+    ```
 
-   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
+    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
 1. Specify the **SP Entity ID (Audience URI)**.
 
-   Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
+    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
-   ```
-   https://c-<cluster_ID>rw.{{ dns-zone }}
-   ```
+    ```
+    https://c-<cluster_ID>rw.{{ dns-zone }}
+    ```
 
-   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
+    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
 
-1. Specify the **Name ID Format**: `Persistent`.
+1. Specify the **Name ID Format**: `persistent`.
 1. Using the data provided by the IdP:
-   * Copy the information about the Identity Provider Issuer.
-   * Save the provider's metadata file in XML format.
+    * Copy the information about the Identity Provider Issuer.
+    * Save the provider's metadata file in XML format.
 
-   You will need it to set up SSO for your cluster.
+    You will need it to set up SSO for your cluster.
 
 ## Set up SSO for the cluster {#configuration-sso}
 
@@ -70,68 +70,68 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Create an authentication provider:
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Create an authentication provider:
+        * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`.
 
-      * **{{ ui-key.yacloud.common.name }}**: Provider name
+        * **{{ ui-key.yacloud.common.name }}**: Provider name.
 
-      * **{{ ui-key.yacloud.common.description }}**: Provider description.
+        * **{{ ui-key.yacloud.common.description }}**: Provider description.
 
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-hint }}**: Login hint
+        * **{{ ui-key.yacloud.elasticsearch.auth.provider-hint }}**: Login hint.
 
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-icon }}**: Provider icon
+        * **{{ ui-key.yacloud.elasticsearch.auth.provider-icon }}**: Provider icon.
 
-      * Select **{{ ui-key.yacloud.elasticsearch.auth.provider-enabled }}**.
+        * Select **{{ ui-key.yacloud.elasticsearch.auth.provider-enabled }}**.
 
-      * **{{ ui-key.yacloud.elasticsearch.auth.saml_settings }}**:
+        * **{{ ui-key.yacloud.elasticsearch.auth.saml_settings }}**:
+        
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), same as the **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**.
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection). Same as the **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**.
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: Format of the `nameid` parameter, e.g, `nameid:persistent`. Same as the **Name ID Format** of the IdP.
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: Format of the `nameid` parameter, such as `nameid:persistent`. Same as the **Name ID Format** of the IdP.
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_groups }}**: User privileges groups (recommended).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_groups }}**: User privileges groups (recommended).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_name }}**: Username (optional).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_name }}**: Username (optional).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_email }}**: User's email address (optional).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_email }}**: User's email address (optional).
+            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_dn }}**: `X.500 Distinguished Name` user ID (optional).
 
-         * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_dn }}**: ID of the `X.500 Distinguished Name` user (optional).
-
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - API {#api}
 
-   1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
-   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/Auth/addProviders.md) gRPC API call and provide the following in the request:
+    1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
+    1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/Auth/addProviders.md) gRPC API call and provide the following in the request:
 
-      * Cluster ID in the `clusterId` parameter.
+        * Cluster ID in the `clusterId` parameter.
 
-         {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+          {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-      * `SAML` value, in the `type` parameter.
-      * Provider name, in the `name` parameter.
-      * `True` value, in the `enabled` parameter.
-      * Provider description, in the `description` parameter.
-      * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
-      * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
-      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
-      * URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), in the `kibanaUrl` parameter. Same as the `spEntityId`.
-      * Format of `nameid` parameter, for example, `nameid:persistent`, in the `attributePrincipal` parameter. Same as the **Name ID Format** of the IdP.
+        * `SAML` in the `type` parameter.
+        * Provider name in the `name` parameter.
+        * `true` in the `enabled` parameter.
+        * Provider description in the `description` parameter.
+        * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
+        * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
+        * URI of the SP Entity ID (Audience URI) application in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
+        * URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection) in the `kibanaUrl` parameter. Same as the `spEntityId`.
+        * Format of the `nameid` parameter, e.g., `nameid:persistent`, in the `attributePrincipal` parameter. Same as the **Name ID Format** of the IdP.
 
 {% endlist %}
 
 {% note info %}
 
-Learn more about SAML attributes in the [Elasticsearch documentation]({{ links.es.docs }}/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
+For more information about SAML attributes, see the [Elasticsearch documentation]({{ links.es.docs }}/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
 
 {% endnote %}
 
@@ -159,44 +159,44 @@ To set up SSO with Okta for a cluster with the `c9qmc1lmo2k0********` ID:
 #### Configure the Okta identity provider {#example-configuration-okta}
 
 1. Create a new application:
-   * Select the **Applications** tab.
-   * Click **Create App Integration**.
-   * Select **SAML 2.0**.
-   * Click **Next**.
+    * Select the **Applications** tab.
+    * Click **Create App Integration**.
+    * Select **SAML 2.0**.
+    * Click **Next**.
 1. Under **General Settings**, specify the application name in the **App name** parameter and click **Next**.
 1. Under **SAML Settings**:
-   * Specify the **Single sign on URL**:
+    * Specify the **Single sign on URL**:
 
-      ```
-      https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}/api/security/saml/callback
-      ```
+        ```
+        https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}/api/security/saml/callback
+        ```
 
-   * Enable the **Use this for Recipient URL and Destination URL** option.
-   * Specify the **Audience URI (SP Entity ID)**:
+    * Enable the **Use this for Recipient URL and Destination URL** option.
+    * Specify the **Audience URI (SP Entity ID)**:
 
-      ```
-      https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}
-      ```
+        ```
+        https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}
+        ```
 
-   * Specify the **Name ID Format**: `Persistent`.
-   * Click **Next**.
+    * Specify the **Name ID Format**: `Persistent`.
+    * Click **Next**.
 1. Under **Feedback**:
-   * Select **I'm an Okta customer adding an internal app** and **This is an internal app that we have created**.
-   * Click **Finish**.
+    * Select **I'm an Okta customer adding an internal app** and **This is an internal app that we have created**.
+    * Click **Finish**.
 1. On the **Sign On** tab, click **View Setup Instructions**:
-   * Copy the **Identity Provider Issuer**:
+    * Copy the **Identity Provider Issuer**:
 
-      ```
-      http://www.okta.com/exkv2pzpvigX********
-      ```
+        ```
+        http://www.okta.com/exkv2pzpvigX********
+        ```
 
-   * Copy the **Provide the following IDP metadata to your SP provider** field value and save it to a file, such as `okta.xml`.
+    * Copy the **Provide the following IDP metadata to your SP provider** field value and save it to a file, e.g., `okta.xml`.
 
 For more information about other parameters, see the [Okta documentation](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm).
 
 #### Set up SSO for the cluster {#example-configuration-sso}
 
-Let's assume we have this **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`.
+Let's assume we have this **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`. 
 
 [Set up SSO for the cluster](#configuration-sso). When setting it up, specify:
 * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX********`.
@@ -215,41 +215,41 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
-   1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
-   1. Open **Management → Stack Management → Security → Role Mappings**.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+    1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
+    1. Open **Management → Stack Management → Security → Role Mappings**.
+        
+        {% note info %}
 
-      {% note info %}
+        The **Role Mappings** function is available in the {{ ES }} `Platinum` edition.
 
-      The **Role Mappings** function is available in the {{ ES }} `Platinum` edition.
+        [Read more about updating the {{ ES }} edition](./cluster-version-update.md#start-edition-update).
 
-      [Read more about updating the {{ ES }} edition](./cluster-version-update.md#start-edition-update).
+        {% endnote %}
+        
+    1. Click **Create role mapping**.
+    1. To create a [role mapping](#roles-sso), fill in the fields:
+        * **Mapping name**: Unique role mapping name.
+        * **Roles**: Selected role.
+        * **Mapping rules**: Rules for mapping roles.
 
-      {% endnote %}
+        For example, to set a rule that will map users with the `example.com` domain and the `editor` role:
 
-   1. Click **Create role mapping**.
-   1. To create a [role mapping](#roles-sso), fill in the fields:
-      * **Mapping name**: Unique role mapping name.
-      * **Roles**: Selected role.
-      * **Mapping rules**: Rules for mapping roles.
-
-      For example, to set a rule that will map users with the `example.com` domain and the `editor` role:
-
-      1. Select the `editor` role.
-      1. Add the **All are true** rule.
-      1. Add the `username` field with the `text` type and the `*@example.com` value to the rule.
+        1. Select the `editor` role.
+        1. Add the **All are true** rule.
+        1. Add the `username` field with the `text` type and the `*@example.com` value to the rule.
 
 {% endlist %}
 
 1. Create a user on the Okta side:
-   1. Open **Directory → People**
-   1. Click **Add person**.
-   1. Specify the user parameters: `First name`, `Last name`, `username`, and `password`.
+    1. Open **Directory → People**
+    1. Click **Add person**.
+    1. Specify user parameters: `First name`, `Last name`, `username`, and `password`.
 
-      They must meet the role mapping rules set in {{ mes-name }}.
+        They must meet the role mapping rules set in {{ mes-name }}.
 
-   1. Click **Save**.
+    1. Click **Save**.
 1. Go to the **Applications** section.
 1. Click **Assign User to App**.
 1. [Assign the application](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm) to the appropriate user.
@@ -263,9 +263,9 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
-   1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
-   1. Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+    1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
+    1. Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
 
 {% endlist %}

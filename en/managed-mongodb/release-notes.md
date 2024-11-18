@@ -5,15 +5,13 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
-
 ## September 2024 {#sep-2024}
 
 Added support for {{ MG }} version 7.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
 
 ## February 2024 {#feb-2024}
 
-The `flowControl`, `changeStreamOptions`, `net.compression.compressors`, and `storage.wiredTiger.indexConfig.prefixCompression` settings are now supported. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+The `flowControl`, `changeStreamOptions`, `net.compression.compressors`, and `storage.wiredTiger.indexConfig.prefixCompression` settings are now supported.
 
 ## Q1 2023 {#q1-2023}
 

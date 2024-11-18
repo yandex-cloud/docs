@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
   
       * [Получите](../../../organization/operations/organization-get-id.md) идентификатор организации, в которой находится ваш [канал](../../concepts/index.md#channels) {{ video-name }}.
       * [Получите](../../api-ref/authentication.md) IAM-токен, необходимый для аутентификации в API {{ video-name }}.
-      * Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl).
+      * Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq).
   1. Получите список каналов {{ video-name }} в вашей организации:
 
       {% include [list-channels-grpc-api](../../../_includes/video/list-channels-grpc-api.md) %}

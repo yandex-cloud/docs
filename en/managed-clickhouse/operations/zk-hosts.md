@@ -32,159 +32,159 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
-   1. Specify the [host class](../concepts/instance-types.md).
-   1. Set up the storage settings.
-   1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/console-icons/pencil.svg).
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
+  1. Specify the [host class](../concepts/instance-types.md).
+  1. Set up the storage settings.
+  1. Change the {{ ZK }} host settings, if required. To do this, hover over the host's row and click ![image](../../_assets/console-icons/pencil.svg).
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To enable fault tolerance for a cluster:
-   1. View a description of the CLI command for adding {{ ZK }} hosts:
+  To enable fault tolerance for a cluster:
+  1. View a description of the CLI command for adding {{ ZK }} hosts:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster add-zookeeper --help
-      ```
+     ```bash
+     {{ yc-mdb-ch }} cluster add-zookeeper --help
+     ```
 
-   1. Run the operation with the default host characteristics:
+  1. Run the operation with the default host characteristics:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
-         --host zone-id={{ region-id }}-d,subnet-name=default-d \
-         --host zone-id={{ region-id }}-a,subnet-name=default-a \
-         --host zone-id={{ region-id }}-b,subnet-name=default-b
-      ```
+     ```bash
+     {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
+        --host zone-id={{ region-id }}-d,subnet-name=default-d \
+        --host zone-id={{ region-id }}-a,subnet-name=default-a \
+        --host zone-id={{ region-id }}-b,subnet-name=default-b
+     ```
 
-      If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
+     If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
 
-      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
+     For more information about creating this file, see [Creating clusters](cluster-create.md).
+  1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
 
-      ```hcl
-      resource "yandex_vpc_network" "<network_name>" {
-        name = "<network_name>"
-      }
+     ```hcl
+     resource "yandex_vpc_network" "<network_name>" {
+       name = "<network_name>"
+     }
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-a_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-a_zone>"
-        zone           = "{{ region-id }}-a"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-a_zone>" ]
-      }
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-a_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-a_zone>"
+       zone           = "{{ region-id }}-a"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-a_zone_subnet_IP_address_range>" ]
+     }
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-b_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-b_zone>"
-        zone           = "{{ region-id }}-b"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-b_zone>" ]
-      }
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-b_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-b_zone>"
+       zone           = "{{ region-id }}-b"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-b_zone_subnet_IP_address_range>" ]
+     }
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-d_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-d_zone>"
-        zone           = "{{ region-id }}-d"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-d_zone>" ]
-      }
-      ```
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-d_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-d_zone>"
+       zone           = "{{ region-id }}-d"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-d_zone_subnet_IP_address_range>" ]
+     }
+     ```
 
-   1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
+  1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
 
-      {{ CH }} host requirements:
-      * Minimum host class: `b1.medium`.
-      * If there are several hosts, they must be located in different availability zones.
+     {{ CH }} host requirements:
+     * Minimum host class: `b1.medium`.
+     * If there is more than one host, they must reside in different availability zones.
 
-      If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
+     If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        name = "<cluster_name>"
-        ...
-        clickhouse {
-          resources {
-            resource_preset_id = "<host_class>"
-            disk_type_id       = "<disk_type>"
-            disk_size          = <storage_size_GB>
-          }
-        }
-        ...
-        host {
-          type      = "CLICKHOUSE"
-          zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-a>.id
-        }
-        ...
-      }
-      ```
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       name = "<cluster_name>"
+       ...
+       clickhouse {
+         resources {
+           resource_preset_id = "<host_class>"
+           disk_type_id       = "<disk_type>"
+           disk_size          = <storage_size_in_GB>
+         }
+       }
+       ...
+       host {
+         type      = "CLICKHOUSE"
+         zone      = "{{ region-id }}-a"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-a_zone>.id
+       }
+       ...
+     }
+     ```
 
-      Where `resource_preset_id` is host class: `b1.medium` or higher.
+     Where `resource_preset_id` is `b1.medium` host class or higher.
 
-   1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
+  1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
-      {{ ZK }} host requirements:
-      * Each availability zone must have at least one host.
-      * Minimum host class: `b1.medium`.
-      * Disk type: `{{ disk-type-example }}`.
-      * The minimum storage size is 10 GB.
+     {{ ZK }} host requirements:
+     * Each availability zone must have at least one host.
+     * Minimum host class: `b1.medium`.
+     * Disk type: `{{ disk-type-example }}`.
+     * The minimum storage size is 10 GB.
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        zookeeper {
-          resources {
-            resource_preset_id = "<host_class>"
-            disk_type_id       = "{{ disk-type-example }}"
-            disk_size          = <storage_size_GB>
-          }
-        }
-        ...
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-a_zone>.id
-        }
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-b"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-b_zone>.id
-        }
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-d"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-d_zone>.id
-        }
-      }
-      ```
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       ...
+       zookeeper {
+         resources {
+           resource_preset_id = "<host_class>"
+           disk_type_id       = "{{ disk-type-example }}"
+           disk_size          = <storage_size_in_GB>
+         }
+       }
+       ...
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-a"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-a_zone>.id
+       }
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-b"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-b_zone>.id
+       }
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-d"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-d_zone>.id
+       }
+     }
+     ```
 
-      Where `resource_preset_id` is host class: `b1.medium` or higher.
+     Where `resource_preset_id` is `b1.medium` host class or higher.
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API {#api}
 
-   To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call. For the added hosts, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
+  To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call. When adding, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
 
 {% endlist %}
 
@@ -202,81 +202,81 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
-   1. If required, change the host settings.
-   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
+  1. If required, change the host settings.
+  1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host to a cluster:
-   1. Collect the necessary information:
-      * Request the subnet ID by running the command:
+  To add a host to a cluster:
+  1. Collect the necessary information:
+     * Request the subnet ID by running the command:
 
-         ```bash
-         yc vpc subnet list
-         ```
-
-
-         If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+       ```bash
+       yc vpc subnet list
+       ```
 
 
-      * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   1. View a description of the CLI command for adding a host:
+       If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-      ```bash
-      {{ yc-mdb-ch }} host add --help
-      ```
 
-   1. Run the add {{ ZK }} host command:
+     * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  1. View a description of the CLI command for adding a host:
 
-      ```bash
-      {{ yc-mdb-ch }} hosts add \
-        --cluster-name <cluster_name> \
-        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,type=zookeeper
-      ```
+     ```bash
+     {{ yc-mdb-ch }} host add --help
+     ```
+
+  1. Run the add {{ ZK }} host command:
+
+     ```bash
+     {{ yc-mdb-ch }} hosts add \
+       --cluster-name <cluster_name> \
+       --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,type=zookeeper
+     ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add a `host` block of the `ZOOKEEPER` type to the {{ mch-name }} cluster description:
+     For more information about creating this file, see [Creating clusters](cluster-create.md).
+  1. Add the `ZOOKEEPER` type `host` blocks to the {{ mch-name }} cluster description:
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "<availability_zone>"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_selected_availability_zone>.id
-        }
-        ...
-      }
-      ```
+    ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       ...
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "<availability_zone>"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_the_selected_availability_zone>.id
+       }
+       ...
+     }
+     ```
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API {#api}
 
-   To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
+  To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+  * ID of the cluster you want the host to reside in, in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Host settings in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
 {% endlist %}
 
@@ -290,32 +290,32 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Hover over the required host row and click ![image](../../_assets/console-icons/xmark.svg).
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Hover over the host's row and click ![image](../../_assets/console-icons/xmark.svg).
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To remove a host from the cluster, run:
+  To remove a host from the cluster, run:
 
-   ```bash
-   {{ yc-mdb-ch }} hosts delete <host_name> \
-     --cluster-name=<cluster_name>
-   ```
+  ```bash
+  {{ yc-mdb-ch }} hosts delete <host_name> \
+    --cluster-name=<cluster_name>
+  ```
 
-   You can request the host name with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
+      For more information about creating this file, see [Creating clusters](cluster-create.md).
+   1. Delete the `ZOOKEEPER` type `host` block from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -330,9 +330,9 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 - API {#api}
 
-   To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
-   * ID of the cluster in which the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Host name, in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list-hosts).
+  To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+  * ID of the cluster the host resides in, in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Host name in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}
 
