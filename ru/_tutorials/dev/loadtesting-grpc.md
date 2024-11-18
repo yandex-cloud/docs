@@ -96,7 +96,7 @@
 
 ## Подготовьте файл с тестовыми данными {#test-file}
 
-1. Сформируйте тестовые данные в формате [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md):
+1. Сформируйте тестовые данные в формате [GRPC_JSON](../../load-testing/concepts/payloads/grpc-json.md):
 
    ```JSON
    {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
