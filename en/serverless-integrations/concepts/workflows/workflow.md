@@ -1,3 +1,14 @@
+---
+title: Workflow in {{ sw-full-name }}
+description: A workflow in {{ sw-name }} is an event-driven application made up of steps and transitions between them.
+keywords:
+  - workflows
+  - workflow
+  - WF
+  - workflow
+  - YaWL specification
+---
+
 # Workflow
 
 A _workflow_ is an event-driven application made up of _steps_ and transitions between them. Step attributes:

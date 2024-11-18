@@ -253,7 +253,7 @@ description: Следуя данной инструкции, вы научите
 
 {% list tabs group=instructions %}
 
- - Консоль управления {#console}
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.

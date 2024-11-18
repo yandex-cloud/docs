@@ -45,8 +45,10 @@ items:
             href: concepts/trial-period.md
       - name: Access management
         href: security/partners.md
-      - name: API reference
+      - name: Metering API reference
         items:
+          - name: Getting started with the API
+            href: api-ref/quickstart.md
           - name: REST
             items:
               - name: Overview

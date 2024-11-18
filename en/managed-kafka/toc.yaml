@@ -57,7 +57,7 @@ items:
         items:
           - name: Configuring {{ KFC }} to work with {{ mkf-name }}
             href: tutorials/kafka-connect.md
-          - name: Migrating databases from a third-party {{ KF }} cluster
+          - name: Migrating a database from a third-party {{ KF }} cluster
             href: tutorials/kafka-connectors.md
           - name: >-
               Moving data between {{ mkf-name }} clusters using {{

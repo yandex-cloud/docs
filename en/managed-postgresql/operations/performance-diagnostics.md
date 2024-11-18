@@ -56,7 +56,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -125,12 +125,12 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. To enable statistics collection when **creating a cluster**:
+  1. To enable statistics collection when creating a cluster:
 
      1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method and add the `config_spec.performance_diagnostics` parameter to the [grpcurl cluster creation command](cluster-create.md#grpc-api):
 
@@ -164,7 +164,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
      1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
-  1. To enable statistics collection when **updating an existing cluster**:
+  1. To enable statistics collection when updating an existing cluster:
 
      1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -230,7 +230,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -255,7 +255,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
      Where:
 
-     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g.: `2024-09-18T15:04:05Z`.
+     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -286,11 +286,11 @@ For more information about what statistics you can get, see the [{{ PG }} docume
     1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
     1. (Optional) Set filters.
 
-    Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20 in the second. If we compare the statistics, the difference according to the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
+    Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -315,7 +315,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
      Where:
 
-     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g.: `2024-09-18T15:04:05Z`.
+     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).

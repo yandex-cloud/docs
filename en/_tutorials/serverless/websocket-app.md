@@ -206,7 +206,7 @@ Register your bot in Telegram and get a token.
 
 1. In the `name` field, specify a name for the bot you are creating, e.g., `Serverless Game With WebSockets`. This is the name users will see when communicating with the bot.
 
-1. In the `username` field, enter a user name for the bot being created, e.g., `ServerlessGameWithWebSocketsBot`. You can use the user name to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `username` field, enter a username for the new bot, e.g., `ServerlessGameWithWebSocketsBot`. You can use the username to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
 1. You will get the `t.me/ServerlessGameWithWebSocketsBot` address and token in response.
 
@@ -326,9 +326,9 @@ Register your bot in Telegram and get a token.
 
    Enter the following parameters:
    
-   * `AWS Access Key ID`: Previously obtained access key ID (`key_id`) for the service account.
-   * `AWS Secret Access Key`: Previously obtained secret key (`secret`) of service account.
-   * `Default region name`: Use `{{ region-id }}` as the value.
+   * `AWS Access Key ID`: Service account access key ID (`key_id`) you got earlier.
+   * `AWS Secret Access Key`: Service account secret key (`secret`) you got earlier.
+   * `Default region name`: Use the `{{ region-id }}` value.
    * `Default output format`: Leave empty.
 
 1. Check the configuration:
@@ -343,7 +343,7 @@ Register your bot in Telegram and get a token.
 
 Create a database named `game-data` to store the game data and a database named `data-streams` for a {{ yds-name }} stream.
 
-1. Create the `game-data` database in serverless mode:
+1. Create a database named `game-data` in serverless mode:
    
     ```bash
     yc ydb database create game-data --serverless
@@ -379,7 +379,7 @@ Create a database named `game-data` to store the game data and a database named 
     echo $YDB_DATABASE
     ```
 
-1. Create the `data-streams` database in serverless mode:
+1. Create a database named `data-streams` in serverless mode:
 
     ```bash
     yc ydb database create data-streams --serverless
@@ -529,7 +529,7 @@ Create a database named `game-data` to store the game data and a database named 
       --payload "[{'key': 'ydb_endpoint', 'text_value': $YDB_ENDPOINT},{'key': 'ydb_db', 'text_value': $YDB_DATABASE}]"
     ```
 
-1. Save the ID of the created secret to the `LOCKBOX_SECRET_ID` variable:
+1. Save the ID of the new secret to the `LOCKBOX_SECRET_ID` variable:
 
     ```bash
     echo "export LOCKBOX_SECRET_ID=$(jq -r <<<  \
@@ -565,14 +565,14 @@ Create a database named `game-data` to store the game data and a database named 
 
 1. Change the configuration for {{ objstorage-name }}. Since the bucket name must be unique, replace it with a custom bucket name in the following files:
 
-    * `serverless.yaml` file:
+    * `serverless.yaml`:
        
         ```yaml
         sls-game-files:
           type: yc::ObjectStorageBucket
         ```
     
-    * `upload-to-s3.ts` file in the `scripts` directory:
+    * `upload-to-s3.ts` in the `scripts` directory:
         
         ```ts
         Bucket: 'sls-game-files',
@@ -770,9 +770,9 @@ The following service accounts were created when deploying the project:
 
 1. Make the following changes to the `apigw.yml` file:
 
-   1. In every `bucket: serverless-game-files` line, replace the bucket name with a custom one.
-   1. In every `service_account_id: <sa-id-for-object-storage>` line, replace `<sa-id-for-object-storage>` with the `$APIGW_S3_VIEWER_ID` variable value.
-   1. In every `service_account_id: <sa-id-for-functions>` line, replace `<sa-id-for-functions>` with the ` $APIGW_FN_CALLER_ID` variable value.
+   1. In all `bucket: serverless-game-files` lines, replace the bucket name with one given by you.
+   1. In all `service_account_id: <sa-id-for-object-storage>` lines, replace `<sa-id-for-object-storage>` with the `$APIGW_S3_VIEWER_ID` variable value.
+   1. In all `service_account_id: <sa-id-for-functions>` lines, replace `<sa-id-for-functions>` with the ` $APIGW_FN_CALLER_ID` variable value.
    1. In line `58`, replace `<yandex-cloud-nodejs-dev-get-state-function-id>` with the `yandex-cloud-nodejs-dev-get-state` function ID.
    1. In line `65`, replace `<yandex-cloud-nodejs-dev-get-config-function-id>` with the `yandex-cloud-nodejs-dev-get-config` function ID.
    1. In line `72`, replace `<yandex-cloud-nodejs-dev-move-function-id>` with the `yandex-cloud-nodejs-dev-move` function ID.
@@ -810,13 +810,13 @@ The following service accounts were created when deploying the project:
 1. Copy the API gateway's service domain. You can find it in the previous command output in the `domain` field.
 
 1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the URL will look like `https://d5d920bqkitf********.apigw.yandexcloud.net`.
+1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the URL will be `https://d5d920bqkitf********.apigw.yandexcloud.net`.
 
 ## Test the app {#test-app}
 
-Follow the link that you sent to the Telegram bot, sign in, and open the game.
+Follow the link you sent to the Telegram bot, sign in, and open a game.
 
-The game has player statistics available. If the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the `https://d5d920bqkitf********.apigw.yandexcloud.net/stats.html` URL will open a page with statistics for all players.
+The game offers player statistics. If the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the statistics for all players will be available at `https://d5d920bqkitf********.apigw.yandexcloud.net/stats.html`.
 
 ## How to delete the resources you created {#clear-out}
 

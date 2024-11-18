@@ -33,7 +33,7 @@ editable: false
 
 - Стоимость в рублях {#prices-rub}
 
-  Стоимость в месяц = 5,47 ₽ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 16,00 ₽ × Количество миллионов вызовов
+  Стоимость в месяц = {{ sku|RUB|serverless.functions.compute.v1|pricingRate.10|string }} × Объем памяти (Гб) × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.functions.invocations.v1|pricingRate.1|string }} × Количество миллионов вызовов
 
   {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -41,7 +41,7 @@ editable: false
 
 - Стоимость в тенге {#prices-kzt}
 
-  Стоимость в месяц = 27,35 ₸ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 80,00 ₸ × Количество миллионов вызовов
+  Стоимость в месяц = {{ sku|KZT|serverless.functions.compute.v1|pricingRate.10|string }} × Объем памяти (Гб) × Время обработки вызовов (Часы) + {{ sku|KZT|serverless.functions.invocations.v1|pricingRate.1|string }} × Количество миллионов вызовов
 
   {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -80,13 +80,13 @@ editable: false
 
   {% include [rub.md](../_pricing/functions/rub-invocations.md) %}
 
-  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит 0,016 ₽, если 1 миллион запросов стоит 16,00 ₽.
+  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит {% calc [currency=RUB] {{ sku|RUB|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %}, если 1 миллион запросов стоит {{ sku|RUB|serverless.functions.invocations.v1|pricingRate.1|string }}.
 
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
 
-  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит 0,08 ₸, если 1 миллион запросов стоит 80,00 ₸.
+  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит {% calc [currency=KZT] {{ sku|KZT|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %}, если 1 миллион запросов стоит {{ sku|KZT|serverless.functions.invocations.v1|pricingRate.1|string }}.
 
 {% endlist %}
 

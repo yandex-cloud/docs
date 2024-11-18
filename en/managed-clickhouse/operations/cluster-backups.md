@@ -29,30 +29,30 @@ Backups are created based on a random replica host. If there is no cluster host 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To create a cluster backup:
-
+  
   1. View a description of the CLI create {{ CH }} backup command:
-
+  
       ```bash
       {{ yc-mdb-ch }} cluster backup --help
       ```
-
+  
   1. Request the creation of a backup specifying the cluster name or ID:
-
+  
       ```bash
       {{ yc-mdb-ch }} cluster backup <cluster_name_or_ID>
       ```
-
+  
       You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
-  To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
 
   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -65,6 +65,10 @@ Backups are created based on a random replica host. If there is no cluster host 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from a backup. The average backup recovery speed is 10 MBps per database core.
 
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
+
+
+Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. Restoring a cluster from a backup with a link to a [service account](../../iam/concepts/users/service-accounts.md).
+
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
 
@@ -178,7 +182,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 
   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
-  * Shard's backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
+  * The shard's backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
   * Cluster environment in the `environment` parameter.
   * Cluster configuration in the `configSpec` parameter.
@@ -208,7 +212,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
   * Backup name.
   * Source shard.
   * Backup size.
-  * Backup type: `Automated` or `Manual`.
+  * Backup type: Automatic (`Automated`) or manual (`Manual`).
   * Start time of backup creation in UTC (Coordinated Universal Time).
   * End time of backup creation in UTC.
 
@@ -241,13 +245,13 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
   * Start time of backup creation in UTC.
   * Source shard name.
   * Backup size.
-  * Backup type: `AUTOMATED` or `MANUAL`.
+  * Backup type: Automatic (`AUTOMATED`) or manual (`MANUAL`).
 
 - API {#api}
 
-  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
 
-  To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
+  To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
 
   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -284,7 +288,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 
 - API {#api}
 
-  To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` request parameter.
+  To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
 
   To find out the ID, [retrieve a list of backups](#list-backups).
 

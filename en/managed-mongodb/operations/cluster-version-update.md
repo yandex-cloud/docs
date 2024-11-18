@@ -1,6 +1,6 @@
-# Upgrading the {{ MG }} version
+# {{ MG }} version upgrade
 
-You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, upgrading the {{ MG }} version from 4.2 to 6.0 is performed in the following sequence: 4.2 → 4.4 → 5.0 → 6.0.
+You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, for {{ MG }}, the upgrade sequence from version 4.2 to 6.0 is: 4.2 → 4.4 → 5.0 → 6.0.
 
 
 {% note alert %}
@@ -38,7 +38,7 @@ Make sure this does not affect your applications:
      {{ yc-mdb-mg }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ MG }} version specified in the `config.version` property:
+  1. Get information about the cluster you need and check the {{ MG }} version in the `config.version` parameter:
 
      ```bash
      {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
@@ -51,7 +51,7 @@ Make sure this does not affect your applications:
         --mongodb-version=<new_version_number>
      ```
 
-     As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+     As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
 
   1. After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 

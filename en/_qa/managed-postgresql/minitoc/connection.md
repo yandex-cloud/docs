@@ -4,6 +4,8 @@
 
 * [How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows?](#get-ssl)
 
+* [What do I do if I get the revocation check error when using PowerShell to obtain a new SSL certificate?](#get-ssl-error)
+
 * [How do I install an SSL certificate to connect Power BI to {{ mpg-name }} using psql?](#power-bi)
 
 * [What do I do if I get the _SSL is required_ error?](#ssl-req)
@@ -14,7 +16,7 @@
 
 * [What is the allowed number of connections per user?](#user-conn)
 
-* [Why does an error occur when trying to connect to a database?](#database-error)
+* [Why do I get an error when trying to connect to a database?](#database-error)
 
 * [Why does an error occur when trying to connect to a database from {{ google-looker }}?](#google-looker)
 

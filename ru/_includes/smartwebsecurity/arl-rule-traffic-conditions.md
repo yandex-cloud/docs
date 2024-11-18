@@ -4,7 +4,7 @@
     * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов или регион IP-адресов;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` — путь запроса;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` — метод запроса;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` — строка в заголовке cookie.
 

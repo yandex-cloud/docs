@@ -16,7 +16,9 @@ description: 'В данном разделе вы научитесь работ�
 1. [Назначьте](../../organization/operations/add-role.md) пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого вы будете аутентифицироваться в API {{ video-name }}, [роль](../../iam/concepts/access-control/roles.md) `video.admin` или `video.editor`. Подробнее см. в разделе [{#T}](../security/index.md).
 1. [Получите](./authentication.md) IAM-токен для пользователя или сервисного аккаунта, от имени которого вы будете аутентифицироваться в API {{ video-name }}.
 
-Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../api-ref/grpc/)).
+Чтобы воспользоваться примерами, установите утилиты:
+* [cURL](https://curl.haxx.se) при использовании [REST API](../api-ref/).
+* [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq) при использовании [gRPC API](../api-ref/grpc/).
 
 ## Создайте канал {#create-channel}
 
@@ -170,9 +172,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Чтобы зарегистрировать обложку, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [register-thumbnail-rest-api](../../_includes/video/register-thumbnail-rest-api.md) %}
 
@@ -188,9 +190,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Чтобы получить ссылку на загрузку изображения обложки, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [get-thumbnail-uplink-rest-command](../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
 
@@ -212,9 +214,9 @@ description: 'В данном разделе вы научитесь работ�
 
 Чтобы добавить созданную обложку к вашему видео, выполните команду:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [assign-thumbnail-to-video-rest](../../_includes/video/assign-thumbnail-to-video-rest.md) %}
 

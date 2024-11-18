@@ -568,6 +568,7 @@ default:
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
+  roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
@@ -1641,10 +1642,12 @@ default:
         provision_enabled|string: ₸6.00
         provisioned_request|string: ₸11.50
         v1|pricingRate:
+          10|number: 27.35
           10|string: ₸27.35
         v1|string: Free
       invocations:
         v1|pricingRate:
+          1|number: 80
           1|string: ₸80.00
         v1|string: Free
   sku|KZT|smart_captcha:
@@ -2833,10 +2836,12 @@ default:
         provision_enabled|string: ₽1.20
         provisioned_request|string: ₽2.30
         v1|pricingRate:
+          10|number: 5.47
           10|string: ₽5.47
         v1|string: Free
       invocations:
         v1|pricingRate:
+          1|number: 16
           1|string: ₽16.00
         v1|string: Free
   sku|RUB|smart_captcha:
@@ -3992,10 +3997,12 @@ default:
     functions:
       compute:
         v1|pricingRate:
+          10|number: 0.04376
           10|string: $0.043760
         v1|string: Free
       invocations:
         v1|pricingRate:
+          1|number: 0.128
           1|string: $0.128000
         v1|string: Free
   sku|USD|smart_captcha:
@@ -8057,6 +8064,7 @@ default:
           label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
+        label_profiles-list: Security profiles
         label_search-rule-type: 'Rule type:'
         overview:
           action_attach-to-host: Connect to host
@@ -8075,21 +8083,26 @@ default:
           label_waf-rule: Web Application Firewall
           title_connected-to-the-hosts: Connected hosts
           title_security-rules: Security rules
+          title_waf-profile: WAF profile
         title_default-template: From a preset template
         title_no-template: From scratch
         title_profiles: Security profiles
         waf:
           action_exclusion-rule-add-rules: Add rules
+          action_setup-base-rules: Set up a basic rule set
           field_analyze-request-body: Inspect request body
           field_logging: Write logs
           field_max-request-body-size: Maximum request body size
           label_action-edit-settings: Configure basic rule set
           label_analyze-request-body-action-deny: Block request
           label_analyze-request-body-action-ignore: Do not analyze body
+          label_anomaly-medium: 'Moderate: 25 and more'
           label_anomaly-threshold: Anomaly threshold
           label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
+          label_exclusion-rules: Exclusion rules
           label_paranoia-level: Paranoia level
+          label_paranoia-option-2: 2 or lower
           label_profiles: WAF profiles
           label_save-settings: Save settings
           section_analyze-request: Request analysis
@@ -8100,6 +8113,7 @@ default:
           value_exclude-all-yes: All rules
       smartcaptcha:
         button_captcha-settings-create: Create captcha
+        field_security-rule_priority: Priority
         label_additional-challenge: Additional challenge
         label_allowed-sites: Host list
         label_captcha-settings-list: Captcha list
@@ -10071,7 +10085,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.35.5
+        tag: 0.42.1
     yc_external-secrets:
       helmChart:
         name: >-
@@ -10137,7 +10151,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
-        tag: 0.1.12
+        tag: 0.1.13
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns

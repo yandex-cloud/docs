@@ -39,7 +39,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
         * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `95` (95% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `90` (90% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It enables preventing alert triggers when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
     1. **Notifications**: Add the previously created notification channel.
 
@@ -70,7 +70,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
     To increase the hosts' storage size:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -145,7 +145,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
-    * List of settings to update, in the `updateMask` parameter.
+    * List of settings to update in the `updateMask` parameter.
 
     You cannot change the disk type for an {{ KF }} cluster once you create it.
 
@@ -181,7 +181,7 @@ To prevent the cluster disk space from running out, set up [automatic storage in
 
     To set up automatic increase of storage size:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help

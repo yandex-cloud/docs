@@ -1,4 +1,4 @@
-# Upgrading {{ MY }} version
+# {{ MY }} version upgrade
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
@@ -15,32 +15,32 @@ To learn more about updates within a single version and host maintenance, see [M
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of a {{ MY }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ MY }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 * Upgrade your cluster when it is less loaded.
 
 {% endnote %}
 
-## Before updating the version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure the update does not affect your applications:
 
 1. See the {{ MY }} [changelog](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) to check how updates might affect your applications.
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster. Use the `PRESTABLE` environment for the test cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster. Use the `PRESTABLE` environment for the test cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 1. Since a cluster of three or more hosts is fault-tolerant, make sure the primary and test clusters have at least two replica hosts and a single master host. [Add hosts](hosts.md#add) as needed.
 
-## Upgrading a cluster {#start-update}
+## Updating the {{ MY }} version {#start-update}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Select the cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
+   As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
    The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
 
@@ -58,7 +58,7 @@ Make sure the update does not affect your applications:
       {{ yc-mdb-my }} cluster list
       ```
 
-   1. Get information about a cluster and check the {{ MY }} version in the `config.version` parameter:
+   1. Get information about the cluster you need and check the {{ MY }} version in the `config.version` parameter:
 
       ```bash
       {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
@@ -77,7 +77,7 @@ Make sure the update does not affect your applications:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -101,19 +101,90 @@ Make sure the update does not affect your applications:
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-   To upgrade a cluster to a specific {{ MY }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * {{ MY }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+   1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-   The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+         --data '{
+                   "updateMask": "configSpec.version",
+                   "configSpec": {
+                     "version": "<{{ MY }}_version>"
+                   }
+                 }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+         In this case, only one parameter is provided.
+
+      * `configSpec.version`: New {{ MY }} version.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+         -format json \
+         -import-path ~/cloudapi/ \
+         -import-path ~/cloudapi/third_party/googleapis/ \
+         -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+         -d '{
+               "cluster_id": "<cluster_ID>",
+               "update_mask": {
+                 "paths": [
+                   "config_spec.version"
+                 ]
+               },
+               "config_spec": {
+                 "version": "<{{ MY }}_version>"
+               }
+             }' \
+         {{ api-host-mdb }}:{{ port-https }} \
+         yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+         In this case, only one parameter is provided.
+
+      * `config_spec.version`: New {{ MY }} version.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
+
+The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
 
 ## Examples {#examples}
 
@@ -139,7 +210,7 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
       +----------------------+------------+---------------------+--------+---------+
       ```
 
-   1. To get information about a cluster named `mysql406`, run the this command:
+   1. To get information about a cluster named `mysql406`, run the following command:
 
       ```bash
       {{ yc-mdb-my }} cluster get mysql406
@@ -164,7 +235,7 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
-   1. Set the `version` field value to `8.0` in the `yandex_mdb_mysql_cluster` resource.
+   1. In the `version` field, specify the `8.0` value in the `yandex_mdb_mysql_cluster` resource:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {

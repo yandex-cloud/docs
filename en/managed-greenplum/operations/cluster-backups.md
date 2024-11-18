@@ -204,7 +204,7 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--segment-disk-type`: Segment host [disk type](../concepts/storage.md).
         * `--segment-host-count`: Number of segment hosts.
         * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
-        * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `--restore-only` (optional): Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
 
@@ -216,7 +216,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
     To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
-    * Backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
+    * ID of the backup you need, in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
     * Time point to which you want to restore the cluster, in the `time` parameter. By default, the cluster will be restored from a backup.
     * Number of segment hosts in the `segmentHostCount` parameter.
     * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.

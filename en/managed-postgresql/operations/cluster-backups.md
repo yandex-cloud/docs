@@ -8,7 +8,7 @@ description: You can create backups and restore clusters from existing PostgreSQ
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-{{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](update.md#change-additional-settings).
+{{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Restoring clusters from backups {#restore}
 
@@ -57,21 +57,21 @@ When restored to the current state, the new cluster will match the state of:
   {{ mpg-name }} will launch the operation to create a cluster from the backup.
   
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `--folder-id` parameter.
-
+  
   To restore a cluster from a backup:
-
+  
   1. View a description of the CLI restore {{ PG }} cluster command:
-
+  
       ```bash
       {{ yc-mdb-pg }} cluster restore --help
       ```
-
+  
   1. Getting a list of available {{ PG }} cluster backups:
-
+  
       ```bash
       {{ yc-mdb-pg }} backup list
       ```
@@ -192,7 +192,7 @@ When restored to the current state, the new cluster will match the state of:
 
        {% note info %}
 
-       If you omit the `time` parameter, the cluster will be restored to the time when the backup was completed.
+       If you omit the `time` parameter, the cluster will be restored to the backup completion time.
 
        {% endnote %}
 
@@ -237,7 +237,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -268,7 +268,7 @@ When restored to the current state, the new cluster will match the state of:
                     {
                       "zoneId": "<availability_zone>",
                       "subnetId": "<subnet_ID>",
-                      "assignPublicIp": <host_public_address:_true_or_false>
+                      "assignPublicIp": <public_host_address:_true_or_false>
                     }
                   ]
                 }'
@@ -276,7 +276,7 @@ When restored to the current state, the new cluster will match the state of:
 
      Where:
 
-     * `backupId`: [Backup](../concepts/backup.md) ID.
+     * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
      * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
@@ -305,7 +305,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -338,7 +338,7 @@ When restored to the current state, the new cluster will match the state of:
                {
                  "zone_id": "<availability_zone>",
                  "subnet_id": "<subnet_ID>",
-                 "assign_public_ip": <host_public_address:_true_or_false>
+                 "assign_public_ip": <public_host_address:_true_or_false>
                }
              ]
            }' \
@@ -346,7 +346,7 @@ When restored to the current state, the new cluster will match the state of:
        yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
      ```
 
-     * `backup_id`: [Backup](../concepts/backup.md) ID.
+     * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
      * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
@@ -380,7 +380,7 @@ When restored to the current state, the new cluster will match the state of:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
@@ -388,29 +388,29 @@ When restored to the current state, the new cluster will match the state of:
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To create a cluster backup:
-
+  
   1. View a description of the CLI create {{ PG }} backup command:
-
+  
       ```
       {{ yc-mdb-pg }} cluster backup --help
       ```
   1. Request the creation of a backup specifying the cluster name or ID:
-
+  
       ```
       {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
-
+  
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -430,7 +430,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -474,16 +474,16 @@ When restored to the current state, the new cluster will match the state of:
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
   
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To get a list of {{ PG }} cluster backups available in the default folder, run the command:
-
+  
   ```
   {{ yc-mdb-pg }} backup list
-
+  
   +--------------------------+---------------------+----------------------+---------------------+
   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
   +--------------------------+---------------------+----------------------+---------------------+
@@ -494,7 +494,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -521,14 +521,18 @@ When restored to the current state, the new cluster will match the state of:
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups'
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups?folderId=<folder_ID>'
         ```
+
+
+        You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
 
      1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -596,22 +600,22 @@ When restored to the current state, the new cluster will match the state of:
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
   
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To get information about a {{ PG }} cluster backup, run the command:
-
+  
   ```
   {{ yc-mdb-pg }} backup get <backup_ID>
   ```
-
+  
   You can retrieve the backup ID with a [list of backups](#list-backups).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -630,7 +634,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -662,7 +666,7 @@ When restored to the current state, the new cluster will match the state of:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   In the management console, you can set the backup start time when [creating](cluster-create.md) or [updating a cluster](update.md).
 
 - CLI {#cli}
@@ -733,7 +737,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -781,7 +785,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -838,6 +842,156 @@ When restored to the current state, the new cluster will match the state of:
 
 {% endlist %}
 
+## Setting a retention period for automatic backups {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To set a retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
+
+    ```bash
+    {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+       --backup-retain-period-days=<retention_period_in_days>
+    ```
+
+  The possible values range from `7` to `60`. The default value is `7`.
+
+  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+    1. Add a `backup_retain_period_days` block in the `config` section to the {{ mpg-name }} cluster description.
+
+        ```hcl
+          resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
+            ...
+            config {
+              ...
+              backup_retain_period_days = <retention_period_in_days>
+              }
+              ...
+            }
+            ...
+        ```
+
+       Where `backup_retain_period_days` is the automatic backup retention period. 
+       
+       The possible values range from `7` to `60`. The default value is `7`.
+
+  1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1.  Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+       ```bash
+       curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
+         --data '{
+                   "updateMask": "configSpec.backupRetainPeriodDays",
+                   "configSpec": {
+                     "backupRetainPeriodDays": <retention_period_in_days>
+                   }
+                 }'
+       ```
+
+       Where:
+
+       * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+         In this case, only one parameter is provided.
+
+       * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
+ 
+         The values range from `7` to `60`. The default value is `7`.
+
+       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                "paths": [
+                    "config_spec.backup_retain_period_days"
+                ]
+                },
+                "config_spec": {
+                "backup_retain_period_days": <retention_period_in_days>
+                }
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+        ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       In this case, only one parameter is provided.
+
+     * `config_spec.backup_retain_period_days`: Automatic backup retention period.
+
+       The values range from `7` to `60`. The default value is `7`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+
+{% endlist %}
+
 ## Deleting a backup {#delete}
 
 You can only delete backups that were created manually.
@@ -877,7 +1031,7 @@ You can only delete backups that were created manually.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -896,7 +1050,7 @@ You can only delete backups that were created manually.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

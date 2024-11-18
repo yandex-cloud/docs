@@ -35,7 +35,7 @@ Learn more about other cluster updates:
 
 ## Changing the host class {#change-resource-preset}
 
-The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
+The choice of a [host class](../concepts/instance-types.md) in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
 {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
@@ -62,9 +62,9 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
+  To change the host class for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -129,15 +129,90 @@ We recommend changing the host class only when the cluster has no active workloa
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * Required host class in the `configSpec.resources.resourcePresetId` parameter. To request a [list](../api-ref/ResourcePreset/list.md) of supported values, use the list method for the `ResourcePreset` resources.
-    * List of settings to update (in this case, `configSpec.resources.resourcePresetId`), in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.resources.resourcePresetId",
+                    "configSpec": {
+                      "resources": {
+                        "resourcePresetId": "<host_class>"
+                      }
+                    }
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.resources.resourcePresetId`: New host class.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.resources.resource_preset_id"
+                  ]
+                },
+                "config_spec": {
+                  "resources": {
+                    "resource_preset_id": "<host_class>"
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `config_spec.resources.resource_preset_id`: New host class.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -164,7 +239,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To increase the cluster storage size:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -209,15 +284,90 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * Storage size in the `configSpec.resources.diskSize` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.resources.diskSize",
+                    "configSpec": {
+                      "resources": {
+                        "diskSize": "<storage_size_in_bytes>"
+                      }
+                    }
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.resources.diskSize`: New disk size in bytes.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.resources.disk_size"
+                  ]
+                },
+                "config_spec": {
+                  "resources": {
+                    "disk_size": "<storage_size_in_bytes>"
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `config_spec.resources.disk_size`: New disk size in bytes.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -290,17 +440,100 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change {{ MY }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * Array with new {{ MY }} settings in the following parameter:
-        * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} version 5.7.
-        * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} version 8.0.
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.mysqlConfig_<{{ MY }}_version>",
+                    "configSpec": {
+                      "mysqlConfig_<{{ MY }}_version>": {
+                        "<setting_1>": "<value_1>",
+                        "<setting_2>": "<value_2>",
+                        ...
+                        "<setting_N>": "<value_N>"
+                      }
+                    }
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Use a separate line for each setting; separate them by commas.
+
+          See the [method description](../api-ref/Cluster/update.md#body_params) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mysql_config_<{{ MY }}_version>"
+                  ]
+                },
+                "config_spec": {
+                  "mysql_config_<{{ MY }}_version>": {
+                    "<setting_1>": "<value_1>",
+                    "<setting_2>": "<value_2>",
+                    ...
+                    "<setting_N>": "<value_N>"
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Use a separate line for each setting; separate them by commas.
+
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -326,7 +559,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -353,11 +586,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--backup-retain-period-days`: Automatic backup retention period, in days. The possible values range from `7` to `60`. Default value: `7`.
+    * `--backup-retain-period-days`: Automatic backup retention period, in days. The possible values range from `7` to `60`. The default value is `7`.
 
-    * `--datalens-access`: Enables access from {{ datalens-name }}. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
 
-    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
@@ -405,7 +638,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         }
       ```
 
-      Where `backup_retain_period_days` is the automatic backup retention period, in days. The possible values range from `7` to `60`. Default value: `7`.
+      Where `backup_retain_period_days` is the automatic backup retention period, in days. The possible values range from `7` to `60`. The default value is `7`.
 
   1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
@@ -452,24 +685,230 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Settings for access from other services in the `configSpec.access` parameter.
-    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-    * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
-    * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. The possible values range from `7` to `60`. Default value: `7`.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
 
-    * Settings of statistics collection for [cluster performance diagnostics](performance-diagnostics.md) in the `configSpec.performanceDiagnostics` parameter.
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+      ```json
+      {
+          "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
+          "configSpec": {
+              "backupWindowStart": {
+                  "hours": "<hours>",
+                  "minutes": "<minutes>",
+                  "seconds": "<seconds>",
+                  "nanos": "<nanoseconds>"
+              },
+              "backupRetainPeriodDays": "<number_of_days>",
+              "access": {
+                  "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
+                  "webSql": <access_to_{{ websql-name }}:_true_or_false>,
+                  "dataTransfer": <access_to_Data_Transfer:_true_or_false>
+              },
+              "performanceDiagnostics": {
+                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "sessionsSamplingInterval": "<session_sampling_interval>",
+                  "statementsSamplingInterval": "<statement_sampling_interval>"
+              }
+          },
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          },
+          "deletionProtection": <deletion_protection:_true_or_false>
+      }
+      ```
+
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+      * `configSpec`: Cluster settings:
+
+          * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
+
+              In this parameter, specify the backup start time:
+
+              * `hours`: Between `0` and `23` hours.
+              * `minutes`: Between `0` and `59` minutes.
+              * `seconds`: Between `0` and `59` seconds.
+              * `nanos`: Between `0` and `999999999` nanoseconds.
+
+          * `backupRetainPeriodDays`: Number of days to retain the cluster backup, `7` to `60` days.
+
+
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+
+              * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
+              * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
+              * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+
+
+          * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+
+              * `enabled`: Enables statistics collection.
+              * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
+              * `statementsSamplingInterval`: Statement sampling interval, `1` to `86400` seconds.
+
+      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
+
+          * `anytime`: Maintenance can take place at any time.
+          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+              * `day`: Day of week, in `DDD` format.
+              * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+
+      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+
+          By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+          If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data "@body.json"
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+
+      ```json
+      {
+          "cluster_id": "<cluster_ID>",
+          "update_mask": {
+              "paths": [
+                  "config_spec.backup_window_start",
+                  "config_spec.backup_retain_period_days",
+                  "config_spec.access",
+                  "config_spec.performance_diagnostics",
+                  "maintenance_window",
+                  "deletion_protection"
+              ]
+          },
+          "config_spec": {
+              "backup_window_start": {
+                  "hours": "<hours>",
+                  "minutes": "<minutes>",
+                  "seconds": "<seconds>",
+                  "nanos": "<nanoseconds>"
+              },
+              "backup_retain_period_days": "<number_of_days>",
+              "access": {
+                  "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
+                  "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
+                  "data_transfer": <access_to_Data_Transfer:_true_or_false>
+              },
+              "performance_diagnostics": {
+                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "sessions_sampling_interval": "<session_sampling_interval>",
+                  "statements_sampling_interval": "<statement_sampling_interval>"
+              }
+          },
+          "maintenance_window": {
+              "weekly_maintenance_window": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          },
+          "deletion_protection": <deletion_protection:_true_or_false>
+      }
+      ```
+
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+      * `config_spec`: Cluster settings:
+
+          * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
+
+              In this parameter, specify the backup start time:
+
+              * `hours`: Between `0` and `23` hours.
+              * `minutes`: Between `0` and `59` minutes.
+              * `seconds`: Between `0` and `59` seconds.
+              * `nanos`: Between `0` and `999999999` nanoseconds.
+
+          * `backup_retain_period_days`: Number of days to retain the cluster backup, `7` to `60` days.
+
+
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+
+              * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
+              * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
+              * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+
+
+          * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+
+              * `enabled`: Enables statistics collection.
+              * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
+              * `statements_sampling_interval`: Statement sampling interval, `1` to `86400` seconds.
+
+      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
+
+          * `anytime`: Maintenance can take place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+              * `day`: Day of week, in `DDD` format.
+              * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+
+      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+
+          By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+          If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -493,7 +932,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     To move a cluster:
 
-    1. View a description of the CLI move cluster command:
+    1. View the description of the CLI move cluster command:
 
         ```bash
         {{ yc-mdb-my }} cluster move --help
@@ -535,12 +974,60 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * ID of the destination folder in the `destinationFolderId` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.move](../api-ref/Cluster/move.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:move' \
+          --data '{
+                    "destinationFolderId": "<folder_ID>"
+                  }'
+      ```
+
+      Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/move.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "destination_folder_id": "<folder_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Move
+      ```
+
+      Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -563,7 +1050,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -603,15 +1090,92 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * List of security group IDs in the `securityGroupIds` parameter.
-    * List of settings to update (in this case, `securityGroupIds`), in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "securityGroupIds",
+                      "securityGroupIds": [
+                        "<security_group_1_ID>",
+                        "<security_group_2_ID>",
+                        ...
+                        "<security_group_N_ID>"
+                      ]
+                  }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          In this case, only one parameter is provided.
+
+      * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "security_group_ids"
+                  ]
+                },
+                "security_group_ids": [
+                  "<security_group_1_ID>",
+                  "<security_group_2_ID>",
+                  ...
+                  "<security_group_N_ID>"
+                ]
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, only one parameter is provided.
+
+      * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

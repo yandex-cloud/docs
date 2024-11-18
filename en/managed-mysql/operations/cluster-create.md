@@ -109,7 +109,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View a description of the create {{ mmy-name }} cluster CLI command:
+  1. View the description of the create {{ mmy-name }} cluster CLI command:
 
      ```bash
      {{ yc-mdb-my }} cluster create --help
@@ -178,8 +178,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `backup-window-start`: Backup start time.
      * `backup-retain-period-days`: Automatic backup retention period, in days.
-     * `datalens-access`: Enables access from {{ datalens-full-name }}. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
-     * `websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
+     * `datalens-access`: Enables access from {{ datalens-full-name }}. The default value is `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+     * `websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
      * `deletion-protection`: Cluster deletion protection.
      * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
 
@@ -313,9 +313,9 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        }
        ```
 
-       Where `backup_retain_period_days` is automatic backup retention period, in days.
+       Where `backup_retain_period_days` is the automatic backup retention period, in days.
 
-       The possible values range from `7` to `60`. Default value: `7`.
+       The possible values range from `7` to `60`. The default value is `7`.
 
      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
 
@@ -344,35 +344,297 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
-  * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mmy-name }} cluster, in the `folderId` parameter.
-  * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
-  * {{ mmy-name }} cluster environment in the `environment` parameter.
-  * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
-  * DB configuration in one or more `databaseSpecs` parameters.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  * User settings in one or more `userSpecs` parameters.
-  * Configuration of the {{ mmy-name }} cluster hosts in one or more `hostSpecs` parameters.
-  * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
+  1. Create a file named `body.json` and add the following contents to it:
 
 
-  * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
+      ```json
+      {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "securityGroupIds": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "deletionProtection": <deletion_protection:_true_or_false>,
+          "configSpec": {
+              "version": "<{{ MY }}_version>",
+              "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+              },
+              "access": {
+                  "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
+                  "webSql": <access_to_{{ websql-name }}:_true_or_false>,
+                  "dataTransfer": <access_to_Data_Transfer:_true_or_false>
+              },
+              "performanceDiagnostics": {
+                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "sessionsSamplingInterval": "<session_sampling_interval>",
+                  "statementsSamplingInterval": "<statement_sampling_interval>"
+              }
+          },
+          "databaseSpecs": [
+              {
+                  "name": "<DB_name>"
+              },
+              { <similar_configuration_for_DB_2> },
+              { ... },
+              { <similar_configuration_for_DB_N> }
+          ],
+          "userSpecs": [
+              {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                      {
+                          "databaseName": "<DB_name>",
+                          "roles": [
+                              "<privilege_1>", "<privilege_2>", ..., "<privilege_N>"
+                          ]
+                      }
+                  ]
+              },
+              { <similar_configuration_for_user_2> },
+              { ... },
+              { <similar_configuration_for_user_N> }
+          ],
+          "hostSpecs": [
+              {
+                  "zoneId": "<availability_zone>",
+                  "subnetId": "<subnet_ID>",
+                  "assignPublicIp": <public_host_address:_true_or_false>
+              },
+              { <similar_configuration_for_host_2> },
+              { ... },
+              { <similar_configuration_for_host_N> }
+          ]
+      }
+      ```
 
 
-  If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. The possible values range from `7` to `60`. Default value: `7`.
+      Where:
 
-  To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
+      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
 
-  {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
-  To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), specify `true` for the `configSpec.performanceDiagnostics.enabled` parameter. Optionally add the following parameters:
+      * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-    * `configSpec.performanceDiagnostics.sessionsSamplingInterval`: Session sampling interval. The possible values range from `1` to `86400`.
-    * `configSpec.performanceDiagnostics.statementsSamplingInterval`: Statement sampling interval. The possible values range from `1` to `86400`.
+
+      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+      * `configSpec`: Cluster settings:
+
+          * `version`: {{ PG }} version.
+          * `resources`: Cluster resources:
+
+              * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+              * `diskSize`: Disk size in bytes.
+              * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+
+              * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
+              * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
+              * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+
+
+      * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+
+          * `enabled`: Enables statistics collection.
+          * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
+          * `statementsSamplingInterval`: Statement sampling interval, `1` to `86400` seconds.
+
+      * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element has the `name` parameter (the DB name).
+
+          {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      * `userSpecs`: User settings as an array of elements,  one for each user. Each element has the following structure:
+
+          * `name`: Username.
+          * `password`: User password.
+          * `permissions`: User permission settings:
+
+              * `databaseName`: Name of the database the user gets access to.
+              * `roles`: Array of user's privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
+
+              For each database, add a separate item with permission settings to the `permissions` array.
+
+      * `hostSpecs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
+
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
+
+
+      ```json
+      {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "security_group_ids": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "deletion_protection": <deletion_protection:_true_or_false>,
+          "config_spec": {
+              "version": "<{{ MY }}_version>",
+              "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+              },
+              "access": {
+                  "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
+                  "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
+                  "data_transfer": <access_to_Data_Transfer:_true_or_false>
+              },
+              "performance_diagnostics": {
+                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "sessions_sampling_interval": "<session_sampling_interval>",
+                  "statements_sampling_interval": "<statement_sampling_interval>"
+              }
+          },
+          "database_specs": [
+                {
+                    "name": "<DB_name>"
+                },
+                { <similar_configuration_for_DB_2> },
+                { ... },
+                { <similar_configuration_for_DB_N> }
+            ],
+          "user_specs": [
+              {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                      {
+                          "database_name": "<DB_name>",
+                          "roles": [
+                              "<privilege_1>", "<privilege_2>", ..., "<privilege_N>"
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "host_specs": [
+              {
+                  "zone_id": "<availability_zone>",
+                  "subnet_id": "<subnet_ID>",
+                  "assign_public_ip": <public_host_address:_true_or_false>
+              }
+          ]
+      }
+      ```
+
+
+      Where:
+
+      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
+
+
+      * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
+
+
+      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+      * `config_spec`: Cluster settings:
+
+          * `version`: {{ PG }} version.
+          * `resources`: Cluster resources:
+
+              * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+              * `disk_size`: Disk size in bytes.
+              * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+
+              * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
+              * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
+              * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+
+
+      * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+
+          * `enabled`: Enables statistics collection.
+          * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
+          * `statements_sampling_interval`: Statement sampling interval, `60` to `86400` seconds.
+
+      * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the `name` parameter (the DB name).
+      * `user_specs`: User settings as an array of elements,  one for each user. Each element has the following structure:
+
+          * `name`: Username.
+          * `password`: User password.
+          * `permissions`: User permission settings:
+
+              * `database_name`: Name of the database the user gets access to.
+              * `roles`: Array of user's privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
+
+              For each database, add a separate item with permission settings to the `permissions` array.
+
+      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+
+          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -386,9 +648,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ MY }} cluster copy:
+To create an {{ MY }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -472,16 +734,16 @@ To create a {{ MY }} cluster copy:
   Create a {{ mmy-name }} cluster with the following test specifications:
 
 
-  * Name: `my-mysql`.
+  * Name: `my-mysql`
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `production`.
   * Network: `default`.
   * Security group ID: `{{ security-group }}`.
-  * One `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
+  * Host: `{{ host-class }}`, subnet: `{{ subnet-id }}`, availability zone: `{{ region-id }}-a`.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * With one `db1` database, in which the `user1` user has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-  * Protection against accidental cluster deletion.
+  * Protection against accidental cluster deletion: Enabled.
 
 
   1. Run this command to create a {{ mmy-name }} cluster:
@@ -517,12 +779,12 @@ To create a {{ MY }} cluster copy:
 
   Create a {{ mmy-name }} cluster and a network for it with the following test specifications:
 
-    * Name: `my-mysql`.
+    * Name: `my-mysql`
     * Version: `{{ versions.tf.latest }}`.
-    * Environment: `PRESTABLE`.
+    * Environment: `PRESTABLE`
     * Cloud ID: `{{ tf-cloud-id }}`.
     * Folder ID: `{{ tf-folder-id }}`.
-    * New network: `mynet`.
+    * New network: `mynet`
     * Host: `{{ host-class }}` (one host), new subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. Range for `mysubnet`: `10.5.0.0/24`.
 
 
@@ -615,12 +877,12 @@ To create a {{ MY }} cluster copy:
   Create a {{ mmy-name }} cluster with the following test specifications:
 
 
-  * Name: `my-mysql-3`.
+  * Name: `my-mysql-3`
   * Version: `{{ versions.cli.latest }}`.
-  * Environment: `prestable`.
-  * Network: `default`.
-  * Security group ID: `{{ security-group }}`.
-  * `{{ host-class }}` public hosts: 3.
+  * Environment: `prestable`
+  * Network: `default`
+  * Security group ID: `{{ security-group }}`
+  * `{{ host-class }}` public hosts: 3
 
     One host will be added to each subnet of the `default` network:
     * `subnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.

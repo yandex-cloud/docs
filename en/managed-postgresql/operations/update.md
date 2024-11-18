@@ -62,7 +62,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -129,7 +129,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -167,7 +167,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -204,7 +204,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md).
 
@@ -303,7 +303,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -346,7 +346,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -427,7 +427,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
   To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -439,6 +439,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
+            --backup-retain-period-days=<automatic_backup_retention_period_in_days> \
             --datalens-access=<true_or_false> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
@@ -459,21 +460,23 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access`: Enables access from DataLens. Default value: `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
+    * `--backup-retain-period-days`: Automatic backup retention period, in days.
+
+    * `--datalens-access`: Enables access from DataLens. The default value is `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+    
 
-
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and provided upon request.
 
 
-    * `--autofailover`: Manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). Default value: `true`.
+    * `--autofailover`: Manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). The default value is `true`.
 
     * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md) (`SESSION`, `TRANSACTION`, or `STATEMENT`).
 
@@ -485,9 +488,9 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `--performance-diagnostics`: Settings for [collecting statistics](./performance-diagnostics.md#activate-stats-collector):
+    * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
-        * `enabled`: If `true`, enables collecting statistics. Default value: `false`.
+        * `enabled`: If `true`, enables collecting statistics. The default value is `false`.
         * `sessions-sampling-interval`: Session sampling interval, seconds. The values range from `1` to `86400`.
         * `statements-sampling-interval`: Statement sampling interval, seconds. The values range from `60` to `86400`.
 
@@ -589,7 +592,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -649,22 +652,22 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `poolerConfig`: Connection pooler settings:
 
-         * `poolingMode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
-         * `poolDiscard`: Whether clients discard their states after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
+         * `poolingMode`: Connection pooler mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
+         * `poolDiscard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
-         In the parameter, specify the time to start backup. Possible values:
+         Specify backup start time in this parameter. Possible values:
 
          * `hours`: Between `0` and `23` hours.
          * `minutes`: Between `0` and `59` minutes.
          * `seconds`: Between `0` and `59` seconds.
          * `nanos`: Between `0` and `999999999` nanoseconds.
 
-       * `backupRetainPeriodDays`: The number of days to retain a backup of the cluster. Possible values: between `7` and `60` days.
+       * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
 
-       * `access`: Settings of the cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -676,7 +679,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
-         * `sessionsSamplingInterval`: Session sampling interval. Possible values: `1` to `86400` seconds.
+         * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
@@ -701,7 +704,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -775,22 +778,22 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `pooler_config`: Connection pooler settings:
 
-         * `pooling_mode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
-         * `pool_discard`: Whether clients discard their states after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
+         * `pooling_mode`: Connection pooler mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
+         * `pool_discard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
-         In the parameter, specify the time to start backup. Possible values:
+         In this parameter, specify the backup start time. Possible values:
 
          * `hours`: Between `0` and `23` hours.
          * `minutes`: Between `0` and `59` minutes.
          * `seconds`: Between `0` and `59` seconds.
          * `nanos`: Between `0` and `999999999` nanoseconds.
 
-       * `backup_retain_period_days`: The number of days to retain a backup of the cluster. Possible values: between `7` and `60` days.
+       * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
 
-       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -801,9 +804,9 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled`: Enabling statistics collection.
-         * `sessions_sampling_interval`: Session sampling interval. Possible values: `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. Possible values: `60` to `86400` seconds.
+         * `enabled`: Enables statistics collection.
+         * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -897,7 +900,7 @@ To switch the master:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -914,7 +917,7 @@ To switch the master:
                }'
      ```
 
-     Where `hostName` is the [FQDN of the replica](connect.md#fqdn) to become the master host.
+     Where `hostName` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -922,7 +925,7 @@ To switch the master:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -944,7 +947,7 @@ To switch the master:
        yandex.cloud.mdb.postgresql.v1.ClusterService.StartFailover
      ```
 
-     Where `host_name` is the [FQDN of the replica](connect.md#fqdn) to become the master host.
+     Where `host_name` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -972,7 +975,7 @@ To switch the master:
 
     To move a cluster:
 
-    1. View a description of the CLI move cluster command:
+    1. View the description of the CLI move cluster command:
 
         ```bash
         {{ yc-mdb-pg }} cluster move --help
@@ -989,7 +992,7 @@ To switch the master:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1006,7 +1009,7 @@ To switch the master:
                }'
      ```
 
-     Where `destinationFolderId` is the ID of the folder to which you want to move your cluster. You can fetch this ID along with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+     Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1014,7 +1017,7 @@ To switch the master:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1036,7 +1039,7 @@ To switch the master:
        yandex.cloud.mdb.postgresql.v1.ClusterService.Move
      ```
 
-     Where `destination_folder_id` is the ID of the folder to which you want to move your cluster. You can fetch this ID along with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+     Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1067,7 +1070,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -1086,7 +1089,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
   1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -1109,7 +1112,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1138,9 +1141,9 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
-     * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups), in the array-like form.
+     * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1148,7 +1151,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1186,9 +1189,9 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
-     * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups), in the array-like form.
+     * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

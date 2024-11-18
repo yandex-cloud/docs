@@ -1,6 +1,16 @@
+---
+title: Launching a workflow in {{ sw-full-name }}
+description: A workflow launch in {{ sw-name }} contains all information about a specific workflow execution.
+keywords:
+  - workflows
+  - workflow
+  - WF
+  - workflow
+---
+
 # Launching a workflow
 
-A launch contains all information about a specific execution of a workflow. You can view a list of all launches, as well as detailed information about them, on the **Launches** tab in the management console. Possible launch statuses include: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, `Executed`. Learn more about [possible error codes](#errors).
+A launch contains all information about a specific execution of a workflow. You can view a list of all launches, as well as detailed information about them, on the **Launches** tab in the management console. Possible launch statuses include: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
 
 You can launch a workflow using the [management console](#console), [API](#api), or [{{ er-name }}](#eventrouter).
 

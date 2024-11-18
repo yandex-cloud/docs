@@ -7,6 +7,12 @@ description: 'This guide will help you get started with the {{ yandex-cloud }} {
 
 {{ support-center-name }} will help you troubleshoot {{ yandex-cloud }} issues and create or view support tickets. You can also change your service plan in {{ support-center-name }}.
 
+{% note info %}
+
+Only a {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) can create a request in the support center. For more information, see [{#T}](./overview.md).
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
@@ -30,7 +36,7 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
 
 If you [searched for a way to resolve your issue](#finding-solution) in the support knowledge base and did not find anything relevant in the {{ yandex-cloud }} documentation, create a support ticket.
 
-You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from the left panel on any management console page by clicking ![image](../_assets/console-icons/circle-question.svg) **Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
+You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from the left-hand panel on any management console page by clicking ![image](../_assets/console-icons/circle-question.svg) **Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 
 In the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens, proceed as follows:
 1. Select the ticket format: **{{ ui-key.support-center.tickets.common.label_ticket-type-question }}**, **{{ ui-key.support-center.tickets.common.label_ticket-type-incident }}**, or **Quotas**.

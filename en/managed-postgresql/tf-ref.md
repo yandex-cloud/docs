@@ -23,6 +23,6 @@ The following {{ TF }} provider resources are supported for {{ mpg-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_cluster) | [{{ PG }} cluster](./concepts/index.md) information |
-| [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_database) | {{ PG }} database information |
-| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/datasource_mdb_postgresql_user) | {{ PG }} user information |
+| [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/mdb_postgresql_cluster) | [{{ PG }} cluster](./concepts/index.md) information |
+| [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/mdb_postgresql_database) | {{ PG }} database information |
+| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | User information |

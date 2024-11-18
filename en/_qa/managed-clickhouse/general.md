@@ -15,13 +15,13 @@ With {{ mch-short-name }}, you can:
 
 You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
-#### What is {{ CH }} used for? Which database should I select? {#why-ch}
+#### What is {{ CH }} used for? Which DBMS should I select? {#why-ch}
 
 {{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, you might want to use other managed DB services.
 
 #### What part of database management and maintenance is {{ mch-short-name }} responsible for? {#services}
 
-When creating clusters, {{ mch-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mch-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mch-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
@@ -44,7 +44,7 @@ A _database cluster_ is one or more database hosts between which replication can
 
 {{ mch-short-name }} is available to any registered {{ yandex-cloud }} user.
 
-To create a database cluster in {{ mch-short-name }}, you must define its characteristics:
+To create a database cluster in {{ mch-short-name }}, you need to define its parameters:
 
 - [Host class](../../managed-clickhouse/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 - Storage size (reserved to the full extent when you create a cluster).
@@ -53,7 +53,7 @@ To create a database cluster in {{ mch-short-name }}, you must define its charac
 
 For more information, see [Getting started](../../managed-clickhouse/quickstart.md).
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-clickhouse/concepts/storage.md):
 
@@ -77,7 +77,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 #### How are DB clusters maintained? {#service-window}
 
-Maintenance in {{ mch-short-name }} implies:
+In {{ mch-short-name }}, maintenance implies:
 
 - Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
@@ -107,7 +107,7 @@ We recommend the latest available LTS version of {{ CH }}. For more information,
 
 When new minor versions are released, the cluster software is automatically updated after a short testing period.
 
-Owners of the affected DB clusters are notified in advance about the maintenance work schedule and DB availability.
+Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
@@ -115,7 +115,7 @@ When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends
 
 New hosts can no longer be created using deprecated DBMS versions. Clusters on a deprecated version of {{ CH }} are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
 
-Owners of the affected DB clusters are notified in advance about the maintenance work schedule and DB availability.
+Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
@@ -123,18 +123,33 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-clickhouse/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-clickhouse/pricing.md).
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-clickhouse/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-clickhouse/pricing.md) section.
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 
-In the [management console]({{ link-console-main }}), go to the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** and click the appropriate cluster. The cost of your cluster usage per month will be shown on the right side of the screen. For more information, see [Pricing policy](../../managed-clickhouse/pricing.md).
+In the [management console]({{ link-console-main }}), go to the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**, and click the appropriate cluster. On the right side of the screen, you will see the cluster usage cost per month. For more information, see [Pricing policy](../../managed-clickhouse/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
 You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+
+#### How can I fix the no permission error when connecting a service account to the cluster? {#attach-service-account}
+
+Error message:
+
+```text
+ERROR: rpc error: code = PermissionDenied desc = you do not have permission to access the requested service account or service account does not exist
+```
+
+The error occurs in the following cases:
+
+* You are creating or modifying a cluster and linking it to a service account.
+* You are restoring a cluster linked to a service account from its backup.
+
+To fix this error, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}

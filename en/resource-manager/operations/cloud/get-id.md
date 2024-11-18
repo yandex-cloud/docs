@@ -29,19 +29,7 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
   If you do not know the cloud ID, retrieve a list of clouds with their IDs:
 
-  ```
-  yc resource-manager cloud list
-  ```
-  Result:
-
-  ```
-  +----------------------+------------+--------------------------+
-  |          ID          |    NAME    |      ORGANIZATION ID     |
-  +----------------------+------------+--------------------------+
-  | b1g66mft1vop******** | my-cloud-1 |                          |
-  | b1gd129pp9ha******** | my-cloud-2 |                          |
-  +----------------------+------------+--------------------------+
-  ```
+  {% include [get-cloud-list](../../../_includes/resource-manager/get-cloud-list.md) %}
 
 - API {#api}
 

@@ -1,6 +1,6 @@
 ---
 title: Managing {{ PG }} cluster users in {{ mpg-full-name }}
-description: In this tutorial, you will learn how to add and remove users as well as manage each user's settings in the {{ PG }} database management service.
+description: In this tutorial, you will learn how to add and remove users, as well as manage each user’s settings in the {{ PG }} database management service.
 ---
 
 # Managing {{ PG }} users
@@ -35,11 +35,11 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
        --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -58,7 +58,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -143,7 +143,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
   To customize the DBMS for the user, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -175,7 +175,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
       Where:
         * `login`: Permission to log in to the DB, `true` or `false`.
-        * `deletion_protection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). Default value: `unspecified`.
+        * `deletion_protection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
@@ -189,7 +189,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -233,7 +233,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -317,7 +317,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
   {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -327,7 +327,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
       For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-  1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
+  1. Locate the user's `yandex_mdb_postgresql_user` resource.
   1. Change the value of the `password` field:
 
       ```hcl
@@ -351,7 +351,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -387,7 +387,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -427,7 +427,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
        {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
 
@@ -480,13 +480,13 @@ For information on setting up user privileges and roles, see [Assigning privileg
      * `cluster-name`: Cluster name.
      * `permissions`: List of databases the user should have access to.
 
-     You can request the cluster name with a [list of clusters in the folder](#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](#list-clusters).
 
      This command grants the user access rights to the databases listed.
 
      To revoke access to a specific database, remove its name from the list and send the updated list to the command.
 
-   1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the command:
+  1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the command:
 
      ```
      {{ yc-mdb-pg }} user update <username> \
@@ -499,7 +499,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      You can change the connection limit for the user via the `--conn-limit` parameter.
 
-     You can request the cluster name with a [list of clusters in the folder](#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -510,7 +510,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
     1. To grant the user permissions to access certain databases:
-        1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
+        1. Locate the user's `yandex_mdb_postgresql_user` resource.
         1. Add `permission` sections with the appropriate DB names:
 
             ```hcl
@@ -552,7 +552,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -582,13 +582,13 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      * `settings`: New settings. See the [method description](../api-ref/User/update.md#body_params) and [{#T}](../concepts/settings-list.md#dbms-user-settings) for the list of available settings.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -628,7 +628,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      * `settings`: New settings. See the [method description](../api-ref/grpc/User/get.md#yandex.cloud.mdb.postgresql.v1.UserSettings) and [{#T}](../concepts/settings-list.md#dbms-user-settings) for the list of available settings.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
 
@@ -650,7 +650,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-    1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
+    1. Locate the user's `yandex_mdb_postgresql_user` resource.
 
     1. Add the `deletion_protection` parameter. The possible values are `true`,`false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
@@ -672,7 +672,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -701,13 +701,13 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      * `deletionProtection`: DB deletion protection.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -745,7 +745,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      * `deletion_protection`: DB deletion protection.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
 
@@ -785,7 +785,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
        --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -797,7 +797,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-  1. Delete the `yandex_mdb_postgresql_user` resource with the description of the user you need.
+  1. Delete the `yandex_mdb_postgresql_user` resource with the user's description.
 
   1. Make sure the settings are correct.
 
@@ -809,7 +809,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -822,13 +822,13 @@ A user can be protected against deletion. To delete such a user, [disable the pr
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users/<username>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/User/delete.md#responses) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -850,7 +850,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
        yandex.cloud.mdb.postgresql.v1.UserService.Delete
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation2) to make sure the request was successful.
 

@@ -1,7 +1,6 @@
 # Resolving the error of access to S3 buckets from a DataProc 1.4 cluster
 
 
-
 ## Issue description {#issue-description}
 
 When attempting to access S3 buckets from a DataProc 1.4 cluster, you see this error:

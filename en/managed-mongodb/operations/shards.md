@@ -269,7 +269,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
   +------+
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -344,7 +344,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API {#api}
 
@@ -398,7 +398,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Delete all shard-related `host` sections from the {{ mmg-name }} cluster description.
+  1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -407,7 +407,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API {#api}
 

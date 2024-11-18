@@ -47,7 +47,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
+  1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
 
       1. Select the host group type: `{{ OS }}`
 
@@ -62,6 +62,10 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       1. Select the [disk type](../concepts/storage.md) and data storage size.
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+
+      1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set up automatic increase of disk size:
+
+          {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
 
       1. Specify how hosts should be distributed across [availability zones](../../overview/concepts/geo-scope.md) and subnets.
 
@@ -89,7 +93,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       1. Set up storage in the same way as for `{{ OS }}` hosts.
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
-
+        
 
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
@@ -118,7 +122,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mos-name }} cluster:
 
-  1. View a description of the create cluster CLI command:
+  1. View the description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-os }} cluster create --help
@@ -166,7 +170,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) expressed as `<key>=<value>`. You can use them to logically separate resources.
+      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) labels in `<key>=<value>` format. You can use them to logically separate resources.
       * `--environment`: Environment:
 
           * `production`: For stable versions of your apps.
@@ -291,7 +295,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `ANYTIME`: Anytime.
               * `WEEKLY`: On a schedule.
           * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-          * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
+          * `hour`: Hour of the day in `HH` format for the `WEEKLY` type, e.g., `21`.
 
       {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -336,7 +340,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 

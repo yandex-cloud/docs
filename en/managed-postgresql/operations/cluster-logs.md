@@ -27,7 +27,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View a description of the CLI command to view cluster logs:
+    1. View the description of the CLI command to view cluster logs:
 
         ```bash
         {{ yc-mdb-pg }} cluster list-logs --help
@@ -60,7 +60,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
+            The example shows only the main columns. A list of columns to output depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -74,7 +74,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -95,8 +95,8 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
        * `POOLER`: Connection pooler operation logs.
 
      * `columnFilter`: List of columns to output data for. To provide values, use the `message` object fields from the response to your request.
-     * `fromTime`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g.: `2024-09-18T15:04:05Z`.
-     * `toTime`: Right boundary of a time range. Use the same format as in `fromTime`.
+     * `fromTime`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, Example: `2024-09-18T15:04:05Z`.
+     * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -104,7 +104,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -140,7 +140,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
      * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
      * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
-     * `to_time`: Right boundary of a time range. Use the same format as in `from_time`.
+     * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -170,7 +170,7 @@ This method allows you to get cluster logs in real time.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -200,7 +200,7 @@ This method allows you to get cluster logs in real time.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -234,7 +234,7 @@ This method allows you to get cluster logs in real time.
 
      * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
      * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
-     * `to_time`: Right boundary of a time range. Use the same format as in `from_time`.
+     * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

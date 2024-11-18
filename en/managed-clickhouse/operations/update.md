@@ -38,15 +38,21 @@ Learn more about other cluster updates:
 
 ## Changing service account settings {#change-service-account}
 
+
+To bind your service account to a {{ mch-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) that your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
+    To change the service account settings:
+
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select the service account you need from the list, or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
-
-       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
 
@@ -89,7 +95,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -169,7 +175,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       To request a [list](../api-ref/ResourcePreset/list.md) of supported values, use the list method for the `ResourcePreset` resources.
 
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -204,7 +210,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
   To increase the cluster storage size:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -278,7 +284,7 @@ The {{ mch-name }} service lets enable cluster [user](./cluster-users.md#sql-use
 
 {% note alert %}
 
-This disables user and database management through standard {{ yandex-cloud }} interfaces (the management console, CLI, {{ TF }}, or API).
+This disables user and database management through standard {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, API).
 
 Once enabled, user and database management settings for SQL cannot be disabled.
 
@@ -354,7 +360,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
     * `sqlUserManagement`: Set to `true` to enable [user management through SQL](cluster-users.md#sql-user-management).
     * `sqlDatabaseManagement`: Set to `true` to enable [database management through SQL](databases.md#sql-database-management). For that, you also need to enable user management through SQL.
-    * `adminPassword`: Set a password for the `admin` account to use for management tasks.
+    * `adminPassword`: Set a password for the `admin` account used for management.
 
 {% endlist %}
 
@@ -380,7 +386,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
   To change additional cluster settings:
 
-    1. View a description of the update cluster CLI command:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-ch }} cluster update --help
@@ -408,15 +414,15 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access`: Enables access from {{ datalens-name }}. Default value: `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
 
-    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
+    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
-    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
     * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Default value: `false`.
@@ -543,7 +549,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
     To move a cluster:
 
-    1. View a description of the CLI move cluster command:
+    1. View the description of the CLI move cluster command:
 
         ```bash
         {{ yc-mdb-ch }} cluster move --help
@@ -586,7 +592,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -632,7 +638,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * List of security group IDs in the `securityGroupIds` parameter.
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -657,7 +663,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
   To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
-  1. View a description of the update cluster CLI command:
+  1. View the description of the update cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -679,7 +685,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
           --cloud-storage-data-cache=<file_storage> \
           --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
           --cloud-storage-move-factor=<percentage_of_free_space> \
-          --cloud-storage-prefer-not-to-merge=<merging_data_parts>
+          --cloud-storage-prefer-not-to-merge=<merge_data_parts>
       ```
 
       You can change the following settings:
@@ -699,7 +705,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
       {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
 
-  * List of settings to update, in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

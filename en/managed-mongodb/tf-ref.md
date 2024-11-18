@@ -21,6 +21,6 @@ The following {{ TF }} provider resources are supported for {{ mmg-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_mongodb_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_mongodb_cluster) | [Cluster](./concepts/index.md) information |
-| [yandex_mdb_mongodb_database]({{ tf-provider-datasources-link }}/datasource_mdb_mongodb_database) | Database information |
-| [yandex_mdb_mongodb_user]({{ tf-provider-datasources-link }}/datasource_mdb_mongodb_user) | Database user information |
+| [yandex_mdb_mongodb_cluster]({{ tf-provider-datasources-link }}/mdb_mongodb_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_mongodb_database]({{ tf-provider-datasources-link }}/mdb_mongodb_database) | Database information |
+| [yandex_mdb_mongodb_user]({{ tf-provider-datasources-link }}/mdb_mongodb_user) | Database user information |

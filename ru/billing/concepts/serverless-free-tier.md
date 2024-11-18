@@ -252,7 +252,7 @@ Free tier распространяется на сервисы:
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart/index.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 

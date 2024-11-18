@@ -2,7 +2,6 @@
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, e.g., from version 7.0 to 7.2. Upgrades to higher versions are performed in steps. For example, upgrading {{ RD }} from version 6.2 to 7.2 is performed in the following sequence: 6.2 → 7.0 → 7.2.
 
 ## Supported versions {#version-supported}
 

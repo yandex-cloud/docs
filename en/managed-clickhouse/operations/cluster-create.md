@@ -20,7 +20,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
 
-    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
+    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -35,9 +35,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     {% endnote %}
 
-## Creating a cluster {#create-cluster}
+## Roles for creating a cluster {#roles}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../security.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) role or higher.
+
+To bind your service account to a cluster, e.g., for [accessing {{ objstorage-full-name }}](s3-access.md), make sure your account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher in {{ yandex-cloud }}.
+
+For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+
+
+## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -148,7 +156,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View a description of the create cluster CLI command:
+  1. View the description of the create cluster CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
@@ -193,7 +201,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
-      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. Default value: `false`.
+      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
       * `--deletion-protection`: Cluster deletion protection.
 
@@ -263,7 +271,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             --cloud-storage-data-cache=<file_storage> \
             --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
             --cloud-storage-move-factor=<percentage_of_free_space> \
-            --cloud-storage-prefer-not-to-merge=<merging_data_parts>
+            --cloud-storage-prefer-not-to-merge=<merge_data_parts>
            ...
          ```
 
@@ -436,7 +444,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   Enable user and database management via SQL, if required:
   * `configSpec.sqlUserManagement`: Set to `true` to enable [user management through SQL](cluster-users.md#sql-user-management).
   * `configSpec.sqlDatabaseManagement`: Set to `true` to enable [database management through SQL](databases.md#sql-database-management). For that, you also need to enable user management through SQL.
-  * `configSpec.adminPassword`: Set a password for the `admin` account to use for management tasks.
+  * `configSpec.adminPassword`: Set a password for the `admin` account used for management.
 
   {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
@@ -474,7 +482,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -569,7 +577,7 @@ To create a {{ CH }} cluster copy:
   * Number of {{ CH }} hosts of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
   * {{ CK }}.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * User: `user1` with password `user1user1`.
+  * User: `user1`, with the `user1user1` password.
   * Database: `db1`.
   * Protection against accidental cluster deletion: Enabled.
 
@@ -608,16 +616,16 @@ To create a {{ CH }} cluster copy:
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
-  * One `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`.
+  * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
     Subnet parameters:
-    * Address range: `172.16.1.0/24`
-    * Network: `cluster-net`
-    * Availability zone: `{{ region-id }}-a`
+    * Address range: `172.16.1.0/24`.
+    * Network: `cluster-net`.
+    * Availability zone: `{{ region-id }}-a`.
 
   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
   * Database name: `db1`.
-  * User: `user1` with password `user1user1`.
+  * User: `user1`, with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 
@@ -672,7 +680,7 @@ To create a {{ CH }} cluster copy:
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
   * Database name: `db1`.
-  * User: `user1` with password `user1user1`.
+  * User: `user1`, with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 

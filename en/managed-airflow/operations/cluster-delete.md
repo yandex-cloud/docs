@@ -45,7 +45,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -64,7 +64,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

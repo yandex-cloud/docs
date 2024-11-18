@@ -53,7 +53,7 @@ The following charts will open on the page:
 * **Page faults per host**: Number of [page faults](https://en.wikipedia.org/wiki/Page_fault) on each host.
 * **Queries on secondaries**: Average number of queries of each type on secondary replicas.
 * **Queries on primary**: Average number of each type of query on primary replicas.
-* **Read operations count, top 5 collections**: 5 collections with the longest time spent in reads.
+* **Read operations time, top 5 collections**: Five collections with the longest time spent on read operations.
 * **Readers/writers active queue per host, top 5**: Total size of the 5 largest queues for each host:
     * With read requests
     * With write requests
@@ -72,7 +72,7 @@ The following charts will open on the page:
 * **WiredTiger concurrent transactions on primary**: Average number of parallel transactions on the primary replica.
 * **WiredTiger transactions state on primary**: Average number of transactions on each level on the primary replica.
 * **Write conflicts per host**: Number of write conflicts on each host.
-* **Write operations count, top 5 collections**: 5 collections with the longest time spent in writes.
+* **Write operations time, top 5 collections**: Five collections with the longest time spent on write operations.
 
 ## Monitoring the state of hosts {#hosts}
 
@@ -121,7 +121,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
 The recommended thresholds are as follows:
 
-| Metric                         | Parameter                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+| Metrica                         | Parameter                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
 | DB write availability        | `can_write`                     | `Equals 0`                                            | —                                                   |
 | Replication delay             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
@@ -140,7 +140,7 @@ You can view the current storage size in the [detailed information about the clu
 To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
 
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-1. Add the `disk.free_bytes` status metric.
+1. Add a status `disk.free_bytes` metric.
 
     To do this, create a query in the query builder:
 
@@ -150,7 +150,7 @@ To monitor storage usage on cluster hosts and get notifications when free space 
    * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the size of free disk space to trigger an alert.
 
        The recommended threshold values depending on the storage size are as follows:
-
+  
        | Storage size, GB | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`     | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`        |
        |---------------------|-------------|------------------|
        | ⩽ 600               | `1G`: 1 GB | `1500M`: 1.5 GB |

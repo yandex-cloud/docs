@@ -119,7 +119,7 @@
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.
-   * List of settings to update, in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../note-api-updatemask.md) %}
 

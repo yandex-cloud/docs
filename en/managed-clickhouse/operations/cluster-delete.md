@@ -17,18 +17,18 @@ description: After you delete a {{ CH }} database cluster, its backups will be k
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the relevant cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
-
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To delete a cluster, run the command:
-
+  
   ```bash
   {{ yc-mdb-ch }} cluster delete <cluster_name_or_ID>
   ```

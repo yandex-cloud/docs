@@ -30,80 +30,80 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
-      * Topic name (must be unique in the {{ KF }} cluster).
-      * Number of topic partitions.
-      * Replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
-         * For a cluster with one or two brokers: `1`.
-         * For a cluster with three or more brokers: `3`.
-   1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
+     * Topic name (must be unique in the {{ KF }} cluster).
+     * Number of topic partitions.
+     * Replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default value:
+       * For a cluster with one or two brokers: `1`.
+       * For a cluster with three or more brokers: `3`.
+  1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a topic:
-   1. View a description of the CLI create topic command:
+  To create a topic:
+  1. View a description of the CLI create topic command:
 
-      ```bash
-      {{ yc-mdb-kf }} topic create --help
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic create --help
+     ```
 
-   1. Create a topic:
+  1. Create a topic:
 
-      ```bash
-      {{ yc-mdb-kf }} topic create <topic_name> \
-        --cluster-name <cluster_name> \
-        --partitions <number_of_partitions> \
-        --replication-factor <replication_factor>
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic create <topic_name> \
+       --cluster-name <cluster_name> \
+       --partitions <number_of_partitions> \
+       --replication-factor <replication_factor>
+     ```
 
-      If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
+     If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config` if required:
+     For more information about creating this file, see [Creating clusters](cluster-create.md).
+  1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config` if required:
 
-      ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic_name>" {
-        cluster_id         = "<cluster_ID>"
-        name               = "<topic_name>"
-        partitions         = <number_of_partitions>
-        replication_factor = <replication_factor>
-        topic_config {
-          compression_type = "<compression_type>"
-          flush_messages   = <maximum_number_of_messages_in_memory>
-          ...
-        }
-      }
-      ```
+     ```hcl
+     resource "yandex_mdb_kafka_topic" "<topic_name>" {
+       cluster_id         = "<cluster_ID>"
+       name               = "<topic_name>"
+       partitions         = <number_of_partitions>
+       replication_factor = <replication_factor>
+       topic_config {
+         compression_type = "<compression_type>"
+         flush_messages   = <maximum_number_of_messages_in_memory>
+         ...
+       }
+     }
+     ```
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API {#api}
 
-   To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/Topic/create.md) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic settings in the `topicSpec` parameter.
+  To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/Topic/create.md) gRPC API call and provide the following in the request:
+  * ID of the cluster where you want to create a topic, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Topic settings, in the `topicSpec` parameter.
 
 
 {% endlist %}
@@ -124,81 +124,81 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Change the basic parameters of the topic:
-      * Number of topic partitions.
-      * Replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
-         * For a cluster with one or two brokers: `1`.
-         * For a cluster with three or more brokers: `3`.
-   1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Change the basic parameters of the topic:
+     * Number of topic partitions.
+     * Replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default value:
+       * For a cluster with one or two brokers: `1`.
+       * For a cluster with three or more brokers: `3`.
+  1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update topic settings:
-   1. View a description of the CLI update topic command:
+  To update topic settings:
+  1. View a description of the CLI update topic command:
 
-      ```bash
-      {{ yc-mdb-kf }} topic update --help
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic update --help
+     ```
 
-   1. Change [topic settings](../concepts/settings-list.md#topic-settings):
+  1. Change [topic settings](../concepts/settings-list.md#topic-settings):
 
-      ```bash
-      {{ yc-mdb-kf }} topic update <topic_name> \
-        --cluster-name <cluster_name> \
-        --partitions <number_of_partitions> \
-        --replication-factor <replication_factor>
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic update <topic_name> \
+       --cluster-name <cluster_name> \
+       --partitions <number_of_partitions> \
+       --replication-factor <replication_factor>
+     ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
+     For more information about creating this file, see [Creating clusters](cluster-create.md).
+  1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
-      ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic_name>" {
-        cluster_id         = "<cluster_ID>"
-        name               = "<topic_name>"
-        partitions         = <number_of_partitions>
-        replication_factor = <replication_factor>
-        topic_config {
-          compression_type = "<compression_type>"
-          flush_messages   = <maximum_number_of_messages_in_memory>
-          ...
-        }
-      }
-      ```
+     ```hcl
+     resource "yandex_mdb_kafka_topic" "<topic_name>" {
+       cluster_id         = "<cluster_ID>"
+       name               = "<topic_name>"
+       partitions         = <number_of_partitions>
+       replication_factor = <replication_factor>
+       topic_config {
+         compression_type = "<compression_type>"
+         flush_messages   = <maximum_number_of_messages_in_memory>
+         ...
+       }
+     }
+     ```
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API {#api}
 
-   To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/Topic/update.md) gRPC API call and provide the following in the request:
-   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
-   * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
-   * List of settings to update, in the `updateMask` parameter.
+  To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/Topic/update.md) gRPC API call and provide the following in the request:
+  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
+  * New values for the [topic settings](../concepts/settings-list.md#topic-settings), in the `topicSpec` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 
 {% endlist %}
@@ -209,28 +209,28 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of topics, run the following command:
+  To get a list of topics, run the following command:
 
-   ```bash
-   {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
-   ```
+  ```bash
+  {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
+  ```
 
 
 - API {#api}
 
-   To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/Topic/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/Topic/list.md) gRPC API call, and provide the cluster ID in the `clusterId` parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 {% endlist %}
@@ -241,29 +241,29 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click the topic name.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. Click the topic name.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get detailed information about a topic, run the following command:
+  To get detailed information about a topic, run the following command:
 
-   ```bash
-   {{ yc-mdb-kf }} topic get <topic_name> --cluster-name <cluster_name>
-   ```
+  ```bash
+  {{ yc-mdb-kf }} topic get <topic_name> --cluster-name <cluster_name>
+  ```
 
 
 - API {#api}
 
-   To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/Topic/get.md) gRPC API call and provide the following in the request:
-   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
+  To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/Topic/get.md) gRPC API call and provide the following in the request:
+  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}
@@ -300,53 +300,53 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To delete a topic:
-   1. View a description of the CLI update topic command:
+  To delete a topic:
+  1. View a description of the CLI update topic command:
 
-      ```bash
-      {{ yc-mdb-kf }} topic delete --help
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic delete --help
+     ```
 
-   1. Delete a topic:
+  1. Delete a topic:
 
-      ```bash
-      {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
-      ```
+     ```bash
+     {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
+     ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Delete the `yandex_mdb_kafka_topic` resource with the relevant topic description.
-   1. Make sure the settings are correct.
+     For more information about creating this file, see [Creating clusters](cluster-create.md).
+  1. Delete the `yandex_mdb_kafka_topic` resource with the topic description.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API {#api}
 
-   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) gRPC API call and provide the following in the request:
-   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
+  To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) gRPC API call and provide the following in the request:
+  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}
@@ -357,4 +357,4 @@ To manage topics via the {{ KF }} Admin API:
 1. [Create](cluster-accounts.md#create-account) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
 1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Review your favorite programming language manual for information on working with the Admin API.
 
-For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
+For more information about working with the Admin API and the existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).

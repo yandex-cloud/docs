@@ -17,11 +17,11 @@ items:
         href: operations/compromised-credentials.md
       - name: Users
         items:
-          - name: Add user
+          - name: Adding a user
             href: operations/users/create.md
           - name: Getting user information
             href: operations/users/get.md
-          - name: Delete user
+          - name: Deleting a user
             href: operations/users/delete.md
       - name: User groups
         items:
@@ -79,6 +79,13 @@ items:
             href: operations/authorized-key/create.md
           - name: Deleting authorized keys
             href: operations/authorized-key/delete.md
+      - name: Service access to user resources
+        stage: preview
+        items:
+          - name: Viewing the status of services
+            href: operations/service-control/list-get.md
+          - name: Enabling and disabling services
+            href: operations/service-control/enable-disable.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -125,6 +132,9 @@ items:
             href: concepts/authorization/key.md
           - name: Static access key
             href: concepts/authorization/access-key.md
+      - name: Service access to user resources
+        stage: preview
+        href: concepts/service-control.md
       - name: Identity federations
         href: concepts/federations.md
       - name: Workload identity federations
@@ -672,7 +682,7 @@ items:
                           workload/oidc/workload-identity/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

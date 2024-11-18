@@ -18,7 +18,7 @@ You interact with database clusters in {{ mmy-short-name }} the same way you int
 
 #### What part of database management and maintenance is {{ mmy-short-name }} responsible for? {#services}
 
-When creating clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
@@ -43,21 +43,21 @@ A _database cluster_ is one or more database hosts between which replication can
 
 {{ mmy-short-name }} is available to any registered {{ yandex-cloud }} user.
 
-To create a database cluster in {{ mmy-short-name }}, you must define its characteristics:
+To create a database cluster in {{ mmy-short-name }}, you need to define its parameters:
 
-- [Host class](../../managed-mysql/concepts/instance-types.md) (performance characteristics, such as CPUs, memory, etc.).
-- Storage size (reserved in full when you create the cluster).
+- [Host class](../../managed-mysql/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
+- Storage size (reserved to the full extent when you create a cluster).
 - Network your cluster will be connected to.
 - Number of hosts for the cluster and the availability zone for each host.
 
-For a detailed guide, see [{#T}](../../managed-mysql/quickstart.md).
+For more information, see [Getting started](../../managed-mysql/quickstart.md).
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
 
-- If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-- If using network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create single-host clusters.
+- If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD (`local-ssd`) storage, the minimum number of hosts is 3.
+- If you use network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create a single-host cluster.
 
 
 
@@ -74,12 +74,12 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-You can find MDB technical and organizational limitations in [{#T}](../../managed-mysql/concepts/limits.md).
+For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
 
 #### How are DB clusters maintained? {#service-window}
 
-Maintenance in {{ mmy-short-name }} implies:
+In {{ mmy-short-name }}, maintenance implies:
 
 - Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
@@ -110,8 +110,8 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-mysql/pricing.md).
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-mysql/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -120,17 +120,21 @@ You can change computing resources and storage size in the management console. A
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
 
-#### Is DB host backup enabled by default? {#default-backup}
+#### Is database host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ MY }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
+#### When are backups performed? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully accessible during the backup window.
+
+#### Can I change the retention period of automatic backups? {#backup-retain-days}
+
+You can set the retention period for automatic backups when [creating](../../managed-mysql/operations/cluster-create.md) or [modifying](../../managed-mysql/operations/update.md#change-additional-settings) a cluster.
 
 #### What metrics and processes can be tracked using monitoring? {#monitoring}
 

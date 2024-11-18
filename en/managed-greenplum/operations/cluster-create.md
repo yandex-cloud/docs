@@ -79,8 +79,10 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-            
+        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+
 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -142,7 +144,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-    1. View a description of the create cluster CLI command:
+    1. View the description of the create cluster CLI command:
 
         ```bash
         {{ yc-mdb-gp }} cluster create --help
@@ -238,22 +240,22 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    1. To enable access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), provide the `true` value in the relevant parameters when creating a cluster:
 
-
+    1. To allow accessing the cluster from different services, provide the `true` value in the relevant parameters when creating a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
            ...
-           --datalens-access=<access_from_DataLens>
+           --datalens-access=<access_from_{{ datalens-name }}> \
+           --yandexquery-access=<access_from_Yandex_Query>
         ```
 
+        Available services:
 
-        Where:
+        * `--datalens-access`: [{{ datalens-full-name }}](../../datalens/concepts/index.md)
+        * `--yandexquery-access`: [{{ yq-full-name }}](../../query/concepts/index.md)
 
-        * `--datalens-access`: Access from {{ datalens-full-name }}, `true` or `false`.
 
-        
 
 - {{ TF }} {#tf}
 
@@ -320,6 +322,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           }
         }
 
+        access {
+          data_lens    = <access_from_{{ datalens-name }}>
+          yandex_query = <access_from_Yandex_Query>
+        }
+
         user_name     = "<username>"
         user_password = "<password>"
 
@@ -328,16 +335,26 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       ```
 
 
+
+
       Where:
 
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+
+          Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
+
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, one or two.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
-      Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
+
+      * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
+
+      * `access.yandex_query`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
+
+
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
 
@@ -372,16 +389,19 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     Provide additional cluster settings, if required:
 
-    * Public access settings in the `assignPublicIp` parameter.
-    * Backup window settings in the `config.backupWindowStart` parameter.
-    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
-        
+    * Public access in the `assignPublicIp` parameter.
+    * Backup window in the `config.backupWindowStart` parameter.
 
-    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/) in the `config.access.dataTransfer` parameter.
-    * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+
+    * Cluster access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
+    * Cluster access from [{{ yq-full-name }}](../../query/concepts/index.md) in the `config.access.yandexQuery` parameter.
+
+
+
+    * [Maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
     * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in `configSpec.greenplumConfig_<version>`.
-    * [Routine maintenance operations](../concepts/maintenance.md#regular-ops) settings in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+    * [Routine maintenance operations](../concepts/maintenance.md#regular-ops) in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
+    * Cluster deletion protection in the `deletionProtection` parameter.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -389,7 +409,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ GP }} cluster copy:
 
@@ -462,7 +482,7 @@ To create an {{ GP }} cluster copy:
 
 ## Examples {#examples}
 
-### Creating a cluster {#create-example}
+### Creating an cluster {#create-example}
 
 {% list tabs group=instructions %}
 
@@ -471,10 +491,10 @@ To create an {{ GP }} cluster copy:
     Create a {{ mgp-name }} cluster with the following test specifications:
 
 
-    * Name: `gp-cluster`.
+    * Name: `gp-cluster`
     * Version: `{{ versions.cli.latest }}`.
-    * Environment: `PRODUCTION`.
-    * Network: `default`.
+    * Environment: `PRODUCTION`
+    * Network: `default`
     * User: `user1`.
     * Password: `user1user1`.
     * Master and segment hosts:
@@ -484,7 +504,7 @@ To create an {{ GP }} cluster copy:
 
     * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.
     * With public access to hosts.
-    * Security group: `{{ security-group }}`.
+    * Security group: `{{ security-group }}`
     * With protection against accidental cluster deletion.
 
 
