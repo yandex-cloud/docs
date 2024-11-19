@@ -27,7 +27,7 @@ The [Docker Compose specification](../../cos/concepts/coi-specifications.md#comp
 * Check that the Docker image name is correct.
 * Make sure the [service account](../../iam/concepts/users/service-accounts.md) linked to the VM has the `{{ roles-cr-puller }}` rights to the appropriate Docker image.
 * Check that the VM has internet access.
-* You can also view logs by running the `sudo journalctl -u yc-container-daemon` command on the VM.
+* You can also view [log errors](../error/index.md) by running the `sudo journalctl -eu yc-container-daemon` command on the VM.
 
 #### How can I close a port for public access and leave it accessible within the network? {#port}
 
