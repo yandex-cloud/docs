@@ -1,0 +1,3 @@
+Например, если c одной версией симметричного ключа выполнено 10&nbsp;000 операций, а с другой — 20&nbsp;000, стоимость за месяц составит:
+
+> {{ sku|KZT|kms.storage.v1.software|month|string }}&nbsp;×&nbsp;2 + ({{ sku|KZT|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|KZT|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=KZT] {{ sku|KZT|kms.storage.v1.software|month|number }} × 2 + ({{ sku|KZT|kms.api.v1.encryptdecrypt|number }} × 10000 / 10000) + ({{ sku|KZT|kms.api.v1.encryptdecrypt|number }} × 20000 / 10000) %}

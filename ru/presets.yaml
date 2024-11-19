@@ -1137,15 +1137,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 72
           v1|string: "72,00\_₸"
+        v1|number: 28.8
         v1|string: "28,80\_₸"
       v1:
+        encryptdecrypt|number: 14.4
         encryptdecrypt|string: "14,40\_₸"
     storage:
       asymmetric:
+        v1|number: 14.4
         v1|string: "14,40\_₸"
       v1:
         hsm|month|string: "1\_800,00\_₸"
+        software|month|number: 14.4
         software|month|string: "14,40\_₸"
   sku|KZT|lockbox:
     api:
@@ -2003,9 +2008,11 @@ default:
   sku|KZT|yds:
     events:
       puts|pricingRate:
+        2|number: 5.9
         2|string: "5,90\_₸"
     reserved_resources:
       128k:
+        12h|number: 0.6667
         12h|string: "0,6667\_₸"
         1h|pricingRate:
           744|string: "0,50\_₸"
@@ -2040,6 +2047,7 @@ default:
     network:
       ingress:
         v1|pricingRate:
+          10|number: 3
           10|string: "3,00\_₸"
   sku|RUB|ai:
     mt:
@@ -2331,15 +2339,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 14.4
           v1|string: "14,40\_₽"
+        v1|number: 5.76
         v1|string: "5,76\_₽"
       v1:
+        encryptdecrypt|number: 2.88
         encryptdecrypt|string: "2,88\_₽"
     storage:
       asymmetric:
+        v1|number: 2.88
         v1|string: "2,88\_₽"
       v1:
         hsm|month|string: "360,00\_₽"
+        software|month|number: 2.88
         software|month|string: "2,88\_₽"
   sku|RUB|lockbox:
     api:
@@ -3197,9 +3210,11 @@ default:
   sku|RUB|yds:
     events:
       puts|pricingRate:
+        2|number: 1.18
         2|string: "1,18\_₽"
     reserved_resources:
       128k:
+        12h|number: 0.1333
         12h|string: "0,1333\_₽"
         1h|pricingRate:
           744|string: "0,10\_₽"
@@ -3234,6 +3249,7 @@ default:
     network:
       ingress:
         v1|pricingRate:
+          10|number: 0.6
           10|string: "0,60\_₽"
   sku|USD|ai:
     mt:
@@ -4390,9 +4406,11 @@ default:
   sku|USD|yds:
     events:
       puts|pricingRate:
+        2|number: 0.00944
         2|string: "0,009440\_$"
     reserved_resources:
       128k:
+        12h|number: 0.001067
         12h|string: "0,001067\_$"
         1h|pricingRate:
           744|string: "0,000800\_$"
@@ -5340,7 +5358,7 @@ default:
         label_billing-name: Биллинг
         label_event-name: Мероприятия
         label_monitoring-name: Мониторинг
-        label_promo_banner-name: Промо блок
+        label_promo_banner-name: Рекламные баннеры
         label_security-name: Безопасность
         label_tech-name: Технические работы
         label_telegram: Telegram
@@ -5504,6 +5522,8 @@ default:
             replace: Заменить файл
           upload-config: Загрузить файл конфигурации
         approved:
+          tab:
+            recording-rules: Recording rules
           widget-monitoring:
             title: Мониторить процесс записи
         common:
@@ -5515,7 +5535,6 @@ default:
           action_add-file: Добавить файл
         tab:
           alert-manager-key-value: Конфигурация Alert manager
-          alerting-rules: Управление правилами
       service:
         field:
           function: Функция агрегации
@@ -7728,7 +7747,6 @@ default:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
             field_subnetworks: Подсеть
-            field_zones: Зона доступности
         shard-groups:
           button_add-group: Создать группу шардов
       metastore:
@@ -7738,10 +7756,7 @@ default:
           import-export:
             action_export: Экспортировать
             action_import: Импортировать
-        field_s3config-access-key-id: Идентификатор ключа доступа
-        field_s3config-secret-access-key: Секретный ключ
         label_metastore: Metastore-сервер
-        title_s3config: Настройки доступа к Object Storage
       mongodb:
         cluster:
           shards:
@@ -7917,7 +7932,7 @@ default:
             label_add-folder: Добавить бакет
             label_async: Асинхронный вызов
             label_bucket: Бакет
-            label_bucket-prefix: Directory
+            label_bucket-prefix: Папка
             label_failed-sa: Назначение для неуспешного результата
             label_lockbox-env-key: Переменная окружения
             label_lockbox-secret: Секреты Lockbox

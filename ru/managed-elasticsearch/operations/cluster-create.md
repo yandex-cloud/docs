@@ -20,6 +20,7 @@ keywords:
 
 {% endnote %}
 
+
 ## Создать кластер {#create-cluster}
 
 {% note info %}

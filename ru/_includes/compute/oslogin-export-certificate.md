@@ -33,8 +33,8 @@
       Результат:
 
       ```text
-      Identity: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername
-      Certificate: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername-cert.pub
+      Identity: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-<логин_в_профиле_OS_Login>
+      Certificate: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-<логин_в_профиле_OS_Login>-cert.pub
       ```
 
       При сохранении экспортированного сертификата в директорию, отличную от директории по умолчанию, убедитесь что доступ к сохраненным файлам сертификата разрешен только текущему пользователю. При необходимости измените разрешения с помощью команды `chmod` в Linux и macOS или на вкладке **Безопасность** свойств файлов в Проводнике Windows.

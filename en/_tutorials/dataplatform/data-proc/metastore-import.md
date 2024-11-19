@@ -234,13 +234,12 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the `dataproc-s3-sa` service account. Save its ID and the secret key.
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
-    * **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}**: Parameters of the static access key created earlier
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 

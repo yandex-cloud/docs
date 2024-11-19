@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ managed-k8s-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ managed-k8s-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ at-full-name }}
 
 В {{ at-name }} для {{ managed-k8s-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).

@@ -35,6 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
+
 ## Роли для создания кластера {#roles}
 
 
@@ -129,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_zones }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 

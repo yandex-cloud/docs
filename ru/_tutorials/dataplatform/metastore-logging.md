@@ -268,7 +268,7 @@
 ## Создайте кластер {{ metastore-name }} {#create-metastore}
 
 1. В подсети, к которой будет подключен кластер, [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md). Это нужно, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
-1. [Настройте группы безопасности](../../metadata-hub/operations/metastore/cluster-create.md#set-up-security-groups).
+1. [Настройте группу безопасности](../../metadata-hub/operations/metastore/configure-security-group.md).
 1. Создайте кластер {{ metastore-name }}:
 
     {% list tabs group=instructions %}

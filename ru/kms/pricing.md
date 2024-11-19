@@ -41,9 +41,13 @@ editable: false
 
   {% include [rub-symmetric](../_pricing/kms/rub-symmetric.md) %}
 
+  {% include [rub-symmetric](../_pricing_examples/kms/rub-symmetric.md) %}
+
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-symmetric](../_pricing/kms/kzt-symmetric.md) %}
+
+  {% include [kzt-symmetric](../_pricing_examples/kms/kzt-symmetric.md) %}
 
 {% endlist %}
 
@@ -59,9 +63,13 @@ editable: false
 
   {% include [rub-asymmetric](../_pricing/kms/rub-asymmetric.md) %}
 
+  {% include [rub-asymmetric](../_pricing_examples/kms/rub-asymmetric.md) %}
+
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-asymmetric](../_pricing/kms/kzt-asymmetric.md) %}
+
+  {% include [kzt-asymmetric](../_pricing_examples/kms/kzt-asymmetric.md) %}
 
 {% endlist %}
 

@@ -54,4 +54,8 @@ description: Следуя данной инструкции, вы сможете
 `prometheus_remote_storage_read_queries_total` | Вызовы | Общее количество запросов на чтение.
 `prometheus_remote_storage_read_request_duration_seconds` | Секунды | Гистограмма времени выполнения запросов на чтение.
 
+## Текущие ограничения {#restrictions}
+
+{% include [maximum-time-lines](../../../../_includes/monitoring/maximum-time-lines.md) %}
+
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}
