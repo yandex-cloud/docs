@@ -71,8 +71,9 @@ To enable a {{ metastore-name }} cluster to work with [{{ objstorage-full-name }
     1. Enter a name for the cluster. It must be unique within the folder.
     1. (Optional) Enter a cluster description.
     1. (Optional) Add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md) to break resources into logical groups.
+    1. Select the [service account](../../../iam/concepts/users/service-accounts.md) on behalf of which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services or [create](../../../iam/operations/sa/create.md) new.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
-    1. (Optional) Under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the static access key.
+    1. (Optional) Under **{{ ui-key.yacloud.logging.label_title }}** enable logging, set minimum logging level and specify a folder or a [log group](../../../logging/concepts/log-group.md).
     1. If required, enable protection of the cluster from accidental deletion by a user.
 
         {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}

@@ -32,6 +32,8 @@ items:
         items:
           - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
+          - name: Настройка группы безопасности
+            href: operations/metastore/configure-security-group.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
             href: operations/metastore/dataproc-connect.md
           - name: Экспорт и импорт кластера {{ metastore-name }}

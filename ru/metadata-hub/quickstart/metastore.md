@@ -54,13 +54,17 @@
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) для кластера {{ dataproc-name }} с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `dataproc.agent`, `dataproc.provisioner` и `{{ roles.metastore.integrationProvider }}`.
 
-1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) для использования с кластером {{ dataproc-name }}.
+1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) для работы с кластером {{ dataproc-name }}.
 
-1. В созданной ранее сети [создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster). В настройках:
-   * выберите сервисы `SPARK` и `YARN`;
-   * укажите свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`.
+1. В созданной ранее сети [создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster). В настройках задайте:
+
+   * Сервисы `SPARK` и `YARN`.
+   * Сервисный аккаунт, созданный ранее.
+   * Свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с {{ metastore-name }}.
+   * Бакет, созданный ранее.
+   * Группу безопасности, настроенную ранее.
 
 ## Создайте кластер {{ metastore-name }} {#create-metastore-cluster}
 
@@ -73,8 +77,10 @@
     1. На левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите созданную ранее сеть и подсеть.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите созданную ранее группу безопасности.
+    1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого кластер {{ metastore-name }} будет взаимодействовать с другими сервисами {{ yandex-cloud }}, или [создайте](../../iam/operations/sa/create.md) новый.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите созданную ранее сеть и подсеть. Укажите заранее настроенную группу безопасности.
+    1. (Опционально) В блоке **{{ ui-key.yacloud.logging.label_title }}** включите запись логов, выберите минимальный уровень логирования и укажите каталог или [лог-группу](../../logging/concepts/log-group.md).
+    1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ mch-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ mch-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ at-full-name }}
 
 В {{ at-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).

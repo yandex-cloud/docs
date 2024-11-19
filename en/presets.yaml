@@ -1130,15 +1130,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 72
           v1|string: ₸72.00
+        v1|number: 28.8
         v1|string: ₸28.80
       v1:
+        encryptdecrypt|number: 14.4
         encryptdecrypt|string: ₸14.40
     storage:
       asymmetric:
+        v1|number: 14.4
         v1|string: ₸14.40
       v1:
         hsm|month|string: ₸1800.00
+        software|month|number: 14.4
         software|month|string: ₸14.40
   sku|KZT|lockbox:
     api:
@@ -1996,9 +2001,11 @@ default:
   sku|KZT|yds:
     events:
       puts|pricingRate:
+        2|number: 5.9
         2|string: ₸5.90
     reserved_resources:
       128k:
+        12h|number: 0.6667
         12h|string: ₸0.6667
         1h|pricingRate:
           744|string: ₸0.50
@@ -2033,6 +2040,7 @@ default:
     network:
       ingress:
         v1|pricingRate:
+          10|number: 3
           10|string: ₸3.00
   sku|RUB|ai:
     mt:
@@ -2324,15 +2332,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 14.4
           v1|string: ₽14.40
+        v1|number: 5.76
         v1|string: ₽5.76
       v1:
+        encryptdecrypt|number: 2.88
         encryptdecrypt|string: ₽2.88
     storage:
       asymmetric:
+        v1|number: 2.88
         v1|string: ₽2.88
       v1:
         hsm|month|string: ₽360.00
+        software|month|number: 2.88
         software|month|string: ₽2.88
   sku|RUB|lockbox:
     api:
@@ -3190,9 +3203,11 @@ default:
   sku|RUB|yds:
     events:
       puts|pricingRate:
+        2|number: 1.18
         2|string: ₽1.18
     reserved_resources:
       128k:
+        12h|number: 0.1333
         12h|string: ₽0.1333
         1h|pricingRate:
           744|string: ₽0.10
@@ -3227,6 +3242,7 @@ default:
     network:
       ingress:
         v1|pricingRate:
+          10|number: 0.6
           10|string: ₽0.60
   sku|USD|ai:
     mt:
@@ -4383,9 +4399,11 @@ default:
   sku|USD|yds:
     events:
       puts|pricingRate:
+        2|number: 0.00944
         2|string: $0.009440
     reserved_resources:
       128k:
+        12h|number: 0.001067
         12h|string: $0.001067
         1h|pricingRate:
           744|string: $0.000800
@@ -5331,7 +5349,7 @@ default:
         label_billing-name: Billing
         label_event-name: Events
         label_monitoring-name: Monitoring
-        label_promo_banner-name: Promo block
+        label_promo_banner-name: Advertising banners
         label_security-name: Security
         label_tech-name: Maintenance work
         label_telegram: Telegram
@@ -5495,6 +5513,8 @@ default:
             replace: Replace file
           upload-config: Upload a configuration file
         approved:
+          tab:
+            recording-rules: Recording rules
           widget-monitoring:
             title: Monitor writing progress
         common:
@@ -5506,7 +5526,6 @@ default:
           action_add-file: Add file
         tab:
           alert-manager-key-value: Alert manager configuration
-          alerting-rules: Managing rules
       service:
         field:
           function: Aggregation function
@@ -7717,7 +7736,6 @@ default:
             button_choose: Save
             field_public_ip: Public access
             field_subnetworks: Subnet
-            field_zones: Availability zone
         shard-groups:
           button_add-group: Create shard group
       metastore:
@@ -7727,10 +7745,7 @@ default:
           import-export:
             action_export: Export
             action_import: Import
-        field_s3config-access-key-id: Access key ID
-        field_s3config-secret-access-key: Secret key
         label_metastore: Metastore
-        title_s3config: Object Storage access settings
       mongodb:
         cluster:
           shards:
@@ -7906,7 +7921,7 @@ default:
             label_add-folder: Add bucket
             label_async: Asynchronous call
             label_bucket: Bucket
-            label_bucket-prefix: Folder
+            label_bucket-prefix: Directory
             label_failed-sa: Destination for unsuccessful result
             label_lockbox-env-key: Environment variable
             label_lockbox-secret: Lockbox secrets

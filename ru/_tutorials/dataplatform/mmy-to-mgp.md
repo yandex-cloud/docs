@@ -1,6 +1,5 @@
 # Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-
 Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ mgp-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).

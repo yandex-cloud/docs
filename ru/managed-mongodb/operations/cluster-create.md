@@ -19,6 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
+
 ## Создать кластер {#create-cluster}
 
 Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).

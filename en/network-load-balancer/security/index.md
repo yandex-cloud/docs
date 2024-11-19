@@ -38,6 +38,10 @@ In this section, you will learn:
 
 {% include [loadbalancer-privateadmin](../../_roles/load-balancer/privateAdmin.md) %}
 
+#### load-balancer.editor {#load-balancer-editor}
+
+{% include [loadbalancer-editor](../../_roles/load-balancer/editor.md) %}
+
 #### load-balancer.admin {#load-balancer-admin}
 
 {% include [loadbalancer-admin](../../_roles/load-balancer/admin.md) %}

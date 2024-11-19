@@ -19,6 +19,7 @@ description: Пошаговые инструкции по работе с {{ met
 ## Кластеры {{ metastore-full-name }} {#metastore}
 
 * [{#T}](metastore/cluster-create.md)
+* [{#T}](metastore/configure-security-group.md)
 * [{#T}](metastore/dataproc-connect.md)
 * [{#T}](metastore/export-and-import.md)
 * [{#T}](metastore/cluster-delete.md)

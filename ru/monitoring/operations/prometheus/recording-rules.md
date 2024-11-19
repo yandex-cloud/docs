@@ -43,7 +43,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите или создайте воркспейс.
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**.
    1. Если у вас еще нет загруженных файлов, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** и выберите файл `.yml` с правилами.
    1. Чтобы добавить еще один файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
    1. Чтобы заменить существующий файл, справа от него нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}**. 
@@ -104,7 +104,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите воркспейс.
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**. 
+   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**. 
 
 - API {#api}
 
@@ -139,7 +139,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите воркспейс.
-   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**. 
+   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**. 
    1. Справа от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_code }}**.
 
 - API {#api}
@@ -174,7 +174,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите воркспейс.
-   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**. 
+   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**. 
    1. Выберите файл с правилами. На открывшейся странице будет отражено состояние последних вычислений по данному правилу.
 
 - API {#api}
@@ -228,7 +228,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите воркспейс.
-   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**. 
+   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**. 
    1. Справа от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_destroy }}**.
 
 - API {#api}
@@ -254,7 +254,7 @@ API представлен набором REST-ресурсов, которые 
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите воркспейс.
-   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alerting-rules }}**. 
+   1. Прейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**. 
    1. Слева от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_download }}**.
 
 {% endlist %}

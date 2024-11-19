@@ -38,6 +38,10 @@ description: Управление доступом в сервисе для со
 
 Пользователи, у которых отсутствует роль `resource-manager.clouds.owner` или роль `admin`, не могут назначать роли через консоль управления.
 
+#### kms.keys.user {#kms-keys-user}
+
+{% include [kms.keys.user](../../_roles/kms/keys/user.md) %}
+
 #### kms.keys.encrypter {#kms-keys-encrypter}
 
 {% include [kms.keys.encrypter](../../_roles/kms/keys/encrypter.md) %}

@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ data-transfer-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ data-transfer-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ at-full-name }}
 
 В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ data-transfer-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).

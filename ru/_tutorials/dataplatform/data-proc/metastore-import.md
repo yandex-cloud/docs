@@ -234,13 +234,12 @@
 
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
-1. Для сервисного аккаунта `dataproc-s3-sa` [создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md). Сохраните его идентификатор и секретный ключ.
 1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
-    * **{{ ui-key.yacloud.metastore.field_s3config-access-key-id  }}** и **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** — параметры ранее созданного статического ключа доступа.
 
 1. [Добавьте в настройки кластера](../../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
