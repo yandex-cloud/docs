@@ -1,0 +1,3 @@
+Например, если c одной версией асимметричного ключа выполнено 40&nbsp;000 операций для алгоритма ECDSA, а с другой — 30&nbsp;000 для алгоритма RSA3072, стоимость за месяц составит:
+
+> {{ sku|KZT|kms.storage.asymmetric.v1|string }}&nbsp;×&nbsp;2 + ({{ sku|KZT|kms.api.asymmetric.v1|string }}&nbsp;×&nbsp;40&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|KZT|kms.api.asymmetric.heavy.v1|string }}&nbsp;×&nbsp;30&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=KZT] {{ sku|KZT|kms.storage.asymmetric.v1|number }} × 2 + ({{ sku|KZT|kms.api.asymmetric.v1|number }} × 40000 / 10000) + ({{ sku|KZT|kms.api.asymmetric.heavy.v1|number }} × 30000 / 10000) %}

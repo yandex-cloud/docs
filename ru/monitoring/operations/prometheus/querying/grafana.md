@@ -45,8 +45,9 @@ description: Следуя данной инструкции, вы сможете
 * Параметр `timeout` не поддерживается и игнорируется.
 * Параметры `start` и `end` не поддерживаются и игнорируются для запросов `/api/v1/labels`, `/api/v1/<label_name>/values` и `/api/v1/series`.
 * Максимальное число селекторов, которые можно передать в качестве параметра `match[]`, — 8.
-* Максимальное количество временных рядов, по которым можно получить метаданные при помощи запроса `/api/v1/series`, — 10000.
-* Максимально число временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 10000.
+
+{% include [maximum-time-lines](../../../../_includes/monitoring/maximum-time-lines.md) %}
+
 * Параметр `--query.lookback-delta` равен `5m`.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

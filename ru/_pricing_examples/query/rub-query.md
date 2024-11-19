@@ -3,7 +3,7 @@
 Запрос вычитал 250 ГБ данных из {{ objstorage-full-name }}.
 
 В этом случае стоимость запроса составит:
-> (250 × 0,60&nbsp;₽) = 150,00&nbsp;₽
+> (250 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 250 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}
 
 #### Пример 2 {#example-2}
 
@@ -13,7 +13,7 @@
 > (100 + 10 + 20) = 130 ГБ
 
 Стоимость запроса в этом случае составит:
-> (130 × 0,60&nbsp;₽) = 78,00&nbsp;₽
+> (130 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 130 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}
 
 #### Пример 3 {#example-3}
 
@@ -23,4 +23,4 @@
 > (max(1 МБ, 10 МБ)) = 10 МБ = 0,01 ГБ
 
 Стоимость запроса в этом случае составит:
-> (0,01 × 0,60&nbsp;₽) = 0,006&nbsp;₽
+> (0,01 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 0,01 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}

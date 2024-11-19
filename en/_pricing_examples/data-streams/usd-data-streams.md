@@ -24,22 +24,22 @@ Where:
 * 60 × 60 × 24 × 31: Number of seconds in the month.
 * 10,713,600: Number of data units written per month.
 
-> $0.001709 × 24 × 31 = $1.269264
+> {{ sku|USD|yds.reserved_resources.128k.12h|string }} × 24 × 31 = {% calc [currency=USD] {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %}
 
 Where:
 
-* $0.001709: Cost of allocated resources per hour when stored for 12 hours.
+* {{ sku|USD|yds.reserved_resources.128k.12h|string }}: Cost of allocated resources per hour when stored for 12 hours.
 * 24: Number of data storage hours.
 * 31: Number of days in a month.
-* $1.269264: Cost of allocated resources per month with a maximum data write speed of 128 KB/s and a storage period of 24 hours, without VAT.
+* {% calc [currency=USD] {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %}: Cost of allocated resources per month with a maximum data write speed of 128 KB/s and a storage period of 24 hours, without VAT.
 
-> (10,713,600 - 2,000,000) / 1,000,000 × $0.015128 + $1.269264 = $1.401083
+> (10,713,600 - 2,000,000) / 1,000,000 × {{ sku|USD|yds.events.puts|pricingRate.2|string }} + {% calc [currency=USD] {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %} = {% calc [currency=USD] (10713600 - 2000000) / 1000000 × {{ sku|USD|yds.events.puts|pricingRate.2|number }} + {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %}
 
 Where:
 
 * 10,713,600: Number of data units written per month.
 * 2,000,000: Number of free units per month.
-* $0.015128: Cost of 1 million units of written data, without VAT.
-* $1.269264: Cost of allocated resources per month with a maximum data write speed of 128 KB/s and a storage period of 24 hours, without VAT.
+* {{ sku|USD|yds.events.puts|pricingRate.2|string }}: Cost of 1 million units of written data, without VAT.
+* {% calc [currency=USD] {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %}: Cost of allocated resources per month with a maximum data write speed of 128 KB/s and a storage period of 24 hours, without VAT.
 
-Total: $1.401083, without VAT.
+Total: {% calc [currency=USD] (10713600 - 2000000) / 1000000 × {{ sku|USD|yds.events.puts|pricingRate.2|number }} + {{ sku|USD|yds.reserved_resources.128k.12h|number }} × 24 × 31 %}, without VAT.

@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ websql-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ websql-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ websql-full-name }}
 
 В {{ at-name }} для {{ websql-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).

@@ -38,6 +38,10 @@ Service roles provide more granular control over {{ kms-short-name }} keys, taki
 
 Users without the `resource-manager.clouds.owner` or `admin` role cannot assign roles via the management console.
 
+#### kms.keys.user {#kms-keys-user}
+
+{% include [kms.keys.user](../../_roles/kms/keys/user.md) %}
+
 #### kms.keys.encrypter {#kms-keys-encrypter}
 
 {% include [kms.keys.encrypter](../../_roles/kms/keys/encrypter.md) %}

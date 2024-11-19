@@ -9,60 +9,36 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о кластерах {{ metastore-name }} в сервисе {{ metadata-hub-name }} см. в разделе [{#T}](../../concepts/metastore.md).
 
-Перед началом работы:
+## Перед началом работы {#before-you-begin}
 
-1. [Настройте сеть](#set-up-network).
-1. [Настройте группы безопасности](#set-up-security-groups).
-1. (Опционально) [Подготовьте статический ключ доступа](#prepare-access-key).
-
-После этого [создайте кластер](#create-cluster).
-
-## Настройте сеть {#set-up-network}
-
-В подсети, к которой будет подключен кластер, [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Это необходимо, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
-
-## Настройте группы безопасности {#set-up-security-groups}
-
-Если в вашей облачной сети используются группы безопасности, они могут препятствовать работе кластера. В этом случае настройте группу безопасности по умолчанию на работу с {{ metastore-name }}. Для этого [добавьте](../../../vpc/operations/security-group-add-rule.md) в нее следующие правила:
-
-* Для входящего трафика от клиентов:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30000-32767`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-
-* Для входящего трафика от балансировщика:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10256`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
-
-Если планируется использовать несколько групп безопасности для кластера, разрешите весь трафик между этими группами.
-
-{% note info %}
-
-Вы можете задать более детальные правила для групп безопасности, например, разрешающие трафик только в определенных подсетях.
-
-{% endnote %}
-
-## (Опционально) Подготовьте статический ключ доступа {#prepare-access-key}
-
-Чтобы кластер {{ metastore-name }} мог взаимодействовать с [{{ objstorage-full-name }}](../../../storage/index.yaml), подготовьте [статический ключ доступа](../../../iam/concepts/authorization/access-key.md):
-
+1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в подсети, к которой будет подключен кластер. Это необходимо, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
+1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) необходимые роли.
+1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например, с {{ cloud-logging-full-name }} и {{ monitoring-full-name }}.
 
-   Набор ролей зависит от сценария работы. Сервисные роли приведены в [разделе для {{ metastore-name }}](../../security/metastore-roles.md), все доступные роли — в [справочнике](../../../iam/roles-reference.md).
+    Вы можете добавить дополнительные роли. Их набор зависит от сценария работы. Сервисные роли приведены в [разделе для {{ metastore-name }}](../../security/metastore-roles.md), все доступные роли — в [справочнике](../../../iam/roles-reference.md).
 
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
-1. Сохраните идентификатор и секретный ключ, они доступны только при создании.
+1. (Опционально) [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. С помощью ключа кластер получит доступ к [бакетам {{ objstorage-full-name }}](../../../storage/concepts/bucket.md).
+
+    Сохраните идентификатор и секретный ключ, они доступны только при создании.
+
+    Для работы с бакетами назначьте сервисному аккаунту одну из [ролей {{ objstorage-name }}](../../../storage/security/index.md#service-roles).
+
+1. Если вы хотите сохранять логи кластера в пользовательскую лог-группу, [создайте ее](../../../logging/operations/create-group.md).
+
+    Подробнее о логировании кластера см. в разделе [{#T}](../../tutorials/metastore-logging.md).
 
 ## Создайте кластер {#create-cluster}
 
+{% note warning %}
+
+Кластеры {{ metastore-name }} недоступны для редактирования, поэтому после создания кластера нельзя изменить его настройки.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать сервер.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
@@ -71,8 +47,19 @@ description: Следуя данной инструкции, вы сможете
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание кластера.
     1. (Опционально) Добавьте [метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для разделения ресурсов на логические группы.
+    1. Укажите сервисный аккаунт, созданный ранее.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть, в которых будет размещен кластер {{ metastore-name }}. Укажите заранее настроенную группу безопасности.
-    1. (Опционально) В блоке **{{ ui-key.yacloud.metastore.title_s3config }}** укажите **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** и **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** статического ключа доступа.
+    1. (Опционально) Задайте настройки логирования:
+
+        1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. Выберите, куда записывать логи кластера:
+
+            * В лог-группу по умолчанию — выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** и укажите нужный каталог. Логи будут храниться в лог-группе, которая действует по умолчанию в выбранном каталоге.
+            * В пользовательскую лог-группу — выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** и укажите заранее созданную лог-группу.
+
+        1. Выберите минимальный уровень логирования.
+
+            В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
     1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
 
         {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}

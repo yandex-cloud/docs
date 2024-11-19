@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ mkf-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ mkf-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ at-full-name }}
 
 В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ mkf-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).

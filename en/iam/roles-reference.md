@@ -878,6 +878,10 @@ For more information, see [{#T}](../foundation-models/security/index.md).
 
 ## {{ kms-full-name }} {#kms-roles}
 
+#### kms.keys.user {#kms-keys-user}
+
+{% include [kms.keys.user](../_roles/kms/keys/user.md) %}
+
 #### kms.keys.encrypter {#kms-keys-encrypter}
 
 {% include [kms.keys.encrypter](../_roles/kms/keys/encrypter.md) %}
@@ -1342,6 +1346,10 @@ For more information, see [{#T}](../monitoring/security/index.md).
 #### load-balancer.privateAdmin {#load-balancer-private-admin}
 
 {% include [loadbalancer-privateadmin](../_roles/load-balancer/privateAdmin.md) %}
+
+#### load-balancer.editor {#load-balancer-editor}
+
+{% include [loadbalancer-editor](../_roles/load-balancer/editor.md) %}
 
 #### load-balancer.admin {#load-balancer-admin}
 

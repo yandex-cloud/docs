@@ -126,7 +126,7 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/console-icons/pencil.svg) icon in the line with its number:
 
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_zones }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
+      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
 
