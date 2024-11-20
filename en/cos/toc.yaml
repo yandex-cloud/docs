@@ -27,7 +27,9 @@ items:
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md
-      - name: Creating a VM and an instance group from a {{ coi }} using {{ TF }}
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
+        href: tutorials/deploy-app-container.md
+      - name: Creating a VM and an instance group with a {{ coi }} using {{ TF }}
         href: tutorials/coi-with-terraform.md
       - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
         href: tutorials/coi-fluent-bit-logging.md

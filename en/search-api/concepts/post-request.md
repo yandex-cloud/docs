@@ -1,11 +1,11 @@
 ---
-title: POST requests
-description: This article describes how to use POST requests.
+title: POST requests via {{ search-api-full-name }}'s API v1
+description: This article describes the specificities and format of POST requests when accessing {{ search-api-name }} via API v1.
 ---
 
 # POST requests
 
-With {{ search-api-name }}, you can submit requests with preset parameters to the Yandex search database. You can provide search parameters to the service in an HTTP request using the POST method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
+With {{ search-api-name }} API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the POST method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -17,7 +17,7 @@ If you have any special characters in the parameter values provided in the reque
 
 {% endnote %}
 
-The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 
@@ -79,7 +79,7 @@ Authorization: Api-Key <API_key>
     <!--Maximum number of passages-->
   </maxpassages>
   <page>
-    <!--Number of the requested search results page-->
+    <!--Number of the requested page with search results-->
   </page>
 </request>
 ```
@@ -100,7 +100,7 @@ The `<request>` grouping tag integrates all contents of the request body. Child 
 
 #### Grouping tag: <groupings> {#groupings}
 
-The `groupings` grouping tag integrates the result grouping parameters.
+The `groupings` grouping tag integrates the grouping results parameters.
 
 ##### `Groupby` result grouping {#groupby}
 
@@ -110,11 +110,11 @@ Possible `groupby` parameters:
 
 {% include [groupby-description](../../_includes/search-api/groupby-parameters.md) %}
 
-## POST request example {#example-post-request}
+## Sample POST request {#example-post-request}
 
-The URL and request body presented below return the fifth page of search results for the `<table>` query. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
+The URL and request body presented below return the fifth page of search results for `<table>`. The results are sorted by the document editing time, from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. The **Family search** filter is applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
 
-The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 

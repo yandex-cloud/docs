@@ -45,6 +45,12 @@ items:
             href: operations/folder/notify.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Setting up networking between resources in different folders
+        href: tutorials/multi-folder-vpc.md
   - name: Concepts
     items:
       - name: Yandex Cloud resource hierarchy
@@ -179,7 +185,7 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

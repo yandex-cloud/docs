@@ -6,14 +6,18 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release as of 31/10/24 {#311024}
+
+Improved recognition quality for Uzbek and Turkish in `general:rc`.
+
+## Previous versions {#previous}
+
 ### Release as of 09/08/24 {#090924}
 
 Updates to `general:rc`:
 
 * Improved recognition quality for Uzbek and Kazakh.
 * You can now restrict recognition languages by specifying multiple values in the `language_restriction` field.
-
-## Previous versions {#previous}
 
 ### Release as of 26/06/24 {#260624}
 
@@ -204,11 +208,11 @@ Updates to the `general:rc` model:
 ### Release as of 19/04/22 {#190422}
 
 1. Added Turkish language to the multi-language speech recognition model.
-1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }} streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
+1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }}streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
 
 ### Release as of 14/03/22 {#140322}
 
-The March 2, 2022 [`general:rc` version](#020322) is available under the `general` tag.
+The March 2, 2022 [`general:rc`](#020322) version is available under the `general` tag.
 
 ### Release as of 02/03/22 {#020322}
 
@@ -216,7 +220,7 @@ The `general` model now offers improved recognition of names, addresses, and ter
 
 The `general:rc` model has undergone further upgrades based on user data.
 
-### Release as of 17.02.22 {#170222}
+### Release 17.02.22 {#170222}
 
 The current release improved the quality of the Russian-language `general:rc` model in the following areas:
 
@@ -224,7 +228,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
 1. Recognition of customer-specific terms. The model was enhanced with data from a user request dated February 1, 2022, and corrected based on user data from November 9, 2021.
 1. Punctuation in long sentences and texts with numbers.
 
-### Release as of 3.02.22 {#030222}
+### Release 3.02.22 {#030222}
 
 1. The `general:rc` model now supports the universal mode (`"auto"` language). In this mode, the model can recognize speech in one of the following languages:
    * Russian
@@ -246,7 +250,7 @@ When using `general:rc`, we recommend that you enable [autotuning](stt/additiona
 
 _Known problems_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 
-### Release as of 26.01.22 {#260122}
+### Release 26.01.22 {#260122}
 
 1. The `general` and `general:rc` recognition models for the Kazakh language are available in streaming and delayed recognition modes.
 

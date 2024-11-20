@@ -72,6 +72,6 @@ You can provide access to a source on an external network using one of the follo
 
 If you need to migrate data between {{ yandex-cloud }} and a third-party cloud, allow incoming connections to the third-party cloud database from the internet from [IP addresses used by {{ data-transfer-name }}](https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0).
 
-To launch transfers requiring internet access to run, you need to have the `data-transfer.transfers.createExternal` privilege.
+To run transfers requiring internet access, the [`data-transfer.admin`](../security/index.md) role is required. To create endpoints with a subnet specified in their settings, assign to the user the [`vpc.user`](../../vpc/security/index.md) role for the folder the subnet resides in.
 
 

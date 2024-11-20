@@ -1,25 +1,21 @@
 ---
-title: How to search using {{ search-api-name }} in deferred mode
-description: Follow this guide to learn how to use {{ search-api-name }} to submit search queries and get search results in XML format in deferred (asynchronous) mode.
+title: How to search in {{ search-api-name }} using API v2
+description: Follow this guide to learn how to use {{ search-api-name }}'s API v2 interface to submit search queries and get search results in XML format.
 ---
 
-# Performing search queries in {{ search-api-name }} in deferred mode
+# Performing search queries using API v2
 
-With {{ search-api-name }}, you can perform text search through the Yandex search database and get search results in [XML format](../concepts/response.md) in [deferred mode](../concepts/web-search.md). You can run queries using the {{ search-api-name }} [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). Search results depend on the parameters specified in the query.
+With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-To use the examples, install [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq), as well as [gRPCurl](https://github.com/fullstorydev/grpcurl) (if you plan on using [gRPC API](../api-ref/grpc/)).
+To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) utilities, plus [gRPCurl](https://github.com/fullstorydev/grpcurl) if you are going to use [gRPC API](../api-ref/grpc/).
 
 ## Prepare your cloud {#initial-setup}
 
-1. [Create](../../iam/operations/sa/create.md) a service account to authenticate as one.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `search-api.webSearch.user` role to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use to run queries.
-1. [Get an IAM token](../../iam/operations/index.md#iam-tokens) required for [authentication](../api-ref/authentication.md). 
-
-    The following examples show authentication using an IAM token. Edit the `Authorization` header in the query examples to use service account's [API key](../../iam/concepts/authorization/api-key.md) for authentication. For more information, see [{#T}](../api-ref/authentication.md).
+{% include [prepare-cloud-v2](../../_includes/search-api/prepare-cloud-v2.md) %}
 
 ## Create a search query {#form-request}
 
@@ -39,7 +35,7 @@ To use the examples, install [cURL](https://curl.haxx.se) and [jq](https://stedo
 
       {% endcut %}
 
-  1. Run an HTTP query by specifying the IAM token you got earlier:
+  1. Run an http query by specifying the IAM token you got earlier:
 
       ```bash
       curl \
@@ -103,7 +99,7 @@ Save the obtained [Operation object](../../api-design-guide/concepts/operation.m
 
 ## Make sure the query was executed successfully {#verify-operation}
 
-Wait until {{ search-api-name }} runs a query and generates a response. This may take from five minutes to a few hours.
+Wait until {{ search-api-name }} executes the query and generates a response. This may take from five minutes to a few hours.
 
 Make sure the query was executed successfully:
 
@@ -123,7 +119,7 @@ Make sure the query was executed successfully:
   Where:
 
   * `<IAM_token>`: Previously obtained IAM token.
-  * `<query_ID>`: Operation object ID you saved in the previous step.
+  * `<query_ID>`: The Operation object ID you saved at the previous step.
 
   Result:
 
@@ -132,7 +128,7 @@ Make sure the query was executed successfully:
    "done": true,
    "response": {
     "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-    "rawData": "<Base64-encoded_XML_response_body>"
+    "rawData": "<Base64_encoded_XML_response_body>"
    },
    "id": "spp82pc07ebl********",
    "description": "WEB search async",
@@ -144,7 +140,7 @@ Make sure the query was executed successfully:
 
 - gRPC API {#grpc-api}
 
-  Run a gRPC call:
+  Run this gRPC call:
 
   ```bash
   grpcurl \
@@ -156,7 +152,7 @@ Make sure the query was executed successfully:
   Where:
 
   * `<IAM_token>`: Previously obtained IAM token.
-  * `<query_ID>`: Operation object ID you saved in the previous step.
+  * `<query_ID>`: The Operation object ID you saved at the previous step.
 
   Result:
 
@@ -170,14 +166,14 @@ Make sure the query was executed successfully:
     "done": true,
     "response": {
       "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-      "rawData": "<Base64-encoded_XML_response_body>"
+      "rawData": "<Base64_encoded_XML_response_body>"
     }
   }
   ```
 
 {% endlist %}
 
-If the `done` field says `true` and the `response` object is present in the output, the query has been completed successfully, so you can move on to the next step. Otherwise, repeat the check later.
+If the `done` field is set to `true` and the `response` object is present in the output, the query has been completed successfully, so you can move on to the next step. Otherwise, repeat the check later.
 
 ## Get a response {#get-response}
 
@@ -209,7 +205,7 @@ After {{ search-api-name }} has successfully processed the query:
 
     {% endlist %}
 
-    Eventually the search query result will be saved to a file named `result.json` containing [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML response](../concepts/response.md) in the `response.rawData` field.
+    Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML response](../concepts/response.md) in the `response.rawData` field.
 
 1. Decode the result from `Base64`:
 
@@ -219,7 +215,7 @@ After {{ search-api-name }} has successfully processed the query:
       base64 --decode > result.xml
     ```
 
-    The query XML response will be saved to the `result.xml` file.
+    The XML response to the query will be saved to a file named `result.xml`.
 
 #### See also {#see-also}
 

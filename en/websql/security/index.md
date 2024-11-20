@@ -103,7 +103,7 @@ The role is assigned for a saved query you published.
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`. If you need access to multiple types of managed DB clusters within one folder, you can assign the `mdb.auditor` role for this folder, but bear in mind that the user will thus get excessive [permissions](../../iam/roles-reference#mdb-auditor).
 
 Action | Required roles
 ----- | -----

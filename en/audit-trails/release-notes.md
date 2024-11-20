@@ -5,6 +5,177 @@ description: This section contains {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q3 2024 {#q3-2024}
+
+* Added the option of filtering by event type. For more information, see [Trail settings](./concepts/trail.md#trail-settings).
+* Added new events for the services:
+
+  {% cut "{{ certificate-manager-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `GetCertificateContent` | Getting the contents of an SSL certificate
+
+  {% endcut %}
+
+  {% cut "{{ ml-platform-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CloseProject` | Closing a project
+  `CreateNode` | Creating a node
+  `DeleteNode` | Deleting a node
+  `OpenProject` | Opening a project
+  `ResumeNode` | Resuming a node
+  `SuspendNode` | Suspending a node
+  `UpdateNode` | Updating a node
+
+  {% endcut %}  
+
+  {% cut "{{ iam-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteFederatedUserAccounts` | Deleting a user from a federation
+  `workload.CreateFederatedCredential` | Creating [a link](../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
+  `workload.DeleteFederatedCredential` | Deleting a link from a service account federation
+  `workload.oidc.CreateFederation` | Creating a [service account federation](../iam/concepts/workload-identity.md)
+  `workload.oidc.DeleteFederation` | Deleting a service account federation
+  `workload.oidc.UpdateFederation` | Updating a service account federation
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `RevokeIamToken` | Revoking an IAM token
+
+  {% endcut %}
+
+  {% cut "{{ load-testing-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateRegressionDashboard` | Creating a regression dashboard
+  `DeleteRegressionDashboard` | Deleting a regression dashboard
+  `UpdateRegressionDashboard` | Editing a regression dashboard
+
+  {% endcut %}
+
+  {% cut "{{ maf-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event name | Description
+  --- | ---
+  `CreateCluster` | Creating a cluster
+  `DeleteCluster` | Deleting a cluster
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UpdateCluster` | Updating a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AddClusterShard` | Adding a shard to a cluster
+  `DeleteClusterShard` | Deleting a shard from a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mgp-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event name | Description
+  --- | ---
+  `MoveCluster` | Moving a cluster
+
+  {% endcut %}
+
+  {% cut "{{ managed-k8s-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `ApiServerAuditEvent` | {{ managed-k8s-name }} cluster audit event
+
+  {% endcut %}
+
+  {% cut "{{ mmy-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `DatabaseUserSQLRequest` | User SQL query to a database
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `ComputeNodeAccess` | Connecting the Access Transparency [module](../security-deck/concepts/access-transparency.md) to the Data Proc [subcluster](../data-proc/concepts/index.md#resources)
+  `MDBClusterAccess` | Connecting an Access Transparency module to a database cluster
+
+  {% endcut %}
+
+  {% cut "{{ sws-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateArlProfile` | Creating an ARL profile
+  `CreateSecurityProfile` | Creating a security profile
+  `CreateWafProfile` | Creating a WAF profile
+  `DeleteArlProfile` | Deleting an ARL profile
+  `DeleteSecurityProfile` | Deleting a security profile
+  `DeleteWafProfile` | Deleting a WAF profile
+  `UpdateArlProfile` | Updating an ARL profile
+  `UpdateSecurityProfile` | Updating a security profile
+  `UpdateWafProfile` | Updating a WAF profile
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `ArlMatchedRequest` | Request according to the ARL rules
+  `WafMatchedExclusionRule` | Applied WAF exclusion rule
+  `WafMatchedRule` | Applied WAF rule
+
+  {% endcut %}
+
+  {% cut "{{ postbox-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event name | Description
+  --- | ---  
+  `CreateConfigurationSet` | Creating a [configuration](../postbox/concepts/glossary.md#configuration)
+  `CreateIdentity` | Creating an address
+  `DeleteConfigurationSet` | Deleting a configuration
+  `DeleteIdentity` | Deleting an address
+  `UpdateConfigurationSet` | Updating a configuration
+  `UpdateIdentity` | Updating an address
+
+  {% endcut %}
+
 ## Q2 2024 {#q2-2024}
 
 * Added new events for the services:

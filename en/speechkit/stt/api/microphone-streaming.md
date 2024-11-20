@@ -8,10 +8,10 @@ This example uses the following parameters:
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1.
 * Recording buffer size: 4096.
-* Audio recording duration: 30 seconds.
+* Voice recording duration: 30 seconds.
 * [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions): Enabled.
 
-To use the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages.
+To work with the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages.
 
 Authentication is performed under a service account using an [API key](../../../iam/concepts/authorization/api-key.md). Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
@@ -46,14 +46,14 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Use the pip package manager to install the following packages:
 
-      * `grpcio-tools` for working with the {{speechkit-name}} API.
-      * `PyAudio` for audio recording.
+      * `grpcio-tools`: For working with the {{speechkit-name}} API.
+      * `PyAudio`: For audio recording.
 
       ```bash
       pip install grpcio-tools PyAudio
       ```
 
-   1. Go to the directory hosting the {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
+   1. Go to the folder with the {{ yandex-cloud }} API repository, create a folder named `output` and generate the client interface code in it:
 
       ```bash
       cd <path_to_cloudapi_directory> && \
@@ -71,9 +71,9 @@ Authentication is performed under a service account using an [API key](../../../
            yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
 
-   1. Create a `test.py` file in the `output` directory and add the following code to it:
+   1. Create a file named `test.py` in the `output` folder and add the following code to it:
 
       ```python
       import pyaudio
@@ -83,7 +83,7 @@ Authentication is performed under a service account using an [API key](../../../
       import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
       import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
 
-      # Streaming recognition settings.
+      # Stream recognition settings.
       FORMAT = pyaudio.paInt16
       CHANNELS = 1
       RATE = 8000
@@ -94,7 +94,7 @@ Authentication is performed under a service account using an [API key](../../../
       audio = pyaudio.PyAudio()
 
       def gen():
-         # Specify the recognition settings.
+         # Specify recognition settings.
          recognize_options = stt_pb2.StreamingOptions(
             recognition_model=stt_pb2.RecognitionModelOptions(
                audio_format=stt_pb2.AudioFormatOptions(
@@ -120,7 +120,7 @@ Authentication is performed under a service account using an [API key](../../../
          # Send a message with recognition settings.
          yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-         # Start audio recording.
+         # Start voice recording.
          stream = audio.open(format=FORMAT, channels=CHANNELS,
                      rate=RATE, input=True,
                      frames_per_buffer=CHUNK)
@@ -134,12 +134,12 @@ Authentication is performed under a service account using an [API key](../../../
             frames.append(data)
          print("finished")
 
-         # Stop audio recording.
+         # Stop recording.
          stream.stop_stream()
          stream.close()
          audio.terminate()
 
-         # Create a WAV file with the recorded audio.
+         # Create a WAV file with recorded voice.
          waveFile = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
          waveFile.setnchannels(CHANNELS)
          waveFile.setsampwidth(audio.get_sample_size(FORMAT))
@@ -148,16 +148,16 @@ Authentication is performed under a service account using an [API key](../../../
          waveFile.close()
 
       def run(secret):
-         # Establish a connection to the server.
+         # Establish a connection with the server.
          cred = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
          # Send data for recognition.
          it = stub.RecognizeStreaming(gen(), metadata=(
-         # Parameters for authenticating with an API key as a service account
+         # Parameters for authentication with an API key as a service account
             ('authorization', f'Api-Key {secret}'),
-         # To authenticate with an IAM token use the string below
+         # To authenticate with an IAM token, use the string below:
          #   ('authorization', f'Bearer {secret}'),
          ))
 
@@ -189,10 +189,10 @@ Authentication is performed under a service account using an [API key](../../../
       * `CHANNELS`: Number of audio channels.
       * `RATE`: Audio stream sampling rate in Hz.
       * `CHUNK`: Recording buffer size. The size is determined based on the number of frames the recorded speech is split into.
-      * `RECORD_SECONDS`: Audio recording duration in seconds.
-      * `WAVE_OUTPUT_FILENAME`: Name of the audio file with the recorded speech. The file is created by a script.
+      * `RECORD_SECONDS`: Voice recording duration in seconds.
+      * `WAVE_OUTPUT_FILENAME`: Name of the voice audio file. The file is created by a script.
       * `profanity_filter`: Profanity filter.
-      * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
+      * `literature_text`: [Flag to present the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
       * `language_code`: Recognition language.
 
    1. Set the service account's API key as an environment variable:
@@ -211,27 +211,27 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Speak using a microphone.
 
-      The recorded speech is output to the terminal. For example:
+      The recorded speech is output to the terminal. Example:
 
       ```text
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['check']
-      type=partial, alternatives=['check']
+      type=partial, alternatives=['test']
+      type=partial, alternatives=['test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['recognition check']
+      type=partial, alternatives=['recognition test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['recognition check']
-      type=partial, alternatives=['speech recognition check']
+      type=partial, alternatives=['recognition test']
+      type=partial, alternatives=['voice recognition test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['speech recognition check']
+      type=partial, alternatives=['voice recognition test']
       ```
 
-   The script recognizes speech and records it during 30 seconds. Once the script is executed, its results are saved to an `audio.wav` file with the recorded speech.
+   The script recognizes speech and records it during 30 seconds. Once the script is executed, its results are saved to an `audio.wav` file with recorded voice.
 
 {% endlist %}
 

@@ -14,3 +14,4 @@ description: Various {{ container-registry-full-name }} use cases in {{ yandex-c
 * [{#T}](vpc-cr-access.md)
 * [{#T}](fault-tolerance.md)
 * [{#T}](loadtesting-external-agent.md)
+* [{#T}](deploy-app-container.md)

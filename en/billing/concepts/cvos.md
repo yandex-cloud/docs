@@ -44,9 +44,9 @@ See details of using and paying for your CVoS below.
 1. You can purchase a CVoS for 6 months or 1 year. The CVoS is valid from the date you selected when purchasing it.
 1. The CVoS validity period is verified throughout the entire billing period.
 
-   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard prices](/prices) apply to {{ yandex-cloud }} service usage.
+   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard plans](/prices) apply to {{ yandex-cloud }} service usage.
 
-   2.2. If the validity period hasn't expired (the current date < the CVoS expiration date), the terms of the agreement apply to {{ yandex-cloud }} service usage. Go to step 3.
+   2.2. If the validity period has not expired (the current date < the CVoS expiration date), the terms of the agreement apply to {{ yandex-cloud }} service usage. Go to step 3.
 
 1. Your personal account is charged hourly for the [amount](#formula) pursuant to the agreement, regardless of whether you use any {{ yandex-cloud }} services. Go to step 4.
 
@@ -54,7 +54,7 @@ See details of using and paying for your CVoS below.
 
    4.1. If the actual volume is less than or equal to the CVoS, the amount is only charged pursuant to the agreement. To calculate the amount charged, use one of the following [formulas](#formula).
 
-   {{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. Go to step 5.
+    {{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. Go to step 5.
 
    4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS will be additionally charged based on [standard prices](/prices). Go to step 5.
 
@@ -68,15 +68,15 @@ The amount charged for the CVoS is determined using the following formulas:
 
 - Amount charged per hour {#hour}
 
-   ![image](../../_assets/billing/cud-hour-amount.svg)
+  ![image](../../_assets/billing/cud-hour-amount.svg)
 
 - Amount charged per day {#day}
 
-   ![image](../../_assets/billing/cud-day-amount.svg)
+  ![image](../../_assets/billing/cud-day-amount.svg)
 
 - Amount charged per month {#month}
 
-   ![image](../../_assets/billing/cud-month-amount.svg)
+  ![image](../../_assets/billing/cud-month-amount.svg)
 
 {% endlist %}
 

@@ -4,7 +4,7 @@
 
 {{ foundation-models-name }} APIs are designed based on gRPC. The API methods and data structures are described using Protocol Buffers (proto 3).
 
-{{ foundation-models-name }} does not support the resource-based approach, as it does not use {{ yandex-cloud }} resources. Requests to {{ yagpt-full-name }} are not idempotent.
+{{ foundation-models-name }} does not support the resource-based approach, as it does not use {{ yandex-cloud }} resources. Requests to {{ foundation-models-name }} models are not idempotent.
 
 #### See also {#see-also}
 

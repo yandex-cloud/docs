@@ -2,7 +2,7 @@
 
 In this section, you will learn how to use the {{ yagpt-name }} neural network to generate text in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
 
-The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free requests per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
+The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
 
 For information about {{ yagpt-full-name }} pricing, see [{#T}](../pricing.md).
 
@@ -28,14 +28,13 @@ To get started in {{ yandex-cloud }}:
 
   1. Get an IAM token: see the guide for a [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. When accessing {{ yagpt-full-name }} via the API, provide the received parameters in each request:
+  1. When accessing {{ yagpt-full-name }} via the API, provide the received parameters:
 
-     * Specify the IAM token in the `Authorization` header.
-     * Specify the folder ID in the `x-folder-id` header.
+     * In the request file, specify the folder ID in the `modelUri` parameter.
+     * In the request, specify the IAM token in the `Authorization` header.
 
      ```json
      Authorization: Bearer <IAM_token>
-     x-folder-id: <folder_ID>
      ```
 
   For information about other API authentication methods, see [{#T}](../api-ref/authentication.md).
@@ -82,7 +81,7 @@ To get started in {{ yandex-cloud }}:
          },
          {
            "role": "user",
-           "text": "Laminate flooring is sutiable for instalation in the kitchen or in a child's room. It withsatnds moisturre and mechanical dammage thanks to a proctive layer of melamine films 0.2 mm thick and a wax-treated interlocking systme."
+           "text": "Laminate flooring is sutiable for instalation in the kitchen or in a child's room. It withsatnds moisturre and mechanical dammage thanks to a 0.2 mm thick proctive layer of melamine films and a wax-treated interlocking systme."
          }
        ]
      }
@@ -101,7 +100,6 @@ To get started in {{ yandex-cloud }}:
        --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --header "x-folder-id: ${FOLDER_ID}" \
        --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/completion"
      ```
@@ -111,7 +109,7 @@ To get started in {{ yandex-cloud }}:
      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
      * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-     In response, the service will return the generated text:
+     In the response, the service will return the generated text:
 
      ```json
      {
@@ -120,7 +118,7 @@ To get started in {{ yandex-cloud }}:
            {
              "message": {
                "role": "assistant",
-               "text": "Laminate flooring is suitable for installation in the kitchen or in a child's room. It withstands moisture and mechanical damage thanks to a protective layer of melamine films 0.2 mm thick and a wax-treated interlocking system."
+               "text": "Laminate flooring is suitable for installation in the kitchen or in a child's room. It withstands moisture and mechanical damage thanks to a 0.2 mm thick protective layer of melamine films and a wax-treated interlocking system."
              },
              "status": "ALTERNATIVE_STATUS_TRUNCATED_FINAL"
            }

@@ -7,7 +7,7 @@ description: In this section, you will learn how to revoke account or group acce
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-{{ sd-name }} [Cloud Infrastructure Entitlement Management (CIEM)](../../concepts/ciem.md) enables you to centrally view a list of [subject](../../../iam/concepts/access-control/index.md#subject) and group accesses for organization [resources](../../../iam/concepts/access-control/resources-with-access-control.md) and revoke them as needed.
+[Cloud Infrastructure Entitlement Management](../../concepts/ciem.md) provides a centralized view of the list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject) and groups and revoke them as needed.
 
 Accesses can be revoked by a user with the `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role, or with the admin role for the [service](../../../overview/concepts/services.md) to whose resource the subject’s access is being revoked.
 
@@ -26,7 +26,7 @@ To revoke a subject's access (role) for a resource:
       If access is assigned to the subject directly (the **{{ ui-key.yacloud_org.iam-bindings.subject.title_group }}** field is left blank):
 
       1. In the row with the access you need, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![person-xmark](../../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.iam-bindings.subject.title_revoke-access-dialog }}**.
-      1. In the window that opens, verify the info about the resource you are revoking access to and select the roles to revoke.
+      1. In the window that opens, verify info on the resource you are revoking access to and select the roles to revoke.
       1. Click **{{ ui-key.yacloud_org.iam-bindings.subject.action_revoke-all }}** (or **Revoke selected** if you left some roles unselected).
 
     - Group-based assignment

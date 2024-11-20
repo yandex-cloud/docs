@@ -51,7 +51,7 @@
 
    {% include [pin-card-data](../_includes/billing/pin-card-data.md) %}
 
-   {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
+   {% include [payment-card-types](../_includes/billing/payment-card-types-business.md) %}
 
    {% note info %}
 

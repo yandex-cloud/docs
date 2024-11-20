@@ -1,0 +1,1 @@
+A scope is the total of the actions a service account is allowed to perform with the service's resources. A service can have more than one scope. You cannot use an API key with a specified scope in other services or scopes.

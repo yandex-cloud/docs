@@ -3,7 +3,7 @@
 
 #### Introduction {#intro}
 
-[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in the {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
+[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
 
 The user is responsible for all actions made inside the {{ k8s }} node. The user is responsible for the security of the nodes and their proper setup in accordance with PCI DSS requirements and other security standards.
 
@@ -150,7 +150,7 @@ Using {{ container-registry-name }} to store images will also provide centralize
 
 * [Guide on scheduled scanning of Docker images](../../../container-registry/operations/scanning-docker-image.md#scheduled).
 
-#### 9.8 One of the three latest {{ k8s }} versions is used with update monitoring {#version-update}
+#### 9.8 One of the three latest {{ k8s }} versions is used, updates are monitored {#version-update}
 
 For {{ k8s }}, both automatic and manual updates are available for [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../../managed-kubernetes/concepts/index.md#node-group). You can request a manual update of the {{ k8s }} cluster or its nodes to the latest supported [version](../../../managed-kubernetes/concepts/release-channels-and-updates.md) at any time. Manual updates bypass any configured maintenance windows and maintenance exceptions. {{ k8s }} issues updates in a regular manner. To meet the Information Security standards:
 

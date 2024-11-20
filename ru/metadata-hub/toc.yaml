@@ -53,7 +53,7 @@ items:
           - name: Схемы
             items:
               - name: Загрузка схемы в новый субъект
-                href: operations/create-subject.md
+                href: operations/upload-schema-to-subject.md
               - name: Добавление схемы в существующий субъект
                 href: operations/add-schema.md
               - name: Удаление схемы
@@ -62,6 +62,8 @@ items:
                 href: operations/compare-schemas.md
           - name: Субъекты
             items:
+              - name: Создание субъекта
+                href: operations/create-subject.md
               - name: Изменение субъекта
                 href: operations/update-subject.md
               - name: Удаление субъекта

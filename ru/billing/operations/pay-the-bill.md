@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
 
-    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
 

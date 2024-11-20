@@ -130,7 +130,7 @@ To manage parameter values on the dashboard, [create a selector](../dashboard/ad
 
 ### Intervals {#params-interval}
 
-The `date-interval` and the `datetime-interval` type parameters can be used in query code only with the `_from` and `_to` postfixes. For example, for the `interval` parameter with the `2017-01-01 — 2019-12-31` value, you should specify:
+The `date-interval` and the `datetime-interval` type parameters can be used in query code only with the `_from` and `_to` postfixes. For example, for the `interval` parameter set to `2017-01-01 — 2019-12-31`, specify:
 
 * `interval_from` to get the start of the interval (`2017-01-01`).
 * `interval_to` to get the end of the interval (`2019-12-31`).
@@ -154,7 +154,7 @@ Parameter values from a selector arrive to a QL chart as a:
 * Single value if one element is selected.
 * [Tuple](https://docs.python.org/3/library/stdtypes.html#tuples) if multiple values are selected.
 
-If the query has the `in` operator before a parameter, the substituted value is always converted into a tuple. A query like this will run correctly if you select one or more values.
+If a query for {{ CH }} or {{ PG }} connections has the `in` operator before a parameter, the substituted value is always converted into a tuple. In the case of other connections, there is no automatic conversion. A query with the `in` operator will run correctly if you select one or more values.
 
 {% cut "Example of a query with `in`" %}
 

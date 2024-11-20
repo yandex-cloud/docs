@@ -2,7 +2,7 @@
 
 Businesses and individual entrepreneurs can top up their personal accounts and pay for consumed resources using a corporate bank card linked to the billing account.
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 

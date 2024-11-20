@@ -20,7 +20,7 @@ Audio features in this format:
   | [Speech synthesis API v1](tts/index.md) | 8, 16, or 48 kHz |
   | [Speech synthesis API v3](tts-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
   | [Speech recognition API v2](stt/index.md) | 8, 16, or 48 kHz |
-  | [Speech recognition API v3](stt-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
+  | [Speech recognition API v3](stt-v3/api-ref/grpc/index.md) | 8, 16, or 48 kHz |
 
 * Bit depth: 16 bit.
 * Byte order: Reversed (little-endian).

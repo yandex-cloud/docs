@@ -5,6 +5,17 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## September — October 2024 {#sept-oct-2024}
+
+### Updates {#updates}
+
+* Added [validation error handler](concepts/extensions/validator.md#errorhandler) support.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Enhanced the [{{ yagpt-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
+* Updated [integration with {{ objstorage-full-name }}](operations/spec-constructor/object-storage.md): changed the logic of managing the response code returned if a queried object is not in the specified bucket.
+
 ## August 2024 {#august-2024}
 
 ### Updates {#updates}
@@ -37,7 +48,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 * Updates to the [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) extension:
     * Added an alternative name for the `scopes` parameter: `scp`.
-    * Added the option of selecting the array data type for one of the `scopes`/`scp` objects.
+    * Added an option to select the array data type for one of the `scopes`/`scp` objects.
 * Added support for automatically sending the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
 
 ### Fixes and improvements {#fixes-improvements}
@@ -50,7 +61,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 * Added the `default_object` parameter to the OpenAPI specification extension for [integration with {{ objstorage-full-name }}](concepts/extensions/object-storage.md).
 * Added parameter substitution support to `error_object` and `default_object` in the OpenAPI specification extension for integration with {{ objstorage-full-name }}.
-* Added support for provision of the `Via` and `Www-Authenticate` headers from integration responses.
+* Added support for provision of the `Via` and `Www-Authenticate` headers from integrations' responses.
 * Added support for automatic sending of an integration response to a web socket within the `x-yc-apigateway-websocket-connect` [operation](concepts/extensions/websocket.md#connect).
 
 ## January – February 2024 {#jan-feb-2024}

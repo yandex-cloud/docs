@@ -44,7 +44,6 @@ For clusters in [tunnel mode](network-policy.md#cilium), the following subnet ra
 * `10.0.0.0/8`
 * `172.16.0.0/12`
 * `192.168.0.0/16`
-* `100.64.0.0/10`
 
 {% note info %}
 

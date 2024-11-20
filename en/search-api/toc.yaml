@@ -2,47 +2,63 @@ title: Search API
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
-  - name: Step-by-step guides
     items:
-      - name: How to activate
-        href: operations/workaround.md
-      - name: Query testing
-        href: operations/test-request.md
-      - name: Authentication with the API
-        href: operations/auth.md
-      - name: Requesting limits
-        href: operations/request-limits.md
-      - name: Performing search queries in synchronous mode
-        href: operations/searching.md
-      - name: Performing search queries in deferred mode
-        href: operations/web-search.md
-      - name: Mobile search results
-        href: operations/mobile.md
+      - name: Overview
+        href: quickstart/index.md
+      - name: Getting started with API v1
+        href: quickstart.md
+      - name: Getting started with API v2
+        href: quickstart/v2.md
+  - name: Step-by-step guide
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: API v1
+        items:
+          - name: General connection procedure
+            href: operations/workaround.md
+          - name: Query testing
+            href: operations/test-request.md
+          - name: Authentication with the API
+            href: operations/auth.md
+          - name: Requesting limits
+            href: operations/request-limits.md
+          - name: Performing search queries
+            href: operations/searching.md
+          - name: Mobile search results
+            href: operations/mobile.md
+      - name: API v2
+        items:
+          - name: Performing search queries
+            href: operations/web-search.md
   - name: Concepts
     items:
-      - name: About {{ search-api-name }}
+      - name: Overview
         href: concepts/index.md
-      - name: Text search
+      - name: API v1
         items:
-          - name: GET requests
-            href: concepts/get-request.md
-          - name: POST requests
-            href: concepts/post-request.md
-          - name: XML response
-            href: concepts/response.md
-          - name: HTML response
-            href: concepts/html-response.md
-          - name: Generative response
-            href: concepts/generative-response.md
-      - name: Searching by images
+          - name: Text search
+            items:
+              - name: GET requests
+                href: concepts/get-request.md
+              - name: POST requests
+                href: concepts/post-request.md
+              - name: HTML response
+                href: concepts/html-response.md
+              - name: Generative response
+                href: concepts/generative-response.md
+          - name: Searching by images
+            items:
+              - name: GET requests
+                href: concepts/pic-search.md
+              - name: Response format
+                href: concepts/pic-response.md
+      - name: API v2
         items:
-          - name: GET requests
-            href: concepts/pic-search.md
-          - name: Response format
-            href: concepts/pic-response.md
-      - name: Deferred mode
-        href: concepts/web-search.md
+          - name: Text search
+            href: concepts/web-search.md
+      - name: XML response
+        href: concepts/response.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -51,7 +67,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication with the API v2
+      - name: Authentication in API v2
         href: api-ref/authentication.md
       - name: API v2
         items:

@@ -5,6 +5,17 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 # {{ metadata-hub-full-name }} release notes: 2024
 
+## October {#october}
+
+### New features {#new-features-october}
+
+* Added a new feature for integrating {{ connection-manager-name }} with [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md): when creating a transfer, you can now use a drop-down list of available connections.
+* {{ schema-registry-name }} now supports authentication with [API keys](../../iam/concepts/authorization/api-key.md) so you no longer need to regularly update your secret for authentication.
+
+### Fixed issues {#problems-solved-october}
+
+* Improved stability when mass creating connections in {{ connection-manager-name }}.
+
 ## September {#september}
 
 ### New features {#new-features-september}
