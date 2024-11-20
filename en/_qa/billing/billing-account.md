@@ -36,6 +36,9 @@ To unblock your new billing account, [upgrade to the paid version](../../billing
 
 You cannot change a billing account type once it is created, but you can [create a new one](../../billing/operations/create-new-account.md).
 
+#### How do I enable a billing threshold? {#credit}
+
+The [billing threshold](../../billing/concepts/billing-threshold.md) gets enabled automatically after you [upgrade to the paid version](../../billing/operations/activate-commercial.md) and the first reporting period ends.
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
@@ -45,12 +48,17 @@ You cannot change a billing account type once it is created, but you can [create
 
 #### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
 
-For your billing account to be activated, you must have your documents and data checked. With that done, your billing account can be activated and you can start using {{ yandex-cloud }}.
-If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
+To enable activating your billing account, we need to verify your documents and data. Once your documents have been verified, you can activate your billing account and start using {{ yandex-cloud }}.
+If you have not received the email by that moment, send a request to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
 
 
+#### I can't link a bank card when creating a billing account. What should I do? {#cant-create}
+
+Most likely, our service does not support your bank card's payment system.
+
+To resolve the issue, try linking a different bank card or, if you are a legal entity, create a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type with the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method.
 
 #### Why do I get an error saying _The country is not available to the payer_ when creating a billing account? {#account-error}
 

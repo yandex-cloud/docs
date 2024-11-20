@@ -1,5 +1,5 @@
 ---
-title: Tutorials for {{ ml-platform-full-name }}
+title: '{{ ml-platform-full-name }} tutorials'
 description: 'Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services.'
 ---
 
@@ -17,6 +17,7 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](video-recognition.md)
 * [{#T}](regular-launch.md)
 * [{#T}](batch-code-execution.md)
+* [{#T}](data-from-ch-geocoder.md)
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
 
@@ -33,6 +34,7 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 ## Analytics {#analytics}
 
 * [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](data-from-appmetrica-yc-visualization.md)
 * [{#T}](yq.md)
 * [{#T}](yq-storage.md)
 * [{#T}](yq-clickhouse.md)

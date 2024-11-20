@@ -18,3 +18,6 @@ description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
 * [{#T}](speechkit-integrarion-via-agi-gw.md)
+* [{#T}](deploy-app-container.md)
+* [{#T}](serverless-url-shortener.md)
+* [{#T}](data-ingestion.md)

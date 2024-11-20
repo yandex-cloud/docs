@@ -14,7 +14,7 @@ For more information, see [How to pay for resources](../../billing/payment/index
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
 #### What cards are accepted for payment? {#card-types}
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
 Depending on the currency, the minimum payment amount is:
@@ -75,7 +75,7 @@ For more information, see [Pricing](../../billing/pricing.md).
 #### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
 
-You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you signed the contract with, you can find more details in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
+You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you signed the agreement with, you can find more details in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
  If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}

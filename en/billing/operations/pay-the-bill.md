@@ -27,11 +27,11 @@ To top up your personal account:
 
 - {{ billing-interface }} {#billing}
 
-   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-   1. Select a billing account.
-   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-   1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-   1. Enter your card details and click **Pay**.
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select a billing account.
+  1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. Enter your card details and click **Pay**.
 
 {% endlist %}
 
@@ -49,34 +49,34 @@ To top up your personal account:
 1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. This button is only available after [switching to paid consumption](activate-commercial.md).
 1. Select a payment method:
 
-{% list tabs group=payments %}
+  {% list tabs group=payments %}
 
-- Bank transfer {#transfer}
+   - Wire transfer {#transfer}
 
-   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+     Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
-   The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
+     The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
 
-   Before paying, please make sure the following is correct in your payment order:
-   * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russia), Cloud Services Kazakhstan LLP (Kazakhstan), Iron Hive doo Beograd (Serbia) or Direct Cursus Technology L.L.C. (Dubai) for non-residents of Russia and Kazakhstan.
+     Before paying, please make sure the following is correct in your payment order:
+     * Payment amount.
+     * Banking details of Yandex.Cloud LLC (for Russia), Cloud Services Kazakhstan LLP (for Kazakhstan), Iron Hive doo Beograd (Serbia), or Direct Cursus Technology L.L.C. (Dubai) (for non-resients of Russia and Kazakhstan).
 
-     {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
-     
-   * Your company or individual entrepreneur TIN.
-   * [Personal account number](../concepts/personal-account.md#id) in the payment details.
-   * [Contract number](../concepts/contract.md) in the payment details.
+       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
 
-   [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
+     * Your company or individual entrepreneur TIN.
+     * [Account number](../concepts/personal-account.md#id) in the payment purpose.
+     * [Agreement number](../concepts/contract.md) in the payment purpose.
 
-   {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
+     [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
 
-- Bank card {#card}
+     {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
+  - Credit or debit card {#card}
 
-   {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
 
-   Your payment will be processed in real time and completed within 15 minutes.
+    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
-{% endlist %}
+    Your payment will be processed in real time and completed within 15 minutes.
+
+  {% endlist %}

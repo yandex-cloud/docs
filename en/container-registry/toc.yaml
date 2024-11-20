@@ -112,6 +112,8 @@ items:
         href: tutorials/fault-tolerance.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
+        href: tutorials/deploy-app-container.md
   - name: Concepts
     items:
       - name: Overview

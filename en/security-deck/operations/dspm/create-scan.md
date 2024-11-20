@@ -7,7 +7,7 @@ description: Follow this guide to create scans in the {{ sd-full-name }} DSPM mo
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-DSPM scans [data sources](../../concepts/dspm.md#data-source) to detect sensitive information in buckets.
+[Data Security Posture Management](../../concepts/dspm.md) (DSPM) scans [data sources](../../concepts/dspm.md#data-source) to identify sensitive information in buckets.
 
 To create a scan:
 

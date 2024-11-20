@@ -1,8 +1,15 @@
+---
+title: XML response format for image search in {{ search-api-full-name }}
+description: This article describes the XML format of a response returned by {{ search-api-name }} for an image search query.
+---
+
 # Image search response format
 
-In response to an image search query, {{ search-api }} returns an XML file encoded in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) containing the search results.
+In response to an image search query, {{ search-api }} returns a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with the search results.
 
 XML files consist of the [request](#request-el) (aggregate information on search query parameters) and [response](#response-el) (search query handling results) grouping tags.
+
+Currently, image search is only available for queries received via [API v1](./index.md#api-v1).
 
 Below is the general structure of the resulting XML document with examples of values.
 
@@ -25,7 +32,7 @@ Below is the general structure of the resulting XML document with examples of va
    <found priority="phrase">11132</found>
    <found priority="strict">11132</found>
    <found priority="all">11132</found>
-   <found-human>11,000 responses found</found-human>
+   <found-human>11 thousand results found</found-human>
    <results>
       <grouping attr="ii" mode="deep" groups-on-page="1" docs-in-group="1" curcateg="-1">
          <page first="1" last="1">2</page>
@@ -63,7 +70,7 @@ Below is the general structure of the resulting XML document with examples of va
          <found-docs priority="phrase">8432</found-docs>
          <found-docs priority="strict">8432</found-docs>
          <found-docs priority="all">8432</found-docs>
-         <found-docs-human>8,000 responses found</found-docs-human>
+         <found-docs-human>8 thousand results found</found-docs-human>
       </grouping>
    </results>
 </response>
@@ -78,27 +85,27 @@ The `request` group provides aggregate information about request parameters. It 
 ### request {#request-el}
 
 #|
-|| **`request` group tags** | **Description** | **Attributes** ||
-|| query | Text of the sent search query | N/A ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (the `0` value stands for page 1). | N/A ||
-|| sortby |
-Result sorting parameters. Service tag, sets to `rlv`: sorting by relevance.
-|
-* `order`: Sorting order. Service attribute, sets to `descending` (direct sorting order).
-* `priority`: Service attribute which takes the `no` value.
+|| **Request group tags** | **Description** | **Attributes** ||
+|| query | Search query text | None ||
+|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1). | None ||
+|| sortby | 
+Result sorting parameters. Service tag, takes the `rlv` value: sorting by relevance.
+| 
+* `order`: Sorting order. Service attribute, takes the `descending` value (direct sorting order).
+* `priority`: Service attribute. Takes the `no` value.
 ||
-|| maxpassages | Maximum number of text snippets generated for each image. Service tag, sets to `1`. | Missing||
-|| groupings |
+|| maxpassages | Maximum number of text snippets generated for image. Service tag, takes the `1` value. | None||
+|| groupings | 
 Grouping tag.
 
-Contains grouping parameters in the `groupby` tag.
-| Missing ||
-|| groupby | Parameters for grouping found search results |
-* `attr`: Service attribute, sets to `ii`.
-* `mode`: Grouping method. Service attribute, sets to `deep`.
-* `groups-on-page`: Maximum number of search result groups that can be returned per results page. If the attribute is not specified, the default value is `20`.
-* `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, sets to `1`.
-* `curcateg`: Service attribute. Sets to `-1`.
+It contains grouping parameters in the `groupby` tag. 
+| None ||
+|| groupby | Parameters for grouping the search results. | 
+* `attr`: Service attribute, takes the `ii` value.
+* `mode`: Grouping method. Service attribute, takes the `deep` value.
+* `groups-on-page`: Maximum number of search result groups that can be returned per page. If the attribute is not specified, the default value is `20`.
+* `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, takes the `1` value.
+* `curcateg`: Service attribute. Takes the `-1` value.
 ||
 |#
 
@@ -106,7 +113,7 @@ Contains grouping parameters in the `groupby` tag.
 
 Results of processing the search query, information about which is provided in the [request](#request-el) tag.
 
-It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>T<hour><minute><second>` format.
+It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format.
 
 This group consists of the following sections:
 
@@ -120,122 +127,122 @@ The table below lists the tags used in the appropriate section.
 #|
 || **Tags for general information about search results** | **Description** | **Attributes** ||
 || error |
-Error description.
+Error description 
 
 Used only if a search query is handled incorrectly (e.g., if the query is empty or parameters are incorrect).
 
-In some cases, the tag is mutually exclusive with other tags of the `response` grouping tag.
-| `code`: Error [code](../reference/error-codes.md) ||
-|| reqid | Unique ID of the query | Missing ||
-|| found | Estimate of the number of images found in response to the query
-|
-`priority`: Service attribute. The possible values include:
+In some cases, it is mutually exclusive with other tags of the `response` grouping tag.
+| `code`: Error [code](../reference/error-codes.md). ||
+|| reqid | Unique query ID | None ||
+|| found | Estimate of the number of images found in response to the query.
+| 
+`priority`: Service attribute. The possible values are:
 
 * `phrase`
 * `strict`
 * `all`
 ||
-|| found-human | String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information. | Missing ||
+|| found-human | String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information. | None ||
 |#
 
 
-#### results {#results-block}
+#### `results` section {#results-block}
 
-This section is optional and only used if any results are found for a query.
+This is an optional tag and only used if any results are found for a query.
 
 The table below lists the tags for this section.
 
 #|
-|| **`results` section tags** | **Description** | **Attributes**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ||
-|| results | Grouping tag. Child tags contain information about search parameters and found images. | Missing ||
-|| grouping |
+|| **`results` section tags** | **Description** | **Attributes** ||
+|| results | Grouping tag. Child tags contain information about search parameters and found images. | None ||
+|| grouping | 
 
 Grouping tag. Child tags contain information about search parameters and found images.
 
-|
-Attributes show rules for grouping the found images.
+| 
+Attributes reflect the grouping rules for images.
 
-* `attr`: Service attribute, sets to `ii`.
-* `mode`: Grouping method. Service attribute, sets to `deep`.
-* `groups-on-page`: Maximum number of search result groups that can be returned per results page. If the parameter is not specified, the default value is `20`.
-* `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, sets to `1`.
-* `curcateg`: Service attribute. Sets to `-1`.
+* `attr`: Service attribute, takes the `ii` value.
+* `mode`: Grouping method. Service attribute, takes the `deep` value.
+* `groups-on-page`: Maximum number of search result groups that can be returned per page. If not specified, the default value is `20`.
+* `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, takes the `1` value.
+* `curcateg`: Service attribute. Takes the `-1` value.
 ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (the `0` value stands for page 1).
-|
+|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1).
+| 
 * `first`: Number of the first group with search results displayed on the page.
 * `last`: Number of the last group with search results displayed on the page.
 ||
-|| group |
+|| group | 
 Grouping tag.
 
 Each `group` tag contains information about one group of found images. Since each group of images contains one image, the tag provides information about one image.
-| Missing
+| None
 ||
-|| categ | Description of the found image |
-* `attr`: Group name. Matches the value of the `attr` attribute of the `groupby` tag of the `request` element.
-* `id`: ID of the image host
+|| categ | Description of the found image | 
+* `attr`: Grouping name. Same as the `attr` attribute value under the `groupby` tag in the `request` element.
+* `id`: ID of the image host.
 ||
-|| doccount | Service tag | Missing ||
-|| relevance | Service tag |`priority`: Service attribute ||
-|| doc |
+|| doccount | Service tag | None ||
+|| relevance | Service tag | `priority`: Service attribute. ||
+|| doc | 
 Grouping tag.
 
-Each `doc` tag contains information about one found image.
+Each `doc` tag contains information about one of the found images.
 
 | `id`: Unique ID of the found image
 ||
-|| relevance | Service tag |`priority`: Service attribute ||
-|| url | Image address | Missing ||
-|| domain | Domain that hosts the document containing the image | Missing ||
-|| modtime | Date and time the image was modified in `<year><month><day>T<hour><minute><second>` format in UTC | Missing ||
-|| size | Image size in bytes | Missing ||
-|| charset | Encoding of the document containing the image | Missing ||
-|| image-properties |
+|| relevance | Service tag | `priority`: Service attribute. ||
+|| url | Image address | None ||
+|| domain | Domain that hosts the document containing the image | None ||
+|| modtime | Image modification date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format | None ||
+|| size | Image size in bytes | None ||
+|| charset | Encoding of the document containing the image | None ||
+|| image-properties | 
 Grouping tag.
 
 Contains information about the image properties to include in search results.
 
-| Missing
+| None
 ||
-|| id | Image thumbnail ID | Missing ||
-|| shard | Number of the shard containing the image information | Missing ||
-|| thumbnail-link | Image thumbnail address | Missing ||
-|| thumbnail-width | Width of the image thumbnail in pixels | Missing ||
-|| thumbnail-height | Height of the image thumbnail in pixels | Missing ||
-|| original-width | Width of the source (original) image | Missing ||
-|| original-height | Height of the source (original) image | Missing ||
-|| html-link | Image page address | Missing ||
-|| image-link | Image address | Missing ||
-|| file-size | Image size in bytes | Missing ||
-|| mime-type | Image format (JPG, GIF, or PNG) | Missing ||
-|| mime-type | Format of the document containing the image | Missing ||
-|| found | Estimate of the number of generated groups |
-`priority`: Service attribute. The possible values include:
+|| id | Image thumbnail ID | None ||
+|| shard | Number of the shard containing the image information | None ||
+|| thumbnail-link | Image thumbnail address | None ||
+|| thumbnail-width | Width of the image thumbnail in pixels | None ||
+|| thumbnail-height | Height of the image thumbnail in pixels | None ||
+|| original-width | Width of the source (original) image | None ||
+|| original-height | Height of the source (original) image | None ||
+|| html-link | Image page address | None ||
+|| image-link | Image address | None ||
+|| file-size | Image size in bytes | None ||
+|| mime-type | Image format (JPG, GIF, or PNG) | None ||
+|| mime-type | Format of the document containing the image | None ||
+|| found | Estimate of the number of generated groups | 
+`priority`: Service attribute. The possible values are:
 
 * `phrase`
 * `strict`
 * `all`
 ||
-|| found-docs |
+|| found-docs | 
 
 Estimate of the number of images found in response to the query.
 
-It is a more accurate estimate as compared to the value provided in the `found` tag of the [general information about search results](#basic-search-info).
+It is a more accurate estimate as compared to the value provided in the `found` tag of the section with [general information about search results](#basic-search-info).
 
-|
-`priority`: Service attribute. The possible values include:
+| 
+`priority`: Service attribute. The possible values are:
 
 * `phrase`
 * `strict`
-* `all`
+* `all`.
 ||
-|| found-docs-human |
-String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information.
+|| found-docs-human | 
+A string in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information.
 
 The value being provided must be used when generating search results.
 
-| Missing
+| None
 ||
 |#
 

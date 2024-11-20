@@ -467,19 +467,19 @@ yc container registry configure-docker
                         name: http
       ---
       apiVersion: v1
-        kind: Service
-        metadata:
-          name: service-hello
-        spec:
-          selector:
-            run: hello-nginx
-          type: NodePort
-          ports:
-            - name: http
-              port: 80
-              targetPort: 80
-              protocol: TCP
-              nodePort: 30080
+      kind: Service
+      metadata:
+        name: service-hello
+      spec:
+        selector:
+          run: hello-nginx
+        type: NodePort
+        ports:
+          - name: http
+            port: 80
+            targetPort: 80
+            protocol: TCP
+            nodePort: 30080
       ```
 
       Где:

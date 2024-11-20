@@ -13,13 +13,13 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
 * **Transparent data handling**. The [Access Transparency](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
 
-* **Comprehensive data protection**. The [Data Security Posture Management (DSPM)](./dspm.md) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) to promptly do what is takes to protect it from unauthorized access or leaks.
+* **Comprehensive data protection**. The [Data Security Posture Management](./dspm.md) (DSPM) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks.
 
-* **User access management**. The [Cloud Infrastructure Entitlement Management (CIEM)](./ciem.md) module allows you to manage user [access](../../iam/concepts/access-control/index.md) to diverse company resources with full control over who has access to which data, and what actions are allowed with that data.
+* **User access management**. The [Cloud Infrastructure Entitlement Management](./ciem.md) (CIEM) module allows you to manage user [access](../../iam/concepts/access-control/index.md) to diverse corporate resources with full control over who has access to which data, and what actions are allowed with that data.
 
     One of the fundamental principles of [{{ iam-full-name }}](../../iam/index.yaml) is that of least privilege, where users get only the access permissions they need to perform their job duties.
 
-    Cloud Infrastructure Entitlement Management (CIEM) implements this principle and helps to ensure:
+    The CIEM module implements this principle and helps to ensure:
 
     * Data security by managing user access to company resources.
     * Prevention of unauthorized access to sensitive information.

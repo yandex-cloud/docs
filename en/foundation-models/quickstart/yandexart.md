@@ -20,7 +20,7 @@ To get started in {{ yandex-cloud }}:
 
 - API {#api}
 
-  To run sample requests using the API, install:
+  To run examples of requests using the API, install:
 
   * [cURL](https://curl.haxx.se) to send API requests
   * [jq](https://github.com/jqlang/jq) utility to work with JSON files
@@ -75,7 +75,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      "messages": [
        {
          "weight": "1",
-         "text": "a pattern of pastel colored succulents of various sorts, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
+         "text": "a pattern of pastel colored succulents of multiple varieties, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
        }
      ]
      }
@@ -94,10 +94,10 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      ```
 
      Where:
-
+ 
      * `<IAM_token_value>`: IAM token you got for your account.
      * `prompt.json`: JSON file with request parameters.
-
+     
      The service will return the ID of your request in response:
 
      ```json
@@ -106,7 +106,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      ```
 
   1. Generating an image takes some time. Wait for 10 seconds and send your request to get the generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`.
-
+  
      ```bash
      curl \
        --request GET \
@@ -117,8 +117,8 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
 
      Where:
 
-     * `<IAM_token_value>`: IAM token you got [before you started](#before-begin).
-     * `<request_ID>`: The `id` field value obtained in response to the generation request.
+     * `<IAM_token_value>`: IAM token you obtained [when getting started](#before-begin).
+     * `<request_ID>`: `id` field value obtained in response to the generation request.
 
 
      **Result**:

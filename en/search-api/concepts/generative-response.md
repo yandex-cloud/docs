@@ -1,3 +1,8 @@
+---
+title: '{{ search-api-full-name }}''s generative response to a text query'
+description: This article describes the format {{ search-api-name }}'s generative response to a text query.
+---
+
 # Generative response
 
 You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites.
@@ -5,6 +10,8 @@ You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](.
 {% include [note-preview-by-request](../../_includes/note-preview.md) %}
 
 To get access to the generative response feature, fill out [this form](#contact-form) or contact your account manager.
+
+Currently, generative response is only available for queries submitted via the [API v1](./index.md#api-v1).
 
 ## Search query {#request}
 
@@ -208,7 +215,7 @@ Here is an example of a generative response with website limitation:
 ```json
 {
   "message": {
-      "content": "The cost of using {{ search-api-name }} **is calculated based on the number of search queries initiated within a calendar month**. [1]\n\n**Cost per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: free of charge. [1]\n- Night-time queries, over 1,000 requests per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 queries per month (1,000 queries per day) for all new users. [1]\n\nPrices may differ from region to region, and payment currency depends on the legal entity the user has an agreement with. [1]",
+      "content": "The cost of {{ search-api-name }} **is calculated based on the number of search queries initiated within a calendar month**. [1]\n\n**Price per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: free of charge. [1]\n- Night-time queries, over 1,000 requests per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 requests per month (1,000 requests per day) for all new users. [1]\n\nPrices may differ from region to region, and payment currency depends on the legal entity the user signed the agreement with. [1]",
       "role": "assistant"
   },
   "links": [
@@ -240,7 +247,7 @@ Based on the query and search results, {{ search-api-name }} may include the fol
 * If no relevant documents were found:
 
     > **No results found.**
-    > Please rephrase your query or ask something else.
+    > Rephrase your query or ask something else.
 
 * If {{ search-api-name }} has found the relevant source documents but was unable to extract information:
 

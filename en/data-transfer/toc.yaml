@@ -205,6 +205,8 @@ items:
             href: tutorials/yds-to-objstorage.md
           - name: '{{ DS }} to {{ OS }}'
             href: tutorials/trails-to-os.md
+          - name: Entering data into storage systems
+            href: tutorials/data-ingestion.md
       - name: Uploading data to data marts
         items:
           - name: '{{ GP }} to {{ CH }}'

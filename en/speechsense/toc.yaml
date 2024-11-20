@@ -17,9 +17,9 @@ items:
             items:
               - name: Overview
                 href: operations/data/search-data.md
-              - name: Data search via the gRPC API
+              - name: Searching data via the gRPC API
                 href: operations/data/search-data-grpc.md
-              - name: Data search via the REST API
+              - name: Searching data via the REST API
                 href: operations/data/search-data-rest.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
@@ -49,7 +49,7 @@ items:
             href: operations/project/create.md
           - name: Adding a user to a project
             href: operations/project/add-user-to-project.md
-          - name: Delete project
+          - name: Deleting a project
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
@@ -95,6 +95,8 @@ items:
             href: concepts/reports/neuro-parameters.md
       - name: Supported audio formats
         href: concepts/formats.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: API reference
     items:
       - name: Authentication with the API

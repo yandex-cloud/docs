@@ -1,8 +1,13 @@
-# Requesting limits for the day
+---
+title: Getting limits on the number of requests to {{ search-api-full-name }} via API v1
+description: Follow this guide to get information about the limits on the number of requests you can send to {{ search-api-name }} via API v1 in the next 24 hours.
+---
 
-Returns information about [limits](../concepts/limits.md) on the number of queries that can be sent hourly.
+# Requesting limits for the next 24 hours
 
-The [response](#limit-response-format) contains information for each of the next 24 hours.
+You can use [API v1](../concepts/index.md#api-v1) to request information about [limits](../concepts/limits.md) on the number of requests to {{ search-api-name }}.
+
+The [response](#limit-response-format) contains information about the limit for each hour during the next 24 hours.
 
 ## Request format {#limit-request-format}
 
@@ -18,9 +23,9 @@ Where:
 * `folderid`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are using to work with {{ search-api }}.
 * `apikey`: [API key](../../iam/concepts/authorization/api-key.md) of the service account in this folder. You can [create](../../iam/operations/api-key/create.md) an API key in the management console interface. The value of an API key is displayed only once when it is being created.
 
-### Sample request {#query-request}
+### Request example {#query-request}
 
-The following request returns information about hourly limits on the number of search queries that can be sent by the user in the next 24 hours:
+The following request returns information about hourly limits on the number of search queries the user can submit in the next 24 hours:
 
 ```bash
 https://yandex.ru/search/xml?action=limits-info&folderid=b1g8oateeanu********&apikey=AQVN1kJ7f_1dHwW_Ert6p8357XJgzuKEpW********
@@ -36,7 +41,7 @@ If the allowed number of queries during one of the hours is exceeded, queries in
 
 {% endnote %}
 
-Below, you can find a general structure of a resulting XML document with sample values.
+Below is the general structure of the resulting XML document with examples of values.
 
 
 ```xml
@@ -75,23 +80,23 @@ Below, you can find a general structure of a resulting XML document with sample 
 
 #|
 || **Tag** | **Description** | **Attributes** ||
-|| response | Grouping | Missing. ||
-|| limits |
-Grouping.
+|| response | This is a grouping tag. |None ||
+|| limits | 
+This is a grouping tag.
 
-Contains records about hourly limits on the allowed number of search queries
-| Missing. ||
-|| time-interval |
-Number of search queries that can be sent within a given interval.
+Contains records about hourly limits on allowed number of search requests.
+| None ||
+|| time-interval | 
+Number of search requests you can send during a given time interval.
 
-The interval boundaries are defined by respective attributes.|
-- `from`: Limit's interval start date and time (inclusive).
-- `to` Limit's interval end date and time (not inclusive).
+The interval boundaries are defined by attributes.| 
+- `from`: Limit interval start date and time (inclusive).
+- `to`: Limit interval end date and time (not inclusive).
 
 Attribute data format:
 
 ```no-highlight
-YYYY-MM-DD HH:MM:SS +HHMM
+YYYY-MM-DD HH:MM:SS +HHMM 
 ```
 
 `HHMM` sets an event offset from UTC+0.

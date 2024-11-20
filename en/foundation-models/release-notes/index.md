@@ -5,9 +5,21 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 01/11/2024 {#011124}
+
+1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed according to the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
+1. Increased the {{ yandexart-name }} quotas for the number of generation requests per minute and full day (24 hours).
+1. Increased the {{ yagpt-name }} quota for the number of concurrent generations. For information on the restrictions in place, refer to [{#T}](../concepts/limits.md).
+1. Starting December 1, 2024, the test version (`RC` branch) of the {{ yagpt-name }} model will be the main version (`Latest` branch), while the current version will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
+
+## Release as of 24/10/2024 {#241024}
+
+1. The {{ yagpt-name }} 4th generation model is available for testing (`RC` branch). Compared to the previous generation of models, this model's request response speed has increased by an average of 2.5 times. In addition, the maximum context that the model operates on has increased. In asynchronous mode, 4th generation models can process up to 32,000 tokens. And the {{ gpt-pro }} 32k model has been added to handle large contexts in synchronous mode. For more information on model limitations, see [{#T}](../concepts/limits.md).
+1. Increased the maximum number of tokens per response in the management console.
+
 ## Release as of 10/10/24 {#101024}
 
-Updated the {{ yandexart-name }} model: The updated version has better understanding of requests, considers more details, and can generate text in Latin characters on the image.
+Updated the {{ yandexart-name }} model. The updated version has better understanding of requests, considers more details, and can generate text in Latin characters on the image.
 
 ## Release as of 21/06/24 {#210624}
 

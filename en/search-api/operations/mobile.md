@@ -1,6 +1,11 @@
+---
+title: How to get mobile search results using {{ search-api-full-name }}'s API v1
+description: In this tutorial, you will learn how to get a mobile search results file using {{ search-api-name }}'s API v1.
+---
+
 # Getting mobile search results
 
-Mobile search results differ from default search results by the ranking formula and presence of links to websites optimized for mobile devices.
+Mobile search results differ from default search results by the ranking formula and presence of links to websites optimized for mobile devices. You can only get mobile search results using {{ search-api-name }}'s [API v1](../concepts/index.md#api-v1) interface.
 
 To get mobile search results, add the `user-agent` header with the device and browser specification. For example, for the `query=youtube` search query:
 

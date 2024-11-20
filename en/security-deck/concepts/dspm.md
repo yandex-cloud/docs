@@ -5,7 +5,7 @@ description: Data Security Posture Management (DSPM) is a {{ sd-name }} module t
 
 # Data Security Posture Management (DSPM)
 
-[Data Security Posture Management, or DSPM]({{ link-sd-main }}dspm/), is a tool that helps to quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and take timely action to protect it against unauthorized access or leaks (configure [access policies](../../storage/concepts/policy.md), anonymize data, etc.).
+[Data Security Posture Management]({{ link-sd-main }}dspm/), or DSPM, is a tool that helps to quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks (configure [access policies](../../storage/concepts/policy.md), anonymize data, etc.).
 
 With proper integration, DSPM can work in leak prevention mode, blocking the sharing or saving of confidential information.
 

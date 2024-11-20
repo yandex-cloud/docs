@@ -20,55 +20,55 @@ Prepare the infrastructure:
       * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
       * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
-      {% note tip %}
+     {% note tip %}
 
-      You can use the same service account for both operations.
+     You can use the same service account for both operations.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources, nodes, and security groups.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes as well as the security group.
 
-   1. [Create a log group](../../logging/operations/create-group.md).
+  1. [Create a log group](../../logging/operations/create-group.md).
 
 - {{ TF }} {#tf}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/k8s-cluster-with-log-group.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory.
+  1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Download the [file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+  1. Download the [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/k8s-cluster-with-log-group.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory.
 
-      This file describes:
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
-      * {{ managed-k8s-name }} cluster.
-      * {{ managed-k8s-name }} node group.
-      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
-      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+     This file describes:
+     * [Network](../../vpc/concepts/network.md#network).
+     * [Subnet](../../vpc/concepts/network.md#subnet).
+     * {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
+     * {{ managed-k8s-name }} cluster.
+     * {{ managed-k8s-name }} node group.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
+     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+     
+  1. Specify the following in the configuration file:
+     * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+     * [{{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) version for the {{ managed-k8s-name }} cluster and node groups.
+     * Name of the service account for {{ managed-k8s-name }} resources and nodes.
+     * {{ cloud-logging-name }} log group name.
+  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-   1. Specify the following in the configuration file:
-      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
-      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
-      * {{ cloud-logging-name }} log group name.
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+     ```bash
+     terraform validate
+     ```
 
-      ```bash
-      terraform validate
-      ```
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Create the required infrastructure:
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Create the required infrastructure:
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -78,70 +78,72 @@ Prepare the infrastructure:
 
 - Using {{ yandex-cloud }}
 
-   Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md). In the application settings, specify the ID of the [log group](../../logging/concepts/log-group.md) you [created earlier](#before-you-begin). You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
+  Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md). In the application settings, specify the ID of the [log group](#before-you-begin) you [created earlier](../../logging/concepts/log-group.md). You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
 
 - Manually
 
-   1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-   1. Create the objects required for Fluent Bit to run:
+  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+  1. Create the objects required for Fluent Bit to run:
 
-      ```bash
-      kubectl create namespace logging && \
-      kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
-      kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
-      kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
-      ```
+     ```bash
+     kubectl create namespace logging && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
+     ```
 
-   1. Create a secret containing the key of the [service account](../../iam/concepts/users/service-accounts.md):
+  1. Create a secret containing the key of the [service account](../../iam/concepts/users/service-accounts.md):
 
-      ```bash
-      kubectl create secret generic secret-key-json \
-        --from-file=key.json \
-        --namespace logging
-      ```
+     ```bash
+     kubectl create secret generic secret-key-json \
+       --from-file=key.json \
+       --namespace logging
+     ```
 
-   1. Download the `config.yaml` configuration file:
+  1. Download the `config.yaml` configuration file:
 
-      ```bash
-      wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
-      ```
+     ```bash
+     wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
+     ```
 
-   1. Enter the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
+  1. Specify the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
 
-      ```yaml
-      ...
-        output-elasticsearch.conf: |
-          [OUTPUT]
-            Name            yc-logging
-            Match           *
-            group_id        <log_group_ID>
-            resource_id     <optional:_cluster_ID>
-            message_key     log
-            authorization   iam-key-file:/etc/secret/key.json
-      ...
-      ```
 
-      You can request the [log group](../../logging/concepts/log-group.md) ID with a [list of log groups in the folder](../../logging/operations/list.md).
+     ```yaml
+     ...
+       output-elasticsearch.conf: |
+         [OUTPUT]
+           Name            yc-logging
+           Match           *
+           group_id        <log_group_ID>
+           resource_id     <optional_cluster_ID>
+           message_key     log
+           authorization   iam-key-file:/etc/secret/key.json
+     ...
+     ```
 
-      Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
-   1. Create Fluent Bit objects:
 
-      ```bash
-      kubectl apply -f config.yaml
-      ```
+     You can request the [log group](../../logging/concepts/log-group.md) ID with a [list of log groups in the folder](../../logging/operations/list.md).
 
-      Result:
+     Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
+  1. Create Fluent Bit objects:
 
-      ```text
-      configmap/fluent-bit-config created
-      daemonset.apps/fluent-bit created
-      ```
+     ```bash
+     kubectl apply -f config.yaml
+     ```
 
-   1. Make sure the Fluent Bit status changed to `Running`:
+     Result:
 
-      ```bash
-      kubectl get pods -n logging
-      ```
+     ```text
+     configmap/fluent-bit-config created
+     daemonset.apps/fluent-bit created
+     ```
+
+  1. Make sure the Fluent Bit pod has entered the `Running` state:
+
+     ```bash
+     kubectl get pods -n logging
+     ```
 
 {% endlist %}
 
@@ -165,19 +167,19 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-   1. Delete the `k8s-cluster-with-log-group.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+  1. Delete the `k8s-cluster-with-log-group.tf` configuration file.
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Confirm updating the resources.
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All the resources described in the `k8s-cluster-with-log-group.tf` configuration file will be deleted.
+     All the resources described in the `k8s-cluster-with-log-group.tf` configuration file will be deleted.
 
 {% endlist %}

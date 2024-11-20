@@ -4,7 +4,7 @@ The owner of a billing account of the **{{ ui-key.yacloud_billing.billing.accoun
 A billing account may have only one bank card linked at the same time; however, you can change your card in the billing account settings.
 Funds for the consumed resources will only be debited from the bank card specified on the billing account page.
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 {% note info %}
 

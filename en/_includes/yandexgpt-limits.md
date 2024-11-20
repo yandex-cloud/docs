@@ -5,7 +5,8 @@ Type of limit | Value
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
 **[Text generation](../foundation-models/concepts/yandexgpt/index.md)** |
-Number of concurrent generations | 1
+Number of concurrent generations, [synchronous mode](../foundation-models/concepts/index.md#working-mode) | 10
+Number of concurrent generations, {{ yagpt-name }} 32k model | 1
 Number of requests per second, [asynchronous mode](../foundation-models/concepts/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5000
@@ -13,8 +14,8 @@ Number of [tokenization](../foundation-models/text-generation/api-ref/grpc/Token
 **[Text classification](../foundation-models/concepts/classifier/index.md)** |
 Number of text classification requests per second | 1
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |
-Number of generation requests per minute | 10
-Number of generation requests per day | 500
+Number of generation requests per minute | 500
+Number of generation requests per day | 5,000
 Number of result requests per second | 50
 
 #### Limits {#yandexgpt-limits}
@@ -23,12 +24,15 @@ Type of limit | Value
 ----- | -----
 Period to store results of asynchronous requests on the server | 3 days
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
-Number of input [tokens](../foundation-models/concepts/yandexgpt/tokens.md) | 2000
+Number of input [tokens](../foundation-models/concepts/yandexgpt/tokens.md) | 2,000
 Output vector size | {{ emb-vector }}
 **[Text generation](../foundation-models/concepts/yandexgpt/index.md)** |
-Number of tokens per response | 2000 | 2000
-Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 500
-Total number of tokens | {{ yagpt-max-tokens }}
+Maximum number of tokens in response via API | 2,000 
+Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 1,000
+Total number of tokens in request and response, [3rd generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, synchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, asynchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
+Total number of tokens in request and response, {{ yagpt-name }} 32k model | 32,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |
 Maximum [prompt](../foundation-models/concepts/index.md#prompt) length | 500 characters

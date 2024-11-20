@@ -1,4 +1,4 @@
-# Billing account
+# Billing accounts
 
 Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.
 
@@ -31,12 +31,12 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
    * The account is created as a paid one.
    * You pay for resources using your [bank card](../payment/payment-methods-individual.md).
    * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).   
-
+  
 - Business account {#business}
 
    * For residents of Russia and Kazakhstan and non-residents of Russia and Kazakhstan.
    * Businesses pay for resources they consume by bank transfer from the [corporate bank account](../payment/payment-methods-business.md) or using a [bank card](../payment/payment-methods-card-business.md).
-   * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md) or debited automatically from the linked bank card. For more information, see [Billing cycle for legal entities](../payment/billing-cycle-business.md).
+   * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md) or debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
    * New customers are eligible for a [trial period](trial-period.md).
 
 {% endlist %}

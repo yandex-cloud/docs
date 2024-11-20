@@ -138,7 +138,7 @@ Remove the group access permissions from the accounts that do not require them.
 
 #### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, and {{ roles-auditor }} {#min-privileges}
 
-The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
+The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roles reference](../../../iam/roles-reference.md).
 
 Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
@@ -508,7 +508,7 @@ Each service account with extended permissions should be placed as a resource in
 {{ yandex-cloud }} allows you to create the following access keys for service accounts:
 
 * [IAM tokens](../../../iam/concepts/authorization/iam-token.md) that are valid for 12 hours.
-* [API keys](../../../iam/concepts/authorization/api-key.md) with unlimited validity.
+* [API keys](../../../iam/concepts/authorization/api-key.md): You can choose any validity period.
 * [Authorized keys](../../../iam/concepts/authorization/key.md) with unlimited validity.
 * [AWS API-compatible static access keys](../../../iam/concepts/authorization/access-key.md) with unlimited validity.
 
@@ -596,7 +596,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
   1. Open the Yandex ID UI in your browser.
   1. Go to the [Security](https://id.yandex.ru/security) tab.
   1. Make sure login with an additional key is selected as the login option.
-  1. If the key-based login is configured, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. You should have key-based login configured. Otherwise, proceed to the <q>Guides and solutions to use</q>.
   1. If you are using external IdPs, follow the guides to check the settings.
 
 {% endlist %}
@@ -731,7 +731,7 @@ If any roles granted to untrusted administrators are found, investigate why and 
 
 To use a database at the application level, in addition to {{ iam-short-name }} service roles, a separate local user is created: the database owner. The following password policy applies to this user:
 
-* The password must include numbers, uppercase letters, lowercase letters, and special characters.
+* The password must contain numbers, uppercase letters, lowercase letters, and special characters.
 * It must be at least 8 characters long.
 
 {% list tabs group=instructions %}
@@ -790,7 +790,7 @@ Public group details:
 
 {% note warning %}
 
-Now `All users` is only supported in the following services: {{ objstorage-short-name }} (if ACL-based access management is used), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `All users` group is equivalent to assigning the role to `All authenticated users`.
+Now `All users` is only supported in the following services: {{ objstorage-short-name }} (if ACL-based access management is used), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `All users` group is equivalent to assigning a role to `All authenticated users`.
 
 {% endnote %}
 

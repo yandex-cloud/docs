@@ -133,6 +133,12 @@ items:
           Using {{ api-gw-name }} to set up speech synthesis in {{
           speechkit-full-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
+        href: tutorials/deploy-app-container.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
+      - name: Entering data into storage systems
+        href: tutorials/data-ingestion.md
   - name: Concepts
     items:
       - name: Resource relationships

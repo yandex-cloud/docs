@@ -1,8 +1,10 @@
-# Creating API keys
+# Creating an API key
 
 This guide will tell you how to create an [API key](../../concepts/authorization/api-key.md) for a [service account](../../concepts/users/service-accounts.md). The _API key_ is a secret key used for simplified authorization in the {{ yandex-cloud }} API.
 
 If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
+
+## Creating an API key {#create-api-key}
 
 To create an API key:
 
@@ -88,7 +90,7 @@ To create an API key:
 
       Where:
 
-      * `service_account_id`: [Service account](../sa/get-id.md) ID. This is a required parameter.
+      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
       * `description`: Key description. This is an optional parameter.
       * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional parameter.
 
@@ -98,7 +100,7 @@ To create an API key:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc iam key list --service-account-id <service_account_ID>
@@ -134,6 +136,33 @@ To create an API key:
 
 {% endlist %}
 
+### Viewing available scopes {#available-scopes}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  To view available scopes of an API key, run this command:
+
+  ```bash
+  yc iam api-key list-scopes
+  ```
+
+  Result:
+
+  ```text
+  - yc.ydb.tables.manage
+  - yc.ydb.topics.manage
+  ```
+
+- API {#api}
+
+  View available scopes of an API key using the [ListScopes](../../api-ref/ApiKey/listScopes.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource.
+
+  You can also view available scopes of an API key using the [ApiKeyService/ListScopes](../../api-ref/grpc/ApiKey/listScopes.md) gRPC API call.
+
+{% endlist %}
+
 ## Examples {#examples}
 
 ### Adding a description when creating an API key {#add-description}
@@ -165,7 +194,7 @@ To add an API key description when creating the key:
 
   Where:
 
-  * `service_account_id`: [Service account](../sa/get-id.md) ID. This is a required parameter.
+  * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `description`: Key description. This is an optional parameter.
 
 - API {#api}

@@ -5,13 +5,19 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2024
 
+## October {#october}
+
+1. You can now share the result right after the query was executed.
+
+1. Reduced processing time for fast queries.
+
 ## September {#september}
 
 ### New features {#new-features-september}
 
 1. Now you can [connect](../quickstart.md) to unsharded {{ RD }} clusters.
 
-1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles for viewing metadata requests and permissions to access them.
+1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles to view query metadata and related access permissions.
 
 ### Improvements {#improvements-september}
 
@@ -23,13 +29,13 @@ description: This section contains {{ websql-name }} release notes.
 
 ### Fixed issues {#fixes-september}
 
-Configured the backend request timeout as 25 seconds.
+The backend query timeout was set to 25 seconds.
 
 ## August {#august}
 
 ### Improvements {#improvements-august}
 
-1. Added interfaces for [managing access permissions](../security/index.md) for completed and saved requests.
+1. Added [access permission management](../security/index.md) interfaces for completed and saved queries.
 
 1. Integrated cloud-based time settings.
 
@@ -37,17 +43,17 @@ Configured the backend request timeout as 25 seconds.
 
 1. Now only the tables the user has access to are displayed in {{ PG }} databases.
 
-1. Added completed request statistics.
+1. Added statistics for completed queries.
 
 ### Fixed issues {#fixes-august}
 
-Fixed the filter workflow on the completed requests page.
+Fixed the filter workflow on the completed queries page.
 
 ## July {#july}
 
 ### Improvements {#improvements-july}
 
-1. Query history displays users who ran the queries.
+1. The query history displays authors of completed queries.
 
 1. Enabled running queries without exporting the connection structure.
 

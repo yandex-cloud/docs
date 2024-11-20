@@ -185,7 +185,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead-letter queue
+      - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md
@@ -207,6 +207,8 @@ items:
         href: tutorials/pg-connect.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
+      - name: Developing a custom integration in {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

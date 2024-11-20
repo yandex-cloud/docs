@@ -45,6 +45,8 @@ items:
             href: security/protected-access-to-content/console.md
           - name: '{{ TF }}'
             href: security/protected-access-to-content/terraform.md
+      - name: Загрузка аудитных логов в SIEM KUMA
+        href: security/audit-trails-events-to-kuma.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

@@ -20,12 +20,12 @@ editable: false
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
+Text generation cost is based on the overall number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md#working-mode) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
 
-The number of [prompt](concepts/index.md) and response [tokens](concepts/yandexgpt/tokens.md) for the same text may vary depending on model.
+The number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md) for the same text may vary depending on model.
 
 The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number.
 
@@ -47,7 +47,7 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 ### Image generation {#rules-image-generation}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
+You are charged for each generation request in {{ yandexart-name }}. The requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
 
 ### Internal server errors {#error-request}
 
@@ -69,6 +69,19 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
+
+
+### Image generation {#pricing-image-generation}
+
+{% note warning %}
+
+The prices listed below will come into effect starting November 1, 2024.
+
+{% endnote %}
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
 ## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}

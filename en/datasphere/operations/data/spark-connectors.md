@@ -28,7 +28,9 @@ In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-c
 
    {% note tip %}
 
-   For {{ dataproc-name }} clusters without the HDFS option enabled, set the additional `spark.hadoop.fs.s3a.fast.upload.buffer=bytebuffer` parameter.
+   For {{ dataproc-name }} clusters without the HDFS option enabled, set the additional parameter as follows:`spark.hadoop.fs.s3a.fast.upload.buffer` = `bytebuffer`.
+
+   For your own clusters with the Spark Connect connection type, set the additional parameter as follows: `dataproc:spark-connect` = `enabled`.
 
    {% endnote %}
 
@@ -61,7 +63,7 @@ To stop paying for the {{ dataproc-name }} persistent cluster, [delete it](../..
 
 {% include [zones](../../../_includes/datasphere/zones.md) %}
 
-To share a Spark connector in a community, you need have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
+To share a Spark connector in a community, you need the `Editor` role in the project and the `Developer` role in the community. To learn more about roles in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![spark-connector](../../../_assets/console-icons/route.svg) **{{ ui-key.yc-ui-datasphere.common.spark-connector }}**.

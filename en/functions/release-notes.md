@@ -5,6 +5,15 @@ description: This section contains {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## September — October 2024 {#sept-oct-2024}
+
+### Updates {#updates}
+
+* Added support for [long-lived functions](concepts/long-lived-functions.md).
+* Added support for sending [function termination notifications](concepts/termination-notifications.md).
+* Added support for [mounting ephemeral disks](concepts/mounting.md#mount-ephemeral-storage).
+* Added support for [concurrent function calls of a single instance](concepts/function.md#concurrency).
+
 ## August 2024 {#august-2024}
 
 ### Updates {#updates}

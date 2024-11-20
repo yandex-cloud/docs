@@ -17,7 +17,7 @@ To get started with {{ sd-name }} in {{ yandex-cloud }}:
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 
-{{ sd-name }} includes the Access Transparency, Data Security Posture Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and Compliance Portal modules. 
+{{ sd-name }} is comprised of the following modules: Access Transparency, Data Security Posture Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and Compliance Portal.
 
 To connect any of these modules, go to the [{{ sd-name }} interface]({{ link-sd-main }}) and click **Connect** next to the module description. You will then be able to learn more about the tool's features and terms of use.
 
@@ -37,13 +37,13 @@ For more information, see [{#T}](./concepts/access-transparency.md).
 
 ## Data Security Posture Management (DSPM) {#dspm}
 
-[Data Security Posture Management or DSPM]({{ link-sd-main }}dspm/) is a tool that helps to quickly detect sensitive information saved in {{ objstorage-full-name }} [buckets](../storage/concepts/bucket.md) to take the timely action necessary to protect it from unauthorized access or leaks. For more information, see [{#T}](./concepts/dspm.md).
+[Data Security Posture Management or DSPM]({{ link-sd-main }}dspm/) is a tool that helps to quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks. For more information, see [{#T}](./concepts/dspm.md).
 
 To get started with the DSPM module, follow the guides on how to [create a data source](./operations/dspm/create-data-source.md) and to [create a scan](./operations/dspm/create-scan.md) for the bucket information.
 
 ## Cloud Infrastructure Entitlement Management (CIEM) {#ciem}
 
-{{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) is a tool that allows a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) held by its [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) accesses from subjects. For more information, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) is a tool that provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) accesses from subjects. For more information, see [{#T}](./concepts/ciem.md).
 
 To get started with the CIEM module, follow the guide for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 

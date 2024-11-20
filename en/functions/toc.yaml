@@ -474,6 +474,10 @@ items:
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
+      - name: '{{ tracker-full-name }}: data export and visualization'
+        href: tutorials/data-from-tracker.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

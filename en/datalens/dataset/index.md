@@ -5,7 +5,7 @@ A _dataset_ describes a set of data and its structure. Data in a dataset is repr
 {{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection.md).
 
 
-A dataset works with sources in direct access mode: {{ datalens-short-name }} runs all data queries on the source side.
+A dataset works with sources in direct access mode: it runs all data queries on the source side. At the same time, you cannot change data in the source itself using {{ datalens-short-name }}.
 
 
 

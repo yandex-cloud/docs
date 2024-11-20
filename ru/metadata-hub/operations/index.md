@@ -32,10 +32,11 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](update-name-space.md)
   * [{#T}](delete-name-space.md)
 * Схемы:
-  * [{#T}](create-subject.md)
+  * [{#T}](upload-schema-to-subject.md)
   * [{#T}](add-schema.md)
   * [{#T}](delete-schema.md)
   * [{#T}](compare-schemas.md)
 * Субъекты:
+  * [{#T}](create-subject.md)
   * [{#T}](update-subject.md)
   * [{#T}](delete-subject.md)

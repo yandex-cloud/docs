@@ -32,11 +32,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Register the application {#register-app}
 
-1. Open ` https://oauth.yandex.ru/client/new ` in your browser and log in with your {{ tracker-name }} account.
+1. Go to ` https://oauth.yandex.ru/client/new ` in your browser and log in with your {{ tracker-name }} account.
 1. In the **Create app** form:
    1. In the **Service name** field, enter a name, e.g., `TimeUpdater`.
    1. Under **Platforms**, enable **Web services**, and enter ` https://oauth.yandex.ru/verification_code ` in the **Redirect URI** field.
-   1. Under **Data access**, in the input field, start typing `tracker`. Then, from the drop-down list, select:
+   1. Under **Data access**, start typing `tracker` in the input field and select the following from the drop-down list:
       * `Read from Tracker`
       * `Write in Tracker`
 1. Click **Create app**.
@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
    https://oauth.yandex.ru/authorize?response_type=token&client_id=<app_ID>
    ```
-   Where the `client_id` parameter value is the application ID from the **ClientID** field on the application details page from the previous step.
+   Where the `client_id` value is the application ID from the **ClientID** field on the application details page you copied in the previous step.
 1. Wait for the page to load and copy the token.
 1. Save the token. You will need it to create a function.
 
@@ -65,16 +65,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-1. Enter a function name, e.g., `timeupdater`.
+1. Enter the function name, e.g., `timeupdater`.
 1. Click **{{ ui-key.yacloud.common.create }}**.
-1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select `Python / 3.9` as the runtime environment.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select the `Python / 3.9` runtime environment.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Attach a [test archive](https://github.com/yandex-cloud-examples/yc-tracker-summarize-spent/blob/main/build/tracker-summarize-spent.zip).
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** field, add:
-   * `ORG`: {{ ya-360 }} organization ID
-   * `TOKEN`: Application access token
+   * `ORG`: {{ ya-360 }} organization ID.
+   * `TOKEN`: Application access token.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 1. Wait for the page to load. Then, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, copy and save the function invocation link.
    Here is an example of such a link:
@@ -87,7 +87,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a queue
 
-1. On the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Create queue**.
+1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_Common_smart-components_TrackerSearch.queues }}** → **Create queue**.
 1. Select a queue template, e.g., **Basic development model**.
 1. Enter a name, e.g., `Function Test`.
 1. Click **Create**.
@@ -96,15 +96,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. In the top-right corner of the queue page, click ![](../../_assets/console-icons/gear.svg) **{{ ui-key.startrek.ui_Queues_pages_PageQueue_header.settings }}**.
 1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
-1. In the **Name** field, enter a trigger name, e.g., `timeupdater`.
-1. Under **Trigger conditions**, select **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Time spent**.
+1. In the **Name** field, enter a name for the trigger, e.g., `timeupdater`.
+1. Under **Trigger conditions**, select **{{ ui-key.startrek.ui_Queues_pages_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** → **Time spent**.
 1. Under **Trigger actions**, select **HTTP request**.
 1. In the form that opens, in the **Address** field, enter:
    ```
    	https://functions.yandexcloud.net/<function_ID>?id=not_var{{issue.key}}
    ```
    Where `https://functions.yandexcloud.net/<function_ID>` is the function invocation link you saved when creating the function.
-   For example:
+   Example:
    ```
    	https://functions.yandexcloud.net/d4e94uav3108********?id=not_var{{issue.key}}
    ```
@@ -121,12 +121,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Create sub-issues:
    1. In the top-right corner of the `Parent Task` issue page, in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.create-subissue }}**.
    1. In the form that opens, in the **Issue name** field, enter a sub-issue name, e.g., `Subtask-1`.
-   1. In the same way, create another sub-issue or multiple sub-issues named `Subtask-2`, `Subtask-3`, etc.
+   1. In the same way, create one or more sub-issues, e.g., `Subtask-2`, `Subtask-3`, etc.
 
 ### Enter time spent values for the sub-issues
 
-1. In the top-right corner of the `Subtask-1` sub-issue page, in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.add-worklog }}**.
-1. In the dialog that opens, in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field, enter any time value, e.g., `1h25m`.
+1. In the top-right corner of the `Subtask-1` page, in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_IssueMenu.add-worklog }}**.
+1. In the dialog that opens, in the **{{ ui-key.startrek.ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field, enter a time value, e.g., `1h25m`.
 1. In the same way, add time spent values for the other sub-issues.
 
 ### Check if the function works correctly

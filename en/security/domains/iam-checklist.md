@@ -29,7 +29,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **Using the {{ roles-auditor }} role to prevent access to user data**: Assign the `{{ roles-auditor }}` role (the role with least privilege and without access to service data) to users who need no access to data, such as external contractors or auditors. To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
 
-&#x2713; **billing.accounts.owner protection**: After completing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a dedicated employee with a federated account.
+&#x2713; **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a dedicated employee with a federated account.
 
 &#x2713; **organization-manager.organizations.owner protection**: Grant the `organization-manager.organizations.owner` role to a federated account and then delete the passport account with this role from your organization. To mitigate the risks of possible federation failures, follow the steps described in [Deleting a passport account from an organization](../operations/account-deletion.md).
 
@@ -65,4 +65,6 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md) and use their payload when you need to apply a key or token.
 
-&#x2713; **Using API keys with limited access**: Create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of required services to lower the risk of unauthorized use of the keys.
+&#x2713; **Using API keys with limited access**: create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of required services to lower the risk of unauthorized use of the keys.
+
+{% include [scoped-api-keys-note](../../_includes/iam/scoped-api-keys-note.md) %}

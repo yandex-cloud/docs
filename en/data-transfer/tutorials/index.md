@@ -72,6 +72,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ DS }} to {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} to {{ OS }}](trails-to-os.md)
+* [{#T}](data-ingestion.md)
 
 ## Uploading data to data marts {#upload-to-data-mart}
 

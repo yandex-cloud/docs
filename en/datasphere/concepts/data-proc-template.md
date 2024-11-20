@@ -51,7 +51,7 @@ You will be charged extra for using temporary clusters created based on {{ datap
 
 {{ ml-platform-name }} creates a temporary {{ dataproc-name }} cluster once you open your project in the IDE.
 
-The created cluster will appear in the list of available clusters on the {{ dataproc-name }} resource page. A temporary cluster can have one of the following statuses:
+The created cluster appears in the list of available clusters on the {{ dataproc-name }} resource page. A temporary cluster can have one of the following statuses:
 * `STARTING`: The cluster is being created.
 * `UP`: The cluster has been created and is ready to run calculations.
 * `DOWN`: There have been issues while creating the cluster.

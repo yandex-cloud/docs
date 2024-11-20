@@ -14,8 +14,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
 * The selected payment method is [Transfer from bank account](../payment/payment-methods-business.md).
 * [Total invoice amount](#payment-amount) is greater than zero.
 
-Payment invoices can only be sent to the [billing account](billing-account.md) owner's email address. You cannot change the email address but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
-
+Payment invoices can only be sent to the [billing account](billing-account.md) owner's email address. You cannot change the email address, but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
 
 {% note info %}
 
@@ -24,7 +23,7 @@ Payment invoices can only be sent to the [billing account](billing-account.md) o
 {% endnote %}
 
 
-A Сustomer qualifying as a legal entity and not using a linked corporate bank card to top up their account must [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) using the management console. Depending on which company you signed the contract with, you can find more details in «Yandex Legal documents» for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
+Customers qualifying as a business and not using a linked corporate bank card to top up their account must [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) using the management console. Depending on which company you signed the agreement with, you can find more details in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
 
 
 A payment invoice is not a primary accounting document. There are no special legal requirements for drafting this document. In accounting, correct charges for services are made based on reports and tax invoices where all the required details are specified. A payment invoice is generated automatically and there is no way to change customer data.
@@ -45,7 +44,7 @@ A payment invoice is not a primary accounting document. There are no special leg
 
 ## Making payment {#payment}
 
-Payment invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
+Invoices must be paid before the deadline set out in the [agreement](../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
 
 {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
