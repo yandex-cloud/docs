@@ -1768,7 +1768,6 @@ default:
       v1|string: Free
     waf:
       requests:
-        v1|number: 0
         v1|pricingRate:
           '0':
             01|number: 125000
@@ -1780,6 +1779,8 @@ default:
           100|number: 700
           100|string: ₸700.00
           1000|number: 250
+          1000|string: ₸250.00
+          10000|string: ₸125.00
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2970,7 +2971,6 @@ default:
       v1|string: Free
     waf:
       requests:
-        v1|number: 0
         v1|pricingRate:
           '0':
             01|number: 25000
@@ -2982,6 +2982,8 @@ default:
           100|number: 140
           100|string: ₽140.00
           1000|number: 50
+          1000|string: ₽50.00
+          10000|string: ₽25.00
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -4131,6 +4133,16 @@ default:
         1000|string: $0.400000
         10000|string: $0.200000
       v1|string: Free
+    waf:
+      requests:
+        v1|pricingRate:
+          '0':
+            01|string: $200.000000
+          1|string: $28.000000
+          10|string: $1.600000
+          100|string: $1.120000
+          1000|string: $0.400000
+          10000|string: $0.200000
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -5951,6 +5963,7 @@ default:
         section_internal-address-specs: Internal IP address
         section_logs-settings: Log settings
       audit-trails:
+        action_add-bucket-key: Add
         button_create-trail: Create trail
         button_process-in-yq: Process in YQ
         label_bucket: Bucket
@@ -7125,6 +7138,7 @@ default:
           switch_storage: Storage
           switch_workloads: Workload
         clusters:
+          button_action-connect: Get started
           button_create: Create cluster
           create:
             button_add-day-of-week: Add day and time

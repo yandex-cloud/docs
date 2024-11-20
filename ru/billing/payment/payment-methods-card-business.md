@@ -2,7 +2,7 @@
 
 Организации и ИП могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью корпоративной банковской карты, привязанной к платежному аккаунту.
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 

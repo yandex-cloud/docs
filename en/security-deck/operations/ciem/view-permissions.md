@@ -7,9 +7,9 @@ description: In this section, you will learn how to view all account's or group'
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-[Cloud Infrastructure Entitlement Management (CIEM)](../../concepts/ciem.md) enables you to view a list of individual [subject](../../../iam/concepts/access-control/index.md#subject) and group access permissions for organization [resources](../../../iam/concepts/access-control/resources-with-access-control.md) in a centralized manner.
+[Cloud Infrastructure Entitlement Management](../../concepts/ciem.md) (CIEM) provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to individual [subjects](../../../iam/concepts/access-control/index.md#subject) and groups.
 
-Only [organization members](../../../organization/concepts/membership.md) who with the `organization-manager.viewer` [role](../../../organization/security/index.md#organization-manager-viewer) or higher for the organization can view access permissions in the [{{ sd-name }} interface]({{ link-sd-main }}iam-diagnostics/).
+Only [organization members](../../../organization/concepts/membership.md) with the `organization-manager.viewer` [role](../../../organization/security/index.md#organization-manager-viewer) or higher for the organization can view access permissions in the [{{ sd-name }}]({{ link-sd-main }}iam-diagnostics/) interface.
 
 To get a list of a subject's accesses to the organization's resources:
 

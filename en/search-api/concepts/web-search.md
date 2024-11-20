@@ -1,23 +1,23 @@
 ---
-title: Deferred search queries in {{ search-api-full-name }}
-description: In this section, you will learn about deferred search queries in {{ search-api-name }}.
+title: Search queries via {{ search-api-full-name }}'s API v2 interface
+description: This section describes the specificities and format of text queries when accessing {{ search-api-name }} via API v2.
 ---
 
-# Deferred search queries in {{ search-api-name }}
+# Text search with API v2
 
-_This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage._
+{% include [note-preview](../../_includes/note-preview.md) %}
 
-{{ search-api-name }} allows you to run queries to the Yandex search database and get a response in deferred mode. You can run queries using {{ search-api-name }} [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). Search results depend on the [parameters](#parameters) specified in the query.
+With {{ search-api-name }} API v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
 
-[Queries](../../iam/concepts/users/service-accounts.md) can be submitted by a user or [service account](../operations/web-search.md) with the `search-api.webSearch.user` [role](../../iam/concepts/access-control/roles.md).
+[Queries can be submitted](../operations/web-search.md) by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
 
-In response to a deferred query to {{ search-api-name }}, you get an [Operation object](#response-format) containing information about the operation: its status, ID, call time, etc. 
+In response to a deferred query, {{ search-api-name }} returns an [Operation object](#response-format) containing the operation info: status, ID, call time, etc. 
 
-If you know the Operation object ID, you can [track](../operations/web-search.md#verify-operation) the query processing status and [get the result](../operations/web-search.md#get-response) as soon as processing is completed.
+With the Operation object ID, you can [track](../operations/web-search.md#verify-operation) the query execution status and [get the results](../operations/web-search.md#get-response) once the processing is complete.
 
-## Request body format {#parameters}
+## Query body format {#parameters}
 
-The [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/) query body field names are different: REST API uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), and gPRC API uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
+The names of the query body fields are different in [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
 {% list tabs group=api_type %}
 
@@ -41,7 +41,7 @@ The [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/) query body field na
 
 ## Response format {#response-format}
 
-In response to the deferred query, {{ search-api-name }} returns an [Operation object](../../api-design-guide/concepts/operation.md) in the following format:
+In response to a deferred query, {{ search-api-name }} returns an [Operation object](../../api-design-guide/concepts/operation.md) in the following format:
 
 {% list tabs group=api_type %}
 
@@ -52,7 +52,7 @@ In response to the deferred query, {{ search-api-name }} returns an [Operation o
    "done": true,
    "response": {
     "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-    "rawData": "<Base64-encoded_XML_response_body>"
+    "rawData": "<Base64_encoded_XML_response_body>"
    },
    "id": "<operation_object_ID>",
    "description": "WEB search async",
@@ -74,16 +74,16 @@ In response to the deferred query, {{ search-api-name }} returns an [Operation o
     "done": true,
     "response": {
       "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-      "rawData": "<Base64-encoded_XML_response_body>"
+      "rawData": "<Base64_encoded_XML_response_body>"
     }
   }
   ```
 
 {% endlist %}
 
-The `response` object inside the [Operation object](../../api-design-guide/concepts/operation.md) becomes available only after the query has been executed on the {{ search-api-name }} side, and the `done` field (operation status) changes to `true`.
+The `response` object within the [Operation object](../../api-design-guide/concepts/operation.md) becomes available only after the query is executed on the {{ search-api-name }} side and the `done` (operation status) field value changes to `true`.
 
-The `rawData` field value of the `response` object contains the [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML response](./response.md).
+The `response` object's `rawData` field value contains the [Base64](https://en.wikipedia.org/wiki/Base64)-encoded [XML response](./response.md).
 
 For more information about the Operation object and its fields, see [{#T}](../../api-design-guide/concepts/operation.md).
 

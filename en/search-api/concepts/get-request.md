@@ -1,11 +1,11 @@
 ---
-title: GET requests
-description: This article describes how to use GET requests.
+title: GET requests via {{ search-api-full-name }}'s API v1
+description: This article describes the specificities and format of GET requests when accessing {{ search-api-name }} via API v1.
 ---
 
 # GET requests
 
-With {{ search-api-name }}, you can submit requests with preset parameters to the Yandex search database. You can provide search parameters to the service in an HTTP request using the GET method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
+With {{ search-api-name }}'s API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the GET method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -17,7 +17,7 @@ If you have any special characters in parameter values, replace them with the re
 
 {% endnote %}
 
-The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 
@@ -26,7 +26,7 @@ The URL of your request to {{ search-api-name }} depends on the format you want 
   ```httpget
   https://yandex.<domain>/search/xml
     ? [folderid=<folder_ID>]
-    & [apikey=<API key>]
+    & [apikey=<API_key>]
     & [query=<search_query_text>]
     & [lr=<search_region_ID>]
     & [l10n=<notification_language>]
@@ -42,7 +42,7 @@ The URL of your request to {{ search-api-name }} depends on the format you want 
   ```httpget
   https://yandex.<domain>/search/xml/html
     ? [folderid=<folder_ID>]
-    & [apikey=<API key>]
+    & [apikey=<API_key>]
     & [query=<search_query_text>]
     & [lr=<search_region_ID>]
     & [l10n=<notification_language>]
@@ -89,11 +89,11 @@ Where:
 
 {% include [page](../../_includes/search-api/page.md) %}
 
-## GET request example {#example-get-request}
+## GET request example  {#example-get-request}
 
-The request  below returns the fifth page of search results for the `<table>` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter is applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
+The request below returns the fifth page of search results for the `<table>` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter is applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
-The URL of your request to {{ search-api-name }} depends on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 

@@ -1,45 +1,54 @@
 title: '{{ search-api-full-name }}'
 description:
   - >-
-    Search API is a service that allows you to send requests to the Yandex
-    search database and get responses in XML or HTML format. {{
+    {{ search-api-full-name }} is a service that allows you to send queries to
+    the Yandex search database and get responses in XML or HTML format. {{
     search-api-full-name }} is tailored for developers and webmasters, helping
     them to implement the search feature on individual websites, groups of
     websites, or across the internet. Additionally, it offers features to
     monitor website ranking for specific queries in Yandex search results.
   - >-
-    {{ search-api-full-name }} is subject to the <a
-    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>.
-     {{ search-api-full-name }} service level is defined in the <a href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name }} Service Level</a> document.
-  - <h2>Terms of Use and License Agreement</h2>
+    {{ search-api-name }} provides two interfaces for queries: API v2, which is
+    natively integrated into the {{ yandex-cloud }} ecosystem, and the original
+    Yandex XML-compatible API v1.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the <a
+    href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name
+    }} service level</a> document.
+  - <h2>Service Terms of Use and License Agreement</h2>
   - >-
     In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of
     Use apply to {{ search-api-name }}:
   - >-
     <ul> <li><a href="https://yandex.ru/legal/cloud_terms_search_api">{{
-    search-api-full-name }} Terms of Use</a> for residents of Russia and
+    search-api-full-name }}</a> Terms of Use for residents of Russia or
     Kazakhstan</li> <li><a
     href="https://yandex.com/legal/cloud_terms_search_api">{{
-    search-api-full-name }} Terms of Use</a> for non-residents of Russia and
+    search-api-full-name }}</a> Terms of Use for non-residents of Russia and
     Kazakhstan</li> </ul>
 meta:
   title: Search API
   description: >-
-    Search API is a service that allows you to send requests to the Yandex
-    search database and get responses in XML format.
+    Search API is a service that allows you to send queries to the Yandex search
+    database and get responses in XML and HTML format.
 links:
   - title: Getting started
     description: Learn how to get started with the service
-    href: quickstart
+    href: quickstart/index
   - title: Restrictions and requirements
     description: Restrictions and requirements
     href: concepts/limits
-  - title: How to activate
-    description: How to activate
-    href: operations/workaround
-  - title: Scrollable search results
-    description: Scrollable search results
-    href: concepts/index
+  - title: Running queries via API v1
+    description: Running search queries via API v1
+    href: operations/searching
+  - title: Running queries via API v2
+    description: Performing search queries using API v2
+    href: operations/web-search
+  - title: XML response format
+    description: XML format of a text search response
+    href: concepts/response
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

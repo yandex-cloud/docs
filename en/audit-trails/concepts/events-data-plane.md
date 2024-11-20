@@ -1,6 +1,6 @@
 ---
 title: Data event reference {{ at-full-name }}
-description: This section provides descriptions of the service level events collected in {{ yandex-cloud }} services.
+description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
 ---
 
 # Data event reference
@@ -26,6 +26,7 @@ On this page, you will find events for the following services:
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
 * [{{ objstorage-full-name }}](#objstorage)
+* [{{ sd-full-name }}](#security-deck)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
@@ -97,6 +98,14 @@ Service name: `mdb.postgresql`.
 Service name: `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
+
+## {{ sd-full-name }} {#security-deck}
+
+### Access Transparency module {#sd-access-transparency}
+
+Service name: `accesstransparency`.
+
+{% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
 
 ## {{ speechsense-full-name }} {#speechsense}
 

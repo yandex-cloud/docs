@@ -357,6 +357,7 @@ To set up log transfer:
         authorization   instance-service-account
     ```
 
+
     Where:
     * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to whose [default log group](../../logging/concepts/log-group.md) the logs will be sent.
     * `authorization`: Authorization settings. Specify `instance-service-account` to log in under the service account you specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}** when [creating the VM](#before-you-begin).

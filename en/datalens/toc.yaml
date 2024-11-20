@@ -67,6 +67,8 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
+          - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
+            href: tutorials/storage-logs-analysis.md
           - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
@@ -140,10 +142,14 @@ items:
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
           - name: Creating a connection to {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
+            items:
+              - name: Overview
+                href: concepts/datalens-usage-analytics.md
+              - name: Connection
+                href: operations/connection/create-usage-tracking.md
       - name: Partner connections
         items:
-          - name: Creating a connection to Extractor 1C
+          - name: Creating a 1C Extractor connection
             href: operations/connection/create-extractor1c.md
           - name: Creating a Bitrix24 connection
             href: operations/connection/create-bitrix24.md
@@ -615,7 +621,7 @@ items:
             href: concepts/chart/measure-values.md
           - name: Multi-dataset charts
             href: concepts/chart/multidataset-chart.md
-          - name: Step-by-step guides
+          - name: Step-by-step guide
             items:
               - name: Creating a chart
                 href: operations/chart/create-chart.md
@@ -719,7 +725,7 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Markdown
         href: dashboard/markdown.md
-      - name: Step-by-step guides
+      - name: Step-by-step guide
         items:
           - name: Creating a dashboard
             href: operations/dashboard/create.md
@@ -831,10 +837,10 @@ items:
         href: release-notes/2406.md
       - name: May 2024
         href: release-notes/2405.md
+      - name: April 2024
+        href: release-notes/2404.md
       - name: Archive
         items:
-          - name: April 2024
-            href: release-notes/2404.md
           - name: March 2024
             href: release-notes/2403.md
           - name: February 2024
@@ -979,7 +985,7 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: Referenced connection <connection_ID> cannot be loaded. Access denied
+      - name: Referenced connection <connection_ID> cannot be loaded access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded

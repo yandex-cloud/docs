@@ -1,14 +1,8 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified response format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified response format or text analysis principles to make it better suited to your tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
 Foundation model tuning is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
-{% note info %}
-
-{{ foundation-models-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -55,7 +49,7 @@ You can send requests to a fine-tuned model through the {{ ml-platform-name }} i
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `ai-user`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `{{ roles-yagpt-user }}` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -108,12 +102,12 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 - {{ jlab }}Lab {#jupyterlab}
 
-    Copy this code to a notebook cell if you did not use any instructions to tune the model:
+    Copy this code to a notebook cell if you did not use any guide to tune the model:
 
     ```python
     import requests
     req = {
-            "modelUri": "ds://<fine-tuned_model_ID>",
+            "modelUri": "ds://<folder_ID>/<fine-tuned_model_ID>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -126,8 +120,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM_token>',
-            "x-folder-id": "<folder_ID>", }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -135,18 +128,17 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
     Where:
 
-    * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+    * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources. The parameter contains the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
     * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
     * `maxTokens`: Maximum number of tokens per model response.
-    * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
-    * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
+    * `<IAM_token>`: [Service account IAM token](../../iam/operations/iam-token/create-for-sa.md) value.
 
-    If you used instructions to tune the model, enter the text in a `system` message:
+    If you used instructions to tune the model, enter their text in the message with the `system` role:
 
     ```python
     import requests
     req = {
-            "modelUri": "ds://<fine-tuned_model_ID>",
+            "modelUri": "ds://<folder_ID>/<fine-tuned_model_ID>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.1,
@@ -155,7 +147,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
             "messages": [
                 {
                 "role": "system",
-                "text": "<instruction_text>"
+                "text": "<guide_text>"
                 },
                 {
                 "role": "user",
@@ -163,8 +155,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
                 }
             ]
     }
-    headers = {"Authorization" : "Bearer " + '<IAM_token>',
-                       "x-folder-id": "<folder_ID>", }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>'}
     res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
@@ -176,11 +167,11 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
     {% include [curl](../../_includes/curl.md) %}
 
-    1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code to the file:
+    1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code into the file:
     
        ```json
         {
-        "modelUri": "ds://<fine-tuned_model_ID>",
+        "modelUri": "ds://<folder_ID>/<fine-tuned_model_ID>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,
@@ -197,16 +188,16 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
        Where:
 
-       * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+       * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources. The parameter contains the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
        * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
        * `maxTokens`: Maximum number of tokens per model response.
        * `text`: Prompt text.
 
-       If you used instructions to tune the model, enter the text in a `system` message in the JSON file:
+       If you used instructions to tune the model, enter their text in the message with the `system` role in the JSON file:
 
        ```json
         {
-        "modelUri": "ds://<fine-tuned_model_ID>",
+        "modelUri": "ds://<folder_ID>/<fine-tuned_model_ID>",
         "completionOptions": {
             "stream": false,
             "temperature": 0.1,
@@ -215,7 +206,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
         "messages": [
             {
             "role": "system",
-            "text": "<instruction_text>"
+            "text": "<guide_text>"
             },
             {
             "role": "user",
@@ -239,7 +230,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
        Where:
    
        * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
-       * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
+       * `<IAM_token>`: [Service account IAM token](../../iam/operations/iam-token/create-for-sa.md) value.
        * `prompt.json`: JSON file with request parameters.
 
 {% endlist %}

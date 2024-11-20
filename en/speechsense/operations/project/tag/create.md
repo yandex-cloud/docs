@@ -26,22 +26,22 @@ When creating a tag, the following options are available:
 1. {% include [select-critical-tag](../../../../_includes/speechsense/tag/select-critical-tag.md) %}
 1. Under **{{ ui-key.yc-ui-talkanalytics.tags.conditions }}**:
 
-   1. In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list trigger phrases. Use a separate line for each each trigger phrase. If a conversation contains one of these phrases, it will get a tag.
+   1. In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list trigger phrases. Use a separate line for each trigger phrase. If a conversation contains one of these phrases, it will get a tag.
 
-      Along with the listed keywords, you can also specify [dictionaries](../../../concepts/dictionaries.md). They contain a set of trigger phrases prepared in advance. Tags will be assigned to dialogs that contain phrases from the list in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field and from the dictionaries you specify. To use dictionaries, click ![icon](../../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** and select the dictionaries you need from the drop-down list.
+      Along with the listed keywords, you can also specify [dictionaries](../../../concepts/dictionaries.md) with a pre-selected set of trigger phrases. If you specify multiple dictionaries, their contents will be joined as if by the logical OR operator. Tags will thus be assigned to dialogs containing phrases from the list in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field and from the specified dictionaries. To use dictionaries, click ![icon](../../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** and select the dictionaries you need from the drop-down list.
 
    1. {% include [select-exact-match](../../../../_includes/speechsense/tag/select-exact-match.md) %}
    1. {% include [specify-distance-between-words](../../../../_includes/speechsense/tag/specify-distance-between-words.md) %}
 
 1. Under **{{ ui-key.yc-ui-talkanalytics.tags.exceptions }}**:
 
-   1. In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list [exclusion phrases](../../../concepts/tags.md#exclusion-phrases). Use a separate line for each each trigger phrase. If the dialog contains an exclusion phrase, the tag will not trigger.
+   1. In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list [exclusion phrases](../../../concepts/tags.md#exclusion-phrases). Use a separate line for each trigger phrase. If the dialogue contains an exclusion phrase, the tag will not trigger.
 
       {% cut "Example" %}
 
-      Let's say we create a tag called `Fire` and add the `flamed` keyword to it.
-      The tag will trigger on the phrase `Flamed up in reddening shame`; however, this phrase does not indicate a fire. This is a false positive. To fix it, let's add `flamed up in reddening shame` as an exclusion phrase.
-      Now the tag will not trigger on `Flamed up in reddening shame` but it will on `House flamed up`.
+      Let's say we create a tag called `Fire` and add the `flamed` key phrase to it.
+      The tag will trigger on the phrase `The battle flamed up`; however, such a phrase does not indicate a fire. This is a false positive. To fix it, let's add the `battle flamed up` exclusion phrase.
+      Now the tag will not trigger on the phrase `The battle flamed up` but it will on `The stove flamed up`.
 
       {% endcut %}
 
@@ -57,7 +57,7 @@ When creating a tag, the following options are available:
 
    If the **{{ ui-key.yc-ui-talkanalytics.tags.binding-events.silence-key-value }}** restriction is selected, set pause duration in seconds.
 
-   For each restriction, you can specify search direction and limit the search area. By default, the search area is set to its maximum (1,000 phrases).
+   For each constraint, you can set the search direction and limit the search area. By default, the search area is set to its maximum (1,000 phrases).
 
 1. Click **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 

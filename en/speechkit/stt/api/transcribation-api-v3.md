@@ -94,7 +94,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       print(response)
       ```
 
-  1. Run the following query:
+  1. Run this request:
 
       ```bash
       python3 test.py
@@ -139,7 +139,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       print(list(response))
       ```
 
-  1. Run the following query:
+  1. Run this request:
 
       ```bash
       python3 results.py

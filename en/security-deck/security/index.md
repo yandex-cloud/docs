@@ -23,9 +23,9 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
-* [Roles for analyzing Access Transparency data](./access-transparency-roles.md).
-* [Roles for Data Security Posture Management (DSPM)](./dspm-roles.md).
-* [Roles for Cloud Infrastructure Entitlement Management (CIEM)](./ciem-roles.md).
+* [Roles for Access Transparency data analysis](./access-transparency-roles.md).
+* [Roles for Data Security Posture Management](./dspm-roles.md).
+* [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).
 
 ### Primitive roles {#primitive-roles}
 

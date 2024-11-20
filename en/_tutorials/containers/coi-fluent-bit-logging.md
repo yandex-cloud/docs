@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
      fluentbit:
        container_name: fluentbit
-       image: {{ registry }}/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+       image: cr.yandex/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
        ports:
          - 24224:24224
          - 24224:24224/udp
@@ -163,6 +163,7 @@ if __name__ == '__main__':
    ```
 
 1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
 
    ```yaml
    #cloud-config
@@ -214,6 +215,7 @@ if __name__ == '__main__':
        ssh_authorized_keys:
          - ssh-ed25519 AAAA
    ```
+
 
    The `SERVICE` section displays Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 

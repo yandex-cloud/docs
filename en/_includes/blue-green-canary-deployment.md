@@ -28,7 +28,7 @@ To build an architecture for the blue-green and canary deployment:
 1. [Create an L7 load balancer](#create-balancer).
 1. [Create a CDN resource](#create-cdn-resource).
 1. [Configure DNS for the service](#configure-dns).
-1. [Test the service and the switching between versions](#check).
+1. [Run a health check and test the switching between versions](#check).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -106,7 +106,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/network/create.md).
 
-  1. Create subnets in all availability zones.
+  1. Create subnets in all availability zones:
 
      * `{{ region-id }}-a`:
 
@@ -417,7 +417,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    - {{ TF }} {#tf}
 
-     1. Add to the configuration file the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
+     1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
 
         ```hcl
         ...
@@ -691,10 +691,10 @@ To create security groups:
 
   1. Create a virtual host named `canary-vh-staging`:
 
-     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`.
-     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`.
+     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`
+     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`
      * Route **{{ ui-key.yacloud.common.name }}**: `canary-route-staging`.
-     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`.
+     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`
      * Other parameters are the same as for `canary-vh-production`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -878,7 +878,7 @@ To create security groups:
 - API {#api}
 
   1. Create the `canary-router` HTTP router using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-  1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router and their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+  1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -1118,9 +1118,9 @@ To create security groups:
      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Set the main parameters of the CDN resource:
 
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `canary-balancer`.
+        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
+        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`
+        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `canary-balancer`
         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list).
         * Under **{{ ui-key.yacloud.cdn.label_section-domain }}**:
            * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify `cdn.yandexcloud.example`.
@@ -1285,7 +1285,7 @@ To create security groups:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
   1. Enable client redirect for a resource. In CDN resource parameters, add this field at the top of the `options` section:
 
@@ -1340,7 +1340,7 @@ To configure DNS:
    {% endlist %}
 
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` so they are pointing at the copied domain name:
+1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` to link them to the copied domain name:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1361,7 +1361,7 @@ To configure DNS:
      1. If you do not have a public DNS zone, create one:
 
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website's domain name with a trailing dot: `yandexcloud.example`.
+        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website's domain name with a trailing dot: `yandexcloud.example.`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.dns.label_public }}`.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-dns-zone`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -1474,7 +1474,7 @@ To configure DNS:
 
 {% include [after-creation-tip-tutorials](cdn/after-creation-tip-tutorials.md) %}
 
-## Test the service and the switching between versions {#check}
+## Run a health check and test the switching between versions {#check}
 
 ### Check one {#check-one}
 
@@ -1714,11 +1714,11 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    {% endlist %}
 
 1. Open `https://cdn.yandexcloud.example/index.html` in your browser several times. In about 20% of cases, you should see a page indicating version 2, in the other cases, version 1.
-1. Same as in steps 1–2, configure and check the following traffic allocations between the backends:
+1. Similarly to steps 1–2, configure and check the following traffic allocations between the backends:
 
    1. In the `canary-bg-production` backend group: 50% of traffic to each one of the two backends.
-   1. In the `canary-bg-production` backend group: All traffic to `canary-backend-green`.
-   1. In the `canary-bg-staging` backend group (`cdn-staging.yandexcloud.example` domain name): All traffic to `canary-backend-blue`.
+   1. In the `canary-bg-production` backend group: All traffic goes to `canary-backend-green`.
+   1. In the `canary-bg-staging` backend group (`cdn-staging.yandexcloud.example` domain name): All traffic goes to `canary-backend-blue`.
 
 1. Re-enable caching:
 

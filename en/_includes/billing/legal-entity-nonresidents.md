@@ -1,5 +1,5 @@
 {% note info %}
 
-If you are a non-resident of Russia or Kazakhstan, specify the bank details of the legal entity you signed the [agreement](../../billing/concepts/contract.md) with when [creating your billing account](../../billing/operations/create-new-account.md).
+Non-residents of Russia and Kazakhstan must specify bank account details of the legal entity with whom the [agreement](../../billing/concepts/contract.md) was concluded on [billing account creation](../../billing/operations/create-new-account.md).
 
 {% endnote %}

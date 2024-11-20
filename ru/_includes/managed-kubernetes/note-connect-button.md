@@ -1,0 +1,1 @@
+Команда также доступна в [консоли управления]({{ link-console-main }}). Перейдите на страницу **{{ ui-key.yacloud.k8s.cluster.overview.label_title }}** нужного кластера и в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_action-connect }}**.

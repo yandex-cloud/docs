@@ -241,6 +241,10 @@ items:
             href: tutorials/regular-launch.md
           - name: Running computations using the API
             href: tutorials/batch-code-execution.md
+          - name: >-
+              Geocoding with the Yandex Maps API for data visualization in {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
           - name: Training a model on data from {{ objstorage-full-name }}
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
@@ -267,6 +271,8 @@ items:
               Web analytics with funnels and cohorts calculated based on Yandex
               Metrica data
             href: tutorials/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
           - name: Analyzing data with {{ yq-full-name }}
             href: tutorials/yq.md
           - name: Working with data in {{ objstorage-full-name }}

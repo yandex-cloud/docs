@@ -18,6 +18,22 @@
 
 {% include [yandexgpt-user](../../_roles/ai/imageGeneration/user.md) %}
 
+#### ai.assistants.auditor {#assistants-auditor}
+
+{% include [assistants-auditor](../../_roles/ai/assistants/auditor.md) %}
+
+#### ai.assistants.viewer {#assistants-viewer}
+
+{% include [assistants-viewer](../../_roles/ai/assistants/viewer.md) %}
+
+#### ai.assistants.editor {#assistants-editor}
+
+{% include [assistants-editor](../../_roles/ai/assistants/editor.md) %}
+
+#### ai.assistants.admin {#assistants-admin}
+
+{% include [assistants-admin](../../_roles/ai/assistants/admin.md) %}
+
 #### ai.auditor {#ai-auditor}
 
 {% include [ai-auditor](../../_roles/ai/auditor.md) %}

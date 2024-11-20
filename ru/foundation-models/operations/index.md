@@ -16,6 +16,11 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./classifier/readymade.md)
 * [{#T}](./classifier/additionally-trained.md)
 
+## Пошаговые инструкции для {{ assistant-api }} {#assistant}
+
+* [{#T}](./assistant/create.md)
+* [{#T}](./assistant/create-with-searchindex.md)
+
 ## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
 
 [{#T}](./yandexart/request.md)

@@ -53,12 +53,12 @@ To invoice your organization:
 1. Select a billing account.
 1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
 1. Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
-1. The document will open in a new browser tab and will be saved in `.pdf` format.
+1. The document will open in a new browser tab and get saved in `.pdf` format.
 
 #### How to connect to EDM? {#edm}
 
 Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents carry the same weight as their paper versions and are accepted by tax and judicial authorities over the internet.
 
-{{ yandex-cloud }} sends unilateral reports using EDM.
+{{ yandex-cloud }} sends unilateral reports using electronic document management.
 
 For more information on how to connect to EDM, see the {{ billing-name }} [documentation](../../billing/operations/edo.md).

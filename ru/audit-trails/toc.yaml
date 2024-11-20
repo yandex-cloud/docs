@@ -57,6 +57,8 @@ items:
             href: tutorials/export-logs-to-splunk.md
           - name: Загрузка аудитных логов в SIEM ArcSight
             href: tutorials/export-logs-to-arcsight.md
+          - name: Загрузка аудитных логов в SIEM KUMA
+            href: tutorials/audit-trails-events-to-kuma.md
   - name: Концепции
     items:
       - name: Обзор

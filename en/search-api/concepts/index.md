@@ -1,17 +1,47 @@
+---
+title: '{{ search-api-full-name }} description and features'
+description: From this section you will learn what {{ search-api-name }} is, what tools and features it provides, and what challenges it can be up to.
+---
+
 # About {{ search-api-full-name }}
 
-{{ search-api-full-name }} allows you to automatically send queries to the Yandex search database and get responses in [XML](./response.md) or [HTML](./html-response.md) format. The service is tailored for developers and webmasters.
+With {{ search-api-full-name }}, you can automatically submit queries to the Yandex search database and get your search results. The service is tailored for developers and webmasters.
 
 With {{ search-api-name }}, you can easily implement the search feature on individual websites, groups of websites, or across the internet, or create an application with built-in search features. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results.
 
-{{ search-api }} text search supports the [GET](get-request.md) and [POST](post-request.md) querying methods, as well as [deferred](./web-search.md) querying. They have the same [response format](response.md). {{ search-api }} [image search](./pic-search.md) only supports the GET method for sending search queries.
+{{ search-api-name }} provides two interfaces for queries: API v1 and API v2.
 
-You can also use text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a concise and clear [generative response](./generative-response.md) to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request. To get access, fill out [this form](#contact-form).
+## API v1 {#api-v1}
 
-With {{ search-api-name }}, you can get default search results and those optimized for [mobile devices](../operations/mobile.md).
+[API v1](./get-request.md) is a Yandex XML compatible interface. It allows you to [run](../operations/searching.md) text queries using the [GET](../concepts/get-request.md) and [POST](../concepts/post-request.md) methods and get your results in [XML](./response.md) or [HTML](./html-response.md) format in synchronous mode.
 
-Apart from various text search options, {{ search-api-name }} allows you to [search for images](pic-search.md) based on a text query.
+You can also use API v1 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
 
-When [signing up](../operations/workaround.md) for {{ search-api-name }}, you need to select one of the three available types of text search: `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`, `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}`, or `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`. The search type determines the search result _ranking formula_ and the _search database_, i.e., the documents covered by the search. Once signed up, you will be able to change the selected search type.
+{% note info %}
 
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request. To get access, fill out [this form](#contact-form).
+
+{% endnote %}
+
+With {{ search-api-name }} API v1, you can choose between default search and search optimized for [mobile devices](../operations/mobile.md).
+
+In addition to various text search options, API v1 allows you to search for images based on a text query. [Image search](./pic-search.md) only supports the GET method for queries.
+
+To use the API v1 interface, you need to [register](../operations/workaround.md) in {{ search-api-name }}:
+* Make a list of trusted IP addresses you are going to use to submit search queries.
+* Select one of the three available text search types:
+
+    * `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`
+    * `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}`
+    * `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`
+
+    The search type determines the search result _ranking formula_ and the _search database_, i.e., the documents covered by the search.
+    
+After registration, you can change your search type and trusted IP addresses at any time.
+
+## API v2 {#api-v2}
+
+[API v2](../operations/web-search.md) is an interface natively integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md). This interface allows you to [run](../operations/web-search.md) text queries using the `POST` method. Queries are executed in deferred (asynchronous) mode, and you get the result in [XML](./response.md) format.
+
+With API v2, you set the search type directly in the [body](./web-search.md#parameters) of each query. You do not need to [register](../operations/workaround.md#registration) in {{ search-api-full-name }} or specify trusted IP addresses when using API v2.
 

@@ -3,9 +3,9 @@ title: DSPM service roles in {{ sd-full-name }}
 description: This page enlists roles for access control to the Data Security Posture Management (DSPM) module in {{ sd-name }}.
 ---
 
-# Service roles for Data Security Posture Management (DSPM)
+# Data Security Posture Management (DSPM) service roles
 
-Using DSPM service roles, you can manage user access to the Data Security Posture Management module resources and their settings, as well as to data contained in the results of scanning sources for sensitive information.
+With [DSPM](../concepts/dspm.md) service roles, you can manage user access to the DSPM resources and their settings, as well as to the results of scans of sources for sensitive information.
 
 #### dspm.inspector {#dspm-inspector}
 

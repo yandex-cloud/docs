@@ -8,7 +8,7 @@ Foundation model tuning is at the [Preview](../../overview/concepts/launch-stage
 
 {% note info %}
 
-{{ foundation-models-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+Classifiers based on {{ yagpt-name }} are at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ You can send requests to a tuned model through the {{ ml-platform-name }} interf
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `ai-user`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `{{ roles-yagpt-user }}` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}

@@ -1,7 +1,7 @@
 # API key
 
 
-The _API key_ is a secret key used for simplified authorization in the {{ yandex-cloud }} API. API keys are only used for [service account](../users/service-accounts.md) authorization.
+The _API key_ is a secret key only used for simplified authorization of [service accounts](../users/service-accounts.md) with the {{ yandex-cloud }} API.
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
@@ -17,7 +17,18 @@ It is the user's responsibility to store the API key. {{ yandex-cloud }} provide
 
 ## API keys with scope and validity limits {#scoped-api-keys}
 
-You can [create](../../operations/api-key/create.md) API keys with a limited scope and an expiration date. This will reduce the risk of unauthorized use of your keys.
+You can [create](../../operations/api-key/create.md) API keys with an expiration date and a limited scope.
+
+{% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
+
+The scope limits the use of API keys in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+
+{% include [scoped-api-keys-note](../../../_includes/iam/scoped-api-keys-note.md) %}
+
+Available scopes are listed below:
+
+* `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
+* `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 
 ## Using an API key {#use}
 
@@ -33,12 +44,15 @@ The following services support authentication based on API keys:
 
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
+* [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
+* {{ serverless-containers-full-name }}: [Containers](../../../serverless-containers/api-ref/containers/authentication.md) and [triggers](../../../serverless-containers/api-ref/triggers/authentication.md).
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
 * [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
-
+* {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
+* {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use the appropriate [authentication method](../../../ydb/operations/connection#auth) for other modes.
 
 #### See also {#see-also}
 

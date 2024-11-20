@@ -4,7 +4,7 @@ With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../
 
 ## Getting started {#before-begin}
 
-To run sample requests using the API, install:
+To run examples of requests using the API, install:
 
 * [cURL](https://curl.haxx.se) to send API requests
 * [jq](https://github.com/jqlang/jq) utility to work with JSON files
@@ -40,7 +40,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      "messages": [
        {
          "weight": "1",
-         "text": "a pattern of pastel colored succulents of various sorts, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
+         "text": "a pattern of pastel colored succulents of multiple varieties, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
        }
      ]
      }
@@ -63,7 +63,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      * `<IAM_token_value>`: Your account's IAM token.
      * `prompt.json`: JSON file with request parameters.
 
-     In response, the service will return the Operation object:
+     In the response, the service will return the Operation object:
 
      ```json
      {"id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}

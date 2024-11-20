@@ -1,6 +1,6 @@
 ---
 title: '{{ coi }} use cases in {{ cos-full-name }}'
-description: Various use cases for {{ coi }} in {{ yandex-cloud }}.
+description: Various {{ coi }} use cases in {{ yandex-cloud }}.
 ---
 
 # All tutorials
@@ -12,5 +12,6 @@ description: Various use cases for {{ coi }} in {{ yandex-cloud }}.
 * [Creating an instance group from a {{ coi }} with multiple Docker containers](ig-with-containers.md)
 * [{#T}](vm-update.md)
 * [{#T}](serial-port.md)
+* [{#T}](deploy-app-container.md)
 * [{#T}](coi-with-terraform.md)
 * [{#T}](coi-fluent-bit-logging.md)

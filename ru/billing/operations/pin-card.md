@@ -4,7 +4,7 @@
 Одновременно к платежному аккаунту может быть привязана только одна карта, но вы можете изменить ее в настройках платежного аккаунта. 
 Средства за потребленные ресурсы списываются только с той карты, которая указана на странице платежного аккаунта.
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 {% note info %}
 

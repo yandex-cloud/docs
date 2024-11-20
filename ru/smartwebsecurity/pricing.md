@@ -31,21 +31,9 @@ editable: false
 
   {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests.md) %}
 
-  {% cut "Пример расчета стоимости запросов, обработанных правилами профиля безопасности" %}
-
-  {% include [rub-smartwebsecurity](../_pricing_examples/smartwebsecurity/rub-smartwebsecurity.md) %}
-
-  {% endcut %}
-
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-requests](../_pricing/smartwebsecurity/kzt-requests.md) %}
-
-  {% cut "Пример расчета стоимости запросов, обработанных правилами профиля безопасности" %}
-
-  {% include [kzt-smartwebsecurity](../_pricing_examples/smartwebsecurity/kzt-smartwebsecurity.md) %}
-
-  {% endcut %}
 
 {% endlist %}
 
@@ -66,27 +54,15 @@ editable: false
 
   {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests-waf.md) %}
 
-  {% cut "Пример расчета стоимости запросов, обработанных правилами WAF" %}
-
-  {% include [rub-smartwebsecurity](../_pricing_examples/smartwebsecurity/rub-smartwebsecurity-waf.md) %}
-
-  {% endcut %}
-
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-requests](../_pricing/smartwebsecurity/kzt-requests-waf.md) %}
-
-  {% cut "Пример расчета стоимости запросов, обработанных правилами WAF" %}
-
-  {% include [kzt-smartwebsecurity](../_pricing_examples/smartwebsecurity/kzt-smartwebsecurity-waf.md) %}
-
-  {% endcut %}
 
 {% endlist %}
 
 
 
-### Готовые расчеты стоимости запросов
+### Готовые расчеты стоимости запросов {#query-examples}
 
 
 Чтобы оценить порядок стоимости запросов, в таблице ниже представлены расчеты цен за определенное количество запросов в месяц. В это количество не включен нетарифицируемый лимит — 10 000 запросов.
@@ -94,11 +70,11 @@ editable: false
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
+- Расчет в рублях {#prices-rub}
 
   {% include [rub-smartwebsecurity-pack](../_pricing_examples/smartwebsecurity/rub-smartwebsecurity-pack.md) %}
 
-- Цены в тенге {#prices-kzt}
+- Расчет в тенге {#prices-kzt}
 
   {% include [kzt-smartwebsecurity-pack](../_pricing_examples/smartwebsecurity/kzt-smartwebsecurity-pack.md) %}
 
@@ -106,3 +82,21 @@ editable: false
 
 
 Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
+
+
+## Пример расчета стоимости {{ sws-name }} {#price-example}
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-smartwebsecurity](../_pricing_examples/smartwebsecurity/rub-smartwebsecurity.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-smartwebsecurity](../_pricing_examples/smartwebsecurity/kzt-smartwebsecurity.md) %}
+
+{% endlist %}
+
+

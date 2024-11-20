@@ -4,7 +4,7 @@
 {% include [non-residents-functional-access](../../_includes/billing/non-residents-functional-access.md) %}
 
 
-A personal account is your unique {{ billing-name }} ID used to pay for resources throughout the term of your [agreement](contract.md). It holds the money you add to it via your bank card or wire transfer (the method depends on your legal status).
+A personal account is your unique {{ billing-name }} ID used to pay for resources throughout the term of your [agreement](contract.md). It holds the money you add to it via a bank card or wire transfer (the method depends on your legal status).
 
 Your personal account money is used only if there are no [grants](bonus-account.md).
 

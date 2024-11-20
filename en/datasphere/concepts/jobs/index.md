@@ -110,6 +110,17 @@ graceful-shutdown:
   signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
                    # Possible values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
   timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
+
+# List of datasets to create upon a successful job completion.
+output-datasets:
+  - name: job-test-dataset-1  # Dataset name.
+    var: OUT_DS               # Variable containing the path to the dataset. The contents of the specified directory will be structured as a dataset.
+    description: "Description"
+    size: 100Gb               # Maximum dataset size.
+    labels:                   # Random list of labels to assign to the dataset.
+      a: b
+      c: d
+
 ```
 
 The `config.yaml` file has multiple sections.
@@ -152,6 +163,15 @@ The `config.yaml` file has multiple sections.
    You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-jobs).
 
 1. The `graceful-shutdown` section defines the graceful shutdown parameters. If the section is not specified, then the `SIGKILL` signal is sent to the job when the user presses **Ctrl** + **C**. In this section, you can redefine the signal itself as well as the wait time for graceful shutdown.
+
+1. `output-dataset` describes the [datasets](../dataset.md) to create upon a successful job completion. Each dataset has a name, description, size, and a list of labels.
+
+   Once a job is completed, a dataset creation message will appear in the `cli` [log](cli.md#logs). Here is an example of how to do it:
+
+   ```text
+   2024-09-13 16:22:28,894 - [INFO] - Created datasets:
+   2024-09-13 16:22:28,894 - [INFO] -   * <dataset-id> (dataset name) size: <size> Gb
+   ```
 
 #### See also {#see-also}
 

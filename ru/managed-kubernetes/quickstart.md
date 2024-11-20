@@ -59,43 +59,6 @@ description: В этой инструкции вы создадите класт
 
 Подробнее см. в [пошаговой инструкции по созданию кластера {{ managed-k8s-name }}](operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
-## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
-  Чтобы добавить учетные данные кластера {{ managed-k8s-name }} в конфигурационный файл kubectl:
-  1. Выполните команду:
-
-     ```bash
-     yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
-     ```
-
-     * По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`.
-     * Если необходимо изменить расположение конфигураций, используйте флаг `--kubeconfig <путь_к_файлу>`.
-  1. Проверьте конфигурацию kubectl после добавления учетных данных:
-
-     ```bash
-     kubectl config view
-     ```
-
-     Результат:
-
-     ```yml
-     apiVersion: v1
-     clusters:
-       - cluster:
-         certificate-authority-data: DATA+OMITTED
-     ...
-     ```
-
-{% endlist %}
-
 ## Создайте группу узлов {#node-group-create}
 
 Чтобы создать группу узлов {{ managed-k8s-name }}:
@@ -137,6 +100,65 @@ description: В этой инструкции вы создадите класт
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 Подробнее см. в [пошаговой инструкции по созданию группы узлов {{ managed-k8s-name }}](operations/node-group/node-group-create.md).
+
+## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
+
+Утилита kubectl позволяет управлять кластером {{ managed-k8s-name }}. Чтобы настроить утилиту на работу с созданным кластером, добавьте его учетные данные в конфигурационный файл kubectl:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+  1. Выполните команду:
+
+     ```bash
+     yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
+     ```
+
+     {% note tip %}
+
+     {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
+
+     {% endnote %}        
+
+     * По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`.
+     * Если необходимо изменить расположение конфигураций, используйте флаг `--kubeconfig <путь_к_файлу>`.
+     
+  1. Проверьте конфигурацию kubectl после добавления учетных данных:
+
+     ```bash
+     kubectl config view
+     ```
+
+     Результат:
+
+     ```yml
+     apiVersion: v1
+     clusters:
+       - cluster:
+         certificate-authority-data: DATA+OMITTED
+     ...
+     ```
+  1. Проверьте подключение к кластеру:
+  
+     ```bash
+     kubectl get nodes
+     ```
+
+     Команда вернет информацию о созданной группе узлов:
+   
+     ```bash
+     NAME                       STATUS  ROLES   AGE  VERSION
+     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3
+     ```
+  
+     Подробнее о подключении к кластеру {{ managed-k8s-name }} см. на странице [Обзор способов подключения](operations/connect/index.md).
+
+{% endlist %}
 
 ## Что дальше {#what-is-next}
 
