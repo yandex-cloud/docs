@@ -86,7 +86,7 @@ cp secure-config-template.json secure-config.json
 * `hash` — случайная строка длиной 64 байта, закодированная с помощью base64, например `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`.
 * `block` — случайная строка длиной 32 байта, закодированная с помощью base64, например `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`.
 
-Сгенерировать случайные значения можно с помощью сайта [generate.plus](https://generate.plus/en/base64).
+Сгенерировать случайные значения можно с помощью сайта [real-generator.com](https://www.real-generator.com/base64).
 
 Убедитесь, что в файле `variables.json` указан правильный путь к `secure-config.json`.
 
