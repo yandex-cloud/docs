@@ -59,6 +59,8 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ yq-full-name }}                      | [REST](../query/api/) |
 | {{ resmgr-full-name }}                  | [gRPC](../resource-manager/api-ref/grpc/)<br>[REST](../resource-manager/api-ref/) |
 | {{ serverless-containers-full-name }}   | [Containers gRPC](../serverless-containers/containers/api-ref/grpc/)<br>[Containers REST](../serverless-containers/containers/api-ref/)<br>[Triggers gRPC](../serverless-containers/triggers/api-ref/grpc/)<br>[Triggers REST](../serverless-containers/triggers/api-ref/) |
+| {{ captcha-full-name }}                 | [gRPC](../smartcaptcha/api-ref/grpc/)<br>[REST](../smartcaptcha/api-ref/) |
+| {{ sws-full-name }}                     | [gRPC](../smartwebsecurity/api-ref/grpc/)<br>[REST](../smartwebsecurity/api-ref/) |
 | {{ speechkit-full-name }}               | [Synchronous recognition v2 REST](../{{ speechkit-slug }}/stt/api/request-api.md)<br>[Asynchronous recognition v2 REST](../{{ speechkit-slug }}/stt/api/transcribation-api.md)<br>[Streaming recognition v2 gRPC](../{{ speechkit-slug }}/stt/api/streaming-api.md)<br>[Streaming recognition v3 gRPC](../{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Synthesis v1 REST](../{{ speechkit-slug }}/tts/request.md)<br>[Synthesis v3 gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
 | {{ sk-hybrid-full-name }}               | [Speech synthesis gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/)<br>[Streaming recognition gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |

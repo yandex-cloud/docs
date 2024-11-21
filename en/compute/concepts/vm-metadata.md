@@ -1,6 +1,6 @@
 # VM metadata
 
-[VM](vm.md) instance details are available in the metadata service. You can use metadata to provide any keys and values, and then request the metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) a VM instance. For more information about setting up a metadata service, see [{#T}](../operations/vm-info/get-info.md#metadata-options).
+[VM](./vm.md) instance details are available in the metadata service. You can use metadata to provide any keys and values, and then request the metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) a VM instance. For more information about setting up a metadata service, see [{#T}](../operations/vm-info/get-info.md#metadata-options).
 
 Metadata is also used by apps that launch at VM startup.
 
@@ -18,15 +18,27 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
 - Management console {#console}
 
+  {% note info %}
+
+  When creating VM users via metadata using the `user-data` key, all users, including the default one specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+
+
+  {% endnote %}
+
   Metadata is provided under **{{ ui-key.yacloud.common.metadata }}** in `Key:Value` format.
 
   For example, to create multiple users in the virtual machine OS, add the `user-data` key and specify the following configuration in it:
 
   {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
 
-  When creating users via metadata, specify the data of all users in the `user-data` key, including the data of the user specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
-
 - CLI {#cli}
+
+  {% note info %}
+
+  When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `--ssh-key`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `--ssh-key`.
+
+
+  {% endnote %}
 
   In the CLI, you can provide metadata in any of the three parameters:
 
@@ -55,8 +67,15 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
 - {{ TF }} {#tf}
 
+  {% note info %}
+
+  When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `ssh-keys`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `ssh-keys`.
+
+
+  {% endnote %}
+
   In {{ TF }}, you can specify metadata in three ways:
-  * As a separate file with user metadata to process by the `cloud-init` agent. To do this, under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
+  * As a separate file with user metadata to process by the `cloud-init` agent. To do this, under`metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
 
     ```hcl
     ...
@@ -72,7 +91,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
     {% endcut %}
 
-  * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` as a separator. Here is an example:
+  * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` as a separator. For example:
 
     ```hcl
     ...

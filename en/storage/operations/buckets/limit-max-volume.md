@@ -135,7 +135,7 @@ For example, if you provide the users of your service with the ability to upload
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can verify changes to your bucket in the [management console]({{ link-console-main }}).
+     You can check the bucket update in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

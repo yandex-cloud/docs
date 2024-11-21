@@ -213,6 +213,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

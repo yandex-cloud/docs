@@ -33,6 +33,18 @@ A message is the minimum atomic unit of user information that a system or applic
 
 A message consist of a body, a timestamp, user metadata in `key:value` format, and a serial number.
 
+{% note info %}
+
+[Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }} for correct data aggregation in monitoring.
+
+{% endnote %}
+
+{% note info %}
+
+For correct data aggregation in monitoring, [Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }}.
+
+{% endnote %}
+
 ## Sessions {#sessions}
 
 A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in `key:value` format.
@@ -48,7 +60,7 @@ See the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
-Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
 
 See also the [list of available outputs](outputs.md).
 
@@ -67,7 +79,7 @@ See also the [list of available filters](filters.md).
 Storages are intended to store messages from their receipt as an input until their transmission to the output.
 Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
 
-See the [storage configuration guide](storage.md).
+See also the [storage configuration guide](storage.md).
 
 ## Routing {#routing}
 
@@ -78,7 +90,7 @@ Pipes contain:
 
 Pipes can be named.
 
-See the [pipe configuration guide](routing.md#pipes).
+See also the [pipe configuration guide](routing.md#pipes).
 
 ### Channels {#channels}
 

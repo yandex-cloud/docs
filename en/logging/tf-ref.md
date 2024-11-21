@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ cloud-logging-nam
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_logging_group]({{ tf-provider-datasources-link }}/datasource_logging_group) | [Log group](./concepts/log-group.md) information |
+| [yandex_logging_group]({{ tf-provider-datasources-link }}/logging_group) | [Log group](./concepts/log-group.md) information |

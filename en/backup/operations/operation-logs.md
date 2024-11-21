@@ -8,7 +8,7 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
 - Management console {#console}
 
-  To see all operations with the service's resources, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
 
 {% endlist %}
 

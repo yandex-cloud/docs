@@ -28,6 +28,10 @@
 
 ### Сервисные роли {#service-roles}
 
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../../_roles/yds/auditor.md) %}
+
 #### yds.viewer {#yds-viewer}
 
 {% include [yds.viewer](../../_roles/yds/viewer.md) %}
@@ -46,18 +50,6 @@
 
 ### Примитивные роли {#primitive-roles}
 
-#### {{ roles-viewer }} {#viewer}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список потоков данных, баз данных, где созданы потоки, и их свойств.
-
-#### {{ roles-editor }} {#editor}
-
-Пользователь с ролью `{{ roles-editor }}` может управлять любыми ресурсами, например создать поток данных или его удалить. Кроме этого, данная роль позволяет записывать данные из приложений в потоки данных.
-
-Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-#### {{ roles-admin }} {#admin}
-
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать потоки данных или просматривать информацию о них.
-
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

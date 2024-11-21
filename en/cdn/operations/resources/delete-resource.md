@@ -12,7 +12,7 @@ description: Follow this guide to delete a resource.
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
-  1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and, in the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and then click **{{ ui-key.yacloud.common.delete }}** in the window that opens.
 
 - CLI {#cli}
 
@@ -62,7 +62,7 @@ description: Follow this guide to delete a resource.
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To delete a CDN resource created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the section with the resource description.
+  1. Open the {{ TF }} configuration file and delete the resource description fragment.
 
       {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
 

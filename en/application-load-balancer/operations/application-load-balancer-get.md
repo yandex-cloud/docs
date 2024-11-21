@@ -77,7 +77,7 @@ title: How to get information about an L7 load balancer in {{ alb-full-name }}
       * `output "allocation_policy"`: Output variable that contains information about the L7 load balancer placement policy:
          * `value`: Returned value.
 
-     You can replace `allocation_policy` with any other parameter to get the information you need. For more information about the `yandex_alb_load_balancer` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_load_balancer).
+     You can replace `allocation_policy` with any other parameter to get the information you need. For more information about the `yandex_alb_load_balancer` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
   1. Create resources:
 

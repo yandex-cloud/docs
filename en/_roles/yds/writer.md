@@ -1,1 +1,1 @@
-The `yds.writer` role allows writing data to Data Streams streams.
+The `yds.writer` role enables writing data to [streams in Yandex Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) and connecting to [YDB databases](../../ydb/concepts/resources.md#database).

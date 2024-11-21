@@ -27,6 +27,12 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 ## Установите и настройте плагин {#install-plugin}
 
+{% note warning %}
+
+{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
+
+{% endnote %}
+
 {% list tabs group=ide %}
 
 - Visual Studio Code {#vscode}
@@ -50,27 +56,21 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **No active session found. Log in please** нажмите кнопку **Go to browser**.
-      
+
           Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в строке поиска в верхней части экрана введите `>Yandex Code Assistant`. В открывшемся списке выберите **Yandex Code Assistant: Login**.
       1. Разрешите Visual Studio Code открыть в браузере страницу аутентификации.
       1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и во всплывающем окне нажмите **Открыть приложение**.
       1. Вернитесь обратно в Visual Studio Code.
 
   Если плагин включен и готов к работе, то на нижней панели редактора отобразится значок ![image](../_assets/code-assistant/vsc-icon-small.svg).
-  
+
   Нажмите на этот значок, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в списке в строке **Logged in as <имя_пользователя>**. Если пользователь не аутентифицирован, в списке такой строки не будет.
 
 - IDE от JetBrains {#jb}
 
-  {% note warning %}
-
-  Поддерживается работа с IDE версий 2024.1 и 2024.2.
-
-  {% endnote %}
-
   1. Скачайте плагин {{ ca-name }} для своей версии [IDE от JetBrains](https://www.jetbrains.com/ides/):
-      * [2024.1]({{ link-ca-jb-2024-1 }})
-      * [2024.2]({{ link-ca-jb-2024-2 }})
+
+      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
 
       {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
 
@@ -96,7 +96,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
       1. Вернитесь обратно в IDE.
 
   Если плагин включен и готов к работе, то на нижней панели редактора отобразится кнопка **Yandex CA**.
-  
+
   Нажмите эту кнопку, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в сообщении в строке **Logged in as: <имя_пользователя>**. Если пользователь не аутентифицирован, в сообщении будет указано **No Auth data**.
 
   {% note tip %}
@@ -197,8 +197,9 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 - IDE от JetBrains {#jb}
 
   1. Скачайте актуальный плагин {{ ca-name }} для своей версии IDE от JetBrains:
-      * [2024.1]({{ link-ca-jb-2024-1 }})
-      * [2024.2]({{ link-ca-jb-2024-2 }})
+
+      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
+
   1. [Установите плагин](#install-plugin).
 
 {% endlist %}
@@ -243,6 +244,6 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 {% endlist %}
 
-### См. также {#see-also}
+#### См. также {#see-also}
 
 * [Обзор {{ ca-name }}](./concepts/index.md)

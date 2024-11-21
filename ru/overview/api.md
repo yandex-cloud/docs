@@ -59,6 +59,8 @@
 | {{ yq-full-name }}                      | [REST](../query/api/) |
 | {{ resmgr-full-name }}                  | [gRPC](../resource-manager/api-ref/grpc/)<br>[REST](../resource-manager/api-ref/) |
 | {{ serverless-containers-full-name }}   | [Containers gRPC](../serverless-containers/containers/api-ref/grpc/)<br>[Containers REST](../serverless-containers/containers/api-ref/)<br>[Triggers gRPC](../serverless-containers/triggers/api-ref/grpc/)<br>[Triggers REST](../serverless-containers/triggers/api-ref/) |
+| {{ captcha-full-name }}                 | [gRPC](../smartcaptcha/api-ref/grpc/)<br>[REST](../smartcaptcha/api-ref/) |
+| {{ sws-full-name }}                     | [gRPC](../smartwebsecurity/api-ref/grpc/)<br>[REST](../smartwebsecurity/api-ref/) |
 | {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/request-api.md)<br>[Асинхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/transcribation-api.md)<br>[Потоковое распознавание v2 gRPC](../{{ speechkit-slug }}/stt/api/streaming-api.md)<br>[Потоковое распознавание v3 gRPC](../{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](../{{ speechkit-slug }}/tts/request.md)<br>[Синтез v3 gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
 | {{ sk-hybrid-full-name }}               | [Синтез речи gRPC](../speechkit-hybrid/api-ref/tts/v3/grpc/)<br>[Потоковое распознавание gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |

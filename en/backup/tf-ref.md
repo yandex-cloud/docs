@@ -22,4 +22,4 @@ The following {{ TF }} provider resources are supported for {{ backup-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_backup_policy]({{ tf-provider-datasources-link }}/datasource_backup_policy) | Backup policy information |
+| [yandex_backup_policy]({{ tf-provider-datasources-link }}/backup_policy) | Backup policy information |

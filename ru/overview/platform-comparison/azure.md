@@ -9,7 +9,7 @@ description: В этой статье сопоставляются сервис�
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
-| Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
+| Azure Application Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
 | Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../managed-mongodb/) |
@@ -18,12 +18,14 @@ description: В этой статье сопоставляются сервис�
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Azure DNS | [{{ dns-full-name }}](../../dns/) |
+| Azure Event Grid | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Azure Event Hubs | [{{ yds-full-name }}](../../data-streams/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Azure Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |
+| Azure Logic Apps | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |

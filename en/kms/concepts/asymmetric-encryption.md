@@ -5,7 +5,7 @@ description: This guide describes the features of asymmetric encryption in {{ km
 
 # Asymmetric encryption in {{ kms-short-name }}
 
-One of the available encryption modes in {{ kms-short-name }} is _asymmetric encryption_. It uses a public key of an asymmetric key pair (crypto pair) to encrypt data and its private key to decrypt the data. {{ kms-name }} allows you to export the public key to encrypt text on the client side. To decrypt such text in {{ kms-short-name }}, you can use the private key from the key pair. You cannot access the private key in {{ kms-short-name }} directly.
+One of the available encryption modes in {{ kms-short-name }} is _asymmetric encryption_. This mode uses a public key of an asymmetric key pair (crypto pair) to encrypt and its private key to decrypt the data. {{ kms-name }} allows you to export the public key to encrypt text on the client side. To decrypt such text in {{ kms-short-name }}, you can use the private key from the key pair. You cannot access the private key in {{ kms-short-name }} directly.
 
 {% include [asymmetric-keys-quota](../../_includes/kms/asymmetric-keys-quota.md) %}
 
@@ -13,7 +13,7 @@ One of the available encryption modes in {{ kms-short-name }} is _asymmetric enc
 
 To encrypt a message, you need to get a public key in {{ kms-short-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
 
-To obtain the public key of encryption key pair, the user or service account must be [assigned the `kms.asymmetricEncryptionKeys.publicKeyViewer` role](../operations/key-access.md) for the key pair.
+To obtain the public encryption key of the key pair, the user or service account must [have the `kms.asymmetricEncryptionKeys.publicKeyViewer` role](../operations/key-access.md) for the key pair.
 
 ## Data encryption {#encryption}
 
@@ -23,10 +23,10 @@ To encrypt a message, you can use the [OpenSSL](https://www.openssl.org/) utilit
 
 ```bash
 openssl pkeyutl \
-  -in <path_to_message_file> \
+  -in <message_file_path> \
   -encrypt \
   -pubin \
-  -inkey <path_to_public_key_file> \
+  -inkey <public_key_file_path> \
   -pkeyopt rsa_padding_mode:oaep \
   -pkeyopt rsa_oaep_md:sha256 \
   -pkeyopt rsa_mgf1_md:sha256 | base64
@@ -49,7 +49,7 @@ Where:
 * `k`: Length of the encryption key, in bytes.
 * `hashLength`: Length of the hash function, in bytes.
 
-| **Algorithm** | **Parameters** | **Max message length** |
+| **Algorithm** | **Parameters** | **Maximum message length** |
 | --- | --- | --- |
 | `RSA_2048_ENC_OAEP_SHA_256` | `k`=256, `hashLength`=32 | 190 bytes |
 | `RSA_3072_ENC_OAEP_SHA_256` | `k`=384, `hashLength`=32 | 318 bytes |
@@ -59,4 +59,4 @@ Where:
 
 You can decrypt data using a private key of the key pair in {{ kms-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/decrypt.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
 
-To decrypt data, the user or service account must be [assigned the `kms.asymmetricEncryptionKeys.decrypter` role](../operations/key-access.md) for the encryption key pair.
+To decrypt data, the user or service account must [have the `kms.asymmetricEncryptionKeys.decrypter` role](../operations/key-access.md) for the encryption key pair.

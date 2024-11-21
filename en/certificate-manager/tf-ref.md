@@ -21,5 +21,5 @@ The following {{ TF }} provider resources are supported for {{ certificate-manag
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_cm_certificate]({{ tf-provider-datasources-link }}/datasource_cm_certificate) | [TLS certificate](./concepts/index.md#types) information |
-| [yandex_cm_certificate_content]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content) | TLS certificate contents |
+| [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate) | [TLS certificate](./concepts/index.md#types) information |
+| [yandex_cm_certificate_content]({{ tf-provider-datasources-link }}/cm_certificate_content) | TLS certificate contents |

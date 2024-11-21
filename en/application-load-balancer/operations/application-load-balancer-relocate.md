@@ -16,7 +16,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the relevant load balancer row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the row with the load balancer you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move your VMs to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -26,7 +26,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       {% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the CLI command to enable load balancer traffic:
+      1. See the description of the CLI command to enable load balancer traffic:
 
           ```bash
           yc application-load-balancer load-balancer enable-traffic --help
@@ -141,7 +141,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
      1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. Select the appropriate load balancer.
-     1. Go to ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+     1. Go to the ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
      1. Expand the list of targets. Make sure that the VMs attached to the target group have the `HEALTHY` [status](../../compute/concepts/vm-statuses.md).
 
    - API {#api}

@@ -21,8 +21,8 @@ To create a key:
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: Key description.
-   * `default-algorithm`: Encryption algorithm. The possible values are `AES-128`, `AES-192`, or `AES-256`.
-   * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify the `rotation-period` parameter.
+   * `default_algorithm`: Encryption algorithm. The possible values are `AES-128`, `AES-192`, or `AES-256`.
+   * `rotation_period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify the `rotation_period` parameter.
 
    {% note warning %}
 

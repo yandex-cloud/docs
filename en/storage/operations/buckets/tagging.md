@@ -15,7 +15,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need to add or edit labels in.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose labels you need to add or edit.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -130,7 +130,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  That will add the labels to the bucket. You can check the new labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  That will add the labels to the bucket. You can check the new labels and the bucket's settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc storage bucket get <bucket_name> --full
@@ -140,9 +140,9 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
-   To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
+  To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
-  **Example of gRPC API call**
+  **Sample gRPC API call**
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -150,13 +150,13 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
     -H "Authorization: Bearer $IAM_TOKEN" \
     -d '{"name": "test-bucket", "update_mask": {"paths": ["tags"]}, "tags": [{"key": "test-key", "value": "test-value"}]}' \
     storage.{{ api-host }}:443 \
-    {{ at-event-prefix }}.storage.v1.BucketService/Update
+    {{ at-event-prefix }}.storage.v1.BucketService/Update 
   ```
 
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `update_mask`: List of bucket parameters you want to update.
+  * `update_mask`: List of bucket parameters to update.
   * `tags`: List of bucket labels.
   * `key`: Label key.
   * `value`: Label value.
@@ -280,13 +280,13 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
     -H "Authorization: Bearer $IAM_TOKEN" \
     -d '{"name": "test-bucket", "view": "VIEW_FULL"}' \
     storage.{{ api-host }}:443 \
-    {{ at-event-prefix }}.storage.v1.BucketService/Get
+    {{ at-event-prefix }}.storage.v1.BucketService/Get 
   ```
 
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `view`: Scope of information provided (`VIEW_FULL` means full information about the bucket).
+  * `view`: Amount of information being provided (`VIEW_FULL` means full information about the bucket).
 
   Result:
 
@@ -331,7 +331,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the label.
+  1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the appropriate label.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -402,7 +402,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the bucket.
+  1. Open the {{ TF }} configuration file and delete the `tags` section from the bucket description fragment.
 
      {% cut "Example of a bucket tag description in the {{ TF }} configuration" %}
 
@@ -424,7 +424,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  That will delete the bucket's labels. You can check the deletion of labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  That will delete the bucket's labels. You can check the deletion of labels and the bucket's settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc storage bucket get <bucket_name> --full
@@ -448,7 +448,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `update_mask`: List of bucket parameters you want to update.
+  * `update_mask`: List of bucket parameters to update.
   * `tags`: List of bucket labels.
 
   Result:

@@ -28,7 +28,7 @@ To check the kernel version, run `sudo uname -r`.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
      1. In the window that opens:
         1. Select the VM.
-        1. Specify the device name for accessing the file storage in the VM. Save this name as you will need it when mounting the storage.
+        1. Specify the device name to represent the file storage in the VM. Save this name as you will need it when mounting the storage.
         1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
    - CLI {#cli}
@@ -82,7 +82,7 @@ To check the kernel version, run `sudo uname -r`.
 
           Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
 
-        * `--device-name`: Device name for accessing the file storage in the VM. This is an optional parameter.
+        * `--device-name`: Device name to represent the file storage in the VM. This is an optional parameter.
 
           By default, the file storage ID is used as the device name.
 

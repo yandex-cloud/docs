@@ -749,6 +749,10 @@ description: В статье приведен полный справочник 
 
 ## {{ yds-full-name }} {#yds-roles}
 
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../_roles/yds/auditor.md) %}
+
 #### yds.viewer {#yds-viewer}
 
 {% include [yds.viewer](../_roles/yds/viewer.md) %}

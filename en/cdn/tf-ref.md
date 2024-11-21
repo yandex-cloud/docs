@@ -22,5 +22,5 @@ The following {{ TF }} provider resources are supported for {{ cdn-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group) | Information about an [origin group](./concepts/origins.md#groups) |
-| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/datasource_cdn_resource) | Information about a [CDN resource](./concepts/resource.md) |
+| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/cdn_origin_group) | Information about an [origin group](./concepts/origins.md#groups) |
+| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/cdn_resource) | Information about a [CDN resource](./concepts/resource.md) |

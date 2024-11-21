@@ -169,6 +169,12 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
+        href: tutorials/mpg-to-objstorage.md
+      - name: >-
+          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
+          }}
+        href: tutorials/dp-mch-data-exchange.md
       - name: >-
           Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }}
           using Sqoop

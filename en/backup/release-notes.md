@@ -8,11 +8,11 @@ description: This section contains {{ backup-name }} release notes.
 ## Q3 2024 {#q3-2024}
 
 * Enabled setting an existing backup policy when [creating a VM with a {{ backup-name }} connection](./operations/create-vm.md) in the management console, YC CLI, {{ TF }}, and API.
-* Added support for a new data source in {{ TF }} [yandex_backup_policy]({{ tf-provider-datasources-link }}/datasource_backup_policy) to get information about a backup policy.
+* Added support for a new data source in {{ TF }} [yandex_backup_policy]({{ tf-provider-datasources-link }}/backup_policy) to get information about a backup policy.
 * Added a new resource in {{ TF }} [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings) to link VMs to backup policies.
-* Implemented sending of [service metrics](metrics.md) to {{ monitoring-full-name }}.
-* Added the ability to [take](./operations/backup-vm/create.md) VM backups at a time other than the scheduled time defined in a backup policy using the YC CLI.
-* Added support for [{{ baremetal-full-name }} server backups](./tutorials/backup-baremetal.md).
+* Implemented sending [service metrics](metrics.md) to {{ monitoring-full-name }}.
+* Added the ability to [create](./operations/backup-vm/create.md) VM backups outside the backup policy schedule using the YC CLI.
+* Added support for [{{ baremetal-full-name }}](./tutorials/backup-baremetal.md) server backups.
 
 ## Q2 2024 {#q2-2024}
 

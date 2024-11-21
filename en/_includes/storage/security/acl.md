@@ -38,7 +38,7 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
   * Using the [{{ iam-short-name }} CLI or API](../../../iam/operations/users/get.md).
 * [Service account](../../../iam/concepts/users/service-accounts)
 
-  To get the ID, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** section in the management console.
+  To get the ID, in the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** from the list of services. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
 
 * [Public group](#public-groups)
 

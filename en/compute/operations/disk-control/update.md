@@ -21,7 +21,7 @@ To change disk name and description:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a disk.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the disk name and description.
   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
@@ -79,7 +79,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Increase the disk size.
   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
@@ -148,7 +148,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
        resources {
          core_fraction = <vCPU_performance_level>
          cores         = <number_of_vCPU_cores>
-         memory        = <RAM_GB>
+         memory        = <RAM_size_GB>
        }
 
        boot_disk {
@@ -185,7 +185,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     This will increase the disk size. You can check the size of your disk and its configuration using the [management console]({{ link-console-main }}) or this CLI command:
+     This will increase the disk size. You can check the size of the disk and its settings using the [management console]({{ link-console-main }}) or this CLI command:
 
      ```bash
      yc compute disk get <disk_name>
@@ -272,7 +272,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/dev/vdb`: Device name.
-     * `1`: Partition number, which must be separated by a space.
+     * `1` is the partition number, so it is separated by a space.
 
      Result:
 
@@ -286,7 +286,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
      sudo resize2fs /dev/vdb1
      ```
 
-     Where `dev/vdb1` is the partition name.
+     Where `dev/vdb1` is the name of the partition.
 
      Result:
 
@@ -343,7 +343,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
      └─vdb1 252:17   0  32G  0 part /data
      ```
 
-     Disk partitions are listed under `NAME`. Partition mount points are displayed under `MOUNTPOINTS`.
+     Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINTS` column.
 
   1. Run this command:
 
@@ -353,7 +353,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/dev/vdb`: Device name.
-     * `1`: Partition number, which must be separated by a space.
+     * `1` is the partition number, so it is separated by a space.
 
      Result:
 
@@ -369,7 +369,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/data`: Mount point of the partition whose size you need to increase.
-     * `-d`: Parameter for increasing partition size.
+     * `-d`: Partition extension parameter.
 
      Result:
 

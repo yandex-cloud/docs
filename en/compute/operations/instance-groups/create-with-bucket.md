@@ -52,7 +52,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
               For more granular management of access permissions, attach different service accounts with different permissions to the instance group and VMs in the group.
 
-          * In the `#cloud-config` section of the `instance_template.metadata.user-data` field, commands for mounting the bucket to the VM:
+          * In the `#cloud-config` section of the `instance_template.metadata.user-data` field, commands for mounting the bucket to the instance:
 
               ```yml
               instance_template:
@@ -73,8 +73,8 @@ To create an instance group that will automatically connect a common {{ objstora
               ```
 
               Where:
-              * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace). This command can run on Ubuntu and Debian. For operating systems based on Red Hat (such as CentOS and Fedora), use the `- yum install fuse` command, for OpenSUSE, `- zypper install fuse`, etc.
-              * `<VM_mount_point>`: Directory on the VM to mount the connected bucket to, e.g., `/mnt/gfs0`.
+              * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace); suitable for Ubuntu and Debian. Use the `- yum install fuse` command for operating systems based on Red Hat (such as CentOS and Fedora), `- zypper install fuse`, for OpenSUSE operating systems, etc.
+              * `<VM_mount_point>`: VM directory to mount the connected bucket to, e.g., `/mnt/gfs0`.
               * `<bucket_name>`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to connect to the VM.
 
           YAML specification example:
@@ -173,7 +173,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
           resource "yandex_iam_service_account" "storage-sa" {
             name        = "storage-sa"
-            description = "Service account for managing the bucket."
+            description = "Service account for managing a bucket."
           }
 
           resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -203,7 +203,7 @@ To create an instance group that will automatically connect a common {{ objstora
             instance_template {
               platform_id = "standard-v3"
               resources {
-                memory = <RAM_GB>
+                memory = <RAM_size_GB>
                 cores  = <number_of_vCPU_cores>
               }
 
@@ -263,8 +263,8 @@ To create an instance group that will automatically connect a common {{ objstora
 
           * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
           * `yandex_compute_instance_group`: Description of the instance group.
-            * General information about the instance group:
-              * `name`: Instance group name.
+            * General information about the VM group:
+              * `name`: VM group name.
               * `folder_id`: Folder ID.
               * `service_account_id`: ID of the service account for the instance group.
               * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
@@ -276,10 +276,10 @@ To create an instance group that will automatically connect a common {{ objstora
                 * `image_id`: ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
               * `service_account_id`: ID of the service account for the bucket.    
               * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-              * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the following:
+              * `metadata`: You need to provide the following in the [metadata](../../concepts/vm-metadata.md):
                 * VM user name and public key to enable this user to access the VM via SSH. 
-                * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace). This command can run on Ubuntu and Debian. For operating systems based on Red Hat (such as CentOS and Fedora), use the `- yum install fuse` command, for OpenSUSE, `- zypper install fuse`, etc.
-                * `<VM_mount_point>`: Directory on the VM to mount the connected bucket to, e.g., `/mnt/gfs0`.
+                * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace); suitable for Ubuntu and Debian. Use the `- yum install fuse` command for operating systems based on Red Hat (such as CentOS and Fedora), `- zypper install fuse`, for OpenSUSE operating systems, etc.
+                * `<VM_mount_point>`: VM directory to mount the connected bucket to, e.g., `/mnt/gfs0`.
                 * `<bucket_name>`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to connect to the VM.
 
                 For more information, see [{#T}](../../concepts/vm-metadata.md).
@@ -302,7 +302,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
           {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+          All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
           {% include [ssh-connection-internal-ip](../../../_includes/instance-groups/ssh-connection-internal-ip.md) %}
 

@@ -34,7 +34,7 @@ To link a service account to a VM, you must have permission to use this account.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Update the VM parameters by specifying the service account in `--service-account-name` or `--service-account-id`:
+  Update the VM parameters by specifying the service account via the `--service-account-name` or `--service-account-id` option:
 
   ```bash
   yc compute instance update my-instance --service-account-name test
@@ -52,7 +52,7 @@ To link a service account to a VM, you must have permission to use this account.
 
 - Management console {#console}
 
-  In the management console, you can link a service account to a virtual machine located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the VM you are creating. If the service account is in a different folder, use the CLI or API.
+  In the management console, you can link a service account to a virtual machine located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the VM being created. If the service account is in a different folder, use the CLI or API.
 
   To link a service account to a VM, select it under **{{ ui-key.yacloud.compute.instances.create.section_additional }}** in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field when [creating a VM](../index.md#vm-create). You can select an existing service account or create a new one.
 

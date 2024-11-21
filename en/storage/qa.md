@@ -72,7 +72,7 @@ yc kms symmetric-key add-access-binding \
 ```
 
 Where:
-* `--id`: ID of the {{ kms-short-name }} key.
+* `--id`: {{ kms-short-name }} key ID.
 * `--service-account-id`: Service account ID.
 
 
@@ -152,12 +152,18 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 {% include [objects-access.md](../_includes/storage/objects-access.md) %}
 
 
-#### Why did I lose access to the bucket after creating/updating an access policy? {#qa-lost-access}
+#### Why did I lose access to the bucket after creating/updating a bucket policy? {#qa-lost-access}
 
-1. [Access policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. For an access policy rule to apply both to the bucket and the objects in it, specify them as separate resources, e.g., `samplebucket` and `samplebucket/*`.
+Possible causes:
 
-1. If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
+* [Bucket policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. For a bucket policy rule to apply both to the bucket and the objects in it, specify them as separate resources, e.g., `samplebucket` and `samplebucket/*`.
+
+* If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
+
+
+* If a bucket is interacting with a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) cluster and the bucket has a bucket policy assigned to it, the cluster will not be able to write data to the bucket. To fix this, remove the policy.
+
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
 
-For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP addresses or no access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). FQDN of the endpoint will be translated to a public IP using DNS.
+For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP addresses or no access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP using DNS.

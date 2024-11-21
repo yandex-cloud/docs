@@ -15,34 +15,34 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. Go to the ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
-   1. Next to the backup to restore the VM from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
-   1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM you created the backup from. In the list, this VM is marked as `({{ ui-key.yacloud.backup.context_current-vm }})`.
-   1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Go to the ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
+  1. Next to the backup to restore the VM from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
+  1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM you created the backup from. In the list, this VM is marked as `({{ ui-key.yacloud.backup.context_current-vm }})`.
+  1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to restore a VM from a backup:
+  1. See the description of the CLI command to restore a VM from a backup:
 
       ```bash
       yc backup backups recover --help
       ```
 
-   1. Get the ID of the appropriate backup:
+  1. Get the ID of the appropriate backup:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-   1. Get the ID of the VM to restore:
+  1. Get the ID of the VM to restore:
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-   1. Restore the VM from the backup:
+  1. Restore the VM from the backup:
 
       ```bash
       yc backup backups recover \
@@ -65,7 +65,7 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
 - API {#api}
 
-   To restore a VM from a backup, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/Backup/startRecovery.md) gRPC API call.
+  To restore a VM from a backup, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/Backup/startRecovery.md) gRPC API call.
 
 {% endlist %}
 

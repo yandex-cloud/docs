@@ -69,7 +69,7 @@ title: How to get information about a placement group in {{ compute-full-name }}
       * `output "placement_group"`: Output variable containing information about the placement group creation time:
         * `value`: Returned value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_placement_group).
+      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_placement_group).
 
   1. Create resources:
 

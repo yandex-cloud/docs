@@ -11,7 +11,7 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the line with the video, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Edit the video title and description.
   1. To change the cover:
 
@@ -24,7 +24,7 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
       1. Click ![image](../../../_assets/console-icons/xmark.svg) to the right of the name of the subtitle file you want to update.
       1. In the **{{ ui-key.yacloud_video.videos.label_subtitles }}** field, click **{{ ui-key.yacloud_video.common.action_add }}**.
-      1. In the window that opens, select a subtitle language.
+      1. In the window that opens, select the subtitle language.
       1. Click **Select file** and select a subtitle file.
       1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 

@@ -2,13 +2,17 @@
 
 ## Общие вопросы {#common-questions}
 
+### Какие IDE поддерживаются? {#ide-versions}
+
+{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
+
 ### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
 
 [Платежный аккаунт](../billing/concepts/billing-account.md) **не нужен**.
 
 ### Можно ли использовать плагин без доступа в интернет? {#using-plugin-without-internet}
 
-Нет. Для работы {{ ca-short-name }} требуется постоянный доступ в интернет.
+Нет. Для работы {{ ca-name }} требуется постоянный доступ в интернет.
 
 ### Как изменить пользователя, аутентифицированного в плагине {{ ca-name }} {#change-user}
 
@@ -56,11 +60,7 @@ OS: Windows_NT x64 10.0.19045
 
 ## Работа в IDE от JetBrains {#jetbrains-ide}
 
-### Какие версии IDE поддерживаются? {#ide-versions}
-
-{{ ca-short-name }} поддерживает работу в IDE от JetBrains версий 2024.1 и 2024.2.
-
-### Плагин не запускается, сообщение об ошибке 404, не появляются предложения от {{ ca-short-name }} {#plugin-doesnt-start}
+### Плагин не запускается, сообщение об ошибке 404, не появляются предложения от {{ ca-name }} {#plugin-doesnt-start}
 
 Попробуйте перезапустить IDE.
 
@@ -80,7 +80,7 @@ Failed to authenticate with proxy
 
 ### Как получить логи работы IDE {#get-logs-ide}
 
-Если для решения проблем с {{ ca-short-name }} вы хотите обратиться в [техническую поддержку]({{ link-console-support }}), заранее подготовьте файл с логом IDE:
+Если для решения проблем с {{ ca-name }} вы хотите обратиться в [техническую поддержку]({{ link-console-support }}), заранее подготовьте файл с логом IDE:
 
 1. В верхнем меню IDE нажмите **Help** и выберите **Show log in Explorer** (**Show Log in Finder** на macOS).
 1. В открывшемся окне скопируйте файл `idea.log` и приложите его к обращению в техническую поддержку.

@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing a GPU cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
@@ -98,7 +98,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `gpu_cluster_id`: GPU cluster ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or`serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_gpu_cluster_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
 
@@ -115,7 +115,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -125,7 +125,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing a GPU cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
@@ -206,11 +206,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       }
       ```
 
-     Where:
+      Where:
 
       * `gpu_cluster_id`: GPU cluster ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or`serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_gpu_cluster_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
 
@@ -231,7 +231,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `GpuClusterService/SetAccessBindings` call completely rewrite the resource access permissions. All current resource roles will be deleted.
+  The `set-access-binding` method and the `GpuClusterService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -243,7 +243,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing a GPU cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
@@ -321,6 +321,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

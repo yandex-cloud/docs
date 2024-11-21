@@ -85,7 +85,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM instance in a placement group:
-  1. In the configuration file, describe the VM parameters specifying the `yandex_compute_placement_group` resource in the `placement_group_id` field. The `yandex_compute_instance` resource describes the VM parameters.
+  1. In the configuration file, describe the VM parameters indicating the `yandex_compute_placement_group` resource in the `placement_group_id` field. The `yandex_compute_instance` resource describes the VM parameters.
 
      Here is an example of the configuration file structure:
 

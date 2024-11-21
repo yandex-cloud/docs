@@ -6256,6 +6256,13 @@ default:
         title_zookeeper: ZooKeeper
       cloud-tree-list:
         value_search-placeholder: Search
+      cns:
+        field_apns-bundle-id: Bundle ID
+        field_apns-certificate: Certificate
+        field_apns-key: Token
+        field_apns-key-id: Token ID
+        field_apns-private-key: Private certificate key
+        field_apns-team-id: Developer ID
       common:
         add: Add
         all: All

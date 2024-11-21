@@ -98,7 +98,7 @@ To get the contents of a certificate:
        * `value`: Returned value.
        * `sensitive`: Label data as sensitive.
 
-     For more information about the `yandex_cm_certificate_content` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content).
+     For more information about the `yandex_cm_certificate_content` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cm_certificate_content).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

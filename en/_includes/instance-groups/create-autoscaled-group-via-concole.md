@@ -14,7 +14,7 @@
      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
    * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** if needed. You cannot delete a group with this option enabled.
-1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones](../../overview/concepts/geo-scope.md).
+1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. VM groups may reside in [different availability zones](../../overview/concepts/geo-scope.md).
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../compute/concepts/instance-groups/instance-template.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../compute/concepts/disk.md).
