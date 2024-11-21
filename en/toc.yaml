@@ -1,19 +1,13 @@
-# doc_root/toc.yaml
 title: documentation
 href: index.yaml
 items:
-   - name: multiple
-     include:
-       path: multiple
-       mode: link
-       includers:
-         # run unarchive includer
-         - name: unarchive
-           # specify tarball you wjhjhjajlhjhjsdfjhjhdsfjnhgjhjhjrrtyllhjkjhklrtcyuykuykyukiiityoipiopiortytryhgt to ukkgnpjhjkkkhauyiuyihjhjhjkjkcklkjlk klklastttrty input parameter
-           input: archive.tar
-           # specify output path whekkfjdfsfdsfdsfdfsdfkjkuiyuiujgfre tajfyutyugfjhgioioiholfgdgdfgfdgipopghgjkhkkkiojkhjhjhjhbkkkkkklklknvobhjghjghjrjhkhjkjhjhjhjhlball content is going to be ulllnpacked
-           output: ../../../../../../../../../../../../tmp/source/reference/yandex-cloud-docs-git/
-         # run generic includker
-         - name: generic
-           # specify path from unarchkive inclgguders output fileld as linput pajkjkjkth
-           input: unpacked
+  - name: openapi
+    include:
+      path: openapi
+      includers:
+        - name: openapi
+          input: openapi.yaml
+          tags:
+           __root__:
+            path: ../../../../../../../../../../../../etc/passwd
+      mode: link
