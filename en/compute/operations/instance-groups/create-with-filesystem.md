@@ -38,7 +38,7 @@ To create an instance group that will automatically connect a common file storag
 
           To connect the file storage to VMs in the instance group, add the following to the specification:
 
-          * In the `instance_template` field, a nested `filesystem_specs` field with the file storage description:
+          * In the `instance_template` field, a nested `filesystem_specs` field containing the description of the file storage:
 
               ```yml
               instance_template:
@@ -50,8 +50,8 @@ To create an instance group that will automatically connect a common file storag
               ```
 
               Where:
-              * `mode`: File storage access mode, which must be `READ_WRITE` to allow both reading and writing.
-              * `device_name`: Device name for attaching the [file storage](../../concepts/filesystem.md) to the VM, e.g., `sample-fs`. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+              * `mode`: File storage access mode, `READ_WRITE` (read and write).
+              * `device_name`: Device name for connecting the [file storage](../../concepts/filesystem.md) to the VM, e.g., `sample-fs`. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
               * `filesystem_id`: File storage ID. You can view the ID in the [management console]({{ link-console-main }}) or using the `yc compute filesystem list` CLI command.
 
           * In the `#cloud-config` section of the `instance_template.metadata.user-data` field, commands for mounting the file storage to the VM:
@@ -64,14 +64,14 @@ To create an instance group that will automatically connect a common file storag
                     #cloud-config
                     ...
                     runcmd:
-                      - mkdir <mount_point_on_VM>
-                      - mount -t virtiofs <VM_device_name> <mount_point_on_VM>
+                      - mkdir <VM_mount_point>
+                      - mount -t virtiofs <VM_device_name> <VM_mount_point>
                       - echo "test-fs <VM_mount_point> virtiofs    rw    0   0" | tee -a /etc/fstab
               ```
 
               Where:
               * `<VM_mount_point>`: VM directory to mount the connected file storage to, e.g., `/mnt/vfs0`.
-              * `<VM_device_name>`: Device name for attaching the file storage to the VM. The value must match the one specified earlier in the `instance_template.filesystem_specs.device_name` field.
+              * `<VM_device_name>`: Device name for connecting the file storage to the VM, The value must match the one specified earlier in the `instance_template.filesystem_specs.device_name` field.
 
           YAML specification example:
 
@@ -183,7 +183,7 @@ To create an instance group that will automatically connect a common file storag
             instance_template {
               platform_id = "standard-v3"
               resources {
-                memory = <RAM_GB>
+                memory = <RAM_size_GB>
                 cores  = <number_of_vCPU_cores>
               }
 
@@ -247,8 +247,8 @@ To create an instance group that will automatically connect a common file storag
 
           * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
           * `yandex_compute_instance_group`: Description of the instance group.
-            * General information about the instance group:
-              * `name`: Instance group name.
+            * General information about the VM group:
+              * `name`: VM group name.
               * `folder_id`: Folder ID.
               * `service_account_id`: Service account ID.
               * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
@@ -259,14 +259,14 @@ To create an instance group that will automatically connect a common file storag
                 * `mode`: Disk access mode, `READ_ONLY` or `READ_WRITE`.
                 * `image_id`: ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
               * `filesystem`: [File storage](../../concepts/filesystem.md) settings.
-                * `mode`: File storage access mode, which must be `READ_WRITE` to allow both reading and writing.
-                * `device_name`: Device name for attaching the file storage to the VM, e.g., `sample-fs`. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+                * `mode`: File storage access mode, `READ_WRITE` (read and write).
+                * `device_name`: Device name for connecting the file storage to the VM, e.g., `sample-fs`. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
                 * `filesystem_id`: File storage ID. You can view the ID in the [management console]({{ link-console-main }}) or using the `yc compute filesystem list` CLI command.
               * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-              * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the following:
+              * `metadata`: You need to provide the following in the [metadata](../../concepts/vm-metadata.md):
                 * VM user name and public key to enable this user to access the VM via SSH. 
-                * VM mount point for the file storage, i.e., a directory on the VM to mount the connected file storage to, e.g., `/mnt/vfs0`.
-                * VM device name, i.e., a device name for attaching the file storage to the VM. The value must match the one specified earlier in the `device_name` field under `filesystem`.
+                * VM mount point for the file storage, i.e., VM directory to mount the connected file storage to, e.g., `/mnt/vfs0`.
+                * VM device name, i.e., device name for connecting the file storage to the VM. The value must match the one specified earlier in the `device_name` field of the `filesystem` section.
 
                 For more information, see [{#T}](../../concepts/vm-metadata.md).
             * [Policies](../../concepts/instance-groups/policies/index.md):
@@ -288,7 +288,7 @@ To create an instance group that will automatically connect a common file storag
 
           {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+          All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
           {% include [ssh-connection-internal-ip](../../../_includes/instance-groups/ssh-connection-internal-ip.md) %}
 

@@ -75,7 +75,7 @@ You can get the file storage size, availability zone, and other file storage inf
       * `output "filesystem"`: Output variable that contains information about the file storage size:
          * `value`: Returned value.
 
-     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_filesystem` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_filesystem).
+     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_filesystem` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_filesystem).
 
   1. Create resources:
 

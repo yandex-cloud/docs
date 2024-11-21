@@ -19,7 +19,7 @@ You can create an empty disk of the specified size.
   1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
       
 
-  1. Select the required block size (the smallest volume of data you can store on the disk). By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB.
+  1. Select the required block size (minimum data storage volume). By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB.
   1. Specify the required disk size. The maximum disk size depends on the specified block size.
 
 

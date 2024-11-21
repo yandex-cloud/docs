@@ -73,7 +73,7 @@ items:
         href: tutorials/virtual-hosting.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
-          - name: Summary
+          - name: Overview
             href: tutorials/alb-with-ddos-protection/index.md
           - name: Management console, CLI
             href: tutorials/alb-with-ddos-protection/console.md

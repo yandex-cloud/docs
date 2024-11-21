@@ -14,7 +14,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Select the appropriate load balancer.
-  1. Go to ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** for the selected load balancer.
+  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected load balancer.
 
      You will see a list of operations with the selected load balancer.
 

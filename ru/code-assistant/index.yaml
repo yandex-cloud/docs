@@ -12,8 +12,9 @@ description:
   - >-
     Плагин Code Assistant доступен для <a
     href="https://code.visualstudio.com/">Visual Studio Code</a> и <a
-    href="https://www.jetbrains.com/ides/">IDE от JetBrains</a> версий 2024.1 и
-    2024.2.
+    href="https://www.jetbrains.com/ides/">IDE от JetBrains</a>, подробнее см.
+    <a href="/docs/code-assistant/concepts/#supported-versions">Поддерживаемые
+    версии IDE</a>.
   - >-
     Запросите доступ к Code Assistant на <a
     href="/services/code-assistant">странице сервиса</a> или обратитесь к вашему

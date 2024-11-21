@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ alb-full-name }}'
-description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ alb-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ alb-name }}.
 ---
 
 # {{ TF }} reference for {{ alb-full-name }}
@@ -25,8 +25,8 @@ The following {{ TF }} provider resources are supported for {{ alb-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/datasource_alb_backend_group) | Information about a [backend group](./concepts/backend-group.md) |
-| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/datasource_alb_http_router) | Information about an [HTTP router](./concepts/http-router.md) |
-| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/datasource_alb_load_balancer) | Information about an [L7 load balancer](./concepts/application-load-balancer.md) |
-| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/datasource_alb_target_group) | Information about a [target group](./concepts/target-group.md) |
-| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/datasource_alb_virtual_host) | Information about a [virtual host](./concepts/http-router.md#virtual-host) |
+| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/alb_backend_group) | Information about a [backend group](./concepts/backend-group.md) |
+| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/alb_http_router) | Information about an [HTTP router](./concepts/http-router.md) |
+| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/alb_load_balancer) | Information about an [L7 load balancer](./concepts/application-load-balancer.md) |
+| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/alb_target_group) | Information about a [target group](./concepts/target-group.md) |
+| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/alb_virtual_host) | Information about a [virtual host](./concepts/http-router.md#virtual-host) |

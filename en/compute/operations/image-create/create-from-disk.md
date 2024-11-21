@@ -35,7 +35,7 @@ To create an image from a disk:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create an image:
+  1. See the description of the CLI command to create an image:
   
       ```
       yc compute image create --help
@@ -82,7 +82,7 @@ To create an image from a disk:
      }
      ```
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 
@@ -105,7 +105,7 @@ To create an image from a disk:
 
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

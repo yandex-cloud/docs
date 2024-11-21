@@ -383,11 +383,9 @@ items:
             href: tutorials/vm-autoscale/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-autoscale/terraform.md
-      - name: Scheduled scaling of instance groups
+      - name: Scheduled scaling of an instance group
         href: tutorials/vm-scale-scheduled.md
-      - name: >-
-          Automatically scaling an instance group to process messages from a
-          queue
+      - name: Autoscaling a group of VMs to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
@@ -573,7 +571,7 @@ items:
         href: concepts/dedicated-host.md
       - name: Encryption
         href: concepts/encryption.md
-      - name: Backup
+      - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits
         href: concepts/limits.md

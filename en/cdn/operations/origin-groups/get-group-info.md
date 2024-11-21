@@ -138,7 +138,7 @@ To get the name, set of origins, and other details of an origin group:
       * `output "my_group_origin"`: Output variable that contains information about the origin group:
         * `value`: Returned value.
 
-      You can replace `origin` with any other parameter to get the information you need. For more information about the `yandex_cdn_origin_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group).
+      You can replace `origin` with any other parameter to get the information you need. For more information about the `yandex_cdn_origin_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/cdn_origin_group).
 
   1. Create resources:
 

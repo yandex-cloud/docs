@@ -51,6 +51,10 @@ items:
           Transferring cluster logs of Yandex Managed Service for Kubernetes to
           Cloud Logging
         href: tutorials/k8s-fluent-bit-logging.md
+      - name: >-
+          Transferring logs from {{ metastore-name }} to {{ cloud-logging-name
+          }}
+        href: tutorials/metastore-logging.md
       - name: Transferring logs from a VM instance to Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging

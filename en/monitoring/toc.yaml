@@ -37,7 +37,7 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting dashboards
+          - name: Deleting a dashboard
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
@@ -73,6 +73,8 @@ items:
             href: concepts/data-collection/unified-agent/services.md
       - name: Agent best practices
         href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Possible errors
+        href: concepts/data-collection/unified-agent/errors.md
       - name: Deletion
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts

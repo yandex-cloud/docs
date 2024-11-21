@@ -7,6 +7,49 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ## Current version {#latest-release}
 
+## Version 0.136.0 (21/10/24) {#version0.136.0}
+
+### Changes to the CLI {#cli}
+
+* The `yc init` command now does not offer the `ru-central1-c` zone because it is no longer in use.
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ alb-name }} {#alb}
+
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
+
+#### {{ er-name }} {#eventrouter}
+
+* Added parameter validation for the `yc serverless eventrouter` command.
+* Fixed an error when calling `yc serverless eventrouter put-event`.
+
+#### {{ objstorage-name }}
+
+* Added the ability to set `--storage-endpoint` using `yc config set`. If the user did not explicitly specify `--storage-endpoint`, it will be obtained from `ApiEndpointService`.
+
+#### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
+  * `--lua-time-limit`,
+  * `--repl-backlog-size-percent`,
+  * `--cluster-require-full-coverage`,
+  * `--cluster-allow-reads-when-down`,
+  * `--cluster-allow-pubsubshard-when-down`,
+  * `--lfu-decay-time`,
+  * `--lfu-log-factor`,
+  * `--turn-before-switchover`,
+  * `--allow-data-loss`.
+
+#### {{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}
+
+* Clarified the description of the `--disk-size` parameters; by default, the disk size is specified in GB.
+
+
+## Previous releases {#previous-releases}
+
 ### Version 0.135.0 (07/10/24) {#version0.135.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}

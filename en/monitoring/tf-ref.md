@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ monitoring-name }
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/datasource_monitoring_dashboard) | [Dashboard](./concepts/visualization/dashboard.md) information |
+| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/monitoring_dashboard) | [Dashboard](./concepts/visualization/dashboard.md) information |

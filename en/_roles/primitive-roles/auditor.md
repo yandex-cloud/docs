@@ -6,7 +6,3 @@ For instance, users with this role can:
 * View the list of operations with a resource.
 
 `auditor` is the most secure role that does not grant any access to the [service](../../overview/concepts/services.md) data. This role suits the users who need minimum access to the Yandex Cloud resources.
-
-Currently, the `auditor` role is available for all Yandex Cloud services, except for:
-* Yandex Data Streams
-* Yandex Query

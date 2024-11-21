@@ -1,6 +1,6 @@
 ---
 title: '{{ monitoring-full-name }} pricing policy'
-description: This article describes the {{ monitoring-name }} pricing policy.
+description: This article provides the {{ monitoring-name }} pricing policy.
 editable: false
 ---
 
@@ -47,7 +47,7 @@ Pricing features:
 
 The minimum billing unit is 1 metric value. The cost is rounded to the nearest cent.
 
-For example, writing the first 100,000 values will cost `(100,000 values / 1 million) × $0.0784 = $0.00784`, rounded to `$0.01`. Whereas writing 150,000 values will cost `(150,000 values / 1 million) × $0.0784 = $0.01176`, rounded to `$0.01`. Where `$0.0784` is the price per 1 million values (if writing up to 50 million values).
+For example, writing the first 100,000 values will cost `(100,000 values / 1 million) × {{ sku|USD|monitoring.point.write|string }} = {% calc [currency=USD] 100000 / 1000000 × {{ sku|USD|monitoring.point.write|number }} %}` rounded to `{% calc [currency=USD] round((100000 / 1000000 × {{ sku|USD|monitoring.point.write|number }}) × 100 ) / 100 %}`. Whereas writing 150,000 values will cost `(150,000 values / 1 million) × {{ sku|USD|monitoring.point.write|string }} = {% calc [currency=USD] 150000 / 1000000 × {{ sku|USD|monitoring.point.write|number }} %}` rounded to `{% calc [currency=USD] round((150000 / 1000000 × {{ sku|USD|monitoring.point.write|number }}) × 100 ) / 100 %}`. Where `{{ sku|USD|monitoring.point.write|string }}` is the price per 1 million values (if writing up to 50 million values).
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 

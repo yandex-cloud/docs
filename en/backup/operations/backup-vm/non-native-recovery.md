@@ -16,7 +16,7 @@ To restore a VM from a backup of another VM:
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
+  1. Go to the ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
   1. Next to the backup to restore the VM from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
   1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM to restore the backup to or [create](../#connect-vm) a new VM with a connection to {{ backup-name }}. To create a new VM for recovery, click **{{ ui-key.yacloud.common.create }}**:
       1. On the page that opens, set the parameters of the new VM and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -35,7 +35,7 @@ To restore a VM from a backup of another VM:
 
   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to restore a VM from a backup:
+  1. See the description of the CLI command to restore a VM from a backup:
 
      ```bash
      yc backup backups recover --help

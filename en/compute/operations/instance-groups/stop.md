@@ -14,41 +14,41 @@ Only disks are billable for stopped instances. If you do not want to pay for dis
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-   1. In the line with the appropriate instance group, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-stop }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_stop }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder the instance group is in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the line with the instance group, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-stop }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_stop }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install.md](../../../_includes/cli-install.md) %}
+  {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to stop an instance group:
+  1. View a description of the CLI command to stop an instance group:
 
-      ```bash
-      {{ yc-compute-ig }} stop --help
-      ```
+     ```bash
+     {{ yc-compute-ig }} stop --help
+     ```
 
-   1. Get a list of instance groups in the default folder:
+  1. Get a list of instance groups in the default folder:
 
-      {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
+     {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
-   1. Stop the instance group in the default folder:
+  1. Select the `ID` or `NAME` of the VM you need, for example, `first-instance-group`.
+  1. Stop the instance group in the default folder:
 
-      ```bash
-      {{ yc-compute-ig }} stop first-instance-group
-      ```
+     ```bash
+     {{ yc-compute-ig }} stop first-instance-group
+     ```
 
-      {{ ig-name }} will begin stopping instances in the group. When all instances are stopped, the group switches to the `STOPPED` status.
+     {{ ig-name }} will begin stopping instances in the group. When all instances are, the group switches to the `STOPPED` status.
 
 - API {#api}
 
-   You can stop an instance group by using the [stop](../../instancegroup/api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../instancegroup/api-ref/grpc/InstanceGroup/stop.md) gRPC API call.
+  You can stop an instance group by using the [stop](../../instancegroup/api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../instancegroup/api-ref/grpc/InstanceGroup/stop.md) gRPC API call.
 
-   To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
+  To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

@@ -42,7 +42,7 @@ Currently, {{ baremetal-name }} and the server backup feature are offered at no 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a {{ baremetal-name }} server in.
-  1. At the top of the page, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). The name format requirements are as follows:
 
@@ -56,7 +56,7 @@ Currently, {{ baremetal-name }} and the server backup feature are offered at no 
   1. Select an encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
-  You will need the authorized key of the service account in later steps.
+  You will need the authorized key of the service account in the later steps.
 
 {% endlist %}
 
@@ -97,10 +97,10 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
   
       1. Select the `BA-i103-S-10G` server configuration.
-      1. Configure the disk layout:
+      1. Configure disk partitioning:
 
           1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-          1. Keep the default layout and click **{{ ui-key.yacloud.common.save }}**.
+          1. Keep the default partitioning and click **{{ ui-key.yacloud.common.save }}**.
   
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
@@ -125,14 +125,14 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
 
       {% note warning %}
 
-      Once you lease a server, you will no longer be able to view the password. Make sure to save the password in a secure location right away.
+      Once you have ordered your server, you will no longer be able to view the password. Save the password to a secure location right away.
 
       {% endnote %}
 
       1. In the **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
-  1. Click **Lease server**.
+  1. Click **Order server**.
 
 {% endlist %}
 
@@ -151,7 +151,7 @@ Save the server name and ID for use in the later steps.
 
 - Linux/macOS {#linux-macos}
 
-  To connect to a server, specify its public IP address, which you can find in the management console on the server page (the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field of **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**).
+  To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
   1. In the terminal, run this command:
 
@@ -173,9 +173,9 @@ Save the server name and ID for use in the later steps.
 
 - Windows 10/11 {#windows}
 
-  To connect to a server, specify its public IP address, which you can find in the management console on the server page (the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field of **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**).
+  To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
   
-  Make sure the Windows account has read permissions for the folder containing the keys.
+  Make sure that the Windows account has read privileges on the folder containing the keys.
 
   1. To connect to the server, run the following command in the command line:
 
@@ -264,7 +264,7 @@ Save the server name and ID for use in the later steps.
     yc backup policy list
     ```
 
-    Save the `ID` of the policy you want to link to the server.
+    Save the ID (`ID`) of the policy you want to link to the server.
 
 1. Link your server to a backup policy:
 

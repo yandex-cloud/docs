@@ -101,7 +101,7 @@ To remove an origin from an origin group:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group from which you want to delete an origin.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete an origin from.
   1. Select the appropriate origin and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -127,7 +127,7 @@ To remove multiple origins from a group:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group from which you want to delete origins.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete an origin from.
   1. Select the appropriate origins and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

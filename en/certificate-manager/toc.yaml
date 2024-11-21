@@ -43,7 +43,7 @@ items:
             href: operations/domain/domain-modify.md
           - name: Deleting a domain
             href: operations/domain/domain-delete.md
-      - name: Backup
+      - name: Backups
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md

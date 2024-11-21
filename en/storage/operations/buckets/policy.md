@@ -9,6 +9,14 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 
 [Bucket policies](../../concepts/policy.md) set permissions for operations with [buckets](../../concepts/bucket.md), [objects](../../concepts/object.md), and object groups.
 
+
+{% note warning %}
+
+Do not assign a bucket policy for a bucket if used by a [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster; otherwise, the cluster will not be able to write any data to the bucket.
+
+{% endnote %}
+
+
 ## Applying or editing a policy {#apply-policy}
 
 The minimum role required to apply or modify an access policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/index.md#storage-configurer).
@@ -98,7 +106,7 @@ To apply or edit a bucket access policy:
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md)
+         * [Service account](../../../iam/operations/sa/get-id.md).
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -179,7 +187,7 @@ To apply or edit a bucket access policy:
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md)
+         * [Service account](../../../iam/operations/sa/get-id.md).
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -264,7 +272,7 @@ To apply or edit a bucket access policy:
      Where:
 
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `bucket`: Bucket name. This is a required parameter.
      * `policy`: Policy name. This is a required parameter.
 
@@ -278,7 +286,7 @@ To apply or edit a bucket access policy:
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md)
+         * [Service account](../../../iam/operations/sa/get-id.md).
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -309,7 +317,7 @@ To apply or edit a bucket access policy:
 
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

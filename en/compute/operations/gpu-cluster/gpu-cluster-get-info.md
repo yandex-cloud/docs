@@ -72,7 +72,7 @@ title: How to get information about a GPU cluster in {{ compute-full-name }}
       * `output "gpu_cluster"`: Output variable containing information about the GPU cluster's availability zone:
         * `value`: Returned value.
 
-     Instead of `zone` you can select any other parameter to get the information you need. For more information about the `yandex_compute_gpu_cluster` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_gpu_cluster).
+     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_compute_gpu_cluster` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_gpu_cluster).
 
   1. Create resources:
 

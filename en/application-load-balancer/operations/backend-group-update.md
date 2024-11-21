@@ -262,7 +262,7 @@ description: Step-by-step guide for editing a backend group.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and add a section describing the backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the backend group description:
+  1. Open the {{ TF }} configuration file and add a section describing the backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the backend group description fragment:
 
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
@@ -425,7 +425,7 @@ description: Step-by-step guide for editing a backend group.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the parameters of the section describing the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the backend group description:
+  1. Open the {{ TF }} configuration file and edit the parameters of the backend description section (`http_backend`, `grpc_backend`, or `stream_backend`) in the backend group description fragment:
 
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
@@ -519,7 +519,7 @@ To remove a backend from a group:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and remove the section describing the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the backend group description.
+  1. Open the {{ TF }} configuration file and remove the backend description section (`http_backend`, `grpc_backend`, or `stream_backend`) in the backend group description fragment.
 
      Sample backend group description in the {{ TF }} configuration:
 

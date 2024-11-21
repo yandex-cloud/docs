@@ -30,49 +30,49 @@ To create an instance group with fixed IP addresses:
 
       To assign fixed IP addresses to the VMs of the group, add the following sections and parameters to the specification:
 
-      * In the `allocation_policy` field, a nested `zones` field with paired `zone_id` and `instance_tags_pool` parameters for each of the [availability zones](../../../overview/concepts/geo-scope.md) where you will create VM instances. For example, if the VMs of the group will be located in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, the `allocation_policy` field will look like this:
+      * In the `allocation_policy` field, a nested `zones` field with paired `zone_id` and `instance_tags_pool` parameters for each of the [availability zones](../../../overview/concepts/geo-scope.md) in which you will create VM instances. For example, if the VMs of the group will be located in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, the `allocation_policy` field will look like this:
 
           ```yml
           allocation_policy:
             zones:
               - zone_id: {{ region-id }}-a
                 instance_tags_pool:
-                - <{{ region-id }}-a_zone_tag1>
-                - <{{ region-id }}-a_zone_tag2>
+                - <tag1_of_{{ region-id }}-a_zone>
+                - <tag2_of_{{ region-id }}-a_zone>
               - zone_id: {{ region-id }}-b
                 instance_tags_pool:
-                - <{{ region-id }}-b_zone_tag1>
-                - <{{ region-id }}-b_zone_tag2>
+                - <tag1_of_{{ region-id }}-b_zone>
+                - <tag2_of_{{ region-id }}-b_zone>
           ```
 
           Where:
 
           * `zone_id`: Availability zone ID.
-          * `instance_tags_pool`: List of unique [tags](../../concepts/instance-groups/policies/allocation-policy.md#tags) for assigning IP addresses to the VMs of the group. The tag value is used to generate VM names and variables containing IP addresses of the VMs. For each availability zone, the number of tags should match the number of VMs created in it. Examples of possible tag values: `ru1-a1`, `ru1-b2`, etc.
+          * `instance_tags_pool`: List of unique [tags](../../concepts/instance-groups/policies/allocation-policy.md#tags) for binding IP addresses to the VMs of the group. The tag value is used to generate VM names and variables containing IP addresses of the VMs. For each availability zone, the number of tags should match the number of VMs created in it. Examples of possible tag values: `ru1-a1`, `ru1-b2`, etc.
           
-      * The `variables` field which lists variables used in templates to provide the IP addresses of the new VMs to the VM group:
+      * The `variables` field containing variables used in templates to provide IP addresses of the VMs you are creating to the VM group:
 
           ```yml
           variables:
-            - key: ip_<{{ region-id }}-a_zone_tag1>
+            - key: ip_<tag1_of_{{ region-id }}-a_zone>
               value: <internal_IP_address1>
-            - key: external_ip_<{{ region-id }}-a_zone_tag1>
+            - key: external_ip_<tag1_of_{{ region-id }}-a_zone>
               value: <public_IP_address1>
             ...
-            - key: ip_<{{ region-id }}-b_zone_tag2>
+            - key: ip_<tag2_of_{{ region-id }}-b_zone>
               value: <internal_IP_address4>
-            - key: external_ip_<{{ region-id }}-b_zone_tag2>
+            - key: external_ip_<tag2_of_{{ region-id }}-b_zone>
               value: <public_IP_address4>
           ```
 
           Where:
 
           * `key`: Variable name in `<prefix>_<tag>` format:
-              * `<prefix>` indicates the IP address type. For example, you can use the `ip` prefix for internal addresses and `external_ip` for public ones.
+              * `<prefix>` defines the IP address type. For example, you can use the `ip` prefix for internal addresses and `external_ip` for public ones.
 
-              * `<tag>` value must fully match the value of the tag specified for this VM in the `allocation_policy` field, e.g., `ru1-a1`.
+              * `<tag>` value must fully match the value of the relevant tag specified for this VM in the `allocation_policy` field, e.g., `ru1-a1`.
 
-          * `value`: Variable value, an internal or public IP address of the new VM.
+          * `value`: Variable value, an in internal or public IP address of the new VM.
 
               Internal IP addresses must belong to the IP address range allocated to the specified subnet in the respective availability zone.
 
@@ -80,7 +80,7 @@ To create an instance group with fixed IP addresses:
 
           For more information about using variables in a VM template, see [{#T}](../../concepts/instance-groups/variables-in-the-template.md).
 
-      * In the `instance_template.name` field, the VM name with the tag template, e.g., `sample-vm-{instance.tag}`. After inserting tag values into this template, the VM names will look like this: `sample-vm-ru1-a1`, `sample-vm-ru1-b2`, etc.
+      * In the `instance_template.name` field, the VM name containing the tag template, e.g., `sample-vm-{instance.tag}`. After inserting tag values into this template, the VM names will look like this: `sample-vm-ru1-a1`, `sample-vm-ru1-b2`, etc.
 
       * In the `instance_template.network_interface_specs` field, subnet IDs and IP address templates:
 
@@ -100,8 +100,8 @@ To create an instance group with fixed IP addresses:
 
           Where:
           * `subnet_ids`: List of IDs for the [subnets](../../../vpc/concepts/network.md#subnet) to host the VMs. You must specify one subnet in each availability zone where a group VM will be created.
-          * `primary_v4_address_spec.address`: Template for internal IP addresses. It will use the variable value specified for this VM in the `variables` field.
-          * `primary_v4_address_spec.one_to_one_nat_spec.address`: Template for public IP addresses. It will use the variable value specified for this VM in the `variables` field.
+          * `primary_v4_address_spec.address`: Internal IP address template. It will use the variable value specified for this VM in the `variables` field.
+          * `primary_v4_address_spec.one_to_one_nat_spec.address`: Public IP address template. It will use the variable value specified for this VM in the `variables` field.
 
           If you are not going to assign public IP addresses to the group instances, do not add the `primary_v4_address_spec.one_to_one_nat_spec` field to the specification.
 
@@ -176,12 +176,12 @@ To create an instance group with fixed IP addresses:
       ```
 
       This command creates an instance group with the following characteristics:
-      * Name: `my-vm-group-with-fixed-ips`.
-      * OS: `Ubuntu 22.04 LTS`.
-      * VMs: Four, in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, two per zone.
-      * vCPUs: 2; RAM: 2 GB.
-      * Network [HDD](../../concepts/disk.md#disks-types): 20 GB.
-      * Fixed internal and public [IP addresses](../../../vpc/concepts/address.md) assigned to each VM of the group.
+      * Name: `my-vm-group-with-fixed-ips`
+      * OS: `Ubuntu 22.04 LTS`
+      * Number of VMs: four, in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, two per zone
+      * vCPUs: 2; RAM: 2 GB
+      * Network [HDD](../../concepts/disk.md#disks-types): 20 GB
+      * Fixed internal and public [IP addresses](../../../vpc/concepts/address.md) assigned to each VM of the group
 
 - {{ TF }} {#tf}
 
@@ -326,13 +326,13 @@ To create an instance group with fixed IP addresses:
 
       Where:
       * `yandex_compute_instance_group`: Description of the instance group.
-        * General information about the instance group:
-          * `name`: Instance group name.
+        * General information about the VM group:
+          * `name`: VM group name.
           * `folder_id`: [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
           * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
           * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
         * `instance_template`: [VM template](../../concepts/instance-groups/instance-template.md):
-          * `name`: VM name with the [tag](../../concepts/instance-groups/policies/allocation-policy.md#tags) template, e.g., `sample-vm-{instance.tag}`. After inserting tag values into this template, the VM names will look like this: `sample-vm-ru1-a1`, `sample-vm-ru1-b2`, etc.
+          * `name`: VM name containing the [tag](../../concepts/instance-groups/policies/allocation-policy.md#tags) template, e.g., `sample-vm-{instance.tag}`. After inserting tag values into this template, the VM names will look like this: `sample-vm-ru1-a1`, `sample-vm-ru1-b2`, etc.
           * `platform_id`: [Platform](../../concepts/vm-platforms.md).
           * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
           * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
@@ -350,9 +350,9 @@ To create an instance group with fixed IP addresses:
         * `variables`: [Variables](../../concepts/instance-groups/variables-in-the-template.md) assigned to the instance group. This section contains a list of variables in `<name> = <value>` format to use in templates to provide IP addresses of the VMs you are creating to the instance group:
           * Variable name: Specify the name in `<prefix>_<tag>` format:
 
-            * `<prefix>` indicates the IP address type. For example, you can use the `ip` prefix for internal IP addresses and `external_ip` for public ones.
+            * `<prefix>` defines the IP address type. For example, you can use the `ip` prefix for internal IP addresses and `external_ip` for public ones.
 
-            * `<tag>` value must fully match the value of the tag specified for this VM in the `allocation_policy` field, e.g., `ru1-a1`.
+            * `<tag>` value must fully match the value of the relevant tag specified for this VM in the `allocation_policy` field, e.g., `ru1-a1`.
 
           * Variable value: This is either an internal or public IP address of the new VM.
 
@@ -367,16 +367,16 @@ To create an instance group with fixed IP addresses:
           * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
           * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances across [availability zones](../../../overview/concepts/geo-scope.md) and regions:
             * `zones`: Array containing the IDs of availability zones in which the VMs of the group will be created.
-            * `instance_tags_pool`: List of unique tags for assigning IP addresses to the VMs of the group. You need to specify a list of tags separately for each availability zone which will host your group instances.
+            * `instance_tags_pool`: List of unique tags for binding IP addresses to the VMs of the group. You need to specify it separately for each availability zone which will host your group instances.
 
-              The values of tags from the `tags` array are used to generate VM names and variables with VM IP addresses. Make sure the number of tags specified in the `tags` array for an availability zone matches the number of VMs created in this zone. Examples of possible tag values: `ru1-a1`, `ru1-b2`, etc.
+              The values of tags specified in the `tags` array are used to generate VM names and variables containing IP addresses of the VMs. The number of tags specified in the `tags` array for an availability zone should match the number of VMs created in it. Examples of possible tag values: `ru1-a1`, `ru1-b2`, etc.
 
       * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations in {{ ig-name }} are performed on behalf of the service account.
 
         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
       * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
-      * `yandex_vpc_network`: [Cloud network](../../../vpc/concepts/network.md#network) description.
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnets](../../../vpc/concepts/network.md#subnet) to connect the VMs of the group to.
       * `yandex_vpc_address`: Description of the reserved static [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
@@ -392,10 +392,10 @@ To create an instance group with fixed IP addresses:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   Use the [create](../../instancegroup/api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API call.
+  Use the [create](../../instancegroup/api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API call.
 
 {% endlist %}

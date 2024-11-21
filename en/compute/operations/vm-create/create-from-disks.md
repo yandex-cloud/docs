@@ -15,7 +15,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 - Management console {#console}
 
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -23,7 +23,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
   1. Add a [disk](../../concepts/disk.md):
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Connect existing disk`.
       * Select the disk you need.
       * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
@@ -58,7 +58,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
      {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-  1. Select the IDs (`ID`) or names (`NAME`) of the disks you need.
+  1. Select the IDs (`ID`) or names (`NAME`) for the disks you need.
   1. Create a VM in the default folder:
 
      ```bash
@@ -71,7 +71,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
-     This command creates a VM with the following parameters:
+     This command creates the VM with:
      * Name: `first-instance`
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
@@ -118,7 +118,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
        resources {
          cores  = <number_of_vCPU_cores>
-         memory = <RAM_in_GB>
+         memory = <RAM_size_GB>
        }
 
        boot_disk {
@@ -153,21 +153,21 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
      Where:
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
-       * `type`: Disk [type](../../concepts/disk.md#disks_types).
+       * `type`: [Type](../../concepts/disk.md#disks_types) of the disk being created.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-     * `yandex_compute_instance`: [VM](../../concepts/vm.md) description:
+     * `yandex_compute_instance`: [VM](../../concepts/vm.md) description.
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone the VM will be in.
        * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected platform.
        * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `secondary_disk`: Secondary disk to connect to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
+       * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
        * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
@@ -187,7 +187,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

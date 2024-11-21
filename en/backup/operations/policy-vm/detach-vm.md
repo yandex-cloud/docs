@@ -4,11 +4,11 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder in which to unlink a VM from a backup policy.
+  1. In the [management console]({{ link-console-main }}), select a folder where you want to unlink a VM from a backup policy.
   1. In the list of services, select **{{ backup-name }}**.
-  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **Backup policies** tab.
+  1. Go to ![policies](../../../_assets/console-icons/calendar.svg) **Backup policies**.
   1. Select the policy to unlink the VM from.
-  1. Under **Virtual machines**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
+  1. Under **Virtual machines**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM you want to unlink from the backup policy and select **Unlink from backup policy**.
 
 - CLI {#cli}
 
@@ -16,7 +16,7 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to remove a VM from a backup policy:
+  1. View a description of the CLI command to remove a VM from a backup policy: 
 
       ```bash
       yc backup policy revoke --help
@@ -37,7 +37,7 @@
         --instance-ids <VM_IDs>
       ```
 
-      Where `--instance-ids` are the IDs of VMs to unlink from the backup policy. Multiple IDs should be comma-separated.
+      Where `--instance-ids` are the IDs of the VMs you need to unlink from the backup policy. Multiple IDs should be comma-separated.
 
   For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
 

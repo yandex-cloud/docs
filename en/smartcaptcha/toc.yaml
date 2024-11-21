@@ -63,6 +63,66 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Captcha
+            items:
+              - name: Overview
+                href: api-ref/grpc/Captcha/index.md
+              - name: Get
+                href: api-ref/grpc/Captcha/get.md
+              - name: GetSecretKey
+                href: api-ref/grpc/Captcha/getSecretKey.md
+              - name: List
+                href: api-ref/grpc/Captcha/list.md
+              - name: Create
+                href: api-ref/grpc/Captcha/create.md
+              - name: Update
+                href: api-ref/grpc/Captcha/update.md
+              - name: Delete
+                href: api-ref/grpc/Captcha/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Captcha
+            items:
+              - name: Overview
+                href: api-ref/Captcha/index.md
+              - name: Get
+                href: api-ref/Captcha/get.md
+              - name: GetSecretKey
+                href: api-ref/Captcha/getSecretKey.md
+              - name: List
+                href: api-ref/Captcha/list.md
+              - name: Create
+                href: api-ref/Captcha/create.md
+              - name: Update
+                href: api-ref/Captcha/update.md
+              - name: Delete
+                href: api-ref/Captcha/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

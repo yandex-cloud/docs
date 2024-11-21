@@ -21,7 +21,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the name: `group-coi`.
      1. To assign the service account the `editor` role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -64,7 +64,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
+     1. In the [management console]({{ link-console-main }}), select the folder you want to create a network in.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Enter the network name: `yc-auto-network`.
@@ -120,7 +120,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 1. Save the specification of the instance group with {{ coi }} and multiple Docker containers to the `specification.yaml` file:
 
    ```yaml
-   name: group-coi-containers # Instance group name that must be unique within the folder.
+   name: group-coi-containers # VM group name, unique within the folder.
    service_account_id: ajeabccde01d******** # Service account ID.
    instance_template:
      service_account_id: ajeabccde01d******** # ID of the service account to access private Docker images.
@@ -143,7 +143,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
             ip_version: IPV4 # IPv4 specification for public access to the VM.
           }
         }
-     metadata: # Values to pass to the VM metadata.
+     metadata: # Values to send to the VM metadata.
       docker-compose: |- # Key in the VM metadata that is used with the Docker Compose specification.
         version: '3.7'
         services:
@@ -158,14 +158,14 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
             image: "redis"
             restart: always
       ssh-keys: | # Parameter for providing an SSH key to the VM.
-        yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for the VM connection.
-   deploy_policy: # Deployment policy for instances in the group.
+        yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for connecting to the VM.
+   deploy_policy: # Deployment policy for VM instances in the group.
      max_unavailable: 1
      max_expansion: 0
-   scale_policy: # Scaling policy for instances in the group.
+   scale_policy: # Scaling policy for VM instances in the group.
      fixed_scale:
        size: 2
-   allocation_policy: # Policy for allocating VM instances by availability zones.
+   allocation_policy: # Allocation policy of VM instances across availability zones.
      zones:
        - zone_id: {{ region-id }}-a
    ```

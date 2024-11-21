@@ -160,7 +160,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
 
         * [User](../../../iam/operations/users/get.md).
-        * [Service account](../../../iam/operations/sa/get-id.md)
+        * [Service account](../../../iam/operations/sa/get-id.md).
         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -231,7 +231,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
      Where:
 
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `bucket`: Bucket name. This is a required parameter.
      * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional parameter. To manage this parameter, the service account for which the static access keys were obtained must have the `storage.admin` [role](../../security/index.md#roles-list) for a bucket or folder.
        * `type`: Permission grantee type. The possible values are:
@@ -249,7 +249,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md)
+         * [Service account](../../../iam/operations/sa/get-id.md).
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -282,7 +282,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

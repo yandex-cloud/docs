@@ -78,7 +78,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      * `output "current_version"`: Output variable that contains information about the current secret version:
        * `value`: Returned value.
 
-     You can replace `current_version` with any other parameter to get the information you need. For more information about the `yandex_lockbox_secret` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret).
+     You can replace `current_version` with any other parameter to get the information you need. For more information about the `yandex_lockbox_secret` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/lockbox_secret).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -180,7 +180,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      * `output "my_secret_entries"`: Output variable which stores the contents of the secret:
        * `value`: Returned value.
 
-     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/lockbox_secret_version).
 
   1. Create resources:
 

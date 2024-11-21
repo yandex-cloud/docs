@@ -70,12 +70,12 @@ description: Follow this guide to get information about a disk.
 
       Where:
 
-      * `data "yandex_compute_disk"`: Description of the [disk](../../concepts/disk.md) as a data source:
+      * `data "yandex_compute_disk"`: [Disk](../../concepts/disk.md) description as a data source:
          * `disk_id`: Disk ID.
       * `output "my_disk_size"`: Output variable that contains information about the disk size:
          * `value`: Returned value.
 
-     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_disk` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_disk).
+     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_disk` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_disk).
 
   1. Create resources:
 
