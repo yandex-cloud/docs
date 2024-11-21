@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
      * `--subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet).
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
-     * `--version` — версия {{ k8s }}.
+     * `--version` — версия {{ k8s }}. Укажите версию, доступную для выбранного релизного канала.
      * `--cluster-ipv4-range` — диапазон [IP-адресов](../../../vpc/concepts/address.md), из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
      * `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../concepts/index.md#service).
      * `--security-group-ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md) кластера {{ managed-k8s-name }}.
