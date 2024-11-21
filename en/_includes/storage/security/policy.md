@@ -12,13 +12,21 @@ A policy is triggered when a user makes a request to a resource. As a result, th
 
 You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../../../storage/operations/buckets/policy.md).
 
+
+{% note warning %}
+
+If a bucket communicates with a [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster, do not assign it a bucket policy; otherwise, the cluster will not be able to write any data to the bucket.
+
+{% endnote %}
+
+
 ## Policy components {#elements}
 
 A bucket policy consists of rules, a rule consisting of the following basic elements:
 
 Resource
 
-: Bucket, bucket object (`<bucket_name>/some/key`), or prefix (`<bucket_name>/some/path/*`), including an empty prefix to indicate all bucket objects (`<bucket_name>/*`). You can specify multiple resources in a rule.
+: Bucket, object in a bucket (`<bucket_name>/some/key`), or prefix (`<bucket_name>/some/path/*`), including an empty prefix to indicate all bucket objects (`<bucket_name>/*`). You can specify multiple resources in a rule.
 
   {% note info %}
   
@@ -55,7 +63,7 @@ Condition
 
 ## Bucket access via the management console {#console-access}
 
-If a bucket has an access policy configured, access to the bucket via the {{ yandex-cloud }} management console is disabled by default. To enable bucket access, you need to add a rule in the `Statement` section to allow any requests to the `<bucket_name>/*` or `<bucket_name>` resources via the management console.
+If a bucket has an access policy configured, access to the bucket via the {{ yandex-cloud }} management console is disabled by default. To enable bucket access, you need to add a rule in the `Statement` section to allow any requests to `<bucket_name>/*` or `<bucket_name>` from the management console.
 
 Example of a rule for a specific {{ yandex-cloud }} user:
 
@@ -79,7 +87,7 @@ Example of a rule for a specific {{ yandex-cloud }} user:
 ```
 
 
-{% cut "Example for sharing the console.cloud.yandex.* and console.yandex.cloud domains" %}
+{% cut "Example of using the console.cloud.yandex.* domain together with console.yandex.cloud" %}
 
 If you are using the old domain (`console.cloud.yandex.*`) together with the new one (`console.yandex.cloud`), set the following policy rules:
 

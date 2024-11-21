@@ -151,7 +151,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To add an existing VM instance to a placement group:
-  1. To the configuration file of the existing VM, add the `placement_group_id` field specifying the `yandex_compute_placement_group` placement group resource.
+  1. To the configuration file of the existing VM, add the `placement_group_id` field indicating the `yandex_compute_placement_group` placement group resource.
 
      Here is an example of the configuration file structure:
 
@@ -179,7 +179,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
      {% endnote %}
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
@@ -206,7 +206,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      All the resources you need will then be created in the specified folder. You can check that the VM has been added to a placement group using the [management console]({{ link-console-main }}).
 

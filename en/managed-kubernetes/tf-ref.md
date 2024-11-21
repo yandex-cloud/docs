@@ -22,5 +22,5 @@ The following {{ TF }} provider resources are supported for {{ managed-k8s-name 
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/datasource_kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) information |
-| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/datasource_kubernetes_node_group) | [Node group](./concepts/index.md#node-group) information |
+| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) information |
+| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/kubernetes_node_group) | [Node group](./concepts/index.md#node-group) information |

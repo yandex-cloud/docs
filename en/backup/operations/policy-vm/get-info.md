@@ -110,7 +110,7 @@ Information on policies becomes available for viewing after you [activate](../..
 
       You can replace `scheduling` with any other [policy parameter]({{ tf-provider-resources-link }}/backup_policy) to get the information you need.
 
-      For more information about the `yandex_backup_policy` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_backup_policy).
+      For more information about the `yandex_backup_policy` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/backup_policy).
 
   1. Create resources:
 

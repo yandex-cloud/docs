@@ -10,24 +10,24 @@
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-      * Click ![image](../../_assets/console-icons/pencil.svg), and, in the window that opens, select **{{ ui-key.yacloud.common.create-new }}**.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Use filters if you need to.
-      * Enter a name for the new boot disk.
+      * Click ![image](../../_assets/console-icons/pencil.svg), and in the window that opens, select **{{ ui-key.yacloud.common.create-new }}**.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Employ filters as needed.
+      * Enter a name for the boot disk to create.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-      * Specify the required disk and block size.
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option in the **{{ ui-key.yacloud.compute.field_additional }}** field if you need to automatically delete this disk when deleting the VM.
+      * Specify the required disk size and block size.
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
   1. Add a secondary [disk](../../compute/concepts/disk.md):
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Create new`.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}`.
-      * Enter a name for the new disk.
+      * Enter a name for the disk to create.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-      * Specify the required disk and block size.
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option in the **{{ ui-key.yacloud.compute.field_additional }}** field if you need to automatically delete this disk when deleting the VM.
+      * Specify the required disk size and block size.
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. {% include [encryption-section-secondary](encryption-section-secondary.md) %}
@@ -45,7 +45,7 @@
   1. {% include [section-additional](../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  You will see the new VM in the list. Every new VM gets an [IP address](../../vpc/concepts/address.md) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+  The VM instance will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address.md) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI {#cli}
 
@@ -64,7 +64,7 @@
 
       {% include [compute-snapshot-list](../../compute/_includes_service/compute-snapshot-list.md) %}
 
-  1. Select the IDs (`ID`) or names (`NAME`) of the snapshots you need.
+  1. Select the IDs (`ID`) or names (`NAME`) for the snapshots you need.
   1. Create a VM in the default folder:
 
       ```
@@ -77,15 +77,15 @@
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
-      This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and disks from the snapshots.
+      This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and the disks from the snapshots.
 
       {% include [name-fqdn](name-fqdn.md) %}
-
+     
       To create a VM without a public IP address, remove the `--public-ip` flag.
 
       {% include [add-several-net-interfaces-notice-cli](./add-several-net-interfaces-notice-cli.md) %}
 
-
+ 
 - API {#api}
 
   Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.

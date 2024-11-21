@@ -28,6 +28,10 @@ The list below shows all roles considered when verifying access permissions in {
 
 ### Service roles {#service-roles}
 
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../../_roles/yds/auditor.md) %}
+
 #### yds.viewer {#yds-viewer}
 
 {% include [yds.viewer](../../_roles/yds/viewer.md) %}
@@ -46,18 +50,6 @@ The list below shows all roles considered when verifying access permissions in {
 
 ### Primitive roles {#primitive-roles}
 
-#### {{ roles-viewer }} {#viewer}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
-A user with the `{{ roles-viewer }}` role can view information about resources, e.g., lists of data streams and databases they are created in, their properties.
-
-#### {{ roles-editor }} {#editor}
-
-A user with the `{{ roles-editor }}` role can manage any resources, e.g., create a stream or delete it. In addition, this role allows writing application data to streams.
-
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
-
-#### {{ roles-admin }} {#admin}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, for example, allow other users to create streams or view information about them.
-
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

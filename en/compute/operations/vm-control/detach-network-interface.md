@@ -15,23 +15,23 @@ To delete a network interface from a virtual machine:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command for deleting a network interface from a virtual machine:
+  1. View the description of the CLI command for deleting a network interface from a virtual machine:
 
       ```bash
       yc compute instance detach-network-interface --help
       ```
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
       Save the ID of the VM from which you want to delete a network interface.
 
-   1. Stop the selected VM, if required, by specifying its ID:
+  1. Stop the selected VM, if required, by specifying its ID:
 
       {% note info %}
 
@@ -43,7 +43,7 @@ To delete a network interface from a virtual machine:
       yc compute instance stop <VM_ID>
       ```
 
-   1. Get a list of network interfaces for the selected VM by specifying its ID:
+  1. Get a list of network interfaces for the selected VM by specifying its ID:
 
       ```bash
       yc compute instance get <VM_ID>
@@ -83,9 +83,9 @@ To delete a network interface from a virtual machine:
       ...
       ```
 
-      Save the number (the `index` field value) of the network interface you want to delete.
+      Save the number (`index` field value) of the network interface you want to delete.
 
-   1. Delete the network interface:
+  1. Delete the network interface:
 
       ```bash
       yc compute instance detach-network-interface \
@@ -95,7 +95,7 @@ To delete a network interface from a virtual machine:
 
       Where:
       * `--id`: ID of the selected VM. Instead of an ID, you can use the `--name` parameter to specify the VM name.
-      * `--network-interface-index`: Previously saved number of the VM's network interface you want to delete.
+      * `--network-interface-index`: Previously saved number of the VM's network interface you need to delete.
 
       Result:
 
@@ -125,6 +125,6 @@ To delete a network interface from a virtual machine:
 
 - API {#api}
 
-   Use the [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachNetworkInterface](../../api-ref/grpc/Instance/detachNetworkInterface.md) gRPC API call.
+  Use the [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachNetworkInterface](../../api-ref/grpc/Instance/detachNetworkInterface.md) gRPC API call.
 
 {% endlist %}

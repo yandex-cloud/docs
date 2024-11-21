@@ -70,6 +70,12 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
       {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
 
+      {% note info %}
+
+      {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
+
+      {% endnote %}
+
   1. Install the plugin:
       1. Open the IDE.
       1. Open settings by pressing **Ctrl** + **Alt** + **S** for Windows or Linux or **Command** + **,** for macOS.

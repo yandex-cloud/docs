@@ -95,7 +95,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
   To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS object configurations in JSON format. See the examples below:
+  1. Describe the CORS object configurations in JSON format. For example:
 
      ```json
      {
@@ -212,7 +212,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

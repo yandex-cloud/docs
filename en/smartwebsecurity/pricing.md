@@ -12,7 +12,7 @@ editable: false
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
-In {{ sws-name }}, you pay for the actual number of [legitimate](concepts/rules.md#rule-action) requests.
+The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#rule-action) requests.
 
 ## Prices for the Russia region {#prices}
 
@@ -27,11 +27,11 @@ In {{ sws-name }}, you pay for the actual number of [legitimate](concepts/rules.
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
 
 
-### Requests processed by WAF rules {#requests-waf}
+### Requests, processed by WAF rules {#requests-smart}
 
 {% note warning %}
 
-The pricing below will apply starting October 1, 2024.
+The prices listed below will come into effect starting October 1, 2024.
 
 {% endnote %}
 

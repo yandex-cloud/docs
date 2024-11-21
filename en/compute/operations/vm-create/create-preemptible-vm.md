@@ -15,11 +15,11 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md) and OS version.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md) and an OS version.
 
       {% include [change-custom-disk-settings-image](../../../_includes/compute/create/change-custom-disk-settings-image.md) %}
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to host your preemptible VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) that will host your preemptible VM.
   1. (Optional) Configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -126,7 +126,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
        resources {
          cores  = <number_of_vCPU_cores>
-         memory = <RAM_in_GB>
+         memory = <RAM_size_GB>
        }
 
        boot_disk {
@@ -161,7 +161,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      Where:
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
-       * `type`: Disk [type](../../concepts/disk.md#disks_types).
+       * `type`: [Type](../../concepts/disk.md#disks_types) of the disk being created.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the preemptible VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -195,7 +195,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -216,9 +216,9 @@ To change the type of a VM, for example, make it preemptible:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the preemptible VM is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+  1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
-  1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. At the top right, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.common.start }}**.
@@ -302,7 +302,7 @@ To change the type of a VM, for example, make it preemptible:
      }
      ```
 
-  1. Delete the `scheduling_policy` field with the `preemptible = true` value.
+  1. Delete the `scheduling_policy` field with `preemptible = true` value.
 
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
@@ -323,7 +323,7 @@ To change the type of a VM, for example, make it preemptible:
 
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -336,3 +336,6 @@ This will affect your bill for the VM usage. More about [VM pricing](../../prici
 #### See also {#see-also}
 
 * [{#T}](../vm-connect/ssh.md).
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md).
+* [{#T}](../../tutorials/hpc-on-preemptible.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

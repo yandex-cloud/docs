@@ -277,6 +277,8 @@ default:
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
   link-ca-jb-2024-2: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
+  link-ca-jb-2024-3: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.3.zip
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
@@ -6266,6 +6268,13 @@ default:
         title_zookeeper: ZooKeeper
       cloud-tree-list:
         value_search-placeholder: Поиск
+      cns:
+        field_apns-bundle-id: Идентификатор приложения (Bundle ID)
+        field_apns-certificate: Сертификат
+        field_apns-key: Токен
+        field_apns-key-id: Идентификатор токена
+        field_apns-private-key: Закрытый ключ сертификата
+        field_apns-team-id: Идентификатор разработчика
       common:
         add: Добавить
         all: Все

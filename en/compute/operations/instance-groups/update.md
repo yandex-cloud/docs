@@ -19,7 +19,7 @@ To change the name and description of an instance group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder the instance group is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the group to update.
@@ -43,7 +43,7 @@ To change the name and description of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` of the instance group.
+  1. Select the `ID` of the instance group you need.
   1. Specify the name and description you need in the YAML file that was used to create the group, e.g., `specification.yaml`. If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
   1. Update the instance group in the default folder:
 
@@ -76,7 +76,7 @@ To change the computing resources of an instance group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder the instance group is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the group to update.
@@ -103,7 +103,7 @@ To change the computing resources of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` of the instance group.
+  1. Select the `ID` of the instance group you need.
   1. Specify the required instance parameters in the `resources_spec` key in the YAML file that was used to create the group, e.g., `specification.yaml`. If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
   1. Update the instance group in the default folder:
 
@@ -131,7 +131,7 @@ To increase the disk size of an instance group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder the instance group is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Select the group to update.
@@ -157,7 +157,7 @@ To increase the disk size of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` of the instance group.
+  1. Select the `ID` of the instance group you need.
   1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group, e.g., `specification.yaml`. If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
   1. Update the instance group in the default folder:
 

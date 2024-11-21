@@ -25,10 +25,10 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Pricing policy
-    href: pricing.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

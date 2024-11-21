@@ -1,6 +1,6 @@
 ---
 title: Asymmetric encryption key pair in {{ kms-short-name }}
-description: This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}.
+description: This guide describes the specifics of using an asymmetric encryption key pair in {{ kms-short-name }}.
 ---
 
 # Asymmetric encryption key pair in {{ kms-short-name }}
@@ -16,17 +16,17 @@ An asymmetric encryption key pair consists of two parts: a public key and a priv
 A {{ kms-short-name }} encryption key pair may have the following parameters:
 * ID: Unique key pair identifier in {{ yandex-cloud }}. It is used for working with key pairs via the SDK, API, and CLI.
 * Name: Non-unique key pair name. It can be used to work with key pairs in the CLI if the folder only contains a single key pair with this name.
-* Encryption algorithm: Algorithm used for encryption. The following asymmetric encryption algorithms are supported:
-   * `rsa-2048-enc-oaep-sha-256`
-   * `rsa-3072-enc-oaep-sha-256`
-   * `rsa-4096-enc-oaep-sha-256`
+* Encryption algorithm: Algorithm used for encryption. The following asymmetric encryption algorithms are supported: 
+    * `rsa-2048-enc-oaep-sha-256`
+    * `rsa-3072-enc-oaep-sha-256`
+    * `rsa-4096-enc-oaep-sha-256`
 
-* Status: Current state of the key pair. The following statuses are possible:
-   * `Creating`: Key pair is being created.
-   * `Active`: Key pair can be used for encryption and decryption.
-   * `Inactive`: Key pair cannot be used.
-
-   You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md) gRPC API call.
+* Status: Current state of the key pair. The following statuses are possible: 
+    * `Creating`: Key pair is being created.
+    * `Active`: Key pair can be used for encryption and decryption.
+    * `Inactive`: Key pair cannot be used.
+    
+    You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md) gRPC API call.
 
 ## Using encryption key pairs {#use}
 

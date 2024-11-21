@@ -75,7 +75,7 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
       * `output "snapshot_schedule"`: Output variable that contains information about the disk snapshot schedule:
         * `value`: Returned value.
 
-      You can replace `status` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_snapshot_schedule).
+      You can replace `status` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_snapshot_schedule).
 
   1. Create resources:
 

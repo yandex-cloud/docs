@@ -9,7 +9,7 @@ If there is free capacity in the pools of interest, you can lease servers of the
 | BA-i103-S-10G  | Intel® Xeon® E5-2660 (2.2 GHz)   | 32   | 128     | 2     |       | 10           |
 | BA-i104-SH     | Intel® Xeon® E5-2660 (2.2 GHz)   | 32   | 128     | 2     | 2     | 1            |
 | BA-i105-SH     | Intel® Xeon® E5-2660 (2.2 GHz)   | 32   | 256     | 2     | 2     | 1            | 
-| BA-i200-H      | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 64      |       | 2     | 1            |
+| BA-i200-H      | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 128     |       | 2     | 1            |
 | BA-i201-H      | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 128     |       | 4     | 1            |
 | BA-i202-S      | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 128     | 2     |       | 1            |
 | BA-i203-S-10G  | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 128     | 2     |       | 10           |

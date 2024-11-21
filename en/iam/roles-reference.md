@@ -748,6 +748,10 @@ For more information, see [{#T}](../datasphere/security/index.md).
 
 ## {{ yds-full-name }} {#yds-roles}
 
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../_roles/yds/auditor.md) %}
+
 #### yds.viewer {#yds-viewer}
 
 {% include [yds.viewer](../_roles/yds/viewer.md) %}

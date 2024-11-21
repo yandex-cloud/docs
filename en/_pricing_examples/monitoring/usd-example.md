@@ -12,7 +12,7 @@ Where:
 * 20: Number of metrics.
 * 1: Number of values written per minute.
 * (60 × 24 × 30): Number of minutes in 30 days.
-* {{ sku|USD|monitoring.point.write|string }}: Cost of writing 1M values (up to 50M).
+* {{ sku|USD|monitoring.point.write|string }}: Cost of writing 1M values (up to 50M values).
 
 **Example 2**
 
@@ -28,8 +28,8 @@ Where:
 * 20: Number of metrics.
 * 1: Number of values written per second.
 * (60 × 60 × 24 × 30): Number of seconds in 30 days.
-* {{ sku|USD|monitoring.point.write|string }}: Cost of writing 1M values (up to 50M).
-* {{ sku|USD|monitoring.point.write|pricingRate.50|string }}: Cost of writing 1M values (over 50M).
+* {{ sku|USD|monitoring.point.write|string }}: Cost of writing 1M values (up to 50M values).
+* {{ sku|USD|monitoring.point.write|pricingRate.50|string }}: Cost of writing 1M values (over 50M values).
 
 **Example 3**
 
@@ -45,4 +45,4 @@ Where:
 * 100: Number of metrics.
 * (60 / 15): Number of values read per minute.
 * (60 × 24 × 30): Number of minutes in 30 days.
-* {{ sku|USD|monitoring.point.prometheus.export|string }}: Cost of reading 1M values (up to 50M).
+* {{ sku|USD|monitoring.point.prometheus.export|string }}: Cost of reading 1M values (up to 50M values).

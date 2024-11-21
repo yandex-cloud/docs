@@ -1,6 +1,6 @@
 ---
-title: How to get an embed code or broadcast link in {{ video-full-name }}
-description: Follow this guide to get a {{ video-full-name }} embed code or broadcast link.
+title: How to get an embed code or link to a broadcast in {{ video-full-name }}
+description: Follow this guide to get a {{ video-full-name }} embed code or link to a broadcast.
 ---
 
 # Getting an embed code or link to a broadcast

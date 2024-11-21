@@ -229,6 +229,12 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
 - Management console {#console}
 
+  {% note warning %}
+
+  After you change the metadata using the [management console]({{ link-console-main }}), the node group status will temporarily change to `Reconciling`: all the group's nodes will be recreated for the changes to take effect.
+
+  {% endnote %}
+
   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.

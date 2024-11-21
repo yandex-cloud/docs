@@ -43,7 +43,7 @@ description: Follow this guide to get a list of log groups.
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Run the following query:
+  Run this request:
 
   ```bash
   grpcurl \

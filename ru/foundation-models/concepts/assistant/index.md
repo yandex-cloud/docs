@@ -4,7 +4,7 @@ _Функциональность {{ assistant-api }} находится на с
 
 {{ assistant-api }} — это инструмент создания AI-ассистентов. С его помощью можно создать персонализированных помощников, реализовывать сценарий генеративного ответа с учетом информации из внешних источников (RAG, Retrieval Augmented Generation), а также сохранять контекст запросов к модели.
 
-![ai-assistant](../../../_assets/foundation-models/ai-assistant.png)
+![ai-assistant](../../../_assets/foundation-models/ai-assistant.svg)
 
 Вы можете создать своего AI-ассистента с помощью [{{ ml-sdk-full-name }}](../../sdk/index.md) или реализуя запросы к API на языке программирования.
 

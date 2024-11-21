@@ -37,7 +37,7 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
 1. Select the video stream's source device, e.g., a webcam, and click **OK**.
 1. Under **Controls**, click **Start Streaming**.
 
-## Start streaming {#start-stream}
+## Start your broadcast {#start-stream}
 
 {% list tabs group=instructions %}
 
@@ -65,7 +65,7 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, select the broadcast you need.
-  1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, click **</> {{ ui-key.yacloud_video.streams.title_past-code }}** and select the `link` tab.
+  1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, click **</> {{ ui-key.yacloud_video.streams.title_past-code }}** and select `link`.
   1. Click ![image](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
   1. Open a new browser page and paste the obtained URL to the address bar.
   1. Click the play button to make sure the broadcast is available.

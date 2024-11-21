@@ -1,5 +1,5 @@
 ---
-title: YAML specification of an instance group in {{ compute-full-name }}
+title: Specification of a {{ compute-full-name }} instance group in YAML format
 description: This tutorial describes an instance group specification in YAML format.
 ---
 
@@ -102,40 +102,40 @@ API references are generated from specifications published on GitHub.
 
 Some first-level fields and their nested fields are also described in the following documentation sections:
 
-* [{#T}](instance-template.md) (the `instance_template` field).
-* [{#T}](variables-in-the-template.md) (the `instance_template` and `variables` fields).
-* [{#T}](policies/allocation-policy.md) (the `allocation_policy` field).
-* [{#T}](policies/deploy-policy.md) (the `deploy_policy` field).
-* [{#T}](policies/scale-policy.md) (the `scale_policy` field).
-* [{#T}](policies/healing-policy.md) (the `auto_healing_policy` field).
-* [{#T}](autohealing.md) (the `health_checks_spec` field).
-* [{#T}](balancers.md) (the `load_balancer_spec` and `application_load_balancer_spec` fields).
+* [{#T}](instance-template.md) (`instance_template` field)
+* [{#T}](variables-in-the-template.md) (`instance_template` and `variables` fields)
+* [{#T}](policies/allocation-policy.md) (`allocation_policy` field)
+* [{#T}](policies/deploy-policy.md) (`deploy_policy` field)
+* [{#T}](policies/scale-policy.md) (`scale_policy` field)
+* [{#T}](policies/healing-policy.md) (`auto_healing_policy` field)
+* [{#T}](autohealing.md) (`health_checks_spec` field)
+* [{#T}](balancers.md) (`load_balancer_spec` and `application_load_balancer_spec` fields)
 
 These sections are updated manually. They may be not as up-to-date as the API references and our specification on GitHub.
 
 ## Converting JSON and Protobuf to YAML {#translation-to-yaml}
 
-You can create a YAML specification from a JSON or Protobuf specification using the following rules:
+You can create a YAML specification from a JSON or Protobuf specification using the following rules: 
 
-* Objects (JSON), `message` structures, and such fields as `map` (Protobuf) are converted to YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` to `snake_case`:
+* Objects (JSON), `message` structures, and `map` (Protobuf) type fields are converted into YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` into `snake_case`:
 
   {% list tabs group=data_format %}
-
+  
   - JSON {#json}
-
-      ```json
-      "targetGroupSpec": {
-        "name": "spec-example-tg",
-        "description": "ALB target group for example instance group",
-        "labels": {
-          "foo": "bar",
-          "environment": "production"
-        }
+  
+    ```json
+    "targetGroupSpec": {
+      "name": "spec-example-tg",
+      "description": "ALB target group for example instance group",
+      "labels": {
+        "foo": "bar",
+        "environment": "production"
       }
-      ```
-
+    }
+    ```
+  
   - Protobuf {#protobuf}
-
+  
     ```protobuf
     message TargetGroupSpec {
       string name = 1;
@@ -143,9 +143,9 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       map<string, string> labels = 3;
     }
     ```
-
+  
   - YAML {#yaml}
-
+  
     ```yaml
     target_group_spec:
       name: spec-example-tg
@@ -154,41 +154,41 @@ You can create a YAML specification from a JSON or Protobuf specification using 
         foo: bar
         environment: production
     ```
-
+  
   {% endlist %}
 
-* Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists:
+* Arrays (JSON) and `repeated` (Protobuf) type fields are converted into YAML lists:
 
   {% list tabs group=data_format %}
-
+  
   - JSON {#json}
-
-      ```json
-      "variables": [
-        {
-          "key": "foo",
-          "value": "bar"
-        },
-        {
-          "key": "baz",
-          "value": "foobar"
-        }
-      ]
-      ```
-
-  - Protobuf {#protobuf}
-
-      ```protobuf
-      message Variable {
-        string key = 1;
-        string value = 2;
+  
+    ```json
+    "variables": [
+      {
+        "key": "foo",
+        "value": "bar"
+      },
+      {
+        "key": "baz",
+        "value": "foobar"
       }
-
-      repeated Variable variables = 1;
-      ```
-
+    ]
+    ```
+  
+  - Protobuf {#protobuf}
+  
+    ```protobuf
+    message Variable {
+      string key = 1;
+      string value = 2;
+    }
+    
+    repeated Variable variables = 1;
+    ```
+  
   - YAML {#yaml}
-
+  
     ```yaml
     variables:
       - key: foo
@@ -196,33 +196,33 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       - key: baz
         value: foobar
     ```
-
+  
   {% endlist %}
 
-* The `enum` (Protobuf) structures are converted to scalar YAML values, i.e., strings corresponding to field names in Protobuf:
+* The `enum` (Protobuf) type structures are converted into scalar YAML values, i.e., strings corresponding to field names in Protobuf:
 
   {% list tabs group=data_format %}
-
+  
   - Protobuf {#protobuf}
-
-      ```protobuf
-      message AttachedDiskSpec {
-        enum Mode {
-          MODE_UNSPECIFIED = 0;
-          READ_ONLY = 1;
-          READ_WRITE = 2;
-        }
-        Mode mode = 1;
+  
+    ```protobuf
+    message AttachedDiskSpec {
+      enum Mode {
+        MODE_UNSPECIFIED = 0;
+        READ_ONLY = 1;
+        READ_WRITE = 2;
       }
-      ```
-
+      Mode mode = 1;
+    }
+    ```
+  
   - YAML {#yaml}
-
+  
     ```yaml
     attached_disk_spec:
       mode: READ_WRITE
     ```
-
+  
   {% endlist %}
 
 ## Value format {#values}
@@ -231,7 +231,7 @@ In YAML format, all values in dictionary objects are implicitly strings, so you 
 
 ### Suffixes for the `int64` type {#int64}
 
-Values of the `int64` type support the following suffixes:
+The `int64` type values support the following suffixes:
 
 {% include [yaml-int64-suffixes](../../../_includes/instance-groups/yaml-int64-suffixes.md) %}
 

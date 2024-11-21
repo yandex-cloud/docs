@@ -45,7 +45,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      yc storage bucket update --help
      ```
      
-  1. Create a hosting settings file in JSON format. See the examples below:
+  1. Create a hosting settings file in JSON format. For example:
      
      ```json
      {
@@ -152,7 +152,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      Where:
 
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
@@ -180,7 +180,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
    
      1. Confirm that you want to create the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -213,9 +213,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```bash
      yc storage bucket update --help
      ```
-
-  1. Create a file with redirect settings in JSON format, e.g.:
-
+     
+  1. Create a file with redirect settings in JSON format, For example:
+     
      ```json
      {
        "redirectAllRequests": {
@@ -283,7 +283,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
      Where:
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
@@ -347,10 +347,10 @@ Using routing rules, you can redirect requests based on the object name prefixes
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request. 
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** that will be used to send redirected requests.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host the requests that have satisfied the condition should be redirected to.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** Protocol to use to send redirected requests.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host where the requests that satisfy the condition should redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** to determine the redirect type.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
@@ -365,7 +365,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      yc storage bucket update --help
      ```
      
-  1. Create a file with conditional redirect settings in JSON format. See the examples below:
+  1. Create a file with conditional redirect settings in JSON format. For example:
      
      ```json
      {
@@ -381,7 +381,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
              "protocol": "PROTOCOL_HTTP",
              "replaceKeyPrefixWith": "prefix",
              "replaceKeyWith": "key"
-           }
+           } 
          }
        ]
      }
@@ -397,7 +397,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      
        * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
        * `httpRedirectCode`: New HTTP response code.
-       * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
+       * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used. 
        * `replaceKeyPrefixWith`: New object key prefix.
        * `replaceKeyWith`: New object key.
   
@@ -472,7 +472,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
      Where:
      * `access_key`: Static access key ID.
-     * `secret_key`: Private access key value.
+     * `secret_key`: Secret access key value.
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:

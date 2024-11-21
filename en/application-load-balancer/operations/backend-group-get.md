@@ -81,7 +81,7 @@ title: How to get information about a backend group in {{ alb-full-name }}
       * `output "backend_group"`: Output variable that contains information about the connected HTTP backend:
         * `value`: Returned value.
 
-      You can replace `http_backend` with any other parameter to get the information you need. For more information about the `yandex_alb_backend_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_backend_group).
+      You can replace `http_backend` with any other parameter to get the information you need. For more information about the `yandex_alb_backend_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/alb_backend_group).
 
   1. Create resources:
 

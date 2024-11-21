@@ -70,7 +70,7 @@ In this example, we will assume there is only one VM in the target group.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**. Specify the backend settings:
       1. Enter the backend name: `backend-1`.
       1. In the **{{ ui-key.yacloud.alb.label_target-group }}** list, select `test-target-group`.
-      1. Specify **{{ ui-key.yacloud.alb.label_port }}**: `80`.
+      1. Specify **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
   1. Expand the **{{ ui-key.yacloud.alb.label_protocol-settings }}** field and set the parameters:
       1. Select the `{{ ui-key.yacloud.alb.label_proto-http-plain }}` type.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** and set up the check:
@@ -96,7 +96,7 @@ In this example, we will assume there is only one VM in the target group.
       yc alb backend-group add-http-backend \
         --backend-group-name test-backend-group \
         --name backend-1 \
-        --port 80 \
+        --port 8080 \
         --target-group-name test-target-group \
         --target-group-id <target_group_ID> \
         --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/

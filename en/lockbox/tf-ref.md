@@ -24,5 +24,5 @@ The following {{ TF }} provider resources are supported for {{ lockbox-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_lockbox_secret]({{ tf-provider-datasources-link }}/datasource_lockbox_secret) | Information about a [secret](./concepts/secret.md#secret) |
-| [yandex_lockbox_secret_version]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version) | Information about a [secret version](./concepts/secret.md#version) |
+| [yandex_lockbox_secret]({{ tf-provider-datasources-link }}/lockbox_secret) | Information about a [secret](./concepts/secret.md#secret) |
+| [yandex_lockbox_secret_version]({{ tf-provider-datasources-link }}/lockbox_secret_version) | Information about a [secret version](./concepts/secret.md#version) |

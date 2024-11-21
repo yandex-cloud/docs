@@ -260,7 +260,7 @@ description: Следуя данной инструкции, вы сможете
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   1. Добавьте к описанию кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`:
 
-    ```hcl
+     ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
        ...
        host {
@@ -295,6 +295,178 @@ description: Следуя данной инструкции, вы сможете
 ## Перезапустить хост {{ ZK }} {#restart}
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
+
+## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
+
+Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), добавьте хосты {{ ZK }} с включенным преобразованием таблиц.
+
+Подробнее читайте в разделе [Репликация](../concepts/replication.md) и в [документации {{ CH }}]({{ ch.docs }}/development/architecture#replication).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы преобразовать нереплицируемые таблицы в реплицируемые:
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
+  1. [Добавьте хосты {{ ZK }}](#add-zk-host).
+
+     На странице добавления хостов по умолчанию включена опция **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+
+  1. Чтобы оставить таблицы нереплицируемыми, отключите опцию **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. Чтобы включить поддержку реплицируемых таблиц, оставьте опцию включенной.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы преобразовать нереплицируемые таблицы в реплицируемые, выполните команду:
+
+  ```bash
+  {{ yc-mdb-ch }} cluster add-zookeeper \
+     --name <имя_кластера> \
+     --resource-preset <класс_хостов> \
+     --disk-size <размер_хранилища_ГБ> \
+     --disk-type <тип_диска> \
+     --host zone-id=<зона_доступности>,subnet-name=<имя_подсети> \
+     --host <аналогичный_набор_настроек_для_создаваемого_хоста_2> \
+     --host ... \
+     --host <аналогичный_набор_настроек_для_создаваемого_хоста_N> \
+     --convert-tables-to-replicated
+  ```
+
+  В команде укажите не меньше трех параметров `--host`, так как в кластере должно быть минимум три хоста {{ ZK }}.
+
+  Параметр `--convert-tables-to-replicated` включает преобразование нереплицируемых таблиц на движке семейства `MergeTree` в реплицируемые на движке семейства `ReplicatedMergeTree`.
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.addZookeeper](../api-ref/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>:addZookeeper' \
+       --data '{
+                "resources": {
+                  "resourcePresetId": "<класс_хостов>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                },
+                "hostSpecs": [
+                  {
+                    "zoneId": "<зона_доступности>",
+                    "type": "ZOOKEEPER",
+                    "subnetId": "<идентификатор_подсети>",
+                    "shardName": "<имя_шарда>",
+                    "assignPublicIp": <публичный_доступ_к_хосту>
+                  },
+                  { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
+                  { ... },
+                  { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
+                ],
+                "convertTablesToReplicated": true
+              }'
+     ```
+
+     Где:
+
+     * `resources` — набор ресурсов для хостов {{ ZK }}:
+
+       * `resourcePresetId` — [класс хостов](../concepts/instance-types.md).
+       * `diskSize` — размер диска в байтах.
+       * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+     * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}. Элемент массива имеет следующую структуру:
+
+       * `type` — тип хоста, всегда `ZOOKEEPER` для хостов {{ ZK }}.
+       * `zoneId` — зона доступности.
+       * `subnetId` — идентификатор подсети.
+       * `shardName` — имя [шарда](../concepts/sharding.md), к которому добавляется хост.
+       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+     * `convertTablesToReplicated` — преобразование нереплицируемых таблиц на движке семейства `MergeTree` в реплицируемые на движке семейства `ReplicatedMergeTree`: `true` или `false`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addZookeeper.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "resources": {
+               "resource_preset_id": "<класс_хостов>",
+               "disk_size": "<размер_хранилища_в_байтах>",
+               "disk_type_id": "<тип_диска>"
+             },
+             "host_specs": [
+               {
+                 "type": "ZOOKEEPER",
+                 "zone_id": "<зона_доступности>",
+                 "subnet_id": "<идентификатор_подсети>",
+                 "shard_name": "<имя_шарда>",
+                 "assign_public_ip": <публичный_доступ_к_хосту>
+               },
+               { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
+               { ... },
+               { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
+             ],
+             "convert_tables_to_replicated": true
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.AddZookeeper
+     ```
+
+     Где:
+
+     * `resources` — набор ресурсов для хостов {{ ZK }}:
+
+       * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+       * `disk_size` — размер диска в байтах.
+       * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+     * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}.
+
+       Элемент массива имеет следующую структуру:
+
+       * `type` — тип хоста, всегда `ZOOKEEPER` для хостов {{ ZK }}.
+       * `zone_id` — зона доступности.
+       * `subnet_id` — идентификатор подсети.
+       * `shard_name` — имя [шарда](../concepts/sharding.md), к которому добавляется хост.
+       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+     * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц на движке семейства `MergeTree` в реплицируемые на движке семейства `ReplicatedMergeTree`: `true` или `false`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addZookeeper.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
 
 ## Удалить хост {{ ZK }} {#delete-zk-host}
 

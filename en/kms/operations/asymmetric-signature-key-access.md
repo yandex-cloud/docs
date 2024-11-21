@@ -17,9 +17,9 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
-   1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -85,10 +85,10 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    Use the [AsymmetricSignatureKeyService/UpdateAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
-   * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
+   * `ADD` value in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
    * ID of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
-   * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.type` parameter.
 
 {% endlist %}
 
@@ -102,9 +102,9 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
-   1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -188,7 +188,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    Use the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
-   * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.
-   * Type of the subject you are assigning the roles to in the `access_bindings[].subject.type` parameter.
+   * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.
+   * Type of the subject getting the roles in the `access_bindings[].subject.type` parameter.
 
 {% endlist %}

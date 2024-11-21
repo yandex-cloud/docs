@@ -6,7 +6,7 @@
 
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
-Плагин {{ ca-name }} доступен для [Visual Studio Code](https://code.visualstudio.com/) и [IDE от JetBrains](https://www.jetbrains.com/ides/) версий 2024.1 и 2024.2.
+{% include [supported-versions](../../_includes/code-assistant/supported-versions.md) %}
 
 {% note info %}
 
@@ -26,8 +26,7 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 * Inline completion — автодополнения по ходу написания текста (кода, тестов, документации).
 * Full-function completion — автодополнения целых функций или методов.
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](../quickstart.md)
-* [Условия использования сервиса {{ ca-full-name }}](https://yandex.ru/legal/cloud_terms_code_assistant/)
-
+* [Условия использования сервиса {{ ca-name }}](https://yandex.ru/legal/cloud_terms_code_assistant/)

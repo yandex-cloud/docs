@@ -213,25 +213,25 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
        * `OFF`: Disabled.
 
        The default value is `NORMAL`.
-     * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. The possible values are `true` or `false`.
+     * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It can either be `true` or `false`.
      * `format`: Backup format. This is an optional parameter. The possible values include:
        * `VERSION_11`: Deprecated format, not recommended.
        * `VERSION_12`: Recommended format for high-speed backup and recovery.
        * `AUTO`: Automatic format selection. The default option is `VERSION_12`, unless you are creating [incremental](../../concepts/backup.md#types) backups for the images created in other versions.
-     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional parameter. The possible values are `true` or `false`.
+     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional parameter. It can either be `true` or `false`.
      * `name`: Name of the backup policy.
-     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
-     * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. The possible values are `true` or `false`. The default value is `true`. We recommend using the `true` value.
-     * `quiesce_snapshotting_enabled`: Use `quiescing` mode when creating backups. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
-     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. The possible values are `true` or `false`. The default value is `true`.
+     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
+     * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. It can either be `true` or `false`. The default value is `true`. We recommend using the `true` value.
+     * `quiesce_snapshotting_enabled`: Use `quiescing` mode when creating backups. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
+     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
      * `splitting_bytes`: Defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
-     * `vss_provider`: VSS settings. This is an optional parameter. The possible values are `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
+     * `vss_provider`: VSS settings. This is an optional parameter. It can either be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
      * `reattempts`: Defines repeat attempts in case the backup operation fails:
-       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional parameter. The possible values are `true` or `false`. The default value is `true`.
+       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
        * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
        * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
      * `retention`: Backup retention options:
-       * `after_backup`: Apply backup retention rules after the backup is completed. The possible values are `true` or `false`.
+       * `after_backup`: Apply backup retention rules after the backup is completed. It can either be `true` or `false`.
        * `rules`: Backup retention rules:
           * `max_age`: Delete backups whose age exceeds `max_age`.
           * `max_count`: Delete backups if their number exceeds `max_count`.
@@ -239,7 +239,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
 
           The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
      * `scheduling`: Backup scheduling options:
-       * `enabled`: Enable backup scheduling. This is an optional parameter. The possible values are `true` or `false`. The default value is `true`.
+       * `enabled`: Enable backup scheduling. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
        * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional parameter. The default value is `0` (unlimited).
        * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
        * `scheme`: Backup schedule scheme. This is an optional parameter. The possible values include:
@@ -251,7 +251,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
          The default value is `ALWAYS_INCREMENTAL`.
        * `weekly_backup_day`: Day of the week when the weekly backup is run. This is an optional parameter. The default value is `MONDAY`.
        * `execute_by_time`: Settings for backups at a specific time:
-         * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
+         * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
          * `monthdays`: List of days to to which the schedule applies. This is an optional parameter. It can be used for the `MONTHLY` format.
          * `months`: List of months to which the schedules applies. This is an optional parameter.
          * `repeat_at`: List of time periods in `HH:MM` (24-hour) format to which the schedule will apply. This is an optional parameter.
@@ -259,7 +259,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
          * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, and `MONTHLY`.
          * `weekdays`: List of days of the week to which the schedule applies. It can be used for the `WEEKLY` format.
      * `vm_snapshot_reattempts`: Backup retries in case of failures:
-       * `enabled`: Retry a backup if any errors occur. This is an optional parameter. The possible values are `true` or `false`. The default value is `true`.
+       * `enabled`: Retry a backup if any errors occur. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
        * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
        * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
 

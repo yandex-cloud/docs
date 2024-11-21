@@ -70,7 +70,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
   As soon as they are processed, the videos will be available for viewing.
 
-  If required, [add](./update.md) subtitles and [edit](./update.md) the title and the cover separately for each video you uploaded.
+  If required, [add](./update.md) subtitles and [change](./update.md) the name and cover separately for each video you uploaded.
 
 {% endlist %}
 

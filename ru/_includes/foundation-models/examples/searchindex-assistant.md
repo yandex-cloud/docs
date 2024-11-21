@@ -2,17 +2,16 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-
 import pathlib
 from yandex_cloud_ml_sdk import YCloudML
-
+from yandex_cloud_ml_sdk.search_indexes import StaticIndexChunkingStrategy, TextSearchIndexType
 
 def local_path(path: str) -> pathlib.Path:
     return pathlib.Path(__file__).parent / path
 
 
 def main() -> None:
-    sdk = YCloudML(folder_id='b1ghsjum2v37c2un8h64')
+    sdk = YCloudML(folder_id='<идентификатор_каталога>')
 
     # Загрузим файлы с примерами
     # Файлы будут храниться 5 дней
@@ -37,9 +36,14 @@ def main() -> None:
         )
     )
 
+    # Дождемся создания поискового индекса
+    search_index = operation.wait()
+
+    # Создадим инструмент для работы с поисковым индексом. Или даже с несколькими индексами, если бы их было больше.
     tool = sdk.tools.search_index(search_index)
     
-    # Создадим ассистента с поисковым индексом для модели {{ gpt-pro }} Latest
+    # Создадим ассистента для модели {{ gpt-pro }} Latest
+    # Он будет использовать инструмент поискового индекса
     assistant = sdk.assistants.create('yandexgpt', tools=[tool])
     thread = sdk.threads.create()
 

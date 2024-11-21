@@ -73,7 +73,7 @@ title: How to get information about a disk placement group in {{ compute-full-na
       * `output "placement_group"`: Output variable that contains information about the disk placement group:
         * `value`: Returned value.
 
-      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_disk_placement_group).
+      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
   1. Create resources:
 
