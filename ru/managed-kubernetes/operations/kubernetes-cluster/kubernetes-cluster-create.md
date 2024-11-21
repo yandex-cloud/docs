@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
        --subnet-name default-a \
        --public-ip \
        --release-channel regular \
-       --version 1.13 \
+       --version 1.27 \
        --cluster-ipv4-range 10.1.0.0/16 \
        --service-ipv4-range 10.2.0.0/16 \
        --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
