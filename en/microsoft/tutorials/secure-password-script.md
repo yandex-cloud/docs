@@ -34,7 +34,8 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -338,7 +339,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    "Bootstrap script ended" | Write-Host
    ```
 
-1. In the `init.ps1` file, replace the `<secret_id>` placeholder with the real ID of the secret where you saved the user accounts.
+1. In the `init.ps1` file, replace the `<secret_id>` placeholder with the real secret ID in which you saved the user accounts.
 
 1. Create a VM:
 

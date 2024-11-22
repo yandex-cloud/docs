@@ -59,7 +59,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values are from `1` to `60`. The interval must be at least 1 second longer than the waiting time.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The values range from `1` to `60`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks to stop routing traffic to a VM.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks after which no traffic will be routed to a VM instance.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -142,7 +142,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
      * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
      * `listener`: Listener properties:
        * `name`: Listener name.
-       * `port`: Port in the range from `1` to `32767` on which the network load balancer will receive incoming traffic.
+       * `port`: Port in the range from `1` to `32767` the network load balancer will receive incoming traffic at.
        * `external_address_spec`: Specification of the listener for the external load balancer:
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
      * `attached_target_group`: Description of the network load balancer's target group parameters:

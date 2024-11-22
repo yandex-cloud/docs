@@ -8,14 +8,14 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  To view all operations with the {{ vpc-name }} resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a cloud network. The same steps apply to other service resources.
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the network you need.
-  1. Go to ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 
      You will see a list of cloud network operations.
 
@@ -49,7 +49,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is provided as text. To get a detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc vpc network list-operations enpgl5o8te3k******** --format yaml
@@ -119,7 +119,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
         created_at: "2024-02-01T10:16:51Z"
         name: test-network
         default_security_group_id: enp0catll8gm********
-      ```
+        ```
 
     - API {#api}
 

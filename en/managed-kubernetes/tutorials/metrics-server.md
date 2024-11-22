@@ -1,15 +1,15 @@
 # Updating the Metrics Server parameters
 
-[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a service in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), which is installed by default. It collects metrics from each {{ managed-k8s-name }} cluster [node](../concepts/index.md#node-group) using `kubelet` and provides them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../concepts/autoscale.md) run based on data from these metrics. You can get metric data by running the `kubectl top node` or `kubectl top pod` command. For more information, see the [Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
+[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) service, which is installed by default. It collects metrics from each {{ managed-k8s-name }} cluster [node](../concepts/index.md#node-group) using `kubelet` and provides them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../concepts/autoscale.md) run based on data from these metrics. You can get the metric data using the `kubectl top node` or `kubectl top pod` commands. For more information, see the [Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
 
-A [pod](../concepts/index.md#pod) on the Metrics Server has two containers, `metrics-server` and `metrics-server-nanny`, the latter running [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) for `metrics-server`. The `metrics-server-nanny` container is responsible for the automatic allocation of resources to the `metrics-server` container depending on the number of {{ managed-k8s-name }} cluster nodes.
+A Metrics Server [pod](../concepts/index.md#pod) has two containers: `metrics-server` and `metrics-server-nanny`, the latter acting as an [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) for `metrics-server`. The `metrics-server-nanny` container is responsible for the automatic allocation of resources to the `metrics-server` container depending on the number of {{ managed-k8s-name }} cluster nodes.
 
 In some cases, the `metrics-server-nanny` component may run incorrectly. For instance, if many pods are created while there are few nodes in the {{ managed-k8s-name }} cluster. If so, the Metrics Server pod will exceed its limits, which may degrade the server performance.
 
 To avoid this, change the parameters of the Metrics Server manually:
-1. [{#T}](#get-resources).
-1. [{#T}](#update-parameters).
-1. [{#T}](#check-result).
+1. [View the amount of resources allocated to the Metrics Server pod](#get-resources).
+1. [Update the Metrics Server parameters](#update-parameters).
+1. [Check the result](#check-result).
 
 To restore the default values of the Metrics Server parameters, [reset them](#reset).
 
@@ -17,31 +17,31 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Run this command:
 
-```bash
-kubectl get pod <metrics_server_pod_name> \
-  --namespace=kube-system \
-  --output=json | \
-  jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
-```
+   ```bash
+   kubectl get pod <Metrics_Server_pod_name> \
+     --namespace=kube-system \
+     --output=json | \
+     jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
+   ```
 
-The resources are calculated using the following formula:
+   The resources are calculated using the following formula:
 
-```text
-cpu = baseCPU + cpuPerNode * nodesCount
-memory = baseMemory + memoryPerNode * nodesCount
-```
+   ```text
+   cpu = baseCPU + cpuPerNode * nodesCount
+   memory = baseMemory + memoryPerNode * nodesCount
+   ```
 
-Where:
-* `baseCPU`: Basic [number of CPUs](../../compute/concepts/vm-platforms.md)
-* `cpuPerNode`: Number of CPUs per node
-* `nodesCount`: Number of {{ managed-k8s-name }} nodes
-* `baseMemory`: Basic amount of RAM
-* `memoryPerNode`: Amount of RAM per node
+   Where:
+   * `baseCPU`: Basic [number of CPUs](../../compute/concepts/vm-platforms.md).
+   * `cpuPerNode`: Number of CPUs per node.
+   * `nodesCount`: Number of {{ managed-k8s-name }} nodes.
+   * `baseMemory`: Basic amount of RAM.
+   * `memoryPerNode`: Amount of RAM per node.
 
 ## Update the Metrics Server parameters {#update-parameters}
 
@@ -64,7 +64,7 @@ Where:
        baseCPU: <basic_number_of_CPUs>m
        cpuPerNode: <number_of_CPUs_per_node>m
        baseMemory: <basic_amount_of_RAM>Mi
-       memoryPerNode: <Amount_of_RAM_per_node>Mi
+       memoryPerNode: <amount_of_RAM_per_node>Mi
    ...
    ```
 

@@ -7,7 +7,7 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 
 * [Getting object query statistics with S3 Select](./server-logs.md)
 * [Getting website traffic statistics with S3 Select](./user-agent-statistics.md)
-* [Getting statistics of the requests to objects using {{ yq-full-name }}](./server-logs-yq.md)
+* [Getting object query statistics with {{ yq-full-name }}](./server-logs-yq.md)
 * [Integrating an L7 load balancer with {{ cdn-name }} and {{ objstorage-name }}](./cdn-storage-integration.md)
 * [Blue-green and canary deployment of service versions](./blue-green-canary-deployment.md)
 * [Analyzing logs using {{ datalens-name }}](./storage-logs-analysis.md)
@@ -49,3 +49,11 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)
+* [{#T}](./api-gw-integration.md)
+* [{#T}](./serverless-url-shortener.md)
+* [{#T}](./log-ingestion.md)
+* [{#T}](./alice-shareable-todolist.md)
+* [{#T}](./websocket-app.md)
+* [{#T}](./java-servlet-todo-list.md)
+* [{#T}](./telegram-bot-serverless.md)
+* [Visualizing {{ yq-full-name }}](data-from-yandex-query-visualization.md) data

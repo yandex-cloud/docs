@@ -61,8 +61,8 @@ The internal load balancer's listener is assigned a random IP address from the r
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The values range from `1` to `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks to stop routing traffic to a VM.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks after which no traffic will be routed to a VM instance.
 	    1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -107,7 +107,7 @@ The internal load balancer's listener is assigned a random IP address from the r
      * `--type`: Load balancer type.
      * `--listener`: Listener properties:
          * `name`: Listener name.
-         * `port`: Port where the load balancer will accept incoming traffic. The values range from `1` to `32767`.
+         * `port`: Port the load balancer will receive incoming traffic at. The values range from `1` to `32767`.
          * `target-port`: Port to which the load balancer will redirect traffic. The values range from `1` to `32767`.
          * `protocol`: Protocol the listener will use, `tcp` or `udp`.
          * `internal-subnet-id`: Subnet ID.
@@ -159,7 +159,7 @@ The internal load balancer's listener is assigned a random IP address from the r
      * `deletion_protection`: Deletion protection for the internal network load balancer. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
      * `listener`: Listener properties:
        * `name`: Listener name.
-       * `port`: Port number (ranging from `1` to `32767`) on which the network load balancer will receive incoming traffic.
+       * `port`: Port in the range from `1` to `32767` the network load balancer will receive incoming traffic at.
        * `internal_address_spec`: Specification of the listener for the external load balancer:
          * `subnet_id`: Subnet ID.
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
@@ -176,7 +176,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

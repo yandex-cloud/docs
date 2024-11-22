@@ -54,3 +54,12 @@ These values are fixed and cannot be changed manually.
 The client can configure the `timer` value on their equipment as needed. When establishing a BFD session, these parameters will be aligned over BFD between the client and {{ yandex-cloud }} equipment.
 
 We do not recommend setting `multiplier` to anything other than 3, as this may cause BFD performance issues.
+
+### BGP timers {#timers}
+
+Below you can see the values (in seconds) of timers configured on the {{ yandex-cloud }} equipment by default:
+
+* `minimum-hold-time` = `90`
+
+Using values below the specified ones on the client equipment side will cause issues with establishing a BGP adjacency.
+

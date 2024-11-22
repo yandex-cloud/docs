@@ -23,9 +23,11 @@
 
 
 
+
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — опция разрешает использовать в кластере инструмент [Диагностика производительности](../../../managed-postgresql/operations/performance-diagnostics.md). Если опция включена, настройте также **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** при помощи ползунков. Единицы измерения обеих настроек — секунды.
 
     Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+
 
 - **Автоматическое переключение мастера** — включите эту опцию, чтобы при смене мастера источник репликации для всех хостов-реплик автоматически переключился на новый хост-мастер. Подробнее см. в разделе [Репликация](../../../managed-postgresql/concepts/replication.md).
 

@@ -206,6 +206,7 @@ items:
           - name: '{{ DS }} в {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
           - name: '{{ DS }} в {{ OS }}'
+            hidden: true
             href: tutorials/trails-to-os.md
           - name: '{{ DS }} в {{ ydb-short-name }}'
             href: tutorials/yds-to-ydb.md

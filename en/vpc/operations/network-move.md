@@ -6,35 +6,35 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 - Management console {#console}
 
-   To move a [cloud network](../concepts/network.md) to a different folder:
+  To move a [cloud network](../concepts/network.md) to a different folder:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the network you need and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
-   1. In the window that opens, select the destination folder.
-   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the network and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. In the window that opens, select the destination folder.
+  1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-   {% note info %}
+  {% note info %}
 
-   The cloud network's subnets are also moved to the other folder.
+  The cloud network's subnets are also moved to the other folder.
 
-   {% endnote %}
+  {% endnote %}
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To move a [cloud network](../concepts/network.md) to a different folder:
+  To move a [cloud network](../concepts/network.md) to a different folder:
 
-   1. View a description of the CLI move cloud network command:
+  1. View a description of the CLI move cloud network command:
 
       ```bash
       yc vpc network move --help
       ```
 
-   1. Get the name or ID of the cloud network to move:
+  1. Get the name or ID of the cloud network to move:
 
       ```bash
       yc vpc network list
@@ -50,7 +50,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+-----------+
       ```
 
-   1. Get a list of available folders:
+  1. Get a list of available folders:
 
       ```bash
       yc resource-manager folder list
@@ -67,40 +67,40 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the network by specifying the name or ID of the network and destination folder:
+  1. Move the network by specifying the name or ID of the network and destination folder:
 
-      ```bash
-      yc vpc network move <network_name_or_ID> \
-        --destination-folder-name <name_of_destination_folder> \
-        --destination-folder-id <ID_of_destination_folder>
-      ```
-      Use either the `--destination-folder-name` parameter or the `--destination-folder-id` parameter.
+     ```bash
+     yc vpc network move <network_name_or_ID> \
+       --destination-folder-name <destination_folder_name> \
+       --destination-folder-id <destination_folder_ID>
+     ```
+     Use either `--destination-folder-name` or `--destination-folder-id`.
 
-      If the network is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the network is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
 
-      Result:
+     Result:
 
-      ```text
-      id: enc39op1vq9m********
-       folder_id: b1chgf288nvg********
-       created_at: "2022-10-06T14:54:48Z"
-       name: network-1
-       default_security_group_id: enc2ta63h3q2********
-      ```
+     ```text
+     id: enc39op1vq9m********
+      folder_id: b1chgf288nvg********
+      created_at: "2022-10-06T14:54:48Z"
+      name: network-1
+      default_security_group_id: enc2ta63h3q2********
+     ```
 
-      For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/move.md).
+     For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/move.md).
 
 - API {#api}
 
-   To move a [cloud network](../concepts/network.md) to a different folder, use the [move](../api-ref/Network/move) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Move](../api-ref/grpc/Network/move.md) gRPC API call, and provide the following in the request:
+  To move a [cloud network](../concepts/network.md) to a different folder, use the [move](../api-ref/Network/move) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Move](../api-ref/grpc/Network/move.md) gRPC API call, and provide the following in the request:
 
-   * ID of the cloud network you want to move, in the `networkId` parameter.
+  * ID of the cloud network you want to move, in the `networkId` parameter.
 
-      {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 
-   * ID of the folder you want to move the cloud network to, in the `destinationFolderId` parameter.
+  * ID of the folder you want to move the cloud network to, in the `destinationFolderId` parameter.
 
-      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 
@@ -114,10 +114,10 @@ Move a cloud network from the current folder by specifying the network name and 
 
 - CLI {#cli}
 
-   ```bash
-   yc vpc network move network-1 \
-     --destination-folder-name my-folder-1
-   ```
+  ```bash
+  yc vpc network move network-1 \
+    --destination-folder-name my-folder-1
+  ```
 
 {% endlist %}
 
@@ -129,10 +129,10 @@ Move a cloud network from a different folder. Specify the network ID and the sou
 
 - CLI {#cli}
 
-   ```bash
-   yc vpc network move enc39op1vq9m******** \
-     --folder-id b1chgf288nvg******** \
-     --destination-folder-id b1cs8ie21pk1********
-   ```
+  ```bash
+  yc vpc network move enc39op1vq9m******** \
+    --folder-id b1chgf288nvg******** \
+    --destination-folder-id b1cs8ie21pk1********
+  ```
 
 {% endlist %}

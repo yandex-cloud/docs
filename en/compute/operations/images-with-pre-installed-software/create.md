@@ -12,13 +12,13 @@ To create a [VM](../../concepts/vm.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-  1. (Optional) Configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
+  1. (Optional) Configure the boot [disk](../../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
@@ -38,7 +38,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% note info %}
 
-      On VMs with access via OS Login enabled, provide your custom SSH keys through [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
+      On VMs with access via {{ oslogin }} enabled, provide your custom SSH keys through [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
 
       {% endnote %}
 
@@ -155,7 +155,7 @@ To create a [VM](../../concepts/vm.md):
 
        resources {
          cores  = "<number_of_vCPU_cores>"
-         memory = "<RAM_GB>"
+         memory = "<RAM_in_GB>"
        }
 
        boot_disk {

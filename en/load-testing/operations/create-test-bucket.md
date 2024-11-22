@@ -25,7 +25,7 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 
     {% note info %}
 
-    As an alternative to editing the bucket ACL, you can [assign](../../iam/operations/roles/grant.md) the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service account. 
+    As an alternative to editing the bucket ACL, you can [assign](../../iam/operations/roles/grant.md) the service account the `storage.editor` [role](../../storage/security/#storage-editor). 
 
     This method is less secure, since it allows the service account to perform any operations with all buckets in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder): creating, deleting, and updating a bucket, or granting public access to them.
 
@@ -38,7 +38,6 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. [Select](../concepts/agent-select.md) a test agent or create a new one.
-1. (Optional) Select or create a [log group](../../logging/concepts/log-group.md).
 1. Under **Attached files**:
     1. Click **{{ ui-key.yacloud.load-testing.label_choose-from-bucket }}**.
     1. Find the bucket in the drop-down list and specify the path to the payload file.

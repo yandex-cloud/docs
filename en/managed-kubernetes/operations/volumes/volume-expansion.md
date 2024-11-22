@@ -2,12 +2,12 @@
 
 
 To expand a [volume](../../concepts/volume.md):
-1. [{#T}](#enabling-expansion).
-1. [{#T}](#create-pvc).
-1. [{#T}](#create-pod).
-1. [{#T}](#restart-pod).
-1. [{#T}](#volume-expansion).
-1. [{#T}](#restart-pod1).
+1. [Enable volume expansion](#enabling-expansion).
+1. [Create a PersistentVolumeClaim](#create-pvc).
+1. [Create a pod with a dynamically provisioned volume](#create-pod).
+1. [Delete the pod with the volume](#restart-pod).
+1. [Request volume expansion](#volume-expansion).
+1. [Delete the pod with the volume](#delete-pod).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
@@ -105,7 +105,7 @@ reclaimPolicy: Delete
    pod/pod created
    ```
 
-## Delete the pod with the volume {#restart-pod}
+## Delete the pod with the volume {#delete-pod}
 
 To request volume expansion, you need to delete the pod.
 1. Delete the pod:

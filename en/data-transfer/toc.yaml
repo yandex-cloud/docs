@@ -204,6 +204,7 @@ items:
           - name: '{{ DS }} to {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
           - name: '{{ DS }} to {{ OS }}'
+            hidden: true
             href: tutorials/trails-to-os.md
           - name: Entering data into storage systems
             href: tutorials/data-ingestion.md

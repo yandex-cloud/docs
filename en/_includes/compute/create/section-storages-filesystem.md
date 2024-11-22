@@ -4,6 +4,4 @@
 
     * In the window that opens, select **File storage** and select the storage you want to connect from the list.
 
-        If you do not have any file storages, click **{{ ui-key.yacloud.compute.nfs.button_create-filesystem }}** to create a new one.
-
     * Click **Add file storage**.

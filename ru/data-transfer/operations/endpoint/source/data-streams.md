@@ -25,8 +25,7 @@ description: Следуя данной инструкции, вы сможете
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
     * [{{ DS }} в {{ CH }}](../../../tutorials/yds-to-clickhouse.md);
-    * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);
-    * [{{ DS }} в {{ OS }}](../../../tutorials/trails-to-os.md);
+    * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);    
     * [{{ DS }} в {{ ydb-name }}](../../../tutorials/yds-to-ydb.md);
     * [{{ DS }} в {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 

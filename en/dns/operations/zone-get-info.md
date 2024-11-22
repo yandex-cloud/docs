@@ -32,7 +32,7 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
   1. Get information about a DNS zone by specifying its name or ID:
 
       ```bash
-      yc dns zone get <zone_name>
+      yc dns zone get <DNS_zone_name>
       ```
 
       Result:
@@ -71,7 +71,7 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
      * `output "zone"`: Output variable that contains information about the DNS zone type:
        * `value`: Returned value.
 
-     You can replace `public` with any other parameter to get the information you need. For more information about the `yandex_dns_zone` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_dns_zone).
+     You can replace `public` with any other parameter to get the information you need. For more information about the `yandex_dns_zone` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/dns_zone).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

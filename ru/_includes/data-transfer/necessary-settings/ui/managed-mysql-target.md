@@ -1,6 +1,6 @@
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — укажите идентификатор кластера, к которому необходимо подключиться.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — укажите имя базы данных в выбранном кластере. Оставьте поле пустым, если хотите создать таблицы в базах данных с теми же именами, что и на источнике. В этом случае явно задайте схему БД для служебных таблиц в [дополнительных настройках](../../../../data-transfer/operations/endpoint/target/mysql.md#additional-settings).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — укажите имя базы данных в выбранном кластере. Оставьте поле пустым, если хотите создать таблицы в базах данных с теми же именами, что и на источнике. В этом случае явно задайте схему БД для служебных таблиц в [дополнительных настройках](../../../../data-transfer/operations/endpoint/target/mysql.md#additional-settings).
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
 

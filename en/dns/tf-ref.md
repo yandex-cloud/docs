@@ -22,4 +22,4 @@ The following {{ TF }} provider resources are supported for {{ dns-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_dns_zone]({{ tf-provider-datasources-link }}/datasource_dns_zone) | [DNS zone](./concepts/dns-zone.md) information |
+| [yandex_dns_zone]({{ tf-provider-datasources-link }}/dns_zone) | [DNS zone](./concepts/dns-zone.md) information |

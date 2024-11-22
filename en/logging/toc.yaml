@@ -71,6 +71,8 @@ items:
           Visualizing logs in {{ grafana-name }} using the {{
           cloud-logging-full-name }} plugin
         href: tutorials/grafana-logs-plugin.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: tutorials/serverless-live-debug.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
   - name: Concepts

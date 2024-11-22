@@ -9,30 +9,30 @@ description: Follow this guide to move a security group to a different folder.
 
 - Management console {#console}
 
-   To move a [security group](../concepts/security-groups.md) to a different folder:
+  To move a [security group](../concepts/security-groups.md) to a different folder:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where the security group is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group to be moved and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
-   1. Select the destination folder from the drop-down list.
-   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder where the security group is located.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the security group you need to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Select the destination folder from the drop-down list.
+  1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To move a [security group](../concepts/security-groups.md) to a different folder:
+  To move a [security group](../concepts/security-groups.md) to a different folder:
 
-   1. View a description of the CLI move security group command:
+  1. View a description of the CLI move security group command:
 
       ```bash
       yc vpc security-group move --help
       ```
 
-   1. Get the name or ID of the security group to move:
+  1. Get the name or ID of the security group to move:
 
       ```bash
       yc vpc security-group list
@@ -51,7 +51,7 @@ description: Follow this guide to move a security group to a different folder.
       +----------------------+---------------------------------+------------------------------------+----------------------+
       ```
 
-   1. Get a list of available folders:
+  1. Get a list of available folders:
 
       ```bash
       yc resource-manager folder list
@@ -69,42 +69,42 @@ description: Follow this guide to move a security group to a different folder.
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the security group by specifying the name or ID of the group and destination folder:
+  1. Move the security group by specifying the name or ID of the group and destination folder:
 
-      ```bash
-      yc vpc security-group move <group_name_or_ID> \
-        --destination-folder-name <name_of_destination_folder> \
-        --destination-folder-id <ID_of_destination_folder>
-      ```
+     ```bash
+     yc vpc security-group move <group_name_or_ID> \
+       --destination-folder-name <destination_folder_name> \
+       --destination-folder-id <destination_folder_ID>
+     ```
 
-      Use either the `--destination-folder-name` parameter or the `--destination-folder-id` parameter.
+     Use either `--destination-folder-name` or `--destination-folder-id`.
 
-      If the security group is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the security group is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
 
-      Result:
+     Result:
 
-      ```text
-      id: encemkpqg8fh********
-      folder_id: b1chgf288nvg********
-      created_at: "2022-10-10T13:24:59Z"
-      name: my-sg-1
-      network_id: encb4ubvmief********
-      status: ACTIVE
-      ```
+     ```text
+     id: encemkpqg8fh********
+     folder_id: b1chgf288nvg********
+     created_at: "2022-10-10T13:24:59Z"
+     name: my-sg-1
+     network_id: encb4ubvmief********
+     status: ACTIVE
+     ```
 
-      For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
+     For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
 
 - API {#api}
 
-   To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/SecurityGroup/move.md) gRPC API call, and provide the following in the request:
+  To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/SecurityGroup/move.md) gRPC API call, and provide the following in the request:
 
-   * ID of the security group to be moved, in the `securityGroupId` parameter.
+  * ID of the security group you need to move in the `securityGroupId` parameter.
 
-      {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
-   * ID of the folder you want to move the security group to, in the `destinationFolderId` parameter.
+  * ID of the folder you want to move the security group to in the `destinationFolderId` parameter.
 
-      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 
@@ -118,10 +118,10 @@ Move a security group from the current folder by specifying the group name and d
 
 - CLI {#cli}
 
-   ```bash
-   yc vpc security-group move my-sg-1 \
-     --destination-folder-name my-folder-1
-   ```
+  ```bash
+  yc vpc security-group move my-sg-1 \
+    --destination-folder-name my-folder-1
+  ```
 
 {% endlist %}
 
@@ -133,11 +133,11 @@ Move a security group from a different folder. Specify the group ID and the sour
 
 - CLI {#cli}
 
-   ```bash
-   yc vpc security-group move encemkpqg8fh******** \
-     --folder-id b1chgf288nvg******** \
-     --destination-folder-id b1cs8ie21pk1********
-   ```
+  ```bash
+  yc vpc security-group move encemkpqg8fh******** \
+    --folder-id b1chgf288nvg******** \
+    --destination-folder-id b1cs8ie21pk1********
+  ```
 
 {% endlist %}
 

@@ -14,14 +14,14 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
      {% note info %}
 
-     If you do not know which network the route table belongs to, in the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
+     If you do not know which network the route table belongs to, in the right-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
 
      {% endnote %}
 
   1. In the list of subnets, find the subnet associated with the route table.
   1. Disassociate the route table from the subnet using any of these methods:
-     * In the row with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * In the row with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * In the line with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
+     * In the line with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
      * Open the subnet information and click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
      * Open the subnet information and click **Edit** in the top right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
 
@@ -68,7 +68,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
   To disassociate a route table from a subnet in the infrastructure created in {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and find the section with the description of the subnet associated with the route table:
+  1. Open the {{ TF }} configuration file and find the fragment with the description of the subnet associated with the route table:
 
      {% cut "Example subnet description in the {{ TF }} configuration" %}
 
@@ -87,7 +87,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
      {% endcut %}
 
-  1. Delete the route table description string from this section:
+  1. Delete the route table description string from this fragment:
 
      ```hcl
      route_table_id = "<route_table_ID>"
@@ -156,7 +156,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a route table.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the appropriate table name and select **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the table name and select **Delete**.
   1. In the window that opens, click **Delete**.
 
 - CLI {#cli}
@@ -200,7 +200,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   To delete a route table created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and remove the section with the route table description.
+  1. Open the {{ TF }} configuration file and remove the route table description fragment.
 
       {% cut "Example of a table description in the {{ TF }} configuration" %}
 

@@ -61,7 +61,7 @@ editable: false
 
   Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки.
 
-  Например, стоимость записи первых 86 400 значений составит `(86 400 значений / 1 млн) × {{ sku|RUB|monitoring.point.write|string }} = {% calc [currency=RUB] 86400 / 1000000 × {{ sku|RUB|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=RUB] round((86400 / 1000000 × {{ sku|RUB|monitoring.point.write|number }}) × 100 ) / 100 %}`. При этом стоимость записи 87 000 значений составит `(87 000 значений / 1 млн) × {{ sku|RUB|monitoring.point.write|string }} = {% calc [currency=RUB] 87000 / 1000000 × {{ sku|RUB|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=RUB] round((87000 / 1000000 × {{ sku|RUB|monitoring.point.write|number }}) × 100 ) / 100 %}`. Где `{{ sku|RUB|monitoring.point.write|string }}` — цена за 1 млн значений (при записи до 50 млн значений).
+  {% include [rub-api-example](../_pricing_examples/monitoring/rub-api-example.md) %}
 
   {% include [rub.md](../_pricing/monitoring/rub.md) %}
 
@@ -69,7 +69,7 @@ editable: false
 
   Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до тиына.
 
-  Например, стоимость записи первых 86 500 значений составит `(86 500 значений / 1 млн) × {{ sku|KZT|monitoring.point.write|string }} = {% calc [currency=KZT] 86500 / 1000000 × {{ sku|KZT|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=KZT] round((86500 / 1000000 × {{ sku|KZT|monitoring.point.write|number }}) × 100 ) / 100 %}`. При этом стоимость записи 86 600 значений составит `(86 600 значений / 1 млн) × {{ sku|KZT|monitoring.point.write|string }} = {% calc [currency=KZT] 86600 / 1000000 × {{ sku|KZT|monitoring.point.write|number }} %}` и будет округлена до `{% calc [currency=KZT] round((86600 / 1000000 × {{ sku|KZT|monitoring.point.write|number }}) × 100 ) / 100 %}`. Где `{{ sku|KZT|monitoring.point.write|string }}` — цена за 1 млн значений (при записи до 50 млн значений).
+  {% include [kzt-api-example](../_pricing_examples/monitoring/kzt-api-example.md) %}
 
   {% include [kzt.md](../_pricing/monitoring/kzt.md) %}
 

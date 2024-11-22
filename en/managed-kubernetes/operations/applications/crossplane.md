@@ -27,7 +27,7 @@
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Crossplane or create a new one.
    * **Application name**: Specify the app name.
-   * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file you [previously obtained](#before-you-begin), or create a new one.
+   * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file you [received earlier](#before-you-begin), or create a new one.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -45,7 +45,7 @@
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set-file providerJetYC.creds=key.json \
+     --set-file providerJetYc.creds=key.json \
      crossplane ./crossplane/
    ```
 
@@ -99,8 +99,8 @@
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/marketplace/crossplane.md)
+* [{#T}](../../tutorials/marketplace/crossplane.md).
 
 ## See also {#see-also}
 
-* [Crossplane documentation](https://docs.crossplane.io/)
+* [Crossplane documentation](https://docs.crossplane.io/).

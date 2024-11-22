@@ -7,7 +7,7 @@ description: This guide describes how you can create and set up a desktop group.
 
 {% note info %}
 
-This guide contains information on how to create and set up a [desktop group](concepts/desktops-and-groups.md). If you received a link to the [user desktop showcase](concepts/showcase.md) from an administrator, go to [{#T}](#get-credentials).
+This guide contains information on how to create and set up a [desktop group](concepts/desktops-and-groups.md). If you received a link to the [user desktop showcase](concepts/showcase.md) from an administrator, go to [Get connection credentials](#get-credentials).
 
 {% endnote %}
 
@@ -111,7 +111,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
   1. In the left-hand panel, select ![image](../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_desktop-create }}**.
   1. Select the desktop group you created earlier.
-  1. Specify the subnet to place the desktop in.
+  1. Specify the subnet the desktop will be in.
 
       {% note info %}
 
