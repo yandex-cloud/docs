@@ -72,7 +72,7 @@ title: How to get information about a subnet in {{ vpc-full-name }}
      * `output "subnet"`: Output variable that contains the name of the subnet's availability zone:
        * `value`: Returned value.
 
-     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_vpc_subnet` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_vpc_subnet).
+     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_vpc_subnet` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/vpc_subnet).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

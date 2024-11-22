@@ -12,7 +12,7 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. In the list that opens, find the route table with the NAT gateway listed in its **Static routes** column.
-  1. In the line with the appropriate table, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
+  1. In the line with the table, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
   1. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the line with the NAT gateway name.
   1. Click **Save**.
 
@@ -58,7 +58,7 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
 
   To detach a NAT gateway from a route table created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and find the section with the description of the route table the NAT gateway is attached to:
+  1. Open the {{ TF }} configuration file and find the fragment with the description of the route table the NAT gateway is attached to:
 
       {% cut "Example of a table description in the {{ TF }} configuration" %}
 
@@ -149,7 +149,7 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a NAT gateway.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the appropriate NAT gateway name and select **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the NAT gateway name and select **Delete**.
   1. In the window that opens, click **Delete**.
 
 - CLI {#cli}
@@ -193,7 +193,7 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
 
   To delete a NAT gateway created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the section with the NAT gateway description.
+  1. Open the {{ TF }} configuration file and delete the NAT gateway description fragment.
 
       {% cut "Example of a NAT gateway description in the {{ TF }} configuration" %}
 

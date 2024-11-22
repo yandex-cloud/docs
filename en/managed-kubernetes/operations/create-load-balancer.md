@@ -6,7 +6,7 @@ title: Granting access to an app running in a {{ k8s }} cluster
 
 To grant access to an app running in a {{ k8s }} cluster, you can use [various types of public and internal services](../concepts/service.md).
 
-To publish an app, use a`LoadBalancer` service. The following options are supported:
+To publish an app, use a `LoadBalancer` type service. The following options are supported:
 
 * Public access by IP address with a [network load balancer](../../network-load-balancer/concepts/index.md).
 * Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md).
@@ -23,22 +23,22 @@ If you do not specify a static IP address, the network load balancer will get a 
 
 {% note info %}
 
-Unlike the IP address of a pod or node, which may change if the resources in a node group are updated, the static IP address of a `LoadBalancer`-type service does not change.
+Unlike an IP address of a pod or node, which may change if node group resources are updated, the static IP address of a `LoadBalancer` type service does not change.
 
 {% endnote %}
 
-Prepare and run the application to be granted access to using a `LoadBalancer` service in the {{ k8s }} cluster. As an example, use an application that responds to HTTP requests on port 8080.
+Prepare and run in a {{ k8s }} cluster the application you need to grant access to with the help of a `LoadBalancer` type service. As an example, use an application that responds to HTTP requests on port 8080.
 
 1. [Create a simple app](#simple-app).
-1. [Create a LoadBalancer service with a public IP address](#lb-create).
-1. [Create a LoadBalancer service with an internal IP address](#lb-int-create).
+1. [Create a LoadBalancer type service with a public IP address](#lb-create).
+1. [Create a LoadBalancer type service with an internal IP address](#lb-int-create).
 1. [Specify the advanced settings](#advanced).
 1. [Specify node health check parameters](#healthcheck).
-1. (Optional) [{#T}](#network-policy).
+1. (Optional) [Create a NetworkPolicy object](#network-policy).
 
 {% cut "How to ensure access to an app via HTTPS?" %}
 
-See the documentation:
+See this documentation:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
@@ -57,46 +57,46 @@ Prepare the required infrastructure:
 
 - Manually {#manual}
 
-   1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-   1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
-   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+  1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
+  1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
+  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) with public internet access and the security groups prepared earlier.
+  1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) with public internet access and the security groups you prepared earlier.
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * {{ managed-k8s-name }} cluster.
-      * [Service account](../../iam/concepts/users/service-accounts.md) required for the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group) to operate.
-      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+  1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
+     * [Network](../../vpc/concepts/network.md#network).
+     * [Subnet](../../vpc/concepts/network.md#subnet).
+     * {{ managed-k8s-name }} cluster.
+     * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
+     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. Specify the following in the configuration file:
-      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
-      * Name of the {{ managed-k8s-name }} cluster service account.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Specify the following in the configuration file:
+     * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+     * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+     * Name of the {{ managed-k8s-name }} cluster service account.
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Create the required infrastructure:
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -132,19 +132,19 @@ Prepare the required infrastructure:
 
    - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      ```bash
-      kubectl apply -f hello.yaml
-      ```
+     ```bash
+     kubectl apply -f hello.yaml
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      deployment.apps/hello created
-      ```
+     ```bash
+     deployment.apps/hello created
+     ```
 
    {% endlist %}
 
@@ -154,60 +154,60 @@ Prepare the required infrastructure:
 
    - CLI {#cli}
 
-      ```bash
-      kubectl describe deployment hello
-      ```
+     ```bash
+     kubectl describe deployment hello
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Name:                   hello
-      Namespace:              default
-      CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
-      Labels:                 <none>
-      Annotations:            deployment.kubernetes.io/revision: 1
-      Selector:               app=hello
-      Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
-      StrategyType:           RollingUpdate
-      MinReadySeconds:        0
-      RollingUpdateStrategy:  25% max unavailable, 25% max surge
-      Pod Template:
-        Labels:  app=hello
-        Containers:
-         hello-app:
-          Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
-          Port:         <none>
-          Host Port:    <none>
-          Environment:  <none>
-          Mounts:       <none>
-        Volumes:        <none>
-      Conditions:
-        Type           Status  Reason
-        ----           ------  ------
-        Available      False   MinimumReplicasUnavailable
-        Progressing    True    ReplicaSetUpdated
-      OldReplicaSets:  <none>
-      NewReplicaSet:   hello-******** (2/2 replicas created)
-      Events:
-        Type    Reason             Age   From                   Message
-        ----    ------             ----  ----                   -------
-        Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-******** to 2
-      ```
+     ```text
+     Name:                   hello
+     Namespace:              default
+     CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
+     Labels:                 <none>
+     Annotations:            deployment.kubernetes.io/revision: 1
+     Selector:               app=hello
+     Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
+     StrategyType:           RollingUpdate
+     MinReadySeconds:        0
+     RollingUpdateStrategy:  25% max unavailable, 25% max surge
+     Pod Template:
+       Labels:  app=hello
+       Containers:
+        hello-app:
+         Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
+         Port:         <none>
+         Host Port:    <none>
+         Environment:  <none>
+         Mounts:       <none>
+       Volumes:        <none>
+     Conditions:
+       Type           Status  Reason
+       ----           ------  ------
+       Available      False   MinimumReplicasUnavailable
+       Progressing    True    ReplicaSetUpdated
+     OldReplicaSets:  <none>
+     NewReplicaSet:   hello-******** (2/2 replicas created)
+     Events:
+       Type    Reason             Age   From                   Message
+       ----    ------             ----  ----                   -------
+       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-******** to 2
+     ```
 
    {% endlist %}
 
-## Create a LoadBalancer service with a public IP address {#lb-create}
+## Create a LoadBalancer type service with a public IP address {#lb-create}
 
-When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} controller creates and configures for you in your folder a [network load balancer](../../network-load-balancer/concepts/index.md) with a public IP address.
+When you create a `LoadBalancer` type service, the {{ yandex-cloud }} controller creates and configures for you a [network load balancer](../../network-load-balancer/concepts/index.md) with a public IP address in your folder.
 
 {% note warning %}
 
 * You will be charged for the network load balancer you created based on the [pricing rules](../../network-load-balancer/pricing.md).
-* Don't modify or delete the network load balancer or target groups that are automatically created in your folder after creating a `LoadBalancer` service.
+* Do not modify or delete the network load balancer and the target groups that are automatically created in your folder after creating a `LoadBalancer` type service.
 
 {% endnote %}
 
-1. Save the following specification for creating a `LoadBalancer` service to a YAML file named `load-balancer.yaml`:
+1. Save the following specification for creating a `LoadBalancer` type service to a YAML file named `load-balancer.yaml`:
 
    ```yaml
    apiVersion: v1
@@ -233,15 +233,15 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI {#cli}
 
-      ```bash
-      kubectl apply -f load-balancer.yaml
-      ```
+     ```bash
+     kubectl apply -f load-balancer.yaml
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      service/hello created
-      ```
+     ```bash
+     service/hello created
+     ```
 
    {% endlist %}
 
@@ -253,37 +253,37 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-     1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
+     1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in its name and the unique ID of your {{ k8s }} cluster in its description.
 
    - CLI {#cli}
 
-      ```bash
-      kubectl describe service hello
-      ```
+     ```bash
+     kubectl describe service hello
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Name:                     hello
-      Namespace:                default
-      Labels:                   <none>
-      Annotations:              <none>
-      Selector:                 app=hello
-      Type:                     LoadBalancer
-      IP:                       172.20.169.7
-      LoadBalancer Ingress:     130.193.50.111
-      Port:                     plaintext 80/TCP
-      TargetPort:               8080/TCP
-      NodePort:                 plaintext 32302/TCP
-      Endpoints:                10.1.130.4:8080
-      Session Affinity:         None
-      External Traffic Policy:  Cluster
-      Events:
-        Type    Reason                Age    From                Message
-        ----    ------                ----   ----                -------
-        Normal  EnsuringLoadBalancer  2m43s  service-controller  Ensuring load balancer
-        Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
-      ```
+     ```text
+     Name:                     hello
+     Namespace:                default
+     Labels:                   <none>
+     Annotations:              <none>
+     Selector:                 app=hello
+     Type:                     LoadBalancer
+     IP:                       172.20.169.7
+     LoadBalancer Ingress:     130.193.50.111
+     Port:                     plaintext 80/TCP
+     TargetPort:               8080/TCP
+     NodePort:                 plaintext 32302/TCP
+     Endpoints:                10.1.130.4:8080
+     Session Affinity:         None
+     External Traffic Policy:  Cluster
+     Events:
+       Type    Reason                Age    From                Message
+       ----    ------                ----   ----                -------
+       Normal  EnsuringLoadBalancer  2m43s  service-controller  Ensuring load balancer
+       Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
+     ```
 
    {% endlist %}
 
@@ -293,24 +293,24 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI {#cli}
 
-      ```bash
-      curl http://130.193.50.111
-      ```
+     ```bash
+     curl http://130.193.50.111
+     ```
 
-      Where `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
+     Where `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
 
-      Result:
+     Result:
 
-      ```text
-      Hello, world!
-      Running in 'hello-********'
-      ```
+     ```text
+     Hello, world!
+     Running in 'hello-********'
+     ```
 
    {% endlist %}
 
    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-## Create a LoadBalancer service with an internal IP address {#lb-int-create}
+## Create a LoadBalancer type service with an internal IP address {#lb-int-create}
 
 1. Edit the specification in the `load-balancer.yaml` file:
 
@@ -343,15 +343,15 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI
 
-      ```bash
-      kubectl delete service hello
-      ```
+     ```bash
+     kubectl delete service hello
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      service "hello" deleted
-      ```
+     ```bash
+     service "hello" deleted
+     ```
 
    {% endlist %}
 
@@ -361,21 +361,21 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI
 
-      ```bash
-      kubectl apply -f load-balancer.yaml
-      ```
+     ```bash
+     kubectl apply -f load-balancer.yaml
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      service/hello created
-      ```
+     ```bash
+     service/hello created
+     ```
 
    {% endlist %}
 
 ## Configure the advanced settings {#advanced}
 
-In {{ managed-k8s-name }}, you can specify the following advanced settings for your `LoadBalancer` type service:
+In {{ managed-k8s-name }}, you can specify the following additional parameters for your `LoadBalancer` type service:
 
 * `loadBalancerIP`: [Public](../../vpc/concepts/address.md#public-addresses) (static) IP address you reserved in advance.
 * `externalTrafficPolicy`: [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core).
@@ -405,9 +405,9 @@ For more information, see the `Service` resource [reference](../nlb-ref/service.
 
 ## Specify node health check parameters {#healthcheck}
 
-Such services as `LoadBalancer` in {{ managed-k8s-name }} can run status check requests against a {{ k8s }} [target node group](../../network-load-balancer/concepts/target-resources.md). Based on the metrics delivered to the service, {{ managed-k8s-name }} decides if the nodes are available.
+`LoadBalancer` type services in {{ managed-k8s-name }} can run status check requests for a [target group](../../network-load-balancer/concepts/target-resources.md) of {{ k8s }} nodes. Based on the metrics delivered to the service, {{ managed-k8s-name }} decides if the nodes are available.
 
-To enable node health check mode, specify the `yandex.cloud/load-balancer-healthcheck-*` annotations in the service specification, such as the following:
+To enable node health check mode, specify the `yandex.cloud/load-balancer-healthcheck-*` annotations in the service specification, e.g.:
 
 ```yaml
 apiVersion: v1
@@ -424,7 +424,7 @@ For more information, see the `Service` resource [reference](../nlb-ref/service.
 
 ## Create a NetworkPolicy object {#network-policy}
 
-To connect to services published via {{ network-load-balancer-name }} from particular IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#networkpolicy-v1-networking-k8s-io) object with a policy of the `Ingress` type.
+To connect to services published via {{ network-load-balancer-name }} from particular IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#networkpolicy-v1-networking-k8s-io) object with an `Ingress` type policy.
 
 {% cut "NetworkPolicy object configuration example" %}
 
@@ -442,12 +442,12 @@ spec:
   - Ingress
   ingress:
   - from:
-    # IP ranges used by the load balancer to health check nodes.
+    # Address ranges used by the load balancer to health check nodes.
     - ipBlock:
         cidr: 198.18.235.0/24
     - ipBlock:
         cidr: 198.18.248.0/24
-    # Ranges of pod IPs.
+    # Pod address ranges.
     - ipBlock:
         cidr: 172.16.1.0/12
     - ipBlock:
@@ -456,7 +456,7 @@ spec:
 
 {% endcut %}
 
-For more information, see the [NetworkPolicy](../nlb-ref/networkpolicy.md) resource `reference` for {{ network-load-balancer-full-name }}.
+For more information, see the `NetworkPolicy` resource [reference](../nlb-ref/networkpolicy.md) for {{ network-load-balancer-full-name }}.
 
 ## Delete the resources you created {#clear-out}
 
@@ -466,27 +466,27 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually {#manual}
 
-   1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
+  1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
 
 - {{ TF }} {#tf}
 
-   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-   1. Delete the `k8s-load-balancer.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+  1. Delete the `k8s-load-balancer.tf` configuration file.
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  
+  1. Confirm updating the resources.
 
-   1. Confirm updating the resources.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     All the resources described in the `k8s-load-balancer.tf` configuration file will be deleted.
 
-      All the resources described in the `k8s-load-balancer.tf` configuration file will be deleted.
-
-   1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
+  1. If you used static [public](../../vpc/concepts/address.md#public-addresses) IP addresses to access a {{ managed-k8s-name }} cluster or nodes, release and delete them.
 
 {% endlist %}

@@ -111,7 +111,7 @@ items:
             href: operations/volumes/manage-storage-class.md
           - name: Expanding a pod volume
             href: operations/volumes/volume-expansion.md
-          - name: Expanding a StatefulSet controller volume
+          - name: Increasing volume size for the StatefulSet controller
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
@@ -208,15 +208,17 @@ items:
               Scanning {{ container-registry-name }} for vulnerabilities during
               continuous deployment of applications using {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+            href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:
           - name: Integrating into a corporate DNS zone
             href: tutorials/custom-dns.md
-          - name: Automatic DNS scaling by cluster size
+          - name: DNS autoscaling based on cluster size
             href: tutorials/dns-autoscaler.md
           - name: Setting up NodeLocal DNS Cache
             href: tutorials/node-local-dns.md
-          - name: Checking DNS Challenge for Let's Encrypt® certificates
+          - name: DNS Challenge for Let's Encrypt® certificates
             href: tutorials/dnschallenge.md
           - name: Creating an ACME resolver webhook for responses to DNS01 checks
             href: tutorials/cert-manager-webhook.md

@@ -11,7 +11,7 @@ To enable another user to connect to your VM, add an SSH key for them by followi
 
 {% note info %}
 
-When creating a VM accessible via [OS Login](./os-login.md), specify SSH keys in the [metadata](../../concepts/vm-metadata.md#how-to-send-metadata). This way, you will be able to [connect to the VM via SSH](#vm-connect) even if you disable OS Login access for it.
+When creating a VM accessible via [{{ oslogin }}](./os-login.md), specify SSH keys in the [metadata](../../concepts/vm-metadata.md#how-to-send-metadata). This way, you will be able to [connect to the VM via SSH](#vm-connect) even if you disable {{ oslogin }} access for it.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ Example:
 
 {% note tip %}
 
-The `<optional_comment>` section is not used when connecting via SSH, so you can ignore it.
+The `<optional_comment>` section is not used when connecting via SSH, so you can skip copying it.
 
 {% endnote %}
 
@@ -59,7 +59,7 @@ You can also copy the key using the command line:
 {% list tabs group=operating_system %}
 
 - Linux/macOS {#linux-macos}
-
+  
   In the terminal, use one of the following methods to copy the key:
 
    * Manually. To do this, output the file contents to the screen:
@@ -128,7 +128,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
   If you have multiple private keys, specify the one you need:
 
   ```bash
-  ssh -i <file_path/key_file_name> <username>@<VM_public_IP_address>
+  ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
   ```
 
   If this is your first time connecting to the VM, you will see an unknown host warning:
@@ -144,7 +144,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
 - Windows 10/11 {#windows}
 
-  Make sure that the Windows account has read privileges on the folder containing the keys.
+  Make sure the Windows account has read permissions for the folder containing the keys.
 
   To connect to the VM, execute the following command in the command line:
 

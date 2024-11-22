@@ -1,11 +1,12 @@
-# Running workloads using GPUs
+# Running workloads with GPUs
 
 
 A [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) allows running workloads on [GPUs](../../compute/concepts/gpus.md) (GPUs), which may be of use in tasks with special computing requirements.
 
 To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod):
-1. [{#T}](#create-pod-gpu)
-1. [{#T}](#check-pod)
+
+1. [Create a pod with a GPU](#create-pod-gpu).
+1. [Test the pod](#check-pod).
 
 If you no longer need the resources you created, [delete them](#delete-resources).
 
@@ -17,9 +18,9 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating it, specify the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating them, specify the security groups prepared earlier.
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
    * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
@@ -56,7 +57,7 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 ## Test the pod {#check-pod}
 
-1. View information about the pod created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod cuda-vector-add
@@ -95,4 +96,4 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a public static [IP address](../../vpc/concepts/address.md) for the {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+1. If you reserved a public static [IP address](../../vpc/concepts/address.md) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).

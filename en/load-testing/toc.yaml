@@ -15,15 +15,13 @@ items:
         href: operations/security-groups-target.md
       - name: Creating a test with data from a bucket
         href: operations/create-test-bucket.md
-      - name: Exporting a test report
+      - name: Exporting test reports
         href: operations/export-test-reports.md
       - name: Collecting user requests using Dispatcher
         href: operations/payload-dispatcher.md
-      - name: Transferring test logs to {{ cloud-logging-name }}
-        href: operations/logging.md
       - name: Creating and configuring a regression dashboard
         href: operations/regressions.md
-      - name: Checking regression metrics for exceeded thresholds
+      - name: Checking the threshold exceeding of regression metrics
         href: operations/check-regression.md
       - name: Saving test artifacts to {{ objstorage-name }}
         href: operations/save-artifacts.md

@@ -4,9 +4,10 @@
 {{ managed-k8s-name }} supports snapshots, which are a point-in-time copy of a [PersistentVolume](../concepts/volume.md#provisioning-volumes). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 To create a snapshot and then restore it:
-1. [{#T}](#create-pvc-pod)
-1. [{#T}](#create-snapshot)
-1. [{#T}](#restore-from-snapshot)
+
+1. [Prepare a test environment](#create-pvc-pod).
+1. [Create a snapshot](#create-snapshot).
+1. [Restore objects from the snapshot](#restore-from-snapshot).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,41 +19,41 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the security groups prepared earlier.
+     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
-      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
-         * Network.
-         * Subnet.
-         * {{ managed-k8s-name }} cluster.
-         * Service account required to create a {{ managed-k8s-name }} cluster and node group.
-         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
+        * Network.
+        * Subnet.
+        * {{ managed-k8s-name }} cluster.
+        * Service account required to create the {{ managed-k8s-name }} cluster and node group.
+        * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Create the required infrastructure:
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -60,8 +61,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare a test environment {#create-pvc-pod}
 
-To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
-1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
+To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and a [pod](../concepts/index.md#pod) to simulate the workload will be created.
+1. Create the `01-pvc.yaml` file with the `PersistentVolumeClaim` manifest:
 
 
    ```yaml
@@ -93,7 +94,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl get pvc pvc-dynamic
    ```
 
-1. Create a file named `02-pod.yaml` with the `pod-source` manifest:
+1. Create the `02-pod.yaml` file with the `pod-source` pod manifest:
 
    ```yaml
    ---
@@ -125,13 +126,13 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl apply -f 02-pod.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has entered the `Running` state:
 
    ```bash
    kubectl get pod pod-source
    ```
 
-1. Make sure the date and time are written to the `/data/out.txt` file. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+1. Make sure the date and time are written to `/data/out.txt`. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
    ```bash
    kubectl exec pod-source -- tail /data/out.txt
@@ -147,7 +148,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 ## Create a snapshot {#create-snapshot}
 
-1. Create a file named `03-snapshot.yaml` with the [snapshot](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#volumesnapshots) manifest:
+1. Create the `03-snapshot.yaml` file with the [snapshot](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#volumesnapshots) manifest:
 
    ```yaml
    ---
@@ -183,10 +184,10 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support), the following items are created in the cluster:
 * `PersistentVolumeClaim` object named `pvc-restore`.
-* Pod named `pod-restore` with entries in the `/data/out.txt` file.
+* Pod named `pod-restore` with entries in `/data/out.txt`.
 
 To restore the snapshot:
-1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
+1. Create the `04-restore-snapshot.yaml` file with the new `PersistentVolumeClaim` manifest:
 
 
    ```yaml
@@ -212,7 +213,7 @@ To restore the snapshot:
 
    {% note tip %}
 
-   You can change the size of the `PersistentVolumeClaim` being created. To do this, specify the desired size in the `spec.resources.requests.storage` setting value.
+   You can resize the new `PersistentVolumeClaim`. To do this, specify its new size in the `spec.resources.requests.storage` setting value.
 
    {% endnote %}
 
@@ -228,7 +229,7 @@ To restore the snapshot:
    kubectl get pvc pvc-restore
    ```
 
-1. Create a file named `05-pod-restore.yaml` with a manifest of a new `pod-restore` pod:
+1. Create the `05-pod-restore.yaml` file with a manifest for the new pod, i.e., `pod-restore`:
 
    ```yaml
    ---
@@ -251,7 +252,7 @@ To restore the snapshot:
            claimName: pvc-restore
    ```
 
-   The new pod container will not perform any actions with the `/data/out.txt` file.
+   The new pod container will not perform any actions with `/data/out.txt`.
 
 1. Create a pod named `pod-restore`:
 
@@ -259,13 +260,13 @@ To restore the snapshot:
    kubectl apply -f 05-pod-restore.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has entered the `Running` state:
 
    ```bash
    kubectl get pod pod-restore
    ```
 
-1. Make sure the new `PersistentVolumeClaim` switched to the `Bound` status:
+1. Make sure the new `PersistentVolumeClaim` has entered the `Bound` state:
 
    ```bash
    kubectl get pvc pvc-restore
@@ -295,24 +296,24 @@ Delete the resources you no longer need to avoid paying for them:
 
    - Manually {#manual}
 
-      [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
    - {{ TF }} {#tf}
 
-      1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
-      1. Delete the resources using this command:
+     1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the resources using this command:
 
-         ```bash
-         terraform destroy
-         ```
+        ```bash
+        terraform destroy
+        ```
 
-         {% note alert %}
+        {% note alert %}
 
-         {{ TF }} will delete all the resources you created using it, such as clusters, networks, subnets, and VMs.
+        {{ TF }} will delete all the resources you created using it, such as clusters, networks, subnets, and VMs.
 
-         {% endnote %}
+        {% endnote %}
 
-      1. Confirm the deletion of resources.
+     1. Confirm the deletion of resources.
 
    {% endlist %}
 

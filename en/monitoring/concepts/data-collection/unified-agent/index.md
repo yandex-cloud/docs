@@ -39,12 +39,6 @@ A message consist of a body, a timestamp, user metadata in `key:value` format, a
 
 {% endnote %}
 
-{% note info %}
-
-For correct data aggregation in monitoring, [Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }}.
-
-{% endnote %}
-
 ## Sessions {#sessions}
 
 A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in `key:value` format.

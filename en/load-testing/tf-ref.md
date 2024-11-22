@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ load-testing-name
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/datasource_loadtesting_agent) | [Agent](./concepts/agent.md) information |
+| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | [Agent](./concepts/agent.md) information |

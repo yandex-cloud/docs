@@ -16,7 +16,7 @@ links:
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational restrictions
-    href: concepts/
+    href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

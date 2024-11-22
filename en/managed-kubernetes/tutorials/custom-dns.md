@@ -1,15 +1,17 @@
 ---
-title: How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone
-description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone.
+title: How to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone
+description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone.
 ---
 
 # Integrating into a corporate DNS zone
 
 
-To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) into a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
-1. [{#T}](#setup-zone).
-1. [{#T}](#create-pod).
-1. [{#T}](#verify-dns).
+To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) with a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
+
+1. [Configure the DNS server](#setup-dns).
+1. [Specify a corporate DNS zone](#setup-zone).
+1. [Create a dns-utils pod](#create-pod).
+1. [Check DNS integration](#verify-dns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -21,44 +23,44 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-      1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
    - {{ TF }} {#tf}
 
-      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
-         * {{ managed-k8s-name }} cluster.
-         * {{ managed-k8s-name }} node group.
-         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
-         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * {{ managed-k8s-name }} cluster.
+        * {{ managed-k8s-name }} node group.
+        * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
+        * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Create the required infrastructure:
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -68,11 +70,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the address `10.129.0.3` and name `ns.example.com` serves the `example.com` zone.
+When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the `10.129.0.3` address and `ns.example.com` name serves the `example.com` zone.
 
 ## Specify a corporate DNS zone {#setup-zone}
 
-1. Create a `custom-zone.yaml` file with the following contents:
+1. Prepare the `custom-zone.yaml` file with the following content:
 
    ```yaml
    kind: ConfigMap
@@ -135,9 +137,9 @@ When configuring, it is important to achieve IP connectivity between the {{ mana
    ...
    ```
 
-## Verify DNS integration {#verify-dns}
+## Check DNS integration {#verify-dns}
 
-Run the `nslookup` command in the running cluster:
+Run the `nslookup` command in the active container:
 
 ```bash
 kubectl exec jessie-dnsutils -- nslookup ns.example.com
@@ -171,20 +173,20 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - {{ TF }} {#tf}
 
-      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-      1. Delete the resources using this command:
+     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the resources using this command:
 
-         ```bash
-         terraform destroy
-         ```
+        ```bash
+        terraform destroy
+        ```
 
-         {% note alert %}
+        {% note alert %}
 
-         {{ TF }} will delete all the resources you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
+        {{ TF }} will delete all the resources you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
 
-         {% endnote %}
+        {% endnote %}
 
-      1. Confirm the deletion of resources.
+     1. Confirm the deletion of resources.
 
    {% endlist %}
 

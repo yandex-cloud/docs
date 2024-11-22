@@ -37,12 +37,11 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
   When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `--ssh-key`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `--ssh-key`.
 
-
   {% endnote %}
 
   In the CLI, you can provide metadata in any of the three parameters:
 
-  * `--metadata-from-file`: As a configuration file formatted as `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
+  * `--metadata-from-file`: As a configuration file in this format: `--metadata-from-file key=<file_path>`. Use this method to conveniently deliver a value consisting of several lines.
 
       For example, to add several users to a VM at the same time, describe the configuration in a `YAML` file:
 
@@ -70,7 +69,6 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
   {% note info %}
 
   When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `ssh-keys`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `ssh-keys`.
-
 
   {% endnote %}
 
@@ -147,7 +145,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 - Linux {#linux}
 
   * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). Use `1` to enable or `0` (default) to disable access.
-  * `enable-oslogin`: Flag enabling access via [OS Login](../operations/vm-connect/os-login.md). Use `true` to enable or `false` (default) to disable access.
+  * `enable-oslogin`: Flag enabling access via [{{ oslogin }}](../operations/vm-connect/os-login.md). Use `true` to enable or `false` (default) to disable access.
   * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. Use `1` to install or `0` (default) not to install the agent.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 

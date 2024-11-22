@@ -58,6 +58,14 @@ items:
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
+      - name: >-
+          Automatically copying objects from one {{ objstorage-name }} bucket to
+          another
+        href: tutorials/bucket-to-bucket-copying.md
+      - name: Secure password transmission to an initialization script
+        href: tutorials/secure-password-script.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

@@ -5,15 +5,15 @@
 
 To view Istio usage options:
 
-1. [{#T}](#istio-install).
-1. [{#T}](#test-application).
-1. [{#T}](#visualization-service-network).
-1. [{#T}](#request-routing).
-1. [{#T}](#injection-failures).
-1. [{#T}](#traffic-redistribution).
-1. [{#T}](#mutual-tls).
-1. [{#T}](#viewing-metrics-prometheus).
-1. [{#T}](#viewing-metrics-grafana).
+1. [Install Istio](#istio-install).
+1. [Install a test application](#test-application).
+1. [View a service network diagram on the Kiali dashboard](#visualization-service-network).
+1. [Route requests](#request-routing).
+1. [Simulate a service failure](#injection-failures).
+1. [Redistribute traffic](#traffic-redistribution).
+1. [Set up mutual TLS authentication](#mutual-tls).
+1. [View Istio metrics on the {{ prometheus-name }} dashboard](#viewing-metrics-prometheus).
+1. [View Istio metrics on the {{ grafana-name }} dashboard](#viewing-metrics-grafana).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -56,7 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [Network](../../../vpc/concepts/network.md#network).
             * [Subnet](../../../vpc/concepts/network.md#subnet).
             * {{ k8s }} cluster.
-            * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
+            * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
             * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
                 {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -69,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ k8s }} cluster CIDR.
             * Name of the {{ managed-k8s-name }} cluster service account.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -92,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Install](../../operations/applications/istio.md#marketplace-install) [Istio](/marketplace/products/yc/istio) from the {{ marketplace-full-name }} application catalog. When installing the application:
 
     1. Create a new [namespace](../../concepts/index.md#namespace) called `istio-system`.
-    1. Install add-ons for Istio: Kiali, Prometheus, Grafana, Loki, and Jaeger.
+    1. Install Istio add-ons: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger.
 
 1. Make sure all the [pods](../../concepts/index.md#pod) of Istio and its add-ons have changed their status to `Running`:
 
@@ -467,7 +467,7 @@ To test how your [test app](#test-application) runs in different modes:
     ...
     ```
 
-## View Istio metrics on the Prometheus dashboard {#viewing-metrics-prometheus}
+## View Istio metrics on the {{ prometheus-name }} dashboard {#viewing-metrics-prometheus}
 
 1. Make sure `prometheus` is installed and available in the {{ managed-k8s-name }} cluster:
 
@@ -488,7 +488,7 @@ To test how your [test app](#test-application) runs in different modes:
     kubectl port-forward service/prometheus 9090:9090 -n istio-system
     ```
 
-1. To open the Prometheus dashboard, paste `http://localhost:9090` into the browser address bar.
+1. To open the {{ prometheus-name }} dashboard, paste `http://localhost:9090` into the address bar of your browser.
 
 1. Enter the following request in the **Expression** field:
 
@@ -498,7 +498,7 @@ To test how your [test app](#test-application) runs in different modes:
 
 1. Go to the **Graph** tab. It shows Istio metrics.
 
-## View Istio metrics on the Grafana dashboard {#viewing-metrics-grafana}
+## View Istio metrics on the {{ grafana-name }} dashboard {#viewing-metrics-grafana}
 
 1. Make sure `grafana` is installed and available in the {{ managed-k8s-name }} cluster:
 
@@ -519,7 +519,7 @@ To test how your [test app](#test-application) runs in different modes:
     kubectl port-forward service/grafana 3000:3000 -n istio-system
     ```
 
-1. To open the Grafana dashboard, paste `http://localhost:3000` into the browser address bar.
+1. To open the {{ grafana-name }} dashboard, paste `http://localhost:3000` into the address bar of your browser.
 
 1. In the list of dashboards, find and open the **Istio Mesh Dashboard**. It shows the metrics of requests to your test app's services.
 
@@ -539,7 +539,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
     1. Delete the `k8s-cluster.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

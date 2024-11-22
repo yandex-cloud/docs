@@ -18,30 +18,30 @@ To connect to the serial console, use the CLI.
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-Your next steps depend on the operating system and whether [OS Login](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you connect to the serial console using short-lived SSH certificates. SSH keys are used to connect to VMs with OS Login access disabled.
+Your next steps depend on the operating system and whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. If {{ oslogin }} access is [enabled](../vm-connect/enable-os-login.md) for the VM, you connect to the serial console using short-lived SSH certificates. SSH keys are used to connect to VMs with {{ oslogin }} access disabled.
 
-Some OSs may request user credentials for access to a VM. So you need to create a local user password before connecting to the serial consoles of such VMs.
+Some OS's may request user credentials to access a VM. In such cases, you need to create a local user password before connecting to the serial consoles of such VMs.
 
 {% list tabs %}
 
 - Linux with an SSH key
 
-   1. Create a local user password on the VM:
+  1. Create a local user password on the VM:
       1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
 
-   1. View the description of the CLI command for connecting to the serial console:
+  1. View the description of the CLI command for connecting to the serial console:
 
       ```bash
       yc compute connect-to-serial-port --help
       ```
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Connect to the serial console of the VM you need:
+  1. Connect to the serial console of the VM you need:
 
       ```bash
       yc compute connect-to-serial-port \
@@ -51,9 +51,9 @@ Some OSs may request user credentials for access to a VM. So you need to create 
 
       Where:
       * `--instance-name`: Required parameter. VM name.
-         Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
+          Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
 
-      * `--ssh-key`: Optional parameter. Path to the private key for SSH access to the VM, e.g., `~/.ssh/id_ed25519`. If this parameter is omitted, the `yc_serialssh_key` SSH key is generated.
+      * `--ssh-key`: Optional parameter. Path to the private key for SSH access to the VM, e.g., `~/.ssh/id_ed25519`. If this parameter is omitted, the `yc_serialssh_key` SSH key will be generated.
 
       {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
@@ -61,33 +61,33 @@ Some OSs may request user credentials for access to a VM. So you need to create 
 
       For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
 
-- Linux via OS Login
+- Linux via {{ oslogin }}
 
-   1. Create a local user password on the VM:
-      1. [Connect](../vm-connect/os-login.md) to a VM via OS Login.
+  1. Create a local user password on the VM:
+      1. [Connect](../vm-connect/os-login.md) to the VM via {{ oslogin }}.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+  1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-   1. View the description of the CLI command for connecting to the serial console:
+  1. View the description of the CLI command for connecting to the serial console:
 
       ```bash
       yc compute connect-to-serial-port --help
       ```
 
-   1. Connect to the serial console of the VM you need:
+  1. Connect to the serial console of the VM you need:
 
       ```bash
       yc compute connect-to-serial-port \
         --instance-name <VM_name>
       ```
 
-      Where `--instance-name` is the required parameter. VM name. Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
+      Where `--instance-name` is a required parameter. VM name. Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
 
       When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
 
@@ -95,17 +95,17 @@ Some OSs may request user credentials for access to a VM. So you need to create 
 
 - Windows
 
-   1. View the description of the CLI command for connecting to the serial console:
+  1. View the description of the CLI command for connecting to the serial console:
 
       ```bash
       yc compute connect-to-serial-port --help
       ```
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Connect to the Windows SAC of the VM you need:
+  1. Connect to the Windows SAC of the VM you need:
 
       ```bash
       yc compute connect-to-serial-port \
@@ -126,11 +126,11 @@ Some OSs may request user credentials for access to a VM. So you need to create 
 ### Troubleshooting {#troubleshooting}
 
 * If you connect to the serial console and nothing appears on the screen:
-   * Press **Enter**.
-   * Restart the VM (for VMs created before February 22, 2019).
+  * Press **Enter**.
+  * Restart the VM (for VMs created before February 22, 2019).
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 
 To disconnect from the serial console:
 1. Press **Enter**.
-1. Enter the following characters in order: `~.`.
+1. Enter the following characters in succession: `~.`.

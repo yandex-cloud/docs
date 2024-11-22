@@ -52,8 +52,8 @@ To get started with the AWS CLI:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
-      1. Select the required service account from the list or use the search.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
+      1. Select the service account from the list or use the search to locate it.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar to locate it.
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       For more information, see [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
@@ -69,7 +69,7 @@ To get started with the AWS CLI:
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
       1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-      1. Save the ID and private key.
+      1. Save the ID and secret key.
 
           {% note alert %}
 

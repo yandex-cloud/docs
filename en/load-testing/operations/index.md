@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ load-testing-full-name }}
+title: How to work with {{ load-testing-full-name }}
 description: In this article, you will learn how to work with {{ load-testing-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -11,7 +11,6 @@ description: In this article, you will learn how to work with {{ load-testing-fu
 * [{#T}](create-test-bucket.md)
 * [{#T}](export-test-reports.md)
 * [{#T}](payload-dispatcher.md)
-* [{#T}](logging.md)
 * [{#T}](regressions.md)
 * [{#T}](save-artifacts.md)
 * [{#T}](operation-logs.md)

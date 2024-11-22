@@ -161,9 +161,9 @@ To create an instance group with a network load balancer:
        * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
        * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
        * `scheduling_policy`: Scheduling policy configuration.
-       * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
-         * `true`: Create a preemptible VM.
-         * `false` (default): Create a regular VM.
+       * `preemptible`: Flag for creating [preemptible instances](../../concepts/preemptible-vm.md).
+         * `true`: Create a preemptible instance.
+         * `false` (default): Create a regular instance.
 
          When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
        * `placement_policy`: (Optional) [Instance placement group](../../concepts/placement-groups.md) parameters:
@@ -252,7 +252,7 @@ To create an instance group with a network load balancer:
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates a group of three same-type VMs with the following configuration:
+     This command creates a group of three same-type instances with the following configuration:
      * Name: `first-fixed-group-with-balancer`
      * OS: CentOS 7
      * Network: `default-net`
@@ -271,7 +271,7 @@ To create an instance group with a network load balancer:
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "Service account for managing the instance group."
+       description = "Service account for managing an instance group."
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -378,8 +378,8 @@ To create an instance group with a network load balancer:
          * `name`: Instance group name.
          * `folder_id`: Folder ID.
          * `service_account_id`: Service account ID.
-         * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
-       * [Instance template](../../concepts/instance-groups/instance-template.md):
+         * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
+       * [VM template](../../concepts/instance-groups/instance-template.md):
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
@@ -388,9 +388,9 @@ To create an instance group with a network load balancer:
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
          * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
        * [Policies](../../concepts/instance-groups/policies/index.md):
-         * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for VMs in the group.
-         * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for VMs in the group.
-         * `allocation_policy`: VM [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
+         * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
+         * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
+         * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
        * {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md):
          * `target_group_name`: Name of the {{ network-load-balancer-name }} target group.
          * `target_group_description`: Description of the {{ network-load-balancer-name }} target group.

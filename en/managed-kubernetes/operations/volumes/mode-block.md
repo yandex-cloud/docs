@@ -1,15 +1,15 @@
 # Mounting a volume in Block mode
 
 
-To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#block):
-1. [{#T}](#create-pvc)
-1. [{#T}](#create-pod)
+To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
+1. [Create a PersistentVolumeClaim](#create-pvc).
+1. [Create a pod with the mounted volume](#create-pod).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Create a PersistentVolumeClaim object {#create-pvc}
 
-1. To create a volume in Block mode, set the `spec.volumeMode` field value to `Block`.
+1. To create a volume in block mode, set the `spec.volumeMode` field to `Block`.
 
    Save the following [PersistentVolumeClaim](dynamic-create-pv.md) creation specification to a YAML file named `pvc-block.yaml`.
 
@@ -42,7 +42,7 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
 
 
 
-1. Create a `PersistentVolumeClaim`:
+1. Create the `PersistentVolumeClaim` object:
 
    ```bash
    kubectl create -f pvc-block.yaml
@@ -56,7 +56,7 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
 
 ## Create a pod with the mounted volume {#create-pod}
 
-1. When creating a volume pod in Block mode, specify the `spec.containers.volumeDevices` field.
+1. When creating a volume pod in block mode, specify the `spec.containers.volumeDevices` field.
 
    Save the following pod creation specification to a YAML file named `pod.yaml`.
 
@@ -82,7 +82,7 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
          claimName: pvc-block
    ```
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f pod.yaml

@@ -2,9 +2,10 @@
 
 You can use the following SDKs to embed a [video player](../concepts/player.md) with content from {{ video-name }} into a website or application:
 * [Video player SDK for IFrame](../iframe-sdk.md)
+* [Video player SDK for iOS](./ios-sdk.md)
 * [Video player SDK for JavaScript](./javascript/index.md)
 
-We are also planning to add SDKs for iOS and Android in the future.
+We are also planning to add an SDK for Android going forward.
 
 See also:
 * [{{ video-name }} API reference](../api-ref/authentication.md)

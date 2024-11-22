@@ -1,6 +1,6 @@
-# Video player SDK for IFrame reference
+# Video player SDK for IFrame
 
-You can embed a [video player](./concepts/player.md) with content from {{ video-name }} in an HTML page using the video player SDK for IFrame.
+You can embed a [video player](./concepts/player.md) with content from {{ video-name }} to an HTML page using the video player SDK for IFrame.
 
 Add an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) container to the page code:
 
@@ -103,7 +103,7 @@ With this parameter, you can hide the player's interface elements. All of them a
 * `startScreen`: Start screen.
 * `startScreenPlay`: Play button on start screen.
 * `subtitlesToggle`: Subtitles toggle button.
-* `timeline`: Timeline. It turns off rewinding and fast forwarding from the keyboard or by touching the sensor screen.
+* `timeline`: Timeline. Disables rewinding and fast forwarding from the keyboard or by touching the sensor screen.
 * `timelinePreview`: Preview on the timeline.
 * `time`: Current playback time.
 * `title`: Video title.

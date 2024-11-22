@@ -200,7 +200,7 @@ The infrastructure support cost includes:
    sudo apt install git
    ```
 
-1. Clone the GitHub `yandex-cloud-examples/yc-route-switcher` repository and go to the script folder:
+1. Clone the `yandex-cloud-examples/yc-route-switcher` GitHub repository and go to the script folder:
 
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git

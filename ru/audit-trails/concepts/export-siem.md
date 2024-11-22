@@ -18,7 +18,6 @@ description: Из статьи вы узнаете об экспорте ауд�
 <small>Схема принятия решения по выбору архитектуры</small>
 
 В настоящее время подготовлены решения для следующих SIEM:
-* [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol.md).

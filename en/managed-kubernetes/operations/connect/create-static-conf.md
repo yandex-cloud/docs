@@ -279,6 +279,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
      ```bash
      kubectl config set-cluster sa-test2 \
        --certificate-authority=ca.pem \
+       --embed-certs \
        --server=$MASTER_ENDPOINT \
        --kubeconfig=test.kubeconfig
      ```
@@ -290,6 +291,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
      ```bash
      kubectl config set-cluster sa-test2 `
        --certificate-authority=ca.pem `
+       --embed-certs `
        --server=$MASTER_ENDPOINT `
        --kubeconfig=test.kubeconfig
      ```

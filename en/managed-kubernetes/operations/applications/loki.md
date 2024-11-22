@@ -16,22 +16,13 @@
 1. Prepare for Loki installation:
 
     1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
-    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md):
+    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md) in JSON format:
 
-        * If you want to install Loki using [{{ marketplace-full-name }}](#marketplace-install), create a static access key in JSON format and save it to the `sa-key.json` file:
-
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<service_account_name> \
-               --format=json > sa-key.json
-            ```
-
-        * If you are going to use a [Helm chart](#helm-install) to install Loki, run the following command and save the obtained `key_id` and `secret` key:
-
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<service_account_name>
-            ```
+        ```bash
+        yc iam access-key create \
+          --service-account-name=<service_account_name> \
+          --format=json > sa-key.json
+        ```
 
     1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
@@ -50,7 +41,6 @@
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-1. Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at `http://loki-gateway.<namespace>.svc.cluster.local`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -67,13 +57,38 @@
     helm install \
       --namespace <namespace> \
       --create-namespace \
-      --set loki-distributed.loki.storageConfig.aws.bucketnames=<Object_Storage_bucket_name> \
-      --set loki-distributed.serviceaccountawskeyvalue_generated.accessKeyID=<service_account_key_ID> \
-      --set loki-distributed.serviceaccountawskeyvalue_generated.secretAccessKey=<service_account_secret_key> \
+      --set global.bucketname=<bucket_name> \
+      --set-file global.serviceaccountawskeyvalue=<path_to_sa-key.json> \
       loki ./loki/
     ```
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+1. Make sure all Loki pods have entered the `Running` state:
+
+    ```bash
+    kubectl get pods -A -l "app.kubernetes.io/instance=loki"
+    ```
+
+## Connecting to Loki {#loki-connect}
+
+Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at the following address:
+
+```text
+http://<Loki_gateway_service_name>.<namespace>.svc.cluster.local
+```
+
+To learn the namespace and name of the Loki gateway service, run this command:
+
+```bash
+kubectl get service -A | grep distributed-gateway
+```
+
+Result:
+
+```text
+test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
+```
 
 ## See also {#see-also}
 

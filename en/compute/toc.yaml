@@ -123,15 +123,15 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
-          - name: OS Login
+          - name: '{{ oslogin }}'
             items:
-              - name: Creating a VM with OS Login
+              - name: Creating a VM from a {{ oslogin }}
                 href: operations/vm-connect/os-login-create-vm.md
-              - name: Setting up OS Login on an existing VM
+              - name: Configuring {{ oslogin }} on an existing VM
                 href: operations/vm-connect/enable-os-login.md
               - name: Exporting an SSH certificate
                 href: operations/vm-connect/os-login-export-certificate.md
-              - name: Connecting to a VM via OS Login
+              - name: Connecting to a VM via {{ oslogin }}
                 href: operations/vm-connect/os-login.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
@@ -389,6 +389,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
+      - name: Deploying Remote Desktop Gateway
+        href: tutorials/rds-gw.md
       - name: Getting started with Packer
         href: tutorials/packer-quickstart.md
       - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
@@ -467,6 +469,40 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Cloud infrastructure segmentation with Check Point Next-Generation
+          Firewall
+        href: tutorials/network-segmentation-checkpoint.md
+      - name: Configuring a secure GRE tunnel over IPsec
+        href: tutorials/gre-over-ipsec.md
+      - name: Creating a bastion host
+        href: tutorials/bastion.md
+      - name: Implementing fault-tolerant scenarios for network VMs
+        href: tutorials/route-switcher.md
+      - name: Creating a tunnel between two subnets using OpenVPN Access Server
+        href: tutorials/site-to-site-openvpn.md
+      - name: Microsoft products in {{ yandex-cloud }}
+        items:
+          - name: Deploying Active Directory
+            href: tutorials/secure-password-script.md
+          - name: Deploying Active Directory
+            href: tutorials/active-directory.md
+          - name: Deploying Microsoft Exchange
+            href: tutorials/exchange.md
+          - name: Deploying Remote Desktop Services
+            href: tutorials/rds.md
+          - name: >-
+              Deploying an Always On availability group with an internal network
+              load balancer
+            href: tutorials/mssql-alwayson-lb.md
+          - name: Deploying Remote Desktop Gateway
+            href: tutorials/rds-gw.md
   - name: Concepts
     items:
       - name: Relationship between resources

@@ -107,6 +107,10 @@ items:
           Health checking your applications in a {{ k8s }} cluster with the {{
           alb-name }} Ingress controller
         href: tutorials/custom-health-checks.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the next-generation firewall.
+        href: tutorials/high-accessible-dmz.md
   - name: Concepts
     items:
       - name: Overview

@@ -13,6 +13,8 @@ Make sure the image you upload has the `READY` status.
 
 ## Create a VM from the prepared image {#create-vm-from-image}
 
+{% include [independent-resources](../../../_includes/compute/independent-resources.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -267,7 +269,7 @@ Make sure the image you upload has the `READY` status.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In metadata, provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
      * `yandex_vpc_network`: Description of the cloud network.
      * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
 

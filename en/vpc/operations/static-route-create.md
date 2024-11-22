@@ -164,7 +164,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
      }
      ```
 
-     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
+     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
@@ -189,7 +189,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```
         yc vpc route-table list

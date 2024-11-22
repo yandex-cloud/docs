@@ -46,6 +46,8 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 
 
+* [{#T}](ci-cd-serverless.md)
+
 ## Working with DNS {#dns}
 
 * [{#T}](custom-dns.md)

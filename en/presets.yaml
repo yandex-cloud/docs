@@ -116,7 +116,6 @@ default:
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
   compute-name: Compute Cloud
   compute-short-name: Compute Cloud
-  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   connection-manager-full-name: Yandex Connection Manager
   connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
@@ -307,6 +306,7 @@ default:
   link-org-main: https://org.yandex.cloud/
   link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
+  link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport-login: https://passport.yandex.com/auth
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
@@ -6041,7 +6041,6 @@ default:
         field_server-count: Number of servers
         field_server-lease-duration: Lease duration
         field_server-pool: Pool
-        field_server-user: User
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         label_create-network: Create VRF
@@ -7386,7 +7385,6 @@ default:
         field_export-filter-include: Save files
         field_export-is-archive: Archive in zip
         field_load-generator: Load generator
-        field_logging-group: Log group
         field_name-filter: Filter by name
         field_overload-test-id: Test ID
         field_overload-token: Token
@@ -9038,8 +9036,6 @@ default:
                     MysqlConnection:
                       connection_type:
                         title: Connection type
-                      database:
-                        title: Database
                       password:
                         title: Password
                       security_groups:

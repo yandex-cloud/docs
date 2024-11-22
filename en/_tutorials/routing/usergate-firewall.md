@@ -11,7 +11,7 @@ To deploy a UserGate gateway and check its health:
 1. [Create a cloud network and subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
-1. [Set up the UserGate NGFW via the administrative console](#admin-console).
+1. [Set up the UserGate NGFW via the admin console](#admin-console).
 1. [Set up routing in the subnet](#subnet-routing).
 1. [Test the firewall](#test-firewall).
 
@@ -223,7 +223,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    
   1. Under **Network settings**:
   
-     * Select `usergate-network` and `usergate-subnet-{{ region-id }}-a`.
+     * Select `usergate-network` for network and `usergate-subnet-{{ region-id }}-a` for subnet.
      * In the **Public address** field, select from a list of reserved IPs.
 
   1. Under **Access**, specify the information required to access the VM:
@@ -233,7 +233,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
        You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
 
-  1. Click **Create VM**.
+  1. Click **Create VM**.
    
 - CLI {#cli}
   
@@ -354,9 +354,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 {% endlist %}
 
-## Set up the UserGate NGFW via the administrative console {#admin-console}
+## Set up the UserGate NGFW via the admin console {#admin-console}
 
-To set up a gateway, go to the UserGate NGFW administrative console at `https://<VM_public_IP_address>:8001` and log in with the default credentials: `Admin` for the username and `utm` for the password.
+To set up the gateway, go to the UserGate NGFW admin console at `https://<UserGate_VM_public_IP_address>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
 
 When you are logged in, the system prompts you to change the default password and update the OS.
 
@@ -438,7 +438,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   1. In the [management console]({{ link-console-main }}), go to the folder you need to create a static route in.
   1. In the list of services, select **{{ vpc-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
+  1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
   1. Click **Create**.
   1. Enter a name for the route table. The naming requirements are as follows:
 
@@ -579,7 +579,7 @@ Create a [static route](../../vpc/concepts/routing.md):
      }
      ```
 
-     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
+     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
@@ -604,7 +604,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc vpc route-table list
@@ -646,14 +646,14 @@ To test your firewall, create a test web service and make sure that you can acce
    1. Click **Add** to open the portal adding dialog.
    1. Tick the **Enabled** option on.
    1. In the **Name** field, enter `Test web portal`.
-   1. In the **URL** field, enter `http://<IP_address_of_UserGate_VM>`.
+   1. In the **URL** field, enter `http://<UserGate_VM_IP_address>`.
    1. Leave **SSL profile** at default.
    1. In the **Certificate** field, select `CA (Default)`.
    1. Click **Save**.
 1. Select **Reverse proxy servers** and add a new server:
    1. Click **Add** to open the server adding dialog.
    1. In the **Name** field, enter `Local server`.
-   1. In the **Server address** field, enter `<internal_IP_address_of_test_VM>`, e.g., `10.129.0.24`.
+   1. In the **Server address** field, enter `<test_VM_internal_IP>`, e.g., `10.129.0.24`.
    1. In the **Port field**, enter `80`.
    1. Click **Save**.
 1. Select **Reverse proxy rules** and add a new rule:

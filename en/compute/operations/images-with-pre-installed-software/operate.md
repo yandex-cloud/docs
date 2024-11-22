@@ -1,13 +1,13 @@
 ---
 title: Working with VMs
-description: This tutorial describes how to work with a VM from a public image in {{ yandex-cloud }}. Find out how to perform operations, such as connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/MacOS, Windows 7, 8, 10, connecting to a VM via OS Login, using SSL certificates, filtering network traffic, and installing updates.
+description: This tutorial describes how to work with a VM from a public image in {{ yandex-cloud }}. Let's consider operations like connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/MacOS, Windows 7, 8, 10, connecting to a VM via {{ oslogin }}, using SSL certificates, network traffic filtering, and installing updates.
 ---
 
 # Working with a VM from a public image
 
 ## Connecting to a VM {#ways-to-connect}
 
-You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via OS Login](../vm-connect/os-login.md), or using a [serial console](../serial-console/index.md).
+You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via {{ oslogin }}](../vm-connect/os-login.md), or via the [serial console](../serial-console/index.md).
 
 ### Connecting via SSH {#connect}
 
@@ -23,17 +23,17 @@ This method for connecting to a virtual machine uses an SSH key pair: the public
 
 {% include [vm-connect-ssh-keys](../../../_includes/vm-connect-ssh-keys.md) %}
 
-### Connecting via OS Login {#os-login-connect}
+### Connecting via {{ oslogin }} {#os-login-connect}
 
 {% include [vm-connect-ssh-login](../../../_includes/vm-connect-ssh-login.md) %}
 
-## Pre-installed software passwords {#logins-passwords}
+## Passwords for pre-installed software {#logins-passwords}
 
 In addition to operating system distributions, there are public images with pre-installed software available in {{ marketplace-name }}. To get passwords to configure the pre-installed software in such images:
 
 1. Connect to the VM.
 
-1. You can find the pre-installed software passwords in the `/root/default_passwords.txt` file. Only a superuser has read and write access to the file. Get a list of passwords using this command:
+1. You can find passwords for pre-installed software in the `/root/default_passwords.txt` file. Only a superuser has read and write access to the file. Get a list of passwords using this command:
 
    ```bash
    sudo cat /root/default_passwords.txt
@@ -51,7 +51,7 @@ To [create](../../../certificate-manager/operations/managed/cert-create.md) an S
 
 On public image-based VMs, only those ports are open which are required for the configuration and operation of the pre-installed software.
 
-You can view a list of open ports for a particular VM when [connecting to it using an SSH key pair](../vm-connect/ssh.md). To open additional ports, use the `iptables` utility.
+You can view a list of open ports for a particular VM when [connecting to it using an SSH key pair](../vm-connect/ssh.md). To open additional ports, use `iptables`.
 
 At the [cloud network](../../../vpc/concepts/network.md#network) level, [security groups](../../../vpc/concepts/security-groups.md) are used to filter the network traffic. To allow specific traffic for a virtual machine at the network level, [configure](../../../vpc/operations/security-group-add-rule.md) a security group and [associate](../vm-control/vm-change-security-groups-set.md) it with the VM.
 

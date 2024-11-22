@@ -89,12 +89,14 @@ items:
         href: tutorials/k8s.md
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
-      - name: KMS key management with {{ TF-full }}
+      - name: Managing KMS keys with {{ TF-full }}
         href: tutorials/terraform-key.md
       - name: Encrypting secrets in {{ TF-full }}
         href: tutorials/terraform-secret.md
       - name: Auto Unseal in Hashicorp Vault
         href: tutorials/vault-secret.md
+      - name: Secure password transmission to an initialization script
+        href: tutorials/secure-password-script.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

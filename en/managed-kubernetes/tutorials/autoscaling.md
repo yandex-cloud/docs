@@ -2,8 +2,11 @@
 
 
 {{ managed-k8s-name }} supports several types of [autoscaling](../concepts/autoscale.md). In this article, you will learn to configure [cluster](../concepts/index.md#kubernetes-cluster) autoscaling using a combination of {{ k8s-ca }} and {{ k8s-hpa }}.
-* [{#T}](#cpu-autoscaling)
-* [{#T}](#rps-autoscaling)
+
+* [Scaling based on CPU utilization](#cpu-autoscaling).
+* [Scaling based on application requests](#rps-autoscaling).
+
+If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note warning %}
 
@@ -31,9 +34,9 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create an encryption key](../../kms/operations/key.md#create):
-   * **{{ ui-key.yacloud.common.name }}**: `k8s-symetric-key`
-   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-128`
-   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: `365 days`
+   * **{{ ui-key.yacloud.common.name }}**: `k8s-symetric-key`.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-128`.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: `365 days`.
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `sa-k8s-master`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `sa-k8s-nodes`.
