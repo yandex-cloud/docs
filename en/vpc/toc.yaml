@@ -141,13 +141,17 @@ items:
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
       - name: >-
-          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
           other cloud networks
         href: tutorials/clickhouse-dns-peering.md
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in proxy server mode
         href: tutorials/usergate-proxy.md
+      - name: >-
+          Migrating an HDFS {{ dataproc-full-name }} cluster to a different
+          availability zone
+        href: tutorials/hdfs-cluster-migration.md
       - name: Configuring a network for {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
       - name: Network between folders

@@ -1,42 +1,40 @@
 title: Yandex Managed Service for Kubernetes®
 description:
   - >-
-    The Managed Service for Kubernetes® provides an environment for deploying,
-    scaling, and managing containerized applications in the Yandex Cloud
-    infrastructure.
+    Managed Service for Kubernetes® provides an environment for managing <a
+    href="/docs/glossary/containerization">containerized applications</a> in the
+    Yandex Cloud infrastructure. Deploy, scale, and manage applications in
+    containers using Kubernetes.
   - >-
-    You can provide access to applications using a variety of <a
-    href="/docs/managed-kubernetes/concepts/service">services</a>: public,
-    internal, and from the <a
+    With Managed Service for Kubernetes, you can provide access to applications
+    using various public and private <a
+    href="/docs/managed-kubernetes/concepts/service">services</a> and <a
     href="/docs/managed-kubernetes/operations/applications/marketplace">Cloud
-    Marketplace</a>. All data is securely stored and replicated in Yandex Cloud,
-    but you can also create additional backups of Kubernetes data and store them
-    in <a href="/docs/storage/">Object Storage</a> or another storage.
+    Marketplace apps</a>. All data is securely stored and replicated in the
+    Yandex Cloud, but you can create additional backups of Kubernetes data and
+    store them in <a href="/docs/storage/">Object Storage</a> or another
+    storage. To manage Kubernetes, use <a
+    href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a>.
   - >-
-    The <a
-    href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a>
-    command shell is used to run Kubernetes. Yandex Cloud infrastructure is
-    fully <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">secure</a>
-    and in compliance with Russian Federal Law 152-FZ.
-  - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>, with
-    the service level defined in the <a
-    href="https://yandex.com/legal/cloud_sla_kb">Yandex Managed Service for
-    Kubernetes Service Level Agreement</a>.
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law No. 152-FZ on Personal Data. Managed
+    Service for Kubernetes is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is defined in <a
+    href="https://yandex.ru/legal/cloud_sla_kb">Yandex Managed Service for
+    Kubernetes® Service Level</a>.
 meta:
   title: Yandex Managed Service for Kubernetes
   description: >-
-    The Managed Service for Kubernetes provides an environment for deploying,
-    scaling, and managing containerized applications in the Yandex Cloud
-    infrastructure.
+    Managed Service for Kubernetes provides an environment for managing
+    containerized applications in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first Kubernetes cluster
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guide
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Overview of how the service works
@@ -45,14 +43,14 @@ links:
     description: HTTP API method descriptions
     href: managed-kubernetes/api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Set up access permissions to work with the service
     href: security/
   - title: Pricing policy
-    description: Pricing and cost calculation for services
+    description: Service pricing and cost calculations
     href: pricing
-  - title: Questions and answers
-    description: Answers to frequently asked questions about the service
+  - title: FAQ
+    description: Answers to frequently asked questions
     href: qa/all

@@ -35,32 +35,32 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Refresh the page.
 
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
 - AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. To upload a single object, run the command:
-
+ 
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
        s3 cp <local_file_path> s3://<bucket_name>/<object_key>
      ```
-
+     
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp`: Command to upload an object. To upload an object, in the first part of the command, specify the path to the local file to upload. In the second part, provide the name of your bucket and [key](../../concepts/object.md#key) you will use to store the object in the bucket.
-
+   
      To load all objects from the local directory, use the following command:
-
+   
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
        s3 cp --recursive <path_to_local_directory>/ s3://<bucket_name>/<prefix>/
      ```
-
+   
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, specify the path to the folder to copy the files from in the first part of the command and the name of the bucket to copy the files to and the [ID of the folder](../../concepts/object.md#folder) in storage in the second part.
 
@@ -169,11 +169,11 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set the lock. Combined with an indefinite lock, the temporary one has no priority.
   1. If you selected **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: A user with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: A user with the `storage.admin` role can only extend the lock period. This lock cannot be bypassed, shortened, or removed until it expires.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
   1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}** and reload the page.
 
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
 - AWS CLI {#cli}
 
@@ -190,26 +190,26 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
        --object-lock-retain-until-date <temporary_lock_period_end_date_and_time> \
        --object-lock-legal-hold-status <indefinite_lock_status>
      ```
-
+     
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3api put-object`: Command to upload an object version. To upload object versions with an object lock, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
        * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
        * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock with retention:
-
+   
          * `GOVERNANCE`: Temporary managed lock.
          * `COMPLIANCE`: Temporary strict lock.
-
+    
        * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. You can only specify it together with the `--object-lock-mode` parameter.
-
+    
        * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
-
+    
          * `ON`: Enabled.
          * `OFF`: Disabled.
-
+    
      For an object version, you can use only object lock with retention (`object-lock-mode` and `object-lock-retain-until-date` parameters), only legal hold (`object-lock-legal-hold-status`), or both at the same time. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
 - API {#api}
@@ -225,7 +225,7 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
 - AWS CLI {#cli}
 
   1. Calculate a file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
-
+ 
      ```bash
      md5=($(md5sum <local_file_path>))
      md5_base64=$(echo $md5 | base64)
@@ -242,18 +242,18 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
        --key <object_key> \
        --content-md5 $md5_base64
      ```
-
+   
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3api put-object`: Command to upload an object version. To upload object versions, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
        * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
        * `--content-md5`: Object's encoded MD5 hash.
-
+     
      You can also add the following parameters to the command:
-
+     
      * `--object-lock-mode` and `--object-lock-retain-until-date` to place an object version under an object lock with retention that is different from the bucket's default settings.
      * `--object-lock-legal-hold-status` to place a legal hold on an object version.
  

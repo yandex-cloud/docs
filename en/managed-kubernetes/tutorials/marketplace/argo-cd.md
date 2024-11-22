@@ -6,11 +6,12 @@
 This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd), as well as [{{ GLR }}](/marketplace/products/yc/gitlab-runner) installed in the cluster and building Docker containers using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 To integrate Argo CD with {{ managed-k8s-name }} and {{ mgl-name }}:
-1. [{#T}](#create-gitlab)
-1. [{#T}](#configure-gitlab)
-1. [{#T}](#runners)
-1. [{#T}](#setup-repo)
-1. [{#T}](#deploy-argo)
+
+1. [Create a {{ GL }}](#create-gitlab) instance.
+1. [Configure {{ GL }}](#configure-gitlab).
+1. [Create a {{ GLR }}](#runners).
+1. [Prepare the application repository for deployment](#setup-repo).
+1. [Deploy your application using Argo CD](#deploy-argo).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -22,64 +23,64 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
-   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
-   1. [Create service accounts](../../../iam/operations/sa/create.md):
-      * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../../container-registry/security/index.md#container-registry-images-pusher) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) built in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
+  1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
+  1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
+  1. [Create service accounts](../../../iam/operations/sa/create.md):
+     * Service account for the {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../../container-registry/security/index.md#container-registry-images-pusher) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) built in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
 
-      {% note tip %}
+     {% note tip %}
 
-      You can use the same service account to manage your {{ managed-k8s-name }} cluster and its node groups.
+     You can use the same service account to manage your {{ managed-k8s-name }} cluster and its node groups.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+  1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
-   1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes as well as the security groups for the cluster.
-   1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
-   1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
+  1. [Create a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
+  1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes as well as the security groups for the cluster.
+  1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
+  1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+  1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud-examples/yc-mk8s-argo-cd/blob/main/k8s-argocd.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
-      * [Network](../../../vpc/concepts/network.md#network).
-      * [Subnet](../../../vpc/concepts/network.md#subnet).
-      * {{ managed-k8s-name }} cluster.
-      * [Service account](../../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
-      * {{ container-registry-name }} registry.
-      * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+  1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud-examples/yc-mk8s-argo-cd/blob/main/k8s-argocd.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
+     * [Network](../../../vpc/concepts/network.md#network).
+     * [Subnet](../../../vpc/concepts/network.md#subnet).
+     * {{ managed-k8s-name }} cluster.
+     * [Service account](../../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
+     * {{ container-registry-name }} registry.
+     * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         These security groups also contain the rules required for {{ mgl-name }} instance and [{{ container-registry-name }} registry](../../../container-registry/concepts/registry.md).
+        These security groups also contain the rules required for {{ mgl-name }} instance and [{{ container-registry-name }}] registry(../../../container-registry/concepts/registry.md).
 
-         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. Specify the following in the configuration file:
-      * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
-      * {{ managed-k8s-name }} cluster CIDR.
-      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
-      * Name of the {{ container-registry-name }} registry.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Specify the following in the configuration file:
+     * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+     * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+     * {{ managed-k8s-name }} cluster CIDR.
+     * Name of the service account for {{ managed-k8s-name }} resources and nodes.
+     * Name of the {{ container-registry-name }} registry.
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Create the required infrastructure:
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+     {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -102,7 +103,7 @@ Install the following items in the local environment:
 1. Get an [authorized key](../../../iam/concepts/authorization/key.md) for the previously created service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles:
 
    ```bash
-   yc iam key create --service-account-name <name_of_service_account_for_nodes> -o key.json
+   yc iam key create --service-account-name <service_account_name_for_nodes> -o key.json
    ```
 
 1. Save the contents of the key for the next step:
@@ -112,9 +113,9 @@ Install the following items in the local environment:
    ```
 
 1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+   1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
-   1. Add environment variables:
+   1. Add these environment variables:
       * `CI_REGISTRY`: Address of the previously created registry in `{{ registry }}/<registry_ID>` format.
       * `CI_REGISTRY_USER`: `json_key`.
       * `CI_REGISTRY_PASSWORD`: Output of the `cat key.json | base64` command.
@@ -170,7 +171,7 @@ Install the following items in the local environment:
 1. Configure ArgoCD port forwarding onto the local computer:
 
    ```bash
-   kubectl port-forward service/<Argo_CD_application_name>-argocd-server \
+   kubectl port-forward service/<Argo_CD_app_name>-argocd-server \
      --namespace <namespace> 8080:443
    ```
 
@@ -182,7 +183,7 @@ Install the following items in the local environment:
    ```
 
 1. Open the Argo CD console at `https://127.0.0.1:8080` in your browser.
-1. Log in to the console as `admin` using the password obtained in the previous step.
+1. Log in to the console as `admin` using the password you got in the previous step.
 
 ### Add a {{ GL }} repository to Argo CD {#create}
 
@@ -205,8 +206,8 @@ Install the following items in the local environment:
    * **Application Name**: `gitlab-test`.
    * **Project**: `default`.
    * **Sync policy**: `Automatic`, then select **Prune resources** and **Self Heal**.
-   * **Sync options**: Select the `Auto-Create Namespace` option.
-   * **Repository URL**: Specify the repository URL, such as `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_username>/gitlab-test.git`.
+   * **Sync options**: Select `Auto-Create Namespace`.
+   * **Repository URL**: Specify the repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_username>/gitlab-test.git`.
    * **Path**: `.helm`.
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `gitlab-test`.
@@ -239,7 +240,7 @@ Install the following items in the local environment:
 ### Test auto-syncing from the {#check} repository
 
 1. Go to the directory with the [cloned project](#setup-repo) and open the `.helm/values.yaml` file.
-1. Change the `replicaCount` parameter to `3`.
+1. Set the value of the `replicaCount` parameter to `3`.
 1. Save the changes and push them to the repository:
 
    ```bash
@@ -283,27 +284,27 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - Manually {#manual}
 
-      1. [Delete the {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-      1. [Delete the {{ container-registry-name }} registry](../../../container-registry/operations/registry/registry-delete.md).
-      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
-      1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
+     1. [Delete the {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     1. [Delete the {{ container-registry-name }} registry](../../../container-registry/operations/registry/registry-delete.md).
+     1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
+     1. [Delete service accounts you created](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 
-      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-      1. Delete the `k8s-argocd.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the `k8s-argocd.tf` configuration file.
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Confirm updating the resources.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Confirm updating the resources.
 
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
+        All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
 
    {% endlist %}
 

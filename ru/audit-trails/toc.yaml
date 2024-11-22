@@ -50,6 +50,7 @@ items:
       - name: Экспорт аудитных логов в SIEM
         items:
           - name: Загрузка аудитных логов в {{ mos-full-name }}
+            hidden: true
             href: tutorials/trails-logs-opensearch.md
           - name: Загрузка аудитных логов в MaxPatrol SIEM
             href: tutorials/maxpatrol.md

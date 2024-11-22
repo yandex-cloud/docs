@@ -12,9 +12,9 @@ description: Follow this guide to set up the Calico network policy controller.
 * Regulate traffic using DNAT settings and traffic forwarding policies.
 
 To configure the Calico network policy controller:
-1. [{#T}](#create-pod)
-1. [{#T}](#enable-isolation)
-1. [{#T}](#create-policy)
+1. [Create an nginx service](#create-pod).
+1. [Isolate pods using network policies](#enable-isolation).
+1. [Create network policies enabling service access](#create-policy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -45,8 +45,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
         * [Network](../../vpc/operations/network-create.md).
-        * Subnet
-        * {{ managed-k8s-name }} cluster
+        * Subnet.
+        * {{ managed-k8s-name }} cluster.
         * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
@@ -58,7 +58,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ managed-k8s-name }} cluster CIDR.
         * Name of the {{ managed-k8s-name }} cluster service account.
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -345,7 +345,7 @@ The created `access-nginx` network policies allow connections for pods with the 
    kubectl delete ns policy-test
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    namespace "policy-test" deleted
@@ -366,7 +366,7 @@ Delete the resources you no longer need to avoid paying for them:
 
   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
   1. Delete the `k8s-calico.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

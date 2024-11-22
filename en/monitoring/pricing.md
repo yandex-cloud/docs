@@ -47,7 +47,7 @@ Pricing features:
 
 The minimum billing unit is 1 metric value. The cost is rounded to the nearest cent.
 
-For example, writing the first 100,000 values will cost `(100,000 values / 1 million) × {{ sku|USD|monitoring.point.write|string }} = {% calc [currency=USD] 100000 / 1000000 × {{ sku|USD|monitoring.point.write|number }} %}` rounded to `{% calc [currency=USD] round((100000 / 1000000 × {{ sku|USD|monitoring.point.write|number }}) × 100 ) / 100 %}`. Whereas writing 150,000 values will cost `(150,000 values / 1 million) × {{ sku|USD|monitoring.point.write|string }} = {% calc [currency=USD] 150000 / 1000000 × {{ sku|USD|monitoring.point.write|number }} %}` rounded to `{% calc [currency=USD] round((150000 / 1000000 × {{ sku|USD|monitoring.point.write|number }}) × 100 ) / 100 %}`. Where `{{ sku|USD|monitoring.point.write|string }}` is the price per 1 million values (if writing up to 50 million values).
+{% include [usd-api-example](../_pricing_examples/monitoring/usd-api-example.md) %}
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 

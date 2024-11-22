@@ -20,7 +20,7 @@ To view a list of internal addresses used in a subnet:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get a list of used addresses:
+   1. See the description of the CLI command to get a list of used addresses:
 
       ```bash
       yc vpc subnet list-used-addresses --help

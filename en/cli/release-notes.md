@@ -7,52 +7,72 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ## Current version {#latest-release}
 
-## Version 0.136.0 (21/10/24) {#version0.136.0}
+### Version 0.137.0 (01/11/24) {#version0.137.0}
 
-### Changes to the CLI {#cli}
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Fixed the way the `get` commands run without parameters in {{ interconnect-name }} and Cloud Router.
+* Fixed the format of the `list` commands' output in {{ interconnect-name }} and Cloud Router: now a table is returned.
+
+##### {{ objstorage-name }} {#object-storage}
+
+* Added the `yc storage s3api get-object-retention` and `yc storage s3api put-object-retention` commands to read and change the temporary lock.
+* Added the `yc storage s3api get-object-legal-hold` and `yc storage s3api put-object-legal-hold` commands to read and change the indefinite lock (legal hold).
+
+##### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* Added the `17` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 17.
+
+## Previous releases {#previous-releases}
+
+### Version 0.136.0 (21/10/24) {#version0.136.0}
+
+#### Changes to the CLI {#cli}
 
 * The `yc init` command now does not offer the `ru-central1-c` zone because it is no longer in use.
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
-* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection inactivity timeout. 
 
-#### {{ er-name }} {#eventrouter}
+##### {{ er-name }} {#eventrouter}
 
 * Added parameter validation for the `yc serverless eventrouter` command.
-* Fixed an error when calling `yc serverless eventrouter put-event`.
+* Fixed an error when running `yc serverless eventrouter put-event`.
 
-#### {{ objstorage-name }}
+##### {{ objstorage-name }} {#object-storage}
 
 * Added the ability to set `--storage-endpoint` using `yc config set`. If the user did not explicitly specify `--storage-endpoint`, it will be obtained from `ApiEndpointService`.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mrd-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
-  * `--lua-time-limit`,
-  * `--repl-backlog-size-percent`,
-  * `--cluster-require-full-coverage`,
-  * `--cluster-allow-reads-when-down`,
-  * `--cluster-allow-pubsubshard-when-down`,
-  * `--lfu-decay-time`,
-  * `--lfu-log-factor`,
-  * `--turn-before-switchover`,
-  * `--allow-data-loss`.
+  * `--lua-time-limit`
+  * `--repl-backlog-size-percent`
+  * `--cluster-require-full-coverage`
+  * `--cluster-allow-reads-when-down`
+  * `--cluster-allow-pubsubshard-when-down`
+  * `--lfu-decay-time`
+  * `--lfu-log-factor`
+  * `--turn-before-switchover`
+  * `--allow-data-loss`
 
-#### {{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}
+**{{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}**
 
-* Clarified the description of the `--disk-size` parameters; by default, the disk size is specified in GB.
-
-
-## Previous releases {#previous-releases}
+* Clarified the description of the `--disk-size` parameters; by default, disk size is specified in GB.
 
 ### Version 0.135.0 (07/10/24) {#version0.135.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
+
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster: 
@@ -65,8 +85,6 @@ description: This page provides a list of YC CLI releases and updates rolled out
 ##### {{load-testing-name}}
 
 * Added the `log-group-id` and `log-group-name` parameters to the `yc loadtesting agent create` command to specify a target log group for load testing agent logs.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.134.0 (02/10/24) {#version0.134.0}
 
@@ -194,12 +212,12 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 **{{ mrd-name }}**
 
-* Added the `--websql-access` parameter to the `yc managed-redis cluster [ create | update | restore ]` commands allowing you to set up {{ websql-name }} access in {{ RD }}.
+* Added the `--websql-access` parameter to the `yc managed-redis cluster [ create | update | restore ]` commands allowing you to establish access via {{ websql-name }} in {{ RD }}.
 
 **{{ mgp-name }}**
 
-* Added the `--yandexquery-access` parameter to the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing cluster access from {{ yq-full-name }}.
-* Added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters to the `yc managed-greenplum cluster [ create | update ]` commands. You can use these parameters to manage {{ mgp-name }} background processes.
+* To the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing you to access the cluster from {{ yq-full-name }}.
+* To the `yc managed-greenplum cluster [ create | update ]` commands, added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters allowing you to manage {{ mgp-name }} background processes.
 
 **{{ maf-name }}**
 
@@ -1771,7 +1789,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ dataproc-name }} {#dataproc}
 
-* Added this command: `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
+* Added the command: `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
 
   Now you can cancel unfinished jobs.
 

@@ -25,8 +25,7 @@ description: Follow this guide to configure a {{ yds-full-name }} source endpoin
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
    * [{{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
-   * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
-   * [{{ DS }} to {{ OS }}](../../../tutorials/trails-to-os.md).
+   * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 

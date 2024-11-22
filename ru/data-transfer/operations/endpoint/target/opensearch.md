@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных в {{ OS }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Поставка данных из {{ DS }} в {{ OS }}](../../../tutorials/trails-to-os.md);
+   
    * [Поставка данных из {{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md).
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}

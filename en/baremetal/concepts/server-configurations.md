@@ -17,4 +17,4 @@ If there is free capacity in the pools of interest, you can lease servers of the
 | BA-i205-SH     | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 256     | 2     | 2     | 1            |
 | BA-i206-SH-10G | Intel® Xeon® E5-2650V2 (2.6 Ghz) | 32   | 256     | 2     | 2     | 10           |
 
-You can view the configurations available for lease in each pool when ordering a server in the management console. 
+You can view the configurations available for lease in each pool when ordering a server in the management console.

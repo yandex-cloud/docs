@@ -4,8 +4,9 @@
 The [Time-Slicing GPUs plugin in {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) is used to alternate workloads that run on a single [GPU](../../compute/concepts/gpus.md) with oversubscription.
 
 To install the Time-Slicing GPUs plugin in {{ managed-k8s-name }}:
-1. [{#T}](#configure-time-slicing)
-1. [{#T}](#check-time-slicing)
+
+1. [Configure Time-Slicing GPUs](#configure-time-slicing).
+1. [Test Time-Slicing GPUs](#check-time-slicing).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -17,9 +18,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating it, specify the security groups prepared in advance.
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating them, specify the security groups prepared earlier.
 
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) and the security groups prepared earlier.
 
@@ -73,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       configmap/time-slicing-config created
       ```
 
-1. Install the [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html):
+1. Install the [GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html):
 
    ```bash
    helm repo add nvidia https://helm.ngc.nvidia.com/nvidia && \
@@ -89,27 +90,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% list tabs %}
 
-   - Cluster {{ managed-k8s-name }}
+   - {{ managed-k8s-name }} cluster
 
-      ```bash
-      kubectl patch clusterpolicies.nvidia.com/cluster-policy \
-        --namespace gpu-operator \
-        --type merge \
-        --patch='{"spec": {"devicePlugin": {"config": {"name": "time-slicing-config", "default": "tesla-t4"}}}}'
-      ```
+     ```bash
+     kubectl patch clusterpolicies.nvidia.com/cluster-policy \
+       --namespace gpu-operator \
+       --type merge \
+       --patch='{"spec": {"devicePlugin": {"config": {"name": "time-slicing-config", "default": "tesla-t4"}}}}'
+     ```
 
    - Node group {{ managed-k8s-name }}
 
-      ```bash
-      yc managed-kubernetes node-group add-labels <node_group_name_or_ID> \
-        --labels nvidia.com/device-plugin.config=tesla-t4
-      ```
+     ```bash
+     yc managed-kubernetes node-group add-labels <node_group_ID_or_name> \
+       --labels nvidia.com/device-plugin.config=tesla-t4
+     ```
 
-      You can get the ID and name of the {{ managed-k8s-name }} node group with a [list of node groups in your cluster](../operations/node-group/node-group-list.md#list).
+     You can get the ID and name of the {{ managed-k8s-name }} node group with a [list of node groups in your cluster](../operations/node-group/node-group-list.md#list).
 
    {% endlist %}
 
-## Test Time-Slicing GPUs functionality {#check-time-slicing}
+## Test Time-Slicing GPUs {#check-time-slicing}
 
 1. Create a test app:
    1. Save the following app creation specification to a YAML file named `nvidia-plugin-test.yml`.
@@ -163,13 +164,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       deployment.apps/nvidia-plugin-test created
       ```
 
-1. Make sure that all the app's five [{{ managed-k8s-name }} pods](../concepts/index.md#pod) have the `Running` status:
+1. Make sure all the app's five [{{ managed-k8s-name }} pods](../concepts/index.md#pod) are `Running`:
 
    ```bash
    kubectl get pods | grep nvidia-plugin-test
    ```
 
-1. Run the `nvidia-smi` command in the running {{ managed-k8s-name }} `nvidia-container-toolkit` pod:
+1. Run the `nvidia-smi` command in the active `nvidia-container-toolkit` {{ managed-k8s-name }} pod:
 
    ```bash
    kubectl exec <nvidia-container-toolkit_pod_name> \
@@ -210,4 +211,4 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you created any [service accounts](../../iam/concepts/users/service-accounts.md), [delete them](../../iam/operations/sa/delete.md).
+1. If you had created any [service accounts](../../iam/concepts/users/service-accounts.md), [delete them](../../iam/operations/sa/delete.md).

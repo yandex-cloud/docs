@@ -22,5 +22,5 @@ The following {{ TF }} provider resources are supported for {{ network-load-bala
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/datasource_lb_network_load_balancer) | Information about a [network load balancer](./concepts/index.md) |
-| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/datasource_lb_target_group) | Information about a [target group](./concepts/target-resources.md) |
+| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/lb_network_load_balancer) | Information about a [network load balancer](./concepts/index.md) |
+| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/lb_target_group) | Information about a [target group](./concepts/target-resources.md) |

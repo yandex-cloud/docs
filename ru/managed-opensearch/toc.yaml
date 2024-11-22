@@ -56,6 +56,7 @@ items:
       - name: Миграция данных из {{ ES }}
         href: tutorials/migration-to-opensearch.md
       - name: Загрузка логов из {{ at-name }}
+        hidden: true
         href: tutorials/trails-to-opensearch.md
       - name: >-
           Поставка данных из {{ mkf-full-name }} с помощью {{

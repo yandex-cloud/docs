@@ -1,17 +1,21 @@
-Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-* (Optional) [Enable VM access via OS Login](../../../compute/operations/vm-connect/os-login.md). The option is available for Linux images from [{{ marketplace-name }}](/marketplace) with `OS Login` in their names.
-* Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+* Select **Access via OS Login** to [connect](../../../compute/operations/vm-connect/os-login.md) and manage access to the new VM using [OS Login](../../../organization/concepts/os-login.md) in {{ org-full-name }}.
 
-    {% note alert %}
+    With OS Login, you can connect to VMs using SSH keys and SSH certificates via a standard SSH client or the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md). OS Login allows you to rotate the SSH keys used to access the VM, providing the most [secure](../../../security/domains/iaas-checklist.md#vm-security) access option.
 
-    Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+* If you prefer not to use OS Login, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the following info for VM access:
 
-    {% endnote %}
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 
-* In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../../compute/operations/vm-connect/ssh.md).
+        {% note alert %}
+
+        Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+
+        {% endnote %}
+
+    * {% include [access-ssh-key](./access-ssh-key.md) %}
 
 If you want to add several users with SSH keys to the VM at the same time, [specify](../../../compute/concepts/vm-metadata.md#how-to-send-metadata) these users' data under **{{ ui-key.yacloud.common.metadata }}**. You can also use metadata to [install additional software](../../../compute/operations/vm-create/create-with-cloud-init-scripts.md) on a VM when creating it.
 
 {% include [vm-connect-linux](../../vm-connect-linux.md) %}
-

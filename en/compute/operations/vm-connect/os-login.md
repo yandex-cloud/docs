@@ -1,11 +1,11 @@
 ---
-title: How to connect to a VM via OS Login
-description: Follow this guide to connect to a VM via OS Login.
+title: How to connect to a VM via {{ oslogin }}
+description: Follow this guide to connect to a VM via {{ oslogin }}.
 ---
 
-# Connecting to a virtual machine via OS Login
+# Connecting to a virtual machine via {{ oslogin }}
 
-[OS Login](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs via SSH using {{ iam-short-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs using {{ iam-short-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -13,7 +13,7 @@ description: Follow this guide to connect to a VM via OS Login.
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-[Create](./os-login-create-vm.md) a new virtual machine with OS Login support or [set up](./enable-os-login.md) access via OS Login for an existing VM as needed.
+[Create](./os-login-create-vm.md) a new virtual machine with {{ oslogin }} support or [set up](./enable-os-login.md) access via {{ oslogin }} for an existing VM as needed.
 
 {% note info %}
 
@@ -25,7 +25,7 @@ Required roles:
 
 ## Connecting using a standard SSH client {#connect-with-ssh-client}
 
-To connect to a VM with OS Login access enabled, you can use a standard SSH client and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account OS Login profile or a short-lived SSH certificate you export for a user or service account.
+You can connect to a VM with {{ oslogin }} access enabled using a standard SSH client either with an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or a short-lived exported SSH certificate of a user or service account.
 
 {% list tabs group=os_login_type %}
 
@@ -45,7 +45,7 @@ You will connect to the specified VM. If this is your first time connecting to t
 
 ## Connecting using the YC CLI {#connect-with-yc-cli}
 
-To connect to a VM with OS Login access enabled, you can use the [YC CLI](../../../cli/quickstart.md) and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account OS Login profile or SSH certificate of a user or service account.
+You can connect to a VM with {{ oslogin }} access enabled using the [YC CLI](../../../cli/quickstart.md) either with an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or an SSH certificate of a user or service account.
 
 {% list tabs group=os_login_type %}
 
@@ -66,5 +66,5 @@ You will connect to the specified VM. If this is your first time connecting to t
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)
 * [{#T}](./os-login-export-certificate.md)
-* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an {{ oslogin }} profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

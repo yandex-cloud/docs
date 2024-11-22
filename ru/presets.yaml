@@ -120,7 +120,6 @@ default:
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
   compute-name: Compute Cloud
   compute-short-name: Compute Cloud
-  compute-ubuntu-lts-image-id: fd81hgrcv6ls********
   connection-manager-full-name: Yandex Connection Manager
   connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
@@ -6053,7 +6052,6 @@ default:
         field_server-count: Число серверов
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
-        field_server-user: Пользователь
         field_server-zone: Зона доступности
         field_ssh-public-key: Публичный SSH-ключ
         label_create-network: Создать VRF
@@ -7400,7 +7398,6 @@ default:
         field_export-filter-include: Сохранять файлы
         field_export-is-archive: Архивировать в zip
         field_load-generator: Генератор нагрузки
-        field_logging-group: Лог-группа
         field_name-filter: Фильтр по имени
         field_overload-test-id: ID теста
         field_overload-token: Токен
@@ -9052,8 +9049,6 @@ default:
                     MysqlConnection:
                       connection_type:
                         title: Тип подключения
-                      database:
-                        title: База данных
                       password:
                         title: Пароль
                       security_groups:

@@ -5,8 +5,8 @@ You can use {{ managed-k8s-name }} node groups for workloads on [GPUs](../../com
 
 To prepare your cluster and {{ managed-k8s-name }} node group without pre-installed drivers for running workloads:
 
-1. [{#T}](#install-gpu-operator)
-1. [{#T}](#check-install)
+1. [Install the GPU Operator](#install-gpu-operator).
+1. [Check that drivers are installed correctly](#check-install).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -14,15 +14,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating it, specify the security groups prepared in advance.
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating them, specify the security groups prepared earlier.
 
-1. [Create a node group](../operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**. Specify the security groups prepared in advance.
+1. [Create a node group](../operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**. Specify the security groups prepared earlier.
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       gpu-operator nvidia/gpu-operator
     ```
 
-    Where `driver.version` is the version of an NVIDIA® driver. You can omit the driver version parameter. In this case, the [default](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/platform-support.html#gpu-operator-component-matrix) version will be used.
+    Where `driver.version` is the NVIDIA® driver version. You can omit the driver version parameter. In this case, the [default](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/platform-support.html#gpu-operator-component-matrix) version will be used.
 
     {% note info %}
 
@@ -87,4 +87,4 @@ Now, you can run GPU-based workloads by following the [Running workloads with GP
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you created any service accounts, [delete them](../../iam/operations/sa/delete.md).
+1. If you had created any service accounts, [delete them](../../iam/operations/sa/delete.md).

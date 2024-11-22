@@ -859,7 +859,7 @@ items:
         items:
           - name: Все вопросы
             href: qa/index.md
-          - name: Права доступа
+          - name: Пользователи и управление доступом
             href: qa/permissions.md
           - name: Тарификация и оплата
             href: qa/pricing.md

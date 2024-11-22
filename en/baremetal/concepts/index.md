@@ -4,7 +4,7 @@
 
 {{ baremetal-full-name }} allows you to remotely install an operating system on a server using ready-made images from {{ marketplace-short-name }} or by uploading your own image to {{ objstorage-full-name }} and using it for installation. You can access the server using a KVM console or via SSH.
 
-All servers are connected to the public internet as well as to a private network. Within private networks, you can create networks of your own and combine servers within them as needed.
+All servers are connected to the public internet as well as to a private network. In a private network, you can create private subnets and VRFs and use them to group servers by specific tasks.
 
 ## Servers and networks {#concepts}
 

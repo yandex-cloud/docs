@@ -100,12 +100,12 @@ items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
       - name: >-
-          Getting statistics for the requests to {{ objstorage-full-name }}
-          objects using {{ yq-full-name }}
+          Getting statistics of queries to {{ objstorage-full-name }} objects
+          using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
-      - name: Getting statistics of the requests to objects using {{ yq-full-name }}
+      - name: Getting statistics of queries to objects using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: tutorials/billing-resource-detailing.md
@@ -207,6 +207,8 @@ items:
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Static website in {{ objstorage-full-name }}
+      - name: Visualizing {{ yq-full-name }} data
+        href: tutorials/data-from-yandex-query-visualization.md
         items:
           - name: Overview
             href: tutorials/static/index.md
@@ -228,6 +230,20 @@ items:
         href: tutorials/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: tutorials/kubernetes-backup.md
+      - name: Developing a custom integration in {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
+      - name: Storing application runtime logs
+        href: tutorials/log-ingestion.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: tutorials/alice-shareable-todolist.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
+      - name: Deploying a web application using the Java Servlet API
+        href: tutorials/java-servlet-todo-list.md
+      - name: Developing a Telegram bot
+        href: tutorials/telegram-bot-serverless.md
   - name: Concepts
     items:
       - name: Overview

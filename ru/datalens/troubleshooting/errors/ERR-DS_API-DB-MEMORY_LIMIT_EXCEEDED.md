@@ -18,7 +18,9 @@
 
 Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log]({{ ch.docs }}/operations/system-tables/query_log/).
 
+
 Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../tutorials/dataplatform/mpg-profiling.md).
+
 
 {% endnote %}
 

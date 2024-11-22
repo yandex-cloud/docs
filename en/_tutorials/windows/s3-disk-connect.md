@@ -31,8 +31,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost for bucket support includes:
 
-* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for storing data in a bucket (see [{{ objstorage-name }}](../../storage/pricing.md#prices-storage) pricing).
+* Fee for operations with data (see [{{ objstorage-name }}](../../storage/pricing.md#prices-operations) pricing).
 
 
 
@@ -56,9 +56,9 @@ The cost for bucket support includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a service account in.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -95,12 +95,13 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `sa-win-disk-connect` service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `sa-win-disk-connect` service account.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and private key. After you close the dialog, the private key value will become unavailable.
+  1. Save the ID and secret key. After you close the dialog, the private key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -140,15 +141,15 @@ The cost for bucket support includes:
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming):
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
 - AWS CLI {#cli}
-
+  
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
   1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-
+  
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<bucket_name>
@@ -171,7 +172,7 @@ The cost for bucket support includes:
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
   1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-
+  
      ```hcl
      resource "yandex_storage_bucket" "<bucket_name>" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -179,9 +180,9 @@ The cost for bucket support includes:
        bucket     = "<bucket_name>"
      }
      ```
-
+     
      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/storage_bucket).
-
+     
   1. Make sure the configuration files are correct.
 
      1. In the command line, go to the folder where you created the configuration file.
@@ -191,10 +192,10 @@ The cost for bucket support includes:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
-
+  
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -265,7 +266,7 @@ You can perform advanced connection setup if needed. To do this, type `y` at the
 
 ## Set up the mounting service {#mount-service}
 
-To mount the bucket at your desktop startup, set up mounting on behalf of the system service.
+To mount the bucket at your desktop startup, set up mounting on behalf of the system service. 
 
 1. In the `WinSW` utility folder, create a file named `WinSW-x64.xml` (`WinSW-x86.xml` if you have a 32-bit version of Windows) with the following contents:
    

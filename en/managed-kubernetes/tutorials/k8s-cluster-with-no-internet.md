@@ -1,7 +1,7 @@
 # Creating and configuring a {{ managed-k8s-name }} cluster with no internet access
 
 
-You can create and configure a {{ managed-k8s-name }} cluster with no internet connectivity. The following configuration is used for this purpose:
+You can create and configure a {{ managed-k8s-name }}cluster with no internet connectivity. For this, you will need the following configuration:
 
 * {{ managed-k8s-name }} cluster and node group without a public address. You can only connect to such a cluster using a {{ yandex-cloud }} virtual machine.
 * The cluster and node group are hosted by subnets with no internet access.
@@ -10,10 +10,10 @@ You can create and configure a {{ managed-k8s-name }} cluster with no internet c
 
 To create a {{ managed-k8s-name }} cluster with no internet access:
 
-1. [{#T}](#infra).
-1. [{#T}](#vm).
-1. [{#T}](#check).
-1. [{#T}](#cert).
+1. [Prepare the infrastructure for {{ managed-k8s-name }}](#infra).
+1. [Set up a virtual machine](#vm).
+1. [Check cluster availability](#check).
+1. (Optional) [Connect a private Docker image registry](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * `resource-sa` with `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}`, and `kms.keys.encrypterDecrypter` [roles](../../iam/concepts/access-control/roles.md) for the folder where the {{ k8s }} cluster is created. This account will be used to create the resources required for the {{ k8s }} cluster.
+      * `resource-sa` with the `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}`, and `kms.keys.encrypterDecrypter` [roles](../../iam/concepts/access-control/roles.md) for the folder where the {{ k8s }} cluster is created. This account will be used to create the resources required for the {{ k8s }} cluster.
       * `node-sa` with the `{{ roles-cr-puller }}` role. Nodes will pull the required Docker images from the registry on behalf of this account.
 
       {% note tip %}
@@ -36,27 +36,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ kms-full-name }} symmetric encryption key](../../kms/operations/key.md#create) with the following parameters:
 
-      * **{{ ui-key.yacloud.common.name }}**: `my-kms-key`
-      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
+      * **{{ ui-key.yacloud.common.name }}**: `my-kms-key`.
+      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
       * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: 365 days
 
    1. [Create a network](../../vpc/operations/network-create.md) named `my-net`.
    1. [Create a subnet](../../vpc/operations/subnet-create.md) named `my-subnet` with the `internal.` domain name.
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with the following parameters:
 
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `resource-sa`
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `node-sa`
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `my-kms-key`
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `resource-sa`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `node-sa`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `my-kms-key`.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: No address
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `my-net`
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}**: `my-subnet`
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `my-net`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}**: `my-subnet`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic and {{ k8s }} API access.
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: `172.19.0.0/16`
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**: `172.20.0.0/16`
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: `172.19.0.0/16`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**: `172.20.0.0/16`.
       * **{{ ui-key.yacloud.k8s.clusters.create.label_logging-enabled }}**: Enabled
       * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-cluster-autoscaler }}**: Enabled
       * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-events }}**: Enabled
@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: No address
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic, connection to the services from the internet, and connection to nodes over SSH.
-      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `my-subnet`
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: Subnet named `my-subnet`.
 
 - {{ TF }} {#tf}
 
@@ -83,14 +83,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ managed-k8s-name }} node group.
       * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
       * [Service accounts](../../iam/concepts/users/service-accounts.md) for {{ k8s }} resources and nodes.
       * {{ kms-full-name }} [symmetric encryption key](../../kms/concepts/key.md).
 
       The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the library pages.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -117,19 +117,19 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
    - Manually {#manual}
 
       1. Create a service account named `vm-sa` with the `{{ roles.k8s.cluster-api.cluster-admin }}` and `{{ roles.k8s.admin }}` roles. This account will be used to connect to the {{ managed-k8s-name }} cluster.
-      1. Create a security group named `vm-security-group` and specify its rule for incoming traffic:
+      1. Create a security group named `vm-security-group` and specify a rule for incoming traffic in it:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
       1. [Create a Linux VM](../../compute/operations/vm-create/create-linux-vm.md) with the following parameters:
 
-         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-subnet`
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-subnet`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or you can [reserve a static public IP address](../../vpc/operations/get-static-ip.md) and assign it to the new VM.
-         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `vm-security-group`
-         * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `vm-sa`
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `vm-security-group`.
+         * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `vm-sa`.
 
    - {{ TF }} {#tf}
 
@@ -141,7 +141,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Security group for VM
          * VM
 
-      1. In the `virtual-machine-for-k8s.tf` file, specify:
+      1. Specify the following in the `virtual-machine-for-k8s.tf` file:
 
          * Folder ID.
          * ID of the network created together with the {{ managed-k8s-name }} cluster.
@@ -149,7 +149,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Username to be used for connection to the VM over SSH.
          * Absolute path to the public part of the SSH key for connection to the VM.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -216,7 +216,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
        name: certificate-updater
    ```
 
-1. Create a file named `certificate-updater-daemonset.yaml` with the DaemonSet configuration:
+1. Create a `certificate-updater-daemonset.yaml` file with the DaemonSet configuration:
 
    {% cut "File contents" %}
 
@@ -339,7 +339,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
 
    ```bash
    kubectl create secret generic crt \
-      --from-file=<path_to_certificate_file>.crt \
+      --from-file=<certificate_file_path>.crt \
       --namespace="certificate-updater"
    ```
 
@@ -369,14 +369,14 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    Delete:
 
-   1. [Service accounts](../../iam/operations/sa/delete.md)
-   1. {{ kms-name }} [encryption key](../../kms/operations/key.md#delete)
-   1. [Security groups](../../vpc/operations/security-group-delete.md)
-   1. {{ managed-k8s-name }} [node group](../operations/node-group/node-group-delete.md)
-   1. {{ managed-k8s-name }} [cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md)
-   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
-   1. [Subnet](../../vpc/operations/subnet-delete.md)
-   1. [Network](../../vpc/operations/network-delete.md)
+   1. [Service accounts](../../iam/operations/sa/delete.md).
+   1. {{ kms-name }} [encryption key](../../kms/operations/key.md#delete).
+   1. [Security groups](../../vpc/operations/security-group-delete.md).
+   1. {{ managed-k8s-name }} [node group](../operations/node-group/node-group-delete.md).
+   1. {{ managed-k8s-name }} [cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md).
+   1. [Subnet](../../vpc/operations/subnet-delete.md).
+   1. [Network](../../vpc/operations/network-delete.md).
 
 - {{ TF }} {#tf}
 

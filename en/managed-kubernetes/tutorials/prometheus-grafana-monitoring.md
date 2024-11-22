@@ -5,18 +5,21 @@
 In this article, you will learn how to set up the [{{ prometheus-name }}](https://prometheus.io/) metrics collection system and the [{{ grafana-name }}](https://grafana.com/) visualization system in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster). The [Trickster caching proxy](https://github.com/trickstercache/trickster) will be installed to speed up the transfer of metrics.
 
 To set up the {{ managed-k8s-name }} cluster monitoring system:
-* [{#T}](#install-prometheus).
-* [{#T}](#install-trickster).
-* [{#T}](#install-grafana).
-* [{#T}](#configure-grafana).
+
+* [Install {{ prometheus-name }}](#install-prometheus).
+* [Install the Trickster caching proxy](#install-trickster).
+* [Install {{ grafana-name }}](#install-grafana).
+* [Set up and check {{ grafana-name }}](#configure-grafana).
+
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access and the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access and the security groups you prepared earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -36,7 +39,7 @@ The {{ prometheus-name }} monitoring system scans {{ managed-k8s-name }} cluster
    helm install my-prom prometheus-community/prometheus
    ```
 
-1. Make sure that all the [pods](../concepts/index.md#pod) changed their status to `Running`:
+1. Make sure that all [pods](../concepts/index.md#pod) have entered the `Running` state:
 
    ```bash
    kubectl get pods -l "app.kubernetes.io/instance=my-prom"
@@ -62,7 +65,7 @@ The Trickster caching proxy [speeds up reading](https://github.com/trickstercach
    helm repo update
    ```
 
-1. Create a `trickster.yaml` configuration file with the following Trickster settings:
+1. Create a configuration file named `trickster.yaml` that contains Trickster settings:
 
    {% cut "trickster.yaml" %}
 
@@ -127,14 +130,14 @@ The Trickster caching proxy [speeds up reading](https://github.com/trickstercach
 
    {% endcut %}
 
-   You can change the size of the storage allocated to the caching proxy. Specify the desired storage size in the `volumes.persistent.size` parameter.
+   You can change the size of the storage allocated to the caching proxy. Specify the storage size you need in the `volumes.persistent.size` parameter.
 1. Install Trickster:
 
    ```bash
    helm install trickster tricksterproxy/trickster --namespace default -f trickster.yaml
    ```
 
-1. Make sure the Trickster pod status changed to `Running`:
+1. Make sure the Trickster pod has entered the `Running` state:
 
    ```bash
    kubectl get pods -l "app=trickster"
@@ -145,12 +148,12 @@ The caching proxy is available in the {{ managed-k8s-name }} cluster at `http://
 ## Install {{ grafana-name }} {#install-grafana}
 
 When deploying the application, the following will be created:
-* {{ grafana-name }} application `Deployment`.
+* `Deployment` of the {{ grafana-name }} application.
 * [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) to reserve internal storage.
-* `LoadBalancer` `Service` to enable network access to the {{ grafana-name }} management console.
+* `Service` of the `LoadBalancer` type to enable network access to the {{ grafana-name }} management console.
 
 To install {{ grafana-name }}:
-1. Create a `grafana.yaml` configuration file.
+1. Create a configuration file named `grafana.yaml`.
 
    {% cut "grafana.yaml" %}
 
@@ -242,7 +245,7 @@ To install {{ grafana-name }}:
    {% endcut %}
 
    If required, change:
-   * The size of the storage allocated for {{ grafana-name }} in the `spec.resources.requests.storage` parameter for `kind: PersistentVolumeClaim`.
+   * Storage size allocated for {{ grafana-name }} in the `spec.resources.requests.storage` parameter for `kind: PersistentVolumeClaim`.
    * Computing resources allocated to the {{ grafana-name }} pod in the `spec.containers.resources` parameters for `kind: Deployment`.
 1. Install {{ grafana-name }}:
 
@@ -250,7 +253,7 @@ To install {{ grafana-name }}:
    kubectl apply -f grafana.yaml
    ```
 
-1. Make sure that the {{ grafana-name }} pod status changed to `Running`:
+1. Make sure the {{ grafana-name }} pod has entered the `Running` state:
 
    ```bash
    kubectl get pods -l "app=grafana"
@@ -273,7 +276,7 @@ To install {{ grafana-name }}:
    * **Name**: `{{ prometheus-name }}`.
    * **URL**: `http://trickster:8480`.
 1. Click **Save & test** and make sure that the data source was successfully connected (`Data source is working`).
-1. [Import the `{{ k8s }} Deployment Statefulset Daemonset metrics` dashboard](https://grafana.com/docs/grafana/latest/dashboards/export-import/#import-dashboard), which contains basic {{ k8s }} metrics. Specify the [dashboard ID](https://grafana.com/grafana/dashboards/8588) (`8588`) when importing.
+1. [Import](https://grafana.com/docs/grafana/latest/dashboards/export-import/#import-dashboard) the `{{ k8s }} Deployment Statefulset Daemonset metrics` dashboard containing the basic {{ k8s }} metrics. Specify the [dashboard ID](https://grafana.com/grafana/dashboards/8588) (`8588`) when importing.
 
    {% note tip %}
 

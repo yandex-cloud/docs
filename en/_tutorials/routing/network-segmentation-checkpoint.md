@@ -385,9 +385,9 @@ All the steps described below are completed in the Linux terminal.
    | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
    | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as public_app_port or a different one. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs/subnets trusted to access the jump VM. Used in the inbound rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Username for connecting to the jump VM over SSH | `string` | `admin` |
-   | `wg_port` | - | UDP port for inbound traffic as indicated in the jump VM WireGuard settings | `number` | `51820` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs/subnets trusted to access the jump VM. Used in the incoming rule of the `jump-vm` security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Username for connecting to `jump-vm` over SSH | `string` | `admin` |
+   | `wg_port` | - | UDP port for incoming traffic as indicated in the `jump-vm` WireGuard settings | `number` | `51820` |
 
    {% endcut %}
 
@@ -423,7 +423,7 @@ All the steps described below are completed in the Linux terminal.
       terraform apply
       ```
 
-1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this information by running the `terraform output` command.
+1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this information by running the `terraform output` command:
 
    {% cut "Viewing information on deployed resources" %}
 
@@ -436,7 +436,7 @@ All the steps described below are completed in the Linux terminal.
    | `fw_public_ip_address` | Public firewall IP | `D.D.D.D` |
    | `fw_sic-password` | One-time password for adding a firewall to the firewall management server | The `terraform output` command does not return this variable. To view its value run `terraform output fw_sic-password`. |
    | `fw_smartconsole_mgmt-server_password` | Password for connecting to the firewall management server via Check Point's SmartConsole GUI application. | The `terraform output` command does not return this variable. To view its value run `terraform output fw_smartconsole_mgmt-server_password`. |
-   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to the jump VM | `./jump-vm-wg.conf` |
+   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to `jump-vm` | `./jump-vm-wg.conf` |
    | `jump-vm_public_ip_address_jump-vm` | Jump VM public IP | `E.E.E.E` |
    | `path_for_private_ssh_key` | File with a private key used to connect to VMs over SSH (jump VM, firewalls, management server, DMZ web server) | `./pt_key.pem` |
    
@@ -660,7 +660,7 @@ To set up the NAT tables of the FW gateway:
    The command must run according to the `ping from dmz to internet` rule that allows traffic.
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
+   To check that `jump-vm` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
 
    ```bash
    ping 192.168.1.101

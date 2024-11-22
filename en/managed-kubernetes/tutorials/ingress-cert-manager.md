@@ -7,12 +7,12 @@ description: Follow this tutorial to create an NGINX Ingress controller and prot
 
 To use [{{ k8s }}](https://kubernetes.io) to create an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/) and protect it with a certificate, follow these steps:
 
-1. [{#T}](#install-controller)
-1. [{#T}](#connecting-certs-manager)
-1. [{#T}](#install-certs-manager)
-1. [{#T}](#create-issuer)
-1. [{#T}](#install-objects)
-1. [{#T}](#test-controller)
+1. [Install the NGINX Ingress controller](#install-controller).
+1. [Configure a DNS record for the Ingress controller](#connecting-certs-manager).
+1. [Install the certificate manager](#install-certs-manager).
+1. [Create a ClusterIssuer](#create-issuer).
+1. [Create objects to test cert-manager](#install-objects).
+1. [Test TLS](#test-controller).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a service account](../../iam/operations/sa/create.md) with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -34,22 +34,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - {{ marketplace-full-name }} {#marketplace}
 
-   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../operations/applications/ingress-nginx.md).
+  Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../operations/applications/ingress-nginx.md).
 
 - Manually {#manual}
 
-   1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
-   1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX Ingress controller, run this command:
+  1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
+  1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX Ingress controller, run this command:
 
-      ```bash
-      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
-      helm repo update && \
-      helm install ingress-nginx ingress-nginx/ingress-nginx
-      ```
+     ```bash
+     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
+     helm repo update && \
+     helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
 
-   The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+  The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
-   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+  To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 
 {% endlist %}
 
@@ -84,41 +84,41 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
 You can install the certificate manager in one of the following ways:
 * Using [{{ marketplace-full-name }}](../../marketplace/): To install cert-manager [integrated with {{ dns-name }}](../operations/applications/cert-manager-cloud-dns.md).
 
-   This will create a `ClusterIssuer` object configured to pass the [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) using {{ dns-name }} in the cluster.
+  This will create in the cluster a `ClusterIssuer` object configured to pass the [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) using {{ dns-name }}.
 
-   If required, you can manually create and configure other objects: `Issuer` or `ClusterIssuer`. For more information about these objects, see the [cert-manager documentation](https://cert-manager.io/docs/configuration/).
+  If required, you can manually create and configure other objects: `Issuer` or `ClusterIssuer`. For more information about these objects, see the [cert-manager documentation](https://cert-manager.io/docs/configuration/).
 * Manually: To install cert-manager with no additional integrations.
 
-   You will need to create and configure any `Issuer` and `ClusterIssuer` objects manually.
+  You will need to create and configure any `Issuer` and `ClusterIssuer` objects manually.
 
 {% list tabs group=instructions %}
 
 - {{ marketplace-full-name }} {#marketplace}
 
-   Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following the guide](../operations/applications/cert-manager-cloud-dns.md).
+  Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following this guide](../operations/applications/cert-manager-cloud-dns.md).
 
 - Manually {#manual}
 
-   1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of cert-manager. For example, run the following command for version 1.21.1:
+  1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of cert-manager. For example, run the following command for version 1.21.1:
 
-      ```bash
-      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
-      ```
+     ```bash
+     kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
+     ```
 
-   1. Make sure that the `cert-manager` [namespace](../concepts/index.md#имен-namespace) has three [pods](../concepts/index.md#pod), all of them being `1/1` ready and with the `Running` status:
+  1. Make sure that the `cert-manager` [namespace](../concepts/index.md#имен-namespace) has three [pods](../concepts/index.md#pod), all of them being `1/1` ready and with the `Running` status:
 
-      ```bash
-      kubectl get pods -n cert-manager --watch
-      ```
+     ```bash
+     kubectl get pods -n cert-manager --watch
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      NAME                                      READY  STATUS   RESTARTS  AGE
-      cert-manager-69********-ghw6s             1/1    Running  0         54s
-      cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
-      cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
-      ```
+     ```text
+     NAME                                      READY  STATUS   RESTARTS  AGE
+     cert-manager-69********-ghw6s             1/1    Running  0         54s
+     cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
+     cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
+     ```
 
 {% endlist %}
 
@@ -126,40 +126,40 @@ You can install the certificate manager in one of the following ways:
 
 Create a [ClusterIssuer](https://cert-manager.io/docs/configuration/) object you can use to issue {{ lets-encrypt }} certificates.
 
-Certificates will be issued after you pass the [HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) using the Ingress controller you [installed previously](#install-controller).
+Certificates will be issued after you pass the [HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) using the Ingress controller you [installed earlier](#install-controller).
 
 Create an object with the required parameters:
 
 1. Create the `http01-clusterissuer.yaml` file with the object manifest:
 
-   ```yaml
-   apiVersion: cert-manager.io/v1
-   kind: ClusterIssuer
-   metadata:
-     name: http01-clusterissuer
-   spec:
-     acme:
-       server: https://acme-v02.api.letsencrypt.org/directory
-       email: <your_email>
-       privateKeySecretRef:
-         name: http01-clusterissuer-secret
-       solvers:
-       - http01:
-           ingress:
-             class: nginx
-   ```
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: ClusterIssuer
+    metadata:
+      name: http01-clusterissuer
+    spec:
+      acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+        email: <your_email>
+        privateKeySecretRef:
+          name: http01-clusterissuer-secret
+        solvers:
+        - http01:
+            ingress:
+              class: nginx
+    ```
 
 1. Create an object in the {{ managed-k8s-name }} cluster:
 
-   ```bash
-   kubectl apply -f http01-clusterissuer.yaml
-   ```
+    ```bash
+    kubectl apply -f http01-clusterissuer.yaml
+    ```
 
 ## Create objects to test cert-manager {#install-objects}
 
 To test the certificate manager, create the `Ingress`, `Service`, and `Deployment` objects:
 
-1. Create the `app.yaml` YAML file with the `Ingress`, `Service`, and `Deployment` object manifests:
+1. Create the `app.yaml` file with manifests for the `Ingress`, `Service`, and `Deployment` objects:
 
    ```yaml
    apiVersion: networking.k8s.io/v1
@@ -172,10 +172,10 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
      ingressClassName: nginx
      tls:
        - hosts:
-         - <your_domain_URL>
+         - <your_domain_URL_address>
          secretName: domain-name-secret
      rules:
-       - host: <your_domain_URL>
+       - host: <your_domain_URL_address>
          http:
            paths:
            - path: /
@@ -227,9 +227,9 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
    kubectl apply -f app.yaml
    ```
 
-## Test how TLS works {#test-controller}
+## Test TLS {#test-controller}
 
-1. Make sure the [domain rights verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate got the `Issued` status:
+1. Make sure the [domain rights verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
 
    ```bash
    kubectl describe certificate domain-name-secret

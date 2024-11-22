@@ -3,16 +3,17 @@
 
 This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}. An application from [{{ container-registry-full-name }}](../../container-registry/) is deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and published on the internet via the [{{ alb-full-name }}](../../application-load-balancer/) Ingress controller.
 
-If you need to create a {{ managed-k8s-name }} cluster with no internet access, see the [{#T}](k8s-cluster-with-no-internet.md) section.
+If you need to create a {{ managed-k8s-name }} cluster with no internet access, see [{#T}](k8s-cluster-with-no-internet.md).
 
 To launch an app:
-1. [{#T}](#create-sa)
-1. [{#T}](#create-sg)
-1. [{#T}](#create-k8s-res)
-1. [{#T}](#cluster-connect)
-1. [{#T}](#create-cr-res)
-1. [{#T}](#setup-alb)
-1. [{#T}](#create-ingress)
+
+1. [Create service accounts](#create-sa).
+1. [Create security groups](#create-sg).
+1. [Prepare {{ k8s }}](#create-k8s-res) resources.
+1. [Connect to the {{ managed-k8s-name }}](#cluster-connect) cluster.
+1. [Prepare {{ container-registry-name }}](#create-cr-res) resources.
+1. [Install {{ alb-name }}](#setup-alb).
+1. [Create a load balancer](#create-ingress).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -61,11 +62,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
    Result:
 
    ```text
-   +------+--------+---------------+---------------------+----------+--------+
-   |  ID  |  NAME  |    DOMAINS    |      NOT AFTER      |   TYPE   | STATUS |
-   +------+--------+---------------+---------------------+----------+--------+
+   +-----------------+-------+----------------+---------------------+----------+--------+
+   |       ID        | NAME  |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
+   +-----------------+-------+----------------+---------------------+----------+--------+
    | <ID> | <name> | <domain_name> | 2022-04-06 17:19:37 | IMPORTED | ISSUED |
-   +------+--------+---------------+---------------------+----------+--------+
+   +-----------------+-------+----------------+---------------------+----------+--------+
    ```
 
 ## Create service accounts {#create-sa}
@@ -88,15 +89,15 @@ To create a service account which will create the resources for the {{ managed-k
 
    - Bash {#bash}
 
-      ```bash
-      FOLDER_ID=$(yc config get folder-id)
-      ```
+     ```bash
+     FOLDER_ID=$(yc config get folder-id)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $FOLDER_ID = yc config get folder-id
-      ```
+     ```shell script
+     $FOLDER_ID = yc config get folder-id
+     ```
 
    {% endlist %}
 
@@ -106,15 +107,15 @@ To create a service account which will create the resources for the {{ managed-k
 
    - Bash {#bash}
 
-      ```bash
-      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-      ```
+     ```bash
+     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-      ```
+     ```shell script
+     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+     ```
 
    {% endlist %}
 
@@ -124,19 +125,19 @@ To create a service account which will create the resources for the {{ managed-k
 
    - Bash {#bash}
 
-      ```bash
-      RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | jq .id -r)
-      ```
+     ```bash
+     RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | jq .id -r)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-      ```
+     ```shell script
+     $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+     ```
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-editor }}](../../iam/roles-reference.md#editor) role for the folder.
+1. Assign the service account the [{{ roles-editor }}](../../iam/roles-reference.md#editor) role for the folder:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -154,15 +155,15 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      FOLDER_ID=$(yc config get folder-id)
-      ```
+     ```bash
+     FOLDER_ID=$(yc config get folder-id)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $FOLDER_ID = yc config get folder-id
-      ```
+     ```shell script
+     $FOLDER_ID = yc config get folder-id
+     ```
 
    {% endlist %}
 
@@ -172,15 +173,15 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-      ```
+     ```bash
+     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-      ```
+     ```shell script
+     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+     ```
 
    {% endlist %}
 
@@ -190,19 +191,19 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | jq .id -r)
-      ```
+     ```bash
+     NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | jq .id -r)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-      ```
+     ```shell script
+     $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+     ```
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder.
+1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -211,7 +212,7 @@ To create a service account that lets nodes download the necessary Docker images
      --subject serviceAccount:$NODE_SA_ID
    ```
 
-### Service account required for the {{ alb-name }} Ingress controller to run {#ic-sa}
+### Service account required for the {{ alb-name }} Ingress controller {#ic-sa}
 
 1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
 
@@ -219,15 +220,15 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      FOLDER_ID=$(yc config get folder-id)
-      ```
+     ```bash
+     FOLDER_ID=$(yc config get folder-id)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $FOLDER_ID = yc config get folder-id
-      ```
+     ```shell script
+     $FOLDER_ID = yc config get folder-id
+     ```
 
    {% endlist %}
 
@@ -237,15 +238,15 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
-      ```
+     ```bash
+     yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
-      ```
+     ```shell script
+     yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
+     ```
 
    {% endlist %}
 
@@ -255,15 +256,15 @@ To create a service account that lets nodes download the necessary Docker images
 
    - Bash {#bash}
 
-      ```bash
-      IC_SA_ID=$(yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | jq .id -r)
-      ```
+     ```bash
+     IC_SA_ID=$(yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | jq .id -r)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $RES_SA_ID = (yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-      ```
+     ```shell script
+     $RES_SA_ID = (yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+     ```
 
    {% endlist %}
 
@@ -299,7 +300,7 @@ To create a service account that lets nodes download the necessary Docker images
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Prepare {{ k8s }} resources {#create-k8s-res}
+## Create {{ k8s }} resources {#create-k8s-res}
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
@@ -319,7 +320,7 @@ yc container registry create --name yc-auto-cr
 
 ### Configure Docker credential helper {#config-ch}
 
-To facilitate authentication in {{ container-registry-name }}, configure a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). It enables you to use private {{ yandex-cloud }} registries without running the `docker login`command.
+To facilitate authentication in {{ container-registry-name }}, configure a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). It enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 To configure a credential helper, run the following command:
 
@@ -344,15 +345,15 @@ Build a Docker image and push it to the registry.
 
       - Bash {#bash}
 
-         ```bash
-         REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
-         ```
+        ```bash
+        REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
+        ```
 
       - PowerShell {#powershell}
 
-         ```shell script
-         $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
-         ```
+        ```shell script
+        $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 
@@ -393,7 +394,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
    kubectl run --attach hello-nginx --image {{ registry }}/$REGISTRY_ID/nginx:hello
    ```
 
-1. Check that the pod's state is `Running` and get its full name:
+1. Make sure the pod has entered the `Running` state and learn its full name:
 
    ```bash
    kubectl get pods
@@ -430,7 +431,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 ## Create a load balancer {#create-ingress}
 
 1. Create a load balancer for [{{ k8s }} services](../concepts/index.md#service).
-   1. Create an `ingress.yaml` file with the Ingress controller manifest:
+   1. Create the `ingress.yaml` file with the Ingress controller manifest:
 
       ```yaml
       ---
@@ -442,7 +443,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
           ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
           ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
           ingress.alb.yc.io/external-ipv4-address: <IP_address_assignment_method>
-          ingress.alb.yc.io/group-name: <Ingress_group_name>
+          ingress.alb.yc.io/group-name: <Ingress_resource_group_name>
       spec:
         tls:
           - hosts:
@@ -477,11 +478,11 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
       ```
 
       Where:
-      * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
+      * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} will work with.
       * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the node group subnet or its security group.
-      * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP or provide public access to {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
+      * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP address or provide public access to {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
 
-         If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
+        If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
       * `ingress.alb.yc.io/group-name`: Specify the group name. It groups {{ k8s }} Ingress resources served by a separate {{ alb-name }} instance.
    1. Create a load balancer:
 
@@ -489,23 +490,23 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
       kubectl apply -f ingress.yaml
       ```
 
-   1. Wait until the load balancer is created and assigned a public IP address. This may take several minutes:
+   1. Wait until the load balancer is created and gets a public IP address. This may take several minutes:
 
       ```bash
       kubectl get ingress alb-demo-tls
       ```
 
-      The expected result is a non-empty value in the `ADDRESS` field for the created load balancer:
+      The expected result is a non-empty value in the `ADDRESS` field for the new load balancer:
 
       ```bash
-      NAME          CLASS   HOSTS           ADDRESS      PORTS    AGE
-      alb-demo-tls  <none>  <domain_name>   <IP_address> 80, 443  15h
+      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
+      alb-demo-tls  <none>  <domain_name>  <IP_address>  80,443  15h
       ```
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
-1. Follow the `https://<domain_name>` link and make sure that your application is published.
+1. Follow the `https://<domain_name>` link and make sure that your application is successfully published.
 
-   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+    {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Delete the resources you created {#clear-out}
 
@@ -520,21 +521,21 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. Delete the service accounts.
    * Delete the service account created for resources:
 
-      ```bash
-      yc iam service-account delete --id $RES_SA_ID
-      ```
+     ```bash
+     yc iam service-account delete --id $RES_SA_ID
+     ```
 
    * Delete the service account created for nodes:
 
-      ```bash
-      yc iam service-account delete --id $NODE_SA_ID
-      ```
+     ```bash
+     yc iam service-account delete --id $NODE_SA_ID
+     ```
 
    * Delete the service account created for the load balancer:
 
-      ```bash
-      yc iam service-account delete --id $IC_SA_ID
-      ```
+     ```bash
+     yc iam service-account delete --id $IC_SA_ID
+     ```
 
 1. Delete resources {{ container-registry-name }}.
    1. Find out the ID of the Docker image pushed to the registry:
@@ -543,15 +544,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
       - Bash {#bash}
 
-         ```bash
-         IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
-         ```
+        ```bash
+        IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
+        ```
 
       - PowerShell {#powershell}
 
-         ```powershell
-         $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
-         ```
+        ```powershell
+        $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 

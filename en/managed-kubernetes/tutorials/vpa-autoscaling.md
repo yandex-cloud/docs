@@ -6,8 +6,11 @@ description: Follow this guide to configure automatic management of pod resource
 # Vertical application scaling in a cluster
 
 {{ managed-k8s-name }} supports several types of autoscaling. In this article you will learn how to configure the automatic management of [pod](../concepts/index.md#pod) resources with [{{ k8s-vpa }}](../concepts/autoscale.md#vpa):
-* [{#T}](#create-vpa-workload).
-* [{#T}](#test-vpa).
+
+* [Create {{ k8s-vpa }} and a test application](#create-vpa-workload).
+* [Test {{ k8s-vpa }}](#test-vpa).
+
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -125,7 +128,7 @@ description: Follow this guide to configure automatic management of pod resource
    kubectl apply -f vpa.yaml
    ```
 
-1. Make sure the {{ k8s-vpa }} and `nginx` pods have changed their status to `Running`:
+1. Make sure the {{ k8s-vpa }} and `nginx` pods have entered the `Running` state:
 
    ```bash
    kubectl get pods -n kube-system | grep vpa && \

@@ -18,7 +18,7 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's update address attribute command:
+   1. See the description of the CLI update address attribute command:
 
       ```bash
       yc vpc address update --help
@@ -74,7 +74,7 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
   * `false` in the `reserved` parameter.
-  * Name of the `reserved` parameter in the `updateMask` parameter.
+  * The name of the `reserved` parameter in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

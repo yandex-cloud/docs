@@ -145,6 +145,8 @@ If you have successfully created an image, you can [delete the image file](../..
 
 ## Create a VM from the prepared image {#create-vm-from-user-image}
 
+You can create a virtual machine with disks from a pre-configured image.
+
 {% include notitle [How to create a VM from custom image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
 
 For information about {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).

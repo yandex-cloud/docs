@@ -87,7 +87,7 @@ items:
         href: concepts/health-check.md
       - name: Implementation specifics
         href: concepts/specifics.md
-      - name: Use scenarios
+      - name: Use cases
         href: concepts/scenarios.md
       - name: Recommendations for use
         href: concepts/best-practices.md

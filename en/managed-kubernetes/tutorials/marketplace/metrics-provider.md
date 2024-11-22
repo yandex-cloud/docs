@@ -1,14 +1,16 @@
 # Using {{ MP }} to stream metrics
 
-{{ MP }} streams metrics of {{ managed-k8s-name }} [cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [auto scaling systems](../../concepts/autoscale.md).
+{{ MP }} streams metrics of {{ managed-k8s-name }} [cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [autoscaling systems](../../concepts/autoscale.md).
 
 In this article, you will learn how to set up transfers of external metrics to {{ k8s-hpa }} using {{ MP }}.
 
 To set up the transfer of metrics:
-1. [{#T}](#create-files)
-1. [{#T}](#install)
-1. [{#T}](#validate)
-1. [{#T}](#clear-out)
+
+1. [Set up a work environment](#create-files).
+1. [Install {{ MP }} and the runtime environment](#install).
+1. [Test {{ MP }}](#validate).
+
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -18,7 +20,7 @@ To set up the transfer of metrics:
 
 1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
 
@@ -26,8 +28,8 @@ To set up the transfer of metrics:
 
 ## Set up a working environment {#create-files}
 
-To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autoscale.md#hpa) are created, where {{ MP }} will transfer CPU usage metrics.
-1. Create a file named `app.yaml` with the `nginx` application manifest:
+To test {{ MP }}, the following will be created: the `nginx` test app and [{{ k8s-hpa }}](../../concepts/autoscale.md#hpa), to which CPU utilization metrics will be provided by {{ MP }}. 
+1. Create the `app.yaml` file with the `nginx` app manifest:
 
    {% cut "app.yaml" %}
 
@@ -81,7 +83,7 @@ To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autosca
 
    {% endcut %}
 
-1. Create a file named `hpa.yaml` with the {{ k8s-hpa }} `test-hpa` manifest:
+1. Create the `hpa.yaml` file with the {{ k8s-hpa }} manifest for `test-hpa`:
 
    ```yaml
    apiVersion: autoscaling/v2beta2
@@ -126,7 +128,7 @@ To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autosca
    kubectl apply -f hpa.yaml
    ```
 
-1. Make sure that the application [pods](../../concepts/index.md#pod) have entered the `Running` state:
+1. Make sure the app [pods](../../concepts/index.md#pod) have entered the `Running` state:
 
    ```bash
    kubectl get pods -n kube-system | grep nginx && \
@@ -143,13 +145,13 @@ To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autosca
 
 ## Test {{ MP }} {#validate}
 
-Make sure that {{ k8s-hpa }} gets metrics from {{ MP }} and uses them to calculate the number of the `nginx` application pods:
+Make sure that {{ k8s-hpa }} gets metrics from {{ MP }} and uses them to calculate the number of the `nginx` app pods:
 
 ```bash
 kubectl -n kube-system describe hpa test-hpa
 ```
 
-In the expected command output, the `AbleToScale` and `ScalingActive` conditions should have the `True` status:
+In the expected command output, the `AbleToScale` and `ScalingActive` conditions should be `True`:
 
 ```text
 Name:                          test-hpa
@@ -168,7 +170,7 @@ Events:           <none>
 
 {% note info %}
 
-It will take {{ MP }} some time to receive metrics from the {{ managed-k8s-name }} cluster. If the `unable to get external metric ... no metrics returned from external metrics API` error is returned, rerun the provider performance check in a few minutes.
+It will take {{ MP }} some time to receive metrics from the {{ managed-k8s-name }} cluster. If the `unable to get external metric ... no metrics returned from external metrics API` error occurs, rerun the provider performance check in a few minutes.
 
 {% endnote %}
 
@@ -177,4 +179,4 @@ It will take {{ MP }} some time to receive metrics from the {{ managed-k8s-name 
 Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a [public static IP address](../../../vpc/concepts/address.md#public-addresses) for the cluster, [delete it](../../../vpc/operations/address-delete.md).
+1. [Delete](../../../vpc/operations/address-delete.md) the cluster's [public static IP address](../../../vpc/concepts/address.md#public-addresses) if you had reserved one.

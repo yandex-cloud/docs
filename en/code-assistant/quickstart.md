@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ ca-full-name }}
-description: Install the {{ ca-name }} plugin for Visual Studio Code.
+description: Install the {{ ca-name }} plugin for Visual Studio Code and JetBrains IDE.
 ---
 
 # Getting started with {{ ca-full-name }}
@@ -50,11 +50,15 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
       1. In the **No active session found. Log in please** pop-up window, click **Go to browser**.
+      
+          To re-authenticate in the plugin or log in as a different {{ yandex-cloud }} user, enter `>Yandex Code Assistant` in the top search bar. In the list that appears, select **Yandex Code Assistant: Login**.
       1. Allow Visual Studio Code to open the authentication page in your browser.
-      1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-      1. Go back to Visual Studio Code. 
+      1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and click **Open app** in the pop-up window.
+      1. Go back to Visual Studio Code.
 
-  {{ ca-name }} is now enabled, ready to go, and displayed in the bottom panel of the editor as ![image](../_assets/code-assistant/vsc-icon-small.svg).
+  If the plugin is enabled and ready to go, you will see ![image](../_assets/code-assistant/vsc-icon-small.svg) in the editor's bottom panel.
+  
+  Click this icon to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** row of the list. If no user is authenticated, this row will be missing.
 
 - JetBrains IDE {#jb}
 
@@ -86,10 +90,14 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
       1. In the **Yandex Code Assistant OAuth** pop-up window, click **Yandex Code Assist: Login**.
-      1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-      1. Go back to the IDE. 
 
-  The `Code Assist plugin started` message means the plugin is active and ready for use.
+          To re-authenticate in the plugin or log in as a different {{ yandex-cloud }} user, click ![magnifier](../_assets/console-icons/magnifier.svg) in the top right corner of the editor, enter `Yandex Code Assistant` in the window that opens, and select **Yandex Code Assistant: Login**.
+      1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+      1. Go back to the IDE.
+
+  If the plugin is enabled and ready to go, you will see **Yandex CA** in the editor's bottom panel.
+  
+  Click this button to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** line of the message you get. If no user is authenticated, the message will display **No Auth data**.
 
   {% note tip %}
 
@@ -194,6 +202,28 @@ You can enable or disable auto suggestions only in Visual Studio Code.
   1. [Install the plugin](#install-plugin).
 
 {% endlist %}
+
+### Log out of the {{ yandex-cloud }} profile {#logout}
+
+To log out of your {{ yandex-cloud }} profile in the {{ ca-name }} plugin:
+
+{% list tabs group=ide %}
+
+- Visual Studio Code {#vscode}
+
+  In Visual Studio Code, there are two ways to log out of your profile:
+
+  * In the editor’s bottom panel, click ![image](../_assets/code-assistant/vsc-icon-small.svg) and select **Logout** from the list that opens.
+
+  * In the top search bar, enter `>Yandex Code Assistant`. In the list that appears, select **Yandex Code Assistant: Logout**.
+
+- JetBrains IDE {#jb}
+
+  In the top right corner of the editor, click ![magnifier](../_assets/console-icons/magnifier.svg), enter `Yandex Code Assistant` in the window that opens, and select **Yandex Code Assistant: Logout**.
+
+{% endlist %}
+
+To re-authenticate in the plugin, follow the instructions described in step 3 of [{#T}](#install-plugin).
 
 ### Remove the plugin {#remove-plugin}
 

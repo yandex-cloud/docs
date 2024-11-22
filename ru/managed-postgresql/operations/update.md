@@ -488,11 +488,13 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+
     * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
 
         * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
         * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
         * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -561,7 +563,9 @@ description: Из статьи вы узнаете, как изменить на
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
 
   1. Чтобы включить защиту кластера, его баз данных и пользователей от непреднамеренного удаления, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -676,11 +680,13 @@ description: Из статьи вы узнаете, как изменить на
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
+
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
 
      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
@@ -802,11 +808,13 @@ description: Из статьи вы узнаете, как изменить на
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
+
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
 
      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 

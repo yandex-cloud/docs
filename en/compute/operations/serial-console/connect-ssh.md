@@ -2,7 +2,7 @@
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
-After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read the [{#T}](#security) section.
+After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read [{#T}](#security).
 
 ## Security {#security}
 
@@ -42,7 +42,7 @@ How the serial console works depends on the operating system settings. {{ comput
 
 To connect to the VM, you need its ID. For info on how to get the VM ID, see [{#T}](../vm-info/get-info.md).
 
-Your next steps depend on whether [OS Login](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you can connect to the serial console using an exported SSH certificate. SSH keys are used to connect to VMs with OS Login access disabled.
+Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you can connect to the serial console using an exported SSH certificate. SSH keys are used to connect to VMs with {{ oslogin }} access disabled.
 
 Some OS's may request user credentials to access a VM. In such cases, you need to create a local user password before connecting to the serial consoles of such VMs.
 
@@ -74,14 +74,14 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
       When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
 
-- With an SSH certificate via OS Login
+- With an SSH certificate via {{ oslogin }}
 
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Create a local user password on the VM:
-      1. [Connect](../vm-connect/os-login.md) to a VM via OS Login.
+      1. [Connect](../vm-connect/os-login.md) to the VM via {{ oslogin }}.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
 
@@ -91,7 +91,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Export](../vm-connect/os-login-export-certificate.md) the OS Login certificate, specifying your organization [ID](../../../organization/operations/organization-get-id.md):
+  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate stating your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
       yc compute ssh certificate export \
@@ -118,7 +118,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
       Where:
       * `<SSH_certificate_path>`: Path to the exported SSH certificate, the value of the `Identity` field.
       * `<VM_ID>`: ID of the virtual machine whose serial console you want to connect to.
-      * `<OS_Login_username>`: OS Login user ID in the organization. You can find the OS Login username towards the end of the exported certificate's name after the organization [ID](../../../organization/operations/organization-get-id.md).
+      * `<OS_Login_username>`: {{ oslogin }} user ID in the organization. You can find the {{ oslogin }} username at the end of the exported certificate's name after the organization [ID](../../../organization/operations/organization-get-id.md).
           You can also get the username in [{{ org-full-name }}]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
 
       Example for a user with the `yid-orgusername` username and a VM with the `epd22a2tj3gd********` ID:
@@ -140,7 +140,7 @@ You can also connect to the serial console using [SSH keys for other users](../v
   * Press **Enter**.
   * Restart the VM (for VMs created before February 22, 2019).
 * If you get the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
-* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure OS Login authorization is enabled for the VM when connecting to the serial console and that the certificate is still valid. If required, enable OS Login authorization for the VM when connecting to the serial console or re-export the SSH certificate.
+* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is valid. If necessary, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

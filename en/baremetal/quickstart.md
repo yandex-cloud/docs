@@ -31,10 +31,10 @@ Lease your first physical server and connect to it. All the leased server's reso
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
   
      1. Select the `BA-i103-S-10G` server configuration.
-     1. Configure disk partitioning:
+     1. Optionally, configure disk partitioning:
 
         1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Keep the default partitioning and click **{{ ui-key.yacloud.common.save }}**.
+        1. Specify the layout parameters and click **{{ ui-key.yacloud.common.save }}**.
   
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
@@ -44,23 +44,11 @@ Lease your first physical server and connect to it. All the leased server's reso
   
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. Click ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}**.
-     1. Optionally, if you need to enable DHCP for automatic IP address assignment, do so in the **Routing settings** section.
+     1. In the **Private subnet** field, click **{{ ui-key.yacloud.common.create }}**.
      1. Enter `bm-subnetwork` for the subnet name and click **Create subnet**.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
   
-  1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
-
-     1. Generate a password for the root user. To do this, click **Generate** next to the **{{ ui-key.yacloud.baremetal.field_password }}** field. 
-
-     {% note warning %}
-     
-     Once you have ordered your server, you will no longer be able to view the password. Save the password to a secure location right away.
-
-     {% endnote %}
-
-     1. In the **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** field, paste the contents of the public key file. You need to [create](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
-
+  1. {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
   1. Click **Order server**.
 
@@ -74,8 +62,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
   1. In the list of services, select **{{ baremetal-name }}**.
-  1. In the row with the server you need, click ![image](../_assets/console-icons/ellipsis.svg) and select **Start KVM console**.
-  1. In the window that opens, click **KVM console**.
+  1. In the row with the server you need, click ![image](../_assets/console-icons/ellipsis.svg) and select **KVM console**.
 
 - Linux/macOS {#linux-macos}
    
